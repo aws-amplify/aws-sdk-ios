@@ -243,16 +243,10 @@ static id _mockNSBundle;
 }
 
 + (AWSPinpoint *)makeTestPinpointEnablingAutoSessionRecording:(BOOL)enableAutoSessionRecording {
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-
-    NSString *appID = credentialsJson[@"pinpointAppId"];
-
+    [AWSTestUtility setupSessionCredentialsProvider];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"pinpoint"];
+    NSString *appID = testConfig[@"pinpointAppId"];
+    
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:appID
                                                                          launchOptions:nil
                                                                         maxStorageSize:5 * 1024 * 1024
