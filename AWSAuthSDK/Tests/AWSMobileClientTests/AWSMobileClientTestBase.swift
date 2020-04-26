@@ -27,8 +27,9 @@ class AWSMobileClientTestBase: XCTestCase {
         sharedEmail = (credentialsJson["mc-email"] as! String)
         identityPoolId = (credentialsJson["mc-pool_id_dev_auth"] as! String)
         
-        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: credentialsJson["accessKey"] as! String,
-                                                               secretKey: credentialsJson["secretKey"] as! String)
+        let credentialsProvider = AWSBasicSessionCredentialsProvider(accessKey: credentialsJson["accessKey"] as! String,
+                                                                     secretKey: credentialsJson["secretKey"] as! String,
+                                                                     sessionToken: credentialsJson["sessionToken"] as! String)
         
         let region = (credentialsJson["mc-region"] as! String).aws_regionTypeValue()
         let configuration = AWSServiceConfiguration(region: region, credentialsProvider: credentialsProvider)!
