@@ -24,7 +24,7 @@ class TestAPIGatewayInvoke: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
         client = AWSLambdaMicroserviceClient.default()
         
         headerParameters = [

@@ -80,6 +80,15 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
++ (NSDictionary *) getIntegrationTestConfigurationFor:(NSString *) packageId {
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
+                                                                          ofType:@"json"];
+    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    return credentialsJson[@"packages"][packageId];
+}
+
 + (void)setupCredentialsViaFile {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
 #if AWS_TEST_BJS_INSTEAD
