@@ -27,7 +27,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupSessionCredentialsProvider];
+    [AWSTestUtility setupCognitoIdentityService];
 }
 
 - (void)setUp {
@@ -104,8 +104,8 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
 }
 #endif
-*/
-//STS Test
+ // Disabling this test which needs static long term credentials
+STS Test
 -(void)testClockSkewSTS
 {
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
@@ -134,6 +134,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     }] waitUntilFinished];
 
 }
+*/
 
 //Cognito Identity Service Test
 #if !AWS_TEST_BJS_INSTEAD
