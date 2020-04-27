@@ -1759,22 +1759,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
+- (AWSTask<AWSEC2CreatePlacementGroupResult *> *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreatePlacementGroup"
-                   outputClass:nil];
+                   outputClass:[AWSEC2CreatePlacementGroupResult class]];
 }
 
 - (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self createPlacementGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2CreatePlacementGroupResult *response, NSError *error))completionHandler {
+    [[self createPlacementGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreatePlacementGroupResult *> * _Nonnull task) {
+        AWSEC2CreatePlacementGroupResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
