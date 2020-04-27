@@ -1783,22 +1783,25 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  
  @param request A container for the necessary parameters to execute the CreatePlacementGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreatePlacementGroupResult`.
  
  @see AWSEC2CreatePlacementGroupRequest
+ @see AWSEC2CreatePlacementGroupResult
  */
-- (AWSTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request;
+- (AWSTask<AWSEC2CreatePlacementGroupResult *> *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request;
 
 /**
  <p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p><p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreatePlacementGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
  
  @see AWSEC2CreatePlacementGroupRequest
+ @see AWSEC2CreatePlacementGroupResult
  */
-- (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePlacementGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p><note><p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.</p></note><p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p><p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3657,7 +3660,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deregisterImage:(AWSEC2DeregisterImageRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#customizing_scheduled_event_notifications">Customizing Scheduled Event Notifications</a>.</p>
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
 
@@ -3669,7 +3672,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> *)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request;
 
 /**
- <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#customizing_scheduled_event_notifications">Customizing Scheduled Event Notifications</a>.</p>
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8978,7 +8981,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)registerImage:(AWSEC2RegisterImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RegisterImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Registers a set of tag keys to include in scheduled event notifications for your resources. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#customizing_scheduled_event_notifications">Customizing Scheduled Event Notifications</a>.</p><p>To remove tags, use .</p>
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
  
  @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
 
@@ -8990,7 +8993,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2RegisterInstanceEventNotificationAttributesResult *> *)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request;
 
 /**
- <p>Registers a set of tag keys to include in scheduled event notifications for your resources. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html#customizing_scheduled_event_notifications">Customizing Scheduled Event Notifications</a>.</p><p>To remove tags, use .</p>
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
  
  @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.

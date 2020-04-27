@@ -146,6 +146,9 @@ commands:
       - run:
           name: configure aws profile
           command: |
+            aws configure --profile build_resources set region us-east-1
+            echo -e "[build_resources]\naws_access_key_id=${BUILD_RESOURCES_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${BUILD_RESOURCES_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
+
             aws configure --profile sdk_s3_release set region us-east-1
             echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
   pre_start_simulator:
@@ -315,8 +318,8 @@ jobs:
           name: create credentials
           command: |
             echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
-            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            aws s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+            aws --profile build_resources s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
+            aws --profile build_resources s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
       - run:
           name: build sdk
