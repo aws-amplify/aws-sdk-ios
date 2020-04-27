@@ -19,7 +19,7 @@
 #include <libkern/OSAtomic.h>
 
 @interface AWSCognitoIdentityProviderTests : XCTestCase<AWSCognitoIdentityInteractiveAuthenticationDelegate, AWSCognitoIdentityPasswordAuthentication>
-
+@property AWSRegionType region;
 @end
 
 @implementation AWSCognitoIdentityProviderTests
@@ -65,17 +65,9 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 
 #pragma mark test suite setup
 + (AWSTask *) initializeTests {
-    
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
         
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                             credentialsProvider:credentialsProvider];
+        [AWSTestUtility setupSessionCredentialsProvider];
+        AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:CIP_POOL_KEY];
         AWSCognitoIdentityProvider *cip = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:CIP_POOL_KEY];
     
@@ -154,6 +146,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [super setUp];
+    self.region = [AWSTestUtility getRegionFromTestConfiguration];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [[[AWSCognitoIdentityProviderTests initializeTests] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -162,7 +155,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             }
             return nil;
         }] waitUntilFinished];
-        AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+        AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:self.region credentialsProvider:nil];
         AWSCognitoIdentityUserPoolConfiguration *iDPConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
                                                                                                                          clientSecret:clientSecret
                                                                                                                                poolId:poolId

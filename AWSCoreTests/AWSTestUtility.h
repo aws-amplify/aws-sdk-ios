@@ -24,6 +24,10 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 
 + (void)setupSessionCredentialsProvider;
 + (NSDictionary *)getIntegrationTestConfigurationFor:(NSString *) packageId;
++ (AWSRegionType)getRegionFromTestConfiguration;
++ (NSDictionary *) getTestConfigurationJSON;
++ (NSString *) getAccountIdFromTestConfiguration;
+
 + (void)setupCredentialsViaFile;
 + (void)setupFakeCognitoCredentialsProvider;
 + (void)setupCognitoCredentialsProvider;

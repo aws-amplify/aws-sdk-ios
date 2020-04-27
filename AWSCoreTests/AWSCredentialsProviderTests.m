@@ -22,6 +22,7 @@
 
 @property (nonatomic) NSString *dummyAccessKey;
 @property (nonatomic) NSString *dummySecretKey;
+@property AWSRegionType region;
 
 @end
 
@@ -32,7 +33,7 @@
     // Put setup code here. This method is called before the invocation of each test method in the class.
     _dummyAccessKey = @"dummyAccessKey";
     _dummySecretKey = @"dummySecretKey";
-
+    self.region = [AWSTestUtility getRegionFromTestConfiguration];
 }
 
 - (void)tearDown {
@@ -74,7 +75,7 @@
     NSString *roleSessionName = @"testSession";
     NSString *webIdentityToken = @"OauthToken";
 
-    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:self.region
                                                                                                      providerId:providerId
                                                                                                         roleArn:roleArn
                                                                                                 roleSessionName:roleSessionName
