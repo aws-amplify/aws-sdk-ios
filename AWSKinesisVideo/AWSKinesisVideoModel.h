@@ -46,6 +46,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoAPIName) {
     AWSKinesisVideoAPINameGetMediaForFragmentList,
     AWSKinesisVideoAPINameGetHlsStreamingSessionUrl,
     AWSKinesisVideoAPINameGetDashStreamingSessionUrl,
+    AWSKinesisVideoAPINameGetClip,
 };
 
 typedef NS_ENUM(NSInteger, AWSKinesisVideoChannelProtocol) {
@@ -138,7 +139,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -199,7 +200,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>
+ <p>A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelName;
 
@@ -214,7 +215,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 @property (nonatomic, strong) AWSKinesisVideoSingleMasterConfiguration * _Nullable singleMasterConfiguration;
 
 /**
- <p>A set of tags (key/value pairs) that you want to associate with this channel.</p>
+ <p>A set of tags (key-value pairs) that you want to associate with this channel.</p>
  */
 @property (nonatomic, strong) NSArray<AWSKinesisVideoTag *> * _Nullable tags;
 
@@ -227,7 +228,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the created channel.</p>
+ <p>The Amazon Resource Name (ARN) of the created channel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -291,12 +292,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel that you want to delete.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
 /**
- <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>
+ <p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable currentVersion;
 
@@ -441,7 +442,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signalling channel for which you want to get an endpoint.</p>
+ <p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
@@ -554,12 +555,12 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The ARN of the signaling channel for which you want to list tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -572,7 +573,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
+ <p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -770,7 +771,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel to which you want to add tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -827,7 +828,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel from which you want to remove tags.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceARN;
 
@@ -925,7 +926,7 @@ typedef NS_ENUM(NSInteger, AWSKinesisVideoUpdateDataRetentionOperation) {
 
 
 /**
- <p>The ARN of the signaling channel that you want to update.</p>
+ <p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable channelARN;
 
