@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---amazonec2containerregistry
+---awselementalmedialive
+---amazonroute53
+---amazonsimplesystemsmanagerssm
+---amazonkinesisvideostreams
+---amazonkinesisvideostreamsarchivedmedia
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
