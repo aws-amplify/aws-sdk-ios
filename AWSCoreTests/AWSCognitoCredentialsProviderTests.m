@@ -179,7 +179,7 @@ BOOL _identityChanged;
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
                                                           forKey:@"Session"];
     
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"core"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"core"];
     AWSCognitoCredentialsProviderTestsIdentityPoolId = testConfig[@"identityPoolId"];
     AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId = testConfig[@"unauthIdentityPoolId"];
     AWSCognitoCredentialsProviderTestsFacebookAppID = testConfig[@"facebookAppId"];

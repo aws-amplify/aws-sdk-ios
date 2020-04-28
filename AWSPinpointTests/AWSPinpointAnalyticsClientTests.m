@@ -40,7 +40,7 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointAnalyticsClientTests"];
     
     [AWSTestUtility setupSessionCredentialsProvider];
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"pinpoint"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
     self.pinpointAppId = testConfig[@"pinpointAppId"];
 
     AWSPinpointConfiguration *configuration = [[AWSPinpointConfiguration alloc] initWithAppId:self.pinpointAppId launchOptions:@{}];

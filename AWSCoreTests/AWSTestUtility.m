@@ -77,20 +77,24 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
-+ (NSDictionary *) getIntegrationTestConfigurationFor:(NSString *) packageId {
++ (NSDictionary *) getIntegrationTestConfigurationForPackageId:(NSString *) packageId {
     NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
     return testConfigurationJson[@"Packages"][packageId];
 }
 
 + (AWSRegionType) getRegionFromTestConfiguration {
-    NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
-    return [testConfigurationJson[@"Credentials"][@"region"] aws_regionTypeValue];
+    return [[self getCredentialsFromTestConfiguration][@"region"] aws_regionTypeValue];
 }
 
 + (NSString *) getAccountIdFromTestConfiguration {
-    NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
-    return testConfigurationJson[@"Credentials"][@"accountId"];
+    return [self getCredentialsFromTestConfiguration][@"accountId"];
 }
+
++ (NSDictionary *) getCredentialsFromTestConfiguration {
+    NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
+    return testConfigurationJson[@"Credentials"];
+}
+
 
 + (NSDictionary *) getTestConfigurationJSON {
     NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testconfiguration"

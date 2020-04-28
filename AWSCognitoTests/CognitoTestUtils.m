@@ -15,6 +15,7 @@
 
 #import "CognitoTestUtils.h"
 #import <AWSCore/AWSCore.h>
+#import "AWSTestUtility.h"
 
 NSString * AWSCognitoClientTestsAccountID = nil;
 NSString * AWSCognitoClientTestsFacebookAppID = nil;
@@ -22,23 +23,22 @@ NSString * AWSCognitoClientTestsFacebookAppSecret = nil;
 NSString * AWSCognitoClientTestsUnauthRoleArn = nil;
 NSString * AWSCognitoClientTestsAuthRoleArn = nil;
 NSString * AWSCognitoClientTestsIdentityPoolId = nil;
+AWSRegionType region = nil;
 
 @implementation CognitoTestUtils
 
 + (void)loadConfig {
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSCognitoClientTestsAccountID = credentialsJson[@"accountId"];
-        AWSCognitoClientTestsFacebookAppID = credentialsJson[@"facebookAppId"];
-        AWSCognitoClientTestsFacebookAppSecret = credentialsJson[@"facebookAppSecret"];
-        AWSCognitoClientTestsUnauthRoleArn = credentialsJson[@"unauthRoleArn"];
-        AWSCognitoClientTestsAuthRoleArn = credentialsJson[@"authRoleArn"];
-        AWSCognitoClientTestsIdentityPoolId = credentialsJson[@"identityPoolId"];
+        NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"core"];
+        
+        AWSCognitoClientTestsAccountID = [AWSTestUtility getAccountIdFromTestConfiguration];
+        region = [AWSTestUtility getRegionFromTestConfiguration];
+        AWSCognitoClientTestsFacebookAppID = testConfig[@"facebookAppId"];
+        AWSCognitoClientTestsFacebookAppSecret = testConfig[@"facebookAppSecret"];
+        AWSCognitoClientTestsUnauthRoleArn = testConfig[@"unauthRoleArn"];
+        AWSCognitoClientTestsAuthRoleArn = testConfig[@"authRoleArn"];
+        AWSCognitoClientTestsIdentityPoolId = testConfig[@"identityPoolId"];
     });
 }
 
@@ -60,6 +60,11 @@ NSString * AWSCognitoClientTestsIdentityPoolId = nil;
 + (NSString *) identityPoolId {
     [CognitoTestUtils loadConfig];
     return AWSCognitoClientTestsIdentityPoolId;
+}
+
++ (AWSRegionType) region {
+    [CognitoTestUtils loadConfig];
+    return region;
 }
 
 @end

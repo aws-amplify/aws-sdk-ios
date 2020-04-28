@@ -30,7 +30,7 @@
 - (void)setUp {
     [super setUp];
     [AWSTestUtility setupSessionCredentialsProvider];
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"lambda"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"lambda"];
     self.echo_function_name = testConfig[@"echo_function_name"];
     self.echo2_function_name = testConfig[@"echo2_function_name"];
 }

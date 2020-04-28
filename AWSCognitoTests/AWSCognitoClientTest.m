@@ -92,10 +92,10 @@ Method _mockMethod;
 
 @implementation AWSCognitoClientTest
 + (void)setUp {
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:[CognitoTestUtils region]
                                                                                          identityPoolId:[CognitoTestUtils identityPoolId]];
 
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:provider];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[CognitoTestUtils region] credentialsProvider:provider];
 
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }

@@ -50,7 +50,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointSessionClientTests"];
     
     [AWSTestUtility setupSessionCredentialsProvider];
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"pinpoint"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
     self.appId = testConfig[@"pinpointAppId"];
 }
 

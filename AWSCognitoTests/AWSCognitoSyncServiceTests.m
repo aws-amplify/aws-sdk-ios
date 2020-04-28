@@ -18,6 +18,7 @@
 #import <AWSCore/AWSCore.h>
 #import "AWSCognito.h"
 #import "CognitoTestUtils.h"
+#import "AWSTestUtility.h"
 
 @interface AWSCognitoSyncTests : XCTestCase
 
@@ -28,14 +29,14 @@ NSString *_identityId;
 @implementation AWSCognitoSyncTests
 
 + (void)setUp {
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:[CognitoTestUtils region]
                                                                                          identityPoolId:[CognitoTestUtils identityPoolId]
                                                                                           unauthRoleArn:[CognitoTestUtils unauthRoleArn]
                                                                                             authRoleArn:[CognitoTestUtils authRoleArn]
                                                                                 identityProviderManager:nil];
     [[provider getIdentityId] waitUntilFinished];
     _identityId = provider.identityId;
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[CognitoTestUtils region]
                                                                          credentialsProvider:provider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 
@@ -58,13 +59,8 @@ NSString *_identityId;
 }
 
 - (void)testInvalidDatasetNameFails {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *provider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                           secretKey:credentialsJson[@"secretKey"]];
-    AWSServiceConfiguration * configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:provider];
+    [AWSTestUtility setupSessionCredentialsProvider];
+    AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
     [AWSCognitoSync registerCognitoSyncWithConfiguration:configuration forKey:@"testExampleFailed"];
     AWSCognitoSync *client = [AWSCognitoSync CognitoSyncForKey:@"testExampleFailed"];
 

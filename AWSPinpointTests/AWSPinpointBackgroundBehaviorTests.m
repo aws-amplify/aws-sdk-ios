@@ -244,7 +244,7 @@ static id _mockNSBundle;
 
 + (AWSPinpoint *)makeTestPinpointEnablingAutoSessionRecording:(BOOL)enableAutoSessionRecording {
     [AWSTestUtility setupSessionCredentialsProvider];
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationFor: @"pinpoint"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
     NSString *appID = testConfig[@"pinpointAppId"];
     
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:appID
