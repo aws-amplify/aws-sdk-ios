@@ -265,39 +265,39 @@ static NSString *const AWSServiceNameCloudWatch = @"monitoring";
 static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
+static NSString *const AWSServiceNameComprehend = @"comprehend";
 static NSString *const AWSServiceNameConnect = @"connect";
 static NSString *const AWSServiceNameConnectParticipant = @"connectparticipant";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+static NSString *const AWSServiceNameFirehose = @"firehose";
 static NSString *const AWSServiceNameIoT = @"execute-api";
 static NSString *const AWSServiceNameIoTData = @"iotdata";
-static NSString *const AWSServiceNameFirehose = @"firehose";
-static NSString *const AWSServiceNameKinesis = @"kinesis";
 static NSString *const AWSServiceNameKMS = @"kms";
+static NSString *const AWSServiceNameKinesis = @"kinesis";
+static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
 static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
 static NSString *const AWSServiceNameLogs = @"logs";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameMobileTargeting = @"mobiletargeting";
+static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameRekognition = @"rekognition";
 static NSString *const AWSServiceNameS3 = @"s3";
 static NSString *const AWSServiceNameSES = @"email";
-static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
+static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameTextract = @"textract";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
-static NSString *const AWSServiceNameTranslate = @"translate";
-static NSString *const AWSServiceNameComprehend = @"comprehend";
-static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
-static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
-static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
-static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
+static NSString *const AWSServiceNameTranslate = @"translate";
 
 @interface AWSEndpoint()
 
@@ -622,8 +622,6 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             || regionType == AWSRegionSAEast1
             || regionType == AWSRegionUSGovWest1
             || regionType == AWSRegionMESouth1
-            || regionType == AWSRegionAFSouth1
-            || regionType == AWSRegionEUSouth1
             )) {
             separator = @"-";
         }

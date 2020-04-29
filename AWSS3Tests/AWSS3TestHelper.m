@@ -14,6 +14,7 @@
 //
 
 #import "AWSS3TestHelper.h"
+#import "AWSTestUtility.h"
 
 @interface AWSS3CreateBucketConfiguration()
 
@@ -29,24 +30,18 @@
 
 @implementation AWSS3TestHelper
 
++ (BOOL)createBucketWithName:(NSString *)bucketName {
+    return [AWSS3TestHelper createBucketWithName:bucketName
+                                       andRegion:[AWSTestUtility getDefaultRegionType]];
+}
+
 + (BOOL)createBucketWithName:(NSString *)bucketName
                    andRegion:(AWSRegionType)regionType {
     
     AWSS3 *s3 = [AWSS3 defaultS3];
     
-    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
+    AWSS3CreateBucketRequest *createBucketReq = [AWSS3TestHelper getCreateBucketRequest];
     createBucketReq.bucket = bucketName;
-    
-    if (regionType != AWSRegionUSEast1) {
-        NSString *regionName = [AWSEndpoint regionNameFromType:regionType];
-        NSValueTransformer *locationConstraintTransformer = [AWSS3CreateBucketConfiguration locationConstraintJSONTransformer];
-        NSNumber *constraint = [locationConstraintTransformer transformedValue:regionName];
-        AWSS3BucketLocationConstraint dupcon = constraint.integerValue;
-        AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
-        createBucketConfiguration.locationConstraint = dupcon;
-        createBucketReq.createBucketConfiguration = createBucketConfiguration;
-    }
-
     
     __block BOOL success = NO;
     [[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
@@ -61,6 +56,33 @@
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
     
     return success;
+}
+
++ (AWSS3CreateBucketRequest *)getCreateBucketRequest {
+    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
+    AWSRegionType regionType = [AWSTestUtility getDefaultRegionType];
+    AWSS3BucketLocationConstraint locationConstraint = [AWSS3TestHelper getLocationConstraintForRegionType:regionType];
+    
+    if (locationConstraint == AWSS3BucketLocationConstraintBlank) {
+        return createBucketReq;
+    }
+
+    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
+    createBucketConfiguration.locationConstraint = locationConstraint;
+    createBucketReq.createBucketConfiguration = createBucketConfiguration;
+
+    return createBucketReq;
+}
+
++ (AWSS3BucketLocationConstraint) getLocationConstraintForRegionType:(AWSRegionType)regionType {
+    if (regionType == AWSRegionUSEast1) {
+        return AWSS3BucketLocationConstraintBlank;
+    }
+    NSString *regionName = [AWSEndpoint regionNameFromType:regionType];
+    NSValueTransformer *locationConstraintTransformer = [AWSS3CreateBucketConfiguration locationConstraintJSONTransformer];
+    NSNumber *constraintInt = [locationConstraintTransformer transformedValue:regionName];
+    AWSS3BucketLocationConstraint constraint = constraintInt.integerValue;
+    return constraint;
 }
 
 + (BOOL)deleteBucketWithName:(NSString *)bucketName {
