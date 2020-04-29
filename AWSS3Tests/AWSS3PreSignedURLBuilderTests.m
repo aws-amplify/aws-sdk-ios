@@ -55,8 +55,11 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [super setUp];
     bucketNameArray = @[@"ios-v2-s3-tm-testdata", @"ios-v2-s3.periods", @"ios-v2-s3-eu-central", @"ios-v2-s3-eu-c.periods"];
 
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    if ([AWSTestUtility isCognitoSupportedInDefaultRegion]) {
+        [AWSTestUtility setupCognitoCredentialsProvider];
+    } else {
+        [AWSTestUtility setupCredentialsViaFile];
+    }
 
     id<AWSCredentialsProvider> credentialProvider = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider;
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
@@ -64,13 +67,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration forKey:testS3PresignedURLEUCentralKey];
     [AWSS3 registerS3WithConfiguration:configuration forKey:testS3EUCentralKey];
 
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *staticCredentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                            secretKey:credentialsJson[@"secretKey"]];
+    AWSStaticCredentialsProvider *staticCredentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
     AWSServiceConfiguration *staticConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
                                                                         credentialsProvider:staticCredentialsProvider];
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:staticConfig forKey:testS3PresignedURLEUCentralStaticKey];

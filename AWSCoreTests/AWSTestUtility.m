@@ -68,90 +68,81 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 + (void)setupCredentialsViaFile {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
 #if AWS_TEST_BJS_INSTEAD
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
         AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
                                                                                                           secretKey:credentialsJson[@"secretKeyBJS"]];
 
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
                                                                                credentialsProvider:credentialsProvider];
-
 #else
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                              credentialsProvider:credentialsProvider];
 #endif
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
 }
 
++ (AWSStaticCredentialsProvider *)getStaticCredentialsProviderFromFile {
+    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
+    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
+                                                                                                      secretKey:credentialsJson[@"secretKey"]];
+    return credentialsProvider;
+}
+
 + (void)setupFakeCognitoCredentialsProvider {
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+                                                                                                    identityPoolId:@"fakeIdentityPoolId"];
 
-    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1 identityPoolId:@"fakeIdentityPoolId"];
-
-    
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
                                                                          credentialsProvider:credentialsProvider];
+    
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-
 }
 
 + (void)setupCognitoCredentialsProvider {
+    [AWSTestUtility setupCognitoCredentialsProviderForRegion:[AWSTestUtility getDefaultRegionType]];
+}
+
++ (void)setupCognitoCredentialsProviderForRegion:(AWSRegionType)region {
 #if AWS_TEST_BJS_INSTEAD
     //since BJS doesn't support Cognito, we are using STS instead
     [self setupSTS];
     [self runServiceWithStsCredential];
-
 #else
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-
-        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                                        identityPoolId:credentialsJson[@"identityPoolId"]
-                                                                                                         unauthRoleArn:credentialsJson[@"unauthRoleArn"]
-                                                                                                           authRoleArn:credentialsJson[@"authRoleArn"]
-                                                                                               identityProviderManager:nil];
-
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+        AWSCognitoCredentialsProvider *credentialsProvider = [AWSTestUtility getCognitoCredentialsProviderFromFileForRegion:region];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                              credentialsProvider:credentialsProvider];
         [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
     }
 #endif
+}
+
++ (AWSCognitoCredentialsProvider *)getCognitoCredentialsProviderFromFileForRegion:(AWSRegionType)region {
+    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
+    AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:region
+                                                                                                    identityPoolId:credentialsJson[@"identityPoolId"]
+                                                                                                     unauthRoleArn:credentialsJson[@"unauthRoleArn"]
+                                                                                                       authRoleArn:credentialsJson[@"authRoleArn"]
+                                                                                           identityProviderManager:nil];
+    return credentialsProvider;
 }
 
 + (void)setupSTS {
     if (![AWSSTS STSForKey:AWSTestUtilitySTSKey]) {
 #if AWS_TEST_BJS_INSTEAD
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
         AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
                                                                                                           secretKey:credentialsJson[@"secretKeyBJS"]];
 
         AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
                                                                                credentialsProvider:credentialsProvider];
 #else
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
+        AWSStaticCredentialsProvider *credentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                              credentialsProvider:credentialsProvider];
 #endif
         [AWSSTS registerSTSWithConfiguration:configuration
@@ -160,11 +151,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 }
 
 + (NSString *) getIoTEndPoint:(NSString *) endpointName {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary<NSString *, NSString*> *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
+    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
     if ([credentialsJson objectForKey:endpointName]) {
         return [credentialsJson valueForKey:endpointName];
     } else {
@@ -183,63 +170,65 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 + (void)setupCognitoIdentityService {
     if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
+        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
+        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
+
         AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
                                                                                                           secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                              credentialsProvider:credentialsProvider];
         [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
                                                               forKey:AWSTestUtilityCognitoIdentityServiceKey];
     }
 }
 
-/* TODO: currently not used. Should clean this up.
-+ (void)runServiceWithStsCredential {
-    AWSTestCredentialsProvider *testCredentialProvider = [AWSTestCredentialsProvider new];
-
-    AWSSTS *sts = [AWSSTS STSForKey:AWSTestUtilitySTSKey];
-
-    AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
-    getSessionTokenRequest.durationSeconds = @900;
-
-    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            //XCTFail(@"Error: [%@]", task.error);
-        }
-
-        if (task.result) {
-            AWSSTSGetSessionTokenResponse *getSessionTokenResponse = task.result;
-            //XCTAssertTrue([getSessionTokenResponse.credentials.accessKeyId length] > 0);
-            testCredentialProvider.accessKey = getSessionTokenResponse.credentials.accessKeyId;
-
-            //XCTAssertTrue([getSessionTokenResponse.credentials.secretAccessKey length] > 0);
-            testCredentialProvider.secretKey = getSessionTokenResponse.credentials.secretAccessKey;
-
-            //XCTAssertTrue([getSessionTokenResponse.credentials.sessionToken length] > 0);
-            testCredentialProvider.sessionKey = getSessionTokenResponse.credentials.sessionToken;
-
-            //XCTAssertTrue([getSessionTokenResponse.credentials.expiration isKindOfClass:[NSDate class]]);
-        }
-
-        return nil;
-    }] waitUntilFinished];
-#if AWS_TEST_BJS_INSTEAD
-    AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
-                                                                           credentialsProvider:testCredentialProvider];
-#else
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                         credentialsProvider:testCredentialProvider];
-
-#endif
-    [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:configuration];
-    
-    
++ (AWSRegionType)getDefaultRegionType {
+    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
+    NSString *regionString = credentialsJson[@"region"] ?: @"us-east-1";
+    AWSRegionType region = [regionString aws_regionTypeValue];
+    return region;
 }
-*/
+
++ (BOOL)isCognitoSupportedInDefaultRegion {
+    return [AWSTestUtility isCognitoSupportedInRegion:[AWSTestUtility getDefaultRegionType]];
+}
+
+// TODO: This is brittle. Implement a lookup by service like the Java SDK's isServiceSupported method
+// https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html
++ (BOOL)isCognitoSupportedInRegion:(AWSRegionType)region {
+    switch (region) {
+        case AWSRegionAPNortheast1:
+        case AWSRegionAPNortheast2:
+        case AWSRegionAPSouth1:
+        case AWSRegionAPSoutheast1:
+        case AWSRegionAPSoutheast2:
+        case AWSRegionCACentral1:
+        case AWSRegionEUCentral1:
+        case AWSRegionEUWest1:
+        case AWSRegionEUWest2:
+        case AWSRegionUSEast1:
+        case AWSRegionUSEast2:
+        case AWSRegionUSWest2:
+            return true;
+            break;
+
+        case AWSRegionAFSouth1:
+        case AWSRegionAPEast1:
+        case AWSRegionCNNorth1:
+        case AWSRegionCNNorthWest1:
+        case AWSRegionEUNorth1:
+        case AWSRegionEUSouth1:
+        case AWSRegionEUWest3:
+        case AWSRegionMESouth1:
+        case AWSRegionSAEast1:
+        case AWSRegionUSGovEast1:
+        case AWSRegionUSGovWest1:
+        case AWSRegionUSWest1:
+        case AWSRegionUnknown:
+            return false;
+            break;
+    }
+}
 
 Method _originalDateMethod;
 Method _mockDateMethod;

@@ -23,9 +23,15 @@ NS_ASSUME_NONNULL_BEGIN
 + (BOOL)createBucketWithName:(NSString *)bucketName
                    andRegion:(AWSRegionType)regionType;
 
++ (BOOL)createBucketWithName:(NSString *)bucketName;
+
 + (void)deleteAllObjectsFromBucket:(NSString *)bucketName;
 
 + (BOOL)deleteBucketWithName:(NSString *)bucketName;
+
++ (AWSS3CreateBucketRequest *)getCreateBucketRequest;
+
++ (AWSS3BucketLocationConstraint)getLocationConstraintForRegionType:(AWSRegionType)regionType;
 
 /**
 Check if the given object is present inside the bucket. This is a blocking call.
