@@ -1,6 +1,6 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## Unreleased
+## 2.13.3
 
 ### New features
 - **AWS Core**
