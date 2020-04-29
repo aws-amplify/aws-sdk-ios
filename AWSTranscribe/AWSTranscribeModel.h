@@ -123,16 +123,21 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 };
 
 @class AWSTranscribeContentRedaction;
+@class AWSTranscribeCreateMedicalVocabularyRequest;
+@class AWSTranscribeCreateMedicalVocabularyResponse;
 @class AWSTranscribeCreateVocabularyFilterRequest;
 @class AWSTranscribeCreateVocabularyFilterResponse;
 @class AWSTranscribeCreateVocabularyRequest;
 @class AWSTranscribeCreateVocabularyResponse;
 @class AWSTranscribeDeleteMedicalTranscriptionJobRequest;
+@class AWSTranscribeDeleteMedicalVocabularyRequest;
 @class AWSTranscribeDeleteTranscriptionJobRequest;
 @class AWSTranscribeDeleteVocabularyFilterRequest;
 @class AWSTranscribeDeleteVocabularyRequest;
 @class AWSTranscribeGetMedicalTranscriptionJobRequest;
 @class AWSTranscribeGetMedicalTranscriptionJobResponse;
+@class AWSTranscribeGetMedicalVocabularyRequest;
+@class AWSTranscribeGetMedicalVocabularyResponse;
 @class AWSTranscribeGetTranscriptionJobRequest;
 @class AWSTranscribeGetTranscriptionJobResponse;
 @class AWSTranscribeGetVocabularyFilterRequest;
@@ -142,6 +147,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeJobExecutionSettings;
 @class AWSTranscribeListMedicalTranscriptionJobsRequest;
 @class AWSTranscribeListMedicalTranscriptionJobsResponse;
+@class AWSTranscribeListMedicalVocabulariesRequest;
+@class AWSTranscribeListMedicalVocabulariesResponse;
 @class AWSTranscribeListTranscriptionJobsRequest;
 @class AWSTranscribeListTranscriptionJobsResponse;
 @class AWSTranscribeListVocabulariesRequest;
@@ -161,6 +168,8 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @class AWSTranscribeTranscript;
 @class AWSTranscribeTranscriptionJob;
 @class AWSTranscribeTranscriptionJobSummary;
+@class AWSTranscribeUpdateMedicalVocabularyRequest;
+@class AWSTranscribeUpdateMedicalVocabularyResponse;
 @class AWSTranscribeUpdateVocabularyFilterRequest;
 @class AWSTranscribeUpdateVocabularyFilterResponse;
 @class AWSTranscribeUpdateVocabularyRequest;
@@ -190,6 +199,62 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeCreateMedicalVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The language code used for the entries within your custom vocabulary. The language code of your custom vocabulary must match the language code of your transcription job. US English (en-US) is the only language code available for Amazon Transcribe Medical.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>The Amazon S3 location of the text file you use to define your custom vocabulary. The URI must be in the same AWS region as the API endpoint you're calling. Enter information about your <code>VocabularyFileUri</code> in the following format:</p><p><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>This is an example of a vocabulary file uri location in Amazon S3:</p><p><code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary-med">Medical Custom Vocabularies</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyFileUri;
+
+/**
+ <p>The name of the custom vocabulary. This case-sensitive name must be unique within an AWS account. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a <code>ConflictException</code> error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeCreateMedicalVocabularyResponse : AWSModel
+
+
+/**
+ <p>If the <code>VocabularyState</code> field is <code>FAILED</code>, this field contains information about why the job failed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The language code you chose to describe the entries in your custom vocabulary. US English (en-US) is the only valid language code for Amazon Transcribe Medical.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>The date and time you created the vocabulary.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The name of the vocabulary. The name must be unique within an AWS account. It is also case-sensitive.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+/**
+ <p>The processing state of your custom vocabulary in Amazon Transcribe Medical. If the state is <code>READY</code> you can use the vocabulary in a <code>StartMedicalTranscriptionJob</code> request.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeCreateVocabularyFilterRequest : AWSRequest
 
 
@@ -204,7 +269,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterFileUri;
 
 /**
- <p>The vocabulary filter name. The name must be unique within the account that contains it.</p>
+ <p>The vocabulary filter name. The name must be unique within the account that contains it.If you try to create a vocabulary filter with the same name as a previous vocabulary filter you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterName;
 
@@ -260,7 +325,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable vocabularyFileUri;
 
 /**
- <p>The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive.</p>
+ <p>The name of the vocabulary. The name must be unique within an AWS account. The name is case-sensitive. If you try to create a vocabulary with the same name as a previous vocabulary you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
@@ -309,6 +374,19 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The name you provide to the <code>DeleteMedicalTranscriptionJob</code> object to delete a transcription job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable medicalTranscriptionJobName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeDeleteMedicalVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The name of the vocabulary you are choosing to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
 @end
 
@@ -374,6 +452,57 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>An object that contains the results of the medical transcription job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeMedicalTranscriptionJob * _Nullable medicalTranscriptionJob;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeGetMedicalVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The name of the vocabulary you are trying to get information about. The value you enter for this request is case-sensitive. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeGetMedicalVocabularyResponse : AWSModel
+
+
+/**
+ <p>The Amazon S3 location where the vocabulary is stored. Use this URI to get the contents of the vocabulary. You can download your vocabulary from the URI for a limited time.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable downloadUri;
+
+/**
+ <p>If the <code>VocabularyState</code> is <code>FAILED</code>, this field contains information about why the job failed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>The valid language code returned for your vocabulary entries.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>The date and time the vocabulary was last modified with a text file different from what was previously used.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The valid name that Amazon Transcribe Medical returns.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+/**
+ <p>The processing state of the vocabulary.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState;
 
 @end
 
@@ -567,6 +696,57 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeListMedicalVocabulariesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of vocabularies to return in the response.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Returns vocabularies in the list whose name contains the specified string. The search is case-insensitive, <code>ListMedicalVocabularies</code> returns both "vocabularyname" and "VocabularyName" in the response list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nameContains;
+
+/**
+ <p>If the result of your previous request to <code>ListMedicalVocabularies</code> was truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>When specified, only returns vocabularies with the <code>VocabularyState</code> equal to the specified vocabulary state.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyState stateEquals;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeListMedicalVocabulariesResponse : AWSModel
+
+
+/**
+ <p>The <code>ListMedicalVocabularies</code> operation returns a page of vocabularies at a time. The maximum size of the page is set by the <code>MaxResults</code> parameter. If there are more jobs in the list than the page size, Amazon Transcribe Medical returns the <code>NextPage</code> token. Include the token in the next request to the <code>ListMedicalVocabularies</code> operation to return the next page of jobs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The requested vocabulary state.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyState status;
+
+/**
+ <p>A list of objects that describe the vocabularies that match the search criteria in the request.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTranscribeVocabularyInfo *> * _Nullable vocabularies;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeListTranscriptionJobsRequest : AWSRequest
 
 
@@ -657,7 +837,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  <p>The requested vocabulary state.</p>
  */
-@property (nonatomic, assign) AWSTranscribeTranscriptionJobStatus status;
+@property (nonatomic, assign) AWSTranscribeVocabularyState status;
 
 /**
  <p>A list of objects that describe the vocabularies that match the search criteria in the request.</p>
@@ -900,6 +1080,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable showSpeakerLabels;
 
+/**
+ <p>The name of the vocabulary to use when processing a medical transcription job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
 @end
 
 /**
@@ -977,7 +1162,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable mediaSampleRateHertz;
 
 /**
- <p>The name of the medical transcription job. You can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account.</p>
+ <p>The name of the medical transcription job. You can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account. If you try to create a medical transcription job with the same name as a previous medical transcription job you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable medicalTranscriptionJobName;
 
@@ -1002,7 +1187,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, assign) AWSTranscribeSpecialty specialty;
 
 /**
- <p>The speech of clinician in the input audio. <code>CONVERSATION</code> refers to conversations clinicians have with patients. <code>DICTATION</code> refers to medical professionals dictating their notes about a patient encounter.</p>
+ <p>The type of speech in the input audio. <code>CONVERSATION</code> refers to conversations between two or more speakers, e.g., a conversations between doctors and patients. <code>DICTATION</code> refers to single-speaker dictated speech, e.g., for clinical notes.</p>
  */
 @property (nonatomic, assign) AWSTranscribeTypes types;
 
@@ -1073,7 +1258,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeSettings * _Nullable settings;
 
 /**
- <p>The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account.</p>
+ <p>The name of the job. Note that you can't use the strings "." or ".." by themselves as the job name. The name must also be unique within an AWS account. If you try to create a transcription job with the same name as a previous transcription job you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transcriptionJobName;
 
@@ -1244,6 +1429,57 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 /**
  
  */
+@interface AWSTranscribeUpdateMedicalVocabularyRequest : AWSRequest
+
+
+/**
+ <p>The language code of the entries in the updated vocabulary. US English (en-US) is the only valid language code in Amazon Transcribe Medical.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>The Amazon S3 location of the text file containing the definition of the custom vocabulary. The URI must be in the same AWS region as the API endpoint you are calling. You can see the fields you need to enter for you Amazon S3 location in the example URI here:</p><p><code> https://s3.&lt;aws-region&gt;.amazonaws.com/&lt;bucket-name&gt;/&lt;keyprefix&gt;/&lt;objectkey&gt; </code></p><p>For example:</p><p><code>https://s3.us-east-1.amazonaws.com/examplebucket/vocab.txt</code></p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies in Amazon Transcribe Medical, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Medical Custom Vocabularies</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyFileUri;
+
+/**
+ <p>The name of the vocabulary to update. The name is case-sensitive. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a <code>ConflictException</code> error.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTranscribeUpdateMedicalVocabularyResponse : AWSModel
+
+
+/**
+ <p>The language code for the text file used to update the custom vocabulary. US English (en-US) is the only language supported in Amazon Transcribe Medical.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>The date and time the vocabulary was updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedTime;
+
+/**
+ <p>The name of the updated vocabulary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vocabularyName;
+
+/**
+ <p>The processing state of the update to the vocabulary. When the <code>VocabularyState</code> field is <code>READY</code> the vocabulary is ready to be used in a <code>StartMedicalTranscriptionJob</code> request.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeVocabularyState vocabularyState;
+
+@end
+
+/**
+ 
+ */
 @interface AWSTranscribeUpdateVocabularyFilterRequest : AWSRequest
 
 
@@ -1253,7 +1489,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterFileUri;
 
 /**
- <p>The name of the vocabulary filter to update.</p>
+ <p>The name of the vocabulary filter to update. If you try to update a vocabulary filter with the same name as a previous vocabulary filter you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyFilterName;
 
@@ -1309,7 +1545,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable vocabularyFileUri;
 
 /**
- <p>The name of the vocabulary to update. The name is case-sensitive.</p>
+ <p>The name of the vocabulary to update. The name is case-sensitive. If you try to update a vocabulary with the same name as a previous vocabulary you will receive a <code>ConflictException</code> error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyName;
 
