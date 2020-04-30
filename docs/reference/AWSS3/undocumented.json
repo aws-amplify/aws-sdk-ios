@@ -387,1743 +387,1757 @@
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 81,
-      "symbol": "AWSS3BucketLogsPermission",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 79,
+      "symbol": "AWSS3BucketLocationConstraint.AWSS3BucketLocationConstraintAFSouth1",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 81,
-      "symbol": "AWSS3BucketLogsPermission",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 82,
-      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionUnknown",
+      "line": 80,
+      "symbol": "AWSS3BucketLocationConstraint.AWSS3BucketLocationConstraintEUSouth1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
       "line": 83,
-      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionFullControl",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSS3BucketLogsPermission",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
+      "line": 83,
+      "symbol": "AWSS3BucketLogsPermission",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
       "line": 84,
-      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionRead",
+      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
       "line": 85,
+      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionFullControl",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
+      "line": 86,
+      "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionRead",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
+      "line": 87,
       "symbol": "AWSS3BucketLogsPermission.AWSS3BucketLogsPermissionWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 88,
+      "line": 90,
       "symbol": "AWSS3BucketVersioningStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 88,
+      "line": 90,
       "symbol": "AWSS3BucketVersioningStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 89,
+      "line": 91,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 90,
+      "line": 92,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 91,
+      "line": 93,
       "symbol": "AWSS3BucketVersioningStatus.AWSS3BucketVersioningStatusSuspended",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 94,
+      "line": 96,
       "symbol": "AWSS3CompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 94,
+      "line": 96,
       "symbol": "AWSS3CompressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 95,
+      "line": 97,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 96,
+      "line": 98,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 97,
+      "line": 99,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 98,
+      "line": 100,
       "symbol": "AWSS3CompressionType.AWSS3CompressionTypeBzip2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 101,
+      "line": 103,
       "symbol": "AWSS3DeleteMarkerReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 101,
+      "line": 103,
       "symbol": "AWSS3DeleteMarkerReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 102,
+      "line": 104,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 103,
+      "line": 105,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 104,
+      "line": 106,
       "symbol": "AWSS3DeleteMarkerReplicationStatus.AWSS3DeleteMarkerReplicationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 107,
+      "line": 109,
       "symbol": "AWSS3EncodingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 107,
+      "line": 109,
       "symbol": "AWSS3EncodingType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 108,
+      "line": 110,
       "symbol": "AWSS3EncodingType.AWSS3EncodingTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 109,
+      "line": 111,
       "symbol": "AWSS3EncodingType.AWSS3EncodingTypeURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 112,
+      "line": 114,
       "symbol": "AWSS3Event",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 112,
+      "line": 114,
       "symbol": "AWSS3Event",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 113,
+      "line": 115,
       "symbol": "AWSS3Event.AWSS3EventUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 114,
+      "line": 116,
       "symbol": "AWSS3Event.AWSS3EventS3ReducedRedundancyLostObject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 115,
+      "line": 117,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 116,
+      "line": 118,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 117,
+      "line": 119,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedPost",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 118,
+      "line": 120,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 119,
+      "line": 121,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectCreatedCompleteMultipartUpload",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 120,
+      "line": 122,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemoved",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 121,
+      "line": 123,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemovedDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 122,
+      "line": 124,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRemovedDeleteMarkerCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 123,
+      "line": 125,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRestorePost",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 124,
+      "line": 126,
       "symbol": "AWSS3Event.AWSS3EventS3ObjectRestoreCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 127,
+      "line": 129,
       "symbol": "AWSS3ExpirationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 127,
+      "line": 129,
       "symbol": "AWSS3ExpirationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 128,
+      "line": 130,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 129,
+      "line": 131,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 130,
+      "line": 132,
       "symbol": "AWSS3ExpirationStatus.AWSS3ExpirationStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 133,
+      "line": 135,
       "symbol": "AWSS3ExpressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 133,
+      "line": 135,
       "symbol": "AWSS3ExpressionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 134,
+      "line": 136,
       "symbol": "AWSS3ExpressionType.AWSS3ExpressionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 135,
+      "line": 137,
       "symbol": "AWSS3ExpressionType.AWSS3ExpressionTypeSql",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 138,
+      "line": 140,
       "symbol": "AWSS3FileHeaderInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 138,
+      "line": 140,
       "symbol": "AWSS3FileHeaderInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 139,
+      "line": 141,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 140,
+      "line": 142,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 141,
+      "line": 143,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoIgnore",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 142,
+      "line": 144,
       "symbol": "AWSS3FileHeaderInfo.AWSS3FileHeaderInfoNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 145,
+      "line": 147,
       "symbol": "AWSS3FilterRuleName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 145,
+      "line": 147,
       "symbol": "AWSS3FilterRuleName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 146,
+      "line": 148,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 147,
+      "line": 149,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNamePrefix",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 148,
+      "line": 150,
       "symbol": "AWSS3FilterRuleName.AWSS3FilterRuleNameSuffix",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 151,
+      "line": 153,
       "symbol": "AWSS3InventoryFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 151,
+      "line": 153,
       "symbol": "AWSS3InventoryFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 152,
+      "line": 154,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 153,
+      "line": 155,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 154,
+      "line": 156,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatOrc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 155,
+      "line": 157,
       "symbol": "AWSS3InventoryFormat.AWSS3InventoryFormatParquet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 158,
+      "line": 160,
       "symbol": "AWSS3InventoryFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 158,
+      "line": 160,
       "symbol": "AWSS3InventoryFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 159,
+      "line": 161,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 160,
+      "line": 162,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyDaily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 161,
+      "line": 163,
       "symbol": "AWSS3InventoryFrequency.AWSS3InventoryFrequencyWeekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 164,
+      "line": 166,
       "symbol": "AWSS3InventoryIncludedObjectVersions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 164,
+      "line": 166,
       "symbol": "AWSS3InventoryIncludedObjectVersions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 165,
+      "line": 167,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 166,
+      "line": 168,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 167,
+      "line": 169,
       "symbol": "AWSS3InventoryIncludedObjectVersions.AWSS3InventoryIncludedObjectVersionsCurrent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 170,
+      "line": 172,
       "symbol": "AWSS3InventoryOptionalField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 170,
+      "line": 172,
       "symbol": "AWSS3InventoryOptionalField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 171,
+      "line": 173,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 172,
+      "line": 174,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldSize",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 173,
+      "line": 175,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldLastModifiedDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 174,
+      "line": 176,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 175,
+      "line": 177,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldETag",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 176,
+      "line": 178,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldIsMultipartUploaded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 177,
+      "line": 179,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 178,
+      "line": 180,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldEncryptionStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 179,
+      "line": 181,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockRetainUntilDate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 180,
+      "line": 182,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 181,
+      "line": 183,
       "symbol": "AWSS3InventoryOptionalField.AWSS3InventoryOptionalFieldObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 184,
+      "line": 186,
       "symbol": "AWSS3JSONType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 184,
+      "line": 186,
       "symbol": "AWSS3JSONType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 185,
+      "line": 187,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 186,
+      "line": 188,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 187,
+      "line": 189,
       "symbol": "AWSS3JSONType.AWSS3JSONTypeLines",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 190,
+      "line": 192,
       "symbol": "AWSS3MFADelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 190,
+      "line": 192,
       "symbol": "AWSS3MFADelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 191,
+      "line": 193,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 192,
+      "line": 194,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 193,
+      "line": 195,
       "symbol": "AWSS3MFADelete.AWSS3MFADeleteDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 196,
+      "line": 198,
       "symbol": "AWSS3MFADeleteStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 196,
+      "line": 198,
       "symbol": "AWSS3MFADeleteStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 197,
+      "line": 199,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 198,
+      "line": 200,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 199,
+      "line": 201,
       "symbol": "AWSS3MFADeleteStatus.AWSS3MFADeleteStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 202,
+      "line": 204,
       "symbol": "AWSS3MetadataDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 202,
+      "line": 204,
       "symbol": "AWSS3MetadataDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 203,
+      "line": 205,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 204,
+      "line": 206,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 205,
+      "line": 207,
       "symbol": "AWSS3MetadataDirective.AWSS3MetadataDirectiveReplace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 208,
+      "line": 210,
       "symbol": "AWSS3ObjectCannedACL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 208,
+      "line": 210,
       "symbol": "AWSS3ObjectCannedACL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 209,
+      "line": 211,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 210,
+      "line": 212,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPrivate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 211,
+      "line": 213,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPublicRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 212,
+      "line": 214,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLPublicReadWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 213,
+      "line": 215,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLAuthenticatedRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 214,
+      "line": 216,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLAwsExecRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 215,
+      "line": 217,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLBucketOwnerRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 216,
+      "line": 218,
       "symbol": "AWSS3ObjectCannedACL.AWSS3ObjectCannedACLBucketOwnerFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 219,
+      "line": 221,
       "symbol": "AWSS3ObjectLockEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 219,
+      "line": 221,
       "symbol": "AWSS3ObjectLockEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 220,
+      "line": 222,
       "symbol": "AWSS3ObjectLockEnabled.AWSS3ObjectLockEnabledUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 221,
+      "line": 223,
       "symbol": "AWSS3ObjectLockEnabled.AWSS3ObjectLockEnabledEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 224,
+      "line": 226,
       "symbol": "AWSS3ObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 224,
+      "line": 226,
       "symbol": "AWSS3ObjectLockLegalHoldStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 225,
+      "line": 227,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 226,
+      "line": 228,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusOn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 227,
+      "line": 229,
       "symbol": "AWSS3ObjectLockLegalHoldStatus.AWSS3ObjectLockLegalHoldStatusOff",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 230,
+      "line": 232,
       "symbol": "AWSS3ObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 230,
+      "line": 232,
       "symbol": "AWSS3ObjectLockMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 231,
+      "line": 233,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 232,
+      "line": 234,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeGovernance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 233,
+      "line": 235,
       "symbol": "AWSS3ObjectLockMode.AWSS3ObjectLockModeCompliance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 236,
+      "line": 238,
       "symbol": "AWSS3ObjectLockRetentionMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 236,
+      "line": 238,
       "symbol": "AWSS3ObjectLockRetentionMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 237,
+      "line": 239,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 238,
+      "line": 240,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeGovernance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 239,
+      "line": 241,
       "symbol": "AWSS3ObjectLockRetentionMode.AWSS3ObjectLockRetentionModeCompliance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 242,
+      "line": 244,
       "symbol": "AWSS3ObjectStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 242,
+      "line": 244,
       "symbol": "AWSS3ObjectStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 243,
+      "line": 245,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 244,
+      "line": 246,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 245,
+      "line": 247,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassReducedRedundancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 246,
+      "line": 248,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 247,
+      "line": 249,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 248,
+      "line": 250,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 249,
+      "line": 251,
       "symbol": "AWSS3ObjectStorageClass.AWSS3ObjectStorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 252,
+      "line": 254,
       "symbol": "AWSS3ObjectVersionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 252,
+      "line": 254,
       "symbol": "AWSS3ObjectVersionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 253,
+      "line": 255,
       "symbol": "AWSS3ObjectVersionStorageClass.AWSS3ObjectVersionStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 254,
+      "line": 256,
       "symbol": "AWSS3ObjectVersionStorageClass.AWSS3ObjectVersionStorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 257,
+      "line": 259,
       "symbol": "AWSS3OwnerOverride",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 257,
+      "line": 259,
       "symbol": "AWSS3OwnerOverride",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 258,
+      "line": 260,
       "symbol": "AWSS3OwnerOverride.AWSS3OwnerOverrideUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 259,
+      "line": 261,
       "symbol": "AWSS3OwnerOverride.AWSS3OwnerOverrideDestination",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 262,
+      "line": 264,
       "symbol": "AWSS3Payer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 262,
+      "line": 264,
       "symbol": "AWSS3Payer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 263,
+      "line": 265,
       "symbol": "AWSS3Payer.AWSS3PayerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 264,
+      "line": 266,
       "symbol": "AWSS3Payer.AWSS3PayerRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 265,
+      "line": 267,
       "symbol": "AWSS3Payer.AWSS3PayerBucketOwner",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 268,
+      "line": 270,
       "symbol": "AWSS3Permission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 268,
+      "line": 270,
       "symbol": "AWSS3Permission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 269,
+      "line": 271,
       "symbol": "AWSS3Permission.AWSS3PermissionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 270,
+      "line": 272,
       "symbol": "AWSS3Permission.AWSS3PermissionFullControl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 271,
+      "line": 273,
       "symbol": "AWSS3Permission.AWSS3PermissionWrite",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 272,
+      "line": 274,
       "symbol": "AWSS3Permission.AWSS3PermissionWriteAcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 273,
+      "line": 275,
       "symbol": "AWSS3Permission.AWSS3PermissionRead",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 274,
+      "line": 276,
       "symbol": "AWSS3Permission.AWSS3PermissionReadAcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 277,
+      "line": 279,
       "symbol": "AWSS3Protocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 277,
+      "line": 279,
       "symbol": "AWSS3Protocols",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 278,
+      "line": 280,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 279,
+      "line": 281,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsHTTP",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 280,
+      "line": 282,
       "symbol": "AWSS3Protocols.AWSS3ProtocolsHTTPS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 283,
+      "line": 285,
       "symbol": "AWSS3QuoteFields",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 283,
+      "line": 285,
       "symbol": "AWSS3QuoteFields",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 284,
+      "line": 286,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 285,
+      "line": 287,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsAlways",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 286,
+      "line": 288,
       "symbol": "AWSS3QuoteFields.AWSS3QuoteFieldsAsneeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 289,
+      "line": 291,
       "symbol": "AWSS3ReplicationRuleStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 289,
+      "line": 291,
       "symbol": "AWSS3ReplicationRuleStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 290,
+      "line": 292,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 291,
+      "line": 293,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 292,
+      "line": 294,
       "symbol": "AWSS3ReplicationRuleStatus.AWSS3ReplicationRuleStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 295,
+      "line": 297,
       "symbol": "AWSS3ReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 295,
+      "line": 297,
       "symbol": "AWSS3ReplicationStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 296,
+      "line": 298,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 297,
+      "line": 299,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusComplete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 298,
+      "line": 300,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusPending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 299,
+      "line": 301,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 300,
+      "line": 302,
       "symbol": "AWSS3ReplicationStatus.AWSS3ReplicationStatusReplica",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 303,
+      "line": 305,
       "symbol": "AWSS3RequestCharged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 303,
+      "line": 305,
       "symbol": "AWSS3RequestCharged",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 304,
+      "line": 306,
       "symbol": "AWSS3RequestCharged.AWSS3RequestChargedUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 305,
+      "line": 307,
       "symbol": "AWSS3RequestCharged.AWSS3RequestChargedRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 308,
+      "line": 310,
       "symbol": "AWSS3RequestPayer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 308,
+      "line": 310,
       "symbol": "AWSS3RequestPayer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 309,
+      "line": 311,
       "symbol": "AWSS3RequestPayer.AWSS3RequestPayerUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 310,
+      "line": 312,
       "symbol": "AWSS3RequestPayer.AWSS3RequestPayerRequester",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 313,
+      "line": 315,
       "symbol": "AWSS3RestoreRequestType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 313,
+      "line": 315,
       "symbol": "AWSS3RestoreRequestType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 314,
+      "line": 316,
       "symbol": "AWSS3RestoreRequestType.AWSS3RestoreRequestTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 315,
+      "line": 317,
       "symbol": "AWSS3RestoreRequestType.AWSS3RestoreRequestTypeSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 318,
+      "line": 320,
       "symbol": "AWSS3ServerSideEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 318,
+      "line": 320,
       "symbol": "AWSS3ServerSideEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 319,
+      "line": 321,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 320,
+      "line": 322,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionAES256",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 321,
+      "line": 323,
       "symbol": "AWSS3ServerSideEncryption.AWSS3ServerSideEncryptionAwsKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 324,
+      "line": 326,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 324,
+      "line": 326,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 325,
+      "line": 327,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 326,
+      "line": 328,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 327,
+      "line": 329,
       "symbol": "AWSS3SseKmsEncryptedObjectsStatus.AWSS3SseKmsEncryptedObjectsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 330,
+      "line": 332,
       "symbol": "AWSS3StorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 330,
+      "line": 332,
       "symbol": "AWSS3StorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 331,
+      "line": 333,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 332,
+      "line": 334,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 333,
+      "line": 335,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassReducedRedundancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 334,
+      "line": 336,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 335,
+      "line": 337,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 336,
+      "line": 338,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 337,
+      "line": 339,
       "symbol": "AWSS3StorageClass.AWSS3StorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 340,
+      "line": 342,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 340,
+      "line": 342,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 341,
+      "line": 343,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion.AWSS3StorageClassAnalysisSchemaVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 342,
+      "line": 344,
       "symbol": "AWSS3StorageClassAnalysisSchemaVersion.AWSS3StorageClassAnalysisSchemaVersionV1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 345,
+      "line": 347,
       "symbol": "AWSS3TaggingDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 345,
+      "line": 347,
       "symbol": "AWSS3TaggingDirective",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 346,
+      "line": 348,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 347,
+      "line": 349,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveCopy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 348,
+      "line": 350,
       "symbol": "AWSS3TaggingDirective.AWSS3TaggingDirectiveReplace",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 351,
+      "line": 353,
       "symbol": "AWSS3Tier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 351,
+      "line": 353,
       "symbol": "AWSS3Tier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 352,
+      "line": 354,
       "symbol": "AWSS3Tier.AWSS3TierUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 353,
+      "line": 355,
       "symbol": "AWSS3Tier.AWSS3TierStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 354,
+      "line": 356,
       "symbol": "AWSS3Tier.AWSS3TierBulk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 355,
+      "line": 357,
       "symbol": "AWSS3Tier.AWSS3TierExpedited",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 358,
+      "line": 360,
       "symbol": "AWSS3TransitionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 358,
+      "line": 360,
       "symbol": "AWSS3TransitionStorageClass",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 359,
+      "line": 361,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 360,
+      "line": 362,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassGlacier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 361,
+      "line": 363,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassStandardIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 362,
+      "line": 364,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassOnezoneIa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 363,
+      "line": 365,
       "symbol": "AWSS3TransitionStorageClass.AWSS3TransitionStorageClassIntelligentTiering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 366,
+      "line": 368,
       "symbol": "AWSS3Types",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 366,
+      "line": 368,
       "symbol": "AWSS3Types",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 367,
+      "line": 369,
       "symbol": "AWSS3Types.AWSS3TypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 368,
+      "line": 370,
       "symbol": "AWSS3Types.AWSS3TypesCanonicalUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 369,
+      "line": 371,
       "symbol": "AWSS3Types.AWSS3TypesAmazonCustomerByEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3Model.h",
-      "line": 370,
+      "line": 372,
       "symbol": "AWSS3Types.AWSS3TypesGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
