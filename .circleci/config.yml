@@ -738,7 +738,7 @@ jobs:
 
             bump_version_message="[bump version $release_version]"
             bump_version_pr_title="bump iOS sdk version to ${release_version}"
-            target_branch=test_develop
+            target_branch=develop
             echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export release_version=$release_version" >> $BASH_ENV
