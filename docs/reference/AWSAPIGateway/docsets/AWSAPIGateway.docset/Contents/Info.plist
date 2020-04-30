@@ -16,5 +16,7 @@
       <true/>
     <key>DashDocSetFamily</key>
       <string>dashtoc</string>
+    <key>DashDocSetFallbackURL</key>
+      <string>https://aws-amplify.github.io/aws-sdk-ios/docs/reference/</string>
   </dict>
 </plist>
