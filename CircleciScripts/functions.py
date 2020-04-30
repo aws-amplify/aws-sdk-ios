@@ -1,9 +1,8 @@
 import os
 import platform
-import subprocess
 
 from datetime import datetime
-from subprocess import Popen
+from subprocess import Popen, TimeoutExpired
 
 
 def runcommand(
@@ -23,7 +22,7 @@ def runcommand(
     while True:
         try:
             process.communicate(timeout=10)
-        except subprocess.TimeoutExpired:
+        except TimeoutExpired:
             # tell circleci I am still alive, don't kill me
             if wait_times % 30 == 0:
                 print(str(datetime.now()) + ": I am still alive")
