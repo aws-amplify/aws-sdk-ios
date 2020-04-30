@@ -15,7 +15,7 @@ grouped_frameworks = [
 
     [
         # Depends only on AWSCognitoIdentityProviderASF
-        'AWSCognitoAuth'
+        'AWSCognitoAuth',
 
         # Depends on AWSCore and AWSCognitoIdentityProviderASF
         'AWSCognitoIdentityProvider',
@@ -62,7 +62,7 @@ grouped_frameworks = [
 
     [
         # Depends only on AWSCognito service-api package
-        'AWSCognitoSync'
+        'AWSCognitoSync',
 
         # Depends on AWSCore and AWSAuthCore
         'AWSAuthUI',
@@ -79,7 +79,7 @@ grouped_frameworks = [
 
     [
         # Depends on most previous packages except auth
-        'AWSiOSSDKv2'
+        'AWSiOSSDKv2',
 
         # Depends on AWSAuthCore, AWSFacebookSignIn, AWSGoogleSignIn,
         # AWSUserPoolsSignIn and AWSAuthUI
