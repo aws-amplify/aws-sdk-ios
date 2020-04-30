@@ -1,16 +1,10 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
-
-- Model updates for the following services
----awsstoragegateway
----awslambda
----awsiotevents
----schemas
----awselementalmediaconvert
-# AWS Mobile SDK for iOS CHANGELOG
+- Model updates for the following services:
+  - AWS Lambda
 
 ## 2.13.3
 
