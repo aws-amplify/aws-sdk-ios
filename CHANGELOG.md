@@ -1,5 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
+## Unreleased
+
+### Misc. Updates
+- Model updates for the following services:
+  - AWS Lambda
+
 ## 2.13.3
 
 ### New features
