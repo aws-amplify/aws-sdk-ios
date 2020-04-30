@@ -77,7 +77,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
-+ (NSDictionary *) getIntegrationTestConfigurationFor:(NSString *) packageId {
++ (NSDictionary *) getIntegrationTestConfigurationForPackageId:(NSString *) packageId {
     NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
     return testConfigurationJson[@"packages"][packageId];
 }
