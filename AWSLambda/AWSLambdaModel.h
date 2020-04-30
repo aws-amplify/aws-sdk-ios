@@ -1131,7 +1131,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaStateReasonCode stateReasonCode;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+ <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 

@@ -1089,6 +1089,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"me-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintMESouth1);
         }
+        if ([value caseInsensitiveCompare:@"af-south-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAFSouth1);
+        }
+        if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintEUSouth1);
+        }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1138,6 +1144,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-east-1";
             case AWSS3BucketLocationConstraintMESouth1:
                 return @"me-south-1";
+            case AWSS3BucketLocationConstraintAFSouth1:
+                return @"af-south-1";
+            case AWSS3BucketLocationConstraintEUSouth1:
+                return @"eu-south-1";
             default:
                 return nil;
         }
@@ -2342,6 +2352,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"me-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintMESouth1);
         }
+        if ([value caseInsensitiveCompare:@"af-south-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintAFSouth1);
+        }
+        if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
+            return @(AWSS3BucketLocationConstraintEUSouth1);
+        }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2391,6 +2407,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-east-1";
             case AWSS3BucketLocationConstraintMESouth1:
                 return @"me-south-1";
+            case AWSS3BucketLocationConstraintAFSouth1:
+                return @"af-south-1";
+            case AWSS3BucketLocationConstraintEUSouth1:
+                return @"eu-south-1";
             default:
                 return nil;
         }
