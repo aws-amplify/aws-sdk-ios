@@ -14,7 +14,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTranscribe 2.13.2 Docs</a> (68% documented)</p>
+        <p><a href="index.html">AWSTranscribe 2.13.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -51,6 +51,9 @@
                 <a href="Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -58,6 +61,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a>
@@ -81,6 +90,12 @@
                 <a href="Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -102,10 +117,28 @@
                 <a href="Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeMedicalTranscript.html">AWSTranscribeMedicalTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeMedicalTranscriptionJob.html">AWSTranscribeMedicalTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeMedicalTranscriptionJobSummary.html">AWSTranscribeMedicalTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeResources.html">AWSTranscribeResources</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a>
@@ -181,7 +214,13 @@
                 <a href="Enums/AWSTranscribeRedactionType.html">AWSTranscribeRedactionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSTranscribeVocabularyFilterMethod.html">AWSTranscribeVocabularyFilterMethod</a>
@@ -216,7 +255,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Settings for content redaction within a transcription job.</p><p>You can redact transcripts in US English (en-us). For more information see: <a href="https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html">Automatic Content Redaction</a></p>
+                        <p>Settings for content redaction within a transcription job.</p>
 
 <p>Required parameters: [RedactionType, RedactionOutput]</p>
 
@@ -369,6 +408,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeDeleteMedicalTranscriptionJobRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeDeleteMedicalTranscriptionJobRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeDeleteMedicalTranscriptionJobRequest">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeDeleteMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeDeleteMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeDeleteTranscriptionJobRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSTranscribeDeleteTranscriptionJobRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeDeleteTranscriptionJobRequest">AWSTranscribeDeleteTranscriptionJobRequest</a>
@@ -456,6 +527,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeDeleteVocabularyRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeGetMedicalTranscriptionJobRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeGetMedicalTranscriptionJobRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeGetMedicalTranscriptionJobRequest">AWSTranscribeGetMedicalTranscriptionJobRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeGetMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeGetMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeGetMedicalTranscriptionJobResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeGetMedicalTranscriptionJobResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeGetMedicalTranscriptionJobResponse">AWSTranscribeGetMedicalTranscriptionJobResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeGetMedicalTranscriptionJobResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeGetMedicalTranscriptionJobResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -690,6 +825,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeListMedicalTranscriptionJobsRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeListMedicalTranscriptionJobsRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeListMedicalTranscriptionJobsRequest">AWSTranscribeListMedicalTranscriptionJobsRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeListMedicalTranscriptionJobsRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeListMedicalTranscriptionJobsRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeListMedicalTranscriptionJobsResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeListMedicalTranscriptionJobsResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeListMedicalTranscriptionJobsResponse">AWSTranscribeListMedicalTranscriptionJobsResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeListMedicalTranscriptionJobsResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeListMedicalTranscriptionJobsResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSTranscribeListTranscriptionJobsRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest">AWSTranscribeListTranscriptionJobsRequest</a>
@@ -915,6 +1114,138 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribeMedicalTranscript"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeMedicalTranscript" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeMedicalTranscript">AWSTranscribeMedicalTranscript</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Identifies the location of a medical transcript.</p>
+
+                        <a href="Classes/AWSTranscribeMedicalTranscript.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeMedicalTranscript</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeMedicalTranscript</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeMedicalTranscriptionJob"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeMedicalTranscriptionJob" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeMedicalTranscriptionJob">AWSTranscribeMedicalTranscriptionJob</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The data structure that containts the information for a medical transcription job.</p>
+
+                        <a href="Classes/AWSTranscribeMedicalTranscriptionJob.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeMedicalTranscriptionJob</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeMedicalTranscriptionJob</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeMedicalTranscriptionJobSummary"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeMedicalTranscriptionJobSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeMedicalTranscriptionJobSummary">AWSTranscribeMedicalTranscriptionJobSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides summary information about a transcription job.</p>
+
+                        <a href="Classes/AWSTranscribeMedicalTranscriptionJobSummary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeMedicalTranscriptionJobSummary</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeMedicalTranscriptionJobSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeMedicalTranscriptionSetting"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeMedicalTranscriptionSetting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeMedicalTranscriptionSetting">AWSTranscribeMedicalTranscriptionSetting</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional settings for the <a>StartMedicalTranscriptionJob</a> operation.</p>
+
+                        <a href="Classes/AWSTranscribeMedicalTranscriptionSetting.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeMedicalTranscriptionSetting</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeMedicalTranscriptionSetting</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribeSettings"></a>
                     <a name="//apple_ref/objc/Class/AWSTranscribeSettings" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribeSettings">AWSTranscribeSettings</a>
@@ -939,6 +1270,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeSettings</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeStartMedicalTranscriptionJobRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest">AWSTranscribeStartMedicalTranscriptionJobRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeStartMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeStartMedicalTranscriptionJobRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSTranscribeStartMedicalTranscriptionJobResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobResponse">AWSTranscribeStartMedicalTranscriptionJobResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeStartMedicalTranscriptionJobResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeStartMedicalTranscriptionJobResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -1379,8 +1774,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

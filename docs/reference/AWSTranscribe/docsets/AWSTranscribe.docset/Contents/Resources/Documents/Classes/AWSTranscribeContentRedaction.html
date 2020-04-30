@@ -14,7 +14,7 @@
     <a title="AWSTranscribeContentRedaction Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.13.2 Docs</a> (68% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.13.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -51,6 +51,9 @@
                 <a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -58,6 +61,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a>
@@ -81,6 +90,12 @@
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -102,10 +117,28 @@
                 <a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscript.html">AWSTranscribeMedicalTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJob.html">AWSTranscribeMedicalTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJobSummary.html">AWSTranscribeMedicalTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeResources.html">AWSTranscribeResources</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a>
@@ -181,7 +214,13 @@
                 <a href="../Enums/AWSTranscribeRedactionType.html">AWSTranscribeRedactionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeVocabularyFilterMethod.html">AWSTranscribeVocabularyFilterMethod</a>
@@ -203,7 +242,7 @@
 
                 </div>
               </div>
-            <p>Settings for content redaction within a transcription job.</p><p>You can redact transcripts in US English (en-us). For more information see: <a href="https://docs.aws.amazon.com/transcribe/latest/dg/content-redaction.html">Automatic Content Redaction</a></p>
+            <p>Settings for content redaction within a transcription job.</p>
 
 <p>Required parameters: [RedactionType, RedactionOutput]</p>
 
@@ -224,7 +263,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Request parameter where you choose whether to output only the redacted transcript or generate an additional unredacted transcript.</p><p>When you choose <code>redacted</code> Amazon Transcribe outputs a JSON file with only the redacted transcript and related information.</p><p>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs a JSON file with the unredacted transcript and related information in addition to the JSON file with the redacted transcript.</p>
+                        <p>The output transcript file stored in either the default S3 bucket or in a bucket you specify.</p><p>When you choose <code>redacted</code> Amazon Transcribe outputs only the redacted transcript.</p><p>When you choose <code>redacted_and_unredacted</code> Amazon Transcribe outputs both the redacted and unredacted transcripts.</p>
 
                       </div>
                       <div class="declaration">
@@ -280,8 +319,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

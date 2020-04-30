@@ -14,7 +14,7 @@
     <a title="AWSTranscribe Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranscribe 2.13.2 Docs</a> (68% documented)</p>
+        <p><a href="../index.html">AWSTranscribe 2.13.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -51,6 +51,9 @@
                 <a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -58,6 +61,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a>
@@ -81,6 +90,12 @@
                 <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -102,10 +117,28 @@
                 <a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscript.html">AWSTranscribeMedicalTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJob.html">AWSTranscribeMedicalTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJobSummary.html">AWSTranscribeMedicalTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeResources.html">AWSTranscribeResources</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a>
@@ -181,7 +214,13 @@
                 <a href="../Enums/AWSTranscribeRedactionType.html">AWSTranscribeRedactionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranscribeVocabularyFilterMethod.html">AWSTranscribeVocabularyFilterMethod</a>
@@ -857,6 +896,139 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)deleteMedicalTranscriptionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteMedicalTranscriptionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)deleteMedicalTranscriptionJob:">-deleteMedicalTranscriptionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a transcription job generated by Amazon Transcribe Medical and any related information.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeDeleteMedicalTranscriptionJobRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteMedicalTranscriptionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)deleteMedicalTranscriptionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteMedicalTranscriptionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)deleteMedicalTranscriptionJob:completionHandler:">-deleteMedicalTranscriptionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a transcription job generated by Amazon Transcribe Medical and any related information.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeDeleteMedicalTranscriptionJobRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteMedicalTranscriptionJob</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span>
+                                          <span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribe(im)deleteTranscriptionJob:"></a>
                     <a name="//apple_ref/objc/Method/-deleteTranscriptionJob:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribe(im)deleteTranscriptionJob:">-deleteTranscriptionJob:<wbr></a>
@@ -1242,6 +1414,151 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorNotFound</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)getMedicalTranscriptionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-getMedicalTranscriptionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)getMedicalTranscriptionJob:">-getMedicalTranscriptionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished. You find the results of the completed job in the <code>TranscriptFileUri</code> field.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeGetMedicalTranscriptionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeGetMedicalTranscriptionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getMedicalTranscriptionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)getMedicalTranscriptionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getMedicalTranscriptionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)getMedicalTranscriptionJob:completionHandler:">-getMedicalTranscriptionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished. You find the results of the completed job in the <code>TranscriptFileUri</code> field.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeGetMedicalTranscriptionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeGetMedicalTranscriptionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">getMedicalTranscriptionJob</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+             <span class="nf">completionHandler</span><span class="p">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                     <span class="n"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                     <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorNotFound</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1683,6 +2000,151 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)listMedicalTranscriptionJobs:"></a>
+                    <a name="//apple_ref/objc/Method/-listMedicalTranscriptionJobs:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)listMedicalTranscriptionJobs:">-listMedicalTranscriptionJobs:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists medical transcription jobs with a specified status or substring that matches their names.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeListMedicalTranscriptionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeListMedicalTranscriptionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listMedicalTranscriptionJobs</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListMedicalTranscriptionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)listMedicalTranscriptionJobs:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listMedicalTranscriptionJobs:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)listMedicalTranscriptionJobs:completionHandler:">-listMedicalTranscriptionJobs:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists medical transcription jobs with a specified status or substring that matches their names.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeListMedicalTranscriptionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeListMedicalTranscriptionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listMedicalTranscriptionJobs</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                   <span class="nf">completionHandler</span><span class="p">:</span>
+                       <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                           <span class="n"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a></span>
+                               <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listMedicalTranscriptionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListMedicalTranscriptionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranscribe(im)listTranscriptionJobs:"></a>
                     <a name="//apple_ref/objc/Method/-listTranscriptionJobs:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranscribe(im)listTranscriptionJobs:">-listTranscriptionJobs:<wbr></a>
@@ -2100,6 +2562,151 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)startMedicalTranscriptionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-startMedicalTranscriptionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)startMedicalTranscriptionJob:">-startMedicalTranscriptionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start a batch job to transcribe medical speech to text.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeStartMedicalTranscriptionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeStartMedicalTranscriptionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">startMedicalTranscriptionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribe(im)startMedicalTranscriptionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-startMedicalTranscriptionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribe(im)startMedicalTranscriptionJob:completionHandler:">-startMedicalTranscriptionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Start a batch job to transcribe medical speech to text.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeStartMedicalTranscriptionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranscribeStartMedicalTranscriptionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startMedicalTranscriptionJob</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+                   <span class="nf">completionHandler</span><span class="p">:</span>
+                       <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                           <span class="n"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a></span>
+                               <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startMedicalTranscriptionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartMedicalTranscriptionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a></code> domain and the following error code: <code>AWSTranscribeErrorBadRequest</code>, <code>AWSTranscribeErrorLimitExceeded</code>, <code>AWSTranscribeErrorInternalFailure</code>, <code>AWSTranscribeErrorConflict</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2543,8 +3150,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

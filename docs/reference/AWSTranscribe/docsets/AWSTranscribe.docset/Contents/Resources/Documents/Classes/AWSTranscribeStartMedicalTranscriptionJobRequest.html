@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTranscribeStartMedicalTranscriptionJobRequest Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTranscribeStartMedicalTranscriptionJobRequest" class="dashAnchor"></a>
+    <a title="AWSTranscribeStartMedicalTranscriptionJobRequest Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSTranscribe 2.13.3 Docs</a> (72% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSTranscribe%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSTranscribe Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTranscribeStartMedicalTranscriptionJobRequest Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribe.html">AWSTranscribe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeContentRedaction.html">AWSTranscribeContentRedaction</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyFilterRequest.html">AWSTranscribeCreateVocabularyFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyFilterResponse.html">AWSTranscribeCreateVocabularyFilterResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyRequest.html">AWSTranscribeCreateVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeCreateVocabularyResponse.html">AWSTranscribeCreateVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteMedicalTranscriptionJobRequest.html">AWSTranscribeDeleteMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteTranscriptionJobRequest.html">AWSTranscribeDeleteTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteVocabularyFilterRequest.html">AWSTranscribeDeleteVocabularyFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeDeleteVocabularyRequest.html">AWSTranscribeDeleteVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobRequest.html">AWSTranscribeGetMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetMedicalTranscriptionJobResponse.html">AWSTranscribeGetMedicalTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetTranscriptionJobRequest.html">AWSTranscribeGetTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetTranscriptionJobResponse.html">AWSTranscribeGetTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyFilterRequest.html">AWSTranscribeGetVocabularyFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyFilterResponse.html">AWSTranscribeGetVocabularyFilterResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyRequest.html">AWSTranscribeGetVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeGetVocabularyResponse.html">AWSTranscribeGetVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeJobExecutionSettings.html">AWSTranscribeJobExecutionSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsRequest.html">AWSTranscribeListMedicalTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListMedicalTranscriptionJobsResponse.html">AWSTranscribeListMedicalTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTranscriptionJobsRequest.html">AWSTranscribeListTranscriptionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListTranscriptionJobsResponse.html">AWSTranscribeListTranscriptionJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabulariesRequest.html">AWSTranscribeListVocabulariesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabulariesResponse.html">AWSTranscribeListVocabulariesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabularyFiltersRequest.html">AWSTranscribeListVocabularyFiltersRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeListVocabularyFiltersResponse.html">AWSTranscribeListVocabularyFiltersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscript.html">AWSTranscribeMedicalTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJob.html">AWSTranscribeMedicalTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionJobSummary.html">AWSTranscribeMedicalTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeResources.html">AWSTranscribeResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeSettings.html">AWSTranscribeSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobRequest.html">AWSTranscribeStartMedicalTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartMedicalTranscriptionJobResponse.html">AWSTranscribeStartMedicalTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartTranscriptionJobRequest.html">AWSTranscribeStartTranscriptionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeStartTranscriptionJobResponse.html">AWSTranscribeStartTranscriptionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscript.html">AWSTranscribeTranscript</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscriptionJob.html">AWSTranscribeTranscriptionJob</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeTranscriptionJobSummary.html">AWSTranscribeTranscriptionJobSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyFilterRequest.html">AWSTranscribeUpdateVocabularyFilterRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyFilterResponse.html">AWSTranscribeUpdateVocabularyFilterResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyRequest.html">AWSTranscribeUpdateVocabularyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeUpdateVocabularyResponse.html">AWSTranscribeUpdateVocabularyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeVocabularyFilterInfo.html">AWSTranscribeVocabularyFilterInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranscribeVocabularyInfo.html">AWSTranscribeVocabularyInfo</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeErrorDomain">AWSTranscribeErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeSDKVersion">AWSTranscribeSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeVersionNumber">AWSTranscribeVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranscribeVersionString">AWSTranscribeVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeErrorType.html">AWSTranscribeErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeOutputLocationType.html">AWSTranscribeOutputLocationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeRedactionOutput.html">AWSTranscribeRedactionOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeRedactionType.html">AWSTranscribeRedactionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeVocabularyFilterMethod.html">AWSTranscribeVocabularyFilterMethod</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranscribeVocabularyState.html">AWSTranscribeVocabularyState</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTranscribeStartMedicalTranscriptionJobRequest</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeStartMedicalTranscriptionJobRequest</span></code></pre>
+
+                </div>
+              </div>
+            
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)languageCode"></a>
+                    <a name="//apple_ref/objc/Property/languageCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)languageCode">languageCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The language code for the language spoken in the input media file. US English (en-US) is the valid value for medical transcription jobs. Any other value you enter for language code results in a <code>BadRequestException</code> error.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="n">languageCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">languageCode</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeLanguageCode.html">AWSTranscribeLanguageCode</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)media"></a>
+                    <a name="//apple_ref/objc/Property/media" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)media">media</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the input media file in a transcription request.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">media</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">media</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeMedia.html">AWSTranscribeMedia</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)mediaFormat"></a>
+                    <a name="//apple_ref/objc/Property/mediaFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)mediaFormat">mediaFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The audio format of the input media file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a></span> <span class="n">mediaFormat</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mediaFormat</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeMediaFormat.html">AWSTranscribeMediaFormat</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)mediaSampleRateHertz"></a>
+                    <a name="//apple_ref/objc/Property/mediaSampleRateHertz" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)mediaSampleRateHertz">mediaSampleRateHertz</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The sample rate, in Hertz, of the audio track in the input media file.</p><p>If you do not specify the media sample rate, Amazon Transcribe Medical determines the sample rate. If you specify the sample rate, it must match the rate detected by Amazon Transcribe Medical. In most cases, you should leave the <code>MediaSampleRateHertz</code> field blank and let Amazon Transcribe Medical determine the sample rate.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">mediaSampleRateHertz</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">mediaSampleRateHertz</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)medicalTranscriptionJobName"></a>
+                    <a name="//apple_ref/objc/Property/medicalTranscriptionJobName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)medicalTranscriptionJobName">medicalTranscriptionJobName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The name of the medical transcription job. You can&rsquo;t use the strings &ldquo;.&rdquo; or &ldquo;..&rdquo; by themselves as the job name. The name must also be unique within an AWS account.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">medicalTranscriptionJobName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">medicalTranscriptionJobName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)outputBucketName"></a>
+                    <a name="//apple_ref/objc/Property/outputBucketName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)outputBucketName">outputBucketName</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon S3 location where the transcription is stored.</p><p>You must set <code>OutputBucketName</code> for Amazon Transcribe Medical to store the transcription results. Your transcript appears in the S3 location you specify. When you call the <a>GetMedicalTranscriptionJob</a>, the operation returns this location in the <code>TranscriptFileUri</code> field. The S3 bucket must have permissions that allow Amazon Transcribe Medical to put files in the bucket. For more information, see <a href="https://docs.aws.amazon.com/transcribe/latest/dg/security_iam_id-based-policy-examples.html#auth-role-iam-user">Permissions Required for IAM User Roles</a>.</p><p>You can specify an AWS Key Management Service (KMS) key to encrypt the output of your transcription using the <code>OutputEncryptionKMSKeyId</code> parameter. If you don&rsquo;t specify a KMS key, Amazon Transcribe Medical uses the default Amazon S3 key for server-side encryption of transcripts that are placed in your S3 bucket.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">outputBucketName</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">outputBucketName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)outputEncryptionKMSKeyId"></a>
+                    <a name="//apple_ref/objc/Property/outputEncryptionKMSKeyId" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)outputEncryptionKMSKeyId">outputEncryptionKMSKeyId</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the <a>StartMedicalTranscriptionJob</a> operation must have permission to use the specified KMS key.</p><p>You use either of the following to identify a KMS key in the current account:</p><ul><li><p>KMS Key ID: &ldquo;1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>KMS Key Alias: &ldquo;alias/ExampleAlias&rdquo;</p></li></ul><p>You can use either of the following to identify a KMS key in the current account or another account:</p><ul><li><p>Amazon Resource Name (ARN) of a KMS key in the current account or another account: &ldquo;arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab&rdquo;</p></li><li><p>ARN of a KMS Key Alias: &ldquo;arn:aws:kms:region:account ID:alias/ExampleAlias&rdquo;</p></li></ul><p>If you don&rsquo;t specify an encryption key, the output of the medical transcription job is encrypted with the default Amazon S3 key (SSE-S3).</p><p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputBucketName</code> parameter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">outputEncryptionKMSKeyId</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">outputEncryptionKMSKeyId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)settings"></a>
+                    <a name="//apple_ref/objc/Property/settings" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)settings">settings</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Optional settings for the medical transcription job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">settings</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">settings</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranscribeMedicalTranscriptionSetting.html">AWSTranscribeMedicalTranscriptionSetting</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)specialty"></a>
+                    <a name="//apple_ref/objc/Property/specialty" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)specialty">specialty</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The medical specialty of any clinician speaking in the input media.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a></span> <span class="n">specialty</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">specialty</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeSpecialty.html">AWSTranscribeSpecialty</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)types"></a>
+                    <a name="//apple_ref/objc/Property/types" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranscribeStartMedicalTranscriptionJobRequest(py)types">types</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The speech of clinician in the input audio. <code>CONVERSATION</code> refers to conversations clinicians have with patients. <code>DICTATION</code> refers to medical professionals dictating their notes about a patient encounter.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a></span> <span class="n">types</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">types</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeTypes.html">AWSTranscribeTypes</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
