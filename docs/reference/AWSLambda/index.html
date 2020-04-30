@@ -13,7 +13,7 @@
     <a title="AWSLambda  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLambda 2.13.2 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSLambda 2.13.3 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -465,7 +465,9 @@
 </ul>
 <h2 id='include-the-sdk-for-ios-in-an-existing-application' class='heading'>Include the SDK for iOS in an Existing Application</h2>
 
-<p>The <a href="https://github.com/awslabs/aws-sdk-ios-samples">samples</a> included with the SDK for iOS are standalone projects that are already set up for you. You can also integrate the SDK for iOS with your own existing project. There are three ways to import the AWS Mobile SDK for iOS into your project:</p>
+<p>We have a couple <a href="https://github.com/awslabs/aws-sdk-ios-samples">samples</a> applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.</p>
+
+<p>There are three ways to integrate the AWS Mobile SDK for iOS into your own project:</p>
 
 <ul>
 <li><a href="https://cocoapods.org/">CocoaPods</a></li>
@@ -473,7 +475,7 @@
 <li><a href="https://aws.amazon.com/mobile/sdk/">Dynamic Frameworks</a></li>
 </ul>
 
-<p>You should use one of these three ways to import the AWS Mobile SDK but not multiple. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler errors.</p>
+<p>You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.</p>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <ol>
@@ -486,40 +488,28 @@ $ pod setup
 <pre class="highlight plaintext"><code>$ sudo gem install cocoapods
 $ pod setup
 </code></pre></li>
-<li><p>In your project directory (the directory where your <code>*.xcodeproj</code> file is), create a plain text file named <code>Podfile</code> (without any file extension) and add the lines below. Replace <code>YourTarget</code> with your actual target name.</p>
-<pre class="highlight plaintext"><code>platform :ios, '8.0'
-use_frameworks!
-
-target :'YourTarget' do
-    pod 'AWSAutoScaling'
-    pod 'AWSCloudWatch'
-    pod 'AWSCognito'
-    pod 'AWSCognitoIdentityProvider'
-    pod 'AWSDynamoDB'
-    pod 'AWSEC2'
-    pod 'AWSElasticLoadBalancing'
-    pod 'AWSIoT'
-    pod 'AWSKinesis'
-    pod 'AWSLambda'
-    pod 'AWSMachineLearning'
-    pod 'AWSMobileAnalytics'
-    pod 'AWSS3'
-    pod 'AWSSES'
-    pod 'AWSSimpleDB'
-    pod 'AWSSNS'
-    pod 'AWSSQS'
+<li><p>In your project directory (the directory where your <code>*.xcodeproj</code> file is), run the following to create a <code>Podfile</code> in your project.</p>
+<pre class="highlight plaintext"><code>$ pod init
+</code></pre></li>
+<li><p>Edit the podfile to include the pods you want to integrate into your project.  For example, if you need auth, you can use AWSMobileClient, and if you need analytics, you add AWSPinpoint.  As a result, your podfile might look something like this:</p>
+<pre class="highlight plaintext"><code>target 'YourTarget' do
+pod 'AWSMobileClient'
+pod 'AWSPinpoint'
 end
+</code></pre></li>
+</ol>
+
+<p>For a complete list of our pods, check out the .podspec files in the root directory of this project.</p>
+
+<ol>
+<li><p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>$ pod install --repo-update
+</code></pre></li>
+<li><p>To open your project, open the newly generated <code>*.xcworkspace</code> file in your project&rsquo;s directory with XCode.  You can do this by issuing the following command in your project folder:</p>
+<pre class="highlight plaintext"><code>$ xed .
 </code></pre>
 
-<p><img src="readme-images/cocoapods-setup-01.png?raw=true" alt="image"></p></li>
-<li><p>Then run the following command:</p>
-<pre class="highlight plaintext"><code>$ pod install
-</code></pre></li>
-<li><p>Open up <code>*.xcworkspace</code> with Xcode and start using the SDK.</p>
-
-<p><img src="readme-images/cocoapods-setup-02.png?raw=true" alt="image"></p>
-
-<p><strong>Note</strong>: Do <strong>NOT</strong> use <code>*.xcodeproj</code>. If you open up a project file instead of a workspace, you receive an error:</p>
+<p><strong>Note</strong>: Do <strong>NOT</strong> use <code>*.xcodeproj</code>. If you open up a project file instead of a workspace, you may receive the following error:</p>
 <pre class="highlight plaintext"><code>ld: library not found for -lPods-AWSCore
 clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </code></pre></li>
@@ -534,27 +524,15 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 <li><p>Then run the following command:</p>
 <pre class="highlight plaintext"><code>$ carthage update
 </code></pre></li>
-<li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Embedded Binaries</strong> and then click the <strong>+</strong> button.</p></li>
-<li><p>Click the <strong>Add Other&hellip;</strong> button, navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files under <code>Carthage</code> &gt; <code>Build</code> &gt; <code>iOS</code> and select them. Do not check the <strong>Destination: Copy items if needed</strong> checkbox when prompted.</p></li>
+<li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Frameworks, Libraries, and Embedded Content</strong> and then click the <strong>+</strong> button.</p></li>
+<li><p>Click the <strong>Add Other&hellip;</strong> button, then &ldquo;Add Files&hellip;&rdquo; in the popup menu, then navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files under <code>Carthage</code> &gt; <code>Build</code> &gt; <code>iOS</code> and select them. Do not check the <strong>Destination: Copy items if needed</strong> checkbox if prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:</p></li>
 </ol>
-<pre class="highlight plaintext"><code>* `AWSCore.framework`
-* `AWSAutoScaling.framework`
-* `AWSCloudWatch.framework`
-* `AWSCognito.framework`
+<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
 * `AWSCognitoIdentityProvider.framework`
-* `AWSDynamoDB.framework`
-* `AWSEC2.framework`
-* `AWSElasticLoadBalancing.framework`
-* `AWSIoT.framework`
-* `AWSKinesis.framework`
-* `AWSLambda.framework`
-* `AWSMachineLearning.framework`
-* `AWSMobileAnalytics.framework`
-* `AWSS3.framework`
-* `AWSSES.framework`
-* `AWSSimpleDB.framework`
-* `AWSSNS.framework`
-* `AWSSQS.framework`
+* `AWSCognitoIdentityProviderASF.framework`
+* `AWSCore.framework`
+* `AWSMobileClient.framework`
+* `AWSPinpoint.framework`
 </code></pre>
 
 <ol>
@@ -579,26 +557,14 @@ Output Files: Empty
 <ol>
 <li><p>Download the <a href="https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.10.2, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip</a>.</p></li>
 <li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Embedded Binaries</strong> and then click the <strong>+</strong> button.</p></li>
-<li><p>Click the <strong>Add Other&hellip;</strong> button, navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files and select them. Check the <strong>Destination: Copy items if needed</strong> checkbox when prompted.</p></li>
+<li><p>Click the <strong>Add Other&hellip;</strong> button, navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files and select them. Check the <strong>Destination: Copy items if needed</strong> checkbox when prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:</p></li>
 </ol>
-<pre class="highlight plaintext"><code>* `AWSCore.framework`
-* `AWSAutoScaling.framework`
-* `AWSCloudWatch.framework`
-* `AWSCognito.framework`
+<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
 * `AWSCognitoIdentityProvider.framework`
-* `AWSDynamoDB.framework`
-* `AWSEC2.framework`
-* `AWSElasticLoadBalancing.framework`
-* `AWSIoT.framework`
-* `AWSKinesis.framework`
-* `AWSLambda.framework`
-* `AWSMachineLearning.framework`
-* `AWSMobileAnalytics.framework`
-* `AWSS3.framework`
-* `AWSSES.framework`
-* `AWSSimpleDB.framework`
-* `AWSSNS.framework`
-* `AWSSQS.framework`
+* `AWSCognitoIdentityProviderASF.framework`
+* `AWSCore.framework`
+* `AWSMobileClient.framework`
+* `AWSPinpoint.framework`
 </code></pre>
 
 <ol>
@@ -638,26 +604,14 @@ Output Files: Empty
 <h3 id='frameworks' class='heading'>Frameworks</h3>
 
 <ol>
-<li>In Xcode select the following frameworks in <strong>Project Navigator</strong> and hit <strong>delete</strong> on your keyboard. Then select <strong>Move to Trash</strong>:</li>
+<li>In Xcode&rsquo;s <strong>Project Navigator</strong>, type &ldquo;AWS&rdquo; to find the AWS frameworks that were manually added to your project.  Manually select all of the AWS frameworks and hit <strong>delete</strong> on your keyboard. Then select <strong>Move to Trash</strong>.  If you were following the example from above which uses AWSMobileClient and AWSPinpoint, you would remove:</li>
 </ol>
-<pre class="highlight plaintext"><code>* `AWSCore.framework`
-* `AWSAutoScaling.framework`
-* `AWSCloudWatch.framework`
-* `AWSCognito.framework`
+<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
 * `AWSCognitoIdentityProvider.framework`
-* `AWSDynamoDB.framework`
-* `AWSEC2.framework`
-* `AWSElasticLoadBalancing.framework`
-* `AWSIoT.framework`
-* `AWSKinesis.framework`
-* `AWSLambda.framework`
-* `AWSMachineLearning.framework`
-* `AWSMobileAnalytics.framework`
-* `AWSS3.framework`
-* `AWSSES.framework`
-* `AWSSimpleDB.framework`
-* `AWSSNS.framework`
-* `AWSSQS.framework`
+* `AWSCognitoIdentityProviderASF.framework`
+* `AWSCore.framework`
+* `AWSMobileClient.framework`
+* `AWSPinpoint.framework`
 </code></pre>
 
 <ol>
@@ -828,8 +782,8 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-13)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.2</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-04-30)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
