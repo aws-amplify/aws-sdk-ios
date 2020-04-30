@@ -56,21 +56,18 @@ int const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
 - (void)setUp {
     [super setUp];
 
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointEventRecorderTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointEventRecorderTests"];
 
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    [self initializePinpointIAD:credentialsJson];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
+    
+    [self initializePinpointIAD:testConfig[@"pinpointAppId"]];
     [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
 }
 
-- (void) initializePinpointIAD:(NSDictionary *) credentialsJson {
-    self.appIdIAD = credentialsJson[@"pinpointAppId"];
+- (void) initializePinpointIAD:(NSString *) pinpointAppId {
+    self.appIdIAD = pinpointAppId;
     self.configIAD = [[AWSPinpointConfiguration alloc] initWithAppId:self.appIdIAD
                                                        launchOptions:nil
                                                       maxStorageSize:AWSPinpointClientByteLimitDefault

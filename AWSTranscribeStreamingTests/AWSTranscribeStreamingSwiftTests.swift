@@ -29,7 +29,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
         
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
 
         guard let config = AWSServiceManager.default().defaultServiceConfiguration else {
             XCTFail("Can't get default service configuration")

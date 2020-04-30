@@ -65,6 +65,119 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     [super initialize];
 }
 
++ (void) setupSessionCredentialsProvider {
+    NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [[AWSBasicSessionCredentialsProvider alloc]
+                                                               initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
+                                                                       secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
+                                                                    sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion: [self getRegionFromTestConfiguration]
+                                                                         credentialsProvider:credentialsProvider];
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+}
+
++ (NSDictionary *) getIntegrationTestConfigurationForPackageId:(NSString *) packageId {
+    NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
+    return testConfigurationJson[@"packages"][packageId];
+}
+
++ (NSDictionary *) getCredentialsFromTestConfiguration {
+    return [self getTestConfigurationJSON][@"credentials"];
+}
+
++ (AWSRegionType) getRegionFromTestConfiguration {
+    return [[self getIntegrationTestConfigurationForPackageId: @"common"][@"region"] aws_regionTypeValue];
+}
+
++ (NSString *) getAccountIdFromTestConfiguration {
+    NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
+    return credentialsFromTestConfigurationJson[@"identityId"];
+}
+
++ (NSDictionary *) getTestConfigurationJSON {
+    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testconfiguration"
+                                                                          ofType:@"json"];
+    NSDictionary *testConfigurationJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
+                                                                    options:NSJSONReadingMutableContainers
+                                                                      error:nil];
+    return testConfigurationJson;
+}
+
++ (void)setupCognitoIdentityService {
+    if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
+        NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
+        AWSBasicSessionCredentialsProvider *credentialsProvider = [[AWSBasicSessionCredentialsProvider alloc]
+                                                                   initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
+                                                                           secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
+                                                                        sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
+        
+        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion: [self getRegionFromTestConfiguration]
+                                                                             credentialsProvider:credentialsProvider];
+        [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
+                                                              forKey:AWSTestUtilityCognitoIdentityServiceKey];
+    }
+}
+
+// un-comment and delete the old version from below for migration to use temporary credentials
+//+ (void)setupCognitoCredentialsProvider {
+//    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
+//        NSDictionary *commonTestConfiguration = [self getIntegrationTestConfigurationForPackageId: @"common"];
+//        if ([[commonTestConfiguration[@"cognito_support_in_region"] lowercaseString] isEqualToString: @"false"]) {
+//            NSException *exception = [NSException exceptionWithName:@"IntegrationTestSetupExeception"
+//                                                             reason:[NSString stringWithFormat:@"Cognito not supported in region :  %@",commonTestConfiguration[@"region"]]
+//                                                           userInfo:nil];
+//            @throw exception;
+//        }
+//
+//        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:[self getRegionFromTestConfiguration]
+//                                                                                                        identityPoolId:commonTestConfiguration[@"identityPoolId"]
+//                                                                                                         unauthRoleArn:commonTestConfiguration[@"unauthRoleArn"]
+//                                                                                                           authRoleArn:commonTestConfiguration[@"authRoleArn"]
+//                                                                                               identityProviderManager:nil];
+//
+//        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[self getRegionFromTestConfiguration]
+//                                                                             credentialsProvider:credentialsProvider];
+//        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
+//    }
+//}
+
+
+Method _originalDateMethod;
+Method _mockDateMethod;
+static char mockDateKey;
+
+// Mock Method, replaces [NSDate date]
+- (NSDate *)mockDateSwizzle {
+    return objc_getAssociatedObject([NSDate class], &mockDateKey);
+}
+
+// Convenience method so tests can set what they want [NSDate date] to return
++ (void)setMockDate:(NSDate *)aMockDate {
+    objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
+}
+
++ (void)setupSwizzling {
+    // Start by having the mock return the test startup date
+    [self setMockDate:[NSDate date]];
+
+    // Save these as instance variables so test teardown can swap the implementation back
+    _originalDateMethod = class_getClassMethod([NSDate class], @selector(date));
+    _mockDateMethod = class_getInstanceMethod([self class], @selector(mockDateSwizzle));
+    method_exchangeImplementations(_originalDateMethod, _mockDateMethod);
+
+    //make sure current runTimeClockSkew is 0
+    [NSDate aws_setRuntimeClockSkew:0];
+}
+
++ (void)revertSwizzling {
+    // Revert the swizzle
+    method_exchangeImplementations(_mockDateMethod, _originalDateMethod);
+    //reset RunTimeClockSkew
+    [NSDate aws_setRuntimeClockSkew:0];
+}
+
+
+// Methods from here need to be deprecated
 + (void)setupCredentialsViaFile {
     if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
 #if AWS_TEST_BJS_INSTEAD
@@ -168,20 +281,6 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     return credentialsJson;
 }
 
-+ (void)setupCognitoIdentityService {
-    if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
-        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
-
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
-                                                                             credentialsProvider:credentialsProvider];
-        [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
-                                                              forKey:AWSTestUtilityCognitoIdentityServiceKey];
-    }
-}
-
 + (AWSRegionType)getDefaultRegionType {
     NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
     NSString *regionString = credentialsJson[@"region"] ?: @"us-east-1";
@@ -228,40 +327,6 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
             return false;
             break;
     }
-}
-
-Method _originalDateMethod;
-Method _mockDateMethod;
-static char mockDateKey;
-
-// Mock Method, replaces [NSDate date]
-- (NSDate *)mockDateSwizzle {
-    return objc_getAssociatedObject([NSDate class], &mockDateKey);
-}
-
-// Convenience method so tests can set what they want [NSDate date] to return
-+ (void)setMockDate:(NSDate *)aMockDate {
-    objc_setAssociatedObject([NSDate class], &mockDateKey, aMockDate, OBJC_ASSOCIATION_RETAIN);
-}
-
-+ (void)setupSwizzling {
-    // Start by having the mock return the test startup date
-    [self setMockDate:[NSDate date]];
-
-    // Save these as instance variables so test teardown can swap the implementation back
-    _originalDateMethod = class_getClassMethod([NSDate class], @selector(date));
-    _mockDateMethod = class_getInstanceMethod([self class], @selector(mockDateSwizzle));
-    method_exchangeImplementations(_originalDateMethod, _mockDateMethod);
-
-    //make sure current runTimeClockSkew is 0
-    [NSDate aws_setRuntimeClockSkew:0];
-}
-
-+ (void)revertSwizzling {
-    // Revert the swizzle
-    method_exchangeImplementations(_mockDateMethod, _originalDateMethod);
-    //reset RunTimeClockSkew
-    [NSDate aws_setRuntimeClockSkew:0];
 }
 
 @end

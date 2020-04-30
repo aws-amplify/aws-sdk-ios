@@ -23,8 +23,7 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
     
     override class func setUp() {
         super.setUp()
-        // Setup cognito credentials to use for tests.
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
     
     override func setUp() {

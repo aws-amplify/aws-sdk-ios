@@ -393,6 +393,45 @@
 		211167392399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */; };
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
+		43B25D162456187000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D17245619DE00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D18245619E000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D19245619E300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1A245619E600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1B245619EC00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1C245619EF00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1D245619F100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1E245619F300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D1F245619F600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D20245619F800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D21245619FD00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2224561A0000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2324561A0200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2424561A0400C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2524561A0500C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2624561A0700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2724561A0900C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2824561A0B00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2924561A0E00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2A24561A0F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2B24561A1100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2C24561A1600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2D24561A1800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2E24561A1B00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D2F24561A1F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3024561A2000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3124561A2200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3224561A2400C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3324561A2700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3424561A2800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3524561A2D00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3624561A2F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3724561A3100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3824561A3200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3924561A3300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3A24561A3500C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3B24561A3700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
+		43B25D3C24561A8300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
 		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		95CEF9F723C0054C006D4663 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -3772,6 +3811,7 @@
 		211167372399CE8400902FC1 /* AWSKinesisVideoSignalingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoSignalingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoSignalingTests.m; sourceTree = "<group>"; };
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
+		43B25D152456187000C40F76 /* testconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testconfiguration.json; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
@@ -8024,6 +8064,7 @@
 		CEB8EF3D1C6A69AB0098B15B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				43B25D152456187000C40F76 /* testconfiguration.json */,
 				CEB8EF3E1C6A69AB0098B15B /* credentials.json */,
 			);
 			path = Resources;
@@ -11926,6 +11967,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2824561A0B00C40F76 /* testconfiguration.json in Resources */,
 				FA41B39322C652E300142F8D /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11950,6 +11992,7 @@
 			files = (
 				FA41B39422C652E700142F8D /* credentials.json in Resources */,
 				17F389C520F9B51400DADF5B /* AWSCore.framework in Resources */,
+				43B25D2724561A0900C40F76 /* testconfiguration.json in Resources */,
 				17F389C420F9B50E00DADF5B /* AWSKinesisVideo.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11966,6 +12009,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABD9ED422D6661300BD4441 /* hello_world.wav in Resources */,
+				43B25D3A24561A3500C40F76 /* testconfiguration.json in Resources */,
 				FA53332422D4110900BD88AF /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11974,6 +12018,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3924561A3300C40F76 /* testconfiguration.json in Resources */,
 				17ADAEA3209BD24500FF7598 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12028,6 +12073,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2B24561A1100C40F76 /* testconfiguration.json in Resources */,
 				183BD93D1D8A406F004B2659 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12043,6 +12089,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2F24561A1F00C40F76 /* testconfiguration.json in Resources */,
 				18798FFB1DEFCB1B00BC419B /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12079,6 +12126,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3024561A2000C40F76 /* testconfiguration.json in Resources */,
 				18E2F59D1DED370300BD4608 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12108,6 +12156,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2924561A0E00C40F76 /* testconfiguration.json in Resources */,
 				211167362399CD2000902FC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12151,6 +12200,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1D245619F100C40F76 /* testconfiguration.json in Resources */,
 				9A7ACD0B20B1CF7C00DDBEC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12159,6 +12209,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3B24561A3700C40F76 /* testconfiguration.json in Resources */,
 				9A7ACD0420B12E5B00DDBEC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12171,6 +12222,7 @@
 				9AD5842A20F63E9B00042041 /* city_thumb.jpg in Resources */,
 				9AC4C4EE20F4F18300B1ECF4 /* credentials.json in Resources */,
 				9AD5842820F63E6700042041 /* singleface.jpg in Resources */,
+				43B25D3124561A2200C40F76 /* testconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12185,6 +12237,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3324561A2700C40F76 /* testconfiguration.json in Resources */,
 				B4A4E04122B4282000379396 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12214,6 +12267,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1F245619F600C40F76 /* testconfiguration.json in Resources */,
 				B4D61D03232867A5007E7A12 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12236,6 +12290,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3824561A3200C40F76 /* testconfiguration.json in Resources */,
 				B5A0263522F022F4001C75CE /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12251,6 +12306,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1E245619F300C40F76 /* testconfiguration.json in Resources */,
 				B5DD454822C9B49E003871AE /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12274,6 +12330,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D162456187000C40F76 /* testconfiguration.json in Resources */,
 				CEB8EF491C6A69AB0098B15B /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12427,6 +12484,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D18245619E000C40F76 /* testconfiguration.json in Resources */,
 				CE9DE5691C6A74FC0060793F /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12442,6 +12500,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D20245619F800C40F76 /* testconfiguration.json in Resources */,
 				CEFE06591C6AA24D007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12459,6 +12518,7 @@
 			files = (
 				18DD79BF1D67BC2A00845EBD /* ec2-input.json in Resources */,
 				18DD79C01D67BC2A00845EBD /* ec2-output.json in Resources */,
+				43B25D21245619FD00C40F76 /* testconfiguration.json in Resources */,
 				CEFE065A1C6AA24E007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12474,6 +12534,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2224561A0000C40F76 /* testconfiguration.json in Resources */,
 				CEFE065B1C6AA24F007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12490,6 +12551,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAB43DE23D279EF00F7BCBB /* test-identity-password-is-abc123.p12 in Resources */,
+				43B25D2324561A0200C40F76 /* testconfiguration.json in Resources */,
 				CEFE065C1C6AA24F007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12505,6 +12567,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2624561A0700C40F76 /* testconfiguration.json in Resources */,
 				CEFE065D1C6AA250007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12520,6 +12583,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2A24561A0F00C40F76 /* testconfiguration.json in Resources */,
 				CEFE065E1C6AA251007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12535,6 +12599,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2C24561A1600C40F76 /* testconfiguration.json in Resources */,
 				CEFE065F1C6AA252007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12551,6 +12616,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEFE06601C6AA253007A42E4 /* credentials.json in Resources */,
+				43B25D2E24561A1B00C40F76 /* testconfiguration.json in Resources */,
 				CE9DE9AB1C6A7BDC0060793F /* AWSiOSSDKv2AnalyticsTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12566,6 +12632,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3224561A2400C40F76 /* testconfiguration.json in Resources */,
 				CEFE06611C6AA254007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12581,6 +12648,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3424561A2800C40F76 /* testconfiguration.json in Resources */,
 				CEFE06621C6AA256007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12596,6 +12664,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3524561A2D00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06631C6AA257007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12611,6 +12680,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3624561A2F00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06641C6AA257007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12626,6 +12696,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3724561A3100C40F76 /* testconfiguration.json in Resources */,
 				CEFE06651C6AA258007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12641,6 +12712,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1C245619EF00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06581C6AA24D007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12656,6 +12728,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D17245619DE00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06561C6AA249007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12671,6 +12744,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D19245619E300C40F76 /* testconfiguration.json in Resources */,
 				CEFE06571C6AA24A007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12679,6 +12753,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2D24561A1800C40F76 /* testconfiguration.json in Resources */,
 				CE9E509A1C72C3B500B60FD7 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12694,6 +12769,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1B245619EC00C40F76 /* testconfiguration.json in Resources */,
 				CEA316CD1C93A468002A9F58 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12723,6 +12799,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D2524561A0500C40F76 /* testconfiguration.json in Resources */,
 				E4E1DA5D1E5F5C080080F769 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12747,6 +12824,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D1A245619E600C40F76 /* testconfiguration.json in Resources */,
 				EFDE85F21ED2050C008841EC /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12762,6 +12840,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				43B25D3C24561A8300C40F76 /* testconfiguration.json in Resources */,
 				95CEF9F723C0054C006D4663 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12771,6 +12850,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFE10D8234D3F2E00BD2DCA /* credentials.json in Resources */,
+				43B25D2424561A0400C40F76 /* testconfiguration.json in Resources */,
 				FAFE10C2234D3E2500BD2DCA /* ota_integ_test.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

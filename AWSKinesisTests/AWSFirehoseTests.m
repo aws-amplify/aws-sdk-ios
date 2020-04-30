@@ -29,7 +29,7 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
 
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 - (void)tearDown {

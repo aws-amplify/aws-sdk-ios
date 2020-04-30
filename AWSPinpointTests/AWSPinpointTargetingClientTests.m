@@ -55,13 +55,14 @@ static NSString *userId;
 - (void)setUp {
     [super setUp];
 
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:AWSPinpointTargetingClientTestsName];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:AWSPinpointTargetingClientTestsName];
     [self.userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
     [self.userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
     [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
     [self.userDefaults synchronize];
+    
 }
 
 - (void)tearDown {
@@ -69,13 +70,9 @@ static NSString *userId;
 }
 
 - (AWSPinpointConfiguration *)getDefaultAWSPinpointConfiguration {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
 
-    return [[AWSPinpointConfiguration alloc] initWithAppId:credentialsJson[@"pinpointAppId"] launchOptions:@{}];
+    return [[AWSPinpointConfiguration alloc] initWithAppId:testConfig[@"pinpointAppId"] launchOptions:@{}];
 }
 
 - (AWSPinpointConfiguration *)getAWSPinpointConfigurationWithOptOut:(BOOL)optOut {

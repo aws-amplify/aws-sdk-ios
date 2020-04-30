@@ -22,15 +22,20 @@ class AWSMobileClientTestBase: XCTestCase {
     let sharedPassword: String = "Abc123@@!!"
     
     override class func setUp() {
-        let credentialsJson = loadCredentialsFromFile()
-        userPoolId = (credentialsJson["mc-userpool_id"] as! String)
-        sharedEmail = (credentialsJson["mc-email"] as! String)
-        identityPoolId = (credentialsJson["mc-pool_id_dev_auth"] as! String)
+        let testConfigurationJSON = loadTestConfigurationFromFile()
+        let credentialsTestConfiguration = testConfigurationJSON["Credentials"] as! [String: Any]
+        let allPackagesTestConfiguration = testConfigurationJSON["Packages"] as! [String: Any]
+        let mobileClientTesConfiguration = allPackagesTestConfiguration["mobileclient"] as! [String: Any]
         
-        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: credentialsJson["accessKey"] as! String,
-                                                               secretKey: credentialsJson["secretKey"] as! String)
+        userPoolId = (mobileClientTesConfiguration["mc-userpool_id"] as! String)
+        sharedEmail = (mobileClientTesConfiguration["mc-email"] as! String)
+        identityPoolId = (mobileClientTesConfiguration["mc-pool_id_dev_auth"] as! String)
         
-        let region = (credentialsJson["mc-region"] as! String).aws_regionTypeValue()
+        let credentialsProvider = AWSBasicSessionCredentialsProvider(accessKey: credentialsTestConfiguration["accessKey"] as! String,
+                                                                     secretKey: credentialsTestConfiguration["secretKey"] as! String,
+                                                                     sessionToken: credentialsTestConfiguration["sessionToken"] as! String)
+        
+        let region = (credentialsTestConfiguration["region"] as! String).aws_regionTypeValue()
         let configuration = AWSServiceConfiguration(region: region, credentialsProvider: credentialsProvider)!
         
         AWSCognitoIdentityProvider.register(with: configuration, forKey: "TEST")
@@ -49,11 +54,11 @@ class AWSMobileClientTestBase: XCTestCase {
     
     //MARK: Helper methods
     
-    static func loadCredentialsFromFile() -> [String: Any] {
-        let filePath = Bundle(for: AWSMobileClientTestBase.self).path(forResource: "credentials-mc", ofType: "json")!
+    static func loadTestConfigurationFromFile() -> [String: Any] {
+        let filePath = Bundle(for: AWSMobileClientTestBase.self).path(forResource: "testconfiguration", ofType: "json")!
         let fileData = try! NSData(contentsOfFile: filePath) as Data
-        let credentialsJson = try! JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! [String: Any]
-        return credentialsJson
+        let testConfigurationJSON = try! JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! [String: Any]
+        return testConfigurationJSON
     }
     
     static func initializeMobileClient() {

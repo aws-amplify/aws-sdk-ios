@@ -32,18 +32,10 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     if (![AWSSTS STSForKey:AWSClockSkewTestsSTSKey]) {
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                             credentialsProvider:credentialsProvider];
+        AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         [AWSSTS registerSTSWithConfiguration:configuration
                                       forKey:AWSClockSkewTestsSTSKey];
     }
@@ -112,8 +104,8 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
 }
 #endif
-*/
-//STS Test
+ // Disabling this test which needs static long term credentials
+STS Test
 -(void)testClockSkewSTS
 {
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
@@ -142,6 +134,7 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
     }] waitUntilFinished];
 
 }
+*/
 
 //Cognito Identity Service Test
 #if !AWS_TEST_BJS_INSTEAD

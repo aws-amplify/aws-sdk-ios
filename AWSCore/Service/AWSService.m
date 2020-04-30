@@ -147,7 +147,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
                       endpoint:(AWSEndpoint *)endpoint
-           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider{
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
         _endpoint = endpoint;
     }

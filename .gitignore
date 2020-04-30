@@ -34,6 +34,7 @@ AWS*.framework
 
 # Stuff that can't be committed #
 ######################
+testconfiguration.json
 credentials.json
 Pods
 Podfile.lock
