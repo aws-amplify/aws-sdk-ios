@@ -16502,7 +16502,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
 				);
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSRekognitionUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -16520,7 +16519,6 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
 				);
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSRekognitionUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -17182,7 +17180,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/AWSCoreTests/OCMock";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSRekognitionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -17210,7 +17207,6 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = "$(PROJECT_DIR)/AWSCoreTests/OCMock";
-				ONLY_ACTIVE_ARCH = NO;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazon.AWSRekognitionTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
