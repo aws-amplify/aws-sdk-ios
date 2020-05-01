@@ -15,6 +15,7 @@
 
 #import "AWSTestUtility.h"
 #import <AWSCore/AWSCore.h>
+#import <AWSTestResources/AWSTestResources.h>
 #import <objc/runtime.h>
 
 NSString *const AWSTestUtilitySTSKey = @"test-sts";
@@ -71,7 +72,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
                                                                initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
                                                                        secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
                                                                     sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion: [self getRegionFromTestConfiguration]
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[self getRegionFromTestConfiguration]
                                                                          credentialsProvider:credentialsProvider];
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
@@ -86,7 +87,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 }
 
 + (AWSRegionType) getRegionFromTestConfiguration {
-    return [[self getIntegrationTestConfigurationForPackageId: @"common"][@"region"] aws_regionTypeValue];
+    return [[self getIntegrationTestConfigurationForPackageId:@"common"][@"region"] aws_regionTypeValue];
 }
 
 + (NSString *) getAccountIdFromTestConfiguration {
@@ -95,12 +96,7 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 }
 
 + (NSDictionary *) getTestConfigurationJSON {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"testconfiguration"
-                                                                          ofType:@"json"];
-    NSDictionary *testConfigurationJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    return testConfigurationJson;
+    return [AWSTestConfiguration getTestConfiguration];
 }
 
 + (void)setupCognitoIdentityService {
