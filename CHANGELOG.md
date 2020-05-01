@@ -1,3 +1,12 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---amazonsimplesystemsmanagerssm
+---amazonelasticfilesystem
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
