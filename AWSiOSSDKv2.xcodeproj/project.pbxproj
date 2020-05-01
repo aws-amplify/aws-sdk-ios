@@ -393,45 +393,6 @@
 		211167392399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */; };
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
-		43B25D162456187000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D17245619DE00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D18245619E000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D19245619E300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1A245619E600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1B245619EC00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1C245619EF00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1D245619F100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1E245619F300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D1F245619F600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D20245619F800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D21245619FD00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2224561A0000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2324561A0200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2424561A0400C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2524561A0500C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2624561A0700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2724561A0900C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2824561A0B00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2924561A0E00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2A24561A0F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2B24561A1100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2C24561A1600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2D24561A1800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2E24561A1B00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D2F24561A1F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3024561A2000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3124561A2200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3224561A2400C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3324561A2700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3424561A2800C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3524561A2D00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3624561A2F00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3724561A3100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3824561A3200C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3924561A3300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3A24561A3500C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3B24561A3700C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
-		43B25D3C24561A8300C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D152456187000C40F76 /* testconfiguration.json */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
 		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		95CEF9F723C0054C006D4663 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -1372,6 +1333,9 @@
 		FABD9ED822D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */; };
 		FAC3E7002208AE460037813E /* AWSFMDB+AWSHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = FAC3E6FF2208AE460037813E /* AWSFMDB+AWSHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAC3E7022208B0D60037813E /* AWSFMDB+AWSHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */; };
+		FAD9DD23245CD135003F84D0 /* AWSTestResources.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD21245CD135003F84D0 /* AWSTestResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAD9DD2B245CD193003F84D0 /* AWSTestConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD29245CD193003F84D0 /* AWSTestConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FAD9DD2C245CD193003F84D0 /* AWSTestConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */; };
 		FADA6AFF22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */; };
 		FADA6B0022D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */; };
 		FAE19B6F23341A5100560F1D /* AWSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D417B1C6A66E5006B91B5 /* AWSCoreTests.m */; };
@@ -3093,6 +3057,13 @@
 			remoteGlobalIDString = EFDE85BA1FC5DD3D00D281A2;
 			remoteInfo = AWSCognitoIdentityProviderASF;
 		};
+		FA14E4DF245CD4B000990BB9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
 		FA1DC22823A1467000E43AA4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -3811,7 +3782,6 @@
 		211167372399CE8400902FC1 /* AWSKinesisVideoSignalingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoSignalingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoSignalingTests.m; sourceTree = "<group>"; };
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
-		43B25D152456187000C40F76 /* testconfiguration.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = testconfiguration.json; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
@@ -4802,6 +4772,11 @@
 		FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSTranscribeStreamingTranscriptResultStream+Helpers.m"; sourceTree = "<group>"; };
 		FAC3E6FF2208AE460037813E /* AWSFMDB+AWSHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSFMDB+AWSHelpers.h"; sourceTree = "<group>"; };
 		FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSFMDB+AWSHelpers.m"; sourceTree = "<group>"; };
+		FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTestResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FAD9DD21245CD135003F84D0 /* AWSTestResources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTestResources.h; sourceTree = "<group>"; };
+		FAD9DD22245CD135003F84D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FAD9DD29245CD193003F84D0 /* AWSTestConfiguration.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTestConfiguration.h; sourceTree = "<group>"; };
+		FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTestConfiguration.m; sourceTree = "<group>"; };
 		FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocketDelegateAdaptor.h; sourceTree = "<group>"; };
 		FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketDelegateAdaptor.m; sourceTree = "<group>"; };
 		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
@@ -5745,6 +5720,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAD9DD1C245CD135003F84D0 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAFE10AC234D3CF200BD2DCA /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -6474,6 +6456,7 @@
 			children = (
 				CE6983C11CEE52D40092640F /* AWSAllTests */,
 				181154771E201403008F184C /* AWSAllTestsHost */,
+				FAD9DD20245CD135003F84D0 /* AWSTestResources */,
 				CE9DEB1F1C6A81160060793F /* AWSAPIGateway */,
 				CE9DEB2B1C6A81160060793F /* AWSAPIGatewayTests */,
 				CE5603EA1C6BC86C00B4E00B /* AWSAPIGatewayUnitTests */,
@@ -6713,6 +6696,7 @@
 				211166F62399C24900902FC1 /* AWSKinesisVideoSignaling.framework */,
 				211166FE2399C24900902FC1 /* AWSKinesisVideoSignalingTests.xctest */,
 				211167282399C83600902FC1 /* AWSKinesisVideoSignalingUnitTests.xctest */,
+				FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -8064,7 +8048,6 @@
 		CEB8EF3D1C6A69AB0098B15B /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				43B25D152456187000C40F76 /* testconfiguration.json */,
 				CEB8EF3E1C6A69AB0098B15B /* credentials.json */,
 			);
 			path = Resources;
@@ -8387,6 +8370,17 @@
 				FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FAD9DD20245CD135003F84D0 /* AWSTestResources */ = {
+			isa = PBXGroup;
+			children = (
+				FAD9DD29245CD193003F84D0 /* AWSTestConfiguration.h */,
+				FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */,
+				FAD9DD21245CD135003F84D0 /* AWSTestResources.h */,
+				FAD9DD22245CD135003F84D0 /* Info.plist */,
+			);
+			path = AWSTestResources;
 			sourceTree = "<group>";
 		};
 		FAE19B7023341D4600560F1D /* Resources */ = {
@@ -9130,6 +9124,15 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAD9DD1A245CD135003F84D0 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD9DD23245CD135003F84D0 /* AWSTestResources.h in Headers */,
+				FAD9DD2B245CD193003F84D0 /* AWSTestConfiguration.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
@@ -9137,9 +9140,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1778555E20F9A72800D083BB /* Build configuration list for PBXNativeTarget "AWSKinesisVideo" */;
 			buildPhases = (
+				1778554020F9A72800D083BB /* Headers */,
 				1778553E20F9A72800D083BB /* Sources */,
 				1778553F20F9A72800D083BB /* Frameworks */,
-				1778554020F9A72800D083BB /* Headers */,
 				1778554120F9A72800D083BB /* Resources */,
 			);
 			buildRules = (
@@ -9156,9 +9159,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1778557F20F9A7CE00D083BB /* Build configuration list for PBXNativeTarget "AWSKinesisVideoArchivedMedia" */;
 			buildPhases = (
+				1778556520F9A7CD00D083BB /* Headers */,
 				1778556320F9A7CD00D083BB /* Sources */,
 				1778556420F9A7CD00D083BB /* Frameworks */,
-				1778556520F9A7CD00D083BB /* Headers */,
 				1778556620F9A7CD00D083BB /* Resources */,
 			);
 			buildRules = (
@@ -9250,9 +9253,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 178A801722AF7DA600B167D6 /* Build configuration list for PBXNativeTarget "AWSTranscribeStreaming" */;
 			buildPhases = (
+				178A800722AF7DA600B167D6 /* Headers */,
 				178A800822AF7DA600B167D6 /* Sources */,
 				178A800922AF7DA600B167D6 /* Frameworks */,
-				178A800722AF7DA600B167D6 /* Headers */,
 				178A800A22AF7DA600B167D6 /* Resources */,
 			);
 			buildRules = (
@@ -9307,9 +9310,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 17E6B451209BB7A90079B286 /* Build configuration list for PBXNativeTarget "AWSTranscribe" */;
 			buildPhases = (
+				17E6B433209BB7A80079B286 /* Headers */,
 				17E6B431209BB7A80079B286 /* Sources */,
 				17E6B432209BB7A80079B286 /* Frameworks */,
-				17E6B433209BB7A80079B286 /* Headers */,
 				17E6B434209BB7A80079B286 /* Resources */,
 			);
 			buildRules = (
@@ -9368,9 +9371,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 181270DC1E8EB53A00174785 /* Build configuration list for PBXNativeTarget "AWSLogs" */;
 			buildPhases = (
+				181270BE1E8EB53900174785 /* Headers */,
 				181270BC1E8EB53900174785 /* Sources */,
 				181270BD1E8EB53900174785 /* Frameworks */,
-				181270BE1E8EB53900174785 /* Headers */,
 				181270BF1E8EB53900174785 /* Resources */,
 			);
 			buildRules = (
@@ -9407,9 +9410,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 185111E01D78F03B0009F5C3 /* Build configuration list for PBXNativeTarget "AWSLex" */;
 			buildPhases = (
+				185111C81D78F03B0009F5C3 /* Headers */,
 				185111C61D78F03B0009F5C3 /* Sources */,
 				185111C71D78F03B0009F5C3 /* Frameworks */,
-				185111C81D78F03B0009F5C3 /* Headers */,
 				185111C91D78F03B0009F5C3 /* Resources */,
 			);
 			buildRules = (
@@ -9445,9 +9448,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18798F931DEF9EAA00BC419B /* Build configuration list for PBXNativeTarget "AWSPinpoint" */;
 			buildPhases = (
+				18798F7B1DEF9EA900BC419B /* Headers */,
 				18798F791DEF9EA900BC419B /* Sources */,
 				18798F7A1DEF9EA900BC419B /* Frameworks */,
-				18798F7B1DEF9EA900BC419B /* Headers */,
 				18798F7C1DEF9EA900BC419B /* Resources */,
 			);
 			buildRules = (
@@ -9503,9 +9506,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 188321171DFF11B9003FBE9F /* Build configuration list for PBXNativeTarget "AWSRekognition" */;
 			buildPhases = (
+				188320FF1DFF11B8003FBE9F /* Headers */,
 				188320FD1DFF11B8003FBE9F /* Sources */,
 				188320FE1DFF11B8003FBE9F /* Frameworks */,
-				188320FF1DFF11B8003FBE9F /* Headers */,
 				188321001DFF11B8003FBE9F /* Resources */,
 			);
 			buildRules = (
@@ -9542,9 +9545,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 18E2F5721DED307600BD4608 /* Build configuration list for PBXNativeTarget "AWSPolly" */;
 			buildPhases = (
+				18E2F55E1DED307400BD4608 /* Headers */,
 				18E2F55C1DED307400BD4608 /* Sources */,
 				18E2F55D1DED307400BD4608 /* Frameworks */,
-				18E2F55E1DED307400BD4608 /* Headers */,
 				18E2F55F1DED307400BD4608 /* Resources */,
 			);
 			buildRules = (
@@ -9676,9 +9679,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A7ACC3B20B0E85100DDBEC1 /* Build configuration list for PBXNativeTarget "AWSTranslate" */;
 			buildPhases = (
+				9A7ACC1D20B0E85000DDBEC1 /* Headers */,
 				9A7ACC1B20B0E85000DDBEC1 /* Sources */,
 				9A7ACC1C20B0E85000DDBEC1 /* Frameworks */,
-				9A7ACC1D20B0E85000DDBEC1 /* Headers */,
 				9A7ACC1E20B0E85000DDBEC1 /* Resources */,
 			);
 			buildRules = (
@@ -9715,9 +9718,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 9A7ACC8220B110DF00DDBEC1 /* Build configuration list for PBXNativeTarget "AWSComprehend" */;
 			buildPhases = (
+				9A7ACC6820B110DE00DDBEC1 /* Headers */,
 				9A7ACC6620B110DE00DDBEC1 /* Sources */,
 				9A7ACC6720B110DE00DDBEC1 /* Frameworks */,
-				9A7ACC6820B110DE00DDBEC1 /* Headers */,
 				9A7ACC6920B110DE00DDBEC1 /* Resources */,
 			);
 			buildRules = (
@@ -10034,9 +10037,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE0D417E1C6A66E5006B91B5 /* Build configuration list for PBXNativeTarget "AWSCore" */;
 			buildPhases = (
+				CE0D416A1C6A66E5006B91B5 /* Headers */,
 				CE0D41681C6A66E5006B91B5 /* Sources */,
 				CE0D41691C6A66E5006B91B5 /* Frameworks */,
-				CE0D416A1C6A66E5006B91B5 /* Headers */,
 				CE0D416B1C6A66E5006B91B5 /* Resources */,
 			);
 			buildRules = (
@@ -10059,6 +10062,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA14E4E0245CD4B000990BB9 /* PBXTargetDependency */,
 				CE0D41791C6A66E5006B91B5 /* PBXTargetDependency */,
 				1811548E1E201413008F184C /* PBXTargetDependency */,
 			);
@@ -10431,9 +10435,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE5451C6A72960060793F /* Build configuration list for PBXNativeTarget "AWSAutoScaling" */;
 			buildPhases = (
+				CE9DE5311C6A72960060793F /* Headers */,
 				CE9DE52F1C6A72960060793F /* Sources */,
 				CE9DE5301C6A72960060793F /* Frameworks */,
-				CE9DE5311C6A72960060793F /* Headers */,
 				CE9DE5321C6A72960060793F /* Resources */,
 			);
 			buildRules = (
@@ -10469,9 +10473,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE5811C6A763E0060793F /* Build configuration list for PBXNativeTarget "AWSDynamoDB" */;
 			buildPhases = (
+				CE9DE56D1C6A763E0060793F /* Headers */,
 				CE9DE56B1C6A763E0060793F /* Sources */,
 				CE9DE56C1C6A763E0060793F /* Frameworks */,
-				CE9DE56D1C6A763E0060793F /* Headers */,
 				CE9DE56E1C6A763E0060793F /* Resources */,
 			);
 			buildRules = (
@@ -10507,9 +10511,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE5BD1C6A77890060793F /* Build configuration list for PBXNativeTarget "AWSEC2" */;
 			buildPhases = (
+				CE9DE5A91C6A77880060793F /* Headers */,
 				CE9DE5A71C6A77880060793F /* Sources */,
 				CE9DE5A81C6A77880060793F /* Frameworks */,
-				CE9DE5A91C6A77880060793F /* Headers */,
 				CE9DE5AA1C6A77880060793F /* Resources */,
 			);
 			buildRules = (
@@ -10545,9 +10549,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE5ED1C6A78200060793F /* Build configuration list for PBXNativeTarget "AWSElasticLoadBalancing" */;
 			buildPhases = (
+				CE9DE5D91C6A78200060793F /* Headers */,
 				CE9DE5D71C6A78200060793F /* Sources */,
 				CE9DE5D81C6A78200060793F /* Frameworks */,
-				CE9DE5D91C6A78200060793F /* Headers */,
 				CE9DE5DA1C6A78200060793F /* Resources */,
 			);
 			buildRules = (
@@ -10583,9 +10587,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE61D1C6A78A70060793F /* Build configuration list for PBXNativeTarget "AWSIoT" */;
 			buildPhases = (
+				CE9DE6091C6A78A60060793F /* Headers */,
 				CE9DE6071C6A78A60060793F /* Sources */,
 				CE9DE6081C6A78A60060793F /* Frameworks */,
-				CE9DE6091C6A78A60060793F /* Headers */,
 				CE9DE60A1C6A78A60060793F /* Resources */,
 			);
 			buildRules = (
@@ -10621,9 +10625,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE6981C6A79470060793F /* Build configuration list for PBXNativeTarget "AWSKinesis" */;
 			buildPhases = (
+				CE9DE6841C6A79460060793F /* Headers */,
 				CE9DE6821C6A79460060793F /* Sources */,
 				CE9DE6831C6A79460060793F /* Frameworks */,
-				CE9DE6841C6A79460060793F /* Headers */,
 				CE9DE6851C6A79460060793F /* Resources */,
 			);
 			buildRules = (
@@ -10659,9 +10663,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE6EA1C6A79DF0060793F /* Build configuration list for PBXNativeTarget "AWSLambda" */;
 			buildPhases = (
+				CE9DE6D61C6A79DF0060793F /* Headers */,
 				CE9DE6D41C6A79DF0060793F /* Sources */,
 				CE9DE6D51C6A79DF0060793F /* Frameworks */,
-				CE9DE6D61C6A79DF0060793F /* Headers */,
 				CE9DE6D71C6A79DF0060793F /* Resources */,
 			);
 			buildRules = (
@@ -10697,9 +10701,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE7201C6A7A690060793F /* Build configuration list for PBXNativeTarget "AWSMachineLearning" */;
 			buildPhases = (
+				CE9DE70C1C6A7A680060793F /* Headers */,
 				CE9DE70A1C6A7A680060793F /* Sources */,
 				CE9DE70B1C6A7A680060793F /* Frameworks */,
-				CE9DE70C1C6A7A680060793F /* Headers */,
 				CE9DE70D1C6A7A680060793F /* Resources */,
 			);
 			buildRules = (
@@ -10735,9 +10739,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE74F1C6A7AE40060793F /* Build configuration list for PBXNativeTarget "AWSMobileAnalytics" */;
 			buildPhases = (
+				CE9DE73B1C6A7AE30060793F /* Headers */,
 				CE9DE7391C6A7AE30060793F /* Sources */,
 				CE9DE73A1C6A7AE30060793F /* Frameworks */,
-				CE9DE73B1C6A7AE30060793F /* Headers */,
 				CE9DE73C1C6A7AE30060793F /* Resources */,
 			);
 			buildRules = (
@@ -10773,9 +10777,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DE9CE1C6A7C2E0060793F /* Build configuration list for PBXNativeTarget "AWSS3" */;
 			buildPhases = (
+				CE9DE9BA1C6A7C2D0060793F /* Headers */,
 				CE9DE9B81C6A7C2D0060793F /* Sources */,
 				CE9DE9B91C6A7C2D0060793F /* Frameworks */,
-				CE9DE9BA1C6A7C2D0060793F /* Headers */,
 				CE9DE9BB1C6A7C2D0060793F /* Resources */,
 			);
 			buildRules = (
@@ -10811,9 +10815,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEA0E1C6A7E000060793F /* Build configuration list for PBXNativeTarget "AWSSES" */;
 			buildPhases = (
+				CE9DE9FA1C6A7DFF0060793F /* Headers */,
 				CE9DE9F81C6A7DFF0060793F /* Sources */,
 				CE9DE9F91C6A7DFF0060793F /* Frameworks */,
-				CE9DE9FA1C6A7DFF0060793F /* Headers */,
 				CE9DE9FB1C6A7DFF0060793F /* Resources */,
 			);
 			buildRules = (
@@ -10849,9 +10853,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEA3E1C6A7E710060793F /* Build configuration list for PBXNativeTarget "AWSSimpleDB" */;
 			buildPhases = (
+				CE9DEA2A1C6A7E710060793F /* Headers */,
 				CE9DEA281C6A7E710060793F /* Sources */,
 				CE9DEA291C6A7E710060793F /* Frameworks */,
-				CE9DEA2A1C6A7E710060793F /* Headers */,
 				CE9DEA2B1C6A7E710060793F /* Resources */,
 			);
 			buildRules = (
@@ -10887,9 +10891,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEA6E1C6A7EE40060793F /* Build configuration list for PBXNativeTarget "AWSSNS" */;
 			buildPhases = (
+				CE9DEA5A1C6A7EE30060793F /* Headers */,
 				CE9DEA581C6A7EE30060793F /* Sources */,
 				CE9DEA591C6A7EE30060793F /* Frameworks */,
-				CE9DEA5A1C6A7EE30060793F /* Headers */,
 				CE9DEA5B1C6A7EE30060793F /* Resources */,
 			);
 			buildRules = (
@@ -10925,9 +10929,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEA9E1C6A7F460060793F /* Build configuration list for PBXNativeTarget "AWSSQS" */;
 			buildPhases = (
+				CE9DEA8A1C6A7F460060793F /* Headers */,
 				CE9DEA881C6A7F460060793F /* Sources */,
 				CE9DEA891C6A7F460060793F /* Frameworks */,
-				CE9DEA8A1C6A7F460060793F /* Headers */,
 				CE9DEA8B1C6A7F460060793F /* Resources */,
 			);
 			buildRules = (
@@ -10963,9 +10967,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEACE1C6A7FDF0060793F /* Build configuration list for PBXNativeTarget "AWSCognito" */;
 			buildPhases = (
+				CE9DEABA1C6A7FDF0060793F /* Headers */,
 				CE9DEAB81C6A7FDF0060793F /* Sources */,
 				CE9DEAB91C6A7FDF0060793F /* Frameworks */,
-				CE9DEABA1C6A7FDF0060793F /* Headers */,
 				CE9DEABB1C6A7FDF0060793F /* Resources */,
 			);
 			buildRules = (
@@ -11001,9 +11005,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEB2F1C6A81160060793F /* Build configuration list for PBXNativeTarget "AWSAPIGateway" */;
 			buildPhases = (
+				CE9DEB1B1C6A81160060793F /* Headers */,
 				CE9DEB191C6A81160060793F /* Sources */,
 				CE9DEB1A1C6A81160060793F /* Frameworks */,
-				CE9DEB1B1C6A81160060793F /* Headers */,
 				CE9DEB1C1C6A81160060793F /* Resources */,
 			);
 			buildRules = (
@@ -11039,9 +11043,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CE9DEB711C6A9F3D0060793F /* Build configuration list for PBXNativeTarget "AWSCloudWatch" */;
 			buildPhases = (
+				CE9DEB5D1C6A9F3D0060793F /* Headers */,
 				CE9DEB5B1C6A9F3D0060793F /* Sources */,
 				CE9DEB5C1C6A9F3D0060793F /* Frameworks */,
-				CE9DEB5D1C6A9F3D0060793F /* Headers */,
 				CE9DEB5E1C6A9F3D0060793F /* Resources */,
 			);
 			buildRules = (
@@ -11096,9 +11100,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = CEA316A91C93A0EA002A9F58 /* Build configuration list for PBXNativeTarget "AWSCognitoIdentityProvider" */;
 			buildPhases = (
+				CEA316951C93A0EA002A9F58 /* Headers */,
 				CEA316931C93A0EA002A9F58 /* Sources */,
 				CEA316941C93A0EA002A9F58 /* Frameworks */,
-				CEA316951C93A0EA002A9F58 /* Headers */,
 				CEA316961C93A0EA002A9F58 /* Resources */,
 			);
 			buildRules = (
@@ -11155,9 +11159,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = E4E1DA231E5F4E690080F769 /* Build configuration list for PBXNativeTarget "AWSKMS" */;
 			buildPhases = (
+				E4E1DA1B1E5F4E680080F769 /* Headers */,
 				E4E1DA191E5F4E680080F769 /* Sources */,
 				E4E1DA1A1E5F4E680080F769 /* Frameworks */,
-				E4E1DA1B1E5F4E680080F769 /* Headers */,
 				E4E1DA1C1E5F4E680080F769 /* Resources */,
 			);
 			buildRules = (
@@ -11213,9 +11217,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFDE85DE1FC5DD3D00D281A2 /* Build configuration list for PBXNativeTarget "AWSCognitoIdentityProviderASF" */;
 			buildPhases = (
+				EFDE85CB1FC5DD3D00D281A2 /* Headers */,
 				EFDE85BD1FC5DD3D00D281A2 /* Sources */,
 				EFDE85C91FC5DD3D00D281A2 /* Frameworks */,
-				EFDE85CB1FC5DD3D00D281A2 /* Headers */,
 				EFDE85DD1FC5DD3D00D281A2 /* Resources */,
 			);
 			buildRules = (
@@ -11231,9 +11235,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFDE85E21ED2046E008841EC /* Build configuration list for PBXNativeTarget "AWSCognitoAuth" */;
 			buildPhases = (
+				EFDE85CE1ED2046E008841EC /* Headers */,
 				EFDE85BF1ED2046E008841EC /* Sources */,
 				EFDE85CC1ED2046E008841EC /* Frameworks */,
-				EFDE85CE1ED2046E008841EC /* Headers */,
 				EFDE85E11ED2046E008841EC /* Resources */,
 			);
 			buildRules = (
@@ -11303,6 +11307,24 @@
 			productName = AWSTranscribeStreamingUnitTests;
 			productReference = FA53332B22D4D47D00BD88AF /* AWSTranscribeStreamingUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		FAD9DD1E245CD135003F84D0 /* AWSTestResources */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FAD9DD26245CD135003F84D0 /* Build configuration list for PBXNativeTarget "AWSTestResources" */;
+			buildPhases = (
+				FAD9DD1A245CD135003F84D0 /* Headers */,
+				FAD9DD1B245CD135003F84D0 /* Sources */,
+				FAD9DD1C245CD135003F84D0 /* Frameworks */,
+				FAD9DD1D245CD135003F84D0 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSTestResources;
+			productName = AWSTestResources;
+			productReference = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */;
+			productType = "com.apple.product-type.framework";
 		};
 		FAFE10AE234D3CF200BD2DCA /* AWSIoTFreeRTOSOTATests */ = {
 			isa = PBXNativeTarget;
@@ -11793,6 +11815,11 @@
 						ProvisioningStyle = Automatic;
 						TestTargetID = 181154751E201403008F184C;
 					};
+					FAD9DD1E245CD135003F84D0 = {
+						CreatedOnToolsVersion = 11.4;
+						DevelopmentTeam = W3DRXD72QU;
+						ProvisioningStyle = Automatic;
+					};
 					FAFE10AE234D3CF200BD2DCA = {
 						CreatedOnToolsVersion = 11.0;
 						DevelopmentTeam = W3DRXD72QU;
@@ -11829,6 +11856,7 @@
 				CE4DFA461C6D635C00376441 /* Documentation */,
 				CEEF67961CEF8E37000110B0 /* AWSAllTests */,
 				181154751E201403008F184C /* AWSAllTestsHost */,
+				FAD9DD1E245CD135003F84D0 /* AWSTestResources */,
 				CE0D416C1C6A66E5006B91B5 /* AWSCore */,
 				CE0D41751C6A66E5006B91B5 /* AWSCoreTests */,
 				CE5603D11C6BC74500B4E00B /* AWSCoreUnitTests */,
@@ -11967,7 +11995,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2824561A0B00C40F76 /* testconfiguration.json in Resources */,
 				FA41B39322C652E300142F8D /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11992,7 +12019,6 @@
 			files = (
 				FA41B39422C652E700142F8D /* credentials.json in Resources */,
 				17F389C520F9B51400DADF5B /* AWSCore.framework in Resources */,
-				43B25D2724561A0900C40F76 /* testconfiguration.json in Resources */,
 				17F389C420F9B50E00DADF5B /* AWSKinesisVideo.framework in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12009,7 +12035,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FABD9ED422D6661300BD4441 /* hello_world.wav in Resources */,
-				43B25D3A24561A3500C40F76 /* testconfiguration.json in Resources */,
 				FA53332422D4110900BD88AF /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12018,7 +12043,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3924561A3300C40F76 /* testconfiguration.json in Resources */,
 				17ADAEA3209BD24500FF7598 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12073,7 +12097,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2B24561A1100C40F76 /* testconfiguration.json in Resources */,
 				183BD93D1D8A406F004B2659 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12089,7 +12112,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2F24561A1F00C40F76 /* testconfiguration.json in Resources */,
 				18798FFB1DEFCB1B00BC419B /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12126,7 +12148,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3024561A2000C40F76 /* testconfiguration.json in Resources */,
 				18E2F59D1DED370300BD4608 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12156,7 +12177,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2924561A0E00C40F76 /* testconfiguration.json in Resources */,
 				211167362399CD2000902FC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12200,7 +12220,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1D245619F100C40F76 /* testconfiguration.json in Resources */,
 				9A7ACD0B20B1CF7C00DDBEC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12209,7 +12228,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3B24561A3700C40F76 /* testconfiguration.json in Resources */,
 				9A7ACD0420B12E5B00DDBEC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12222,7 +12240,6 @@
 				9AD5842A20F63E9B00042041 /* city_thumb.jpg in Resources */,
 				9AC4C4EE20F4F18300B1ECF4 /* credentials.json in Resources */,
 				9AD5842820F63E6700042041 /* singleface.jpg in Resources */,
-				43B25D3124561A2200C40F76 /* testconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12237,7 +12254,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3324561A2700C40F76 /* testconfiguration.json in Resources */,
 				B4A4E04122B4282000379396 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12267,7 +12283,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1F245619F600C40F76 /* testconfiguration.json in Resources */,
 				B4D61D03232867A5007E7A12 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12290,7 +12305,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3824561A3200C40F76 /* testconfiguration.json in Resources */,
 				B5A0263522F022F4001C75CE /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12306,7 +12320,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1E245619F300C40F76 /* testconfiguration.json in Resources */,
 				B5DD454822C9B49E003871AE /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12330,7 +12343,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D162456187000C40F76 /* testconfiguration.json in Resources */,
 				CEB8EF491C6A69AB0098B15B /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12484,7 +12496,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D18245619E000C40F76 /* testconfiguration.json in Resources */,
 				CE9DE5691C6A74FC0060793F /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12500,7 +12511,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D20245619F800C40F76 /* testconfiguration.json in Resources */,
 				CEFE06591C6AA24D007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12518,7 +12528,6 @@
 			files = (
 				18DD79BF1D67BC2A00845EBD /* ec2-input.json in Resources */,
 				18DD79C01D67BC2A00845EBD /* ec2-output.json in Resources */,
-				43B25D21245619FD00C40F76 /* testconfiguration.json in Resources */,
 				CEFE065A1C6AA24E007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12534,7 +12543,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2224561A0000C40F76 /* testconfiguration.json in Resources */,
 				CEFE065B1C6AA24F007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12551,7 +12559,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAAB43DE23D279EF00F7BCBB /* test-identity-password-is-abc123.p12 in Resources */,
-				43B25D2324561A0200C40F76 /* testconfiguration.json in Resources */,
 				CEFE065C1C6AA24F007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12567,7 +12574,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2624561A0700C40F76 /* testconfiguration.json in Resources */,
 				CEFE065D1C6AA250007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12583,7 +12589,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2A24561A0F00C40F76 /* testconfiguration.json in Resources */,
 				CEFE065E1C6AA251007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12599,7 +12604,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2C24561A1600C40F76 /* testconfiguration.json in Resources */,
 				CEFE065F1C6AA252007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12616,7 +12620,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CEFE06601C6AA253007A42E4 /* credentials.json in Resources */,
-				43B25D2E24561A1B00C40F76 /* testconfiguration.json in Resources */,
 				CE9DE9AB1C6A7BDC0060793F /* AWSiOSSDKv2AnalyticsTests-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12632,7 +12635,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3224561A2400C40F76 /* testconfiguration.json in Resources */,
 				CEFE06611C6AA254007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12648,7 +12650,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3424561A2800C40F76 /* testconfiguration.json in Resources */,
 				CEFE06621C6AA256007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12664,7 +12665,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3524561A2D00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06631C6AA257007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12680,7 +12680,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3624561A2F00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06641C6AA257007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12696,7 +12695,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3724561A3100C40F76 /* testconfiguration.json in Resources */,
 				CEFE06651C6AA258007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12712,7 +12710,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1C245619EF00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06581C6AA24D007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12728,7 +12725,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D17245619DE00C40F76 /* testconfiguration.json in Resources */,
 				CEFE06561C6AA249007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12744,7 +12740,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D19245619E300C40F76 /* testconfiguration.json in Resources */,
 				CEFE06571C6AA24A007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12753,7 +12748,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2D24561A1800C40F76 /* testconfiguration.json in Resources */,
 				CE9E509A1C72C3B500B60FD7 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12769,7 +12763,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1B245619EC00C40F76 /* testconfiguration.json in Resources */,
 				CEA316CD1C93A468002A9F58 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12799,7 +12792,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D2524561A0500C40F76 /* testconfiguration.json in Resources */,
 				E4E1DA5D1E5F5C080080F769 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12824,7 +12816,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D1A245619E600C40F76 /* testconfiguration.json in Resources */,
 				EFDE85F21ED2050C008841EC /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12840,8 +12831,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25D3C24561A8300C40F76 /* testconfiguration.json in Resources */,
 				95CEF9F723C0054C006D4663 /* credentials.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FAD9DD1D245CD135003F84D0 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12850,7 +12847,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				FAFE10D8234D3F2E00BD2DCA /* credentials.json in Resources */,
-				43B25D2424561A0400C40F76 /* testconfiguration.json in Resources */,
 				FAFE10C2234D3E2500BD2DCA /* ota_integ_test.bin in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -14234,6 +14230,14 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FAD9DD1B245CD135003F84D0 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FAD9DD2C245CD193003F84D0 /* AWSTestConfiguration.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		FAFE10AB234D3CF200BD2DCA /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -15477,6 +15481,11 @@
 			isa = PBXTargetDependency;
 			target = EFDE85BA1FC5DD3D00D281A2 /* AWSCognitoIdentityProviderASF */;
 			targetProxy = EFDE86071FC65A9100D281A2 /* PBXContainerItemProxy */;
+		};
+		FA14E4E0245CD4B000990BB9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FA14E4DF245CD4B000990BB9 /* PBXContainerItemProxy */;
 		};
 		FA1DC22923A1467000E43AA4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -20453,6 +20462,65 @@
 			};
 			name = Release;
 		};
+		FAD9DD24245CD135003F84D0 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTestResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTestResources;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FAD9DD25245CD135003F84D0 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUILD_LIBRARY_FOR_DISTRIBUTION = YES;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DEVELOPMENT_TEAM = W3DRXD72QU;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSTestResources/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.4;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSTestResources;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
 		FAFE10B6234D3CF200BD2DCA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -21649,6 +21717,15 @@
 			buildConfigurations = (
 				FA53333322D4D47E00BD88AF /* Debug */,
 				FA53333422D4D47E00BD88AF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FAD9DD26245CD135003F84D0 /* Build configuration list for PBXNativeTarget "AWSTestResources" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FAD9DD24245CD135003F84D0 /* Debug */,
+				FAD9DD25245CD135003F84D0 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
