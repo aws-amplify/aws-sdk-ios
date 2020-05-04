@@ -6757,7 +6757,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LogDestinationType logDestinationType;
 
 /**
- <p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p><p>Only applicable to flow logs that are published to an Amazon S3 bucket.</p>
+ <p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logFormat;
 
@@ -16822,7 +16822,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The association ID representing the current association between the route table and subnet.</p>
+ <p>The association ID representing the current association between the route table and subnet or gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
