@@ -128,11 +128,6 @@
 		17DED2A61F32A4E400397F88 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 1786CA4D1F2BEDB8003421FF /* Images.xcassets */; };
 		17F4F75021F6B0750068B553 /* AWSCognitoAuth+Extensions.h in Headers */ = {isa = PBXBuildFile; fileRef = 17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		17F4F75121F6B0750068B553 /* AWSCognitoAuth+Extensions.m in Sources */ = {isa = PBXBuildFile; fileRef = 17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */; };
-		43B25DB22457D7B600C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D3E2457D7B600C40F76 /* testconfiguration.json */; };
-		43B25DB32457D7EC00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D3E2457D7B600C40F76 /* testconfiguration.json */; };
-		43B25DB42457D7EE00C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D3E2457D7B600C40F76 /* testconfiguration.json */; };
-		43B25DB52457D7F000C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D3E2457D7B600C40F76 /* testconfiguration.json */; };
-		43B25DB62457D7F100C40F76 /* testconfiguration.json in Resources */ = {isa = PBXBuildFile; fileRef = 43B25D3E2457D7B600C40F76 /* testconfiguration.json */; };
 		6BB7BFAF23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h in Headers */ = {isa = PBXBuildFile; fileRef = 6BB7BF2E23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h */; };
 		B4031B79230F044A009EB524 /* AWSMobileClientUserDetails.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */; };
 		B4031BE623105727009EB524 /* AWSMobileClientSignInTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */; };
@@ -1237,6 +1232,41 @@
 			remoteGlobalIDString = EFDE85E11FC5DD3D00D281A2;
 			remoteInfo = AWSCognitoIdentityProviderASF;
 		};
+		FA4A694C2462317A00230849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA4A69C12462317A00230849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = FAD9DD1F245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA4A69C32462319A00230849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA4A69C5246231A800230849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA4A69C72462329900230849 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
 		FAF1B87C2339175B007F1435 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -1843,6 +1873,7 @@
 			isa = PBXGroup;
 			children = (
 				B55D57AE1F44EC3F005A0E56 /* AWSAllTestsHost.app */,
+				FA4A69C22462317A00230849 /* AWSTestResources.framework */,
 				B55D57121F44EC3F005A0E56 /* AWSCore.framework */,
 				B55D57141F44EC3F005A0E56 /* AWSCoreTests.xctest */,
 				B55D57161F44EC3F005A0E56 /* AWSCoreUnitTests.xctest */,
@@ -2136,9 +2167,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1750D00C1F2D4DFA006D915E /* Build configuration list for PBXNativeTarget "AWSUserPoolsSignIn" */;
 			buildPhases = (
+				1750D0041F2D4DFA006D915E /* Headers */,
 				1750D0021F2D4DFA006D915E /* Sources */,
 				1750D0031F2D4DFA006D915E /* Frameworks */,
-				1750D0041F2D4DFA006D915E /* Headers */,
 				1750D0051F2D4DFA006D915E /* Resources */,
 			);
 			buildRules = (
@@ -2156,9 +2187,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 176375451F328D210086588B /* Build configuration list for PBXNativeTarget "AWSFacebookSignIn" */;
 			buildPhases = (
+				1763753D1F328D210086588B /* Headers */,
 				1763753B1F328D210086588B /* Sources */,
 				1763753C1F328D210086588B /* Frameworks */,
-				1763753D1F328D210086588B /* Headers */,
 				1763753E1F328D210086588B /* Resources */,
 			);
 			buildRules = (
@@ -2182,6 +2213,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA4A69C6246231A800230849 /* PBXTargetDependency */,
 				177B8AEC21E81B7D0051068F /* PBXTargetDependency */,
 				B412F65B2334803A00F1AC69 /* PBXTargetDependency */,
 			);
@@ -2194,9 +2226,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1786CA391F2BED3C003421FF /* Build configuration list for PBXNativeTarget "AWSGoogleSignIn" */;
 			buildPhases = (
+				1786CA311F2BED3C003421FF /* Headers */,
 				1786CA2F1F2BED3C003421FF /* Sources */,
 				1786CA301F2BED3C003421FF /* Frameworks */,
-				1786CA311F2BED3C003421FF /* Headers */,
 				1786CA321F2BED3C003421FF /* Resources */,
 			);
 			buildRules = (
@@ -2220,6 +2252,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA4A694D2462317A00230849 /* PBXTargetDependency */,
 				17CD4B152182428F00953483 /* PBXTargetDependency */,
 				17CD4B132182428800953483 /* PBXTargetDependency */,
 				17CD4B112182428200953483 /* PBXTargetDependency */,
@@ -2244,6 +2277,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA4A69C82462329900230849 /* PBXTargetDependency */,
 				B41F67DF233D56A80060FDEE /* PBXTargetDependency */,
 				B41F67E3233D56A80060FDEE /* PBXTargetDependency */,
 				173A454121E92A0200F9C579 /* PBXTargetDependency */,
@@ -2268,6 +2302,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA4A69C42462319A00230849 /* PBXTargetDependency */,
 				B412F5E6233445A500F1AC69 /* PBXTargetDependency */,
 				B412F65D2334805400F1AC69 /* PBXTargetDependency */,
 			);
@@ -2297,9 +2332,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5170D9D1F466CE5008FD811 /* Build configuration list for PBXNativeTarget "AWSAuthCore" */;
 			buildPhases = (
+				B5170D951F466CE5008FD811 /* Headers */,
 				B5170D931F466CE5008FD811 /* Sources */,
 				B5170D941F466CE5008FD811 /* Frameworks */,
-				B5170D951F466CE5008FD811 /* Headers */,
 				B5170D961F466CE5008FD811 /* Resources */,
 			);
 			buildRules = (
@@ -2316,9 +2351,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5345D731F366AFA009C1041 /* Build configuration list for PBXNativeTarget "AWSAuthUI" */;
 			buildPhases = (
+				B5345D0C1F366AFA009C1041 /* Headers */,
 				B5345D0A1F366AFA009C1041 /* Sources */,
 				B5345D0B1F366AFA009C1041 /* Frameworks */,
-				B5345D0C1F366AFA009C1041 /* Headers */,
 				B5345D0D1F366AFA009C1041 /* Resources */,
 			);
 			buildRules = (
@@ -2335,9 +2370,9 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B5FC69061FAFA1AA004790CB /* Build configuration list for PBXNativeTarget "AWSMobileClient" */;
 			buildPhases = (
+				B5FC68FE1FAFA1AA004790CB /* Headers */,
 				B5FC68FC1FAFA1AA004790CB /* Sources */,
 				B5FC68FD1FAFA1AA004790CB /* Frameworks */,
-				B5FC68FE1FAFA1AA004790CB /* Headers */,
 				B5FC68FF1FAFA1AA004790CB /* Resources */,
 			);
 			buildRules = (
@@ -3278,6 +3313,13 @@
 			remoteRef = E496D9411FDB0632000CF290 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		FA4A69C22462317A00230849 /* AWSTestResources.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSTestResources.framework;
+			remoteRef = FA4A69C12462317A00230849 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		FAF1B87D2339175B007F1435 /* AWSCoreConfigurationTest.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
@@ -3315,7 +3357,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				43B25DB42457D7EE00C40F76 /* testconfiguration.json in Resources */,
 				1773B1D922029DAE00356909 /* credentials-mc.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3333,7 +3374,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B412F5DA23341E9600F1AC69 /* awsconfiguration.json in Resources */,
-				43B25DB22457D7B600C40F76 /* testconfiguration.json in Resources */,
 				17CD4B5621826BA100953483 /* credentials-mc.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3346,7 +3386,6 @@
 				17CD4B2D218244EC00953483 /* LaunchScreen.storyboard in Resources */,
 				17CD4B2A218244EC00953483 /* Assets.xcassets in Resources */,
 				17CD4B28218244EA00953483 /* Main.storyboard in Resources */,
-				43B25DB52457D7F000C40F76 /* testconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3355,7 +3394,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B412F5ED233477BF00F1AC69 /* credentials-mc.json in Resources */,
-				43B25DB32457D7EC00C40F76 /* testconfiguration.json in Resources */,
 				B412F5EC2334755B00F1AC69 /* awsconfiguration.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3365,7 +3403,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				B412F65623347FBD00F1AC69 /* Main.storyboard in Resources */,
-				43B25DB62457D7F100C40F76 /* testconfiguration.json in Resources */,
 				B412F65423347FBD00F1AC69 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -3708,6 +3745,26 @@
 			isa = PBXTargetDependency;
 			target = B5FC69001FAFA1AA004790CB /* AWSMobileClient */;
 			targetProxy = B92BA3CC2318859D007C1175 /* PBXContainerItemProxy */;
+		};
+		FA4A694D2462317A00230849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AWSTestResources;
+			targetProxy = FA4A694C2462317A00230849 /* PBXContainerItemProxy */;
+		};
+		FA4A69C42462319A00230849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AWSTestResources;
+			targetProxy = FA4A69C32462319A00230849 /* PBXContainerItemProxy */;
+		};
+		FA4A69C6246231A800230849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AWSTestResources;
+			targetProxy = FA4A69C5246231A800230849 /* PBXContainerItemProxy */;
+		};
+		FA4A69C82462329900230849 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = AWSTestResources;
+			targetProxy = FA4A69C72462329900230849 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
