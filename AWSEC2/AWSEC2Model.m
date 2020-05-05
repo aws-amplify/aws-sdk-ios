@@ -34818,12 +34818,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assignIpv6AddressOnCreation" : @"AssignIpv6AddressOnCreation",
+             @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
+             @"mapCustomerOwnedIpOnLaunch" : @"MapCustomerOwnedIpOnLaunch",
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"subnetId" : @"SubnetId",
              };
 }
 
 + (NSValueTransformer *)assignIpv6AddressOnCreationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
++ (NSValueTransformer *)mapCustomerOwnedIpOnLaunchJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
@@ -53927,8 +53933,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"availabilityZoneId" : @"AvailabilityZoneId",
              @"availableIpAddressCount" : @"AvailableIpAddressCount",
              @"cidrBlock" : @"CidrBlock",
+             @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
              @"defaultForAz" : @"DefaultForAz",
              @"ipv6CidrBlockAssociationSet" : @"Ipv6CidrBlockAssociationSet",
+             @"mapCustomerOwnedIpOnLaunch" : @"MapCustomerOwnedIpOnLaunch",
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
