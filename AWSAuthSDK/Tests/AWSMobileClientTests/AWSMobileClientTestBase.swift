@@ -8,6 +8,7 @@ import XCTest
 @testable import AWSMobileClient
 import AWSAuthCore
 import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSMobileClientTestBase: XCTestCase {
 
@@ -23,11 +24,12 @@ class AWSMobileClientTestBase: XCTestCase {
     
     override class func setUp() {
         let testConfigurationJSON = loadTestConfigurationFromFile()
-        let credentialsTestConfiguration = testConfigurationJSON["Credentials"] as! [String: Any]
-        let allPackagesTestConfiguration = testConfigurationJSON["Packages"] as! [String: Any]
+        let credentialsTestConfiguration = testConfigurationJSON["credentials"] as! [String: Any]
+        let allPackagesTestConfiguration = testConfigurationJSON["packages"] as! [String: Any]
         let mobileClientTesConfiguration = allPackagesTestConfiguration["mobileclient"] as! [String: Any]
-        
-        userPoolId = (mobileClientTesConfiguration["mc-userpool_id"] as! String)
+        let commonTestConfiguration = allPackagesTestConfiguration["common"] as! [String: Any]
+
+        userPoolId = (mobileClientTesConfiguration["userpool_id"] as! String)
         sharedEmail = (mobileClientTesConfiguration["mc-email"] as! String)
         identityPoolId = (mobileClientTesConfiguration["mc-pool_id_dev_auth"] as! String)
         
@@ -35,7 +37,7 @@ class AWSMobileClientTestBase: XCTestCase {
                                                                      secretKey: credentialsTestConfiguration["secretKey"] as! String,
                                                                      sessionToken: credentialsTestConfiguration["sessionToken"] as! String)
         
-        let region = (credentialsTestConfiguration["region"] as! String).aws_regionTypeValue()
+        let region = (commonTestConfiguration["region"] as! String).aws_regionTypeValue()
         let configuration = AWSServiceConfiguration(region: region, credentialsProvider: credentialsProvider)!
         
         AWSCognitoIdentityProvider.register(with: configuration, forKey: "TEST")
@@ -55,10 +57,7 @@ class AWSMobileClientTestBase: XCTestCase {
     //MARK: Helper methods
     
     static func loadTestConfigurationFromFile() -> [String: Any] {
-        let filePath = Bundle(for: AWSMobileClientTestBase.self).path(forResource: "testconfiguration", ofType: "json")!
-        let fileData = try! NSData(contentsOfFile: filePath) as Data
-        let testConfigurationJSON = try! JSONSerialization.jsonObject(with: fileData, options: .mutableContainers) as! [String: Any]
-        return testConfigurationJSON
+        return AWSTestConfiguration.getTestConfiguration() as! [String: Any]
     }
     
     static func initializeMobileClient() {

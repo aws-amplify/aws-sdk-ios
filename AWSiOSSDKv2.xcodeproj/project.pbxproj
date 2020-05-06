@@ -11316,6 +11316,7 @@
 				FAD9DD1B245CD135003F84D0 /* Sources */,
 				FAD9DD1C245CD135003F84D0 /* Frameworks */,
 				FAD9DD1D245CD135003F84D0 /* Resources */,
+				FAFC5902245CEA4A00D415DB /* Copy testconfiguration.json */,
 			);
 			buildRules = (
 			);
@@ -12880,6 +12881,24 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "${SRCROOT}/Scripts/GenerateAppleDocs.sh";
+		};
+		FAFC5902245CEA4A00D415DB /* Copy testconfiguration.json */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy testconfiguration.json";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "TEMP_FILE=$HOME/.aws-amplify/aws-sdk-ios/testconfiguration.json\nDEST_PATH=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/testconfiguration.json\"\nif [[ ! -f $TEMP_FILE ]] ; then\n    echo \"${TEMP_FILE} does not exist. Using empty configuration.\"\n    exit 0\nfi\n\nif [[ -f $DEST_PATH ]] ; then\n    rm $DEST_PATH\nfi\n\nln -s $TEMP_FILE $DEST_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 
