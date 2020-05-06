@@ -325,7 +325,7 @@ jobs:
             touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - run:
           name: Generate testconfiguration.json
-          command: echo "PWD=$PWD" ; ls Scripts/ ; bash Scripts/generate-test-config.sh -p ios -v
+          command: bash Scripts/generate-test-config.sh -p ios -v
       - pre_start_simulator
       - run:
           name: Build SDK
