@@ -2,20 +2,21 @@
 
 # vim: set ts=2 sw=2 sts=2 et:
 
+
 ##################################################
 # SCRIPT METADATA
 
-SCRIPT_NAME=$(basename $0)
-SUMMARY="Generates a testconfiguration.json file for use in Amplify and AWS mobile SDK integration tests"
-SYNOPSIS="${SCRIPT_NAME} <android|ios> [options]"
+readonly SCRIPT_NAME=$(basename "$0")
+readonly SUMMARY="Generates a testconfiguration.json file for use in Amplify and AWS mobile SDK integration tests"
+readonly SYNOPSIS="${SCRIPT_NAME} <android|ios> [options]"
 
 
 ##################################################
 # DEFAULTS & DECLARATIONS
 ##################################################
-LOG_LEVEL_INFO=0
-LOG_LEVEL_DEBUG=1
-LOG_LEVEL_TRACE=2
+readonly LOG_LEVEL_INFO=0
+readonly LOG_LEVEL_DEBUG=1
+readonly LOG_LEVEL_TRACE=2
 LOG_LEVEL=0
 
 
@@ -27,7 +28,7 @@ LOG_LEVEL=0
 
 function log {
   msg="$(date) $*"
-  echo $msg >&2
+  echo "$msg" >&2
 }
 
 function log_debug {
@@ -61,7 +62,7 @@ function log_trace {
 }
 
 function die {
-  log_error $*
+  log_error "$@"
   exit 1
 }
 
@@ -79,8 +80,8 @@ ${usage}
 SYNOPSIS
     ${SYNOPSIS}
 
-$SCRIPT_NAME generates a test configuration file for AWS SDK and
-Amplify integration tests.
+DESCRIPTION
+    ${SUMMARY}
 
 REQUIREMENTS
     $SCRIPT_NAME requires the following utilities to be installed
@@ -131,7 +132,7 @@ assume_role=""
 platform=""
 region=${AWS_DEFAULT_REGION}
 
-while getopts "ap:qvh" optchar ; do
+while getopts "ap:qr:vh" optchar ; do
   case "$optchar" in
     a)
       assume_role=1
@@ -147,7 +148,7 @@ while getopts "ap:qvh" optchar ; do
       LOG_LEVEL=-1
       ;;
     v)
-      LOG_LEVEL+=1
+      ((LOG_LEVEL++))
       ;;
     h)
       print_help
@@ -164,106 +165,149 @@ done
 ##################################################
 # VALIDATIONS AND ASSIGNMENTS
 
+# This will be appended to various git and python commands unless log level is
+# >= TRACE. Since it is a command argument, it's inappropriate to double-quote
+# it on the command line, because the empty case would be interpreted as an
+# empty string argument to the command being invoked. Suppress shellcheck
+# checks with `# shellcheck disable=SC2086` as needed.
 cmd_quiet_flag="--quiet"
-if [[ $LOG_LEVEL -gt 1 ]] ; then
-  cmd_quiet_flag=""
-fi
+[[ $LOG_LEVEL -ge $LOG_LEVEL_TRACE ]] && cmd_quiet_flag=""
 
-if [[ -z $platform ]] ; then
-  die "'platform' not specified"
-fi
+[[ -n $platform ]] || die "'platform' not specified"
 
-if [[ -z $region ]] ; then
-  die "'region' not specified"
-fi
+[[ -n $region ]] || die "'region' not specified"
 
-python_cmd=$(which python3)
-if [[ -z $python_cmd ]] ; then
-  die "Cannot find 'python3' in PATH"
-fi
 
-if [[ $assume_role ]] ; then
-  aws_cli_cmd=$(which aws)
-  if [[ -z $aws_cli_cmd ]] ; then
-    die "Cannot find 'aws' in PATH"
+##################################################
+# LOCAL FUNCTIONS
+
+function validate_dependencies {
+  [[ -x $(which python3) ]] || die "Cannot find 'python3' in PATH"
+
+  if [[ $assume_role ]] ; then
+    declare -ar utilities=(aws jq)
+    for cmd in "${utilities[@]}" ; do
+      [[ -x $(which "$cmd") ]] || die "Cannot find '$cmd' in PATH"
+    done
+  fi
+}
+
+# shellcheck disable=SC2086
+function install_support_repo {
+  declare -r working_dir="$1"
+  declare -r support_repo_name=amplify-ci-support
+  declare -r support_repo_branch=master
+  declare -r support_repo_url=https://github.com/aws-amplify/${support_repo_name}.git
+
+  if [[ -d ${working_dir}/${support_repo_name} ]] ; then
+    log_debug "Support repo exists at '${working_dir}/${support_repo_name}. Fetching latest version."
+    cd "$support_repo_name"
+    git fetch origin $cmd_quiet_flag
+    git checkout -B "$support_repo_branch" $cmd_quiet_flag
+  else
+    log_debug "Cloning support repo into '${working_dir}/${support_repo_name}"
+    git clone "$support_repo_url" --branch "$support_repo_branch" "$support_repo_name" $cmd_quiet_flag
+    cd $support_repo_name
+  fi
+}
+
+# shellcheck disable=SC2086,SC1091
+function install_dependencies {
+  cd ./src/integ_test_resources/common/scripts
+  log_debug "Setting up and activating python virtual environment"
+  python3 -m venv .env
+
+  source ./.env/bin/activate
+
+  log_debug "Installing python requirements"
+
+  pip3 install --upgrade pip $cmd_quiet_flag
+  pip3 install -r requirements.txt $cmd_quiet_flag
+}
+
+function resolve_credentials {
+  if [[ $assume_role ]] ; then
+    log_debug "Assuming test execution IAM role"
+
+    # Ensure we don't output credentials
+    [[ $LOG_LEVEL -ge $LOG_LEVEL_TRACE ]] && set +x
+
+    local circleci_execution_role_arn
+    circleci_execution_role_arn=$(aws ssm get-parameter --name '/mobile-sdk/ios/common/circleci_execution_role' | jq -r .Parameter.Value)
+    readonly circleci_execution_role_arn
+
+    local assume_role_creds
+    assume_role_creds=$(aws sts assume-role --duration-seconds 3600 --role-arn "${circleci_execution_role_arn}" --role-session-name "IntegTest-$(date +%Y%m%d%H%M%S)")
+    readonly assume_role_creds
+
+    AWS_ACCESS_KEY_ID=$(echo "$assume_role_creds" | jq -r '.Credentials.AccessKeyId')
+    readonly AWS_ACCESS_KEY_ID
+    export AWS_ACCESS_KEY_ID
+
+    AWS_SECRET_ACCESS_KEY=$(echo "$assume_role_creds" | jq -r '.Credentials.SecretAccessKey')
+    readonly AWS_SECRET_ACCESS_KEY
+    export AWS_SECRET_ACCESS_KEY
+
+    AWS_SESSION_TOKEN=$(echo "$assume_role_creds" | jq -r '.Credentials.SessionToken')
+    readonly AWS_SESSION_TOKEN
+    export AWS_SESSION_TOKEN
+  else
+    log_debug "Using credentials in environment"
   fi
 
-  jq_cmd=$(which jq)
-  if [[ -z $jq_cmd ]] ; then
-    die "Cannot find 'jq' in PATH"
-  fi
-fi
+  export AWS_DEFAULT_REGION=${region}
+
+  # Restore verbose logging
+  [[ $LOG_LEVEL -lt $LOG_LEVEL_TRACE ]] || set -x
+}
+
+function write_config_file {
+  log_debug "Generating configuration file"
+  python3 device_config_builder.py "$1" > "$2"
+  log_info "Wrote configuration file to $2"
+}
+
+function clean_up {
+  log_debug "Cleaning up"
+  deactivate
+}
 
 
 ##################################################
 # MAIN
+
+validate_dependencies
 
 # Exit if any command fails. Don't set this flag until after argument and
 # environment validation, or commands like `which foo` that test for
 # dependencies will cause an immediate failure with no error message
 set -e
 
+[[ $LOG_LEVEL -lt $LOG_LEVEL_TRACE ]] || set -x
+
 trap exit SIGINT
 
 log_info "Generating configuration file for ${platform}"
 
-starting_dir=$PWD
+declare -r starting_dir=$PWD
 
 # Set up output paths
-dest_dir=$HOME/.aws-amplify/aws-sdk-${platform}
-dest_file=${dest_dir}/testconfiguration.json
-mkdir -p $dest_dir
+declare -r dest_dir=$HOME/.aws-amplify/aws-sdk-${platform}
+declare -r dest_file="${dest_dir}"/testconfiguration.json
+mkdir -p "$dest_dir"
 
-# Set up support repo
-support_repo_name=amplify-ci-support
-support_repo_branch=palpatim/build_testconfig
-support_repo_url=https://github.com/aws-amplify/${support_repo_name}.git
+cd "$dest_dir"
 
-cd $dest_dir
+install_support_repo "$dest_dir"
 
-# Install CI support repo
+install_dependencies
 
-if [[ -d ${dest_dir}/${support_repo_name} ]] ; then
-  log_debug "Support repo exists at '${dest_dir}/${support_repo_name}. Fetching latest version."
-  cd $support_repo_name
-  git fetch origin $cmd_quiet_flag
-  git checkout -B $support_repo_branch $cmd_quiet_flag
-else
-  log_debug "Cloning support repo into '${dest_dir}/${support_repo_name}"
-  git clone $support_repo_url --branch $support_repo_branch $support_repo_name $cmd_quiet_flag
-  cd $support_repo_name
-fi
+resolve_credentials
 
-# Install dependencies
-cd ./src/integ_test_resources/common/scripts
-log_debug "Setting up and activating python virtual environment"
-$python_cmd -m venv .env
-source ./.env/bin/activate $cmd_quiet_flag
+write_config_file "$platform" "$dest_file"
 
-log_debug "Installing python requirements"
-pip3 install --upgrade pip $cmd_quiet_flag
-pip3 install -r requirements.txt $cmd_quiet_flag
+clean_up
 
-# Assume test execution role and export those values so the builder script can pick them up from the environment
-if [[ $assume_role ]] ; then
-  log_debug "Assuming test execution IAM role"
-  circleci_execution_role_arn=$(aws ssm get-parameter --name '/mobile-sdk/ios/common/circleci_execution_role' | jq -r .Parameter.Value)
-  assume_role_creds=$(aws sts assume-role --duration-seconds 3600 --role-arn "${circleci_execution_role_arn}" --role-session-name "IntegTest-$(date +%Y%m%d%H%M%S)")
-  export AWS_ACCESS_KEY_ID=$(echo $assume_role_creds | jq -r '.Credentials.AccessKeyId')
-  export AWS_SECRET_ACCESS_KEY=$(echo $assume_role_creds | jq -r '.Credentials.SecretAccessKey')
-  export AWS_SESSION_TOKEN=$(echo $assume_role_creds | jq -r '.Credentials.SessionToken')
-fi
+cd "$starting_dir"
 
-export AWS_DEFAULT_REGION=${region}
-
-# Write config file content
-log_debug "Generating configuration file"
-python3 device_config_builder.py ${platform} > $dest_file
-
-# Clean up
-log_debug "Cleaning up"
-deactivate
-cd $starting_dir
-
-log_info "Generated configuration file at ${dest_file}"
-
+log_debug "Done"
