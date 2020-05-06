@@ -84,8 +84,11 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
         policies.passwordPolicy = passwordPolicy;
         createUserPool.policies = policies;
     
-        return [[[[[[cip createUserPool:createUserPool] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolResponse *> * _Nonnull task) {
+        return [[[[[[cip createUserPool:createUserPool] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolResponse *> * _Nonnull task) {
             //create a client for admin purposes
+            if (task.error) {
+                [NSException raise:@"createUserPool error" format:@"Error: %@", task.error];
+            }
             AWSCognitoIdentityProviderCreateUserPoolResponse *pool = task.result;
             AWSCognitoIdentityProviderCreateUserPoolClientRequest *client = [AWSCognitoIdentityProviderCreateUserPoolClientRequest new];
             poolId = pool.userPool.identifier;
@@ -93,7 +96,10 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             client.clientName = @"Admin";
             client.generateSecret = @NO;
             return [cip createUserPoolClient:client];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"createUserPoolClient error" format:@"Error: %@", task.error];
+            }
             [NSThread sleepForTimeInterval:2];
             //create a user
             AWSCognitoIdentityProviderCreateUserPoolClientResponse *result = task.result;
@@ -103,21 +109,30 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             username = request.username = [[NSUUID UUID] UUIDString];
             password = request.password = [[NSUUID UUID] UUIDString];
             return [cip signUp:request];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"signUp error" format:@"Error: %@", task.error];
+            }
             //confirm user
             [NSThread sleepForTimeInterval:2];
             AWSCognitoIdentityProviderAdminConfirmSignUpRequest * request = [AWSCognitoIdentityProviderAdminConfirmSignUpRequest new];
             request.username = username;
             request.userPoolId = poolId;
             return [cip adminConfirmSignUp:request];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *>* _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *>* _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"adminConfirmSignUp error" format:@"Error: %@", task.error];
+            }
             //create a client for ios
             AWSCognitoIdentityProviderCreateUserPoolClientRequest *client = [AWSCognitoIdentityProviderCreateUserPoolClientRequest new];
             client.userPoolId = poolId;
             client.clientName = @"iOS";
             client.generateSecret = @YES;
             return [cip createUserPoolClient:client];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"adminConfirmSignUp error" format:@"Error: %@", task.error];
+            }
             AWSCognitoIdentityProviderCreateUserPoolClientResponse *result = task.result;
             clientId = result.userPoolClient.clientId;
             clientSecret = result.userPoolClient.clientSecret;
@@ -194,8 +209,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 
 
 - (void)testSignInUser {
-    XCTestExpectation *expectation =
-    [self expectationWithDescription:@"testSignInUser"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testSignInUser"];
     AWSCognitoIdentityUser* user = [pool getUser];
     XCTAssertEqualObjects(PP_APP_ID, pool.userPoolConfiguration.pinpointAppId);
     [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {

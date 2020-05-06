@@ -1132,7 +1132,6 @@
 		CEA316AF1C93A149002A9F58 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		CEA316CB1C93A45F002A9F58 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEA316CC1C93A460002A9F58 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
-		CEA316CD1C93A468002A9F58 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEA316CF1C93A49D002A9F58 /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEA316D01C93A49E002A9F58 /* AWSCognitoIdentityProvider.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CEA316981C93A0EA002A9F58 /* AWSCognitoIdentityProvider.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CEA316D11C93A4B8002A9F58 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
@@ -1299,6 +1298,7 @@
 		FA6978C821FA63D50092C8F3 /* AWSPinpointBackgroundBehaviorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */; };
 		FA6A654A246366010048A7F9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FA6A654B24636B030048A7F9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		FA6A655324636E570048A7F9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FA7A44BD23046B8900F55D7A /* SigV4Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44BC23046B8900F55D7A /* SigV4Tests.swift */; };
 		FA7A44C1230487A400F55D7A /* SigV4TestUtilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA7A44C0230487A400F55D7A /* SigV4TestUtilities.swift */; };
 		FA7A44C62305D09C00F55D7A /* AWSNetworkingHelpers.h in Headers */ = {isa = PBXBuildFile; fileRef = FA7A44C42305D09C00F55D7A /* AWSNetworkingHelpers.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -3099,6 +3099,13 @@
 			remoteInfo = AWSTestResources;
 		};
 		FA6A654C24636B080048A7F9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA6A655124636E4F0048A7F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
 			proxyType = 1;
@@ -5675,6 +5682,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA6A655324636E570048A7F9 /* AWSTestResources.framework in Frameworks */,
 				CEA316D11C93A4B8002A9F58 /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -11163,6 +11171,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA6A655224636E4F0048A7F9 /* PBXTargetDependency */,
 				CEA316A41C93A0EA002A9F58 /* PBXTargetDependency */,
 				181154A21E2014A2008F184C /* PBXTargetDependency */,
 			);
@@ -12796,7 +12805,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEA316CD1C93A468002A9F58 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15567,6 +15575,11 @@
 			isa = PBXTargetDependency;
 			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
 			targetProxy = FA6A654C24636B080048A7F9 /* PBXContainerItemProxy */;
+		};
+		FA6A655224636E4F0048A7F9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FA6A655124636E4F0048A7F9 /* PBXContainerItemProxy */;
 		};
 		FABD9ED022D65D9C00BD4441 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
