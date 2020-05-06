@@ -1214,7 +1214,6 @@
 		CEFE06611C6AA254007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06621C6AA256007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06631C6AA257007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
-		CEFE06641C6AA257007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06651C6AA258007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06661C6AB6B2007A42E4 /* AWSMachineLearning.h in Headers */ = {isa = PBXBuildFile; fileRef = CE9DE7111C6A7A680060793F /* AWSMachineLearning.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E44C34161E67F0A1006F705A /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1285,6 +1284,7 @@
 		FA2800EE22C9C1E1000B41F4 /* AWSStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */; };
 		FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF0F2346847A0006050D /* MQTTSessionTests.m */; };
 		FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF122346880D0006050D /* TestMQTTSessionDelegate.m */; };
+		FA3EFBC2246331BA00CA23B9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FA40A91221FA2F2A0050F4B2 /* AWSDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40A91121FA2F2A0050F4B2 /* AWSDateFormatterTests.m */; };
 		FA41B39322C652E300142F8D /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		FA41B39422C652E700142F8D /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -3070,6 +3070,20 @@
 			proxyType = 1;
 			remoteGlobalIDString = CE0D416C1C6A66E5006B91B5;
 			remoteInfo = AWSCore;
+		};
+		FA3EFBBE2463318E00CA23B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FA3EFBC02463319F00CA23B9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
 		};
 		FA53333522D4D48700BD88AF /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -5552,6 +5566,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA3EFBC2246331BA00CA23B9 /* AWSTestResources.framework in Frameworks */,
 				CE9DEB591C6A9C330060793F /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -10917,6 +10932,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA3EFBC12463319F00CA23B9 /* PBXTargetDependency */,
 				CE9DEA691C6A7EE40060793F /* PBXTargetDependency */,
 				181154E01E2014F3008F184C /* PBXTargetDependency */,
 			);
@@ -11031,6 +11047,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FA3EFBBF2463318E00CA23B9 /* PBXTargetDependency */,
 				CE9DEB2A1C6A81160060793F /* PBXTargetDependency */,
 				181154921E20148E008F184C /* PBXTargetDependency */,
 			);
@@ -12681,7 +12698,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFE06641C6AA257007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15510,6 +15526,16 @@
 			isa = PBXTargetDependency;
 			target = CE0D416C1C6A66E5006B91B5 /* AWSCore */;
 			targetProxy = FA1DC22823A1467000E43AA4 /* PBXContainerItemProxy */;
+		};
+		FA3EFBBF2463318E00CA23B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FA3EFBBE2463318E00CA23B9 /* PBXContainerItemProxy */;
+		};
+		FA3EFBC12463319F00CA23B9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FA3EFBC02463319F00CA23B9 /* PBXContainerItemProxy */;
 		};
 		FA53333622D4D48700BD88AF /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
