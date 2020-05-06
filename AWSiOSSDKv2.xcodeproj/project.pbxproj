@@ -1247,7 +1247,6 @@
 		EFDE85E91FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDE85E81FC5E7F000D281A2 /* AWSCognitoIdentityProviderASF.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		EFDE85ED1ED2050C008841EC /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		EFDE85F01ED2050C008841EC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
-		EFDE85F21ED2050C008841EC /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		EFDE85FE1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m in Sources */ = {isa = PBXBuildFile; fileRef = EFDE85FD1FC6535E00D281A2 /* AWSCognitoIdentityProviderASF.m */; };
 		EFDE86021ED20517008841EC /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		EFDE86021FC6591900D281A2 /* AWSCognitoIdentityASF.h in Headers */ = {isa = PBXBuildFile; fileRef = EFDE86001FC6591900D281A2 /* AWSCognitoIdentityASF.h */; };
@@ -12850,7 +12849,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				EFDE85F21ED2050C008841EC /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
