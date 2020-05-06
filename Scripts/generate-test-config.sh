@@ -2,6 +2,19 @@
 
 # vim: set ts=2 sw=2 sts=2 et:
 
+##################################################
+# CANONICAL SOURCE OF THIS FILE IS
+#   https://github.com/aws-amplify/amplify-ci-support/blob/master/src/integ_test_resources/common/scripts/generate-test-config.sh
+# 
+# As of this writing (06-May-2020), we manually copy this file into the CI
+# support directories for the projects that use it:
+# - https://github.com/aws-amplify/aws-sdk-ios/tree/master/Scripts/generate-test-config.sh
+# - https://github.com/aws-amplify/aws-sdk-android/tree/master/build-support/generate-test-config.sh
+# 
+# From there, this script will be invoked by the CircleCI build process during
+# test setup, or it may be invoked manually for local integration test runs
+# 
+
 
 ##################################################
 # SCRIPT METADATA
