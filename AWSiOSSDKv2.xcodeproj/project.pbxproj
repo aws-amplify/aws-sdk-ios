@@ -1162,7 +1162,6 @@
 		CEB8EF3A1C6A69A00098B15B /* AWSSTSTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2C1C6A69A00098B15B /* AWSSTSTests.m */; };
 		CEB8EF3B1C6A69A00098B15B /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEB8EF3C1C6A69A00098B15B /* AWSUtilityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2F1C6A69A00098B15B /* AWSUtilityTests.m */; };
-		CEB8EF491C6A69AB0098B15B /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEB8EF601C6A6A2E0098B15B /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		CECBE12A1C6E913D00B1291D /* AWSCore.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CECBE12B1C6E914400B1291D /* AWSAutoScaling.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CE9DE5341C6A72960060793F /* AWSAutoScaling.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
@@ -1285,6 +1284,7 @@
 		FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF0F2346847A0006050D /* MQTTSessionTests.m */; };
 		FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF122346880D0006050D /* TestMQTTSessionDelegate.m */; };
 		FA3EFBC2246331BA00CA23B9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		FA3EFBC424634C3400CA23B9 /* AWSStaticCredentialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EFBC324634C3400CA23B9 /* AWSStaticCredentialsTests.m */; };
 		FA40A91221FA2F2A0050F4B2 /* AWSDateFormatterTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA40A91121FA2F2A0050F4B2 /* AWSDateFormatterTests.m */; };
 		FA41B39322C652E300142F8D /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		FA41B39422C652E700142F8D /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -4716,6 +4716,7 @@
 		FA39AF1C234B95330006050D /* IoTTesTHelpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IoTTesTHelpers.swift; sourceTree = "<group>"; };
 		FA39AF30234CEBCB0006050D /* OTAJobResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTAJobResponse.swift; sourceTree = "<group>"; };
 		FA39AF32234CEC060006050D /* AtomicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicValue.swift; sourceTree = "<group>"; };
+		FA3EFBC324634C3400CA23B9 /* AWSStaticCredentialsTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSStaticCredentialsTests.m; sourceTree = "<group>"; };
 		FA40A91121FA2F2A0050F4B2 /* AWSDateFormatterTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSDateFormatterTests.m; sourceTree = "<group>"; };
 		FA4DB84B2199E33B00AE7F20 /* AWSCognitoIdentityProviderUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProviderUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA4DB84C2199E33C00AE7F20 /* AWSCognitoIdentityProviderSwiftTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSCognitoIdentityProviderSwiftTests.swift; sourceTree = "<group>"; };
@@ -6749,6 +6750,7 @@
 			isa = PBXGroup;
 			children = (
 				CEB8EF221C6A69A00098B15B /* AWSClockSkewTests.m */,
+				FA3EFBC324634C3400CA23B9 /* AWSStaticCredentialsTests.m */,
 				CEB8EF231C6A69A00098B15B /* AWSCognitoCredentialsProviderTests.m */,
 				CEB8EF241C6A69A00098B15B /* AWSCognitoIdentityServiceTests.m */,
 				CEB8EF251C6A69A00098B15B /* AWSCredentialsProviderTests.m */,
@@ -12361,7 +12363,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEB8EF491C6A69AB0098B15B /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13476,6 +13477,7 @@
 			files = (
 				CEB8EF3A1C6A69A00098B15B /* AWSSTSTests.m in Sources */,
 				CEB8EF311C6A69A00098B15B /* AWSCognitoCredentialsProviderTests.m in Sources */,
+				FA3EFBC424634C3400CA23B9 /* AWSStaticCredentialsTests.m in Sources */,
 				CEB8EF371C6A69A00098B15B /* AWSSerializationTests.m in Sources */,
 				CEB8EF331C6A69A00098B15B /* AWSCredentialsProviderTests.m in Sources */,
 				CEB8EF301C6A69A00098B15B /* AWSClockSkewTests.m in Sources */,
