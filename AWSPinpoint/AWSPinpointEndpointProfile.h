@@ -57,6 +57,13 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readwrite) NSString *_Nullable optOut;
 
 /**
+A string representing the opt out option of the endpoint profile, if it is set, will override the default opt out for
+ subsequent requests to Pinpoint
+@returns optOut
+*/
+@property (nonatomic, readwrite) NSString *_Nullable customOptOut;
+
+/**
  The effectiveDate of the profile
  Defaults to current time
  @returns effectiveDate

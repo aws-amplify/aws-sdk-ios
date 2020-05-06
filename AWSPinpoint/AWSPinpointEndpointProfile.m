@@ -126,7 +126,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     BOOL isOptedOutForNotifications = !isUsingPinpointForNotifications;
 
     @synchronized (self) {
-        self->_optOut = (applicationLevelOptOut || isOptedOutForNotifications)? @"ALL": @"NONE";
+        self->_optOut = (applicationLevelOptOut || self.customOptOut || isOptedOutForNotifications)? @"ALL": @"NONE";
     }
 }
 
