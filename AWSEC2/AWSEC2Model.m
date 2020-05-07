@@ -5297,11 +5297,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"launchTemplate" : @"LaunchTemplate",
+             @"warning" : @"Warning",
              };
 }
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplate class]];
+}
+
++ (NSValueTransformer *)warningJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ValidationWarning class]];
 }
 
 @end
@@ -5331,11 +5336,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"launchTemplateVersion" : @"LaunchTemplateVersion",
+             @"warning" : @"Warning",
              };
 }
 
 + (NSValueTransformer *)launchTemplateVersionJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateVersion class]];
+}
+
++ (NSValueTransformer *)warningJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ValidationWarning class]];
 }
 
 @end
@@ -34818,12 +34828,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assignIpv6AddressOnCreation" : @"AssignIpv6AddressOnCreation",
+             @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
+             @"mapCustomerOwnedIpOnLaunch" : @"MapCustomerOwnedIpOnLaunch",
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"subnetId" : @"SubnetId",
              };
 }
 
 + (NSValueTransformer *)assignIpv6AddressOnCreationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
++ (NSValueTransformer *)mapCustomerOwnedIpOnLaunchJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
@@ -53927,8 +53943,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"availabilityZoneId" : @"AvailabilityZoneId",
              @"availableIpAddressCount" : @"AvailableIpAddressCount",
              @"cidrBlock" : @"CidrBlock",
+             @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
              @"defaultForAz" : @"DefaultForAz",
              @"ipv6CidrBlockAssociationSet" : @"Ipv6CidrBlockAssociationSet",
+             @"mapCustomerOwnedIpOnLaunch" : @"MapCustomerOwnedIpOnLaunch",
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
@@ -56864,6 +56882,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"validCores" : @"ValidCores",
              @"validThreadsPerCore" : @"ValidThreadsPerCore",
              };
+}
+
+@end
+
+@implementation AWSEC2ValidationError
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"code" : @"Code",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
+@implementation AWSEC2ValidationWarning
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errors" : @"Errors",
+             };
+}
+
++ (NSValueTransformer *)errorsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ValidationError class]];
 }
 
 @end

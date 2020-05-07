@@ -2945,6 +2945,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2UserData;
 @class AWSEC2UserIdGroupPair;
 @class AWSEC2VCpuInfo;
+@class AWSEC2ValidationError;
+@class AWSEC2ValidationWarning;
 @class AWSEC2VgwTelemetry;
 @class AWSEC2Volume;
 @class AWSEC2VolumeAttachment;
@@ -6757,7 +6759,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2LogDestinationType logDestinationType;
 
 /**
- <p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p><p>Only applicable to flow logs that are published to an Amazon S3 bucket.</p>
+ <p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p><p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logFormat;
 
@@ -7067,6 +7069,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplate * _Nullable launchTemplate;
 
+/**
+ <p>If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.</p>
+ */
+@property (nonatomic, strong) AWSEC2ValidationWarning * _Nullable warning;
+
 @end
 
 /**
@@ -7122,6 +7129,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the launch template version.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateVersion * _Nullable launchTemplateVersion;
+
+/**
+ <p>If the new version of the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.</p>
+ */
+@property (nonatomic, strong) AWSEC2ValidationWarning * _Nullable warning;
 
 @end
 
@@ -7820,7 +7832,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The Availability Zone or Local Zone for the subnet.</p><p>Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p><p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The Availability Zone or Local Zone for the subnet.</p><p>Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p><p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable availabilityZone;
 
@@ -16822,7 +16834,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The association ID representing the current association between the route table and subnet.</p>
+ <p>The association ID representing the current association between the route table and subnet or gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
@@ -24954,7 +24966,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable assignIpv6AddressOnCreation;
 
 /**
- <p>Specify <code>true</code> to indicate that ENIs attached to instances created in the specified subnet should be assigned a public IPv4 address.</p>
+ <p>The customer-owned IPv4 address pool associated with the subnet.</p><p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
+
+/**
+ <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p><p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>
+ */
+@property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable mapCustomerOwnedIpOnLaunch;
+
+/**
+ <p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable mapPublicIpOnLaunch;
 
@@ -32243,6 +32265,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable cidrBlock;
 
 /**
+ <p>The customer-owned IPv4 address pool associated with the subnet.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
+
+/**
  <p>Indicates whether this is the default subnet for the Availability Zone.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable defaultForAz;
@@ -32251,6 +32278,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the IPv6 CIDR blocks associated with the subnet.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2SubnetIpv6CidrBlockAssociation *> * _Nullable ipv6CidrBlockAssociationSet;
+
+/**
+ <p>Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable mapCustomerOwnedIpOnLaunch;
 
 /**
  <p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>
@@ -34224,6 +34256,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>List of the valid number of threads per core that can be configured for the instance type. </p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable validThreadsPerCore;
+
+@end
+
+/**
+ <p>The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.</p>
+ */
+@interface AWSEC2ValidationError : AWSModel
+
+
+/**
+ <p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable code;
+
+/**
+ <p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html">Error Codes</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.</p>
+ */
+@interface AWSEC2ValidationWarning : AWSModel
+
+
+/**
+ <p>The error codes and error messages.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2ValidationError *> * _Nullable errors;
 
 @end
 
