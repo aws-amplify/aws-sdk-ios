@@ -25,6 +25,7 @@ static int const MAX_NUM_OF_METRICS_AND_ATTRIBUTES = 20;
 static int const MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH = 50;
 static int const MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH = 100;
 static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
+NSString *const AWSPinpointOverrideDefaultOptOutKey = @"com.amazonaws.AWSPinpointOverrideDefaultOptOutKey";
 
 @interface AWSPinpointEndpointProfile()
 @property (nonatomic, readwrite) NSString *endpointId;
@@ -33,6 +34,7 @@ static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
 @property (nonatomic, readwrite) NSDictionary<NSString*,NSNumber*> *metrics;
 @property (nonatomic, readwrite) UTCTimeMillis effectiveDate;
 @property (atomic, readonly) int currentNumOfAttributesAndMetrics;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 
 @end
 
@@ -42,6 +44,8 @@ static int const MAX_ENDPOINT_ATTRIBUTE_VALUES = 50;
 
 #pragma mark - AWSPinpointEndpointProfile -
 @implementation AWSPinpointEndpointProfile
+
+@synthesize optOut = _optOutBackingVariable;
 
 NSString *CHANNEL_TYPE = @"APNS";
 NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
@@ -77,6 +81,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _attributes = [NSMutableDictionary dictionary];
         _metrics = [NSMutableDictionary dictionary];
         _user = [AWSPinpointEndpointProfileUser new];
+        _userDefaults = userDefaults;
     }
     return self;
 }
@@ -121,12 +126,27 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     return NO;
 }
 
+- (void) setOptOut:(NSString *)optOut {
+    NSString *overrideDefaultOptOut = [self.userDefaults stringForKey:AWSPinpointOverrideDefaultOptOutKey];
+    if (![overrideDefaultOptOut isEqualToString:optOut]) {
+        [self.userDefaults setObject:optOut forKey:AWSPinpointOverrideDefaultOptOutKey];
+        [self.userDefaults synchronize];
+    }
+
+    _optOutBackingVariable = optOut;
+}
+- (NSString *)optOut {
+    return _optOutBackingVariable;
+}
+
 - (void) setEndpointOptOut:(BOOL) applicationLevelOptOut {
+    NSString *overrideDefaultOptOut = [self.userDefaults stringForKey:AWSPinpointOverrideDefaultOptOutKey];
+    NSString *overrideOrNoneAsDefault = [overrideDefaultOptOut length] ? overrideDefaultOptOut : @"NONE";
     BOOL isUsingPinpointForNotifications = [AWSPinpointNotificationManager isNotificationEnabled] && [self.address length];
     BOOL isOptedOutForNotifications = !isUsingPinpointForNotifications;
 
     @synchronized (self) {
-        self->_optOut = (applicationLevelOptOut || isOptedOutForNotifications)? @"ALL": @"NONE";
+        self->_optOutBackingVariable = (applicationLevelOptOut || isOptedOutForNotifications)? @"ALL": overrideOrNoneAsDefault;
     }
 }
 
@@ -327,7 +347,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _metrics = [decoder decodeObjectForKey:@"metrics"];
         _user = [decoder decodeObjectForKey:@"user"];
         _effectiveDate = [decoder decodeInt64ForKey:@"effectiveDate"];
-        _optOut = [decoder decodeObjectForKey:@"optOut"];
+        _optOutBackingVariable = [decoder decodeObjectForKey:@"optOut"];
     }
     return self;
 }
@@ -343,7 +363,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     [encoder encodeObject:_metrics forKey:@"metrics"];
     [encoder encodeObject:_user forKey:@"user"];
     [encoder encodeInt64:_effectiveDate forKey:@"effectiveDate"];
-    [encoder encodeObject:_optOut forKey:@"optOut"];
+    [encoder encodeObject:_optOutBackingVariable forKey:@"optOut"];
 
 }
 
