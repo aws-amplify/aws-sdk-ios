@@ -21,7 +21,7 @@ class AWSConnectTests : XCTestCase {
     // As of this writing (06-May-2020) Connect is not available for CDK setup, and doesn't expose the ListInstances
     // request. Further, any request we make without a valid instance ID returns an undifferentiated "AccessDenied"
     // error, so there isn't any meaningful test we can do on this service other than assert the client is created.
-    func testClientIsCreted() {
+    func testClientIsCreated() {
         AWSTestUtility.setupSessionCredentialsProvider()
         XCTAssertNotNil(AWSConnect.default())
     }
