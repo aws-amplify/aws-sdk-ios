@@ -48,7 +48,7 @@ AWSIoTData *iotData;
     [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
     [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
 
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupCognitoIdentityService];
 
     NSString *endpoint1 = [AWSTestUtility getIoTEndPoint:@"iot-us-east1-endpoint"];
     AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithURLString:endpoint1];

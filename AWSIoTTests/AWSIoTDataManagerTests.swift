@@ -38,7 +38,8 @@ class AWSIoTDataManagerTests: XCTestCase {
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
         //Setup creds
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupCognitoCredentialsProviderForDefaultRegion()
+        let region = AWSTestUtility.getRegionFromTestConfiguration()
 
         //Create MQTT Config
         let lwt = AWSIoTMQTTLastWillAndTestament()
@@ -55,64 +56,74 @@ class AWSIoTDataManagerTests: XCTestCase {
                                                       lastWillAndTestament: lwt)
 
         //Setup iOT Manager for Broker 1
-        let iotConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1 ,
-                credentialsProvider:AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
+        let iotConfigurationBroker1 = AWSServiceConfiguration(
+            region: region ,
+            credentialsProvider:AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
+        )
         AWSServiceManager.default().defaultServiceConfiguration = iotConfigurationBroker1
         AWSIoTManager.register(with: iotConfigurationBroker1!, forKey: "iot-manager-broker1")
         AWSIoT.register(with: iotConfigurationBroker1!, forKey: "iot-broker1")
 
         //Setup iOT Manager for Broker 2
-        let iotConfigurationBroker2 = AWSServiceConfiguration(region: .USEast2 ,
-            credentialsProvider:AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
+        let iotConfigurationBroker2 = AWSServiceConfiguration(
+            region: region,
+            credentialsProvider:AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
+        )
         AWSIoTManager.register(with: iotConfigurationBroker2!, forKey: "iot-manager-broker2")
         AWSIoT.register(with: iotConfigurationBroker2!, forKey: "iot-broker2")
 
         //Setup iOT Data Manager for Broker 1
-        let endpoint1 = AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")
-        XCTAssert(endpoint1 != nil, "Could not fetch the iot endpoint from the config file.")
-        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(region: .USEast1,
-                endpoint: AWSEndpoint(urlString: endpoint1!),
-                credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker1")
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker")
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker-test-subscribe-without-connect")
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!, with: mqttConfig, forKey:"iot-data-manager-broker-test-without-connect")
+        guard let endpoint1 = AWSTestUtility.getIoTEndPoint("iot_endpoint_address") else {
+            XCTFail("Could not fetch the iot endpoint from the config file.")
+            return
+        }
+        let iotDataManagerConfigurationBroker1 = AWSServiceConfiguration(
+            region: region,
+            endpoint: AWSEndpoint(urlString: endpoint1),
+            credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
+        )
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!,
+                                   with: mqttConfig,
+                                   forKey:"iot-data-manager-broker1")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!,
+                                   with: mqttConfig,
+                                   forKey:"iot-data-manager-broker")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!,
+                                   with: mqttConfig,
+                                   forKey:"iot-data-manager-broker-test-subscribe-without-connect")
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker1!,
+                                   with: mqttConfig,
+                                   forKey:"iot-data-manager-broker-test-without-connect")
 
         //Setup iOT Data Manager for Broker 2
-        let endpoint2 = AWSTestUtility.getIoTEndPoint("iot-us-east2-endpoint")
-        XCTAssert(endpoint2 != nil, "Could not fetch the iot endpoint from the config file.")
-        let iotDataManagerConfigurationBroker2 = AWSServiceConfiguration(region: .USEast2,
-                endpoint:  AWSEndpoint(urlString: endpoint2!),
-                credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
-        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker2!, with: mqttConfig, forKey:"iot-data-manager-broker2")
+        guard let endpoint2 = AWSTestUtility.getIoTEndPoint("iot_endpoint_address") else {
+            XCTFail("Could not fetch the iot endpoint from the config file.")
+            return
+        }
+        let iotDataManagerConfigurationBroker2 = AWSServiceConfiguration(
+            region: region,
+            endpoint: AWSEndpoint(urlString: endpoint2),
+            credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
+        )
+        AWSIoTDataManager.register(with:iotDataManagerConfigurationBroker2!,
+                                   with: mqttConfig,
+                                   forKey:"iot-data-manager-broker2")
 
         //Setup iOT Data Manager for Custom Auth using endpoint-1
-        func setUpIoTDataManagerWithCustomAuth() -> Void {
-            let credentialsJson: [String : String]? = AWSTestUtility.getCredentialsJsonAsDictionary()
-            if credentialsJson?["iot-custom-authorizer-name"] != nil {
-                customAuthorizerName = credentialsJson?["iot-custom-authorizer-name"]
-            }
-
-            if credentialsJson?["iot-custom-authorizer-token-value"] != nil {
-                tokenValue = credentialsJson?["iot-custom-authorizer-token-value"]
-            }
-
-            if credentialsJson?["iot-custom-authorizer-token-key-name"] != nil {
-                tokenKeyName = credentialsJson?["iot-custom-authorizer-token-key-name"]
-            }
-
-            if credentialsJson?["iot-custom-authorizer-token-signature"] != nil {
-                tokenSignature = credentialsJson?["iot-custom-authorizer-token-signature"]
-            }
-
-            let iotDataManagerConfigurationBrokerForCustomAuth = AWSServiceConfiguration(region: .USEast1,
-                                                                                         endpoint: AWSEndpoint(urlString: endpoint1!),
-                                                                                         credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
+        if let packageConfig = AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "iot") as? [String: String] {
+            customAuthorizerName = packageConfig["iot-custom-authorizer-name"]
+            tokenValue = packageConfig["iot-custom-authorizer-token-value"]
+            tokenKeyName = packageConfig["iot-custom-authorizer-token-key-name"]
+            tokenSignature = packageConfig["iot-custom-authorizer-token-signature"]
+            let iotDataManagerConfigurationBrokerForCustomAuth = AWSServiceConfiguration(
+                region: region,
+                endpoint: AWSEndpoint(urlString: endpoint1),
+                credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
+            )
             AWSIoTDataManager.register(with: iotDataManagerConfigurationBrokerForCustomAuth!,
                                        with: mqttConfig,
                                        forKey:"iot-data-manager-broker-custom-auth")
         }
-        setUpIoTDataManagerWithCustomAuth()
 
         let iotManagerBroker1:AWSIoTManager = AWSIoTManager(forKey: "iot-manager-broker1")
         let iotBroker1:AWSIoT = AWSIoT(forKey: "iot-broker1")
