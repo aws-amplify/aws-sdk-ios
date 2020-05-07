@@ -33,8 +33,12 @@ class AWSComprehendTests: XCTestCase {
         detectDominantLanguageRequest!.text = "The sun shines in Seattle";
         
         comprehendClient.detectDominantLanguage(detectDominantLanguageRequest!).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -50,8 +54,12 @@ class AWSComprehendTests: XCTestCase {
         detectDominantLanguageRequest!.text = "El sol brilla en Seattle";
         
         comprehendClient.detectDominantLanguage(detectDominantLanguageRequest!).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -68,6 +76,10 @@ class AWSComprehendTests: XCTestCase {
         detectEntitiesRequest!.text = "The sun shines in Seattle"
         
         comprehendClient.detectEntities(detectEntitiesRequest!).continueWith{ (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
                 XCTAssertFalse(true, "got error: \(String(describing: task.error))")
                 return nil
@@ -86,8 +98,12 @@ class AWSComprehendTests: XCTestCase {
         detectKeyPhrasesRequest!.text = "The sun shines in Seattle"
         
         comprehendClient.detectKeyPhrases(detectKeyPhrasesRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -104,8 +120,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "The sun shines in Seattle!!"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -121,8 +141,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "It is raining in Seattle"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -138,8 +162,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "This view is horrible"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -156,8 +184,16 @@ class AWSComprehendTests: XCTestCase {
         batchEntityRequest!.textList = inputStrings
         
         comprehendClient.batchDetectEntities(batchEntityRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
