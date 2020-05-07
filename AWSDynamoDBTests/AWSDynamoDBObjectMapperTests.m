@@ -436,6 +436,9 @@ static NSString *tableNameKeyOnly = nil;
         }
         return [AWSDynamoDBTestUtility waitForTableToBeActive:tableName2];
     }] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
         return nil;
     }] waitUntilFinished];
 
