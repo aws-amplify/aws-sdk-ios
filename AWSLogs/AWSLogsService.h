@@ -219,7 +219,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)cancelExportTask:(AWSLogsCancelExportTaskRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
 
@@ -231,7 +231,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsCreateExportTaskResponse *> *)createExportTask:(AWSLogsCreateExportTaskRequest *)request;
 
 /**
- <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a>DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a>CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
+ <p>Creates an export task, which allows you to efficiently export data from a log group to an Amazon S3 bucket.</p><p>This is an asynchronous call. If all the required information is provided, this operation initiates an export task and responds with the ID of the task. After the task has started, you can use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeExportTasks.html">DescribeExportTasks</a> to get the status of the export task. Each account can only have one active (<code>RUNNING</code> or <code>PENDING</code>) export task at a time. To cancel an export task, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_CancelExportTask.html">CancelExportTask</a>.</p><p>You can export logs from multiple log groups or multiple time ranges to the same S3 bucket. To separate out log data for each export task, you can specify a prefix to be used as the Amazon S3 key prefix for all exported objects.</p><p>Exporting to S3 buckets that are encrypted with AES-256 is supported. Exporting to S3 buckets encrypted with SSE-KMS is not supported. </p>
  
  @param request A container for the necessary parameters to execute the CreateExportTask service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -374,6 +374,31 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  @see AWSLogsDeleteMetricFilterRequest
  */
 - (void)deleteMetricFilter:(AWSLogsDeleteMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ DeleteQueryDefinition
+ 
+ @param request A container for the necessary parameters to execute the DeleteQueryDefinition service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsDeleteQueryDefinitionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDeleteQueryDefinitionRequest
+ @see AWSLogsDeleteQueryDefinitionResponse
+ */
+- (AWSTask<AWSLogsDeleteQueryDefinitionResponse *> *)deleteQueryDefinition:(AWSLogsDeleteQueryDefinitionRequest *)request;
+
+/**
+ DeleteQueryDefinition
+ 
+ @param request A container for the necessary parameters to execute the DeleteQueryDefinition service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDeleteQueryDefinitionRequest
+ @see AWSLogsDeleteQueryDefinitionResponse
+ */
+- (void)deleteQueryDefinition:(AWSLogsDeleteQueryDefinitionRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDeleteQueryDefinitionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a resource policy from this account. This revokes the access of the identities in that policy to put log events to this account.</p>
@@ -592,6 +617,31 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)describeQueries:(AWSLogsDescribeQueriesRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeQueriesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ DescribeQueryDefinitions
+ 
+ @param request A container for the necessary parameters to execute the DescribeQueryDefinitions service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsDescribeQueryDefinitionsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDescribeQueryDefinitionsRequest
+ @see AWSLogsDescribeQueryDefinitionsResponse
+ */
+- (AWSTask<AWSLogsDescribeQueryDefinitionsResponse *> *)describeQueryDefinitions:(AWSLogsDescribeQueryDefinitionsRequest *)request;
+
+/**
+ DescribeQueryDefinitions
+ 
+ @param request A container for the necessary parameters to execute the DescribeQueryDefinitions service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsDescribeQueryDefinitionsRequest
+ @see AWSLogsDescribeQueryDefinitionsResponse
+ */
+- (void)describeQueryDefinitions:(AWSLogsDescribeQueryDefinitionsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsDescribeQueryDefinitionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists the resource policies in this account.</p>
  
  @param request A container for the necessary parameters to execute the DescribeResourcePolicies service method.
@@ -714,7 +764,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)getLogEvents:(AWSLogsGetLogEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsGetLogEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p><p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p><p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
+ <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p><p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are generated by CloudWatch logs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p><p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
  
  @param request A container for the necessary parameters to execute the GetLogGroupFields service method.
 
@@ -726,7 +776,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsGetLogGroupFieldsResponse *> *)getLogGroupFields:(AWSLogsGetLogGroupFieldsRequest *)request;
 
 /**
- <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p><p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event.</p><p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
+ <p>Returns a list of the fields that are included in log events in the specified log group, along with the percentage of log events that contain each field. The search is limited to a time period that you specify.</p><p>In the results, fields that start with @ are fields generated by CloudWatch Logs. For example, <code>@timestamp</code> is the timestamp of each log event. For more information about the fields that are generated by CloudWatch logs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p><p>The response results are sorted by the frequency percentage, starting with the highest percentage.</p>
  
  @param request A container for the necessary parameters to execute the GetLogGroupFields service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -764,7 +814,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)getLogRecord:(AWSLogsGetLogRecordRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsGetLogRecordResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
+ <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a> operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
  
  @param request A container for the necessary parameters to execute the GetQueryResults service method.
 
@@ -776,7 +826,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsGetQueryResultsResponse *> *)getQueryResults:(AWSLogsGetQueryResultsRequest *)request;
 
 /**
- <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use .</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
+ <p>Returns the results from the specified query.</p><p>Only the fields requested in the query are returned, along with a <code>@ptr</code> field which is the identifier for the log record. You can use the value of <code>@ptr</code> in a <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_GetLogRecord.html">GetLogRecord</a> operation to get the full log record.</p><p><code>GetQueryResults</code> does not start a query execution. To run a query, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_StartQuery.html">StartQuery</a>.</p><p>If the value of the <code>Status</code> field in the output is <code>Running</code>, this operation returns only partial results. If you see a value of <code>Scheduled</code> or <code>Running</code> for the status, you can retry the operation later to see the final results. </p>
  
  @param request A container for the necessary parameters to execute the GetQueryResults service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -814,7 +864,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)listTagsLogGroup:(AWSLogsListTagsLogGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsListTagsLogGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p><p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p><p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
 
@@ -826,7 +876,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask<AWSLogsPutDestinationResponse *> *)putDestination:(AWSLogsPutDestinationRequest *)request;
 
 /**
- <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p><p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a>PutLogEvents</a>.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a>PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a>PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
+ <p>Creates or updates a destination. This operation is used only to create destinations for cross-account subscriptions.</p><p>A destination encapsulates a physical resource (such as an Amazon Kinesis stream) and enables you to subscribe to a real-time stream of log events for a different account, ingested using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p><p>Through an access policy, a destination controls what is written to it. By default, <code>PutDestination</code> does not set any access policy with the destination, which means a cross-account user cannot call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutSubscriptionFilter.html">PutSubscriptionFilter</a> against this destination. To enable this, the destination owner must call <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a> after <code>PutDestination</code>.</p>
  
  @param request A container for the necessary parameters to execute the PutDestination service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -886,7 +936,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)putLogEvents:(AWSLogsPutLogEventsRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsPutLogEventsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a>PutLogEvents</a>.</p><p>The maximum number of metric filters that can be associated with a log group is 100.</p>
+ <p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p><p>The maximum number of metric filters that can be associated with a log group is 100.</p>
  
  @param request A container for the necessary parameters to execute the PutMetricFilter service method.
 
@@ -897,7 +947,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)putMetricFilter:(AWSLogsPutMetricFilterRequest *)request;
 
 /**
- <p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a>PutLogEvents</a>.</p><p>The maximum number of metric filters that can be associated with a log group is 100.</p>
+ <p>Creates or updates a metric filter and associates it with the specified log group. Metric filters allow you to configure rules to extract metric data from log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a>.</p><p>The maximum number of metric filters that can be associated with a log group is 100.</p>
  
  @param request A container for the necessary parameters to execute the PutMetricFilter service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -906,6 +956,31 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
  @see AWSLogsPutMetricFilterRequest
  */
 - (void)putMetricFilter:(AWSLogsPutMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ PutQueryDefinition
+ 
+ @param request A container for the necessary parameters to execute the PutQueryDefinition service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLogsPutQueryDefinitionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsPutQueryDefinitionRequest
+ @see AWSLogsPutQueryDefinitionResponse
+ */
+- (AWSTask<AWSLogsPutQueryDefinitionResponse *> *)putQueryDefinition:(AWSLogsPutQueryDefinitionRequest *)request;
+
+/**
+ PutQueryDefinition
+ 
+ @param request A container for the necessary parameters to execute the PutQueryDefinition service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLogsErrorDomain` domain and the following error code: `AWSLogsErrorInvalidParameter`, `AWSLogsErrorResourceNotFound`, `AWSLogsErrorServiceUnavailable`.
+ 
+ @see AWSLogsPutQueryDefinitionRequest
+ @see AWSLogsPutQueryDefinitionResponse
+ */
+- (void)putQueryDefinition:(AWSLogsPutQueryDefinitionRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsPutQueryDefinitionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates or updates a resource policy allowing other AWS services to put log events to this account, such as Amazon Route 53. An account can have up to 10 resource policies per region.</p>
@@ -955,7 +1030,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)putRetentionPolicy:(AWSLogsPutRetentionPolicyRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
+ <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
  
  @param request A container for the necessary parameters to execute the PutSubscriptionFilter service method.
 
@@ -966,7 +1041,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)putSubscriptionFilter:(AWSLogsPutSubscriptionFilterRequest *)request;
 
 /**
- <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a>PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
+ <p>Creates or updates a subscription filter and associates it with the specified log group. Subscription filters allow you to subscribe to a real-time stream of log events ingested through <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutLogEvents.html">PutLogEvents</a> and have them delivered to a specific destination. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination that belongs to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream that belongs to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function that belongs to the same account as the subscription filter, for same-account delivery.</p></li></ul><p>There can only be one subscription filter associated with a log group. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group.</p>
  
  @param request A container for the necessary parameters to execute the PutSubscriptionFilter service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1027,7 +1102,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)stopQuery:(AWSLogsStopQueryRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsStopQueryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
+ <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
 
@@ -1038,7 +1113,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)tagLogGroup:(AWSLogsTagLogGroupRequest *)request;
 
 /**
- <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To remove tags, use <a>UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/log-group-tagging.html">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
+ <p>Adds or updates the specified tags for the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To remove tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_UntagLogGroup.html">UntagLogGroup</a>.</p><p>For more information about tags, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/Working-with-log-groups-and-streams.html#log-group-tagging">Tag Log Groups in Amazon CloudWatch Logs</a> in the <i>Amazon CloudWatch Logs User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1074,7 +1149,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (void)testMetricFilter:(AWSLogsTestMetricFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSLogsTestMetricFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To add tags, use <a>UntagLogGroup</a>.</p>
+ <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
  
  @param request A container for the necessary parameters to execute the UntagLogGroup service method.
 
@@ -1085,7 +1160,7 @@ FOUNDATION_EXPORT NSString *const AWSLogsSDKVersion;
 - (AWSTask *)untagLogGroup:(AWSLogsUntagLogGroupRequest *)request;
 
 /**
- <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a>ListTagsLogGroup</a>. To add tags, use <a>UntagLogGroup</a>.</p>
+ <p>Removes the specified tags from the specified log group.</p><p>To list the tags for a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_ListTagsLogGroup.html">ListTagsLogGroup</a>. To add tags, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_TagLogGroup.html">TagLogGroup</a>.</p>
  
  @param request A container for the necessary parameters to execute the UntagLogGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.

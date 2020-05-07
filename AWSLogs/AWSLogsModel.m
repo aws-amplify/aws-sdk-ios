@@ -130,6 +130,26 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDeleteQueryDefinitionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryDefinitionId" : @"queryDefinitionId",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteQueryDefinitionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"success" : @"success",
+             };
+}
+
+@end
+
 @implementation AWSLogsDeleteResourcePolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -425,6 +445,33 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 + (NSValueTransformer *)queriesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsQueryInfo class]];
+}
+
+@end
+
+@implementation AWSLogsDescribeQueryDefinitionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"queryDefinitionNamePrefix" : @"queryDefinitionNamePrefix",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeQueryDefinitionsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"queryDefinitions" : @"queryDefinitions",
+             };
+}
+
++ (NSValueTransformer *)queryDefinitionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsQueryDefinition class]];
 }
 
 @end
@@ -1004,6 +1051,29 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsPutQueryDefinitionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupNames" : @"logGroupNames",
+             @"name" : @"name",
+             @"queryDefinitionId" : @"queryDefinitionId",
+             @"queryString" : @"queryString",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutQueryDefinitionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryDefinitionId" : @"queryDefinitionId",
+             };
+}
+
+@end
+
 @implementation AWSLogsPutResourcePolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1097,6 +1167,20 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 	return @{
              @"endCharOffset" : @"endCharOffset",
              @"startCharOffset" : @"startCharOffset",
+             };
+}
+
+@end
+
+@implementation AWSLogsQueryDefinition
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastModified" : @"lastModified",
+             @"logGroupNames" : @"logGroupNames",
+             @"name" : @"name",
+             @"queryDefinitionId" : @"queryDefinitionId",
+             @"queryString" : @"queryString",
              };
 }
 

@@ -77,6 +77,8 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @class AWSLogsDeleteLogGroupRequest;
 @class AWSLogsDeleteLogStreamRequest;
 @class AWSLogsDeleteMetricFilterRequest;
+@class AWSLogsDeleteQueryDefinitionRequest;
+@class AWSLogsDeleteQueryDefinitionResponse;
 @class AWSLogsDeleteResourcePolicyRequest;
 @class AWSLogsDeleteRetentionPolicyRequest;
 @class AWSLogsDeleteSubscriptionFilterRequest;
@@ -92,6 +94,8 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @class AWSLogsDescribeMetricFiltersResponse;
 @class AWSLogsDescribeQueriesRequest;
 @class AWSLogsDescribeQueriesResponse;
+@class AWSLogsDescribeQueryDefinitionsRequest;
+@class AWSLogsDescribeQueryDefinitionsResponse;
 @class AWSLogsDescribeResourcePoliciesRequest;
 @class AWSLogsDescribeResourcePoliciesResponse;
 @class AWSLogsDescribeSubscriptionFiltersRequest;
@@ -128,12 +132,15 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @class AWSLogsPutLogEventsRequest;
 @class AWSLogsPutLogEventsResponse;
 @class AWSLogsPutMetricFilterRequest;
+@class AWSLogsPutQueryDefinitionRequest;
+@class AWSLogsPutQueryDefinitionResponse;
 @class AWSLogsPutResourcePolicyRequest;
 @class AWSLogsPutResourcePolicyResponse;
 @class AWSLogsPutRetentionPolicyRequest;
 @class AWSLogsPutSubscriptionFilterRequest;
 @class AWSLogsQueryCompileError;
 @class AWSLogsQueryCompileErrorLocation;
+@class AWSLogsQueryDefinition;
 @class AWSLogsQueryInfo;
 @class AWSLogsQueryStatistics;
 @class AWSLogsRejectedLogEventsInfo;
@@ -337,6 +344,32 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>The name of the log group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteQueryDefinitionRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryDefinitionId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDeleteQueryDefinitionResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable success;
 
 @end
 
@@ -667,6 +700,47 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>The list of queries that match the request.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLogsQueryInfo *> * _Nullable queries;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeQueryDefinitionsRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryDefinitionNamePrefix;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsDescribeQueryDefinitionsResponse : AWSModel
+
+
+/**
+ <p>The token for the next set of items to return. The token expires after 24 hours.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<AWSLogsQueryDefinition *> * _Nullable queryDefinitions;
 
 @end
 
@@ -1388,7 +1462,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
- <p>The namespace of the CloudWatch metric.</p>
+ <p>A custom namespace to contain your metric in CloudWatch. Use namespaces to group together metrics that are similar. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/cloudwatch_concepts.html#Namespace">Namespaces</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricNamespace;
 
@@ -1498,7 +1572,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logStreamName;
 
 /**
- <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a>DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p>
+ <p>The sequence token obtained from the response of the previous <code>PutLogEvents</code> call. An upload in a newly created log stream does not require a sequence token. You can also get the sequence token using <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeLogStreams.html">DescribeLogStreams</a>. If you call <code>PutLogEvents</code> twice within a narrow time period using the same value for <code>sequenceToken</code>, both calls may be successful, or one may be rejected.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sequenceToken;
 
@@ -1547,6 +1621,47 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>A collection of information that defines how metric data gets emitted.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLogsMetricTransformation *> * _Nullable metricTransformations;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutQueryDefinitionRequest : AWSRequest
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupNames;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryDefinitionId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryString;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsPutQueryDefinitionResponse : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryDefinitionId;
 
 @end
 
@@ -1616,7 +1731,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, assign) AWSLogsDistribution distribution;
 
 /**
- <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a>DescribeSubscriptionFilters</a>.</p>
+ <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterName;
 
@@ -1670,6 +1785,39 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>Reserved.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startCharOffset;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLogsQueryDefinition : AWSModel
+
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable lastModified;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable logGroupNames;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryDefinitionId;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable queryString;
 
 @end
 
@@ -1776,7 +1924,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @end
 
 /**
- <p>Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.</p>
+ <p>Contains one field from one log event returned by a CloudWatch Logs Insights query, along with the value of that field.</p><p>For more information about the fields that are generated by CloudWatch logs, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/CWL_AnalyzeLogData-discoverable-fields.html">Supported Logs and Discovered Fields</a>.</p>
  */
 @interface AWSLogsResultField : AWSModel
 
