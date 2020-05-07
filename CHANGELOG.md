@@ -1,3 +1,17 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSAppConfig
+---AWSLightsail
+---AWSSimpleSystemsManager
+---AWSCloudWatchLogs
+---AWSCodeBuild
+---AWSElasticComputeCloud
+---AWSRoute53
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
