@@ -178,11 +178,14 @@ static char mockDateKey;
 }
 
 + (AWSCognitoCredentialsProvider *)getCognitoCredentialsProviderFromFileForRegion:(AWSRegionType)region {
-    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsFromTestConfiguration];
+    NSDictionary<NSString *, NSString*> *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:@"common"];
+    NSString *identityPoolId = packageConfig[@"identityPoolId"];
+    NSString *authRoleArn = packageConfig[@"authRoleArn"];
+    NSString *unauthRoleArn = packageConfig[@"unauthRoleArn"];
     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:region
-                                                                                                    identityPoolId:credentialsJson[@"identityPoolId"]
-                                                                                                     unauthRoleArn:credentialsJson[@"unauthRoleArn"]
-                                                                                                       authRoleArn:credentialsJson[@"authRoleArn"]
+                                                                                                    identityPoolId:identityPoolId
+                                                                                                     unauthRoleArn:unauthRoleArn
+                                                                                                       authRoleArn:authRoleArn
                                                                                            identityProviderManager:nil];
     return credentialsProvider;
 }
@@ -191,7 +194,9 @@ static char mockDateKey;
     NSDictionary<NSString *, NSString*> *packageConfig = [AWSTestUtility
                                                             getIntegrationTestConfigurationForPackageId:@"iot"];
     if ([packageConfig objectForKey:endpointName]) {
-        return [packageConfig valueForKey:endpointName];
+        NSString *host = [packageConfig valueForKey:endpointName];
+        NSString *endpointWithScheme = [NSString stringWithFormat:@"https://%@", host];
+        return endpointWithScheme;
     } else {
         return nil;
     }

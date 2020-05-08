@@ -21,12 +21,13 @@ class AWSIoTDataManagerTests: XCTestCase {
     static let certificateSigningRequestCountryName = "US"
     static let certificateSigningRequestOrganizationName = "Amazon.com"
     static let certificateSigningRequestOrganizationalUnitName = "Amazon Web Services"
-    static let policyName = "AWSiOSSDKv2Test"
 
-    static var tokenKeyName: String? = nil
-    static var tokenValue: String? = nil
-    static var tokenSignature: String? = nil
+    static var policyName: String? = nil
+
     static var customAuthorizerName: String? = nil
+    static var tokenKeyName: String? = nil
+    static var tokenSignature: String? = nil
+    static var tokenValue: String? = nil
 
     static var classSetUpSuccessful = false
 
@@ -34,7 +35,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         super.setUp()
 
         //Setup Log level
-        AWSDDLog.sharedInstance.logLevel = .debug
+        AWSDDLog.sharedInstance.logLevel = .info
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
         //Setup creds
@@ -109,12 +110,10 @@ class AWSIoTDataManagerTests: XCTestCase {
                                    with: mqttConfig,
                                    forKey:"iot-data-manager-broker2")
 
+        setUpCustomValues()
+
         //Setup iOT Data Manager for Custom Auth using endpoint-1
-        if let packageConfig = AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "iot") as? [String: String] {
-            customAuthorizerName = packageConfig["iot-custom-authorizer-name"]
-            tokenValue = packageConfig["iot-custom-authorizer-token-value"]
-            tokenKeyName = packageConfig["iot-custom-authorizer-token-key-name"]
-            tokenSignature = packageConfig["iot-custom-authorizer-token-signature"]
+        if customAuthorizerName != nil {
             let iotDataManagerConfigurationBrokerForCustomAuth = AWSServiceConfiguration(
                 region: region,
                 endpoint: AWSEndpoint(urlString: endpoint1),
@@ -138,6 +137,17 @@ class AWSIoTDataManagerTests: XCTestCase {
                                                                 iot: iotBroker2)
 
         classSetUpSuccessful = broker1CertIsSuccessful && broker2CertIsSuccessful
+    }
+
+    static func setUpCustomValues() {
+        guard let packageConfig = AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "iot") as? [String: String] else {
+            return
+        }
+        policyName = packageConfig["policy_name"]
+        customAuthorizerName = packageConfig["custom_authorizer_name"]
+        tokenKeyName = packageConfig["custom_authorizer_token_key_name"]
+        tokenSignature = packageConfig["custom_authorizer_token_signature"]
+        tokenValue = packageConfig["custom_authorizer_token_value"]
     }
 
     override func setUp() {
@@ -385,231 +395,233 @@ class AWSIoTDataManagerTests: XCTestCase {
 
     }
 
-    func testMultiBroker(useWebSocket: Bool, burst:Bool, totalMessages:Int, messagesPerSecond:Int) {
+//    func testMultiBroker(useWebSocket: Bool, burst:Bool, totalMessages:Int, messagesPerSecond:Int) {
+//
+//        //Variables and Expectations for Broker 1
+//        var messageCountBroker1 = 0
+//        var broker1Disconnected = false
+//        var broker1Connected = false
+//        let broker1SubConfirmed  = self.expectation(description: "Subscription to broker 1 has been established")
+//        let hasConnectedBroker1 = self.expectation(description: "MQTT connection has been established with Broker 1 Broker")
+//        let hasDisconnectedBroker1 = self.expectation(description: "Disconnected from Broker1 Broker")
+//        var disconnectForBroker1Issued = false
+//
+//        //Variables and Expectations for Broker 2
+//        var messageCountBroker2 = 0
+//        var broker2Disconnected = false
+//        var broker2Connected = false
+//        let broker2SubConfirmed  = self.expectation(description: "Subscription to broker 2 has been established")
+//        let hasConnectedBroker2 = self.expectation(description: "MQTT connection has been established with Broker 2 Broker")
+//        let hasDisconnectedBroker2 = self.expectation(description: "Disconnected from Broker2 Broker")
+//        var disconnectForBroker2Issued = false
+//
+//        func mqttEventCallbackBroker1( _ status: AWSIoTMQTTStatus )
+//        {
+//            print("Broker1 connection status = \(status.rawValue)")
+//            switch(status)
+//            {
+//            case .connecting:
+//                print ("Connecting...")
+//
+//            case .connected:
+//                print("Connected")
+//                if (!broker1Connected) {
+//                    broker1Connected = true
+//                    hasConnectedBroker1.fulfill()
+//                }
+//            case .disconnected:
+//                print("Disconnected")
+//                if (disconnectForBroker1Issued) {
+//                    broker1Disconnected = true
+//                    hasDisconnectedBroker1.fulfill()
+//                }
+//            case .connectionRefused:
+//                print("Connection Refused")
+//
+//            case .connectionError:
+//                print("Connection Error")
+//
+//            case .protocolError:
+//                print("Protocol Error")
+//
+//            default:
+//                print("Unknown state: \(status.rawValue)")
+//            }
+//        }
+//
+//        func mqttEventCallbackBroker2( _ status: AWSIoTMQTTStatus )
+//        {
+//            print("Broker 2 connection status = \(status.rawValue)")
+//            switch(status)
+//            {
+//            case .connecting:
+//                print ("Connecting...")
+//
+//            case .connected:
+//                print("Connected")
+//                if (!broker2Connected) {
+//                    broker2Connected = true
+//                    hasConnectedBroker2.fulfill()
+//                }
+//
+//            case .disconnected:
+//                print("Disconnected")
+//                if (disconnectForBroker2Issued ) {
+//                    broker2Disconnected = true
+//                    hasDisconnectedBroker2.fulfill()
+//                }
+//
+//            case .connectionRefused:
+//                print("Connection Refused")
+//
+//            case .connectionError:
+//                print("Connection Error")
+//
+//            case .protocolError:
+//                print("Protocol Error")
+//
+//            default:
+//                print("Unknown state: \(status.rawValue)")
+//            }
+//        }
+//
+//        //Connect to Broker 1
+//        let iotDataManagerBroker1:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker1")
+//        let uuidBroker1 = UUID().uuidString
+//        print("Calling Connect to Broker1")
+//        let defaults = UserDefaults.standard
+//
+//        if (useWebSocket) {
+//            iotDataManagerBroker1.connectUsingWebSocket(withClientId: uuidBroker1, cleanSession: true, statusCallback: mqttEventCallbackBroker1)
+//             print("Connect call with Broker1 completed")
+//        }
+//        else {
+//            iotDataManagerBroker1.connect( withClientId: uuidBroker1, cleanSession:true, certificateId:defaults.string(forKey: "TestCertBroker1")!, statusCallback: mqttEventCallbackBroker1)
+//            print("Connect call with Broker1 completed")
+//        }
+//
+//        wait(for:[hasConnectedBroker1], timeout: 30)
+//        XCTAssertTrue(broker1Connected, "Successfully established MQTT Connection with Broker1")
+//        if (!broker1Connected) {
+//            return
+//        }
+//
+//        //Connect to Broker 2
+//        let iotDataManagerBroker2:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker2")
+//        let uuidBroker2 = UUID().uuidString
+//        print("Calling Connect to Broker 2")
+//
+//        if (useWebSocket) {
+//            iotDataManagerBroker2.connectUsingWebSocket(withClientId: uuidBroker2, cleanSession: true, statusCallback: mqttEventCallbackBroker2)
+//            print("Connect call with Broker2 completed")
+//        }
+//        else {
+//            iotDataManagerBroker2.connect( withClientId: uuidBroker2, cleanSession:true,certificateId:defaults.string(forKey: "TestCertBroker2")!, statusCallback: mqttEventCallbackBroker2)
+//            print("Connect call with Broker2 completed")
+//        }
+//
+//        wait(for:[hasConnectedBroker2], timeout: 30)
+//        XCTAssertTrue(broker2Connected, "Successfully established MQTT Connection with Broker 2")
+//        if (!broker2Connected) {
+//            return
+//        }
+//
+//        let testMessageBroker1 = "Test Message Broker1"
+//        let testMessageBroker2 = "Test Message Broker2"
+//        let testTopic = "TestTopic"
+//
+//        //Subscribe to TestTopic on Broker1
+//        iotDataManagerBroker1.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
+//            (payload) ->Void in
+//            let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
+//            XCTAssertEqual(testMessageBroker1, stringValue)
+//            messageCountBroker1 = messageCountBroker1+1
+//            //print("Broker1 received: ", messageCountBroker1)
+//        },  ackCallback: {
+//            broker1SubConfirmed.fulfill()
+//        })
+//        wait(for:[broker1SubConfirmed], timeout: 30)
+//
+//        //Subscribe to TestTopic on Broker 2
+//        iotDataManagerBroker2.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
+//            (payload) ->Void in
+//            let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
+//            XCTAssertEqual(testMessageBroker2, stringValue)
+//            messageCountBroker2 = messageCountBroker2+1
+//            //print("Broker2 received: ", messageCountBroker2)
+//        },  ackCallback: {
+//            broker2SubConfirmed.fulfill()
+//        })
+//        wait(for:[broker2SubConfirmed], timeout: 30)
+//
+//        //Publish to TestTopic n times each at x messages per second
+//        let outerLoop = (totalMessages/messagesPerSecond)
+//        let burstSize = 200
+//        var messagesToSend = totalMessages
+//
+//        if (burst) {
+//            messagesToSend = totalMessages + burstSize
+//            for _ in 1...burstSize {
+//                iotDataManagerBroker1.publishString(testMessageBroker1, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
+//                iotDataManagerBroker2.publishString(testMessageBroker2, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
+//            }
+//            sleep(1)
+//        }
+//
+//        if (totalMessages > 1) {
+//            for _ in 1...outerLoop {
+//                for _ in 1...messagesPerSecond {
+//                    iotDataManagerBroker1.publishString(testMessageBroker1, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
+//                    iotDataManagerBroker2.publishString(testMessageBroker2, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
+//                }
+//                sleep(1)
+//                print("Published batch of \(messagesPerSecond) to each broker")
+//
+//                print("Received \(messageCountBroker1) so far from Broker1")
+//                print("Received \(messageCountBroker2) so far from Broker2")
+//            }
+//        }
+//
+//        print("Published \(messagesToSend) Messages to each broker")
+//
+//        if (burst) {
+//            print("sleeping for 90 seconds for the client retry to happen if necessary")
+//            sleep(90);
+//        }
+//        else {
+//            print("sleeping for 90 seconds for the client retry to happen if necessary")
+//            sleep(90)
+//        }
+//
+//        print("Total message count from Broker1:", messageCountBroker1)
+//        print("Total message count from Broker2:", messageCountBroker2)
+//
+//        XCTAssert(messageCountBroker1 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker1")
+//        XCTAssert(messageCountBroker2 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker2")
+//
+//        //Disconnect
+//        iotDataManagerBroker1.disconnect()
+//        disconnectForBroker1Issued = true
+//        wait(for:[hasDisconnectedBroker1], timeout: 30)
+//        XCTAssertTrue(broker1Disconnected)
+//
+//
+//        iotDataManagerBroker2.disconnect()
+//        disconnectForBroker2Issued = true
+//        wait(for:[hasDisconnectedBroker2], timeout: 30)
+//        XCTAssertTrue(broker2Disconnected)
+//
+//    }
 
-        //Variables and Expectations for Broker 1
-        var messageCountBroker1 = 0
-        var broker1Disconnected = false
-        var broker1Connected = false
-        let broker1SubConfirmed  = self.expectation(description: "Subscription to broker 1 has been established")
-        let hasConnectedBroker1 = self.expectation(description: "MQTT connection has been established with Broker 1 Broker")
-        let hasDisconnectedBroker1 = self.expectation(description: "Disconnected from Broker1 Broker")
-        var disconnectForBroker1Issued = false
+    // Need to figure out how to make this work with multiple brokers, when we only provision 1 endpoint
+    // at a time via CDK
+//    func testPubSubWithMultipleMQTTBrokersWithCert() {
+//        self.testMultiBroker(useWebSocket: false, burst:false, totalMessages: 1000, messagesPerSecond: 50)
+//    }
 
-        //Variables and Expectations for Broker 2
-        var messageCountBroker2 = 0
-        var broker2Disconnected = false
-        var broker2Connected = false
-        let broker2SubConfirmed  = self.expectation(description: "Subscription to broker 2 has been established")
-        let hasConnectedBroker2 = self.expectation(description: "MQTT connection has been established with Broker 2 Broker")
-        let hasDisconnectedBroker2 = self.expectation(description: "Disconnected from Broker2 Broker")
-        var disconnectForBroker2Issued = false
-
-        func mqttEventCallbackBroker1( _ status: AWSIoTMQTTStatus )
-        {
-            print("Broker1 connection status = \(status.rawValue)")
-            switch(status)
-            {
-            case .connecting:
-                print ("Connecting...")
-
-            case .connected:
-                print("Connected")
-                if (!broker1Connected) {
-                    broker1Connected = true
-                    hasConnectedBroker1.fulfill()
-                }
-            case .disconnected:
-                print("Disconnected")
-                if (disconnectForBroker1Issued) {
-                    broker1Disconnected = true
-                    hasDisconnectedBroker1.fulfill()
-                }
-            case .connectionRefused:
-                print("Connection Refused")
-
-            case .connectionError:
-                print("Connection Error")
-
-            case .protocolError:
-                print("Protocol Error")
-
-            default:
-                print("Unknown state: \(status.rawValue)")
-            }
-        }
-
-        func mqttEventCallbackBroker2( _ status: AWSIoTMQTTStatus )
-        {
-            print("Broker 2 connection status = \(status.rawValue)")
-            switch(status)
-            {
-            case .connecting:
-                print ("Connecting...")
-
-            case .connected:
-                print("Connected")
-                if (!broker2Connected) {
-                    broker2Connected = true
-                    hasConnectedBroker2.fulfill()
-                }
-
-            case .disconnected:
-                print("Disconnected")
-                if (disconnectForBroker2Issued ) {
-                    broker2Disconnected = true
-                    hasDisconnectedBroker2.fulfill()
-                }
-
-            case .connectionRefused:
-                print("Connection Refused")
-
-            case .connectionError:
-                print("Connection Error")
-
-            case .protocolError:
-                print("Protocol Error")
-
-            default:
-                print("Unknown state: \(status.rawValue)")
-            }
-        }
-
-        //Connect to Broker 1
-        let iotDataManagerBroker1:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker1")
-        let uuidBroker1 = UUID().uuidString
-        print("Calling Connect to Broker1")
-        let defaults = UserDefaults.standard
-
-        if (useWebSocket) {
-            iotDataManagerBroker1.connectUsingWebSocket(withClientId: uuidBroker1, cleanSession: true, statusCallback: mqttEventCallbackBroker1)
-             print("Connect call with Broker1 completed")
-        }
-        else {
-            iotDataManagerBroker1.connect( withClientId: uuidBroker1, cleanSession:true, certificateId:defaults.string(forKey: "TestCertBroker1")!, statusCallback: mqttEventCallbackBroker1)
-            print("Connect call with Broker1 completed")
-        }
-
-        wait(for:[hasConnectedBroker1], timeout: 30)
-        XCTAssertTrue(broker1Connected, "Successfully established MQTT Connection with Broker1")
-        if (!broker1Connected) {
-            return
-        }
-
-        //Connect to Broker 2
-        let iotDataManagerBroker2:AWSIoTDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker2")
-        let uuidBroker2 = UUID().uuidString
-        print("Calling Connect to Broker 2")
-
-        if (useWebSocket) {
-            iotDataManagerBroker2.connectUsingWebSocket(withClientId: uuidBroker2, cleanSession: true, statusCallback: mqttEventCallbackBroker2)
-            print("Connect call with Broker2 completed")
-        }
-        else {
-            iotDataManagerBroker2.connect( withClientId: uuidBroker2, cleanSession:true,certificateId:defaults.string(forKey: "TestCertBroker2")!, statusCallback: mqttEventCallbackBroker2)
-            print("Connect call with Broker2 completed")
-        }
-
-        wait(for:[hasConnectedBroker2], timeout: 30)
-        XCTAssertTrue(broker2Connected, "Successfully established MQTT Connection with Broker 2")
-        if (!broker2Connected) {
-            return
-        }
-
-        let testMessageBroker1 = "Test Message Broker1"
-        let testMessageBroker2 = "Test Message Broker2"
-        let testTopic = "TestTopic"
-
-        //Subscribe to TestTopic on Broker1
-        iotDataManagerBroker1.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
-            (payload) ->Void in
-            let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
-            XCTAssertEqual(testMessageBroker1, stringValue)
-            messageCountBroker1 = messageCountBroker1+1
-            //print("Broker1 received: ", messageCountBroker1)
-        },  ackCallback: {
-            broker1SubConfirmed.fulfill()
-        })
-        wait(for:[broker1SubConfirmed], timeout: 30)
-
-        //Subscribe to TestTopic on Broker 2
-        iotDataManagerBroker2.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: {
-            (payload) ->Void in
-            let stringValue:String = NSString(data: payload, encoding: String.Encoding.utf8.rawValue)! as String
-            XCTAssertEqual(testMessageBroker2, stringValue)
-            messageCountBroker2 = messageCountBroker2+1
-            //print("Broker2 received: ", messageCountBroker2)
-        },  ackCallback: {
-            broker2SubConfirmed.fulfill()
-        })
-        wait(for:[broker2SubConfirmed], timeout: 30)
-
-        //Publish to TestTopic n times each at x messages per second
-        let outerLoop = (totalMessages/messagesPerSecond)
-        let burstSize = 200
-        var messagesToSend = totalMessages
-
-        if (burst) {
-            messagesToSend = totalMessages + burstSize
-            for _ in 1...burstSize {
-                iotDataManagerBroker1.publishString(testMessageBroker1, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
-                iotDataManagerBroker2.publishString(testMessageBroker2, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
-            }
-            sleep(1)
-        }
-
-        if (totalMessages > 1) {
-            for _ in 1...outerLoop {
-                for _ in 1...messagesPerSecond {
-                    iotDataManagerBroker1.publishString(testMessageBroker1, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
-                    iotDataManagerBroker2.publishString(testMessageBroker2, onTopic:testTopic, qoS:.messageDeliveryAttemptedAtLeastOnce)
-                }
-                sleep(1)
-                print("Published batch of \(messagesPerSecond) to each broker")
-
-                print("Received \(messageCountBroker1) so far from Broker1")
-                print("Received \(messageCountBroker2) so far from Broker2")
-            }
-        }
-
-        print("Published \(messagesToSend) Messages to each broker")
-
-        if (burst) {
-            print("sleeping for 90 seconds for the client retry to happen if necessary")
-            sleep(90);
-        }
-        else {
-            print("sleeping for 90 seconds for the client retry to happen if necessary")
-            sleep(90)
-        }
-
-        print("Total message count from Broker1:", messageCountBroker1)
-        print("Total message count from Broker2:", messageCountBroker2)
-
-        XCTAssert(messageCountBroker1 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker1")
-        XCTAssert(messageCountBroker2 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker2")
-
-        //Disconnect
-        iotDataManagerBroker1.disconnect()
-        disconnectForBroker1Issued = true
-        wait(for:[hasDisconnectedBroker1], timeout: 30)
-        XCTAssertTrue(broker1Disconnected)
-
-
-        iotDataManagerBroker2.disconnect()
-        disconnectForBroker2Issued = true
-        wait(for:[hasDisconnectedBroker2], timeout: 30)
-        XCTAssertTrue(broker2Disconnected)
-
-    }
-
-    func testPubSubWithMultipleMQTTBrokersWithCert() {
-        self.testMultiBroker(useWebSocket: false, burst:false, totalMessages: 1000, messagesPerSecond: 50)
-    }
-
-    func testPubSubWithMultipleMQTTBrokersWithWebSocket() {
-        self.testMultiBroker(useWebSocket: true, burst: false, totalMessages: 1000, messagesPerSecond: 50)
-    }
+//    func testPubSubWithMultipleMQTTBrokersWithWebSocket() {
+//        self.testMultiBroker(useWebSocket: true, burst: false, totalMessages: 1000, messagesPerSecond: 50)
+//    }
 
     func testConnectAndDisconnectWithWebSocket() {
         var connected = false
@@ -1170,26 +1182,8 @@ class AWSIoTDataManagerTests: XCTestCase {
 
     }
 
+    // MARK: - Custom Auth Tests
 
-
-
-
-    // ---------- CUSTOM AUTH TESTS ----------
-    /**
-     * For the following tests on `CustomAuth` to work, please setup the `Custom Authorizer` workflow
-     * involving AWS IoT Core and AWS Lambda Functions in your AWS account. Once the setup is complete,
-     * add the following key-value pairs in `AWSCoreTests/Resources/credentials.json` file locally.
-     *
-     * {
-     *    "iot-custom-authorizer-name":"<my-custom-authorizer>",
-     *    "iot-custom-authorizer-token-key-name":"<key-name-for-http-header>",
-     *    "iot-custom-authorizer-token-value":"<token>",
-     *    "iot-custom-authorizer-token-signature":"<base64-encoded-signature>"
-     * }
-     *
-     * See: https://aws.amazon.com/blogs/security/how-to-use-your-own-identity-and-access-management-systems-to-control-access-to-aws-iot-resources/
-     * for setting up the Custom Authorizer and Lambda function.
-     **/
     // This test creates a WebSocket connection with Custom Auth, asserts the status is `Connected`
     // and disconnects the connection.
     func testCustomAuthConnectAndDisconnect() {
@@ -1303,8 +1297,8 @@ class AWSIoTDataManagerTests: XCTestCase {
                                                                cleanSession: true,
                                                                customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
                                                                tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                               tokenValue: "Deny",
-                                                               tokenSignature: "Deny",
+                                                               tokenValue: "allow",
+                                                               tokenSignature: "INVALID_SIGNATURE",
                                                                statusCallback: mqttEventCallback)
 
         XCTAssert(connectedWS)
