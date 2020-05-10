@@ -70,9 +70,9 @@ static NSString *userId;
 }
 
 - (AWSPinpointConfiguration *)getDefaultAWSPinpointConfiguration {
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
-
-    return [[AWSPinpointConfiguration alloc] initWithAppId:testConfig[@"pinpointAppId"] launchOptions:@{}];
+    NSString *pinpointAppId = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"pinpoint"
+                                                                                     configKey:@"app_id"];
+    return [[AWSPinpointConfiguration alloc] initWithAppId:pinpointAppId launchOptions:@{}];
 }
 
 - (AWSPinpointConfiguration *)getAWSPinpointConfigurationWithOptOut:(BOOL)optOut {

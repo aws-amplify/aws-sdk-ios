@@ -60,9 +60,10 @@ int const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointEventRecorderTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointEventRecorderTests"];
 
-    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"pinpoint"];
-    
-    [self initializePinpointIAD:testConfig[@"pinpointAppId"]];
+    NSString *pinpointAppId = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"pinpoint"
+                                                                                     configKey:@"app_id"];
+
+    [self initializePinpointIAD:pinpointAppId];
     [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
 }
 
