@@ -41,16 +41,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DE7171C6A7A690060793F"
-               BuildableName = "AWSMachineLearningTests.xctest"
-               BlueprintName = "AWSMachineLearningTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE5604801C6BC94D00B4E00B"
                BuildableName = "AWSMachineLearningUnitTests.xctest"
                BlueprintName = "AWSMachineLearningUnitTests"

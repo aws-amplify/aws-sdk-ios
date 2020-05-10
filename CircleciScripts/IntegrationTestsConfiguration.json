@@ -120,11 +120,6 @@
       "AWSLexTests": {}
     }
   },
-  "MachineLearning": {
-    "test_list": {
-      "AWSMachineLearningTests": {}
-    }
-  },
   "MobileAnalytics": {
     "test_list": {
       "AWSMobileAnalyticsLegacyTests": {

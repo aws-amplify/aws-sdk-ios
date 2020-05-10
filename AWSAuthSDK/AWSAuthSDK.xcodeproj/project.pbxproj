@@ -952,13 +952,6 @@
 			remoteGlobalIDString = CE9DE70F1C6A7A680060793F;
 			remoteInfo = AWSMachineLearning;
 		};
-		B55D57711F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE9DE7181C6A7A690060793F;
-			remoteInfo = AWSMachineLearningTests;
-		};
 		B55D57731F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -1944,7 +1937,6 @@
 				B55D576C1F44EC3F005A0E56 /* AWSLogs.framework */,
 				B55D576E1F44EC3F005A0E56 /* AWSLogsUnitTests.xctest */,
 				B55D57701F44EC3F005A0E56 /* AWSMachineLearning.framework */,
-				B55D57721F44EC3F005A0E56 /* AWSMachineLearningTests.xctest */,
 				B55D57741F44EC3F005A0E56 /* AWSMachineLearningUnitTests.xctest */,
 				B55D57761F44EC3F005A0E56 /* AWSMobileAnalytics.framework */,
 				B55D577A1F44EC3F005A0E56 /* AWSMobileAnalyticsLegacyTests.xctest */,
@@ -3073,13 +3065,6 @@
 			fileType = wrapper.framework;
 			path = AWSMachineLearning.framework;
 			remoteRef = B55D576F1F44EC3F005A0E56 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B55D57721F44EC3F005A0E56 /* AWSMachineLearningTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AWSMachineLearningTests.xctest;
-			remoteRef = B55D57711F44EC3F005A0E56 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B55D57741F44EC3F005A0E56 /* AWSMachineLearningUnitTests.xctest */ = {
