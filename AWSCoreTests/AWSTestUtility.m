@@ -75,6 +75,13 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     return testConfigurationJson[@"packages"][packageId];
 }
 
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey {
+    NSDictionary *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:packageId];
+    NSString *value = packageConfig[configKey];
+    return value;
+}
+
+
 + (AWSRegionType) getRegionFromTestConfiguration {
     return [[self getIntegrationTestConfigurationForPackageId:@"common"][@"region"] aws_regionTypeValue];
 }
