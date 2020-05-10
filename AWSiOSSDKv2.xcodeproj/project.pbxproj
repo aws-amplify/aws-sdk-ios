@@ -389,7 +389,6 @@
 		211167332399CBA500902FC1 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		211167342399CC1600902FC1 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		211167352399CD0600902FC1 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
-		211167362399CD2000902FC1 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		211167392399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */; };
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
@@ -1332,6 +1331,7 @@
 		FAC3E7022208B0D60037813E /* AWSFMDB+AWSHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */; };
 		FAC8B03824688D9B00412BD9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FAC8B03B2468913A00412BD9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		FAC8B03E2468931F00412BD9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FAD9DD23245CD135003F84D0 /* AWSTestResources.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD21245CD135003F84D0 /* AWSTestResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAD9DD2B245CD193003F84D0 /* AWSTestConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD29245CD193003F84D0 /* AWSTestConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAD9DD2C245CD193003F84D0 /* AWSTestConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */; };
@@ -3210,6 +3210,13 @@
 			remoteInfo = AWSTestResources;
 		};
 		FAC8B0392468913400412BD9 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
+		};
+		FAC8B03C2468931B00412BD9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
 			proxyType = 1;
@@ -5144,6 +5151,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAC8B03E2468931F00412BD9 /* AWSTestResources.framework in Frameworks */,
 				21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */,
 				211166FF2399C24900902FC1 /* AWSKinesisVideoSignaling.framework in Frameworks */,
 			);
@@ -9792,6 +9800,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FAC8B03D2468931B00412BD9 /* PBXTargetDependency */,
 				211167012399C24900902FC1 /* PBXTargetDependency */,
 				211167032399C24900902FC1 /* PBXTargetDependency */,
 			);
@@ -12335,7 +12344,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				211167362399CD2000902FC1 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15755,6 +15763,11 @@
 			isa = PBXTargetDependency;
 			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
 			targetProxy = FAC8B0392468913400412BD9 /* PBXContainerItemProxy */;
+		};
+		FAC8B03D2468931B00412BD9 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FAC8B03C2468931B00412BD9 /* PBXContainerItemProxy */;
 		};
 		FAC90A94233830EF00CD1AAB /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
