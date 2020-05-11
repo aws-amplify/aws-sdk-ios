@@ -27,7 +27,7 @@
 
 NSUInteger const AWSS3Test256KB = 1024 * 256;
 NSUInteger const AWSS3TestsTransferManagerMinimumPartSize = 5 * 1024 * 1024;
-NSString *const AWSS3TestBucketNamePrefix = @"s3-integ-test-";
+NSString *AWSS3TestBucketNamePrefix = nil;
 
 static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
@@ -38,12 +38,10 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 + (void)setUp {
     [super setUp];
     
-    if ([AWSTestUtility isCognitoSupportedInDefaultRegion]) {
-        [AWSTestUtility setupCognitoCredentialsProvider];
-    } else {
-        [AWSTestUtility setupCredentialsViaFile];
-    }
-
+    [AWSTestUtility setupSessionCredentialsProvider];
+    AWSS3TestBucketNamePrefix = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                       configKey:@"bucket_name_prefix"];
+    
     testBucketsCreated = [NSMutableArray new];
     
     //Create bucketName
@@ -202,7 +200,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testCreateDeleteBucket {
-    NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testcreatedeletebucket"];
+    NSString *bucketNameTest2 = [AWSS3TestHelper getTestBucketName];
     [testBucketsCreated addObject:bucketNameTest2];
     
     AWSS3 *s3 = [AWSS3 defaultS3];
@@ -242,7 +240,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testCreateDeleteBucketWithDefaultEncryption {
-    NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testbucket"];
+    NSString *bucketNameTest2 = [AWSS3TestHelper getTestBucketName];
     [testBucketsCreated addObject:bucketNameTest2];
     
     AWSS3 *s3 = [AWSS3 defaultS3];
@@ -297,14 +295,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testBucketCustomEndpoint {
-    AWSRegionType region = [AWSTestUtility getDefaultRegionType];
+    AWSRegionType region = [AWSTestUtility getRegionFromTestConfiguration];
 
-    id<AWSCredentialsProvider> credentialsProvider;
-    if ([AWSTestUtility isCognitoSupportedInDefaultRegion]) {
-        credentialsProvider = [AWSTestUtility getCognitoCredentialsProviderFromFileForRegion:region];
-    } else {
-        credentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
-    }
+    id<AWSCredentialsProvider> credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
 
     NSString *regionName = [AWSEndpoint regionNameFromType:region];
     NSString *urlString = [NSString stringWithFormat:@"https://s3.dualstack.%@.amazonaws.com", regionName];
@@ -405,10 +398,10 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         return;
     }
     
-    NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];
+    NSString *grantBucketName = [AWSS3TestHelper getTestBucketName];
     [testBucketsCreated addObject:grantBucketName];
     XCTAssertTrue([AWSS3TestHelper createBucketWithName:grantBucketName
-                                              andRegion:[AWSTestUtility getDefaultRegionType]]);
+                                              andRegion:[AWSTestUtility getRegionFromTestConfiguration]]);
 
     AWSS3Grantee *granteeOne = [AWSS3Grantee new];
     granteeOne.identifier = @"154b2f3550127d0439dfe1e89a03a7a4178048cc05c6fdaeb40796841a5cfcef";
@@ -1399,7 +1392,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     AWSS3GetBucketLocationRequest *getBucketLocationRequest = [AWSS3GetBucketLocationRequest new];
     getBucketLocationRequest.bucket = testBucketNameGeneral;
     
-    AWSRegionType regionType = [AWSTestUtility getDefaultRegionType];
+    AWSRegionType regionType = [AWSTestUtility getRegionFromTestConfiguration];
     AWSS3BucketLocationConstraint expectedConstraint = [AWSS3TestHelper getLocationConstraintForRegionType:regionType];
 
     [[[s3 getBucketLocation:getBucketLocationRequest] continueWithBlock:^id(AWSTask *task) {
@@ -1489,11 +1482,11 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
-    NSString *sourceBucketName = [testBucketNameGeneral stringByAppendingString:@"-inventory-source"];
+    NSString *sourceBucketName = [AWSS3TestHelper getTestBucketName];
     [AWSS3TestHelper createBucketWithName:sourceBucketName];
     [testBucketsCreated addObject:sourceBucketName];
 
-    NSString *destinationBucketName = [testBucketNameGeneral stringByAppendingString:@"-inventory-destination"];
+    NSString *destinationBucketName = [AWSS3TestHelper getTestBucketName];
     [AWSS3TestHelper createBucketWithName:destinationBucketName];
     [testBucketsCreated addObject:destinationBucketName];
 
@@ -1538,5 +1531,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         return task;
     }] waitUntilFinished];
 }
+
+#pragma mark - Utilities
 
 @end

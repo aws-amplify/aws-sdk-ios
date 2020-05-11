@@ -1184,7 +1184,6 @@
 		CEFE06541C6AA1C8007A42E4 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		CEFE06551C6AA1DF007A42E4 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
 		CEFE06561C6AA249007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
-		CEFE06611C6AA254007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06621C6AA256007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06631C6AA257007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
 		CEFE06651C6AA258007A42E4 /* credentials.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3E1C6A69AB0098B15B /* credentials.json */; };
@@ -1343,6 +1342,7 @@
 		FAE19B7823341DAE00560F1D /* rest-json-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF461C6A69AB0098B15B /* rest-json-output.json */; };
 		FAE19B7923341DAE00560F1D /* rest-xml-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF471C6A69AB0098B15B /* rest-xml-input.json */; };
 		FAE19B7A23341DAE00560F1D /* rest-xml-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF481C6A69AB0098B15B /* rest-xml-output.json */; };
+		FAEC79042469946100881BFF /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FAEE86AC2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */; };
 		FAF13AB02167C6AA008115D1 /* AWSGZIPTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */; };
 		FAF2C31623464ABA006C5C3E /* TestDecoderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C31523464ABA006C5C3E /* TestDecoderDelegate.m */; };
@@ -3287,6 +3287,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = B5A0262422F01B33001C75CE;
 			remoteInfo = AWSTextractUnitTests;
+		};
+		FAEC79022469945D00881BFF /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
+			remoteInfo = AWSTestResources;
 		};
 		FAFE10B4234D3CF200BD2DCA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -5665,6 +5672,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEC79042469946100881BFF /* AWSTestResources.framework in Frameworks */,
 				CE9DEB561C6A9C300060793F /* libOCMock.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -10959,6 +10967,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				FAEC79032469945D00881BFF /* PBXTargetDependency */,
 				CE9DE9C91C6A7C2E0060793F /* PBXTargetDependency */,
 				181154D41E2014E3008F184C /* PBXTargetDependency */,
 			);
@@ -12768,7 +12777,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CEFE06611C6AA254007A42E4 /* credentials.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -15785,6 +15793,11 @@
 			isa = PBXTargetDependency;
 			target = B5A0262422F01B33001C75CE /* AWSTextractUnitTests */;
 			targetProxy = FAD3FA2823382ADF00943085 /* PBXContainerItemProxy */;
+		};
+		FAEC79032469945D00881BFF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
+			targetProxy = FAEC79022469945D00881BFF /* PBXContainerItemProxy */;
 		};
 		FAFE10B5234D3CF200BD2DCA /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
