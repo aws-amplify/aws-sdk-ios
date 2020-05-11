@@ -52,4 +52,15 @@
     return testConfigurationJson;
 }
 
++ (NSDictionary <NSString *, id> *) getIntegrationTestConfigurationForPackageId:(NSString *)packageId {
+    NSDictionary *config = [self getTestConfiguration];
+    return config[@"packages"][packageId];
+}
+
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey {
+    NSDictionary *config = [AWSTestConfiguration getIntegrationTestConfigurationForPackageId:packageId];
+    NSString *value = config[configKey];
+    return value;
+}
+
 @end
