@@ -1,3 +1,13 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSCodeGuruReviewer
+---AWSKendraFrontendService
+---AWSElasticComputeCloud
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
