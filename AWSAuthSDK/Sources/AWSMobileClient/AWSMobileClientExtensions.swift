@@ -705,7 +705,6 @@ extension AWSMobileClient {
         if self.federationProvider == .userPools {
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-            self.tokenFetchLock.leave()
         } else if self.federationProvider == .hostedUI {
             self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
             self.pendingGetTokensCompletion = nil
