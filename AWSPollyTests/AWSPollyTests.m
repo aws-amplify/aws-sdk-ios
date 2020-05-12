@@ -270,7 +270,7 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     
     AWSPolly *Polly = [AWSPolly defaultPolly];
     // wait for lexicons to be ready for usage
-    sleep(10);
+    sleep(20);
     [[[Polly synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
