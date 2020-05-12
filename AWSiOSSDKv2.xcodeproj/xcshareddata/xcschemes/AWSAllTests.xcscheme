@@ -266,29 +266,9 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B5DD450B22C9B17C003871AE"
-               BuildableName = "AWSConnectTests.xctest"
-               BlueprintName = "AWSConnectTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B5DD454D22CA6474003871AE"
                BuildableName = "AWSConnectUnitTests.xctest"
                BlueprintName = "AWSConnectUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4D61CF723286651007E7A12"
-               BuildableName = "AWSConnectParticipantTests.xctest"
-               BlueprintName = "AWSConnectParticipantTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -669,16 +649,6 @@
                BlueprintIdentifier = "CE56049E1C6BC97600B4E00B"
                BuildableName = "AWSS3UnitTests.xctest"
                BlueprintName = "AWSS3UnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "B4A4DFFC22B4201400379396"
-               BuildableName = "AWSSageMakerRuntimeTests.xctest"
-               BlueprintName = "AWSSageMakerRuntimeTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
