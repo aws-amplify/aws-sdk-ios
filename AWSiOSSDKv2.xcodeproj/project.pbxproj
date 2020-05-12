@@ -2623,6 +2623,13 @@
 			remoteGlobalIDString = 178A800B22AF7DA600B167D6;
 			remoteInfo = AWSTranscribeStreaming;
 		};
+		FA643A5E246B5BEB00106CB1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
 		FA6A6548246365FB0048A7F9 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -10536,6 +10543,7 @@
 			dependencies = (
 				FA6A65552463732A0048A7F9 /* PBXTargetDependency */,
 				CE9DEAC91C6A7FDF0060793F /* PBXTargetDependency */,
+				FA643A5F246B5BEB00106CB1 /* PBXTargetDependency */,
 			);
 			name = AWSCognitoTests;
 			productName = AWSCognitoTests;
@@ -11275,6 +11283,7 @@
 					};
 					CE9DEAC51C6A7FDF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
+						TestTargetID = 181154751E201403008F184C;
 					};
 					CE9DEB1D1C6A81160060793F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -14682,6 +14691,11 @@
 			isa = PBXTargetDependency;
 			target = 178A800B22AF7DA600B167D6 /* AWSTranscribeStreaming */;
 			targetProxy = FA53333522D4D48700BD88AF /* PBXContainerItemProxy */;
+		};
+		FA643A5F246B5BEB00106CB1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = FA643A5E246B5BEB00106CB1 /* PBXContainerItemProxy */;
 		};
 		FA6A6549246365FB0048A7F9 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -18932,6 +18946,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCognitoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Debug;
 		};
@@ -18948,6 +18963,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSCognitoTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Release;
 		};
