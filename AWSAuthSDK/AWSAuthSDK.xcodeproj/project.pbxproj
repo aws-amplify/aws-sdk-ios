@@ -451,13 +451,6 @@
 			remoteGlobalIDString = B4A4DFF522B4201300379396;
 			remoteInfo = AWSSageMakerRuntime;
 		};
-		B4C8E49423073CCA0064C158 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = B4A4DFFD22B4201400379396;
-			remoteInfo = AWSSageMakerRuntimeTests;
-		};
 		B4C8E49623073CCA0064C158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -1952,7 +1945,6 @@
 				B55D57921F44EC3F005A0E56 /* AWSS3Tests.xctest */,
 				B55D57941F44EC3F005A0E56 /* AWSS3UnitTests.xctest */,
 				B4C8E49323073CCA0064C158 /* AWSSageMakerRuntime.framework */,
-				B4C8E49523073CCA0064C158 /* AWSSageMakerRuntimeTests.xctest */,
 				B4C8E49723073CCA0064C158 /* AWSSageMakerRuntimeUnitTests.xctest */,
 				B55D57961F44EC3F005A0E56 /* AWSSES.framework */,
 				B55D57981F44EC3F005A0E56 /* AWSSESTests.xctest */,
@@ -2493,8 +2485,8 @@
 				1763753F1F328D210086588B /* AWSFacebookSignIn */,
 				B5345D0E1F366AFA009C1041 /* AWSAuthUI */,
 				B5170D971F466CE5008FD811 /* AWSAuthCore */,
-				B92BA3C52318859D007C1175 /* AWSMobileClientUnitTests */,
 				17CD4AA3218241AD00953483 /* AWSMobileClientTests */,
+				B92BA3C52318859D007C1175 /* AWSMobileClientUnitTests */,
 				B412F5DE233445A500F1AC69 /* AWSMobileClientCustomAuthTests */,
 				177B8AE521E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
 				17CD4B1F218244EA00953483 /* AWSAuthSDKTestApp */,
@@ -2580,13 +2572,6 @@
 			fileType = wrapper.framework;
 			path = AWSSageMakerRuntime.framework;
 			remoteRef = B4C8E49223073CCA0064C158 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		B4C8E49523073CCA0064C158 /* AWSSageMakerRuntimeTests.xctest */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.cfbundle;
-			path = AWSSageMakerRuntimeTests.xctest;
-			remoteRef = B4C8E49423073CCA0064C158 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B4C8E49723073CCA0064C158 /* AWSSageMakerRuntimeUnitTests.xctest */ = {
