@@ -1208,6 +1208,7 @@
 		FA53334222D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */; };
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
+		FA643A5C246B30C800106CB1 /* amazon-developer-tools.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA643A5B246B30C800106CB1 /* amazon-developer-tools.jpg */; };
 		FA64FA9B23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */; };
 		FA64FA9E23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */; };
 		FA6978C821FA63D50092C8F3 /* AWSPinpointBackgroundBehaviorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */; };
@@ -4354,6 +4355,7 @@
 		FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityASF.m; sourceTree = "<group>"; };
 		FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPBaseTestCase.h; sourceTree = "<group>"; };
 		FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPBaseTestCase.m; sourceTree = "<group>"; };
+		FA643A5B246B30C800106CB1 /* amazon-developer-tools.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "amazon-developer-tools.jpg"; sourceTree = "<group>"; };
 		FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorderBatchTests.m; sourceTree = "<group>"; };
 		FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEventRecorderTestBase.m; sourceTree = "<group>"; };
 		FA64FA9F23AAB17100B29182 /* AWSPinpointEventRecorderTestBase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSPinpointEventRecorderTestBase.h; sourceTree = "<group>"; };
@@ -6021,6 +6023,7 @@
 		B5C01B0222EB7F00000F2877 /* AWSTextractTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA643A5B246B30C800106CB1 /* amazon-developer-tools.jpg */,
 				B5A0263422F020F0001C75CE /* AWSTextractTests-Bridging-Header.h */,
 				B5C01B0322EB7F01000F2877 /* AWSTextractTests.swift */,
 				B5C01B0522EB7F01000F2877 /* Info.plist */,
@@ -11783,6 +11786,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA643A5C246B30C800106CB1 /* amazon-developer-tools.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
