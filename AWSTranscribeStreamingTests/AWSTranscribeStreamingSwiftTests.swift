@@ -44,7 +44,7 @@ class AWSTranscribeStreamingSwiftTests: XCTestCase {
     }
 
     func testStreamingExample() throws {
-        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.sharedInstance.logLevel = .info
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         
         let bundle = Bundle(for: AWSTranscribeStreamingSwiftTests.self)
