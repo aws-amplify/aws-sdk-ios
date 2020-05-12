@@ -1209,6 +1209,7 @@
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
 		FA643A5C246B30C800106CB1 /* amazon-developer-tools.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA643A5B246B30C800106CB1 /* amazon-developer-tools.jpg */; };
+		FA643A5D246B40CE00106CB1 /* hello_world.wav in Resources */ = {isa = PBXBuildFile; fileRef = FABD9ED322D6661200BD4441 /* hello_world.wav */; };
 		FA64FA9B23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */; };
 		FA64FA9E23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */; };
 		FA6978C821FA63D50092C8F3 /* AWSPinpointBackgroundBehaviorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */; };
@@ -11541,6 +11542,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA643A5D246B40CE00106CB1 /* hello_world.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
