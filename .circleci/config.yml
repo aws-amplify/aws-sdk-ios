@@ -357,10 +357,6 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Comprehend
       - restore_cache:
-          key: test_result-{{ .Revision }}-Connect
-      - restore_cache:
-          key: test_result-{{ .Revision }}-ConnectParticipant
-      - restore_cache:
           key: test_result-{{ .Revision }}-Core
       - restore_cache:
           key: test_result-{{ .Revision }}-DynamoDB
@@ -381,8 +377,6 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Lex
       - restore_cache:
-          key: test_result-{{ .Revision }}-MachineLearning
-      - restore_cache:
           key: test_result-{{ .Revision }}-MobileAnalytics
       - restore_cache:
           key: test_result-{{ .Revision }}-Pinpoint
@@ -398,8 +392,6 @@ jobs:
           key: test_result-{{ .Revision }}-SNS
       - restore_cache:
           key: test_result-{{ .Revision }}-SQS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SageMakerRuntime
       - restore_cache:
           key: test_result-{{ .Revision }}-Textract
       - restore_cache:
@@ -927,28 +919,6 @@ workflows:
                 - develop
 
       - integrationtest:
-          name: Connect
-          groupname: Connect
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
-          name: ConnectParticipant
-          groupname: ConnectParticipant
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
           name: Core
           groupname: Core
           requires:
@@ -1103,17 +1073,6 @@ workflows:
                 - develop
 
       - integrationtest:
-          name: SageMakerRuntime
-          groupname: SageMakerRuntime
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
           name: S3
           groupname: S3
           requires:
@@ -1209,8 +1168,6 @@ workflows:
             - CloudWatch
             - Cognito
             - Comprehend
-            - Connect
-            - ConnectParticipant
             - Core
             - DynamoDB
             - EC2
@@ -1229,7 +1186,6 @@ workflows:
             - SES
             - SNS
             - SQS
-            - SageMakerRuntime
             - Textract
             - Transcribe
             - TranscribeStreaming
@@ -1561,78 +1517,36 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: SageMakerRuntime
-          groupname: SageMakerRuntime
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Connect
-          groupname: Connect
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: ConnectParticipant
-          groupname: ConnectParticipant
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
-            - AWSMobileClient
-            - SQS
-            - MobileAnalytics
-            - Rekognition
-            - SES
-            - SNS
-            - CloudWatch
-            - AutoScaling
             - APIGateway
-            - Translate
-            - Transcribe
-            - TranscribeStreaming
-            - Polly
+            - AWSMobileClient
+            - AutoScaling
+            - CloudWatch
             - Cognito
             - Comprehend
             - Core
+            - DynamoDB
+            - EC2
+            - ElasticLoadBalancing
+            - IoT
+            - KMS
             - Kinesis
             - KinesisVideoSignaling
-            - KMS
-            - ElasticLoadBalancing
-            - EC2
             - Lambda
             - Lex
-            - IoT
+            - MobileAnalytics
             - Pinpoint
+            - Polly
+            - Rekognition
             - S3
-            - DynamoDB
+            - SES
+            - SNS
+            - SQS
             - Textract
-            - SageMakerRuntime
-            - Connect
-            - ConnectParticipant
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_ios_s3:
-          requires:
-            - unittest
-            - post_integrationtest
+            - Transcribe
+            - TranscribeStreaming
+            - Translate
           filters:
             branches:
               ignore: /.*/
