@@ -11,28 +11,32 @@ import AWSCognitoIdentityProvider
 import AWSTestResources
 
 class AWSMobileClientTestBase: XCTestCase {
-
+    
     static var cognitoIdentity: AWSCognitoIdentity!
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
     
     static var userPoolId: String!
     static var sharedEmail: String!
     static var identityPoolId: String!
-
+    
     // Test password that conforms to default UserPool password policies
     let sharedPassword: String = "Abc123@@!!"
     
     override class func setUp() {
+        sharedEmail = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                configKey: "email_address")
+        
+        let commonTestConfiguration = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "common")
+        
+        let awsConfig = getAWSConfiguration()
+        let userPoolConfig = awsConfig["CognitoUserPool"] as! [String: [String: String]]
+        userPoolId = userPoolConfig["Default"]!["PoolId"]
+        
+        let credentialProviderConfig = awsConfig["CredentialsProvider"] as! [String: [String: [String: String]]]
+        identityPoolId = credentialProviderConfig["CognitoIdentity"]!["Default"]!["PoolId"]
+        
         let testConfigurationJSON = loadTestConfigurationFromFile()
         let credentialsTestConfiguration = testConfigurationJSON["credentials"] as! [String: Any]
-        let allPackagesTestConfiguration = testConfigurationJSON["packages"] as! [String: Any]
-        let mobileClientTesConfiguration = allPackagesTestConfiguration["mobileclient"] as! [String: Any]
-        let commonTestConfiguration = allPackagesTestConfiguration["common"] as! [String: Any]
-
-        userPoolId = (mobileClientTesConfiguration["userpool_id"] as! String)
-        sharedEmail = (mobileClientTesConfiguration["mc-email"] as! String)
-        identityPoolId = (mobileClientTesConfiguration["mc-pool_id_dev_auth"] as! String)
-        
         let credentialsProvider = AWSBasicSessionCredentialsProvider(accessKey: credentialsTestConfiguration["accessKey"] as! String,
                                                                      secretKey: credentialsTestConfiguration["secretKey"] as! String,
                                                                      sessionToken: credentialsTestConfiguration["sessionToken"] as! String)
@@ -63,7 +67,8 @@ class AWSMobileClientTestBase: XCTestCase {
     static func initializeMobileClient() {
         let testCase = XCTestCase()
         let mobileClientIsInitialized = testCase.expectation(description: "AWSMobileClient is initialized")
-        AWSMobileClient.default().initialize { (userState, error) in
+        
+        AWSMobileClient.default().initialize() { (userState, error) in
             if let error = error {
                 XCTFail("Encountered unexpected error in initialize: \(error.localizedDescription)")
                 return
@@ -98,25 +103,25 @@ class AWSMobileClientTestBase: XCTestCase {
             XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
             signInWasSuccessful.fulfill()
         }
-        wait(for: [signInWasSuccessful], timeout: 5)
+        wait(for: [signInWasSuccessful], timeout: 10)
     }
     
     func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
         
         let signInConfirmWasSuccessful = expectation(description: "signIn confirm was successful")
         AWSMobileClient.default().confirmSignIn(challengeResponse: challengeResponse,
-                                                       userAttributes: userAttributes) {
-                                                        (signInResult, error) in
-                                                        
-                                                        if let error = error {
-                                                            XCTFail("Sign in confirm failed: \(error.localizedDescription)")
-                                                            return
-                                                        }
-                                                        if let signInResult = signInResult {
-                                                            XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
-                                                        }
-                                                        
-                                                        signInConfirmWasSuccessful.fulfill()
+                                                userAttributes: userAttributes) {
+                                                    (signInResult, error) in
+                                                    
+                                                    if let error = error {
+                                                        XCTFail("Sign in confirm failed: \(error.localizedDescription)")
+                                                        return
+                                                    }
+                                                    if let signInResult = signInResult {
+                                                        XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
+                                                    }
+                                                    
+                                                    signInConfirmWasSuccessful.fulfill()
         }
         wait(for: [signInConfirmWasSuccessful], timeout: 5)
     }
@@ -156,7 +161,11 @@ class AWSMobileClientTestBase: XCTestCase {
                 case .confirmed:
                     print("User is signed up and confirmed.")
                 case .unconfirmed:
-                    print("User is not confirmed and needs verification via \(signUpResult.codeDeliveryDetails!.deliveryMedium) sent at \(signUpResult.codeDeliveryDetails!.destination!)")
+                    if let codeDeliveryDetails = signUpResult.codeDeliveryDetails {
+                        print("User is not confirmed and needs verification via \(codeDeliveryDetails.deliveryMedium) sent at \(codeDeliveryDetails.destination!)")
+                    } else {
+                        print("User is not confirmed but no code delivery details were set")
+                    }
                 case .unknown:
                     print("Unexpected case")
                 }
@@ -206,7 +215,7 @@ class AWSMobileClientTestBase: XCTestCase {
                 XCTFail("Could not create user. Failing the test: \(error)")
             }
             return nil
-            }.waitUntilFinished()
+        }.waitUntilFinished()
     }
     
     func invalidateSession(username: String) {
@@ -217,4 +226,10 @@ class AWSMobileClientTestBase: XCTestCase {
         keychain.removeItem(forKey: key)
     }
     
+    static func getAWSConfiguration() -> [String: Any] {
+        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
+        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
+        return awsconfiguration
+    }
 }
+

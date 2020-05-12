@@ -23,7 +23,6 @@
 + (NSString *) unauthRoleArn;
 + (NSString *) authRoleArn;
 + (NSString *) identityPoolId;
-+ (NSString *) facebookToken;
 + (AWSRegionType) region;
 
 @end

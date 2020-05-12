@@ -89,11 +89,6 @@
       }
     }
   },
-  "IoTFreeRTOSOTATests": {
-    "test_list": {
-      "AWSIoTFreeRTOSOTATests": {}
-    }
-  },
   "KMS": {
     "test_list": {
       "AWSKMSTests": {
@@ -123,11 +118,6 @@
   "Lex": {
     "test_list": {
       "AWSLexTests": {}
-    }
-  },
-  "MachineLearning": {
-    "test_list": {
-      "AWSMachineLearningTests": {}
     }
   },
   "MobileAnalytics": {

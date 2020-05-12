@@ -72,7 +72,10 @@ class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
         let timeIntervalSinceReferenceDate = Int(Date().timeIntervalSinceReferenceDate)
         tableName = "DynamoDBOMTestSwift-\(timeIntervalSinceReferenceDate)"
 
-        AWSDynamoDBTestUtility.createTable(tableName)
+        guard AWSDynamoDBTestUtility.createTable(tableName) else {
+            XCTFail("Could not create table")
+            return
+        }
     }
 
     override func tearDown() {

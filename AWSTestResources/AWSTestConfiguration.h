@@ -28,6 +28,17 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (NSDictionary *) getTestConfiguration;
 
+/**
+ This will crash if `pacakgeId` is not present in the configuration returned by `getTestConfiguration`
+ */
++ (NSDictionary <NSString *, id> *) getIntegrationTestConfigurationForPackageId:(NSString *)packageId;
+
+/**
+This will crash if `configKey` is not present in the package configuration returned by
+`getIntegrationTestConfigurationForPackageId`
+*/
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey;
+
 @end
 
 NS_ASSUME_NONNULL_END

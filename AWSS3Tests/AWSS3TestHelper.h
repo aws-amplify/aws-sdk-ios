@@ -33,6 +33,9 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (AWSS3BucketLocationConstraint)getLocationConstraintForRegionType:(AWSRegionType)regionType;
 
++ (NSString *)getTestBucketName;
+
+
 /**
 Check if the given object is present inside the bucket. This is a blocking call.
 

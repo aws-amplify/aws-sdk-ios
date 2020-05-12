@@ -22,32 +22,27 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 
 @interface AWSTestUtility : NSObject
 
-+ (void)setupSessionCredentialsProvider;
-+ (NSDictionary *)getIntegrationTestConfigurationForPackageId:(NSString *) packageId;
-+ (AWSRegionType)getRegionFromTestConfiguration;
-+ (NSDictionary *) getTestConfigurationJSON;
++ (NSDictionary<NSString *, id> *) getTestConfigurationJSON;
++ (NSDictionary<NSString *, NSString *> *) getCredentialsFromTestConfiguration;
++ (NSDictionary<NSString *, id> *) getIntegrationTestConfigurationForPackageId:(NSString *)packageId;
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey;
++ (AWSRegionType) getRegionFromTestConfiguration;
 + (NSString *) getAccountIdFromTestConfiguration;
-+ (NSDictionary *) getCredentialsFromTestConfiguration;
-+ (void)setupCognitoIdentityService;
 
-+ (void)setupCredentialsViaFile;
-+ (void)setupFakeCognitoCredentialsProvider;
-+ (void)setupCognitoCredentialsProvider;
-+ (void)setupCognitoCredentialsProviderForRegion:(AWSRegionType)region;
-+ (void)setupSTS;
++ (void) setupSessionCredentialsProvider;
++ (void) setupCognitoIdentityService;
++ (AWSServiceConfiguration *) getDefaultServiceConfiguration;
++ (AWSBasicSessionCredentialsProvider *) getDefaultCredentialsProvider;
 
-+ (NSDictionary<NSString *, NSString *> *)getCredentialsJsonAsDictionary;
-+ (AWSRegionType)getDefaultRegionType;
-+ (AWSCognitoCredentialsProvider *)getCognitoCredentialsProviderFromFileForRegion:(AWSRegionType)region;
-+ (AWSStaticCredentialsProvider *)getStaticCredentialsProviderFromFile;
++ (void) setupFakeCognitoCredentialsProvider;
++ (void) setupCognitoCredentialsProviderForDefaultRegion;
++ (void) setupCognitoCredentialsProviderForRegion:(AWSRegionType)region;
 
-+ (BOOL)isCognitoSupportedInDefaultRegion;
-+ (BOOL)isCognitoSupportedInRegion:(AWSRegionType)region;
++ (BOOL) isCognitoSupportedInDefaultRegion;
 
-- (NSDate *)mockDateSwizzle;
-+ (void)setMockDate:(NSDate *)aMockDate;
-+ (void)setupSwizzling;
-+ (void)revertSwizzling;
-+ (NSString *)getIoTEndPoint:(NSString *) endpointName;
++ (void) setMockDate:(NSDate *)aMockDate;
++ (void) setupSwizzling;
++ (void) revertSwizzling;
++ (NSString *) getIoTEndPoint:(NSString *) endpointName;
 
 @end

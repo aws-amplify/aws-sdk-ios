@@ -68,7 +68,12 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+
+    [AWSTestUtility setupSessionCredentialsProvider];
+    AWSServiceConfiguration *config = [AWSTestUtility getDefaultServiceConfiguration];
+    [[AWSServiceManager defaultServiceManager] setDefaultServiceConfiguration:config];
     [self setUpLexicon];
 }
 
@@ -86,7 +91,7 @@ static NSDictionary<NSString *,NSString *> *lexicons;
         input.name = lexiconName;
         [[[polly putLexicon:input] continueWithBlock:^id _Nullable(AWSTask<AWSPollyPutLexiconOutput *> * _Nonnull t) {
             if (t.error) {
-                XCTFail(@"Failed to create Lexicon");
+                XCTFail(@"Failed to create Lexicon: %@", t.error);
             }
             return nil;
         }] waitUntilFinished];
@@ -103,24 +108,16 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     
 }
 
-- (void)testCustomPollySetupWithAudioStream {
+- (void)testSynthesizeIntoAudioStream {
     AWSPollySynthesizeSpeechInput *request = [AWSPollySynthesizeSpeechInput new];
+
+    // Synthesize English text using an English-speaking voice
     [request setText:@"Hello world!"];
-    // Use voice Matthew
     [request setVoiceId:AWSPollyVoiceIdMatthew];
     [request setTextType:AWSPollyTextTypeText];
     [request setOutputFormat:AWSPollyOutputFormatMp3];
     
-    // Use NRT region
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionAPNortheast1
-                                                                         credentialsProvider:[AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider];
-    NSString *configKey = @"configuration";
-    [AWSPolly registerPollyWithConfiguration:configuration
-                                      forKey:configKey];
-    AWSPolly *customPollyClient = [AWSPolly PollyForKey:configKey];
-    
-    
-    
+    AWSPolly *customPollyClient = [AWSPolly defaultPolly];
     [[[customPollyClient synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
@@ -140,8 +137,8 @@ static NSDictionary<NSString *,NSString *> *lexicons;
         return nil;
     }] waitUntilFinished];
     
+    // Synthesize Japanese text using a Japanese-speaking voice
     [request setText:@"こんにちは世界"];
-    // Use voice Takumi
     [request setVoiceId:AWSPollyVoiceIdTakumi];
     [[[customPollyClient synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
@@ -296,16 +293,17 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 }
 
 - (void)testSynthesisOperations{
-    
     AWSPolly *Polly = [AWSPolly defaultPolly];
     
+    NSString *bucketName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"polly"
+                                                                                  configKey:@"s3_output_bucket_name"];
     AWSPollyStartSpeechSynthesisTaskInput *input = [AWSPollyStartSpeechSynthesisTaskInput new];
     [input setText:@"I agree with W3C and W2C."];
     [input setVoiceId:AWSPollyVoiceIdJoey];
     [input setTextType:AWSPollyTextTypeText];
     [input setOutputFormat:AWSPollyOutputFormatMp3];
     [input setLexiconNames:@[w2cLexiconName, w3cLexiconName]]; // W3C will be spoken as World Wide Web Consortium.
-    [input setOutputS3BucketName:@"ios-v2-s3-tm-testdata"];
+    [input setOutputS3BucketName:bucketName];
     [input setOutputS3KeyPrefix:@"polly-test.mp3"];
     
     __block NSString *taskId;
@@ -439,6 +437,8 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 }
 
 - (void)executeAndAssertSynthesisOperationForTestCase:(NSDictionary *)testCase {
+    NSString *bucketName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"polly"
+                                                                                  configKey:@"s3_output_bucket_name"];
     AWSPollyVoiceId voiceId = [testCase[@"voiceId"] integerValue];
     AWSPollyLanguageCode languageCode = [testCase[@"languageCode"] integerValue];
     NSString *text = testCase[@"text"];
@@ -448,7 +448,7 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 
     // Common configs
     AWSPollyStartSpeechSynthesisTaskInput *input = [AWSPollyStartSpeechSynthesisTaskInput new];
-    [input setOutputS3BucketName:@"ios-v2-s3-tm-testdata"];
+    [input setOutputS3BucketName:bucketName];
     [input setTextType:AWSPollyTextTypeText];
     [input setOutputFormat:AWSPollyOutputFormatMp3];
 

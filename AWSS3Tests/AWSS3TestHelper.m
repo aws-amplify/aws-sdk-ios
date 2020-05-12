@@ -32,7 +32,7 @@
 
 + (BOOL)createBucketWithName:(NSString *)bucketName {
     return [AWSS3TestHelper createBucketWithName:bucketName
-                                       andRegion:[AWSTestUtility getDefaultRegionType]];
+                                       andRegion:[AWSTestUtility getRegionFromTestConfiguration]];
 }
 
 + (BOOL)createBucketWithName:(NSString *)bucketName
@@ -60,7 +60,7 @@
 
 + (AWSS3CreateBucketRequest *)getCreateBucketRequest {
     AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
-    AWSRegionType regionType = [AWSTestUtility getDefaultRegionType];
+    AWSRegionType regionType = [AWSTestUtility getRegionFromTestConfiguration];
     AWSS3BucketLocationConstraint locationConstraint = [AWSS3TestHelper getLocationConstraintForRegionType:regionType];
     
     if (locationConstraint == AWSS3BucketLocationConstraintBlank) {
@@ -177,6 +177,14 @@
         return nil;
     }] waitUntilFinished];
     return success;
+}
+
++ (NSString *)getTestBucketName {
+    NSString *bucketPrefix = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                    configKey:@"bucket_name_prefix"];
+    NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
+    NSString *bucketName = [NSString stringWithFormat:@"%@-%lld", bucketPrefix, (int64_t)timestamp];
+    return bucketName;
 }
 
 @end

@@ -62,28 +62,23 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
 
 @implementation AWSTestUtility
 
-+ (void)initialize {
-    [super initialize];
++ (NSDictionary *) getTestConfigurationJSON {
+    return [AWSTestConfiguration getTestConfiguration];
 }
 
-+ (void) setupSessionCredentialsProvider {
-    NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
-    AWSBasicSessionCredentialsProvider *credentialsProvider = [[AWSBasicSessionCredentialsProvider alloc]
-                                                               initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
-                                                                       secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
-                                                                    sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[self getRegionFromTestConfiguration]
-                                                                         credentialsProvider:credentialsProvider];
-    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
++ (NSDictionary<NSString *, NSString *> *) getCredentialsFromTestConfiguration {
+    return (NSDictionary<NSString *, NSString *> *)[self getTestConfigurationJSON][@"credentials"];
 }
 
-+ (NSDictionary *) getIntegrationTestConfigurationForPackageId:(NSString *) packageId {
++ (NSDictionary <NSString *, id> *) getIntegrationTestConfigurationForPackageId:(NSString *)packageId {
     NSDictionary *testConfigurationJson = [self getTestConfigurationJSON];
     return testConfigurationJson[@"packages"][packageId];
 }
 
-+ (NSDictionary *) getCredentialsFromTestConfiguration {
-    return [self getTestConfigurationJSON][@"credentials"];
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey {
+    NSDictionary *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:packageId];
+    NSString *value = packageConfig[configKey];
+    return value;
 }
 
 + (AWSRegionType) getRegionFromTestConfiguration {
@@ -95,48 +90,35 @@ NSString *const AWSTestUtilityCognitoIdentityServiceKey = @"test-cib";
     return credentialsFromTestConfigurationJson[@"identityId"];
 }
 
-+ (NSDictionary *) getTestConfigurationJSON {
-    return [AWSTestConfiguration getTestConfiguration];
++ (void) setupSessionCredentialsProvider {
+    AWSServiceConfiguration *configuration = [AWSTestUtility getDefaultServiceConfiguration];
+    [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
 + (void)setupCognitoIdentityService {
     if (![AWSCognitoIdentity CognitoIdentityForKey:AWSTestUtilityCognitoIdentityServiceKey]) {
-        NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
-        AWSBasicSessionCredentialsProvider *credentialsProvider = [[AWSBasicSessionCredentialsProvider alloc]
-                                                                   initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
-                                                                           secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
-                                                                        sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
-        
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion: [self getRegionFromTestConfiguration]
-                                                                             credentialsProvider:credentialsProvider];
+        AWSServiceConfiguration *configuration = [AWSTestUtility getDefaultServiceConfiguration];
         [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
                                                               forKey:AWSTestUtilityCognitoIdentityServiceKey];
     }
 }
 
-// un-comment and delete the old version from below for migration to use temporary credentials
-//+ (void)setupCognitoCredentialsProvider {
-//    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-//        NSDictionary *commonTestConfiguration = [self getIntegrationTestConfigurationForPackageId: @"common"];
-//        if ([[commonTestConfiguration[@"cognito_support_in_region"] lowercaseString] isEqualToString: @"false"]) {
-//            NSException *exception = [NSException exceptionWithName:@"IntegrationTestSetupExeception"
-//                                                             reason:[NSString stringWithFormat:@"Cognito not supported in region :  %@",commonTestConfiguration[@"region"]]
-//                                                           userInfo:nil];
-//            @throw exception;
-//        }
-//
-//        AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:[self getRegionFromTestConfiguration]
-//                                                                                                        identityPoolId:commonTestConfiguration[@"identityPoolId"]
-//                                                                                                         unauthRoleArn:commonTestConfiguration[@"unauthRoleArn"]
-//                                                                                                           authRoleArn:commonTestConfiguration[@"authRoleArn"]
-//                                                                                               identityProviderManager:nil];
-//
-//        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:[self getRegionFromTestConfiguration]
-//                                                                             credentialsProvider:credentialsProvider];
-//        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-//    }
-//}
++ (AWSServiceConfiguration *) getDefaultServiceConfiguration {
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
+    AWSRegionType region = [self getRegionFromTestConfiguration];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
+                                                                         credentialsProvider:credentialsProvider];
+    return configuration;
+}
 
++ (AWSBasicSessionCredentialsProvider *) getDefaultCredentialsProvider {
+    NSDictionary *credentialsFromTestConfigurationJson = [self getCredentialsFromTestConfiguration];
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [[AWSBasicSessionCredentialsProvider alloc]
+                                                               initWithAccessKey:credentialsFromTestConfigurationJson[@"accessKey"]
+                                                                       secretKey:credentialsFromTestConfigurationJson[@"secretKey"]
+                                                                    sessionToken:credentialsFromTestConfigurationJson[@"sessionToken"]];
+    return credentialsProvider;
+}
 
 Method _originalDateMethod;
 Method _mockDateMethod;
@@ -172,34 +154,6 @@ static char mockDateKey;
     [NSDate aws_setRuntimeClockSkew:0];
 }
 
-
-// Methods from here need to be deprecated
-+ (void)setupCredentialsViaFile {
-    if (![AWSServiceManager defaultServiceManager].defaultServiceConfiguration) {
-#if AWS_TEST_BJS_INSTEAD
-        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
-                                                                                                          secretKey:credentialsJson[@"secretKeyBJS"]];
-
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
-                                                                               credentialsProvider:credentialsProvider];
-#else
-        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
-                                                                             credentialsProvider:credentialsProvider];
-#endif
-        [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
-    }
-}
-
-+ (AWSStaticCredentialsProvider *)getStaticCredentialsProviderFromFile {
-    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                      secretKey:credentialsJson[@"secretKey"]];
-    return credentialsProvider;
-}
-
 + (void)setupFakeCognitoCredentialsProvider {
     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
                                                                                                     identityPoolId:@"fakeIdentityPoolId"];
@@ -210,8 +164,8 @@ static char mockDateKey;
     [AWSServiceManager defaultServiceManager].defaultServiceConfiguration = configuration;
 }
 
-+ (void)setupCognitoCredentialsProvider {
-    [AWSTestUtility setupCognitoCredentialsProviderForRegion:[AWSTestUtility getDefaultRegionType]];
++ (void)setupCognitoCredentialsProviderForDefaultRegion {
+    [AWSTestUtility setupCognitoCredentialsProviderForRegion:[AWSTestUtility getRegionFromTestConfiguration]];
 }
 
 + (void)setupCognitoCredentialsProviderForRegion:(AWSRegionType)region {
@@ -230,99 +184,34 @@ static char mockDateKey;
 }
 
 + (AWSCognitoCredentialsProvider *)getCognitoCredentialsProviderFromFileForRegion:(AWSRegionType)region {
-    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
+    NSDictionary<NSString *, NSString*> *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:@"common"];
+    NSString *identityPoolId = packageConfig[@"identityPoolId"];
+    NSString *authRoleArn = packageConfig[@"authRoleArn"];
+    NSString *unauthRoleArn = packageConfig[@"unauthRoleArn"];
     AWSCognitoCredentialsProvider *credentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:region
-                                                                                                    identityPoolId:credentialsJson[@"identityPoolId"]
-                                                                                                     unauthRoleArn:credentialsJson[@"unauthRoleArn"]
-                                                                                                       authRoleArn:credentialsJson[@"authRoleArn"]
+                                                                                                    identityPoolId:identityPoolId
+                                                                                                     unauthRoleArn:unauthRoleArn
+                                                                                                       authRoleArn:authRoleArn
                                                                                            identityProviderManager:nil];
     return credentialsProvider;
 }
 
-+ (void)setupSTS {
-    if (![AWSSTS STSForKey:AWSTestUtilitySTSKey]) {
-#if AWS_TEST_BJS_INSTEAD
-        NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKeyBJS"]
-                                                                                                          secretKey:credentialsJson[@"secretKeyBJS"]];
-
-        AWSServiceConfiguration *configuration = [AWSServiceConfiguration  configurationWithRegion:AWSRegionCNNorth1
-                                                                               credentialsProvider:credentialsProvider];
-#else
-        AWSRegionType region = [AWSTestUtility getDefaultRegionType];
-        AWSStaticCredentialsProvider *credentialsProvider = [AWSTestUtility getStaticCredentialsProviderFromFile];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
-                                                                             credentialsProvider:credentialsProvider];
-#endif
-        [AWSSTS registerSTSWithConfiguration:configuration
-                                      forKey:AWSTestUtilitySTSKey];
-    }
-}
-
 + (NSString *) getIoTEndPoint:(NSString *) endpointName {
-    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-    if ([credentialsJson objectForKey:endpointName]) {
-        return [credentialsJson valueForKey:endpointName];
+    NSDictionary<NSString *, NSString*> *packageConfig = [AWSTestUtility
+                                                            getIntegrationTestConfigurationForPackageId:@"iot"];
+    if ([packageConfig objectForKey:endpointName]) {
+        NSString *host = [packageConfig valueForKey:endpointName];
+        NSString *endpointWithScheme = [NSString stringWithFormat:@"https://%@", host];
+        return endpointWithScheme;
     } else {
         return nil;
     }
 }
     
-+ (NSDictionary<NSString *, NSString *> *) getCredentialsJsonAsDictionary {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary<NSString *, NSString*> *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                                           options:NSJSONReadingMutableContainers
-                                                                                             error:nil];
-    return credentialsJson;
-}
-
-+ (AWSRegionType)getDefaultRegionType {
-    NSDictionary<NSString *, NSString*> *credentialsJson = [AWSTestUtility getCredentialsJsonAsDictionary];
-    NSString *regionString = credentialsJson[@"region"] ?: @"us-east-1";
-    AWSRegionType region = [regionString aws_regionTypeValue];
-    return region;
-}
-
 + (BOOL)isCognitoSupportedInDefaultRegion {
-    return [AWSTestUtility isCognitoSupportedInRegion:[AWSTestUtility getDefaultRegionType]];
-}
-
-// TODO: This is brittle. Implement a lookup by service like the Java SDK's isServiceSupported method
-// https://docs.aws.amazon.com/sdk-for-java/v1/developer-guide/java-dg-region-selection.html
-+ (BOOL)isCognitoSupportedInRegion:(AWSRegionType)region {
-    switch (region) {
-        case AWSRegionAPNortheast1:
-        case AWSRegionAPNortheast2:
-        case AWSRegionAPSouth1:
-        case AWSRegionAPSoutheast1:
-        case AWSRegionAPSoutheast2:
-        case AWSRegionCACentral1:
-        case AWSRegionEUCentral1:
-        case AWSRegionEUWest1:
-        case AWSRegionEUWest2:
-        case AWSRegionUSEast1:
-        case AWSRegionUSEast2:
-        case AWSRegionUSWest2:
-            return true;
-            break;
-
-        case AWSRegionAFSouth1:
-        case AWSRegionAPEast1:
-        case AWSRegionCNNorth1:
-        case AWSRegionCNNorthWest1:
-        case AWSRegionEUNorth1:
-        case AWSRegionEUSouth1:
-        case AWSRegionEUWest3:
-        case AWSRegionMESouth1:
-        case AWSRegionSAEast1:
-        case AWSRegionUSGovEast1:
-        case AWSRegionUSGovWest1:
-        case AWSRegionUSWest1:
-        case AWSRegionUnknown:
-            return false;
-            break;
-    }
+    NSDictionary *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:@"common"];
+    NSString *isCognitoSupportedStr = packageConfig[@"cognito_support_in_region"];
+    return [isCognitoSupportedStr isEqualToString:@"True"];
 }
 
 @end

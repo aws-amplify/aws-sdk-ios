@@ -73,6 +73,11 @@ class AWSKinesisVideoTests: XCTestCase {
         createStreamRequest?.mediaType = "video/h264"
         
         kvClient.createStream(createStreamRequest!, completionHandler: {(createResult, error) -> Void in
+            if let error = error {
+                XCTAssertNil(error)
+                return
+            }
+
             guard let _ = createResult else {
                 XCTFail("Failed to create stream.")
                 return
@@ -82,6 +87,10 @@ class AWSKinesisVideoTests: XCTestCase {
             getDataEndpointRequest?.streamName = streamName
             getDataEndpointRequest?.apiName = AWSKinesisVideoAPIName.getHlsStreamingSessionUrl
             kvClient.getDataEndpoint(getDataEndpointRequest!, completionHandler: { (dataEndpointResult, error) in
+                if let error = error {
+                    XCTAssertNil(error)
+                    return
+                }
                 guard let dataEndpointResult = dataEndpointResult else {
                     XCTFail("Failed to get data endpoint.")
                     return
