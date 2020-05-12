@@ -103,7 +103,7 @@ class AWSMobileClientTestBase: XCTestCase {
             XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
             signInWasSuccessful.fulfill()
         }
-        wait(for: [signInWasSuccessful], timeout: 5)
+        wait(for: [signInWasSuccessful], timeout: 10)
     }
     
     func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
