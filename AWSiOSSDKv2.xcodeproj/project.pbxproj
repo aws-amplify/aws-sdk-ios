@@ -12357,7 +12357,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "TEMP_FILE=$HOME/.aws-amplify/aws-sdk-ios/testconfiguration.json\nDEST_PATH=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/testconfiguration.json\"\nif [[ ! -f $TEMP_FILE ]] ; then\n    echo \"${TEMP_FILE} does not exist. Using empty configuration.\"\n    exit 0\nfi\n\nif [[ -f $DEST_PATH ]] ; then\n    rm $DEST_PATH\nfi\n\nln -s $TEMP_FILE $DEST_PATH\n";
+			shellScript = "TEMP_FILE=$HOME/.aws-amplify/aws-sdk-ios/testconfiguration.json\nDEST_PATH=\"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/testconfiguration.json\"\nif [[ ! -f $TEMP_FILE ]] ; then\n    echo \"${TEMP_FILE} does not exist. Using empty configuration.\"\n    exit 0\nfi\n\nif [[ -f $DEST_PATH ]] ; then\n    rm $DEST_PATH\nfi\n\n# ln -s $TEMP_FILE $DEST_PATH\ncp $TEMP_FILE $DEST_PATH\n";
 		};
 /* End PBXShellScriptBuildPhase section */
 

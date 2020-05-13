@@ -194,8 +194,10 @@
 		B9AC6319234F00FA00A713A5 /* AWSAuthUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */; };
 		B9AC631A234F00FA00A713A5 /* AWSAuthUIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */; };
 		B9E2F6CD231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */; };
+		FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		FA5B0F11246A475500B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
 		FA5B0F12246A477D00B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
+		FAB8AF58246B818800799A85 /* AWSTestResources.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -1279,6 +1281,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				FAB8AF58246B818800799A85 /* AWSTestResources.framework in Embed Frameworks */,
 				173A453F21E92A0200F9C579 /* AWSAuthCore.framework in Embed Frameworks */,
 				173A454321E92A0200F9C579 /* AWSMobileClient.framework in Embed Frameworks */,
 				B41F67E9233D56CB0060FDEE /* AWSAuthUI.framework in Embed Frameworks */,
@@ -1521,6 +1524,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */,
 				B412F5E4233445A500F1AC69 /* AWSMobileClient.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

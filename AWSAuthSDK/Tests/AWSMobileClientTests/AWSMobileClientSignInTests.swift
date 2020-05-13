@@ -42,7 +42,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
         
         let signInWasSuccessful = expectation(description: "signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -97,7 +98,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         signUpAndVerifyUser(username: username)
         let signInWasSuccessfulExpectation = expectation(description: "signIn was successful")
         
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -141,7 +143,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         signUpAndVerifyUser(username: username)
         let firstSignInExpectation = expectation(description: "First signIn was successful")
         let secondSignInExpectation = expectation(description: "Second signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             
             defer {
                 firstSignInExpectation.fulfill()
@@ -161,7 +164,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             XCTAssertEqual(AWSMobileClient.default().currentUserState, .signedOut, "User should be in signedOut state after signedOut")
             
             // Second signIn call
-            AWSMobileClient.default().signIn(username: username, password: self.sharedPassword) { (signInResult, error) in
+            AWSMobileClient.default().signIn(username: username, password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
                 defer {
                     secondSignInExpectation.fulfill()
                 }
@@ -196,7 +199,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         let firstSignInExpectation = expectation(description: "First signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
