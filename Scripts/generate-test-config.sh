@@ -119,6 +119,9 @@ OPTIONS:
         exported into the environment variables 'AWS_ACCESS_KEY_ID',
         'AWS_SECRET_ACCESS_KEY', and 'AWS_SESSION_TOKEN'.
 
+    -b <branch>
+        The branch of the ci-support repo to check out. Defaults to 'master'.
+
     -p <android|ios>
         Generate configuration file for platform="<val>"
 
@@ -142,13 +145,17 @@ EOF
 # PARSE ARGUMENTS
 
 assume_role=""
+branch="master"
 platform=""
 region=${AWS_DEFAULT_REGION}
 
-while getopts "ap:qr:vh" optchar ; do
+while getopts "ab:p:qr:vh" optchar ; do
   case "$optchar" in
     a)
       assume_role=1
+      ;;
+    b)
+      branch=$OPTARG
       ;;
     p)
       platform=$OPTARG
@@ -208,15 +215,15 @@ function validate_dependencies {
 # shellcheck disable=SC2086
 function install_support_repo {
   declare -r working_dir="$1"
+  declare -r support_repo_branch="$2"
   declare -r support_repo_name=amplify-ci-support
-  declare -r support_repo_branch=master
   declare -r support_repo_url=https://github.com/aws-amplify/${support_repo_name}.git
 
   if [[ -d ${working_dir}/${support_repo_name} ]] ; then
     log_debug "Support repo exists at '${working_dir}/${support_repo_name}. Fetching latest version."
     cd "$support_repo_name"
     git fetch origin $cmd_quiet_flag
-    git checkout -B "$support_repo_branch" $cmd_quiet_flag
+    git checkout -B "$support_repo_branch" origin/"$support_repo_branch" $cmd_quiet_flag
   else
     log_debug "Cloning support repo into '${working_dir}/${support_repo_name}"
     git clone "$support_repo_url" --branch "$support_repo_branch" "$support_repo_name" $cmd_quiet_flag
@@ -311,7 +318,7 @@ mkdir -p "$dest_dir"
 
 cd "$dest_dir"
 
-install_support_repo "$dest_dir"
+install_support_repo "$dest_dir" "$branch"
 
 install_dependencies
 
