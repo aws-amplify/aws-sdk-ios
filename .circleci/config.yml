@@ -246,12 +246,6 @@ jobs:
       - skip_job_unless_required
       - checkout
       - set_environment_variables
-      - run:
-          name: Create empty placeholder credentials files
-          command: |
-            touch AWSCoreTests/Resources/credentials.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
       - run:
           name: Build sdk
@@ -269,10 +263,6 @@ jobs:
       - checkout
       - skip_test_job
       - pre_start_simulator
-      - run:
-          name: Create empty credentials.json placeholder
-          command: |
-            touch AWSCoreTests/Resources/credentials.json
       - run:
           name: Build SDK
           command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
@@ -314,15 +304,6 @@ jobs:
             fi
       - checkout
       - set_environment_variables
-      - run:
-          name: Create credentials
-          command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
-      - run:
-          name: Create empty placeholder credentials files
-          command: |
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - run:
           name: Generate testconfiguration.json
           command: bash Scripts/generate-test-config.sh -p ios -v
@@ -433,10 +414,6 @@ jobs:
       - run:
           name: Install JSON parser
           command: pip3 install demjson
-      - run:
-          name: Create credentials
-          command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
       - run :
           name: Run integration tests
           command: |
