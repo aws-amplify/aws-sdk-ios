@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import AWSTestResources
 
 class AWSHostedUIUserPoolTests: XCTestCase {
     
@@ -11,13 +12,10 @@ class AWSHostedUIUserPoolTests: XCTestCase {
     static var userpoolPassword: String?
     
     override class func setUp() {
-        let filePath = Bundle(for: self).path(forResource: "credentials-mc", ofType: "json")
-        var credentialsJson: [AnyHashable : Any]? = nil
-        if let aPath = NSData(contentsOfFile: filePath ?? "") {
-            credentialsJson = try! JSONSerialization.jsonObject(with: aPath as Data, options: .mutableContainers) as? [AnyHashable : Any]
-        }
-        userpoolUsername = credentialsJson?["UserpoolUsername"] as? String
-        userpoolPassword = credentialsJson?["UserpoolPassword"] as? String
+        userpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_username")
+        userpoolPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_password")
     }
     
     override func setUp() {

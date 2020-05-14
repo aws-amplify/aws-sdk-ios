@@ -41,7 +41,8 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         let changePasswordExpectation = expectation(description: "Change password should be successful")
-        AWSMobileClient.default().changePassword(currentPassword: sharedPassword, proposedPassword: "NewPassword123!@") { (error) in
+        AWSMobileClient.default().changePassword(currentPassword: AWSMobileClientTestBase.sharedPassword,
+                                                 proposedPassword: "NewPassword123!@") { (error) in
             XCTAssertNil(error)
             changePasswordExpectation.fulfill()
         }
@@ -70,7 +71,8 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
         let tempPassword = "tempPassword" + UUID().uuidString
         adminCreateUser(username: username, temporaryPassword: tempPassword)
         signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
-        confirmSign(challengeResponse: sharedPassword, userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
+        confirmSign(challengeResponse: AWSMobileClientTestBase.sharedPassword,
+                    userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
     }
 
 }

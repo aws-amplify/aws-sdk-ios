@@ -7,6 +7,7 @@ import XCTest
 @testable import AWSMobileClient
 import AWSCore
 @testable import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     
@@ -72,18 +73,14 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     /// ```
     ///
     static func loadConfigurationForCustomAuth() {
-        let bundle = Bundle(for: AWSMobileClientCustomAuthTests.self)
-        let filePath = bundle.path(forResource: "awsconfiguration", ofType: "json")!
-        let fileData = try! NSData(contentsOfFile: filePath) as Data
-        let configurationJson = try! JSONSerialization.jsonObject(with: fileData,
-                                                                  options: .mutableContainers) as! NSMutableDictionary
+        let configurationJson = getAWSConfiguration()
         
         let cognitoUserPoolConfig = configurationJson["CognitoUserPool"] as! NSMutableDictionary
         cognitoUserPoolConfig["Default"] = cognitoUserPoolConfig["DefaultCustomAuth"]
         
         let authConfig = configurationJson["Auth"] as! NSMutableDictionary
         authConfig["Default"] = authConfig["DefaultCustomAuth"]
-        AWSInfo.configureDefaultAWSInfo(configurationJson as! [String : Any])
+        AWSInfo.configureDefaultAWSInfo(configurationJson)
     }
     
     /// Tries to signIn the user

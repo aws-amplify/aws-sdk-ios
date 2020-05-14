@@ -43,16 +43,6 @@
       "AWSComprehendTests": {}
     }
   },
-  "Connect": {
-    "test_list": {
-      "AWSConnectTests": {}
-    }
-  },
-  "ConnectParticipant": {
-    "test_list": {
-      "AWSConnectParticipantTests": {}
-    }
-  },
   "Core": {
     "test_list": {
       "AWSCoreTests": {}
@@ -247,11 +237,6 @@
   "SQS": {
     "test_list": {
       "AWSSQSTests": {}
-    }
-  },
-  "SageMakerRuntime": {
-    "test_list": {
-      "AWSSageMakerRuntimeTests": {}
     }
   },
   "Textract": {

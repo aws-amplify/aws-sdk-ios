@@ -18,19 +18,19 @@ class AWSMobileClientTestBase: XCTestCase {
     static var userPoolId: String!
     static var sharedEmail: String!
     static var identityPoolId: String!
-    
-    // Test password that conforms to default UserPool password policies
-    let sharedPassword: String = "Abc123@@!!"
+    static var sharedPassword: String!
     
     override class func setUp() {
         sharedEmail = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
                                                                                 configKey: "email_address")
-        
+        sharedPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                configKey: "test_password")
+
         let commonTestConfiguration = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "common")
         
         let awsConfig = getAWSConfiguration()
-        let userPoolConfig = awsConfig["CognitoUserPool"] as! [String: [String: String]]
-        userPoolId = userPoolConfig["Default"]!["PoolId"]
+        let userPoolConfig = awsConfig["CognitoUserPool"] as! [String: [String: Any]]
+        userPoolId = (userPoolConfig["Default"]!["PoolId"] as! String)
         
         let credentialProviderConfig = awsConfig["CredentialsProvider"] as! [String: [String: [String: String]]]
         identityPoolId = credentialProviderConfig["CognitoIdentity"]!["Default"]!["PoolId"]
@@ -88,7 +88,7 @@ class AWSMobileClientTestBase: XCTestCase {
     }
     
     func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
-        let passwordToUse = password ?? sharedPassword
+        let passwordToUse = password ?? AWSMobileClientTestBase.sharedPassword!
         let signInWasSuccessful = expectation(description: "signIn was successful")
         AWSMobileClient.default().signIn(username: username, password: passwordToUse) { (signInResult, error) in
             if let error = error {
@@ -138,7 +138,7 @@ class AWSMobileClientTestBase: XCTestCase {
         let signUpExpectation = expectation(description: "successful sign up expectation.")
         AWSMobileClient.default().signUp(
             username: username,
-            password: sharedPassword,
+            password: AWSMobileClientTestBase.sharedPassword,
             userAttributes: userAttributes,
             clientMetaData: clientMetaData ?? [:]) { (signUpResult, error) in
                 if let error = error {

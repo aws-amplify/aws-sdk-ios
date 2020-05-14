@@ -25,19 +25,7 @@
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-}
-
-- (void)setUp
-{
-    [super setUp];
-    // Put setup code here; it will be run once, before the first test case.
-}
-
-- (void)tearDown
-{
-    // Put teardown code here; it will be run once, after the last test case.
-    [super tearDown];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 -(void)testClockSkewSQS {
@@ -54,13 +42,6 @@
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-
-        if (task.result) {
-            AWSSQSListQueuesResult *listQueuesResult = task.result;
-            AWSDDLogDebug(@"[%@]", listQueuesResult);
-            XCTAssertNotNil(listQueuesResult.queueUrls);
-        }
-
         return nil;
     }] waitUntilFinished];
 
