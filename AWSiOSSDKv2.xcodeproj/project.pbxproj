@@ -4258,7 +4258,6 @@
 		CEB8EF2D1C6A69A00098B15B /* AWSTestUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSTestUtility.h; sourceTree = "<group>"; };
 		CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSTestUtility.m; sourceTree = "<group>"; };
 		CEB8EF2F1C6A69A00098B15B /* AWSUtilityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUtilityTests.m; sourceTree = "<group>"; };
-		CEB8EF3E1C6A69AB0098B15B /* credentials.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = credentials.json; sourceTree = "<group>"; };
 		CEB8EF3F1C6A69AB0098B15B /* ec2-input.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ec2-input.json"; sourceTree = "<group>"; };
 		CEB8EF401C6A69AB0098B15B /* ec2-output.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "ec2-output.json"; sourceTree = "<group>"; };
 		CEB8EF411C6A69AB0098B15B /* json-input.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = "json-input.json"; sourceTree = "<group>"; };
@@ -6374,7 +6373,6 @@
 				CEB8EF2F1C6A69A00098B15B /* AWSUtilityTests.m */,
 				CE0D417D1C6A66E5006B91B5 /* Info.plist */,
 				CEB8EF541C6A6A2E0098B15B /* OCMock */,
-				CEB8EF3D1C6A69AB0098B15B /* Resources */,
 			);
 			path = AWSCoreTests;
 			sourceTree = "<group>";
@@ -7660,14 +7658,6 @@
 				CEAFE20E1CC563830003D75D /* AWSCognitoIdentityProviderService.m */,
 			);
 			name = CognitoIdentityProvider;
-			sourceTree = "<group>";
-		};
-		CEB8EF3D1C6A69AB0098B15B /* Resources */ = {
-			isa = PBXGroup;
-			children = (
-				CEB8EF3E1C6A69AB0098B15B /* credentials.json */,
-			);
-			path = Resources;
 			sourceTree = "<group>";
 		};
 		CEB8EF541C6A6A2E0098B15B /* OCMock */ = {
