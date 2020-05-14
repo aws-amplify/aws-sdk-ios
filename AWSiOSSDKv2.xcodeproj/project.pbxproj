@@ -2777,6 +2777,13 @@
 			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
 			remoteInfo = AWSTestResources;
 		};
+		FAD1D296246CE9A40038CA06 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
 		FAD3728D2468BCBA001A4B0E /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -10354,6 +10361,7 @@
 			dependencies = (
 				FAEC79032469945D00881BFF /* PBXTargetDependency */,
 				CE9DE9C91C6A7C2E0060793F /* PBXTargetDependency */,
+				FAD1D297246CE9A40038CA06 /* PBXTargetDependency */,
 			);
 			name = AWSS3Tests;
 			productName = AWSS3Tests;
@@ -11253,6 +11261,7 @@
 					CE9DE9C51C6A7C2E0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
 						LastSwiftMigration = 1100;
+						TestTargetID = 181154751E201403008F184C;
 					};
 					CE9DE9FC1C6A7DFF0060793F = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -14801,6 +14810,11 @@
 			isa = PBXTargetDependency;
 			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
 			targetProxy = FAC8B0422468985200412BD9 /* PBXContainerItemProxy */;
+		};
+		FAD1D297246CE9A40038CA06 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = FAD1D296246CE9A40038CA06 /* PBXContainerItemProxy */;
 		};
 		FAD3728E2468BCBA001A4B0E /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -18593,6 +18607,7 @@
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3Tests/AWSS3Tests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Debug;
 		};
@@ -18612,6 +18627,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3Tests/AWSS3Tests-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
 			};
 			name = Release;
 		};
