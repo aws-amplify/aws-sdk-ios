@@ -14,7 +14,7 @@ class AWSHostedUIUserPoolTests: XCTestCase {
     override class func setUp() {
         userpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
                                                                                      configKey: "userpool_username")
-        userpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+        userpoolPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
                                                                                      configKey: "userpool_password")
     }
     
