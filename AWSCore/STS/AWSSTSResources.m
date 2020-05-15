@@ -734,7 +734,8 @@
     \"SAMLAssertionType\":{\
       \"type\":\"string\",\
       \"max\":100000,\
-      \"min\":4\
+      \"min\":4,\
+      \"sensitive\":true\
     },\
     \"Subject\":{\"type\":\"string\"},\
     \"SubjectType\":{\"type\":\"string\"},\
@@ -779,7 +780,8 @@
     \"clientTokenType\":{\
       \"type\":\"string\",\
       \"max\":2048,\
-      \"min\":4\
+      \"min\":4,\
+      \"sensitive\":true\
     },\
     \"dateType\":{\"type\":\"timestamp\"},\
     \"decodedMessageType\":{\"type\":\"string\"},\
