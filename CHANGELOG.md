@@ -11,7 +11,7 @@
     - Fix `releaseSignInWait` for custom Auth to clear the lock correctly. [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
 
 - **AWSCognitoIdentityProvider**
-    - Removed cyclic retry logic in custom auth delegate. [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
+    - Removed cyclic retry logic in custom auth delegate. See [Issue #2504](https://github.com/aws-amplify/aws-sdk-ios/issues/2504), [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
 
 ### Misc. Updates
 - Model updates for the following services:
