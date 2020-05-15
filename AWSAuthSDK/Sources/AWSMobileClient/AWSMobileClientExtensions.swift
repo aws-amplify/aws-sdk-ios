@@ -352,6 +352,8 @@ extension AWSMobileClient {
                         codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
                     case .unknown:
                         codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
+                    @unknown default:
+                        codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: deliveryDetails.destination, attributeName: deliveryDetails.attributeName)
                     }
                 }
                 completionHandler(SignUpResult(signUpState: confirmedStatus!, codeDeliveryDetails: codeDeliveryDetails), nil)
@@ -952,7 +954,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
                 codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .sms, destination: authenticationInput.destination, attributeName: "phone")
             case .unknown:
                 codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: authenticationInput.destination, attributeName: "unknown")
-            }
+            @unknown default:
+                codeDeliveryDetails = UserCodeDeliveryDetails(deliveryMedium: .unknown, destination: authenticationInput.destination, attributeName: "unknown")
+        }
         
         let result = SignInResult(signInState: .smsMFA, codeDetails: codeDeliveryDetails)
         invokeSignInCallback(signResult: result, error: nil)

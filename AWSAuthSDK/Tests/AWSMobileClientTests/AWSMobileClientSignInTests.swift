@@ -304,7 +304,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -356,7 +356,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -413,7 +413,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -429,5 +429,28 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
         wait(for: [tokenFetchFailExpectation], timeout: 20)
         AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Calling releaseSignInWait without signIn should not crash
+    ///
+    /// - Given: A signOut session
+    /// - When:
+    ///    - I call releaseSignInWait
+    /// - Then:
+    ///    - Should complete without crashing
+    ///
+    func testReleaseSignInWaitWithOutSignIn() {
+        AWSMobileClient.default().releaseSignInWait()
+        let tokenFetchExpectation = expectation(description: "Token fetch should be completed")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            guard error != nil else  {
+                XCTFail("Should produce an error when getToken called withOut SignIn")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
     }
 }

@@ -9,6 +9,11 @@ import AWSCore
 @testable import AWSCognitoIdentityProvider
 import AWSTestResources
 
+/// Test different custom auth use cases in AWSMobileClient
+///
+/// Test signUp, signIn, confirmSignIn and credentials api for an userpool configured with custom auth.
+/// Please note that, the test doesnot cover any network related error workflows, like retryability for retryable errors,
+/// these were manually tested.
 class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     
     override class func setUp() {
@@ -240,7 +245,7 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -292,7 +297,7 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -349,7 +354,7 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
             }
         }
 
-        // Now invalidte the session and then try to call getToken
+        // Now invalidate the session and then try to call getToken
         invalidateSession(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
@@ -365,6 +370,29 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
         }
         wait(for: [tokenFetchFailExpectation], timeout: 20)
         AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Calling releaseSignInWait without signIn should not crash
+    ///
+    /// - Given: A signOut session
+    /// - When:
+    ///    - I call releaseSignInWait
+    /// - Then:
+    ///    - Should complete without crashing
+    ///
+    func testReleaseSignInWaitWithOutSignIn() {
+        AWSMobileClient.default().releaseSignInWait()
+        let tokenFetchExpectation = expectation(description: "Token fetch should be completed")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            guard error != nil else  {
+                XCTFail("Should produce an error when getToken called withOut SignIn")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
     }
     
 }

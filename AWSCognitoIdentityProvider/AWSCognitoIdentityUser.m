@@ -731,7 +731,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
  * Prompt developer to obtain custom challenge details
  */
 - (AWSTask<AWSCognitoIdentityUserSession*>*) customAuthInternal: (id<AWSCognitoIdentityCustomAuthentication>) authenticationDelegate {
-
+    
     AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> *customAuthenticationDetails = [AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> new];
     AWSCognitoIdentityCustomAuthenticationInput *input = [[AWSCognitoIdentityCustomAuthenticationInput alloc] initWithChallengeParameters: [NSDictionary new]];
     [authenticationDelegate getCustomChallengeDetails:input customAuthCompletionSource:customAuthenticationDetails];
@@ -743,20 +743,20 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         }else {
             return [[self performInitiateCustomAuthChallenge:task.result]
                     continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse *> * _Nonnull task) {
-                        [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
-                        if(task.isCancelled){
-                            return task;
-                        }
-                        if(task.error){
-                            //retry auth on error
-                            return [self customAuthInternal:authenticationDelegate];
-                        }else {
-                            //morph this initiate auth response into a respond to auth challenge response so it works as input to getSessionInternal
-                            AWSCognitoIdentityProviderRespondToAuthChallengeResponse * response = [AWSCognitoIdentityProviderRespondToAuthChallengeResponse new];
-                            [response aws_copyPropertiesFromObject:task.result];
-                            return [self getSessionInternal:[AWSTask taskWithResult:response]];
-                        }
-                    }];
+                [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
+                if(task.isCancelled){
+                    return task;
+                }
+                if(task.error){
+                    //retry auth on error
+                    return [self customAuthInternal:authenticationDelegate];
+                }else {
+                    //morph this initiate auth response into a respond to auth challenge response so it works as input to getSessionInternal
+                    AWSCognitoIdentityProviderRespondToAuthChallengeResponse * response = [AWSCognitoIdentityProviderRespondToAuthChallengeResponse new];
+                    [response aws_copyPropertiesFromObject:task.result];
+                    return [self getSessionInternal:[AWSTask taskWithResult:response]];
+                }
+            }];
         }
     }];
 }
