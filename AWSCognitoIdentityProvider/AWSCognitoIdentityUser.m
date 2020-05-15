@@ -735,7 +735,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> *customAuthenticationDetails = [AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> new];
     AWSCognitoIdentityCustomAuthenticationInput *input = [[AWSCognitoIdentityCustomAuthenticationInput alloc] initWithChallengeParameters: [NSDictionary new]];
     [authenticationDelegate getCustomChallengeDetails:input customAuthCompletionSource:customAuthenticationDetails];
-    return [[customAuthenticationDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityCustomChallengeDetails *> * _Nonnull task) {
+    return [customAuthenticationDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityCustomChallengeDetails *> * _Nonnull task) {
         
         //if first challenge is SRP auth
         if([self isFirstCustomStepSRP:task.result]){
@@ -757,13 +757,6 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                             return [self getSessionInternal:[AWSTask taskWithResult:response]];
                         }
                     }];
-        }
-    }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
-        if(task.error){
-            //retry auth on error
-            return [self customAuthInternal:authenticationDelegate];
-        }else {
-            return task;
         }
     }];
 }
