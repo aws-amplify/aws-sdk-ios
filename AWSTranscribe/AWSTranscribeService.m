@@ -25,7 +25,7 @@
 #import "AWSTranscribeResources.h"
 
 static NSString *const AWSInfoTranscribe = @"Transcribe";
-NSString *const AWSTranscribeSDKVersion = @"2.13.1";
+NSString *const AWSTranscribeSDKVersion = @"2.13.3";
 
 
 @interface AWSTranscribeResponseSerializer : AWSJSONResponseSerializer
@@ -324,6 +324,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteMedicalTranscriptionJob:(AWSTranscribeDeleteMedicalTranscriptionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"DeleteMedicalTranscriptionJob"
+                   outputClass:nil];
+}
+
+- (void)deleteMedicalTranscriptionJob:(AWSTranscribeDeleteMedicalTranscriptionJobRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteMedicalTranscriptionJob:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteTranscriptionJob:(AWSTranscribeDeleteTranscriptionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -384,6 +406,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranscribeGetMedicalTranscriptionJobResponse *> *)getMedicalTranscriptionJob:(AWSTranscribeGetMedicalTranscriptionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"GetMedicalTranscriptionJob"
+                   outputClass:[AWSTranscribeGetMedicalTranscriptionJobResponse class]];
+}
+
+- (void)getMedicalTranscriptionJob:(AWSTranscribeGetMedicalTranscriptionJobRequest *)request
+     completionHandler:(void (^)(AWSTranscribeGetMedicalTranscriptionJobResponse *response, NSError *error))completionHandler {
+    [[self getMedicalTranscriptionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeGetMedicalTranscriptionJobResponse *> * _Nonnull task) {
+        AWSTranscribeGetMedicalTranscriptionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -459,6 +504,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTranscribeListMedicalTranscriptionJobsResponse *> *)listMedicalTranscriptionJobs:(AWSTranscribeListMedicalTranscriptionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"ListMedicalTranscriptionJobs"
+                   outputClass:[AWSTranscribeListMedicalTranscriptionJobsResponse class]];
+}
+
+- (void)listMedicalTranscriptionJobs:(AWSTranscribeListMedicalTranscriptionJobsRequest *)request
+     completionHandler:(void (^)(AWSTranscribeListMedicalTranscriptionJobsResponse *response, NSError *error))completionHandler {
+    [[self listMedicalTranscriptionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeListMedicalTranscriptionJobsResponse *> * _Nonnull task) {
+        AWSTranscribeListMedicalTranscriptionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTranscribeListTranscriptionJobsResponse *> *)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -518,6 +586,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranscribeListVocabularyFiltersResponse *response, NSError *error))completionHandler {
     [[self listVocabularyFilters:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeListVocabularyFiltersResponse *> * _Nonnull task) {
         AWSTranscribeListVocabularyFiltersResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranscribeStartMedicalTranscriptionJobResponse *> *)startMedicalTranscriptionJob:(AWSTranscribeStartMedicalTranscriptionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"StartMedicalTranscriptionJob"
+                   outputClass:[AWSTranscribeStartMedicalTranscriptionJobResponse class]];
+}
+
+- (void)startMedicalTranscriptionJob:(AWSTranscribeStartMedicalTranscriptionJobRequest *)request
+     completionHandler:(void (^)(AWSTranscribeStartMedicalTranscriptionJobResponse *response, NSError *error))completionHandler {
+    [[self startMedicalTranscriptionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeStartMedicalTranscriptionJobResponse *> * _Nonnull task) {
+        AWSTranscribeStartMedicalTranscriptionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

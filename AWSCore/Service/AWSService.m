@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.13.1";
+NSString *const AWSiOSSDKVersion = @"2.13.3";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -256,6 +256,8 @@ static NSString *const AWSRegionNameCACentral1 = @"ca-central-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 static NSString *const AWSRegionNameUSGovEast1 = @"us-gov-east-1";
 static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
+static NSString *const AWSRegionNameAFSouth1 = @"af-south-1";
+static NSString *const AWSRegionNameEUSouth1 = @"eu-south-1";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -263,39 +265,39 @@ static NSString *const AWSServiceNameCloudWatch = @"monitoring";
 static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
+static NSString *const AWSServiceNameComprehend = @"comprehend";
 static NSString *const AWSServiceNameConnect = @"connect";
 static NSString *const AWSServiceNameConnectParticipant = @"connectparticipant";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+static NSString *const AWSServiceNameFirehose = @"firehose";
 static NSString *const AWSServiceNameIoT = @"execute-api";
 static NSString *const AWSServiceNameIoTData = @"iotdata";
-static NSString *const AWSServiceNameFirehose = @"firehose";
-static NSString *const AWSServiceNameKinesis = @"kinesis";
 static NSString *const AWSServiceNameKMS = @"kms";
+static NSString *const AWSServiceNameKinesis = @"kinesis";
+static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
 static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
 static NSString *const AWSServiceNameLogs = @"logs";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameMobileTargeting = @"mobiletargeting";
+static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameRekognition = @"rekognition";
 static NSString *const AWSServiceNameS3 = @"s3";
 static NSString *const AWSServiceNameSES = @"email";
-static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
+static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameTextract = @"textract";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
-static NSString *const AWSServiceNameTranslate = @"translate";
-static NSString *const AWSServiceNameComprehend = @"comprehend";
-static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
-static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
-static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
-static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
 static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
+static NSString *const AWSServiceNameTranslate = @"translate";
 
 @interface AWSEndpoint()
 
@@ -473,6 +475,10 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             return AWSRegionNameAPEast1;
         case AWSRegionMESouth1:
             return AWSRegionNameMESouth1;
+        case AWSRegionAFSouth1:
+            return AWSRegionNameAFSouth1;
+        case AWSRegionEUSouth1:
+            return AWSRegionNameEUSouth1;
         default:
             return nil;
     }
@@ -615,7 +621,8 @@ static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
             || regionType == AWSRegionAPSouth1
             || regionType == AWSRegionSAEast1
             || regionType == AWSRegionUSGovWest1
-            || regionType == AWSRegionMESouth1)) {
+            || regionType == AWSRegionMESouth1
+            )) {
             separator = @"-";
         }
 

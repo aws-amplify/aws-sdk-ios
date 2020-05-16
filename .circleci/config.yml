@@ -146,6 +146,9 @@ commands:
       - run:
           name: configure aws profile
           command: |
+            aws configure --profile build_resources set region us-east-1
+            echo -e "[build_resources]\naws_access_key_id=${BUILD_RESOURCES_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${BUILD_RESOURCES_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
+
             aws configure --profile sdk_s3_release set region us-east-1
             echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
   pre_start_simulator:
@@ -239,7 +242,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -258,7 +261,7 @@ jobs:
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
   unittest:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -283,7 +286,7 @@ jobs:
           path: test_result
   pre_integrationtest:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     environment: 
       TERM: xterm-256color
     steps:
@@ -315,8 +318,8 @@ jobs:
           name: create credentials
           command: |
             echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
-            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            aws s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+            aws --profile build_resources s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
+            aws --profile build_resources s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
       - run:
           name: build sdk
@@ -329,7 +332,7 @@ jobs:
             - build_result
   post_integrationtest:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
@@ -418,7 +421,7 @@ jobs:
         default: stable_testList
         type: string
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -461,7 +464,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -478,7 +481,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -514,7 +517,7 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -525,7 +528,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -555,7 +558,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -569,7 +572,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -613,7 +616,7 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -622,13 +625,13 @@ jobs:
       - run:
           name: set_bumpversion_environment
           command: |
-            bumpversion_repo_account=aws-amplify
+            bumpversion_repo_user=aws-amplify
             bumpversion_repo_name=docs
             minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
             echo ${minorversion}
             bump_version_message="Update iOS docs to ${release_version}"
             bump_version_pr_title="Update iOS docs to ${release_version}"
-            echo "export bumpversion_repo_account=$bumpversion_repo_account" >> $BASH_ENV
+            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export minorversion=$minorversion" >> $BASH_ENV
             echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
@@ -643,7 +646,7 @@ jobs:
 
   release_ios_s3:
     macos:
-      xcode: "11.2.1"
+      xcode: "11.4.0"
     environment:
       TERM: xterm-256color
     steps:
@@ -1659,20 +1662,10 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - bump_ios_sampleapp_version:
-          requires:
-            - release_tag
-            - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
             - add_doc_tag
             - bump_ios_amplifydocs_version
-            - bump_ios_sampleapp_version
           filters:
             branches:
               ignore: /.*/
@@ -1682,7 +1675,16 @@ workflows:
           requires:
             - add_doc_tag
             - bump_ios_amplifydocs_version
-            - bump_ios_sampleapp_version
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - bump_ios_sampleapp_version:
+          requires:
+            - release_tag
+            - release_ios_s3
+            - release_cocoapods
           filters:
             branches:
               ignore: /.*/

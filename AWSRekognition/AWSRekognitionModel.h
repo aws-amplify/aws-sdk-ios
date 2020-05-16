@@ -238,6 +238,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDeleteCollectionResponse;
 @class AWSRekognitionDeleteFacesRequest;
 @class AWSRekognitionDeleteFacesResponse;
+@class AWSRekognitionDeleteProjectRequest;
+@class AWSRekognitionDeleteProjectResponse;
+@class AWSRekognitionDeleteProjectVersionRequest;
+@class AWSRekognitionDeleteProjectVersionResponse;
 @class AWSRekognitionDeleteStreamProcessorRequest;
 @class AWSRekognitionDeleteStreamProcessorResponse;
 @class AWSRekognitionDescribeCollectionRequest;
@@ -914,6 +918,58 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>An array of strings (face IDs) of the faces that were deleted.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable deletedFaces;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the project that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectResponse : AWSModel
+
+
+/**
+ <p>The current status of the delete project operation.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectStatus status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectVersionRequest : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the model version that you want to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable projectVersionArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDeleteProjectVersionResponse : AWSModel
+
+
+/**
+ <p>The status of the deletion operation.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProjectVersionStatus status;
 
 @end
 

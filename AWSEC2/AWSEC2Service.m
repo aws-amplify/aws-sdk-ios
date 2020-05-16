@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.13.1";
+NSString *const AWSEC2SDKVersion = @"2.13.3";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -1759,22 +1759,23 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
+- (AWSTask<AWSEC2CreatePlacementGroupResult *> *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreatePlacementGroup"
-                   outputClass:nil];
+                   outputClass:[AWSEC2CreatePlacementGroupResult class]];
 }
 
 - (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self createPlacementGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2CreatePlacementGroupResult *response, NSError *error))completionHandler {
+    [[self createPlacementGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreatePlacementGroupResult *> * _Nonnull task) {
+        AWSEC2CreatePlacementGroupResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
@@ -3529,6 +3530,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> *)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeregisterInstanceEventNotificationAttributes"
+                   outputClass:[AWSEC2DeregisterInstanceEventNotificationAttributesResult class]];
+}
+
+- (void)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request
+     completionHandler:(void (^)(AWSEC2DeregisterInstanceEventNotificationAttributesResult *response, NSError *error))completionHandler {
+    [[self deregisterInstanceEventNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> * _Nonnull task) {
+        AWSEC2DeregisterInstanceEventNotificationAttributesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DeregisterTransitGatewayMulticastGroupMembersResult *> *)deregisterTransitGatewayMulticastGroupMembers:(AWSEC2DeregisterTransitGatewayMulticastGroupMembersRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4485,6 +4509,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeInstanceCreditSpecificationsResult *response, NSError *error))completionHandler {
     [[self describeInstanceCreditSpecifications:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceCreditSpecificationsResult *> * _Nonnull task) {
         AWSEC2DescribeInstanceCreditSpecificationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeInstanceEventNotificationAttributesResult *> *)describeInstanceEventNotificationAttributes:(AWSEC2DescribeInstanceEventNotificationAttributesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceEventNotificationAttributes"
+                   outputClass:[AWSEC2DescribeInstanceEventNotificationAttributesResult class]];
+}
+
+- (void)describeInstanceEventNotificationAttributes:(AWSEC2DescribeInstanceEventNotificationAttributesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeInstanceEventNotificationAttributesResult *response, NSError *error))completionHandler {
+    [[self describeInstanceEventNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceEventNotificationAttributesResult *> * _Nonnull task) {
+        AWSEC2DescribeInstanceEventNotificationAttributesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -8400,6 +8447,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2RegisterImageResult *response, NSError *error))completionHandler {
     [[self registerImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RegisterImageResult *> * _Nonnull task) {
         AWSEC2RegisterImageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2RegisterInstanceEventNotificationAttributesResult *> *)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RegisterInstanceEventNotificationAttributes"
+                   outputClass:[AWSEC2RegisterInstanceEventNotificationAttributesResult class]];
+}
+
+- (void)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request
+     completionHandler:(void (^)(AWSEC2RegisterInstanceEventNotificationAttributesResult *response, NSError *error))completionHandler {
+    [[self registerInstanceEventNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RegisterInstanceEventNotificationAttributesResult *> * _Nonnull task) {
+        AWSEC2RegisterInstanceEventNotificationAttributesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

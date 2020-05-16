@@ -1783,22 +1783,25 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  
  @param request A container for the necessary parameters to execute the CreatePlacementGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreatePlacementGroupResult`.
  
  @see AWSEC2CreatePlacementGroupRequest
+ @see AWSEC2CreatePlacementGroupResult
  */
-- (AWSTask *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request;
+- (AWSTask<AWSEC2CreatePlacementGroupResult *> *)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request;
 
 /**
  <p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p><p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreatePlacementGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
                           `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
  
  @see AWSEC2CreatePlacementGroupRequest
+ @see AWSEC2CreatePlacementGroupResult
  */
-- (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+- (void)createPlacementGroup:(AWSEC2CreatePlacementGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreatePlacementGroupResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a listing for Amazon EC2 Standard Reserved Instances to be sold in the Reserved Instance Marketplace. You can submit one Standard Reserved Instance listing at a time. To get a list of your Standard Reserved Instances, you can use the <a>DescribeReservedInstances</a> operation.</p><note><p>Only Standard Reserved Instances can be sold in the Reserved Instance Marketplace. Convertible Reserved Instances cannot be sold.</p></note><p>The Reserved Instance Marketplace matches sellers who want to resell Standard Reserved Instance capacity that they no longer need with buyers who want to purchase additional capacity. Reserved Instances bought and sold through the Reserved Instance Marketplace work like any other Reserved Instances.</p><p>To sell your Standard Reserved Instances, you must first register as a seller in the Reserved Instance Marketplace. After completing the registration process, you can create a Reserved Instance Marketplace listing of some or all of your Standard Reserved Instances, and specify the upfront price to receive for them. Your Standard Reserved Instance listings then become available for purchase. To view the details of your Standard Reserved Instance listing, you can use the <a>DescribeReservedInstancesListings</a> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ri-market-general.html">Reserved Instance Marketplace</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
@@ -3657,6 +3660,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deregisterImage:(AWSEC2DeregisterImageRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeregisterInstanceEventNotificationAttributesResult`.
+ 
+ @see AWSEC2DeregisterInstanceEventNotificationAttributesRequest
+ @see AWSEC2DeregisterInstanceEventNotificationAttributesResult
+ */
+- (AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> *)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request;
+
+/**
+ <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeregisterInstanceEventNotificationAttributesRequest
+ @see AWSEC2DeregisterInstanceEventNotificationAttributesResult
+ */
+- (void)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeregisterInstanceEventNotificationAttributesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deregisters the specified members (network interfaces) from the transit gateway multicast group.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterTransitGatewayMulticastGroupMembers service method.
@@ -4707,6 +4735,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeInstanceCreditSpecifications:(AWSEC2DescribeInstanceCreditSpecificationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceCreditSpecificationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes the tag keys that are registered to appear in scheduled event notifications for resources in the current Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceEventNotificationAttributes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInstanceEventNotificationAttributesResult`.
+ 
+ @see AWSEC2DescribeInstanceEventNotificationAttributesRequest
+ @see AWSEC2DescribeInstanceEventNotificationAttributesResult
+ */
+- (AWSTask<AWSEC2DescribeInstanceEventNotificationAttributesResult *> *)describeInstanceEventNotificationAttributes:(AWSEC2DescribeInstanceEventNotificationAttributesRequest *)request;
+
+/**
+ <p>Describes the tag keys that are registered to appear in scheduled event notifications for resources in the current Region.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceEventNotificationAttributes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeInstanceEventNotificationAttributesRequest
+ @see AWSEC2DescribeInstanceEventNotificationAttributesResult
+ */
+- (void)describeInstanceEventNotificationAttributes:(AWSEC2DescribeInstanceEventNotificationAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceEventNotificationAttributesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status Checks for Your Instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting Instances with Failed Status Checks</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled Events for Your Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance Lifecycle</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the DescribeInstanceStatus service method.
@@ -5732,7 +5785,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeSpotFleetRequests:(AWSEC2DescribeSpotFleetRequestsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeSpotFleetRequestsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the specified Spot Instance requests.</p><p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p><p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p><p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
+ <p>Describes the specified Spot Instance requests.</p><p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p><p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p><p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSpotInstanceRequests service method.
 
@@ -5744,7 +5797,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DescribeSpotInstanceRequestsResult *> *)describeSpotInstanceRequests:(AWSEC2DescribeSpotInstanceRequestsRequest *)request;
 
 /**
- <p>Describes the specified Spot Instance requests.</p><p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p><p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p><p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
+ <p>Describes the specified Spot Instance requests.</p><p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances">DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p><p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p><p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSpotInstanceRequests service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -8928,6 +8981,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)registerImage:(AWSEC2RegisterImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RegisterImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RegisterInstanceEventNotificationAttributesResult`.
+ 
+ @see AWSEC2RegisterInstanceEventNotificationAttributesRequest
+ @see AWSEC2RegisterInstanceEventNotificationAttributesResult
+ */
+- (AWSTask<AWSEC2RegisterInstanceEventNotificationAttributesResult *> *)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request;
+
+/**
+ <p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p><p>To remove tags, use .</p>
+ 
+ @param request A container for the necessary parameters to execute the RegisterInstanceEventNotificationAttributes service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2RegisterInstanceEventNotificationAttributesRequest
+ @see AWSEC2RegisterInstanceEventNotificationAttributesResult
+ */
+- (void)registerInstanceEventNotificationAttributes:(AWSEC2RegisterInstanceEventNotificationAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RegisterInstanceEventNotificationAttributesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Registers members (network interfaces) with the transit gateway multicast group. A member is a network interface associated with a supported EC2 instance that receives multicast traffic. For information about supported instances, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/transit-gateway-limits.html#multicast-limits">Multicast Consideration</a> in <i>Amazon VPC Transit Gateways</i>.</p><p>After you add the members, use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SearchTransitGatewayMulticastGroups.html">SearchTransitGatewayMulticastGroups</a> to verify that the members were added to the transit gateway multicast group.</p>
  
  @param request A container for the necessary parameters to execute the RegisterTransitGatewayMulticastGroupMembers service method.
@@ -9573,7 +9651,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Launches the specified number of instances using an AMI for which you have permissions. </p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance Types Available Only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If An Instance Immediately Terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance Types Available Only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If An Instance Immediately Terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RunInstances service method.
 
@@ -9585,7 +9663,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2Reservation *> *)runInstances:(AWSEC2RunInstancesRequest *)request;
 
 /**
- <p>Launches the specified number of instances using an AMI for which you have permissions. </p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance Types Available Only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If An Instance Immediately Terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Launches the specified number of instances using an AMI for which you have permissions.</p><p>You can specify a number of options, or leave the default options. The following rules apply:</p><ul><li><p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p></li><li><p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p></li><li><p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types">Instance Types Available Only in a VPC</a>.</p></li><li><p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p></li><li><p>Not all instance types support IPv6 addresses. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html">Instance Types</a>.</p></li><li><p>If you don't specify a security group ID, we use the default security group. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html">Security Groups</a>.</p></li><li><p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p></li></ul><p>You can create a <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p><p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p><p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html">Tagging Your Amazon EC2 Resources</a>.</p><p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>For troubleshooting, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html">What To Do If An Instance Immediately Terminates</a>, and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the RunInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.

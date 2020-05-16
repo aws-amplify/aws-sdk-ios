@@ -720,6 +720,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"CreatePlacementGroupRequest\"},\
+      \"output\":{\"shape\":\"CreatePlacementGroupResult\"},\
       \"documentation\":\"<p>Creates a placement group in which to launch instances. The strategy of the placement group determines how the instances are organized within the group. </p> <p>A <code>cluster</code> placement group is a logical grouping of instances within a single Availability Zone that benefit from low network latency, high network throughput. A <code>spread</code> placement group places instances on distinct hardware. A <code>partition</code> placement group places groups of instances in different partitions, where instances in one partition do not share the same hardware with instances in another partition.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html\\\">Placement Groups</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateReservedInstancesListing\":{\
@@ -1469,6 +1470,16 @@
       \"input\":{\"shape\":\"DeregisterImageRequest\"},\
       \"documentation\":\"<p>Deregisters the specified AMI. After you deregister an AMI, it can't be used to launch new instances; however, it doesn't affect any instances that you've already launched from the AMI. You'll continue to incur usage costs for those instances until you terminate them.</p> <p>When you deregister an Amazon EBS-backed AMI, it doesn't affect the snapshot that was created for the root volume of the instance during the AMI creation process. When you deregister an instance store-backed AMI, it doesn't affect the files that you uploaded to Amazon S3 when you created the AMI.</p>\"\
     },\
+    \"DeregisterInstanceEventNotificationAttributes\":{\
+      \"name\":\"DeregisterInstanceEventNotificationAttributes\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeregisterInstanceEventNotificationAttributesRequest\"},\
+      \"output\":{\"shape\":\"DeregisterInstanceEventNotificationAttributesResult\"},\
+      \"documentation\":\"<p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>\"\
+    },\
     \"DeregisterTransitGatewayMulticastGroupMembers\":{\
       \"name\":\"DeregisterTransitGatewayMulticastGroupMembers\",\
       \"http\":{\
@@ -1889,6 +1900,16 @@
       \"output\":{\"shape\":\"DescribeInstanceCreditSpecificationsResult\"},\
       \"documentation\":\"<p>Describes the credit option for CPU usage of the specified burstable performance instances. The credit options are <code>standard</code> and <code>unlimited</code>.</p> <p>If you do not specify an instance ID, Amazon EC2 returns burstable performance instances with the <code>unlimited</code> credit option, as well as instances that were previously configured as T2, T3, and T3a with the <code>unlimited</code> credit option. For example, if you resize a T2 instance, while it is configured as <code>unlimited</code>, to an M4 instance, Amazon EC2 returns the M4 instance.</p> <p>If you specify one or more instance IDs, Amazon EC2 returns the credit option (<code>standard</code> or <code>unlimited</code>) of those instances. If you specify an instance ID that is not valid, such as an instance that is not a burstable performance instance, an error is returned.</p> <p>Recently terminated instances might appear in the returned results. This interval is usually less than one hour.</p> <p>If an Availability Zone is experiencing a service disruption and you specify instance IDs in the affected zone, or do not specify any instance IDs at all, the call fails. If you specify only instance IDs in an unaffected zone, the call works normally.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/burstable-performance-instances.html\\\">Burstable Performance Instances</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
+    \"DescribeInstanceEventNotificationAttributes\":{\
+      \"name\":\"DescribeInstanceEventNotificationAttributes\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeInstanceEventNotificationAttributesRequest\"},\
+      \"output\":{\"shape\":\"DescribeInstanceEventNotificationAttributesResult\"},\
+      \"documentation\":\"<p>Describes the tag keys that are registered to appear in scheduled event notifications for resources in the current Region.</p>\"\
+    },\
     \"DescribeInstanceStatus\":{\
       \"name\":\"DescribeInstanceStatus\",\
       \"http\":{\
@@ -2307,7 +2328,7 @@
       },\
       \"input\":{\"shape\":\"DescribeSpotInstanceRequestsRequest\"},\
       \"output\":{\"shape\":\"DescribeSpotInstanceRequestsResult\"},\
-      \"documentation\":\"<p>Describes the specified Spot Instance requests.</p> <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a>DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p> <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p> <p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>\"\
+      \"documentation\":\"<p>Describes the specified Spot Instance requests.</p> <p>You can use <code>DescribeSpotInstanceRequests</code> to find a running Spot Instance by examining the response. If the status of the Spot Instance is <code>fulfilled</code>, the instance ID appears in the response and contains the identifier of the instance. Alternatively, you can use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstances\\\">DescribeInstances</a> with a filter to look for instances where the instance lifecycle is <code>spot</code>.</p> <p>We recommend that you set <code>MaxResults</code> to a value between 5 and 1000 to limit the number of results returned. This paginates the output, which makes the list more manageable and returns the results faster. If the list of results exceeds your <code>MaxResults</code> value, then that number of results is returned along with a <code>NextToken</code> value that can be passed to a subsequent <code>DescribeSpotInstanceRequests</code> request to retrieve the remaining results.</p> <p>Spot Instance requests are deleted four hours after they are canceled and their instances are terminated.</p>\"\
     },\
     \"DescribeSpotPriceHistory\":{\
       \"name\":\"DescribeSpotPriceHistory\",\
@@ -3581,6 +3602,16 @@
       \"output\":{\"shape\":\"RegisterImageResult\"},\
       \"documentation\":\"<p>Registers an AMI. When you're creating an AMI, this is the final step you must complete before you can launch an instance from the AMI. For more information about creating AMIs, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/creating-an-ami.html\\\">Creating Your Own AMIs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <note> <p>For Amazon EBS-backed instances, <a>CreateImage</a> creates and registers the AMI in a single request, so you don't have to register the AMI yourself.</p> </note> <p>You can also use <code>RegisterImage</code> to create an Amazon EBS-backed Linux AMI from a snapshot of a root device volume. You specify the snapshot using the block device mapping. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-launch-snapshot.html\\\">Launching a Linux Instance from a Backup</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can't register an image where a secondary (non-root) snapshot has AWS Marketplace product codes.</p> <p>Windows and some Linux distributions, such as Red Hat Enterprise Linux (RHEL) and SUSE Linux Enterprise Server (SLES), use the EC2 billing product code associated with an AMI to verify the subscription status for package updates. To create a new AMI for operating systems that require a billing product code, instead of registering the AMI, do the following to preserve the billing product code association:</p> <ol> <li> <p>Launch an instance from an existing AMI with that billing product code.</p> </li> <li> <p>Customize the instance.</p> </li> <li> <p>Create an AMI from the instance using <a>CreateImage</a>.</p> </li> </ol> <p>If you purchase a Reserved Instance to apply to an On-Demand Instance that was launched from an AMI with a billing product code, make sure that the Reserved Instance has the matching billing product code. If you purchase a Reserved Instance without the matching billing product code, the Reserved Instance will not be applied to the On-Demand Instance. For information about how to obtain the platform details and billing information of an AMI, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ami-billing-info.html\\\">Obtaining Billing Information</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>If needed, you can deregister an AMI at any time. Any modifications you make to an AMI backed by an instance store volume invalidates its registration. If you make changes to an image, deregister the previous image and register the new image.</p>\"\
     },\
+    \"RegisterInstanceEventNotificationAttributes\":{\
+      \"name\":\"RegisterInstanceEventNotificationAttributes\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"RegisterInstanceEventNotificationAttributesRequest\"},\
+      \"output\":{\"shape\":\"RegisterInstanceEventNotificationAttributesResult\"},\
+      \"documentation\":\"<p>Registers a set of tag keys to include in scheduled event notifications for your resources. </p> <p>To remove tags, use .</p>\"\
+    },\
     \"RegisterTransitGatewayMulticastGroupMembers\":{\
       \"name\":\"RegisterTransitGatewayMulticastGroupMembers\",\
       \"http\":{\
@@ -3849,7 +3880,7 @@
       },\
       \"input\":{\"shape\":\"RunInstancesRequest\"},\
       \"output\":{\"shape\":\"Reservation\"},\
-      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions. </p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance Types Available Only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance Types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security Groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Amazon EC2 Resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What To Do If An Instance Immediately Terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Launches the specified number of instances using an AMI for which you have permissions.</p> <p>You can specify a number of options, or leave the default options. The following rules apply:</p> <ul> <li> <p>[EC2-VPC] If you don't specify a subnet ID, we choose a default subnet from your default VPC for you. If you don't have a default VPC, you must specify a subnet ID in the request.</p> </li> <li> <p>[EC2-Classic] If don't specify an Availability Zone, we choose one for you.</p> </li> <li> <p>Some instance types must be launched into a VPC. If you do not have a default VPC, or if you do not specify a subnet ID, the request fails. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-vpc.html#vpc-only-instance-types\\\">Instance Types Available Only in a VPC</a>.</p> </li> <li> <p>[EC2-VPC] All instances have a network interface with a primary private IPv4 address. If you don't specify this address, we choose one from the IPv4 range of your subnet.</p> </li> <li> <p>Not all instance types support IPv6 addresses. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html\\\">Instance Types</a>.</p> </li> <li> <p>If you don't specify a security group ID, we use the default security group. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-network-security.html\\\">Security Groups</a>.</p> </li> <li> <p>If any of the AMIs have a product code attached for which the user has not subscribed, the request fails.</p> </li> </ul> <p>You can create a <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">launch template</a>, which is a resource that contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify the launch template instead of specifying the launch parameters.</p> <p>To ensure faster instance launches, break up large requests into smaller batches. For example, create five separate launch requests for 100 instances each instead of one launch request for 500 instances.</p> <p>An instance is ready for you to use when it's in the <code>running</code> state. You can check the state of your instance using <a>DescribeInstances</a>. You can tag instances and EBS volumes during launch, after launch, or both. For more information, see <a>CreateTags</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Amazon EC2 Resources</a>.</p> <p>Linux instances have access to the public key of the key pair at boot. You can use this key to provide secure access to the instance. Amazon EC2 public images use this feature to provide secure access without passwords. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-key-pairs.html\\\">Key Pairs</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>For troubleshooting, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_InstanceStraightToTerminated.html\\\">What To Do If An Instance Immediately Terminates</a>, and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstancesConnecting.html\\\">Troubleshooting Connecting to Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"RunScheduledInstances\":{\
       \"name\":\"RunScheduledInstances\",\
@@ -8218,6 +8249,11 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\",\
           \"locationName\":\"dryRun\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the new key pair.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -8639,6 +8675,20 @@
         \"PartitionCount\":{\
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The number of partitions. Valid only when <b>Strategy</b> is set to <code>partition</code>.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the new placement group.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        }\
+      }\
+    },\
+    \"CreatePlacementGroupResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PlacementGroup\":{\
+          \"shape\":\"PlacementGroup\",\
+          \"locationName\":\"placementGroup\"\
         }\
       }\
     },\
@@ -10318,11 +10368,14 @@
     },\
     \"DeleteKeyPairRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\"KeyName\"],\
       \"members\":{\
         \"KeyName\":{\
           \"shape\":\"KeyPairName\",\
           \"documentation\":\"<p>The name of the key pair.</p>\"\
+        },\
+        \"KeyPairId\":{\
+          \"shape\":\"KeyPairId\",\
+          \"documentation\":\"<p>The ID of the key pair.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -11299,6 +11352,44 @@
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for DeregisterImage.</p>\"\
+    },\
+    \"DeregisterInstanceEventNotificationAttributesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"InstanceTagAttribute\":{\
+          \"shape\":\"DeregisterInstanceTagAttributeRequest\",\
+          \"documentation\":\"<p>Information about the tag keys to deregister.</p>\"\
+        }\
+      }\
+    },\
+    \"DeregisterInstanceEventNotificationAttributesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceTagAttribute\":{\
+          \"shape\":\"InstanceTagNotificationAttribute\",\
+          \"documentation\":\"<p>The resulting set of tag keys.</p>\",\
+          \"locationName\":\"instanceTagAttribute\"\
+        }\
+      }\
+    },\
+    \"DeregisterInstanceTagAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IncludeAllTagsOfInstance\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to deregister all tag keys in the current Region. Specify <code>false</code> to deregister all tag keys.</p>\"\
+        },\
+        \"InstanceTagKeys\":{\
+          \"shape\":\"InstanceTagKeySet\",\
+          \"documentation\":\"<p>Information about the tag keys to deregister.</p>\",\
+          \"locationName\":\"InstanceTagKey\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the tag keys to deregister for the current Region. You can either specify individual tag keys or deregister all tag keys in the current Region. You must specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>\"\
     },\
     \"DeregisterTransitGatewayMulticastGroupMembersRequest\":{\
       \"type\":\"structure\",\
@@ -12811,7 +12902,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code> | <code>disassociated</code>).</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>instance-id</code> - The ID of the instance.</p> </li> <li> <p> <code>state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code>).</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13100,6 +13191,25 @@
         }\
       }\
     },\
+    \"DescribeInstanceEventNotificationAttributesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeInstanceEventNotificationAttributesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceTagAttribute\":{\
+          \"shape\":\"InstanceTagNotificationAttribute\",\
+          \"documentation\":\"<p>Information about the registered tag keys.</p>\",\
+          \"locationName\":\"instanceTagAttribute\"\
+        }\
+      }\
+    },\
     \"DescribeInstanceStatusRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -13371,7 +13481,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>fingerprint</code> - The fingerprint of the key pair.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>key-pair-id</code> - The ID of the key pair.</p> </li> <li> <p> <code>fingerprint</code> - The fingerprint of the key pair.</p> </li> <li> <p> <code>key-name</code> - The name of the key pair.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"KeyNames\":{\
@@ -14060,7 +14170,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>group-name</code> - The name of the placement group.</p> </li> <li> <p> <code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>group-name</code> - The name of the placement group.</p> </li> <li> <p> <code>state</code> - The state of the placement group (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>strategy</code> - The strategy of the placement group (<code>cluster</code> | <code>spread</code> | <code>partition</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources that have a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"DryRun\":{\
@@ -15188,7 +15298,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>key</code> - The tag key.</p> </li> <li> <p> <code>resource-id</code> - The ID of the resource.</p> </li> <li> <p> <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>image</code> | <code>instance</code> | <code>host-reservation</code> | <code>internet-gateway</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify \\\"tag:Owner\\\" for the filter name and \\\"TeamA\\\" for the filter value to find resources with the tag \\\"Owner=TeamA\\\".</p> </li> <li> <p> <code>value</code> - The tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>key</code> - The tag key.</p> </li> <li> <p> <code>resource-id</code> - The ID of the resource.</p> </li> <li> <p> <code>resource-type</code> - The resource type (<code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>elastic-ip</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code> | <code>instance</code> | <code>internet-gateway</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>placement-group</code> | <code>reserved-instances</code> | <code>route-table</code> | <code>security-group</code> | <code>snapshot</code> | <code>spot-instances-request</code> | <code>subnet</code> | <code>volume</code> | <code>vpc</code> | <code>vpc-endpoint</code> | <code>vpc-endpoint-service</code> | <code>vpc-peering-connection</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>).</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of the tag. For example, specify \\\"tag:Owner\\\" for the filter name and \\\"TeamA\\\" for the filter value to find resources with the tag \\\"Owner=TeamA\\\".</p> </li> <li> <p> <code>value</code> - The tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -21133,6 +21243,11 @@
           \"shape\":\"Blob\",\
           \"documentation\":\"<p>The public key. For API calls, the text must be base64-encoded. For command line tools, base64 encoding is performed for you.</p>\",\
           \"locationName\":\"publicKeyMaterial\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the imported key pair.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       }\
     },\
@@ -21148,6 +21263,16 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The key pair name you provided.</p>\",\
           \"locationName\":\"keyName\"\
+        },\
+        \"KeyPairId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the resulting key pair.</p>\",\
+          \"locationName\":\"keyPairId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags applied to the imported key pair.</p>\",\
+          \"locationName\":\"tagSet\"\
         }\
       }\
     },\
@@ -22564,6 +22689,29 @@
       },\
       \"documentation\":\"<p>Describes the disks that are available for the instance type.</p>\"\
     },\
+    \"InstanceTagKeySet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"String\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"InstanceTagNotificationAttribute\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceTagKeys\":{\
+          \"shape\":\"InstanceTagKeySet\",\
+          \"documentation\":\"<p>The registered tag keys.</p>\",\
+          \"locationName\":\"instanceTagKeySet\"\
+        },\
+        \"IncludeAllTagsOfInstance\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates wheter all tag keys in the current Region are registered to appear in scheduled event notifications. <code>true</code> indicates that all tag keys in the current Region are registered.</p>\",\
+          \"locationName\":\"includeAllTagsOfInstance\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the registered tag keys for the current Region.</p>\"\
+    },\
     \"InstanceType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -23332,6 +23480,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the key pair.</p>\",\
           \"locationName\":\"keyPairId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Any tags applied to the key pair.</p>\",\
+          \"locationName\":\"tagSet\"\
         }\
       },\
       \"documentation\":\"<p>Describes a key pair.</p>\"\
@@ -27888,12 +28041,12 @@
       \"members\":{\
         \"AvailabilityZone\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Availability Zone of the instance.</p> <p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The Availability Zone of the instance.</p> <p>If not specified, an Availability Zone will be automatically chosen for you based on the load balancing criteria for the Region.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"availabilityZone\"\
         },\
         \"Affinity\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a>ImportInstance</a> command.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The affinity setting for the instance on the Dedicated Host. This parameter is not supported for the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html\\\">ImportInstance</a> command.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"affinity\"\
         },\
         \"GroupName\":{\
@@ -27903,27 +28056,27 @@
         },\
         \"PartitionNumber\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The number of the partition the instance is in. Valid only if the placement group strategy is set to <code>partition</code>.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"partitionNumber\"\
         },\
         \"HostId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a>ImportInstance</a> command.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The ID of the Dedicated Host on which the instance resides. This parameter is not supported for the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html\\\">ImportInstance</a> command.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"hostId\"\
         },\
         \"Tenancy\":{\
           \"shape\":\"Tenancy\",\
-          \"documentation\":\"<p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a>ImportInstance</a> command.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The tenancy of the instance (if the instance is running in a VPC). An instance with a tenancy of <code>dedicated</code> runs on single-tenant hardware. The <code>host</code> tenancy is not supported for the <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ImportInstance.html\\\">ImportInstance</a> command.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"tenancy\"\
         },\
         \"SpreadDomain\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Reserved for future use.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>Reserved for future use.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"spreadDomain\"\
         },\
         \"HostResourceGroupArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p> <p>This parameter is not supported by .</p>\",\
+          \"documentation\":\"<p>The ARN of the host resource group in which to launch the instances. If you specify a host resource group ARN, omit the <b>Tenancy</b> parameter or set it to <code>host</code>.</p> <p>This parameter is not supported by <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateFleet\\\">CreateFleet</a>.</p>\",\
           \"locationName\":\"hostResourceGroupArn\"\
         }\
       },\
@@ -28958,6 +29111,44 @@
         }\
       },\
       \"documentation\":\"<p>Contains the output of RegisterImage.</p>\"\
+    },\
+    \"RegisterInstanceEventNotificationAttributesRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"InstanceTagAttribute\":{\
+          \"shape\":\"RegisterInstanceTagAttributeRequest\",\
+          \"documentation\":\"<p>Information about the tag keys to register.</p>\"\
+        }\
+      }\
+    },\
+    \"RegisterInstanceEventNotificationAttributesResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceTagAttribute\":{\
+          \"shape\":\"InstanceTagNotificationAttribute\",\
+          \"documentation\":\"<p>The resulting set of tag keys.</p>\",\
+          \"locationName\":\"instanceTagAttribute\"\
+        }\
+      }\
+    },\
+    \"RegisterInstanceTagAttributeRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IncludeAllTagsOfInstance\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to register all tag keys in the current Region. Specify <code>true</code> to register all tag keys.</p>\"\
+        },\
+        \"InstanceTagKeys\":{\
+          \"shape\":\"InstanceTagKeySet\",\
+          \"documentation\":\"<p>The tag keys to register.</p>\",\
+          \"locationName\":\"InstanceTagKey\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the tag keys to register for the current Region. You can either specify individual tag keys or register all tag keys in the current Region. You must specify either <code>IncludeAllTagsOfInstance</code> or <code>InstanceTagKeys</code> in the request</p>\"\
     },\
     \"RegisterTransitGatewayMulticastGroupMembersRequest\":{\
       \"type\":\"structure\",\
@@ -32935,7 +33126,7 @@
         },\
         \"IamFleetRole\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites\\\">Spot Fleet Prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a>CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</p>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of an AWS Identity and Access Management (IAM) role that grants the Spot Fleet the permission to request, launch, terminate, and tag instances on your behalf. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/spot-fleet-requests.html#spot-fleet-prerequisites\\\">Spot Fleet Prerequisites</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>. Spot Fleet can terminate Spot Instances on your behalf when you cancel its Spot Fleet request using <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CancelSpotFleetRequests\\\">CancelSpotFleetRequests</a> or when the Spot Fleet request expires, if you set <code>TerminateInstancesWithExpiration</code>.</p>\",\
           \"locationName\":\"iamFleetRole\"\
         },\
         \"LaunchSpecifications\":{\
@@ -33246,7 +33437,7 @@
         },\
         \"SpotInstanceType\":{\
           \"shape\":\"SpotInstanceType\",\
-          \"documentation\":\"<p>The Spot Instance request type. For <a>RunInstances</a>, persistent Spot Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or <code>stop</code>.</p>\"\
+          \"documentation\":\"<p>The Spot Instance request type. For <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_RunInstances\\\">RunInstances</a>, persistent Spot Instance requests are only supported when <b>InstanceInterruptionBehavior</b> is set to either <code>hibernate</code> or <code>stop</code>.</p>\"\
         },\
         \"BlockDurationMinutes\":{\
           \"shape\":\"Integer\",\
@@ -33980,7 +34171,7 @@
           \"locationName\":\"defaultTargetCapacityType\"\
         }\
       },\
-      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and </p>\"\
+      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity in terms of instances or a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code>, or both to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptions.html\\\">OnDemandOptions</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptions\\\">SpotOptions</a> </p>\"\
     },\
     \"TargetCapacitySpecificationRequest\":{\
       \"type\":\"structure\",\
@@ -34003,7 +34194,7 @@
           \"documentation\":\"<p>The default <code>TotalTargetCapacity</code>, which is either <code>Spot</code> or <code>On-Demand</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in and .</p>\"\
+      \"documentation\":\"<p>The number of units to request. You can choose to set the target capacity as the number of instances. Or you can set the target capacity to a performance characteristic that is important to your application workload, such as vCPUs, memory, or I/O. If the request type is <code>maintain</code>, you can specify a target capacity of 0 and add capacity later.</p> <p>You can use the On-Demand Instance <code>MaxTotalPrice</code> parameter, the Spot Instance <code>MaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, EC2 Fleet will launch instances until it reaches the maximum amount that you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasnât met the target capacity. The <code>MaxTotalPrice</code> parameters are located in <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_OnDemandOptionsRequest\\\">OnDemandOptionsRequest</a> and <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_SpotOptionsRequest\\\">SpotOptionsRequest</a>.</p>\"\
     },\
     \"TargetConfiguration\":{\
       \"type\":\"structure\",\

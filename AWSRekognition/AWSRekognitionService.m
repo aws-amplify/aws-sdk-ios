@@ -25,7 +25,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-NSString *const AWSRekognitionSDKVersion = @"2.13.1";
+NSString *const AWSRekognitionSDKVersion = @"2.13.3";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -441,6 +441,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionDeleteFacesResponse *response, NSError *error))completionHandler {
     [[self deleteFaces:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteFacesResponse *> * _Nonnull task) {
         AWSRekognitionDeleteFacesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDeleteProjectResponse *> *)deleteProject:(AWSRekognitionDeleteProjectRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DeleteProject"
+                   outputClass:[AWSRekognitionDeleteProjectResponse class]];
+}
+
+- (void)deleteProject:(AWSRekognitionDeleteProjectRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDeleteProjectResponse *response, NSError *error))completionHandler {
+    [[self deleteProject:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteProjectResponse *> * _Nonnull task) {
+        AWSRekognitionDeleteProjectResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionDeleteProjectVersionResponse *> *)deleteProjectVersion:(AWSRekognitionDeleteProjectVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"DeleteProjectVersion"
+                   outputClass:[AWSRekognitionDeleteProjectVersionResponse class]];
+}
+
+- (void)deleteProjectVersion:(AWSRekognitionDeleteProjectVersionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionDeleteProjectVersionResponse *response, NSError *error))completionHandler {
+    [[self deleteProjectVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionDeleteProjectVersionResponse *> * _Nonnull task) {
+        AWSRekognitionDeleteProjectVersionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
