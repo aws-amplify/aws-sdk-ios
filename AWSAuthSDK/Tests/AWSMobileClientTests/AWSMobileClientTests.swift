@@ -8,6 +8,7 @@ import XCTest
 @testable import AWSMobileClient
 import AWSAuthCore
 import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSMobileClientTests: AWSMobileClientTestBase {
     
@@ -72,9 +73,11 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
     }
     
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
+        let developerProviderName = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "developer_provider_name")
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
         getOpendIdRequest?.identityPoolId = AWSMobileClientTestBase.identityPoolId
-        getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
+        getOpendIdRequest?.logins = [developerProviderName: "test_users"]
         var identityId: String?
         var token: String?
         
