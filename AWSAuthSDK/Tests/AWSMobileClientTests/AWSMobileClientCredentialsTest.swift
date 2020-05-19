@@ -187,7 +187,6 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
         let username = "testUser" + UUID().uuidString
         let transferUtility = AWSS3TransferUtility.default()
         let content = "Hello World"
-        let uploadKey = "private/\(username)/file.txt"
         let s3UploadDataCompletionExpectation = expectation(description: "S3 transfer utility uploadData task completed")
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
         
@@ -200,17 +199,33 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
                 XCTFail("User state should be signed In")
                 return
             }
-            
-            transferUtility.uploadData(
-                content.data(using: .utf8)!,
-                key: uploadKey,
-                contentType: "text/plain",
-                expression: nil
-            ) { (_, error) in
-                XCTAssertNil(error)
-                s3UploadDataCompletionExpectation.fulfill()
+
+            AWSMobileClient.default().getIdentityId().continueWith { task in
+                if let error = task.error {
+                    XCTAssertNil(error, "Unexpected error in getIdentityId()")
+                    return nil
+                }
+
+                guard let identityId = task.result else {
+                    XCTFail("task.result unexpectedly nil")
+                    return nil
+                }
+
+                let uploadKey = "private/\(identityId)/file.txt"
+                transferUtility.uploadData(
+                    content.data(using: .utf8)!,
+                    key: uploadKey,
+                    contentType: "text/plain",
+                    expression: nil
+                ) { _, error in
+                    XCTAssertNil(error)
+                    s3UploadDataCompletionExpectation.fulfill()
+                }
+                return nil
             }
+
         }
+
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         wait(for: [signInListenerWasSuccessful, s3UploadDataCompletionExpectation], timeout: 10)
