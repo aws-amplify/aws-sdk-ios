@@ -66,6 +66,398 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeCreateMedicalVocabularyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"vocabularyFileUri" : @"VocabularyFileUri",
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ar-SA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArSA);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"id-ID"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeIdID);
+        }
+        if ([value caseInsensitiveCompare:@"ta-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTaIN);
+        }
+        if ([value caseInsensitiveCompare:@"fa-IR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFaIR);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"te-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTeIN);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTrTR);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"he-IL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHeIL);
+        }
+        if ([value caseInsensitiveCompare:@"ms-MY"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeMsMY);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArAE);
+        }
+        return @(AWSTranscribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeLanguageCodeEnUS:
+                return @"en-US";
+            case AWSTranscribeLanguageCodeEsUS:
+                return @"es-US";
+            case AWSTranscribeLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeLanguageCodeEsES:
+                return @"es-ES";
+            case AWSTranscribeLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSTranscribeLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeLanguageCodeArSA:
+                return @"ar-SA";
+            case AWSTranscribeLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSTranscribeLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSTranscribeLanguageCodeIdID:
+                return @"id-ID";
+            case AWSTranscribeLanguageCodeTaIN:
+                return @"ta-IN";
+            case AWSTranscribeLanguageCodeFaIR:
+                return @"fa-IR";
+            case AWSTranscribeLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSTranscribeLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSTranscribeLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSTranscribeLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSTranscribeLanguageCodeTeIN:
+                return @"te-IN";
+            case AWSTranscribeLanguageCodeTrTR:
+                return @"tr-TR";
+            case AWSTranscribeLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSTranscribeLanguageCodeHeIL:
+                return @"he-IL";
+            case AWSTranscribeLanguageCodeMsMY:
+                return @"ms-MY";
+            case AWSTranscribeLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeLanguageCodeArAE:
+                return @"ar-AE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeCreateMedicalVocabularyResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"failureReason" : @"FailureReason",
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"vocabularyName" : @"VocabularyName",
+             @"vocabularyState" : @"VocabularyState",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ar-SA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArSA);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"id-ID"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeIdID);
+        }
+        if ([value caseInsensitiveCompare:@"ta-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTaIN);
+        }
+        if ([value caseInsensitiveCompare:@"fa-IR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFaIR);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"te-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTeIN);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTrTR);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"he-IL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHeIL);
+        }
+        if ([value caseInsensitiveCompare:@"ms-MY"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeMsMY);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArAE);
+        }
+        return @(AWSTranscribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeLanguageCodeEnUS:
+                return @"en-US";
+            case AWSTranscribeLanguageCodeEsUS:
+                return @"es-US";
+            case AWSTranscribeLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeLanguageCodeEsES:
+                return @"es-ES";
+            case AWSTranscribeLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSTranscribeLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeLanguageCodeArSA:
+                return @"ar-SA";
+            case AWSTranscribeLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSTranscribeLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSTranscribeLanguageCodeIdID:
+                return @"id-ID";
+            case AWSTranscribeLanguageCodeTaIN:
+                return @"ta-IN";
+            case AWSTranscribeLanguageCodeFaIR:
+                return @"fa-IR";
+            case AWSTranscribeLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSTranscribeLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSTranscribeLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSTranscribeLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSTranscribeLanguageCodeTeIN:
+                return @"te-IN";
+            case AWSTranscribeLanguageCodeTrTR:
+                return @"tr-TR";
+            case AWSTranscribeLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSTranscribeLanguageCodeHeIL:
+                return @"he-IL";
+            case AWSTranscribeLanguageCodeMsMY:
+                return @"ms-MY";
+            case AWSTranscribeLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeLanguageCodeArAE:
+                return @"ar-AE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)vocabularyStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateFailed);
+        }
+        return @(AWSTranscribeVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSTranscribeCreateVocabularyFilterRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -834,6 +1226,16 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeDeleteMedicalVocabularyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
+@end
+
 @implementation AWSTranscribeDeleteTranscriptionJobRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -884,6 +1286,231 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSValueTransformer *)medicalTranscriptionJobJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTranscribeMedicalTranscriptionJob class]];
+}
+
+@end
+
+@implementation AWSTranscribeGetMedicalVocabularyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
+@end
+
+@implementation AWSTranscribeGetMedicalVocabularyResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"downloadUri" : @"DownloadUri",
+             @"failureReason" : @"FailureReason",
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"vocabularyName" : @"VocabularyName",
+             @"vocabularyState" : @"VocabularyState",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ar-SA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArSA);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"id-ID"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeIdID);
+        }
+        if ([value caseInsensitiveCompare:@"ta-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTaIN);
+        }
+        if ([value caseInsensitiveCompare:@"fa-IR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFaIR);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"te-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTeIN);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTrTR);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"he-IL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHeIL);
+        }
+        if ([value caseInsensitiveCompare:@"ms-MY"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeMsMY);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArAE);
+        }
+        return @(AWSTranscribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeLanguageCodeEnUS:
+                return @"en-US";
+            case AWSTranscribeLanguageCodeEsUS:
+                return @"es-US";
+            case AWSTranscribeLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeLanguageCodeEsES:
+                return @"es-ES";
+            case AWSTranscribeLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSTranscribeLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeLanguageCodeArSA:
+                return @"ar-SA";
+            case AWSTranscribeLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSTranscribeLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSTranscribeLanguageCodeIdID:
+                return @"id-ID";
+            case AWSTranscribeLanguageCodeTaIN:
+                return @"ta-IN";
+            case AWSTranscribeLanguageCodeFaIR:
+                return @"fa-IR";
+            case AWSTranscribeLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSTranscribeLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSTranscribeLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSTranscribeLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSTranscribeLanguageCodeTeIN:
+                return @"te-IN";
+            case AWSTranscribeLanguageCodeTrTR:
+                return @"tr-TR";
+            case AWSTranscribeLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSTranscribeLanguageCodeHeIL:
+                return @"he-IL";
+            case AWSTranscribeLanguageCodeMsMY:
+                return @"ms-MY";
+            case AWSTranscribeLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeLanguageCodeArAE:
+                return @"ar-AE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)vocabularyStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateFailed);
+        }
+        return @(AWSTranscribeVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1436,6 +2063,87 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 @end
 
+@implementation AWSTranscribeListMedicalVocabulariesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nameContains" : @"NameContains",
+             @"nextToken" : @"NextToken",
+             @"stateEquals" : @"StateEquals",
+             };
+}
+
++ (NSValueTransformer *)stateEqualsJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateFailed);
+        }
+        return @(AWSTranscribeVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeListMedicalVocabulariesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"status" : @"Status",
+             @"vocabularies" : @"Vocabularies",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateFailed);
+        }
+        return @(AWSTranscribeVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)vocabulariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTranscribeVocabularyInfo class]];
+}
+
+@end
+
 @implementation AWSTranscribeListTranscriptionJobsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1578,29 +2286,24 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"QUEUED"] == NSOrderedSame) {
-            return @(AWSTranscribeTranscriptionJobStatusQueued);
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
         }
-        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
-            return @(AWSTranscribeTranscriptionJobStatusInProgress);
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
         }
         if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSTranscribeTranscriptionJobStatusFailed);
+            return @(AWSTranscribeVocabularyStateFailed);
         }
-        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
-            return @(AWSTranscribeTranscriptionJobStatusCompleted);
-        }
-        return @(AWSTranscribeTranscriptionJobStatusUnknown);
+        return @(AWSTranscribeVocabularyStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSTranscribeTranscriptionJobStatusQueued:
-                return @"QUEUED";
-            case AWSTranscribeTranscriptionJobStatusInProgress:
-                return @"IN_PROGRESS";
-            case AWSTranscribeTranscriptionJobStatusFailed:
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
                 return @"FAILED";
-            case AWSTranscribeTranscriptionJobStatusCompleted:
-                return @"COMPLETED";
             default:
                 return nil;
         }
@@ -2291,6 +2994,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"maxSpeakerLabels" : @"MaxSpeakerLabels",
              @"showAlternatives" : @"ShowAlternatives",
              @"showSpeakerLabels" : @"ShowSpeakerLabels",
+             @"vocabularyName" : @"VocabularyName",
              };
 }
 
@@ -3417,6 +4121,397 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"FAILED";
             case AWSTranscribeTranscriptionJobStatusCompleted:
                 return @"COMPLETED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeUpdateMedicalVocabularyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"vocabularyFileUri" : @"VocabularyFileUri",
+             @"vocabularyName" : @"VocabularyName",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ar-SA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArSA);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"id-ID"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeIdID);
+        }
+        if ([value caseInsensitiveCompare:@"ta-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTaIN);
+        }
+        if ([value caseInsensitiveCompare:@"fa-IR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFaIR);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"te-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTeIN);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTrTR);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"he-IL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHeIL);
+        }
+        if ([value caseInsensitiveCompare:@"ms-MY"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeMsMY);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArAE);
+        }
+        return @(AWSTranscribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeLanguageCodeEnUS:
+                return @"en-US";
+            case AWSTranscribeLanguageCodeEsUS:
+                return @"es-US";
+            case AWSTranscribeLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeLanguageCodeEsES:
+                return @"es-ES";
+            case AWSTranscribeLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSTranscribeLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeLanguageCodeArSA:
+                return @"ar-SA";
+            case AWSTranscribeLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSTranscribeLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSTranscribeLanguageCodeIdID:
+                return @"id-ID";
+            case AWSTranscribeLanguageCodeTaIN:
+                return @"ta-IN";
+            case AWSTranscribeLanguageCodeFaIR:
+                return @"fa-IR";
+            case AWSTranscribeLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSTranscribeLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSTranscribeLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSTranscribeLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSTranscribeLanguageCodeTeIN:
+                return @"te-IN";
+            case AWSTranscribeLanguageCodeTrTR:
+                return @"tr-TR";
+            case AWSTranscribeLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSTranscribeLanguageCodeHeIL:
+                return @"he-IL";
+            case AWSTranscribeLanguageCodeMsMY:
+                return @"ms-MY";
+            case AWSTranscribeLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeLanguageCodeArAE:
+                return @"ar-AE";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSTranscribeUpdateMedicalVocabularyResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedTime" : @"LastModifiedTime",
+             @"vocabularyName" : @"VocabularyName",
+             @"vocabularyState" : @"VocabularyState",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"es-US"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-AU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAU);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtBR);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ko-KR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeKoKR);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEsES);
+        }
+        if ([value caseInsensitiveCompare:@"en-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIN);
+        }
+        if ([value caseInsensitiveCompare:@"hi-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHiIN);
+        }
+        if ([value caseInsensitiveCompare:@"ar-SA"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArSA);
+        }
+        if ([value caseInsensitiveCompare:@"ru-RU"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeRuRU);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"nl-NL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeNlNL);
+        }
+        if ([value caseInsensitiveCompare:@"id-ID"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeIdID);
+        }
+        if ([value caseInsensitiveCompare:@"ta-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTaIN);
+        }
+        if ([value caseInsensitiveCompare:@"fa-IR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeFaIR);
+        }
+        if ([value caseInsensitiveCompare:@"en-IE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnIE);
+        }
+        if ([value caseInsensitiveCompare:@"en-AB"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnAB);
+        }
+        if ([value caseInsensitiveCompare:@"en-WL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeEnWL);
+        }
+        if ([value caseInsensitiveCompare:@"pt-PT"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodePtPT);
+        }
+        if ([value caseInsensitiveCompare:@"te-IN"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTeIN);
+        }
+        if ([value caseInsensitiveCompare:@"tr-TR"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeTrTR);
+        }
+        if ([value caseInsensitiveCompare:@"de-CH"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeDeCH);
+        }
+        if ([value caseInsensitiveCompare:@"he-IL"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeHeIL);
+        }
+        if ([value caseInsensitiveCompare:@"ms-MY"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeMsMY);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"ar-AE"] == NSOrderedSame) {
+            return @(AWSTranscribeLanguageCodeArAE);
+        }
+        return @(AWSTranscribeLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeLanguageCodeEnUS:
+                return @"en-US";
+            case AWSTranscribeLanguageCodeEsUS:
+                return @"es-US";
+            case AWSTranscribeLanguageCodeEnAU:
+                return @"en-AU";
+            case AWSTranscribeLanguageCodeFrCA:
+                return @"fr-CA";
+            case AWSTranscribeLanguageCodeEnGB:
+                return @"en-GB";
+            case AWSTranscribeLanguageCodeDeDE:
+                return @"de-DE";
+            case AWSTranscribeLanguageCodePtBR:
+                return @"pt-BR";
+            case AWSTranscribeLanguageCodeFrFR:
+                return @"fr-FR";
+            case AWSTranscribeLanguageCodeItIT:
+                return @"it-IT";
+            case AWSTranscribeLanguageCodeKoKR:
+                return @"ko-KR";
+            case AWSTranscribeLanguageCodeEsES:
+                return @"es-ES";
+            case AWSTranscribeLanguageCodeEnIN:
+                return @"en-IN";
+            case AWSTranscribeLanguageCodeHiIN:
+                return @"hi-IN";
+            case AWSTranscribeLanguageCodeArSA:
+                return @"ar-SA";
+            case AWSTranscribeLanguageCodeRuRU:
+                return @"ru-RU";
+            case AWSTranscribeLanguageCodeZhCN:
+                return @"zh-CN";
+            case AWSTranscribeLanguageCodeNlNL:
+                return @"nl-NL";
+            case AWSTranscribeLanguageCodeIdID:
+                return @"id-ID";
+            case AWSTranscribeLanguageCodeTaIN:
+                return @"ta-IN";
+            case AWSTranscribeLanguageCodeFaIR:
+                return @"fa-IR";
+            case AWSTranscribeLanguageCodeEnIE:
+                return @"en-IE";
+            case AWSTranscribeLanguageCodeEnAB:
+                return @"en-AB";
+            case AWSTranscribeLanguageCodeEnWL:
+                return @"en-WL";
+            case AWSTranscribeLanguageCodePtPT:
+                return @"pt-PT";
+            case AWSTranscribeLanguageCodeTeIN:
+                return @"te-IN";
+            case AWSTranscribeLanguageCodeTrTR:
+                return @"tr-TR";
+            case AWSTranscribeLanguageCodeDeCH:
+                return @"de-CH";
+            case AWSTranscribeLanguageCodeHeIL:
+                return @"he-IL";
+            case AWSTranscribeLanguageCodeMsMY:
+                return @"ms-MY";
+            case AWSTranscribeLanguageCodeJaJP:
+                return @"ja-JP";
+            case AWSTranscribeLanguageCodeArAE:
+                return @"ar-AE";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)lastModifiedTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)vocabularyStateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"READY"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateReady);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSTranscribeVocabularyStateFailed);
+        }
+        return @(AWSTranscribeVocabularyStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeVocabularyStatePending:
+                return @"PENDING";
+            case AWSTranscribeVocabularyStateReady:
+                return @"READY";
+            case AWSTranscribeVocabularyStateFailed:
+                return @"FAILED";
             default:
                 return nil;
         }
