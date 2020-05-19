@@ -69,10 +69,11 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
     func testPasswordResetChallenge() {
         let username = "testUser" + UUID().uuidString
         let tempPassword = "tempPassword" + UUID().uuidString
-        adminCreateUser(username: username, temporaryPassword: tempPassword)
+        adminCreateUser(username: username,
+                        temporaryPassword: tempPassword,
+                        userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
         signIn(username: username, password: tempPassword, verifySignState: .newPasswordRequired)
-        confirmSign(challengeResponse: AWSMobileClientTestBase.sharedPassword,
-                    userAttributes: ["email": AWSMobileClientTestBase.sharedEmail])
+        confirmSign(challengeResponse: AWSMobileClientTestBase.sharedPassword)
     }
 
 }
