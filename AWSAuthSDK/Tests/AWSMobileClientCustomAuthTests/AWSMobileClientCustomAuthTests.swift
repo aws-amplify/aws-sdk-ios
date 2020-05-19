@@ -27,10 +27,9 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     /// and "authenticationFlowType": "CUSTOM_AUTH" in the configuration.
     /// Cognito Userpool should be configured with the following lambda triggers:
     ///
-    ///  Define Auth Challenge
-    ///
-    ///  ```
-    ///     exports.handler = function(event, context) {
+    /// **Define Auth Challenge**
+    /// ```
+    /// exports.handler = function(event, context) {
     ///     if (event.request.session.length == 1 && event.request.session[0].challengeName == 'SRP_A') {
     ///         event.response.issueTokens = false;
     ///         event.response.failAuthentication = false;
@@ -44,48 +43,50 @@ class AWSMobileClientCustomAuthTests: AWSMobileClientTestBase {
     ///         event.response.failAuthentication = true;
     ///     }
     ///     context.done(null, event);
+    /// };
+    /// ```
+    ///
+    /// **Verify Auth Challenge Response**
+    /// ```
+    /// function verifyAuthChallengeResponse(event) {
+    ///     if (event.request.privateChallengeParameters.answer === event.request.challengeAnswer) {
+    ///         event.response.answerCorrect = true;
+    ///     } else {
+    ///         event.response.answerCorrect = false;
     ///     }
-    ///  ```
-    /// Verify Auth Challenge Response
+    /// }
+    ///
+    /// exports.handler = (event, context, callback) => {
+    ///     verifyAuthChallengeResponse(event);
+    ///     callback(null, event);
+    /// };
     /// ```
-    ///    function verifyAuthChallengeResponse(event) {
-    ///         if (event.request.privateChallengeParameters.answer === event.request.challengeAnswer) {
-    ///             event.response.answerCorrect = true;
-    ///         } else {
-    ///             event.response.answerCorrect = false;
-    ///         }
+    ///
+    /// **Create Auth Challenge**
+    /// ```
+    /// function createAuthChallenge(event) {
+    ///     if (event.request.challengeName === 'CUSTOM_CHALLENGE') {
+    ///         event.response.publicChallengeParameters = { testKey: 'testResult' };
+    ///         event.response.privateChallengeParameters = {};
+    ///         event.response.privateChallengeParameters.answer = '1133';
     ///     }
+    /// }
     ///
-    ///    exports.handler = (event, context, callback) => {
-    ///         verifyAuthChallengeResponse(event);
-    ///         callback(null, event);
-    ///    };
-    /// ```
-    /// Create Auth Challenge
-    /// ```
-    ///    function createAuthChallenge(event) {
-    ///         if (event.request.challengeName === 'CUSTOM_CHALLENGE') {
-    ///             event.response.publicChallengeParameters = { testKey: 'testResult' };
-    ///             event.response.privateChallengeParameters = {};
-    ///             event.response.privateChallengeParameters.answer = '1133';
-    ///         }
-    ///    }
-    ///
-    ///    exports.handler = (event, context, callback) => {
-    ///         createAuthChallenge(event);
-    ///         callback(null, event);
-    ///    };
+    /// exports.handler = (event, context, callback) => {
+    ///     createAuthChallenge(event);
+    ///     callback(null, event);
+    /// };
     /// ```
     ///
-    ///Pre SignUp
-    ///```
-    ///     "use strict";
-    ///     Object.defineProperty(exports, "__esModule", { value: true });
-    ///     exports.handler = async (event) => {
-    ///        event.response.autoConfirmUser = true;
-    ///        event.response.autoVerifyEmail = true;
-    ///        return event;
-    ///     };
+    /// **Pre SignUp**
+    /// ```
+    /// "use strict";
+    /// Object.defineProperty(exports, "__esModule", { value: true });
+    /// exports.handler = async (event) => {
+    ///     event.response.autoConfirmUser = true;
+    ///     event.response.autoVerifyEmail = true;
+    ///     return event;
+    /// };
     /// ```
     ///
     static func loadConfigurationForCustomAuth() {
