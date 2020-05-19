@@ -436,21 +436,19 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DEB261C6A81160060793F"
-               BuildableName = "AWSAPIGatewayTests.xctest"
-               BlueprintName = "AWSAPIGatewayTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "CE9DE6E11C6A79DF0060793F"
                BuildableName = "AWSLambdaTests.xctest"
                BlueprintName = "AWSLambdaTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AWSLambdaInvokerTests/testInvokeWithVersionAlias">
+               </Test>
+               <Test
+                  Identifier = "AWSLambdaTests/testInvokeWithVersionAlias">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
