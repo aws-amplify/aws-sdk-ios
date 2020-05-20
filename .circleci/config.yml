@@ -326,8 +326,6 @@ jobs:
       - skip_job_unless_required
       - override_test_job
       - restore_cache:
-          key: test_result-{{ .Revision }}-APIGateway
-      - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
           key: test_result-{{ .Revision }}-AutoScaling
@@ -830,17 +828,6 @@ workflows:
                 - develop
 
       - integrationtest:
-          name: APIGateway
-          groupname: APIGateway
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
           name: AutoScaling
           groupname: AutoScaling
           requires:
@@ -1139,7 +1126,6 @@ workflows:
 
       - post_integrationtest:
           requires:
-            - APIGateway
             - AWSMobileClient
             - AutoScaling
             - CloudWatch
@@ -1295,16 +1281,6 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: APIGateway
-          groupname: APIGateway
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
           name: Translate
           groupname: Translate
           requires:
@@ -1496,7 +1472,6 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
-            - APIGateway
             - AWSMobileClient
             - AutoScaling
             - CloudWatch
