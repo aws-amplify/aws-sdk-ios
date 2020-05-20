@@ -9,11 +9,6 @@
     "sdkName": "iphonesimulator"
   },
 
-  "APIGateway": {
-    "test_list": {
-      "AWSAPIGatewayTests": {}
-    }
-  },
   "AWSMobileClient": {
     "projectName": "AWSAuthSDK",
     "projectPath": "AWSAuthSDK/AWSAuthSDK.xcodeproj",

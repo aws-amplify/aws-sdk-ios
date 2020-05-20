@@ -50,6 +50,9 @@
                <Test
                   Identifier = "AWSS3TransferUtilityTests/testReRegisterTransferUtility()">
                </Test>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testRemovingTransferUtilityInvalidatesSession()">
+               </Test>
             </SkippedTests>
          </TestableReference>
          <TestableReference
