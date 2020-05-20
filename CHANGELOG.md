@@ -1,3 +1,18 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSMedialive
+---AWSSecurityhub
+---AWSAppmesh
+---AWSBackup
+---AWSCodedeploy
+---AWSChime
+---AWSTranscribestreaming
+---AWSApplicationautoscaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
