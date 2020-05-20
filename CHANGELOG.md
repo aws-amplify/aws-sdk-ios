@@ -1,6 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+-Features for next release
+
+## 2.13.4
 ### New features
 - **Integration tests**
     - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](LINK TBD). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
