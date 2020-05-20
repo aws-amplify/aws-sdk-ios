@@ -46,6 +46,11 @@
                BlueprintName = "AWSS3Tests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AWSS3TransferUtilityTests/testReRegisterTransferUtility()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">
