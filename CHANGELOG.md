@@ -5,6 +5,9 @@
 - **Integration tests**
     - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](LINK TBD). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
 
+- **AWSMobileClient**
+    - Added api to fetch userSub for the loggedin user. [PR #2599](https://github.com/aws-amplify/aws-sdk-ios/pull/2599)
+
 ### Bug Fixes
 - **AWSMobileClient**
     - Crash in `releaseSignInWait` api due to over fulfilling a fetchlock. See [Issue #1278](https://github.com/aws-amplify/aws-sdk-ios/issues/1278) and [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
