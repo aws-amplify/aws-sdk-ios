@@ -20,10 +20,10 @@ commands:
 
   update_brew:
     description: >-
-      update brew
+      Update Homebrew
     steps:
       - run:
-          name: update brew
+          name: Update Homebrew
           command: |
             HOMEBREW_LOGS=~/homebrew-logs
             HOMEBREW_TEMP=~/homebrew-temp
@@ -31,10 +31,10 @@ commands:
 
   set_environment_variables:
     description: >-
-      set environment variables
+      Set environment variables
     steps:
       - run:
-          name: set environment variables
+          name: Set environment variables
           command: |
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
@@ -60,7 +60,7 @@ commands:
       If current release is not a minor version bump, stop executing the current job and return success.
     steps:
       - run:
-          name: skip left steps and return immediately from current job if current release is not a minor version bump
+          name: Skip remaining steps if current release is not a minor version bump
           command: |
             echo $release_version
             maintenance=$(echo $release_version | sed "s/[0-9]*.[0-9]*.\([0-9]*\)/\1/")
@@ -72,10 +72,10 @@ commands:
 
   bump_version_pre:
     description: >-
-      prepare bump version
+      Prepare bump version
     steps:
       - run:
-          name: checkout repository for bump version
+          name: Checkout repository for bump version
           command: |
             if [ -z "$target_branch" ]
             then
@@ -103,10 +103,10 @@ commands:
 
   bump_version_post:
     description: >-
-      check in bump version change
+      Check in bump version change
     steps:
       - run:
-          name: stage changes
+          name: Stage changes
           command: |
             cd ${bumpversion_repo_name}
             git config --local user.name "${GITHUB_BUMPVERSION_USER}"
@@ -119,7 +119,7 @@ commands:
               circleci step halt
             fi
       - run:
-          name: check in changes
+          name: Check in changes
           command: |
             if [ -z "$target_branch" ]
             then
@@ -135,33 +135,36 @@ commands:
             echo "title:$title"
             echo "content:$content"
             python3 ../CircleciScripts/create_pullrequest.py "${GITHUB_BUMPVERSION_USER}" "${GITHUB_BUMPVERSION_TOKEN}" "$title" "$content" "$target_branch" "${GITHUB_BUMPVERSION_USER}:bump_version" ${bumpversion_repo_user} ${bumpversion_repo_name}
+
   configure_aws:
     description: >-
-      install aws cli and configure android aws release profile
+      Install aws cli and configure android aws release profile
     steps:
       - run:
-          name: install aws cli
+          name: Install AWS cli
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
-          name: configure aws profile
+          name: Configure AWS profiles
           command: |
             aws configure --profile sdk_s3_release set region us-east-1
             echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
+
   pre_start_simulator:
     description: >-
-      pre start simulator, build may fail is simulator is not started
+      Pre-start iOS Simulator, as the build may fail if it takes too long to start up during that step
     steps:
       - run:
-          name: pre-start simulator
+          name: Pre-start iOS Simulator
           command: |
             bash CircleciScripts/pre_start_simulator.sh
+
   skip_test_job:
     description: >-
-      check if the test job can be skipped
+      Check if the test job can be skipped
     steps:
       - run:
-          name: skip the test job if commit message require skipping tests
+          name: Skip the test job if commit message require skipping tests
           command: |
             commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
             if [[ "$commitmessage" =~ .*"[skip test]".* ]]
@@ -170,7 +173,7 @@ commands:
                circleci step halt
             fi
       - run:
-          name: skip the test job if the release process is triggered by circleci
+          name: Skip the test job if the release process was triggered by CircleCI
           command: |
             skipflag=$(echo "${SKIPTEST_FOR_RELEASE}") | tr '[:upper:]' '[:lower:]'
             if ! [ -z "${CIRCLE_TAG}" ] && [ "$skipflag" == "true" ]
@@ -179,38 +182,37 @@ commands:
               echo $tagmessage
               if [[ "$tagmessage" =~ .*"Trigger release from circleci".* ]]
               then
-                 echo "The release is triggered by circleci. skip the job"
+                 echo "The release was triggered by CircleCI. Skip the job"
                  circleci step halt
               fi
             fi
       - run:
-          name: skip the test job if this is merged from develop by circleci
+          name: Skip the test job if this was merged from develop by CircleCI
           command: |
             skipflag=$(echo "${SKIPTEST_FOR_MASTER}") | tr '[:upper:]' '[:lower:]'
             commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
             if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to master by circleci]".* ]]
             then
-               echo "This is merged from develop by circleci. skip the test job"
+               echo "This is merged from develop by CircleCI. Skip the test job"
                circleci step halt
             fi
 
   override_test_job:
     description: >-
-      skip the test job is project variable OVERRIDE_TEST is set with TRUE
+      Skip the test job if previously tested, or if the environment variable OVERRIDE_TEST is TRUE
     steps:
-
       - run:
-          name: skip test if the commit is already tested
+          name: Skip test if the commit is already tested
           command: |
             echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
             skipflag=$(echo "${SKIPTESTEDCHANGE}" | tr '[:upper:]' '[:lower:]')
             if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ]
             then
-              echo "skip test as the change ${CIRCLE_SHA1} is already tested"
+              echo "Skipping test as the change ${CIRCLE_SHA1} has already been tested"
               circleci step halt
             fi
       - run:
-          name: check_for_test_override
+          name: Skip test if OVERRIDE_TEST flag is set
           command: |
               echo "override_test_variable_name=$override_test_variable_name"
               override_test_value=$(eval "echo $"${override_test_variable_name}"")
@@ -219,83 +221,75 @@ commands:
                 echo "project environment variable OVERRIDE_TEST is set with TRUE, skip all tests"
                 circleci step halt
               fi
+
   skip_job_unless_required:
     description: >-
-      skip job unless required
+      Skip job unless required
     steps:
       - run:
-          name: skip_job_from_environment_variable
+          name: Skip job if SKIP_JOB flag is set
           command: |
               variable_name=SKIP_JOB_${CIRCLE_JOB}
-
               skipjob_flag=$(eval "echo $"${variable_name}"")
               skipjob_flag=$(echo "${skipjob_flag}" | tr '[:upper:]' '[:lower:]')
               if [ "${skipjob_flag}" == "true" ]
               then
-                echo "skip current job as ${variable_name} is set in project environment variables"
+                echo "Skipping current job as ${variable_name} environment variable is set"
                 circleci step halt
               fi
 
 jobs:
   build:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
       - set_environment_variables
-      - run:
-          name: create credentials
-          command: |
-            touch AWSCoreTests/Resources/credentials.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            touch AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
       - pre_start_simulator
       - run:
-          name: build sdk
+          name: Build sdk
           command: |
             xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
+
   unittest:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - set_environment_variables
       - override_test_job
       - skip_job_unless_required
       - checkout
       - skip_test_job
-      - run:
-          name: create credentials
-          command: |
-            touch AWSCoreTests/Resources/credentials.json
       - pre_start_simulator
       - run:
-          name: build sdk
+          name: Build SDK
           command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
       - run :
-          name: run unit tests
+          name: Run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
       - run:
-          name : check unit test result
+          name : Check unit test result
           command : bash CircleciScripts/check_test_result.sh "test_result"
       - store_artifacts:
           path: test_result
+
   pre_integrationtest:
     macos:
-      xcode: "11.4.0"
-    environment: 
+      xcode: "11.4.1"
+    environment:
       TERM: xterm-256color
     steps:
       - skip_job_unless_required
       - set_environment_variables
       - override_test_job
       - run:
-          name: get override test variable name
+          name: Get override test variable name
           command: |
             echo "override_test_variable_name=$override_test_variable_name"
       - run:
-          name: reset OVERRIDE_TEST environment variable
+          name: Reset OVERRIDE_TEST environment variable
           command: |
             override_test_value=$(eval "echo $"${override_test_variable_name}"")
             if ! [ -z "$override_test_value" ]
@@ -310,16 +304,12 @@ jobs:
             fi
       - checkout
       - set_environment_variables
-      - configure_aws
       - run:
-          name: create credentials
-          command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
-            aws s3 cp s3://ios-circleci-payload/awsconfiguration.json AWSAuthSDK/Tests/AWSMobileClientTests/awsconfiguration.json
-            aws s3 cp s3://ios-circleci-payload/credentials-mc.json AWSAuthSDK/Tests/AWSMobileClientTests/credentials-mc.json
+          name: Generate testconfiguration.json
+          command: bash Scripts/generate-test-config.sh -p ios -v
       - pre_start_simulator
       - run:
-          name: build sdk
+          name: Build SDK
           command: |
             xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
             xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
@@ -327,15 +317,14 @@ jobs:
           key: build_result-{{ .Revision }}
           paths:
             - build_result
+
   post_integrationtest:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
       - override_test_job
-      - restore_cache:
-          key: test_result-{{ .Revision }}-APIGateway
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
@@ -346,10 +335,6 @@ jobs:
           key: test_result-{{ .Revision }}-Cognito
       - restore_cache:
           key: test_result-{{ .Revision }}-Comprehend
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Connect  
-      - restore_cache:
-          key: test_result-{{ .Revision }}-ConnectParticipant
       - restore_cache:
           key: test_result-{{ .Revision }}-Core
       - restore_cache:
@@ -371,8 +356,6 @@ jobs:
       - restore_cache:
           key: test_result-{{ .Revision }}-Lex
       - restore_cache:
-          key: test_result-{{ .Revision }}-MachineLearning
-      - restore_cache:
           key: test_result-{{ .Revision }}-MobileAnalytics
       - restore_cache:
           key: test_result-{{ .Revision }}-Pinpoint
@@ -388,8 +371,6 @@ jobs:
           key: test_result-{{ .Revision }}-SNS
       - restore_cache:
           key: test_result-{{ .Revision }}-SQS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SageMakerRuntime
       - restore_cache:
           key: test_result-{{ .Revision }}-Textract
       - restore_cache:
@@ -410,15 +391,14 @@ jobs:
               -d "$parameters" \
               "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
 
-
   integrationtest:
-    description: run integration tests
+    description: Run integration tests
     parameters:
       groupname:
         default: stable_testList
         type: string
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - set_environment_variables
       - override_test_job
@@ -430,19 +410,15 @@ jobs:
       - restore_cache:
           key: build_result-{{ .Revision }}
       - run:
-          name: install json parser
+          name: Install JSON parser
           command: pip3 install demjson
-      - run:
-          name: create credentials
-          command: |
-            echo ${IOS_TESTS_CREDENTIALS_JSON} | base64 --decode > AWSCoreTests/Resources/credentials.json
       - run :
-          name: run integration tests
+          name: Run integration tests
           command: |
             mkdir integration_test_result
             python3 CircleciScripts/run_integrationtests.py CircleciScripts/IntegrationTestsConfiguration.json "integration_test_result" "<< parameters.groupname >>" "${destination}" "./build_result"
       - run:
-          name : check integration test result
+          name : Check integration test result
           command : |
             echo "testresult=$testresult"
             if [ "$testresult" == "0" ]
@@ -461,16 +437,16 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
       - update_brew
       - run:
-          name: install github-release
+          name: Install github-release
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
-          name: release the tag
+          name: Release the tag to GitHub
           command: |
             tagdescription=$(sed -n '/## '${CIRCLE_TAG}'/,/## [0-9]*\.[0-9]*\.[0-9]/p' CHANGELOG.md | sed '1d' | sed '$d')
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
@@ -478,25 +454,25 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
       - pre_start_simulator
       - update_brew
       - run:
-          name: install github-release
+          name: Install github-release
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
-          name: install aws cli
+          name: Install AWS CLI
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
       - run:
-          name: upgrade carthage
+          name: Upgrade Carthage
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
       - run:
-          name: build
+          name: Build SDK for Carthage release
           command: |
             xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination "${destination}" build
       - run:
@@ -505,27 +481,27 @@ jobs:
             carthage build --no-skip-current | tee buildout.txt
           no_output_timeout: 100m
       - run:
-          name: Create Carthage Archive
+          name: Create Carthage archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
           no_output_timeout: 20m
       - run:
-          name: upload file to git release
+          name: Upload Carthage archive to GitHub release
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
   release_cocoapods:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
       - run:
-          name: Release cocoapods
+          name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
           no_output_timeout: 20m
 
   release_docs:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -534,17 +510,17 @@ jobs:
           command: |
             sudo gem install jazzy --source http://rubygems.org
       - run:
-          name: generate documents
+          name: Generate documents
           command: bash ./CircleciScripts/generate_documentation.sh
       - run:
-          name: copy documents
+          name: Copy documents
           command: |
             git config --local user.name "AWS"
             git checkout gh-pages
             rm -rf docs/reference
             mv docs_tmp docs/reference
       - run:
-          name: checkin documents
+          name: Checkin documents
           command: |
             for dirPath in docs/reference/* ; do
               sdkName=$( basename "$dirPath" )
@@ -555,7 +531,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - checkout
@@ -569,28 +545,28 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
       - checkout
       - run:
-          name: checkout repository for bump version
+          name: Checkout repository for bump version
           command: |
             SAMPLE_APPS_REPO_ACCOUNT=awslabs
             echo "export SAMPLE_APPS_REPO_ACCOUNT=$SAMPLE_APPS_REPO_ACCOUNT" >> $BASH_ENV
             git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
       - run:
-          name: update version
+          name: Update version
           command:
             python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
       - run:
-          name: build projects
+          name: Build projects
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
       - run:
-          name: stage changes
+          name: Stage changes
           command: |
             cd aws-sdk-ios-samples
             git config --local user.name "AWS"
@@ -603,7 +579,7 @@ jobs:
               circleci step halt
             fi
       - run:
-          name: check in changes
+          name: Check in changes
           command: |
             cd aws-sdk-ios-samples
             git status
@@ -613,14 +589,14 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     steps:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
       - checkout
       - run:
-          name: set_bumpversion_environment
+          name: Set environment variables
           command: |
             bumpversion_repo_user=aws-amplify
             bumpversion_repo_name=docs
@@ -636,14 +612,14 @@ jobs:
             echo "bump_version_pr_title:$bump_version_pr_title"
       - bump_version_pre
       - run:
-          name: bump version
+          name: Bump docs version
           command:
             python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
       - bump_version_post
 
   release_ios_s3:
     macos:
-      xcode: "11.4.0"
+      xcode: "11.4.1"
     environment:
       TERM: xterm-256color
     steps:
@@ -687,6 +663,7 @@ jobs:
           name: Invalidate cloudfront
           command: |
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+
   bump_sdk_version:
     docker:
       - image: circleci/android:api-27-alpha
@@ -697,19 +674,19 @@ jobs:
       - set_environment_variables
       - checkout
       - run:
-          name: install python3-pip
+          name: Install python3-pip
           command: |
             echo "${newsdkversion}"
             sudo apt-get update
             sudo apt-get -y install python3-pip
       - run:
-          name: Install json parser
+          name: Install JSON parser
           command: sudo pip3 install demjson
       - run:
           name: Install lxml
           command: sudo pip3 install lxml
       - run:
-          name: set_bumpversion_environment
+          name: Set environment variables
           command: |
             git config --local user.name AWS
 
@@ -735,7 +712,7 @@ jobs:
 
             bump_version_message="[bump version $release_version]"
             bump_version_pr_title="bump iOS sdk version to ${release_version}"
-            target_branch=test_develop
+            target_branch=develop
             echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export release_version=$release_version" >> $BASH_ENV
@@ -745,11 +722,12 @@ jobs:
             echo "bump_version_pr_title:$bump_version_pr_title"
       - bump_version_pre
       - run:
-          name: bump version
+          name: Bump SDK version
           command: |
             cp -R ${bumpversion_repo_name}/CircleciScripts/ CircleciScripts/
             python3 CircleciScripts/bump_sdk_version.py "$(pwd)/${bumpversion_repo_name}" $release_version
       - bump_version_post
+
   merge_to_master:
     docker:
       - image: circleci/android:api-27-alpha
@@ -760,7 +738,7 @@ jobs:
       - checkout
       - set_environment_variables
       - run:
-          name: merge change to master
+          name: Merge change to master
           command: |
             git config --local user.name AWS
             git checkout master
@@ -784,6 +762,7 @@ jobs:
               echo "push change"
               git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
             fi
+
   prepare_release_sdk:
     docker:
       - image: circleci/android:api-27-alpha
@@ -794,9 +773,10 @@ jobs:
       - checkout
       - set_environment_variables
       - run:
-          name: trigger release_sdk if curremt commit is a bump version
+          name: Trigger release_sdk if current commit is a bump version
           command: |
             bash CircleciScripts/prepare_release_sdk.sh
+
   create_pullrequest_for_modelupdate:
     docker:
       - image: circleci/android:api-27-alpha
@@ -807,13 +787,12 @@ jobs:
       - set_environment_variables
       - checkout
       - run:
-          name: create pull request
+          name: Create pull request
           command: |
             target_branch="develop"
             title=${CIRCLE_BRANCH}
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
-
 
 workflows:
   version: 2
@@ -842,17 +821,6 @@ workflows:
               only:
                 - /^models-update-.+$/
       - pre_integrationtest:
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
-          name: APIGateway
-          groupname: APIGateway
-          requires:
-            - pre_integrationtest
           filters:
             branches:
               only:
@@ -906,28 +874,6 @@ workflows:
       - integrationtest:
           name: Comprehend
           groupname: Comprehend
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
-          name: Connect
-          groupname: Connect
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
-          name: ConnectParticipant
-          groupname: ConnectParticipant
           requires:
             - pre_integrationtest
           filters:
@@ -1091,17 +1037,6 @@ workflows:
                 - develop
 
       - integrationtest:
-          name: SageMakerRuntime
-          groupname: SageMakerRuntime
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - master
-                - develop
-
-      - integrationtest:
           name: S3
           groupname: S3
           requires:
@@ -1188,16 +1123,14 @@ workflows:
               only:
                 - master
                 - develop
+
       - post_integrationtest:
           requires:
-            - APIGateway
             - AWSMobileClient
             - AutoScaling
             - CloudWatch
             - Cognito
             - Comprehend
-            - Connect
-            - ConnectParticipant
             - Core
             - DynamoDB
             - EC2
@@ -1216,7 +1149,6 @@ workflows:
             - SES
             - SNS
             - SQS
-            - SageMakerRuntime
             - Textract
             - Transcribe
             - TranscribeStreaming
@@ -1226,6 +1158,7 @@ workflows:
               only:
                 - master
                 - develop
+
       - merge_to_master:
           requires:
             - build
@@ -1348,16 +1281,6 @@ workflows:
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - integrationtest:
-          name: APIGateway
-          groupname: APIGateway
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
           name: Translate
           groupname: Translate
           requires:
@@ -1547,69 +1470,35 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: SageMakerRuntime
-          groupname: SageMakerRuntime
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Connect
-          groupname: Connect
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: ConnectParticipant
-          groupname: ConnectParticipant
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - post_integrationtest:
           requires:
             - AWSMobileClient
-            - SQS
-            - MobileAnalytics
-            - Rekognition
-            - SES
-            - SNS
-            - CloudWatch
             - AutoScaling
-            - APIGateway
-            - Translate
-            - Transcribe
-            - TranscribeStreaming
-            - Polly
+            - CloudWatch
             - Cognito
             - Comprehend
             - Core
+            - DynamoDB
+            - EC2
+            - ElasticLoadBalancing
+            - IoT
+            - KMS
             - Kinesis
             - KinesisVideoSignaling
-            - KMS
-            - ElasticLoadBalancing
-            - EC2
             - Lambda
             - Lex
-            - IoT
+            - MobileAnalytics
             - Pinpoint
+            - Polly
+            - Rekognition
             - S3
-            - DynamoDB
+            - SES
+            - SNS
+            - SQS
             - Textract
-            - SageMakerRuntime
-            - Connect
-            - ConnectParticipant
+            - Transcribe
+            - TranscribeStreaming
+            - Translate
           filters:
             branches:
               ignore: /.*/
