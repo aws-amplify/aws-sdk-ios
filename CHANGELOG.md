@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSS3
+---AWSSynthetics
+---AWSCodebuild
+---AWSEc2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
