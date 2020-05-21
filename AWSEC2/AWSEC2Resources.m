@@ -632,7 +632,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateResult\"},\
-      \"documentation\":\"<p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request.</p>\"\
+      \"documentation\":\"<p>Creates a launch template. A launch template contains the parameters to launch an instance. When you launch an instance using <a>RunInstances</a>, you can specify a launch template instead of providing the launch parameters in the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html\\\">Launching an instance from a launch template</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLaunchTemplateVersion\":{\
       \"name\":\"CreateLaunchTemplateVersion\",\
@@ -642,7 +642,7 @@
       },\
       \"input\":{\"shape\":\"CreateLaunchTemplateVersionRequest\"},\
       \"output\":{\"shape\":\"CreateLaunchTemplateVersionResult\"},\
-      \"documentation\":\"<p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p>\"\
+      \"documentation\":\"<p>Creates a new version for a launch template. You can specify an existing version of launch template from which to base the new version.</p> <p>Launch template versions are numbered in the order in which they are created. You cannot specify, change, or replace the numbering of launch template versions.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#manage-launch-template-versions\\\">Managing launch template versions</a>in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateLocalGatewayRoute\":{\
       \"name\":\"CreateLocalGatewayRoute\",\
@@ -810,7 +810,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"CreateTagsRequest\"},\
-      \"documentation\":\"<p>Adds or overwrites the specified tags for the specified Amazon EC2 resource or resources. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\\\">Supported Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Adds or overwrites only the specified tags for the specified Amazon EC2 resource or resources. When you specify an existing tag key, the value is overwritten with the new value. Each resource can have a maximum of 50 tags. Each tag consists of a key and optional value. Tag keys must be unique per resource.</p> <p>For more information about tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html\\\">Tagging Your Resources</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For more information about creating IAM policies that control users' access to resources based on tags, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-supported-iam-actions-resources.html\\\">Supported Resource-Level Permissions for Amazon EC2 API Actions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"CreateTrafficMirrorFilter\":{\
       \"name\":\"CreateTrafficMirrorFilter\",\
@@ -1431,7 +1431,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DeleteVpnConnectionRequest\"},\
-      \"documentation\":\"<p>Deletes the specified VPN connection.</p> <p>If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway using the new configuration information returned with the new VPN connection ID.</p>\"\
+      \"documentation\":\"<p>Deletes the specified VPN connection.</p> <p>If you're deleting the VPC and its associated components, we recommend that you detach the virtual private gateway from the VPC and delete the VPC before deleting the VPN connection. If you believe that the tunnel credentials for your VPN connection have been compromised, you can delete the VPN connection and create a new one that has new keys, without needing to delete the VPC or virtual private gateway. If you create a new VPN connection, you must reconfigure the customer gateway device using the new configuration information returned with the new VPN connection ID.</p> <p>For certificate-based authentication, delete all AWS Certificate Manager (ACM) private certificates used for the AWS-side tunnel endpoints for the VPN connection before deleting the VPN connection.</p>\"\
     },\
     \"DeleteVpnConnectionRoute\":{\
       \"name\":\"DeleteVpnConnectionRoute\",\
@@ -2734,7 +2734,7 @@
       },\
       \"input\":{\"shape\":\"DisableVpcClassicLinkDnsSupportRequest\"},\
       \"output\":{\"shape\":\"DisableVpcClassicLinkDnsSupportResult\"},\
-      \"documentation\":\"<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\\\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Disables ClassicLink DNS support for a VPC. If disabled, DNS hostnames resolve to public IP addresses when addressed between a linked EC2-Classic instance and instances in the VPC to which it's linked. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\\\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You must specify a VPC ID in the request.</p>\"\
     },\
     \"DisassociateAddress\":{\
       \"name\":\"DisassociateAddress\",\
@@ -2772,7 +2772,7 @@
         \"requestUri\":\"/\"\
       },\
       \"input\":{\"shape\":\"DisassociateRouteTableRequest\"},\
-      \"documentation\":\"<p>Disassociates a subnet from a route table.</p> <p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\\\">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Disassociates a subnet or gateway from a route table.</p> <p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html\\\">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>\"\
     },\
     \"DisassociateSubnetCidrBlock\":{\
       \"name\":\"DisassociateSubnetCidrBlock\",\
@@ -2880,7 +2880,7 @@
       },\
       \"input\":{\"shape\":\"EnableVpcClassicLinkDnsSupportRequest\"},\
       \"output\":{\"shape\":\"EnableVpcClassicLinkDnsSupportResult\"},\
-      \"documentation\":\"<p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\\\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Enables a VPC to support DNS hostname resolution for ClassicLink. If enabled, the DNS hostname of a linked EC2-Classic instance resolves to its private IP address when addressed from an instance in the VPC to which it's linked. Similarly, the DNS hostname of an instance in a VPC resolves to its private IP address when addressed from a linked EC2-Classic instance. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/vpc-classiclink.html\\\">ClassicLink</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You must specify a VPC ID in the request.</p>\"\
     },\
     \"ExportClientVpnClientCertificateRevocationList\":{\
       \"name\":\"ExportClientVpnClientCertificateRevocationList\",\
@@ -3501,7 +3501,7 @@
       },\
       \"input\":{\"shape\":\"ModifyVpnConnectionRequest\"},\
       \"output\":{\"shape\":\"ModifyVpnConnectionResult\"},\
-      \"documentation\":\"<p>Modifies the target gateway of an AWS Site-to-Site VPN connection. The following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\\\">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>\"\
+      \"documentation\":\"<p>Modifies the customer gateway or the target gateway of an AWS Site-to-Site VPN connection. To modify the target gateway, the following migration options are available:</p> <ul> <li> <p>An existing virtual private gateway to a new virtual private gateway</p> </li> <li> <p>An existing virtual private gateway to a transit gateway</p> </li> <li> <p>An existing transit gateway to a new transit gateway</p> </li> <li> <p>An existing transit gateway to a virtual private gateway</p> </li> </ul> <p>Before you perform the migration to the new gateway, you must configure the new gateway. Use <a>CreateVpnGateway</a> to create a virtual private gateway, or <a>CreateTransitGateway</a> to create a transit gateway.</p> <p>This step is required when you migrate from a virtual private gateway with static routes to a transit gateway. </p> <p>You must delete the static routes before you migrate to the new gateway.</p> <p>Keep a copy of the static route before you delete it. You will need to add back these routes to the transit gateway after the VPN connection migration is complete.</p> <p>After you migrate to the new gateway, you might need to modify your VPC route table. Use <a>CreateRoute</a> and <a>DeleteRoute</a> to make the changes described in <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/modify-vpn-target.html#step-update-routing\\\">VPN Gateway Target Modification Required VPC Route Table Updates</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p> <p> When the new gateway is a transit gateway, modify the transit gateway route table to allow traffic between the VPC and the AWS Site-to-Site VPN connection. Use <a>CreateTransitGatewayRoute</a> to add the routes.</p> <p> If you deleted VPN static routes, you must add the static routes to the transit gateway route table.</p> <p>After you perform this operation, the AWS VPN endpoint's IP addresses on the AWS side and the tunnel options remain intact. Your AWS Site-to-Site VPN connection will be temporarily unavailable for a brief period while we provision the new endpoints.</p>\"\
     },\
     \"ModifyVpnTunnelCertificate\":{\
       \"name\":\"ModifyVpnTunnelCertificate\",\
@@ -5369,7 +5369,7 @@
         },\
         \"AccessGroupId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Active Directory group to grant access.</p>\"\
+          \"documentation\":\"<p>The ID of the group to grant access to, for example, the Active Directory group or identity provider (IdP) group.</p>\"\
         },\
         \"AuthorizeAllGroups\":{\
           \"shape\":\"Boolean\",\
@@ -6622,9 +6622,14 @@
           \"shape\":\"CertificateAuthentication\",\
           \"documentation\":\"<p>Information about the authentication certificates, if applicable.</p>\",\
           \"locationName\":\"mutualAuthentication\"\
+        },\
+        \"FederatedAuthentication\":{\
+          \"shape\":\"FederatedAuthentication\",\
+          \"documentation\":\"<p>Information about the IAM SAML identity provider, if applicable.</p>\",\
+          \"locationName\":\"federatedAuthentication\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
     },\
     \"ClientVpnAuthenticationList\":{\
       \"type\":\"list\",\
@@ -6638,7 +6643,7 @@
       \"members\":{\
         \"Type\":{\
           \"shape\":\"ClientVpnAuthenticationType\",\
-          \"documentation\":\"<p>The type of client authentication to be used. Specify <code>certificate-authentication</code> to use certificate-based authentication, or <code>directory-service-authentication</code> to use Active Directory authentication.</p>\"\
+          \"documentation\":\"<p>The type of client authentication to be used.</p>\"\
         },\
         \"ActiveDirectory\":{\
           \"shape\":\"DirectoryServiceAuthenticationRequest\",\
@@ -6647,9 +6652,13 @@
         \"MutualAuthentication\":{\
           \"shape\":\"CertificateAuthenticationRequest\",\
           \"documentation\":\"<p>Information about the authentication certificates to be used, if applicable. You must provide this information if <b>Type</b> is <code>certificate-authentication</code>.</p>\"\
+        },\
+        \"FederatedAuthentication\":{\
+          \"shape\":\"FederatedAuthenticationRequest\",\
+          \"documentation\":\"<p>Information about the IAM SAML identity provider to be used, if applicable. You must provide this information if <b>Type</b> is <code>federated-authentication</code>.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
     },\
     \"ClientVpnAuthenticationRequestList\":{\
       \"type\":\"list\",\
@@ -6659,7 +6668,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"certificate-authentication\",\
-        \"directory-service-authentication\"\
+        \"directory-service-authentication\",\
+        \"federated-authentication\"\
       ]\
     },\
     \"ClientVpnAuthorizationRuleStatus\":{\
@@ -8049,7 +8059,7 @@
         },\
         \"LogFormat\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p> <p>Only applicable to flow logs that are published to an Amazon S3 bucket.</p>\"\
+          \"documentation\":\"<p>The fields to include in the flow log record, in the order in which they should appear. For a list of available fields, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/flow-logs.html#flow-log-records\\\">Flow Log Records</a>. If you omit this parameter, the flow log is created using the default format. If you specify this parameter, you must specify at least one field.</p> <p>Specify the fields using the <code>${field-id}</code> format, separated by spaces. For the AWS CLI, use single quotation marks (' ') to surround the parameter value.</p>\"\
         },\
         \"TagSpecifications\":{\
           \"shape\":\"TagSpecificationList\",\
@@ -8298,6 +8308,11 @@
           \"shape\":\"LaunchTemplate\",\
           \"documentation\":\"<p>Information about the launch template.</p>\",\
           \"locationName\":\"launchTemplate\"\
+        },\
+        \"Warning\":{\
+          \"shape\":\"ValidationWarning\",\
+          \"documentation\":\"<p>If the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.</p>\",\
+          \"locationName\":\"warning\"\
         }\
       }\
     },\
@@ -8342,6 +8357,11 @@
           \"shape\":\"LaunchTemplateVersion\",\
           \"documentation\":\"<p>Information about the launch template version.</p>\",\
           \"locationName\":\"launchTemplateVersion\"\
+        },\
+        \"Warning\":{\
+          \"shape\":\"ValidationWarning\",\
+          \"documentation\":\"<p>If the new version of the launch template contains parameters or parameter combinations that are not valid, an error code and an error message are returned for each issue that's found.</p>\",\
+          \"locationName\":\"warning\"\
         }\
       }\
     },\
@@ -8395,6 +8415,11 @@
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to assign to the local gateway route table VPC association.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -8975,7 +9000,7 @@
       \"members\":{\
         \"AvailabilityZone\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Availability Zone or Local Zone for the subnet.</p> <p>Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p> <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions\\\">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+          \"documentation\":\"<p>The Availability Zone or Local Zone for the subnet.</p> <p>Default: AWS selects one for you. If you create more than one subnet in your VPC, we do not necessarily select a different zone for each subnet.</p> <p>To create a subnet in a Local Zone, set this value to the Local Zone ID, for example <code>us-west-2-lax-1a</code>. For information about the Regions that support Local Zones, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html#concepts-available-regions\\\">Available Regions</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>To create a subnet in an Outpost, set this value to the Availability Zone for the Outpost and specify the Outpost ARN.</p>\"\
         },\
         \"AvailabilityZoneId\":{\
           \"shape\":\"String\",\
@@ -8991,7 +9016,7 @@
         },\
         \"OutpostArn\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Outpost.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Outpost. If you specify an Outpost ARN, you must also specify the Availability Zone of the Outpost subnet.</p>\"\
         },\
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
@@ -13631,7 +13656,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-gateway-id</code> - The ID of a local gateway.</p> </li> <li> <p> <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p> </li> <li> <p> <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p> </li> <li> <p> <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p> </li> <li> <p> <code>state</code> - The state of the association.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13673,7 +13698,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-gateway-id</code> - The ID of a local gateway.</p> </li> <li> <p> <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p> </li> <li> <p> <code>local-gateway-route-table-vpc-association-id</code> - The ID of the association.</p> </li> <li> <p> <code>state</code> - The state of the association.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13715,7 +13740,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-gateway-id</code> - The ID of a local gateway.</p> </li> <li> <p> <code>local-gateway-route-table-id</code> - The ID of a local gateway route table.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>state</code> - The state of the local gateway route table.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13757,7 +13782,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-gateway-id</code> - The ID of a local gateway.</p> </li> <li> <p> <code>local-gateway-virtual-interface-id</code> - The ID of the virtual interface.</p> </li> <li> <p> <code>local-gateway-virtual-interface-group-id</code> - The ID of the virtual interface group.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"MaxResults\":{\
@@ -13836,7 +13861,7 @@
       \"members\":{\
         \"LocalGatewayIds\":{\
           \"shape\":\"LocalGatewayIdSet\",\
-          \"documentation\":\"<p>The IDs of the local gateways.</p>\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>local-gateway-id</code> - The ID of a local gateway.</p> </li> <li> <p> <code>local-gateway-route-table-id</code> - The ID of the local gateway route table.</p> </li> <li> <p> <code>local-gateway-route-table-virtual-interface-group-association-id</code> - The ID of the association.</p> </li> <li> <p> <code>local-gateway-route-table-virtual-interface-group-id</code> - The ID of the virtual interface group.</p> </li> <li> <p> <code>outpost-arn</code> - The Amazon Resource Name (ARN) of the Outpost.</p> </li> <li> <p> <code>state</code> - The state of the association.</p> </li> </ul>\",\
           \"locationName\":\"LocalGatewayId\"\
         },\
         \"Filters\":{\
@@ -16997,7 +17022,7 @@
       \"members\":{\
         \"AssociationId\":{\
           \"shape\":\"RouteTableAssociationId\",\
-          \"documentation\":\"<p>The association ID representing the current association between the route table and subnet.</p>\",\
+          \"documentation\":\"<p>The association ID representing the current association between the route table and subnet or gateway.</p>\",\
           \"locationName\":\"associationId\"\
         },\
         \"DryRun\":{\
@@ -18007,6 +18032,13 @@
         \"locationName\":\"item\"\
       }\
     },\
+    \"ErrorSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"ValidationError\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"EventCode\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -18484,6 +18516,27 @@
         \"disabling\",\
         \"disabled\"\
       ]\
+    },\
+    \"FederatedAuthentication\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SamlProviderArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>\",\
+          \"locationName\":\"samlProviderArn\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes the IAM SAML identity provider used for federated authentication.</p>\"\
+    },\
+    \"FederatedAuthenticationRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"SAMLProviderArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The IAM SAML identity provider used for federated authentication.</p>\"\
     },\
     \"Filter\":{\
       \"type\":\"structure\",\
@@ -22985,7 +23038,16 @@
         \"inf1.xlarge\",\
         \"inf1.2xlarge\",\
         \"inf1.6xlarge\",\
-        \"inf1.24xlarge\"\
+        \"inf1.24xlarge\",\
+        \"m6g.metal\",\
+        \"m6g.medium\",\
+        \"m6g.large\",\
+        \"m6g.xlarge\",\
+        \"m6g.2xlarge\",\
+        \"m6g.4xlarge\",\
+        \"m6g.8xlarge\",\
+        \"m6g.12xlarge\",\
+        \"m6g.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -26094,12 +26156,20 @@
         },\
         \"MapPublicIpOnLaunch\":{\
           \"shape\":\"AttributeBooleanValue\",\
-          \"documentation\":\"<p>Specify <code>true</code> to indicate that ENIs attached to instances created in the specified subnet should be assigned a public IPv4 address.</p>\"\
+          \"documentation\":\"<p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a public IPv4 address.</p>\"\
         },\
         \"SubnetId\":{\
           \"shape\":\"SubnetId\",\
           \"documentation\":\"<p>The ID of the subnet.</p>\",\
           \"locationName\":\"subnetId\"\
+        },\
+        \"MapCustomerOwnedIpOnLaunch\":{\
+          \"shape\":\"AttributeBooleanValue\",\
+          \"documentation\":\"<p>Specify <code>true</code> to indicate that network interfaces attached to instances created in the specified subnet should be assigned a customer-owned IPv4 address.</p> <p>When this value is <code>true</code>, you must specify the customer-owned IP pool using <code>CustomerOwnedIpv4Pool</code>.</p>\"\
+        },\
+        \"CustomerOwnedIpv4Pool\":{\
+          \"shape\":\"CoipPoolId\",\
+          \"documentation\":\"<p>The customer-owned IPv4 address pool associated with the subnet.</p> <p>You must set this value when you specify <code>true</code> for <code>MapCustomerOwnedIpOnLaunch</code>.</p>\"\
         }\
       }\
     },\
@@ -28581,6 +28651,11 @@
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"PoolTagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the address pool.</p>\",\
+          \"locationName\":\"PoolTagSpecification\"\
         }\
       }\
     },\
@@ -28659,6 +28734,11 @@
           \"shape\":\"Integer\",\
           \"documentation\":\"<p>The total number of available addresses.</p>\",\
           \"locationName\":\"totalAvailableAddressCount\"\
+        },\
+        \"NetworkBorderGroup\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>\",\
+          \"locationName\":\"networkBorderGroup\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -31457,6 +31537,7 @@
         \"ClientToken\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>Unique, case-sensitive identifier you provide to ensure the idempotency of the request. If you do not specify a client token, a randomly generated token is used for the request to ensure idempotency.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p> <p>Constraints: Maximum 64 ASCII characters</p>\",\
+          \"idempotencyToken\":true,\
           \"locationName\":\"clientToken\"\
         },\
         \"DisableApiTermination\":{\
@@ -33872,6 +33953,16 @@
           \"documentation\":\"<p>Indicates whether instances launched in this subnet receive a public IPv4 address.</p>\",\
           \"locationName\":\"mapPublicIpOnLaunch\"\
         },\
+        \"MapCustomerOwnedIpOnLaunch\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether a network interface created in this subnet (including a network interface created by <a>RunInstances</a>) receives a customer-owned IPv4 address.</p>\",\
+          \"locationName\":\"mapCustomerOwnedIpOnLaunch\"\
+        },\
+        \"CustomerOwnedIpv4Pool\":{\
+          \"shape\":\"CoipPoolId\",\
+          \"documentation\":\"<p>The customer-owned IPv4 address pool associated with the subnet.</p>\",\
+          \"locationName\":\"customerOwnedIpv4Pool\"\
+        },\
         \"State\":{\
           \"shape\":\"SubnetState\",\
           \"documentation\":\"<p>The current state of the subnet.</p>\",\
@@ -34128,7 +34219,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>fleet</code> | <code>fpga-image</code> | <code>instance</code> | <code>key-pair</code> | <code>launch-template</code> | | <code>natgateway</code> | <code>spot-fleet-request</code> | <code>placement-group</code> | <code>snapshot</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>vpc-endpoint</code> (for interface VPC endpoints)| <code>vpc-endpoint-service</code> (for gateway VPC endpoints) | <code>volume</code> | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
+          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>fleet</code> | <code>fpga-image</code> | <code>instance</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>natgateway</code> | <code>spot-fleet-request</code> | <code>placement-group</code> | <code>snapshot</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>vpc-endpoint</code> (for interface VPC endpoints)| <code>vpc-endpoint-service</code> (for gateway VPC endpoints) | <code>volume</code> | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
@@ -36294,6 +36385,33 @@
         }\
       },\
       \"documentation\":\"<p>Describes the vCPU configurations for the instance type.</p>\"\
+    },\
+    \"ValidationError\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Code\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The error code that indicates why the parameter or parameter combination is not valid. For more information about error codes, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\\\">Error Codes</a>.</p>\",\
+          \"locationName\":\"code\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The error message that describes why the parameter or parameter combination is not valid. For more information about error messages, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html.html\\\">Error Codes</a>.</p>\",\
+          \"locationName\":\"message\"\
+        }\
+      },\
+      \"documentation\":\"<p>The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.</p>\"\
+    },\
+    \"ValidationWarning\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Errors\":{\
+          \"shape\":\"ErrorSet\",\
+          \"documentation\":\"<p>The error codes and error messages.</p>\",\
+          \"locationName\":\"errorSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.</p>\"\
     },\
     \"ValueStringList\":{\
       \"type\":\"list\",\
