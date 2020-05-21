@@ -40,6 +40,3 @@ FOUNDATION_EXPORT const unsigned char AWSS3VersionString[] DEPRECATED_MSG_ATTRIB
 
 #import <AWSCore/AWSCore.h>
 #import "AWSS3Service.h"
-#import "AWSS3TransferManager.h"
-#import "AWSS3PreSignedURL.h"
-#import "AWSS3TransferUtility.h"

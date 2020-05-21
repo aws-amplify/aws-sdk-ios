@@ -14,7 +14,6 @@
 //
 
 #import "AWSS3Service.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -24,14 +23,90 @@
 #import <AWSCore/AWSURLRequestRetryHandler.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
 #import "AWSS3Resources.h"
-#import "AWSS3RequestRetryHandler.h"
-#import "AWSS3Serializer.h"
 
 static NSString *const AWSInfoS3 = @"S3";
 NSString *const AWSS3SDKVersion = @"2.13.4";
 
 
+@interface AWSS3ResponseSerializer : AWSXMLResponseSerializer
 
+@end
+
+@implementation AWSS3ResponseSerializer
+
+#pragma mark - Service errors
+
+static NSDictionary *errorCodeDictionary = nil;
++ (void)initialize {
+    errorCodeDictionary = @{
+                            @"BucketAlreadyExists" : @(AWSS3ErrorBucketAlreadyExists),
+                            @"BucketAlreadyOwnedByYou" : @(AWSS3ErrorBucketAlreadyOwnedByYou),
+                            @"NoSuchBucket" : @(AWSS3ErrorNoSuchBucket),
+                            @"NoSuchKey" : @(AWSS3ErrorNoSuchKey),
+                            @"NoSuchUpload" : @(AWSS3ErrorNoSuchUpload),
+                            @"ObjectAlreadyInActiveTierError" : @(AWSS3ErrorObjectAlreadyInActiveTier),
+                            @"ObjectNotInActiveTierError" : @(AWSS3ErrorObjectNotInActiveTier),
+                            };
+}
+
+#pragma mark -
+
+- (id)responseObjectForResponse:(NSHTTPURLResponse *)response
+                originalRequest:(NSURLRequest *)originalRequest
+                 currentRequest:(NSURLRequest *)currentRequest
+                           data:(id)data
+                          error:(NSError *__autoreleasing *)error {
+    id responseObject = [super responseObjectForResponse:response
+                                         originalRequest:originalRequest
+                                          currentRequest:currentRequest
+                                                    data:data
+                                                   error:error];
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+    	if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+	        if ([errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSS3ErrorDomain
+	                                             code:[[errorCodeDictionary objectForKey:[[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]] integerValue]
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        } else if ([[[responseObject objectForKey:@"__type"] componentsSeparatedByString:@"#"] lastObject]) {
+	            if (error) {
+	                *error = [NSError errorWithDomain:AWSCognitoIdentityErrorDomain
+	                                             code:AWSCognitoIdentityErrorUnknown
+	                                         userInfo:responseObject];
+	            }
+	            return responseObject;
+	        }
+    	}
+    }
+
+    if (!*error && response.statusCode/100 != 2) {
+        *error = [NSError errorWithDomain:AWSS3ErrorDomain
+                                     code:AWSS3ErrorUnknown
+                                 userInfo:nil];
+    }
+
+    if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
+        if (self.outputClass) {
+            responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
+                                          fromJSONDictionary:responseObject
+                                                       error:error];
+        }
+    }
+	
+    return responseObject;
+}
+
+@end
+
+@interface AWSS3RequestRetryHandler : AWSURLRequestRetryHandler
+
+@end
+
+@implementation AWSS3RequestRetryHandler
+
+@end
 
 @interface AWSRequest()
 
@@ -189,12 +264,10 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         } else {
             networkingRequest.parameters = @{};
         }
-        networkingRequest.shouldWriteDirectly = [[request valueForKey:@"shouldWriteDirectly"] boolValue];
-        networkingRequest.downloadingFileURL = request.downloadingFileURL;
 
         networkingRequest.HTTPMethod = HTTPMethod;
-		networkingRequest.requestSerializer = [[AWSS3RequestSerializer alloc] initWithJSONDefinition:[[AWSS3Resources sharedInstance] JSONObject]
-		 															     actionName:operationName];
+        networkingRequest.requestSerializer = [[AWSXMLRequestSerializer alloc] initWithJSONDefinition:[[AWSS3Resources sharedInstance] JSONObject]
+                                                                                                   actionName:operationName];
         networkingRequest.responseSerializer = [[AWSS3ResponseSerializer alloc] initWithJSONDefinition:[[AWSS3Resources sharedInstance] JSONObject]
                                                                                              actionName:operationName
                                                                                             outputClass:outputClass];

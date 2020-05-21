@@ -450,11 +450,29 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"s3:ObjectRemoved:DeleteMarkerCreated"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRemovedDeleteMarkerCreated);
         }
+        if ([value caseInsensitiveCompare:@"s3:ObjectRestore:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3ObjectRestore);
+        }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Post"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestorePost);
         }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Completed"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestoreCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3Replication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationFailedReplication"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationFailedReplication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationNotTracked"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationNotTracked);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationMissedThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationMissedThreshold);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationReplicatedAfterThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationReplicatedAfterThreshold);
         }
         return @(AWSS3EventUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -477,10 +495,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
+            case AWSS3EventS3ObjectRestore:
+                return @"s3:ObjectRestore:*";
             case AWSS3EventS3ObjectRestorePost:
                 return @"s3:ObjectRestore:Post";
             case AWSS3EventS3ObjectRestoreCompleted:
                 return @"s3:ObjectRestore:Completed";
+            case AWSS3EventS3Replication:
+                return @"s3:Replication:*";
+            case AWSS3EventS3ReplicationOperationFailedReplication:
+                return @"s3:Replication:OperationFailedReplication";
+            case AWSS3EventS3ReplicationOperationNotTracked:
+                return @"s3:Replication:OperationNotTracked";
+            case AWSS3EventS3ReplicationOperationMissedThreshold:
+                return @"s3:Replication:OperationMissedThreshold";
+            case AWSS3EventS3ReplicationOperationReplicatedAfterThreshold:
+                return @"s3:Replication:OperationReplicatedAfterThreshold";
             default:
                 return nil;
         }
@@ -638,6 +668,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"requestCharged" : @"RequestCharged",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
@@ -721,6 +752,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
@@ -928,6 +960,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -943,6 +978,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -1020,9 +1057,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)locationConstraintJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@""] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintBlank);
-        }
         if ([value caseInsensitiveCompare:@"EU"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEU);
         }
@@ -1034,15 +1068,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"us-west-2"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintUSWest2);
-        }
-        if ([value caseInsensitiveCompare:@"eu-west-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUWest2);
-        }
-        if ([value caseInsensitiveCompare:@"eu-west-3"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUWest3);
-        }
-        if ([value caseInsensitiveCompare:@"us-east-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSEast2);
         }
         if ([value caseInsensitiveCompare:@"ap-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSouth1);
@@ -1056,50 +1081,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-northeast-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPNortheast1);
         }
-        if ([value caseInsensitiveCompare:@"ap-northeast-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAPNortheast2);
-        }
         if ([value caseInsensitiveCompare:@"sa-east-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintSAEast1);
         }
         if ([value caseInsensitiveCompare:@"cn-north-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
         }
-        if ([value caseInsensitiveCompare:@"cn-northwest-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintCNNorthwest1);
-        }
-        if ([value caseInsensitiveCompare:@"us-gov-west-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSGovWest1);
-        }
         if ([value caseInsensitiveCompare:@"eu-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUCentral1);
-        }
-        if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintCACentral1);
-        }
-        if ([value caseInsensitiveCompare:@"us-gov-east-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSGovEast1);
-        }
-        if ([value caseInsensitiveCompare:@"eu-north-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUNorth1);
-        }
-        if ([value caseInsensitiveCompare:@"ap-east-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAPEast1);
-        }
-        if ([value caseInsensitiveCompare:@"me-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintMESouth1);
-        }
-        if ([value caseInsensitiveCompare:@"af-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAFSouth1);
-        }
-        if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUSouth1);
         }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSS3BucketLocationConstraintBlank:
-                return @"";
             case AWSS3BucketLocationConstraintEU:
                 return @"EU";
             case AWSS3BucketLocationConstraintEUWest1:
@@ -1108,12 +1101,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"us-west-1";
             case AWSS3BucketLocationConstraintUSWest2:
                 return @"us-west-2";
-            case AWSS3BucketLocationConstraintEUWest2:
-                return @"eu-west-2";
-            case AWSS3BucketLocationConstraintEUWest3:
-                return @"eu-west-3";
-            case AWSS3BucketLocationConstraintUSEast2:
-                return @"us-east-2";
             case AWSS3BucketLocationConstraintAPSouth1:
                 return @"ap-south-1";
             case AWSS3BucketLocationConstraintAPSoutheast1:
@@ -1122,32 +1109,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-2";
             case AWSS3BucketLocationConstraintAPNortheast1:
                 return @"ap-northeast-1";
-            case AWSS3BucketLocationConstraintAPNortheast2:
-                return @"ap-northeast-2";
             case AWSS3BucketLocationConstraintSAEast1:
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
-            case AWSS3BucketLocationConstraintCNNorthwest1:
-                return @"cn-northwest-1";
-            case AWSS3BucketLocationConstraintUSGovWest1:
-                return @"us-gov-west-1";
             case AWSS3BucketLocationConstraintEUCentral1:
                 return @"eu-central-1";
-            case AWSS3BucketLocationConstraintCACentral1:
-                return @"ca-central-1";
-            case AWSS3BucketLocationConstraintUSGovEast1:
-                return @"us-gov-east-1";
-            case AWSS3BucketLocationConstraintEUNorth1:
-                return @"eu-north-1";
-            case AWSS3BucketLocationConstraintAPEast1:
-                return @"ap-east-1";
-            case AWSS3BucketLocationConstraintMESouth1:
-                return @"me-south-1";
-            case AWSS3BucketLocationConstraintAFSouth1:
-                return @"af-south-1";
-            case AWSS3BucketLocationConstraintEUSouth1:
-                return @"eu-south-1";
             default:
                 return nil;
         }
@@ -1230,6 +1197,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"requestCharged" : @"RequestCharged",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"uploadId" : @"UploadId",
@@ -1308,6 +1276,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
@@ -1477,6 +1446,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1492,6 +1464,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -1900,6 +1874,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"account" : @"Account",
              @"bucket" : @"Bucket",
              @"encryptionConfiguration" : @"EncryptionConfiguration",
+             @"metrics" : @"Metrics",
+             @"replicationTime" : @"ReplicationTime",
              @"storageClass" : @"StorageClass",
              };
 }
@@ -1910,6 +1886,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)encryptionConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3EncryptionConfiguration class]];
+}
+
++ (NSValueTransformer *)metricsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Metrics class]];
+}
+
++ (NSValueTransformer *)replicationTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3ReplicationTime class]];
 }
 
 + (NSValueTransformer *)storageClassJSONTransformer {
@@ -1932,6 +1916,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1947,6 +1934,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -2021,6 +2010,37 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"key" : @"Key",
              };
+}
+
+@end
+
+@implementation AWSS3ExistingObjectReplication
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Enabled"] == NSOrderedSame) {
+            return @(AWSS3ExistingObjectReplicationStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"Disabled"] == NSOrderedSame) {
+            return @(AWSS3ExistingObjectReplicationStatusDisabled);
+        }
+        return @(AWSS3ExistingObjectReplicationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3ExistingObjectReplicationStatusEnabled:
+                return @"Enabled";
+            case AWSS3ExistingObjectReplicationStatusDisabled:
+                return @"Disabled";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2283,9 +2303,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)locationConstraintJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@""] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintBlank);
-        }
         if ([value caseInsensitiveCompare:@"EU"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEU);
         }
@@ -2297,15 +2314,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"us-west-2"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintUSWest2);
-        }
-        if ([value caseInsensitiveCompare:@"eu-west-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUWest2);
-        }
-        if ([value caseInsensitiveCompare:@"eu-west-3"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUWest3);
-        }
-        if ([value caseInsensitiveCompare:@"us-east-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSEast2);
         }
         if ([value caseInsensitiveCompare:@"ap-south-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPSouth1);
@@ -2319,50 +2327,18 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"ap-northeast-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintAPNortheast1);
         }
-        if ([value caseInsensitiveCompare:@"ap-northeast-2"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAPNortheast2);
-        }
         if ([value caseInsensitiveCompare:@"sa-east-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintSAEast1);
         }
         if ([value caseInsensitiveCompare:@"cn-north-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintCNNorth1);
         }
-        if ([value caseInsensitiveCompare:@"cn-northwest-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintCNNorthwest1);
-        }
-        if ([value caseInsensitiveCompare:@"us-gov-west-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSGovWest1);
-        }
         if ([value caseInsensitiveCompare:@"eu-central-1"] == NSOrderedSame) {
             return @(AWSS3BucketLocationConstraintEUCentral1);
-        }
-        if ([value caseInsensitiveCompare:@"ca-central-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintCACentral1);
-        }
-        if ([value caseInsensitiveCompare:@"us-gov-east-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintUSGovEast1);
-        }
-        if ([value caseInsensitiveCompare:@"eu-north-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUNorth1);
-        }
-        if ([value caseInsensitiveCompare:@"ap-east-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAPEast1);
-        }
-        if ([value caseInsensitiveCompare:@"me-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintMESouth1);
-        }
-        if ([value caseInsensitiveCompare:@"af-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintAFSouth1);
-        }
-        if ([value caseInsensitiveCompare:@"eu-south-1"] == NSOrderedSame) {
-            return @(AWSS3BucketLocationConstraintEUSouth1);
         }
         return @(AWSS3BucketLocationConstraintUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSS3BucketLocationConstraintBlank:
-                return @"";
             case AWSS3BucketLocationConstraintEU:
                 return @"EU";
             case AWSS3BucketLocationConstraintEUWest1:
@@ -2371,12 +2347,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"us-west-1";
             case AWSS3BucketLocationConstraintUSWest2:
                 return @"us-west-2";
-            case AWSS3BucketLocationConstraintEUWest2:
-                return @"eu-west-2";
-            case AWSS3BucketLocationConstraintEUWest3:
-                return @"eu-west-3";
-            case AWSS3BucketLocationConstraintUSEast2:
-                return @"us-east-2";
             case AWSS3BucketLocationConstraintAPSouth1:
                 return @"ap-south-1";
             case AWSS3BucketLocationConstraintAPSoutheast1:
@@ -2385,32 +2355,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ap-southeast-2";
             case AWSS3BucketLocationConstraintAPNortheast1:
                 return @"ap-northeast-1";
-            case AWSS3BucketLocationConstraintAPNortheast2:
-                return @"ap-northeast-2";
             case AWSS3BucketLocationConstraintSAEast1:
                 return @"sa-east-1";
             case AWSS3BucketLocationConstraintCNNorth1:
                 return @"cn-north-1";
-            case AWSS3BucketLocationConstraintCNNorthwest1:
-                return @"cn-northwest-1";
-            case AWSS3BucketLocationConstraintUSGovWest1:
-                return @"us-gov-west-1";
             case AWSS3BucketLocationConstraintEUCentral1:
                 return @"eu-central-1";
-            case AWSS3BucketLocationConstraintCACentral1:
-                return @"ca-central-1";
-            case AWSS3BucketLocationConstraintUSGovEast1:
-                return @"us-gov-east-1";
-            case AWSS3BucketLocationConstraintEUNorth1:
-                return @"eu-north-1";
-            case AWSS3BucketLocationConstraintAPEast1:
-                return @"ap-east-1";
-            case AWSS3BucketLocationConstraintMESouth1:
-                return @"me-south-1";
-            case AWSS3BucketLocationConstraintAFSouth1:
-                return @"af-south-1";
-            case AWSS3BucketLocationConstraintEUSouth1:
-                return @"eu-south-1";
             default:
                 return nil;
         }
@@ -3051,6 +3001,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3066,6 +3019,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -3617,6 +3572,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3632,6 +3590,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -4648,6 +4608,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4663,6 +4626,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -4725,6 +4690,42 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"name" : @"Name",
              @"value" : @"Value",
              };
+}
+
+@end
+
+@implementation AWSS3Metrics
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"eventThreshold" : @"EventThreshold",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)eventThresholdJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3ReplicationTimeValue class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Enabled"] == NSOrderedSame) {
+            return @(AWSS3MetricsStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"Disabled"] == NSOrderedSame) {
+            return @(AWSS3MetricsStatusDisabled);
+        }
+        return @(AWSS3MetricsStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3MetricsStatusEnabled:
+                return @"Enabled";
+            case AWSS3MetricsStatusDisabled:
+                return @"Disabled";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -4828,6 +4829,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4843,6 +4847,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -4884,6 +4890,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"INTELLIGENT_TIERING"] == NSOrderedSame) {
             return @(AWSS3TransitionStorageClassIntelligentTiering);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3TransitionStorageClassDeepArchive);
+        }
         return @(AWSS3TransitionStorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4895,6 +4904,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ONEZONE_IA";
             case AWSS3TransitionStorageClassIntelligentTiering:
                 return @"INTELLIGENT_TIERING";
+            case AWSS3TransitionStorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -5010,6 +5021,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"INTELLIGENT_TIERING"] == NSOrderedSame) {
             return @(AWSS3ObjectStorageClassIntelligentTiering);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3ObjectStorageClassDeepArchive);
+        }
         return @(AWSS3ObjectStorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5025,6 +5039,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ONEZONE_IA";
             case AWSS3ObjectStorageClassIntelligentTiering:
                 return @"INTELLIGENT_TIERING";
+            case AWSS3ObjectStorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -5573,6 +5589,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"bucket" : @"Bucket",
              @"contentMD5" : @"ContentMD5",
              @"replicationConfiguration" : @"ReplicationConfiguration",
+             @"token" : @"Token",
              };
 }
 
@@ -5890,6 +5907,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"requestCharged" : @"RequestCharged",
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"versionId" : @"VersionId",
@@ -5963,6 +5981,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"SSEKMSEncryptionContext" : @"SSEKMSEncryptionContext",
              @"SSEKMSKeyId" : @"SSEKMSKeyId",
              @"serverSideEncryption" : @"ServerSideEncryption",
              @"storageClass" : @"StorageClass",
@@ -6132,6 +6151,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6147,6 +6169,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -6318,11 +6342,29 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"s3:ObjectRemoved:DeleteMarkerCreated"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRemovedDeleteMarkerCreated);
         }
+        if ([value caseInsensitiveCompare:@"s3:ObjectRestore:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3ObjectRestore);
+        }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Post"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestorePost);
         }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Completed"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestoreCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3Replication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationFailedReplication"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationFailedReplication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationNotTracked"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationNotTracked);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationMissedThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationMissedThreshold);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationReplicatedAfterThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationReplicatedAfterThreshold);
         }
         return @(AWSS3EventUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -6345,10 +6387,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
+            case AWSS3EventS3ObjectRestore:
+                return @"s3:ObjectRestore:*";
             case AWSS3EventS3ObjectRestorePost:
                 return @"s3:ObjectRestore:Post";
             case AWSS3EventS3ObjectRestoreCompleted:
                 return @"s3:ObjectRestore:Completed";
+            case AWSS3EventS3Replication:
+                return @"s3:Replication:*";
+            case AWSS3EventS3ReplicationOperationFailedReplication:
+                return @"s3:Replication:OperationFailedReplication";
+            case AWSS3EventS3ReplicationOperationNotTracked:
+                return @"s3:Replication:OperationNotTracked";
+            case AWSS3EventS3ReplicationOperationMissedThreshold:
+                return @"s3:Replication:OperationMissedThreshold";
+            case AWSS3EventS3ReplicationOperationReplicatedAfterThreshold:
+                return @"s3:Replication:OperationReplicatedAfterThreshold";
             default:
                 return nil;
         }
@@ -6455,6 +6509,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"deleteMarkerReplication" : @"DeleteMarkerReplication",
              @"destination" : @"Destination",
+             @"existingObjectReplication" : @"ExistingObjectReplication",
              @"filter" : @"Filter",
              @"identifier" : @"ID",
              @"prefix" : @"Prefix",
@@ -6470,6 +6525,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)destinationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Destination class]];
+}
+
++ (NSValueTransformer *)existingObjectReplicationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3ExistingObjectReplication class]];
 }
 
 + (NSValueTransformer *)filterJSONTransformer {
@@ -6534,6 +6593,52 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)tagJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3Tag class]];
+}
+
+@end
+
+@implementation AWSS3ReplicationTime
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             @"time" : @"Time",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Enabled"] == NSOrderedSame) {
+            return @(AWSS3ReplicationTimeStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"Disabled"] == NSOrderedSame) {
+            return @(AWSS3ReplicationTimeStatusDisabled);
+        }
+        return @(AWSS3ReplicationTimeStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSS3ReplicationTimeStatusEnabled:
+                return @"Enabled";
+            case AWSS3ReplicationTimeStatusDisabled:
+                return @"Disabled";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)timeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3ReplicationTimeValue class]];
+}
+
+@end
+
+@implementation AWSS3ReplicationTimeValue
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minutes" : @"Minutes",
+             };
 }
 
 @end
@@ -6890,6 +6995,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"GLACIER"] == NSOrderedSame) {
             return @(AWSS3StorageClassGlacier);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3StorageClassDeepArchive);
+        }
         return @(AWSS3StorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6905,6 +7013,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"INTELLIGENT_TIERING";
             case AWSS3StorageClassGlacier:
                 return @"GLACIER";
+            case AWSS3StorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
@@ -6932,6 +7042,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSS3SSES3
+
+@end
+
+@implementation AWSS3ScanRange
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"end" : @"End",
+             @"start" : @"Start",
+             };
+}
 
 @end
 
@@ -6997,6 +7118,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"SSECustomerAlgorithm" : @"SSECustomerAlgorithm",
              @"SSECustomerKey" : @"SSECustomerKey",
              @"SSECustomerKeyMD5" : @"SSECustomerKeyMD5",
+             @"scanRange" : @"ScanRange",
              };
 }
 
@@ -7026,6 +7148,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)requestProgressJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3RequestProgress class]];
+}
+
++ (NSValueTransformer *)scanRangeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSS3ScanRange class]];
 }
 
 @end
@@ -7366,11 +7492,29 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"s3:ObjectRemoved:DeleteMarkerCreated"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRemovedDeleteMarkerCreated);
         }
+        if ([value caseInsensitiveCompare:@"s3:ObjectRestore:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3ObjectRestore);
+        }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Post"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestorePost);
         }
         if ([value caseInsensitiveCompare:@"s3:ObjectRestore:Completed"] == NSOrderedSame) {
             return @(AWSS3EventS3ObjectRestoreCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:*"] == NSOrderedSame) {
+            return @(AWSS3EventS3Replication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationFailedReplication"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationFailedReplication);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationNotTracked"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationNotTracked);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationMissedThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationMissedThreshold);
+        }
+        if ([value caseInsensitiveCompare:@"s3:Replication:OperationReplicatedAfterThreshold"] == NSOrderedSame) {
+            return @(AWSS3EventS3ReplicationOperationReplicatedAfterThreshold);
         }
         return @(AWSS3EventUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
@@ -7393,10 +7537,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"s3:ObjectRemoved:Delete";
             case AWSS3EventS3ObjectRemovedDeleteMarkerCreated:
                 return @"s3:ObjectRemoved:DeleteMarkerCreated";
+            case AWSS3EventS3ObjectRestore:
+                return @"s3:ObjectRestore:*";
             case AWSS3EventS3ObjectRestorePost:
                 return @"s3:ObjectRestore:Post";
             case AWSS3EventS3ObjectRestoreCompleted:
                 return @"s3:ObjectRestore:Completed";
+            case AWSS3EventS3Replication:
+                return @"s3:Replication:*";
+            case AWSS3EventS3ReplicationOperationFailedReplication:
+                return @"s3:Replication:OperationFailedReplication";
+            case AWSS3EventS3ReplicationOperationNotTracked:
+                return @"s3:Replication:OperationNotTracked";
+            case AWSS3EventS3ReplicationOperationMissedThreshold:
+                return @"s3:Replication:OperationMissedThreshold";
+            case AWSS3EventS3ReplicationOperationReplicatedAfterThreshold:
+                return @"s3:Replication:OperationReplicatedAfterThreshold";
             default:
                 return nil;
         }
@@ -7437,6 +7593,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"INTELLIGENT_TIERING"] == NSOrderedSame) {
             return @(AWSS3TransitionStorageClassIntelligentTiering);
         }
+        if ([value caseInsensitiveCompare:@"DEEP_ARCHIVE"] == NSOrderedSame) {
+            return @(AWSS3TransitionStorageClassDeepArchive);
+        }
         return @(AWSS3TransitionStorageClassUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -7448,6 +7607,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"ONEZONE_IA";
             case AWSS3TransitionStorageClassIntelligentTiering:
                 return @"INTELLIGENT_TIERING";
+            case AWSS3TransitionStorageClassDeepArchive:
+                return @"DEEP_ARCHIVE";
             default:
                 return nil;
         }
