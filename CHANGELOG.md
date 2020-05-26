@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSElasticache
+---AWSQuicksight
+---AWSSsm
+---AWSMacie
+---AWSEc2
+---AWSDlm
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
