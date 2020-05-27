@@ -148,7 +148,21 @@ final public class AWSMobileClient: _AWSMobileClient {
     public var username: String? {
         return self.userpoolOpsHelper.currentActiveUser?.username
     }
-    
+
+    public var userSub: String? {
+        guard  (isSignedIn && (federationProvider == .hostedUI || federationProvider == .userPools)) else {
+            return nil
+        }
+
+        guard let idToken = self.cachedLoginsMap.first?.value else {
+            return nil
+        }
+        let sessionToken = SessionToken(tokenString: idToken)
+        guard let sub = sessionToken.claims?["sub"] as? String else {
+            return nil
+        }
+        return sub
+    }
     
     /// The identity id associated with this provider. This value will be fetched from the keychain at startup. If you do not want to reuse the existing identity id, you must call the clearKeychain method. If the identityId is not fetched yet, it will return nil. Use `getIdentityId()` method to force a server fetch when identityId is not available.
     override public var identityId: String? {

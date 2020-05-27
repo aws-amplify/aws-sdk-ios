@@ -67,12 +67,15 @@ class TestObjectV2: AWSDynamoDBObjectModel, AWSDynamoDBModeling {
 class AWSDynamoDBObjectMapperSwiftTests: XCTestCase {
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
 
         let timeIntervalSinceReferenceDate = Int(Date().timeIntervalSinceReferenceDate)
         tableName = "DynamoDBOMTestSwift-\(timeIntervalSinceReferenceDate)"
 
-        AWSDynamoDBTestUtility.createTable(tableName)
+        guard AWSDynamoDBTestUtility.createTable(tableName) else {
+            XCTFail("Could not create table")
+            return
+        }
     }
 
     override func tearDown() {

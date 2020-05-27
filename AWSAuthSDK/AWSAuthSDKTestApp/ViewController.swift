@@ -6,6 +6,7 @@
 import UIKit
 import AWSMobileClient
 import AWSCore
+import AWSTestResources
 
 class ViewController: UIViewController {
 
@@ -14,6 +15,7 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        ViewController.registerDefaultAWSInfo()
         
         AWSMobileClient.default().initialize { (userState, error) in
             if let userState = userState {
@@ -107,5 +109,17 @@ class ViewController: UIViewController {
             }
         }
     }
+
+    static func getAWSConfiguration() -> [String: Any] {
+        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
+        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
+        return awsconfiguration
+    }
+    
+    static func registerDefaultAWSInfo() {
+        let config = getAWSConfiguration()
+        AWSInfo.configureDefaultAWSInfo(config)
+    }
+
 }
 

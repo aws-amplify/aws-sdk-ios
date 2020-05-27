@@ -15,27 +15,17 @@
 
 import XCTest
 import AWSTextract
+import AWSS3
 
 class AWSTextractTests : XCTestCase {
     
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
     
-    func testAnalyzeDocumentInS3() {
+    func testAnalyzeDocument() throws {
         let awsTextractClient = AWSTextract.default()
-        
-        let credentialsJson = AWSTestUtility.getCredentialsJsonAsDictionary()
-        guard let s3ObjectName = credentialsJson?["textract-s3-object-name"] else {
-            XCTFail("s3ObjectName unexpectedly nil")
-            return
-        }
-        
-        guard let s3BucketName = credentialsJson?["textract-s3-bucket-name"] else {
-            XCTFail("s3BucketName unexpectedly nil")
-            return
-        }
         
         guard let analyzeDocumentRequest = AWSTextractAnalyzeDocumentRequest() else {
             XCTFail("analyzeDocumentRequest unexpectedly nil")
@@ -43,24 +33,20 @@ class AWSTextractTests : XCTestCase {
         }
         analyzeDocumentRequest.featureTypes = ["TABLES","FORMS"]
         
-        guard let s3Object = AWSTextractS3Object() else {
-            XCTFail("s3Object unexpectedly nil")
-            return
-        }
-        s3Object.name = s3ObjectName
-        s3Object.bucket = s3BucketName
-        
         guard let document = AWSTextractDocument() else {
             XCTFail("document unexpectedly nil")
             return
         }
         
-        document.s3Object = s3Object
+        document.bytes = try AWSTextractTests.getTestImageBytes()
         analyzeDocumentRequest.document = document
         awsTextractClient.analyzeDocument(analyzeDocumentRequest).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTFail("Should not produce error: \(error)")
+                return nil
+            }
             guard let result = task.result else {
-                let error =  task.error as NSError?
-                XCTFail("Should not produce error: \(error.debugDescription)")
+                XCTFail("Result unexpectedly nil")
                 return nil
             }
             guard let documentMetadata = result.documentMetadata else {
@@ -69,6 +55,18 @@ class AWSTextractTests : XCTestCase {
             }
             XCTAssertEqual(1, documentMetadata.pages, "Pages count should be 1")
             return nil
-            }.waitUntilFinished()
+        }.waitUntilFinished()
+    }
+
+    static func getTestImageBytes() throws -> Data {
+        let bundle = Bundle(for: self)
+        guard let imageUrl = bundle.url(forResource: "amazon-developer-tools", withExtension: "jpg") else {
+            throw "Could not load test image"
+        }
+        
+        let data = try Data(contentsOf: imageUrl)
+        return data
     }
 }
+
+extension String: Error { }

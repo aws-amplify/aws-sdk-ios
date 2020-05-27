@@ -42,7 +42,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
         
         let signInWasSuccessful = expectation(description: "signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -97,7 +98,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         signUpAndVerifyUser(username: username)
         let signInWasSuccessfulExpectation = expectation(description: "signIn was successful")
         
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -141,7 +143,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         signUpAndVerifyUser(username: username)
         let firstSignInExpectation = expectation(description: "First signIn was successful")
         let secondSignInExpectation = expectation(description: "Second signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             
             defer {
                 firstSignInExpectation.fulfill()
@@ -161,7 +164,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             XCTAssertEqual(AWSMobileClient.default().currentUserState, .signedOut, "User should be in signedOut state after signedOut")
             
             // Second signIn call
-            AWSMobileClient.default().signIn(username: username, password: self.sharedPassword) { (signInResult, error) in
+            AWSMobileClient.default().signIn(username: username, password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
                 defer {
                     secondSignInExpectation.fulfill()
                 }
@@ -196,7 +199,8 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         let firstSignInExpectation = expectation(description: "First signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: sharedPassword) { (signInResult, error) in
+        AWSMobileClient.default().signIn(username: username,
+                                         password: AWSMobileClientTestBase.sharedPassword) { (signInResult, error) in
             if let error = error {
                 XCTFail("User login failed: \(error.localizedDescription)")
                 return
@@ -264,5 +268,189 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         
         wait(for: [signOutExpectation, tokenFetchExpectation2], timeout: 35, enforceOrder: true)
         AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Test if calling releaseSignInWait after a session expiry releases the waiting getToken call
+    ///
+    /// - Given: A signedIn valid session
+    /// - When:
+    ///    - I call releaseSignInWait after receiving signedOutUserPoolsTokenInvalid
+    /// - Then:
+    ///    - The waiting getTokens call should complete with an .unableToSignIn error.
+    ///
+    func testReleaseSignInWaitOnSessionExpiry() {
+        XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Should be in signOut state")
+
+        // SignIn the user and assert that the token is valid
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        let tokenFetchExpectation = expectation(description: "Token fetch after signIn should be successful")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            if let error = error {
+                XCTFail("Get token failed: \(error.localizedDescription)")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
+
+        // Setup a listener to call releaseSignInWait whenever you get signedOutUserPoolsTokenInvalid
+        AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
+            if (userstate == .signedOutUserPoolsTokenInvalid) {
+                AWSMobileClient.default().releaseSignInWait()
+            }
+        }
+
+        // Now invalidate the session and then try to call getToken
+        invalidateSession(username: username)
+
+        let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchFailExpectation.fulfill()
+            }
+            guard let error = error as? AWSMobileClientError,
+                case .unableToSignIn = error else {
+                XCTFail("Should receive an unable to signIn error")
+                return
+            }
+        }
+        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Test if calling releaseSignInWait after a session expiry releases all the waiting getToken call
+    ///
+    /// - Given: A signedIn valid session
+    /// - When:
+    ///    - I call releaseSignInWait after receiving signedOutUserPoolsTokenInvalid
+    /// - Then:
+    ///    - All the waiting getTokens call should complete with an .unableToSignIn error.
+    ///
+    func testReleaseSignInWaitOnMultipleSessionExpiry() {
+        XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Should be in signOut state")
+
+        // SignIn the user and assert that the token is valid
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        let tokenFetchExpectation = expectation(description: "Token fetch after signIn should be successful")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            if let error = error {
+                XCTFail("Get token failed: \(error.localizedDescription)")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
+
+        // Setup a listener to call releaseSignInWait whenever you get signedOutUserPoolsTokenInvalid
+        AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
+            if (userstate == .signedOutUserPoolsTokenInvalid) {
+                AWSMobileClient.default().releaseSignInWait()
+            }
+        }
+
+        // Now invalidate the session and then try to call getToken
+        invalidateSession(username: username)
+
+        let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
+        tokenFetchFailExpectation.expectedFulfillmentCount = 50
+
+        for _ in 1...tokenFetchFailExpectation.expectedFulfillmentCount {
+            AWSMobileClient.default().getTokens { (token, error) in
+                defer {
+                    tokenFetchFailExpectation.fulfill()
+                }
+                guard let error = error as? AWSMobileClientError,
+                    case .unableToSignIn = error else {
+                    XCTFail("Should receive an unable to signIn error")
+                    return
+                }
+            }
+        }
+
+        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Test if calling signOut after a session expiry releases the waiting getToken call
+    ///
+    /// - Given: A signedIn valid session
+    /// - When:
+    ///    - I call signOut after receiving signedOutUserPoolsTokenInvalid
+    /// - Then:
+    ///    - The waiting getTokens call should complete with an .unableToSignIn error.
+    ///
+    func testSignOutOnSessionExpiry() {
+        XCTAssertFalse(AWSMobileClient.default().isSignedIn, "Should be in signOut state")
+
+        // SignIn the user and assert that the token is valid
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        let tokenFetchExpectation = expectation(description: "Token fetch after signIn should be successful")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            if let error = error {
+                XCTFail("Get token failed: \(error.localizedDescription)")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
+
+        // Setup a listener to call signOut whenever you get signedOutUserPoolsTokenInvalid
+        AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
+            if (userstate == .signedOutUserPoolsTokenInvalid) {
+                AWSMobileClient.default().signOut()
+            }
+        }
+
+        // Now invalidate the session and then try to call getToken
+        invalidateSession(username: username)
+
+        let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchFailExpectation.fulfill()
+            }
+            guard let error = error as? AWSMobileClientError,
+                case .unableToSignIn = error else {
+                XCTFail("Should receive an unable to signIn error")
+                return
+            }
+        }
+        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        AWSMobileClient.default().removeUserStateListener(self)
+    }
+
+    /// Calling releaseSignInWait without signIn should not crash
+    ///
+    /// - Given: A signOut session
+    /// - When:
+    ///    - I call releaseSignInWait
+    /// - Then:
+    ///    - Should complete without crashing
+    ///
+    func testReleaseSignInWaitWithOutSignIn() {
+        AWSMobileClient.default().releaseSignInWait()
+        let tokenFetchExpectation = expectation(description: "Token fetch should be completed")
+        AWSMobileClient.default().getTokens { (token, error) in
+            defer {
+                tokenFetchExpectation.fulfill()
+            }
+            guard error != nil else  {
+                XCTFail("Should produce an error when getToken called withOut SignIn")
+                return
+            }
+        }
+        wait(for: [tokenFetchExpectation], timeout: 20)
     }
 }

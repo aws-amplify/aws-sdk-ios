@@ -3,6 +3,9 @@
 # consume for the release process. Packages toward the bottom of the list
 # depend on packages toward the top of the list.
 
+# Note that this list isn't a comprehensive list of Xcode schemas or targets
+# that need to be built and tested, only a model of dependencies for cocoapods.
+
 grouped_frameworks = [
     # No dependencies
     [
@@ -10,17 +13,17 @@ grouped_frameworks = [
         'AWSCognitoIdentityProviderASF',
     ],
 
-    # Depends only on AWSCognitoIdentityProviderASF
-    ['AWSCognitoAuth'],
-
-    # Depends on AWSCore and AWSCognitoIdentityProviderASF
-    ['AWSCognitoIdentityProvider'],
-
-    # Depends only on AWSCore
-    ['AWSAuthCore'],
-
-    # Service-API packages depend only on AWSCore
     [
+        # Depends only on AWSCognitoIdentityProviderASF
+        'AWSCognitoAuth',
+
+        # Depends on AWSCore and AWSCognitoIdentityProviderASF
+        'AWSCognitoIdentityProvider',
+
+        # Depends only on AWSCore
+        'AWSAuthCore',
+
+        # Service-API packages depend only on AWSCore
         'AWSAPIGateway',
         'AWSAutoScaling',
         'AWSCloudWatch',
@@ -57,31 +60,31 @@ grouped_frameworks = [
         'AWSTranslate',
     ],
 
-    # Depends only on AWSCognito service-api package
-    ['AWSCognitoSync'],
-
-    # Depends on AWSCore and AWSAuthCore
-    ['AWSAuthUI'],
-
-    # Depends only on AWSAuthCore (and possibly external Pods, but nothing else
-    # built locally)
     [
+        # Depends only on AWSCognito service-api package
+        'AWSCognitoSync',
+
+        # Depends on AWSCore and AWSAuthCore
+        'AWSAuthUI',
+
+        # Depends only on AWSAuthCore (and possibly external Pods, but nothing else
+        # built locally)
         'AWSFacebookSignIn',
         'AWSGoogleSignIn',
-    ],
 
-    # Depends only on AWSAuthCore and AWSCognitoIdentityProvider
-    [
+        # Depends only on AWSAuthCore and AWSCognitoIdentityProvider
         'AWSMobileClient',
         'AWSUserPoolsSignIn',
     ],
 
-    # Depends on most previous packages except auth
-    ['AWSiOSSDKv2'],
+    [
+        # Depends on most previous packages except auth
+        'AWSiOSSDKv2',
 
-    # Depends on AWSAuthCore, AWSFacebookSignIn, AWSGoogleSignIn,
-    # AWSUserPoolsSignIn and AWSAuthUI
-    ['AWSAuth'],
+        # Depends on AWSAuthCore, AWSFacebookSignIn, AWSGoogleSignIn,
+        # AWSUserPoolsSignIn and AWSAuthUI
+        'AWSAuth',
+    ],
 
 ]
 

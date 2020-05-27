@@ -5,6 +5,7 @@
 
 import XCTest
 import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSDropInUIUserPoolTests: XCTestCase {
 
@@ -15,21 +16,27 @@ class AWSDropInUIUserPoolTests: XCTestCase {
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
     static var userPoolId: String!
     override class func setUp() {
-        let filePath = Bundle(for: self).path(forResource: "credentials-mc", ofType: "json")
-        var credentialsJson: [String : Any]? = nil
-        if let aPath = NSData(contentsOfFile: filePath ?? "") {
-            credentialsJson = try! JSONSerialization.jsonObject(with: aPath as Data, options: .mutableContainers) as? [String : Any]
-        }
-        userpoolUsername = credentialsJson?["UserpoolUsername"] as? String
-        userpoolPassword = credentialsJson?["UserpoolPassword"] as? String
-        userPoolId = credentialsJson?["mc-userpool_id"] as? String
-        sharedEmail = credentialsJson?["mc-email"] as? String
-        
-        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: credentialsJson?["accessKey"] as! String,
-                                                               secretKey: credentialsJson?["secretKey"] as! String)
-        let region = (credentialsJson?["mc-region"] as! String).aws_regionTypeValue()
-        let configuration = AWSServiceConfiguration(region: region, credentialsProvider: credentialsProvider)!
+        userpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_username")
+        userpoolPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_password")
+        userPoolId = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                               configKey: "userpool_id")
+        sharedEmail = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "email_address")
+
+        let region = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "common",
+                                                                               configKey: "region")
+
+        let credentialsJson = AWSTestConfiguration.getTestConfiguration()["credentials"] as! [String: String]
+        let credentialsProvider = AWSStaticCredentialsProvider(accessKey: credentialsJson["accessKey"]!,
+                                                               secretKey: credentialsJson["secretKey"]!)
+
+        let configuration = AWSServiceConfiguration(region: region.aws_regionTypeValue(),
+                                                    credentialsProvider: credentialsProvider)!
+
         AWSCognitoIdentityProvider.register(with: configuration, forKey: "ADMINCLIENT")
+
         userPoolsAdminClient = AWSCognitoIdentityProvider(forKey: "ADMINCLIENT")
     }
     

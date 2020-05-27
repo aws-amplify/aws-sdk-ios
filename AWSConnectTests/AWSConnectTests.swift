@@ -18,44 +18,12 @@ import AWSConnect
 
 class AWSConnectTests : XCTestCase {
     
-    var instanceId: String?
-    var destinationDialInPhoneNumber: String?
-    
-    var connectClient: AWSConnect?
-    
-    override func setUp() {
-        super.setUp()
-        
-        // Setup Verbose Log level
-        AWSDDLog.sharedInstance.logLevel = .verbose
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
-        
-        AWSTestUtility.setupCredentialsViaFile()
+    // As of this writing (06-May-2020) Connect is not available for CDK setup, and doesn't expose the ListInstances
+    // request. Further, any request we make without a valid instance ID returns an undifferentiated "AccessDenied"
+    // error, so there isn't any meaningful test we can do on this service other than assert the client is created.
+    func testClientIsCreated() {
+        AWSTestUtility.setupSessionCredentialsProvider()
+        XCTAssertNotNil(AWSConnect.default())
+    }
 
-        let credentialsJson: [String : String]? = AWSTestUtility.getCredentialsJsonAsDictionary()
-        if credentialsJson?["amazon-connect-instance-id"] != nil {
-            instanceId = credentialsJson?["amazon-connect-instance-id"]
-        }
-        if credentialsJson?["amazon-connect-destination-dial-in-phone-number"] != nil {
-            destinationDialInPhoneNumber = credentialsJson?["amazon-connect-destination-dial-in-phone-number"]
-        }
-        
-        connectClient = AWSConnect.default()
-    }
-    
-    override func tearDown() {
-        super.tearDown()
-    }
-    
-    func testListUsers() {
-        let listUsersRequest = AWSConnectListUsersRequest()
-        listUsersRequest?.instanceId = instanceId
-        connectClient?.listUsers(listUsersRequest!).continueWith(block: { (task) -> Any? in
-            XCTAssertNil(task.error)
-            XCTAssertNotNil(task.result)
-            XCTAssertNotNil(task.result?.userSummaryList!)
-            XCTAssertTrue((task.result?.userSummaryList!.count)! > 0)
-            return nil;
-        }).waitUntilFinished()
-    }
 }

@@ -24,8 +24,9 @@ class TestAPIGatewayInvoke: XCTestCase {
     
     override func setUp() {
         super.setUp()
-        AWSTestUtility.setupCognitoCredentialsProvider()
-        client = AWSLambdaMicroserviceClient.default()
+        AWSTestUtility.setupSessionCredentialsProvider()
+        let testConfig = AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "apigateway")
+        client = AWSLambdaMicroserviceClient.defaultClient(testConfig!["endpointURL"] as! String)
         
         headerParameters = [
             "Content-Type": "application/json",

@@ -68,7 +68,7 @@ NS_ASSUME_NONNULL_BEGIN
 
  @return The default service client.
  */
-+ (instancetype)defaultClient;
++ (instancetype)defaultClient: (NSString *)endpointURL;
 
 /**
  Creates a service client with the given service configuration and registers it for the key.

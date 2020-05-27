@@ -48,14 +48,10 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     [super setUp];
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointSessionClientTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointSessionClientTests"];
-    [AWSTestUtility setupCognitoCredentialsProvider];
     
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    self.appId = credentialsJson[@"pinpointAppId"];
+    [AWSTestUtility setupSessionCredentialsProvider];
+    self.appId = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"pinpoint"
+                                                                        configKey:@"app_id"];
 }
 
 - (void)tearDown {

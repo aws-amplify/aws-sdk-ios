@@ -33,6 +33,8 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 @implementation AWSAnalyticsTests
 + (void)setUp {
     [super setUp];
+    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
 
     AWSDDLogDebug(@"sleeping for %f seconds before AWSAnalyticsTests starts.", AWSValueForceSubmissionWaitTime);
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:AWSValueForceSubmissionWaitTime]];
@@ -41,14 +43,9 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 - (void)setUp {
     [super setUp];
     
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    
-    self.identityPoolId = credentialsJson[@"identityPoolId"];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    self.identityPoolId = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"common"
+                                                                                 configKey:@"identityPoolId"];
+    [AWSTestUtility setupCognitoCredentialsProviderForDefaultRegion];
 }
 
 - (void)tearDown {
@@ -632,13 +629,9 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 }
 
 - (void)test_createAndSubmitEventCustomServiceConfiguration {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                      secretKey:credentialsJson[@"secretKey"]];
-    AWSServiceConfiguration *customServiceConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSRegionType region = [AWSTestUtility getRegionFromTestConfiguration];
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
+    AWSServiceConfiguration *customServiceConfig = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                                credentialsProvider:credentialsProvider];
     AWSMobileAnalyticsConfiguration *configuration = [AWSMobileAnalyticsConfiguration new];
     configuration.serviceConfiguration = customServiceConfig;

@@ -39,7 +39,7 @@ class OTATests: XCTestCase {
         AWSDDLog.sharedInstance.logLevel = .debug
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
 
         // Default IoT will be used for managing Things and Groups
         // IoT DataManager used to subscribe to topics must use the ATS-enabled data endpoint

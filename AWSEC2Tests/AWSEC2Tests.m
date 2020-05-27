@@ -28,17 +28,7 @@
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-}
-
-- (void)setUp {
-    [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 - (void)testClockSkewEC2 {
@@ -52,9 +42,7 @@
 
     AWSEC2DescribeInstancesRequest *describeInstancesRequest = [AWSEC2DescribeInstancesRequest new];
     [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
+        XCTAssertNil(task.error);
 
         if (task.result) {
             XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeInstancesResult class]]);
@@ -77,9 +65,7 @@
     platformFilter.values = @[@"windows"];
     describeInstancesRequest.filters = @[platformFilter];
     [[[ec2 describeInstances:describeInstancesRequest] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
+        XCTAssertNil(task.error);
 
         if (task.result) {
             XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeInstancesResult class]]);
@@ -103,12 +89,11 @@
     AWSEC2 *ec2 = [AWSEC2 defaultEC2];
     
     AWSEC2DescribeImagesRequest *describeImagesRequest = [AWSEC2DescribeImagesRequest new];
-    describeImagesRequest.imageIds = @[@"ami-04b2418be76894465"]; // aws-elasticbeanstalk-amzn-2018.03.20.x86_64-python36-hvm-202001170814 Image Name
+    // amazon-eks-arm64-node-1.12-v20200228
+    describeImagesRequest.imageIds = @[@"ami-06e3f2ff72d194f27"];
     [[[ec2 describeImages:describeImagesRequest] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
-        
+        XCTAssertNil(task.error);
+
         if (task.result) {
             XCTAssertTrue([task.result isKindOfClass:[AWSEC2DescribeImagesResult class]]);
             AWSEC2DescribeImagesResult *describeImagesResult = task.result;
@@ -117,7 +102,7 @@
             BOOL imageExist = NO;
             
             for (AWSEC2Image *image in describeImagesResult.images) {
-                if ([image.imageId isEqualToString:@"ami-04b2418be76894465"]) {
+                if ([image.imageId isEqualToString:@"ami-06e3f2ff72d194f27"]) {
                     imageExist = YES;
                     XCTAssertEqual(AWSEC2PlatformValuesUnknown, image.platform);
                 }

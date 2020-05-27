@@ -64,7 +64,7 @@ static NSString *const AWSInfoClientKey = @"AWSLambdaMicroserviceClient";
 
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
-+ (instancetype)defaultClient {
++ (instancetype)defaultClient:(NSString *)endpointURL {
     AWSServiceConfiguration *serviceConfiguration = nil;
     AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoClientKey];
     if (serviceInfo) {
@@ -76,6 +76,14 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUnknown
                                                            credentialsProvider:nil];
     }
+    
+    if ([endpointURL hasSuffix:@"/"]) {
+        endpointURL = [endpointURL substringToIndex:[endpointURL length] - 1];
+    }
+    serviceConfiguration.endpoint = [[AWSEndpoint alloc] initWithRegion:serviceConfiguration.regionType
+                                                                service:AWSServiceAPIGateway
+                                                                    URL:[NSURL URLWithString:endpointURL]];
+
 
     static AWSLambdaMicroserviceClient *_defaultClient = nil;
     static dispatch_once_t onceToken;
@@ -129,18 +137,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-
-        NSString *URLString = @"https://mykov6r7rh.execute-api.us-east-1.amazonaws.com/prod";
-        if ([URLString hasSuffix:@"/"]) {
-            URLString = [URLString substringToIndex:[URLString length] - 1];
-        }
-        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
-                                                              service:AWSServiceAPIGateway
-                                                                  URL:[NSURL URLWithString:URLString]];
-
         AWSSignatureV4Signer *signer =  [[AWSSignatureV4Signer alloc] initWithCredentialsProvider:_configuration.credentialsProvider
                                                                                          endpoint:_configuration.endpoint];
-
         _configuration.baseURL = _configuration.endpoint.URL;
         _configuration.requestInterceptors = @[[AWSNetworkingRequestInterceptor new], signer];
     }

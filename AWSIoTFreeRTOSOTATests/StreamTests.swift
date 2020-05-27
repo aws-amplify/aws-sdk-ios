@@ -27,11 +27,12 @@ class StreamTests: XCTestCase {
     static let sourceFileBucketName = "ios-sdk-iot-ota-integ-test"
     static let sourceFileKeyName = "ota_integ_test.bin"
     static let roleArn: String = {
-        guard let dict = AWSTestUtility.getCredentialsJsonAsDictionary() else {
-            return "ERROR: Unable to load credentials dictionary"
+        guard let packageConfig =
+            AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "iot") as? [String: String] else {
+                return "ERROR: Unable to load package config"
         }
 
-        guard let arn = dict["iot-freertos-ota-role-arn"] else {
+        guard let arn = packageConfig["freertos_ota_role_arn"] else {
             return "ERROR: Unable to retrieve `iot-freertos-ota-role-arn` from dictionary"
         }
 
@@ -42,18 +43,22 @@ class StreamTests: XCTestCase {
         AWSDDLog.sharedInstance.logLevel = .debug
         AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
 
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupCognitoCredentialsProviderForDefaultRegion()
+        let region = AWSTestUtility.getRegionFromTestConfiguration()
 
         // Default IoT will be used for managing Things and Groups
         // IoT DataManager used to subscribe to topics must use the ATS-enabled data endpoint
         let defaultCredentialsProvider = AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider
-        let endpointString = AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")!
+        guard let endpointString = AWSTestUtility.getIoTEndPoint("iot_endpoint_address") else {
+            XCTFail("Could not fetch the iot endpoint from the config file.")
+            return
+        }
         let endpoint = AWSEndpoint(urlString: endpointString)
 
         // Stream create/describe/list operations do not use the custom endpoint specified by
         // `AWSTestUtility.getIoTEndPoint("iot-us-east1-endpoint")`. Instead, these operations go to the global service
         // URL (e.g., "iot.us-east-1.amazonaws.com"
-        let iotConfig = AWSServiceConfiguration(region: .USEast1,
+        let iotConfig = AWSServiceConfiguration(region: region,
                                                 endpoint: endpoint,
                                                 credentialsProvider: defaultCredentialsProvider)!
 

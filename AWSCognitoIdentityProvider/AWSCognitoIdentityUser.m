@@ -731,11 +731,11 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
  * Prompt developer to obtain custom challenge details
  */
 - (AWSTask<AWSCognitoIdentityUserSession*>*) customAuthInternal: (id<AWSCognitoIdentityCustomAuthentication>) authenticationDelegate {
-
+    
     AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> *customAuthenticationDetails = [AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> new];
     AWSCognitoIdentityCustomAuthenticationInput *input = [[AWSCognitoIdentityCustomAuthenticationInput alloc] initWithChallengeParameters: [NSDictionary new]];
     [authenticationDelegate getCustomChallengeDetails:input customAuthCompletionSource:customAuthenticationDetails];
-    return [[customAuthenticationDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityCustomChallengeDetails *> * _Nonnull task) {
+    return [customAuthenticationDetails.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityCustomChallengeDetails *> * _Nonnull task) {
         
         //if first challenge is SRP auth
         if([self isFirstCustomStepSRP:task.result]){
@@ -743,27 +743,20 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         }else {
             return [[self performInitiateCustomAuthChallenge:task.result]
                     continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse *> * _Nonnull task) {
-                        [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
-                        if(task.isCancelled){
-                            return task;
-                        }
-                        if(task.error){
-                            //retry auth on error
-                            return [self customAuthInternal:authenticationDelegate];
-                        }else {
-                            //morph this initiate auth response into a respond to auth challenge response so it works as input to getSessionInternal
-                            AWSCognitoIdentityProviderRespondToAuthChallengeResponse * response = [AWSCognitoIdentityProviderRespondToAuthChallengeResponse new];
-                            [response aws_copyPropertiesFromObject:task.result];
-                            return [self getSessionInternal:[AWSTask taskWithResult:response]];
-                        }
-                    }];
-        }
-    }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
-        if(task.error){
-            //retry auth on error
-            return [self customAuthInternal:authenticationDelegate];
-        }else {
-            return task;
+                [authenticationDelegate didCompleteCustomAuthenticationStepWithError:task.error];
+                if(task.isCancelled){
+                    return task;
+                }
+                if(task.error){
+                    //retry auth on error
+                    return [self customAuthInternal:authenticationDelegate];
+                }else {
+                    //morph this initiate auth response into a respond to auth challenge response so it works as input to getSessionInternal
+                    AWSCognitoIdentityProviderRespondToAuthChallengeResponse * response = [AWSCognitoIdentityProviderRespondToAuthChallengeResponse new];
+                    [response aws_copyPropertiesFromObject:task.result];
+                    return [self getSessionInternal:[AWSTask taskWithResult:response]];
+                }
+            }];
         }
     }];
 }
