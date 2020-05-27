@@ -1,3 +1,12 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSGuardduty
+---AWSElasticloadbalancingv2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
