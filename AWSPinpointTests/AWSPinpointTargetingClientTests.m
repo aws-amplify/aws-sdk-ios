@@ -27,6 +27,7 @@ NSString *const AWSPinpointEndpointAttributesKey = @"AWSPinpointEndpointAttribut
 NSString *const AWSPinpointEndpointMetricsKey = @"AWSPinpointEndpointMetricsKey";
 NSString *const AWSPinpointEndpointProfileKey = @"AWSPinpointEndpointProfileKey";
 NSString *const AWSDeviceToken = @"com.amazonaws.AWSDeviceTokenKey";
+NSString *const AWSPinpointOverrideDefaultOptOutKey = @"com.amazonaws.AWSPinpointOverrideDefaultOptOutKey";
 static NSString *userId;
 
 @interface AWSPinpointTargetingClientTests : XCTestCase
@@ -61,6 +62,7 @@ static NSString *userId;
     [self.userDefaults removeObjectForKey:AWSPinpointEndpointAttributesKey];
     [self.userDefaults removeObjectForKey:AWSPinpointEndpointMetricsKey];
     [self.userDefaults removeObjectForKey:AWSDeviceTokenKey];
+    [self.userDefaults removeObjectForKey:AWSPinpointOverrideDefaultOptOutKey];
     [self.userDefaults synchronize];
     
 }
@@ -254,10 +256,29 @@ static NSString *userId;
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
 }
 
+- (void)testCurrentProfileReturnsOptOutAllWhenNotificationsEnabledAndDeviceTokenNotSetAndOverrideIsSetToNone {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:YES];
+    self.pinpoint.targetingClient.currentEndpointProfile.optOut = @"NONE";
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
 - (void)testCurrentProfileReturnsOptOutAllWhenNotificationsDisabledAndDeviceTokenSet {
     [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
     [self initializeMockApplicationWithRemoteNotifications:NO];
     [self setDeviceTokenInUserDefaults];
+    
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
+}
+
+- (void)testCurrentProfileReturnsOptOutAllWhenNotificationsDisabledAndDeviceTokenSetAndOverrideIsSetToNone {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:NO];
+    [self setDeviceTokenInUserDefaults];
+    self.pinpoint.targetingClient.currentEndpointProfile.optOut = @"NONE";
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertTrue([profile.optOut isEqualToString:@"ALL"]);
@@ -270,6 +291,23 @@ static NSString *userId;
 
     AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
     XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
+}
+
+- (void)testCurrentProfileReturnsOverrideDefaultOptOutWhenOptOutSetWithNotificationsAndDeviceTokenSet {
+    [self initializePinpointWithConfiguration:[self getAWSPinpointConfigurationWithOptOut:NO] forceCreate:YES];
+    [self initializeMockApplicationWithRemoteNotifications:YES];
+    [self setDeviceTokenInUserDefaults];
+
+    AWSPinpointEndpointProfile *profile = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profile.optOut isEqualToString:@"NONE"]);
+
+    self.pinpoint.targetingClient.currentEndpointProfile.optOut = @"ALL";
+    AWSPinpointEndpointProfile *profileWithOptOutAll = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profileWithOptOutAll.optOut isEqualToString:@"ALL"]);
+
+    self.pinpoint.targetingClient.currentEndpointProfile.optOut = @"NONE";
+    AWSPinpointEndpointProfile *profileWithOptOutNone = [self.pinpoint.targetingClient currentEndpointProfile];
+    XCTAssertTrue([profileWithOptOutNone.optOut isEqualToString:@"NONE"]);
 }
 
 - (void)testCurrentProfileReturnsOptOutAllForApplicationLevelOptOut {
