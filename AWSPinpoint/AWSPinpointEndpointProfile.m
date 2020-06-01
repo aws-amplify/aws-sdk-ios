@@ -135,6 +135,7 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
 
     _optOutBackingVariable = optOut;
 }
+
 - (NSString *)optOut {
     return _optOutBackingVariable;
 }
