@@ -1,3 +1,16 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSMediaconvert
+---AWSElasticsearchservice
+---AWSDirectconnect
+---AWSIam
+---AWSElasticache
+---AWSGlue
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
