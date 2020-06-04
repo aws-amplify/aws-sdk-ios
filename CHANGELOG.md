@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSMediapackagevod
+---AWSEc2
+---AWSMarketplacemetering
+---AWSLightsail
+---AWSSsm
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
