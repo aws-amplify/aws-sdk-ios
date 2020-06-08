@@ -2,7 +2,10 @@
 
 ## Unreleased
 -Features for next release
-
+### Bug Fixes
+- **Amazon Pinpoint**
+  - Fix issue where SDK is not respecting developer set OptOut value. Persist the developer set optOut in user defaults. See [PR: #2552](https://github.com/aws-amplify/aws-sdk-ios/pull/2552)
+  
 ## 2.13.4
 ### New features
 - **Integration tests**
