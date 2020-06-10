@@ -1,3 +1,17 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSEc2
+---AWSServicecatalog
+---AWSAppconfig
+---AWSDlm
+---AWSShield
+---AWSLightsail
+---AWSComputeoptimizer
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
