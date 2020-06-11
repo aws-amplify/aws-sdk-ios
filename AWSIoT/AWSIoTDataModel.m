@@ -22,6 +22,7 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }
@@ -42,6 +43,7 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }
@@ -53,6 +55,30 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataListNamedShadowsForThingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"pageSize" : @"pageSize",
+             @"thingName" : @"thingName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataListNamedShadowsForThingResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"results" : @"results",
+             @"timestamp" : @"timestamp",
              };
 }
 
@@ -75,6 +101,7 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }

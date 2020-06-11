@@ -331,6 +331,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDataListNamedShadowsForThingResponse *> *)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/api/things/shadow/ListNamedShadowsForThing/{thingName}"
+                  targetPrefix:@""
+                 operationName:@"ListNamedShadowsForThing"
+                   outputClass:[AWSIoTDataListNamedShadowsForThingResponse class]];
+}
+
+- (void)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request
+     completionHandler:(void (^)(AWSIoTDataListNamedShadowsForThingResponse *response, NSError *error))completionHandler {
+    [[self listNamedShadowsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDataListNamedShadowsForThingResponse *> * _Nonnull task) {
+        AWSIoTDataListNamedShadowsForThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)publish:(AWSIoTDataPublishRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
