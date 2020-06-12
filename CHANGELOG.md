@@ -8,7 +8,7 @@
   - Fix issue where SDK is not respecting developer set OptOut value. Persist the developer set optOut in user defaults. See [PR: #2552](https://github.com/aws-amplify/aws-sdk-ios/pull/2552)
 
 - **AWSMobileClient**
-  - *Breaking Change* If the token expired while signed in using HostedUI, `AWSMobileClient` will now send the event `.signedOutUserPoolsTokenInvalid` and the request that invoked the token fetch will wait till the user is signed in. In the previous implementation the requested operation will complete with error and user event listener was not invoked.
+  - *Breaking Change* If the token expired while signed in using HostedUI, AWSMobileClient will now send the event signedOutUserPoolsTokenInvalid and the request that invoked the token fetch will wait till the user signin or signout or invoke release signin wait. In the previous implementation the requested operation will complete with error and user event listener was not invoked.
     See [PR: #2739](https://github.com/aws-amplify/aws-sdk-ios/pull/2739)
 
 ### Misc. Updates
