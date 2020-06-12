@@ -342,7 +342,7 @@ extension AWSMobileClient {
                 } else {
                     confirmedStatus = .unconfirmed
                 }
-                
+
                 var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
                 if let deliveryDetails = result.codeDeliveryDetails {
                     switch(deliveryDetails.deliveryMedium) {
@@ -652,7 +652,7 @@ extension AWSMobileClient {
             return nil
         }
     }
- 
+
     /// Fetches the `AWSCredentials` asynchronously.
     ///
     /// - Parameter completionHandler: completionHandler which would have `AWSCredentials` if successfully retrieved, else error.
@@ -745,15 +745,16 @@ extension AWSMobileClient {
             self.tokenFetchOperationQueue.addOperation {
                 self.tokenFetchLock.enter()
                 AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
-                    if let error = error as? AWSCognitoAuthClientErrorType {
-                        if error == AWSCognitoAuthClientErrorType.errorExpiredRefreshToken {
-                            self.pendingGetTokensCompletion = completionHandler
-                            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: [self.ProviderKey:"OAuth"])
-                            // return early without releasing the tokenFetch lock.
-                            return
-                        } else {
-                            completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
-                        }
+
+                    if let sessionError = error,
+                        (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
+                        let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
+                        (errorType == .errorExpiredRefreshToken) {
+                        self.pendingGetTokensCompletion = completionHandler
+                        self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
+                                                       additionalInfo: [self.ProviderKey:"OAuth"])
+                        // return early without releasing the tokenFetch lock.
+                        return
                     } else if let session = session {
                         completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
                     } else {
@@ -790,7 +791,7 @@ extension AWSMobileClient {
             return
         }
     }
-    
+
     internal func userSessionToTokens(userSession: AWSCognitoIdentityUserSession) -> Tokens {
         var idToken: SessionToken?
         var accessToken: SessionToken?
