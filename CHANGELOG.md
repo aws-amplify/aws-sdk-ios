@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSAlexaforbusiness
+---AWSAppconfig
+---AWSChime
+---AWSCognitoidentityprovider
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
