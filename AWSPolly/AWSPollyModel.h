@@ -153,6 +153,7 @@ typedef NS_ENUM(NSInteger, AWSPollyVoiceId) {
     AWSPollyVoiceIdJustin,
     AWSPollyVoiceIdKarl,
     AWSPollyVoiceIdKendra,
+    AWSPollyVoiceIdKevin,
     AWSPollyVoiceIdKimberly,
     AWSPollyVoiceIdLea,
     AWSPollyVoiceIdLiv,
