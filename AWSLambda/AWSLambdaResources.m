@@ -500,6 +500,10 @@
         {\"shape\":\"EC2UnexpectedException\"},\
         {\"shape\":\"SubnetIPAddressLimitReachedException\"},\
         {\"shape\":\"ENILimitReachedException\"},\
+        {\"shape\":\"EFSMountConnectivityException\"},\
+        {\"shape\":\"EFSMountFailureException\"},\
+        {\"shape\":\"EFSMountTimeoutException\"},\
+        {\"shape\":\"EFSIOException\"},\
         {\"shape\":\"EC2ThrottledException\"},\
         {\"shape\":\"EC2AccessDeniedException\"},\
         {\"shape\":\"InvalidSubnetIDException\"},\
@@ -755,7 +759,7 @@
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"TooManyRequestsException\"}\
       ],\
-      \"documentation\":\"<p>Configures options for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a> on a function, version, or alias. If a configuration already exists for a function, version, or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without affecting existing settings for other options, use <a>PutFunctionEventInvokeConfig</a>.</p> <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with <a>UpdateFunctionConfiguration</a>.</p> <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations\\\">destination</a>. You can configure separate destinations for successful invocations (on-success) and events that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a dead-letter queue.</p>\"\
+      \"documentation\":\"<p>Configures options for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a> on a function, version, or alias. If a configuration already exists for a function, version, or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without affecting existing settings for other options, use <a>UpdateFunctionEventInvokeConfig</a>.</p> <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with <a>UpdateFunctionConfiguration</a>.</p> <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations\\\">destination</a>. You can configure separate destinations for successful invocations (on-success) and events that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a dead-letter queue.</p>\"\
     },\
     \"PutProvisionedConcurrencyConfig\":{\
       \"name\":\"PutProvisionedConcurrencyConfig\",\
@@ -1158,7 +1162,7 @@
       \"members\":{\
         \"AdditionalVersionWeights\":{\
           \"shape\":\"AdditionalVersionWeights\",\
-          \"documentation\":\"<p>The name of the second alias, and the percentage of traffic that's routed to it.</p>\"\
+          \"documentation\":\"<p>The second version, and the percentage of traffic that's routed to it.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">traffic-shifting</a> configuration of a Lambda function alias.</p>\"\
@@ -1237,7 +1241,7 @@
         },\
         \"RoutingConfig\":{\
           \"shape\":\"AliasRoutingConfiguration\",\
-          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">routing configuration</a> of the alias.</p>\"\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\\\">routing configuration</a> of the alias.</p>\"\
         }\
       }\
     },\
@@ -1371,6 +1375,10 @@
         \"Layers\":{\
           \"shape\":\"LayerList\",\
           \"documentation\":\"<p>A list of <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\\\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       }\
     },\
@@ -1564,6 +1572,46 @@
       \"error\":{\"httpStatusCode\":502},\
       \"exception\":true\
     },\
+    \"EFSIOException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>An error occured when reading from or writing to a connected file system.</p>\",\
+      \"error\":{\"httpStatusCode\":410},\
+      \"exception\":true\
+    },\
+    \"EFSMountConnectivityException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function couldn't make a network connection to the configured file system.</p>\",\
+      \"error\":{\"httpStatusCode\":408},\
+      \"exception\":true\
+    },\
+    \"EFSMountFailureException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>\",\
+      \"error\":{\"httpStatusCode\":403},\
+      \"exception\":true\
+    },\
+    \"EFSMountTimeoutException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function was able to make a network connection to the configured file system, but the mount operation timed out.</p>\",\
+      \"error\":{\"httpStatusCode\":408},\
+      \"exception\":true\
+    },\
     \"ENILimitReachedException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1707,6 +1755,34 @@
       \"max\":256,\
       \"min\":0,\
       \"pattern\":\"[a-zA-Z0-9._\\\\-]+\"\
+    },\
+    \"FileSystemArn\":{\
+      \"type\":\"string\",\
+      \"max\":200,\
+      \"pattern\":\"arn:aws[a-zA-Z-]*:elasticfilesystem:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\\\d{1}:\\\\d{12}:access-point/fsap-[a-f0-9]{17}\"\
+    },\
+    \"FileSystemConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Arn\",\
+        \"LocalMountPath\"\
+      ],\
+      \"members\":{\
+        \"Arn\":{\
+          \"shape\":\"FileSystemArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>\"\
+        },\
+        \"LocalMountPath\":{\
+          \"shape\":\"LocalMountPath\",\
+          \"documentation\":\"<p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>\"\
+    },\
+    \"FileSystemConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"FileSystemConfig\"},\
+      \"max\":1\
     },\
     \"FunctionArn\":{\
       \"type\":\"string\",\
@@ -1854,6 +1930,10 @@
         \"LastUpdateStatusReasonCode\":{\
           \"shape\":\"LastUpdateStatusReasonCode\",\
           \"documentation\":\"<p>The reason code for the last update that was performed on the function.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Details about a function's configuration.</p>\"\
@@ -2980,6 +3060,11 @@
         }\
       }\
     },\
+    \"LocalMountPath\":{\
+      \"type\":\"string\",\
+      \"max\":160,\
+      \"pattern\":\"^/mnt/[a-zA-Z0-9-_.]+$\"\
+    },\
     \"LogType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -3490,7 +3575,7 @@
         \"Type\":{\"shape\":\"String\"},\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state. </p>\",\
+      \"documentation\":\"<p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -3791,7 +3876,7 @@
         },\
         \"RoutingConfig\":{\
           \"shape\":\"AliasRoutingConfiguration\",\
-          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">routing configuration</a> of the alias.</p>\"\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\\\">routing configuration</a> of the alias.</p>\"\
         },\
         \"RevisionId\":{\
           \"shape\":\"String\",\
@@ -3948,6 +4033,10 @@
         \"Layers\":{\
           \"shape\":\"LayerList\",\
           \"documentation\":\"<p>A list of <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\\\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       }\
     },\

@@ -27,6 +27,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorEC2AccessDenied,
     AWSLambdaErrorEC2Throttled,
     AWSLambdaErrorEC2Unexpected,
+    AWSLambdaErrorEFSIO,
+    AWSLambdaErrorEFSMountConnectivity,
+    AWSLambdaErrorEFSMountFailure,
+    AWSLambdaErrorEFSMountTimeout,
     AWSLambdaErrorENILimitReached,
     AWSLambdaErrorInvalidParameterValue,
     AWSLambdaErrorInvalidRequestContent,
@@ -189,6 +193,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaEnvironmentError;
 @class AWSLambdaEnvironmentResponse;
 @class AWSLambdaEventSourceMappingConfiguration;
+@class AWSLambdaFileSystemConfig;
 @class AWSLambdaFunctionCode;
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
@@ -486,7 +491,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the second alias, and the percentage of traffic that's routed to it.</p>
+ <p>The second version, and the percentage of traffic that's routed to it.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable additionalVersionWeights;
 
@@ -532,7 +537,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
+ <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
 
@@ -631,6 +636,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Environment variables that are accessible from function code during execution.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -969,6 +979,25 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+ Required parameters: [Arn, LocalMountPath]
+ */
+@interface AWSLambdaFileSystemConfig : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localMountPath;
+
+@end
+
+/**
  <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
  */
 @interface AWSLambdaFunctionCode : AWSModel
@@ -1044,6 +1073,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's environment variables.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The function's Amazon Resource Name (ARN).</p>
@@ -2603,7 +2637,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
+ <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
 
@@ -2735,6 +2769,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Environment variables that are accessible from function code during execution.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>

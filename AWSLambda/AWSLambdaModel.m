@@ -222,6 +222,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
@@ -247,6 +248,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
+}
+
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
@@ -550,6 +555,17 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaFileSystemConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"localMountPath" : @"LocalMountPath",
+             };
+}
+
+@end
+
 @implementation AWSLambdaFunctionCode
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -583,6 +599,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionArn" : @"FunctionArn",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
@@ -613,6 +630,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironmentResponse class]];
+}
+
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
 }
 
 + (NSValueTransformer *)lastUpdateStatusJSONTransformer {
@@ -2219,6 +2240,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
@@ -2239,6 +2261,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
+}
+
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
