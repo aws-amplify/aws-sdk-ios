@@ -44,7 +44,9 @@ enum FederationProvider: String {
 final public class AWSMobileClient: _AWSMobileClient {
     
     static var _sharedInstance: AWSMobileClient = AWSMobileClient(setDelegate: true)
-    
+
+    static var serviceConfiguration: CognitoServiceConfiguration? = nil
+
     // MARK: Feature availability variables
     
     /// Determines if there is any Cognito Identity Pool available to federate against it.
@@ -296,7 +298,8 @@ final public class AWSMobileClient: _AWSMobileClient {
                                                                                                       tokensUri: tokensURI,
                                                                                                       signInUriQueryParameters: self.signInURIQueryParameters,
                                                                                                       signOutUriQueryParameters: self.signOutURIQueryParameters,
-                                                                                                      tokenUriQueryParameters: self.tokenURIQueryParameters)
+                                                                                                      tokenUriQueryParameters: self.tokenURIQueryParameters,
+                                                                                                      userPoolServiceConfiguration: AWSMobileClient.serviceConfiguration?.userPoolServiceConfiguration)
                 
                 if (isCognitoAuthRegistered) {
                     AWSCognitoAuth.remove(forKey: CognitoAuthRegistrationKey)
@@ -474,7 +477,8 @@ final public class AWSMobileClient: _AWSMobileClient {
                                              tokensUri: tokensURI,
                                              signInUriQueryParameters: self.signInURIQueryParameters,
                                              signOutUriQueryParameters: self.signOutURIQueryParameters,
-                                             tokenUriQueryParameters: self.tokenURIQueryParameters)
+                                             tokenUriQueryParameters: self.tokenURIQueryParameters,
+                                             userPoolServiceConfiguration: AWSMobileClient.serviceConfiguration?.userPoolServiceConfiguration)
 
             if (isCognitoAuthRegistered) {
                 AWSCognitoAuth.remove(forKey: CognitoAuthRegistrationKey)
@@ -631,4 +635,24 @@ extension AWSMobileClient {
         self.internalCredentialsProvider?.clearKeychain()
     }
     
+}
+
+// MARK:- AWSMobileClient Cognito configuration
+
+extension AWSMobileClient {
+
+    static func configureCognitoService(userPoolConfiguration: AWSServiceConfiguration,
+                                        identityPoolConfiguration: AWSServiceConfiguration) {
+        let configuration = CognitoServiceConfiguration(userPoolServiceConfiguration: userPoolConfiguration,
+                                                        identityPoolServiceConfiguration: identityPoolConfiguration)
+        self.serviceConfiguration = configuration
+        UserPoolOperationsHandler.serviceConfiguration = configuration
+    }
+}
+
+struct CognitoServiceConfiguration {
+
+    let userPoolServiceConfiguration: AWSServiceConfiguration
+
+    let identityPoolServiceConfiguration: AWSServiceConfiguration
 }

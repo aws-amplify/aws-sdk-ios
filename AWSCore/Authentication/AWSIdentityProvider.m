@@ -125,7 +125,8 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
                     identityPoolId:(NSString *)identityPoolId
                    useEnhancedFlow:(BOOL)useEnhancedFlow
-           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
+           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager
+         identityPoolConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _executor = [AWSExecutor executorWithOperationQueue:[NSOperationQueue new]];
         _count = 0;
@@ -133,15 +134,26 @@ NSString *const AWSIdentityProviderAmazonCognitoIdentity = @"cognito-identity.am
         _useEnhancedFlow = useEnhancedFlow;
         self.identityPoolId = identityPoolId;
         self.identityProviderManager = identityProviderManager;
-        
-        AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
-                                                                             credentialsProvider:credentialsProvider];
         _cognitoIdentity = [[AWSCognitoIdentity alloc] initWithConfiguration:configuration];
     }
-    
     return self;
 }
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId
+                   useEnhancedFlow:(BOOL)useEnhancedFlow
+           identityProviderManager:(id<AWSIdentityProviderManager>)identityProviderManager {
+
+    AWSAnonymousCredentialsProvider *credentialsProvider = [AWSAnonymousCredentialsProvider new];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
+                                                                         credentialsProvider:credentialsProvider];
+    return [self initWithRegionType:regionType
+                     identityPoolId:identityPoolId
+                    useEnhancedFlow:useEnhancedFlow
+            identityProviderManager:identityProviderManager
+          identityPoolConfiguration:configuration];
+}
+
 
 #pragma mark - AWSIdentityProvider
 

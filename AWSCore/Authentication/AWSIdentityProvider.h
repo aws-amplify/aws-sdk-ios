@@ -131,6 +131,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderHelperErrorType) {
 
 @end
 
+@class AWSServiceConfiguration;
 /**
  An abstract implementation of the AWSCognitoCredentialsProviderHelper. Developers should extend this class when they want to implement developer authenticated identities and want to support the basic Amazon Cognito authflow in the same application.
  */
@@ -142,6 +143,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderHelperErrorType) {
                     identityPoolId:(NSString *)identityPoolId
                    useEnhancedFlow:(BOOL)useEnhancedFlow
            identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager;
+
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId
+                   useEnhancedFlow:(BOOL)useEnhancedFlow
+           identityProviderManager:(nullable id<AWSIdentityProviderManager>)identityProviderManager
+         identityPoolConfiguration:(AWSServiceConfiguration *)configuration;
 @end
 
 NS_ASSUME_NONNULL_END

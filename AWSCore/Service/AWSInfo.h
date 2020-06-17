@@ -22,7 +22,7 @@ FOUNDATION_EXPORT NSString *const AWSInfoDefault;
 
 @class AWSServiceInfo;
 @class AWSCognitoCredentialsProvider;
-
+@class AWSServiceConfiguration;
 /**
  * The AWSInfo holds the configuration values for the various supported services.
  */
@@ -45,6 +45,11 @@ FOUNDATION_EXPORT NSString *const AWSInfoDefault;
  * @param config The dictionary containing the configuration
  */
 + (void)configureDefaultAWSInfo:(NSDictionary<NSString *, id> *)config;
+
+/**
+ * Service configuration to be used while creating the identity pool service.
+ */
++ (void)configureIdentityPoolService:(AWSServiceConfiguration *)config;
 
 - (nullable AWSServiceInfo *)serviceInfo:(NSString *)serviceName
                                   forKey:(NSString *)key;
