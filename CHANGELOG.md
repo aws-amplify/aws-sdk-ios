@@ -1,3 +1,14 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSRoute53
+---AWSEc2
+---AWSSnowball
+---AWSAppmesh
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
