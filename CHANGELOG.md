@@ -1,3 +1,17 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSRds
+---AWSMarketplacemetering
+---AWSSesv2
+---AWSMediaconvert
+---AWSRoute53
+---AWSSsm
+---AWSSupport
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
