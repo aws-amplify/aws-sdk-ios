@@ -639,7 +639,7 @@ extension AWSMobileClient {
 
 // MARK:- AWSMobileClient Cognito configuration
 
-extension AWSMobileClient {
+public extension AWSMobileClient {
 
     static func configureCognitoService(userPoolConfiguration: AWSServiceConfiguration,
                                         identityPoolConfiguration: AWSServiceConfiguration) {
