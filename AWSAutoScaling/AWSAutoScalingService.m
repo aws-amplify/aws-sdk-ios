@@ -39,7 +39,9 @@ NSString *const AWSAutoScalingSDKVersion = @"2.13.4";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"ActiveInstanceRefreshNotFound" : @(AWSAutoScalingErrorActiveInstanceRefreshNotFound),
                             @"AlreadyExists" : @(AWSAutoScalingErrorAlreadyExists),
+                            @"InstanceRefreshInProgress" : @(AWSAutoScalingErrorInstanceRefreshInProgress),
                             @"InvalidNextToken" : @(AWSAutoScalingErrorInvalidNextToken),
                             @"LimitExceeded" : @(AWSAutoScalingErrorLimitExceeded),
                             @"ResourceContention" : @(AWSAutoScalingErrorResourceContention),
@@ -382,6 +384,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *response, NSError *error))completionHandler {
     [[self batchPutScheduledUpdateGroupAction:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *> * _Nonnull task) {
         AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingCancelInstanceRefreshAnswer *> *)cancelInstanceRefresh:(AWSAutoScalingCancelInstanceRefreshType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CancelInstanceRefresh"
+                   outputClass:[AWSAutoScalingCancelInstanceRefreshAnswer class]];
+}
+
+- (void)cancelInstanceRefresh:(AWSAutoScalingCancelInstanceRefreshType *)request
+     completionHandler:(void (^)(AWSAutoScalingCancelInstanceRefreshAnswer *response, NSError *error))completionHandler {
+    [[self cancelInstanceRefresh:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingCancelInstanceRefreshAnswer *> * _Nonnull task) {
+        AWSAutoScalingCancelInstanceRefreshAnswer *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -741,6 +766,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *response, NSError *error))completionHandler {
     [[self describeAutoScalingNotificationTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *> * _Nonnull task) {
         AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingDescribeInstanceRefreshesAnswer *> *)describeInstanceRefreshes:(AWSAutoScalingDescribeInstanceRefreshesType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceRefreshes"
+                   outputClass:[AWSAutoScalingDescribeInstanceRefreshesAnswer class]];
+}
+
+- (void)describeInstanceRefreshes:(AWSAutoScalingDescribeInstanceRefreshesType *)request
+     completionHandler:(void (^)(AWSAutoScalingDescribeInstanceRefreshesAnswer *response, NSError *error))completionHandler {
+    [[self describeInstanceRefreshes:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingDescribeInstanceRefreshesAnswer *> * _Nonnull task) {
+        AWSAutoScalingDescribeInstanceRefreshesAnswer *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1423,6 +1471,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSAutoScalingSetInstanceProtectionAnswer *response, NSError *error))completionHandler {
     [[self setInstanceProtection:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingSetInstanceProtectionAnswer *> * _Nonnull task) {
         AWSAutoScalingSetInstanceProtectionAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSAutoScalingStartInstanceRefreshAnswer *> *)startInstanceRefresh:(AWSAutoScalingStartInstanceRefreshType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"StartInstanceRefresh"
+                   outputClass:[AWSAutoScalingStartInstanceRefreshAnswer class]];
+}
+
+- (void)startInstanceRefresh:(AWSAutoScalingStartInstanceRefreshType *)request
+     completionHandler:(void (^)(AWSAutoScalingStartInstanceRefreshAnswer *response, NSError *error))completionHandler {
+    [[self startInstanceRefresh:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingStartInstanceRefreshAnswer *> * _Nonnull task) {
+        AWSAutoScalingStartInstanceRefreshAnswer *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
