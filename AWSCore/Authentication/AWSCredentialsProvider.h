@@ -200,7 +200,7 @@ Initializer for credentials provider with enhanced authentication flow. This is 
 @param configuration Configuration to be used while creating service client for Identity Pool
 */
 - (instancetype)initWithRegionType:(AWSRegionType)regionType
-           identityPoolId:(NSString *)identityPoolId
+                    identityPoolId:(NSString *)identityPoolId
          identityPoolConfiguration:(AWSServiceConfiguration *)configuration;
 
 /**
