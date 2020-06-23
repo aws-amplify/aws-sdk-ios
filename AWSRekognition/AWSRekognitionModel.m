@@ -43,6 +43,19 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionAudioMetadata
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codec" : @"Codec",
+             @"durationMillis" : @"DurationMillis",
+             @"numberOfChannels" : @"NumberOfChannels",
+             @"sampleRate" : @"SampleRate",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionBeard
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1894,6 +1907,76 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionGetSegmentDetectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionGetSegmentDetectionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"audioMetadata" : @"AudioMetadata",
+             @"jobStatus" : @"JobStatus",
+             @"nextToken" : @"NextToken",
+             @"segments" : @"Segments",
+             @"selectedSegmentTypes" : @"SelectedSegmentTypes",
+             @"statusMessage" : @"StatusMessage",
+             @"videoMetadata" : @"VideoMetadata",
+             };
+}
+
++ (NSValueTransformer *)audioMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionAudioMetadata class]];
+}
+
++ (NSValueTransformer *)jobStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"SUCCEEDED"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusSucceeded);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoJobStatusFailed);
+        }
+        return @(AWSRekognitionVideoJobStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionVideoJobStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSRekognitionVideoJobStatusSucceeded:
+                return @"SUCCEEDED";
+            case AWSRekognitionVideoJobStatusFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)segmentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionSegmentDetection class]];
+}
+
++ (NSValueTransformer *)selectedSegmentTypesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionSegmentTypeInfo class]];
+}
+
++ (NSValueTransformer *)videoMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionVideoMetadata class]];
+}
+
+@end
+
 @implementation AWSRekognitionGetTextDetectionRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2954,6 +3037,96 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionSegmentDetection
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"durationMillis" : @"DurationMillis",
+             @"durationSMPTE" : @"DurationSMPTE",
+             @"endTimecodeSMPTE" : @"EndTimecodeSMPTE",
+             @"endTimestampMillis" : @"EndTimestampMillis",
+             @"shotSegment" : @"ShotSegment",
+             @"startTimecodeSMPTE" : @"StartTimecodeSMPTE",
+             @"startTimestampMillis" : @"StartTimestampMillis",
+             @"technicalCueSegment" : @"TechnicalCueSegment",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)shotSegmentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionShotSegment class]];
+}
+
++ (NSValueTransformer *)technicalCueSegmentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTechnicalCueSegment class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TECHNICAL_CUE"] == NSOrderedSame) {
+            return @(AWSRekognitionSegmentTypeTechnicalCue);
+        }
+        if ([value caseInsensitiveCompare:@"SHOT"] == NSOrderedSame) {
+            return @(AWSRekognitionSegmentTypeShot);
+        }
+        return @(AWSRekognitionSegmentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionSegmentTypeTechnicalCue:
+                return @"TECHNICAL_CUE";
+            case AWSRekognitionSegmentTypeShot:
+                return @"SHOT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionSegmentTypeInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"modelVersion" : @"ModelVersion",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TECHNICAL_CUE"] == NSOrderedSame) {
+            return @(AWSRekognitionSegmentTypeTechnicalCue);
+        }
+        if ([value caseInsensitiveCompare:@"SHOT"] == NSOrderedSame) {
+            return @(AWSRekognitionSegmentTypeShot);
+        }
+        return @(AWSRekognitionSegmentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionSegmentTypeTechnicalCue:
+                return @"TECHNICAL_CUE";
+            case AWSRekognitionSegmentTypeShot:
+                return @"SHOT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionShotSegment
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"index" : @"Index",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionSmile
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3254,6 +3427,72 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionStartSegmentDetectionFilters
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"shotFilter" : @"ShotFilter",
+             @"technicalCueFilter" : @"TechnicalCueFilter",
+             };
+}
+
++ (NSValueTransformer *)shotFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStartShotDetectionFilter class]];
+}
+
++ (NSValueTransformer *)technicalCueFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStartTechnicalCueDetectionFilter class]];
+}
+
+@end
+
+@implementation AWSRekognitionStartSegmentDetectionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientRequestToken" : @"ClientRequestToken",
+             @"filters" : @"Filters",
+             @"jobTag" : @"JobTag",
+             @"notificationChannel" : @"NotificationChannel",
+             @"segmentTypes" : @"SegmentTypes",
+             @"video" : @"Video",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionStartSegmentDetectionFilters class]];
+}
+
++ (NSValueTransformer *)notificationChannelJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionNotificationChannel class]];
+}
+
++ (NSValueTransformer *)videoJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionVideo class]];
+}
+
+@end
+
+@implementation AWSRekognitionStartSegmentDetectionResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"jobId" : @"JobId",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionStartShotDetectionFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minSegmentConfidence" : @"MinSegmentConfidence",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionStartStreamProcessorRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -3265,6 +3504,16 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 @end
 
 @implementation AWSRekognitionStartStreamProcessorResponse
+
+@end
+
+@implementation AWSRekognitionStartTechnicalCueDetectionFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minSegmentConfidence" : @"MinSegmentConfidence",
+             };
+}
 
 @end
 
@@ -3523,6 +3772,43 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"confidence" : @"Confidence",
              @"value" : @"Value",
              };
+}
+
+@end
+
+@implementation AWSRekognitionTechnicalCueSegment
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ColorBars"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeColorBars);
+        }
+        if ([value caseInsensitiveCompare:@"EndCredits"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeEndCredits);
+        }
+        if ([value caseInsensitiveCompare:@"BlackFrames"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeBlackFrames);
+        }
+        return @(AWSRekognitionTechnicalCueTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionTechnicalCueTypeColorBars:
+                return @"ColorBars";
+            case AWSRekognitionTechnicalCueTypeEndCredits:
+                return @"EndCredits";
+            case AWSRekognitionTechnicalCueTypeBlackFrames:
+                return @"BlackFrames";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
