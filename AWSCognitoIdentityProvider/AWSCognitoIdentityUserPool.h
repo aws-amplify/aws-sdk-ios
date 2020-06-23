@@ -60,6 +60,8 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (void)removeCognitoIdentityUserPoolForKey:(NSString *)key;
 
++ (AWSCognitoIdentityUserPoolConfiguration *)buildUserPoolConfiguration:(nullable AWSServiceInfo *) serviceInfo;
+
 /**
  Sign up a new user
  */

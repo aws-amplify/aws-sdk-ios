@@ -63,13 +63,34 @@ AWSCognitoUserPoolInternalDelegate {
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
     var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
+
+    static var serviceConfiguration: CognitoServiceConfiguration? = nil
+
     
     public override init() {
         super.init()
         if (AWSInfo.default().defaultServiceInfo("CognitoUserPool") != nil) {
-            self.userpoolClient = AWSCognitoIdentityUserPool.default()
+            self.userpoolClient = self.getUserPoolClient()
             self.userpoolClient?.delegate = self
         }
+    }
+
+    private func getUserPoolClient() -> AWSCognitoIdentityUserPool {
+        
+        guard let serviceConfig = UserPoolOperationsHandler.serviceConfiguration?.userPoolServiceConfiguration else {
+            return AWSCognitoIdentityUserPool.default()
+        }
+        let clientKey = "CognitoUserPoolKey"
+        let client = AWSCognitoIdentityUserPool.init(forKey: clientKey)
+        if (client == nil) {
+            let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
+            let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
+            AWSCognitoIdentityUserPool.register(with: serviceConfig,
+                                                userPoolConfiguration: userPoolConfig,
+                                                forKey: clientKey)
+            return AWSCognitoIdentityUserPool.init(forKey: clientKey)
+        }
+        return client
     }
     
     internal func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {

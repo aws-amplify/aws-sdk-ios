@@ -193,6 +193,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoCredentialsProviderErrorType) {
                     identityPoolId:(NSString *)identityPoolId;
 
 /**
+Initializer for credentials provider with enhanced authentication flow. This is the recommended constructor for first time Amazon Cognito developers. Will create an instance of `AWSEnhancedCognitoIdentityProvider`.
+
+@param regionType The region in which your identity pool exists.
+@param identityPoolId The identity pool id for this provider. Value is used to communicate with Amazon Cognito as well as namespace values stored in the keychain.
+@param configuration Configuration to be used while creating service client for Identity Pool
+*/
+- (instancetype)initWithRegionType:(AWSRegionType)regionType
+                    identityPoolId:(NSString *)identityPoolId
+         identityPoolConfiguration:(AWSServiceConfiguration *)configuration;
+
+/**
  Initializer for credentials provider with enhanced authentication flow. This is the recommended method for first time Amazon Cognito developers. Will create an instance of `AWSEnhancedCognitoIdentityProvider`.
 
  @param regionType The region in which your identity pool exists.

@@ -51,6 +51,7 @@ static NSString *const AWSInfoIdentityManager = @"IdentityManager";
 
 static AWSInfo *_defaultAWSInfo = nil;
 static NSDictionary<NSString *, id> * _userConfig = nil;
+static AWSServiceConfiguration *_identityPoolConfiguration = nil;
 
 - (instancetype)initWithConfiguration:(NSDictionary<NSString *, id> *)config {
     if (self = [super init]) {
@@ -69,8 +70,15 @@ static NSDictionary<NSString *, id> * _userConfig = nil;
         NSString *cognitoIdentityPoolID = [defaultCredentialsProviderDictionary objectForKey:AWSInfoCognitoIdentityPoolId];
         AWSRegionType cognitoIdentityRegion =  [[defaultCredentialsProviderDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];
         if (cognitoIdentityPoolID && cognitoIdentityRegion != AWSRegionUnknown) {
-            _defaultCognitoCredentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegion
-                                                                                            identityPoolId:cognitoIdentityPoolID];
+            if (_identityPoolConfiguration == nil) {
+                _defaultCognitoCredentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegion
+                                                                                                           identityPoolId:cognitoIdentityPoolID];
+            } else {
+                _defaultCognitoCredentialsProvider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:cognitoIdentityRegion
+                                                                                                           identityPoolId:cognitoIdentityPoolID
+                                                                                     identityPoolConfiguration: _identityPoolConfiguration];
+            }
+
         }
 
         _defaultRegion = [[defaultInfoDictionary objectForKey:AWSInfoRegion] aws_regionTypeValue];
@@ -128,6 +136,10 @@ static NSDictionary<NSString *, id> * _userConfig = nil;
     } else {
         _userConfig = config;
     }
+}
+
++ (void)configureIdentityPoolService:(AWSServiceConfiguration *)config {
+    _identityPoolConfiguration = config;
 }
 
 + (void)overrideCredentialsProvider:(AWSCognitoCredentialsProvider *)cognitoCredentialsProvider {
