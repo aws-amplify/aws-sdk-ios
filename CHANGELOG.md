@@ -1,7 +1,7 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
 ### Bug Fixes
 
 - **Amazon Pinpoint**
@@ -13,7 +13,16 @@
 
 ### Misc. Updates
 - Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon EC2
   - AWS IoT
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SQS
+  - Amazon SageMaker
 
 ## 2.13.4
 ### New features
