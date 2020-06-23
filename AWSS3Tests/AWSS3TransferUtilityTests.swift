@@ -1618,11 +1618,6 @@ class AWSS3TransferUtilityTests: XCTestCase {
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
 
-        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
-        expression.progressBlock = {(task, progress) in
-            print("Upload progress: ", progress.fractionCompleted)
-        }
-
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "to-remove")!
 
         transferUtility.uploadUsingMultiPart(
@@ -1630,13 +1625,9 @@ class AWSS3TransferUtilityTests: XCTestCase {
             bucket: generalTestBucket,
             key: "testCancelMultipartUpload.txt",
             contentType: "text/plain",
-            expression: expression,
+            expression: nil,
             completionHandler: nil
-        ).continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
-            XCTAssertNil(task.error)
-            XCTAssertNotNil(task.result)
-            return nil
-        }
+        )
 
         let sessionInvalidationExpectation = XCTNSNotificationExpectation(
             name: .AWSS3TransferUtilityURLSessionDidBecomeInvalid,
@@ -1649,6 +1640,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         AWSS3TransferUtility.remove(forKey: "to-remove")
         
         wait(for: [sessionInvalidationExpectation], timeout: 10)
+        
     }
 
     
