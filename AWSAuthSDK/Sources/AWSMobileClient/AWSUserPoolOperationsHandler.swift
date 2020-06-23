@@ -66,7 +66,6 @@ AWSCognitoUserPoolInternalDelegate {
 
     static var serviceConfiguration: CognitoServiceConfiguration? = nil
 
-    let identityPoolClientKey = "identityPoolClientKey"
     
     public override init() {
         super.init()
@@ -82,13 +81,14 @@ AWSCognitoUserPoolInternalDelegate {
             return AWSCognitoIdentityUserPool.default()
         }
         let clientKey = "CognitoUserPoolKey"
-        guard let client = AWSCognitoIdentityUserPool.init(forKey: clientKey) else {
+        let client = AWSCognitoIdentityUserPool.init(forKey: clientKey)
+        if (client == nil) {
             let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
             let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
             AWSCognitoIdentityUserPool.register(with: serviceConfig,
                                                 userPoolConfiguration: userPoolConfig,
                                                 forKey: clientKey)
-            return AWSCognitoIdentityUserPool.init(forKey: clientKey)!
+            return AWSCognitoIdentityUserPool.init(forKey: clientKey)
         }
         return client
     }

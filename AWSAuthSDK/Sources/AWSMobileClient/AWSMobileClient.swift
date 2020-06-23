@@ -641,12 +641,13 @@ extension AWSMobileClient {
 
 public extension AWSMobileClient {
 
-    static func configureCognitoService(userPoolConfiguration: AWSServiceConfiguration,
+    static func updateCognitoService(userPoolConfiguration: AWSServiceConfiguration,
                                         identityPoolConfiguration: AWSServiceConfiguration) {
         let configuration = CognitoServiceConfiguration(userPoolServiceConfiguration: userPoolConfiguration,
                                                         identityPoolServiceConfiguration: identityPoolConfiguration)
         self.serviceConfiguration = configuration
         UserPoolOperationsHandler.serviceConfiguration = configuration
+        AWSInfo.configureIdentityPoolService(configuration.identityPoolServiceConfiguration)
     }
 }
 
