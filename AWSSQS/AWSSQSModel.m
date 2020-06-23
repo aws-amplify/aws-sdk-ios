@@ -256,6 +256,8 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              @"queueUrl" : @"QueueUrl",
              };
 }
@@ -266,6 +268,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"queueUrls" : @"queueUrls",
              };
 }
@@ -296,6 +299,8 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
              @"queueNamePrefix" : @"QueueNamePrefix",
              };
 }
@@ -306,6 +311,7 @@ NSString *const AWSSQSErrorDomain = @"com.amazonaws.AWSSQSErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"NextToken",
              @"queueUrls" : @"QueueUrls",
              };
 }
