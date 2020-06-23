@@ -1,19 +1,7 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEc2
----AWSSqs
----AWSEmr
----AWSRekognition
----AWSRds
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
 ### Bug Fixes
 
 - **Amazon Pinpoint**
@@ -25,7 +13,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
 - Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon EC2
   - AWS IoT
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SQS
+  - Amazon SageMaker
 
 ## 2.13.4
 ### New features
