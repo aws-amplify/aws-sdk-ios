@@ -90,7 +90,7 @@
   \"shapes\":{\
     \"BodyBlob\":{\
       \"type\":\"blob\",\
-      \"max\":5242880,\
+      \"max\":6291456,\
       \"sensitive\":true\
     },\
     \"CustomAttributesHeader\":{\
@@ -135,7 +135,7 @@
         },\
         \"Body\":{\
           \"shape\":\"BodyBlob\",\
-          \"documentation\":\"<p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data FormatsâInference</a>.</p>\"\
+          \"documentation\":\"<p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p> <p>For information about the format of the request body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data Formats-Inference</a>.</p>\"\
         },\
         \"ContentType\":{\
           \"shape\":\"Header\",\
@@ -157,9 +157,15 @@
         },\
         \"TargetModel\":{\
           \"shape\":\"TargetModelHeader\",\
-          \"documentation\":\"<p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>\",\
+          \"documentation\":\"<p>The model to request for inference when invoking a multi-model endpoint. </p>\",\
           \"location\":\"header\",\
           \"locationName\":\"X-Amzn-SageMaker-Target-Model\"\
+        },\
+        \"TargetVariant\":{\
+          \"shape\":\"TargetVariantHeader\",\
+          \"documentation\":\"<p>Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amzn-SageMaker-Target-Variant\"\
         }\
       },\
       \"payload\":\"Body\"\
@@ -170,7 +176,7 @@
       \"members\":{\
         \"Body\":{\
           \"shape\":\"BodyBlob\",\
-          \"documentation\":\"<p>Includes the inference provided by the model.</p> <p>For information about the format of the response body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data FormatsâInference</a>.</p>\"\
+          \"documentation\":\"<p>Includes the inference provided by the model.</p> <p>For information about the format of the response body, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html\\\">Common Data Formats-Inference</a>.</p>\"\
         },\
         \"ContentType\":{\
           \"shape\":\"Header\",\
@@ -236,6 +242,11 @@
       \"max\":1024,\
       \"min\":1,\
       \"pattern\":\"\\\\A\\\\S[\\\\p{Print}]*\\\\z\"\
+    },\
+    \"TargetVariantHeader\":{\
+      \"type\":\"string\",\
+      \"max\":63,\
+      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"ValidationError\":{\
       \"type\":\"structure\",\

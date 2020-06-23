@@ -44,7 +44,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable accept;
 
 /**
- <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p><p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
+ <p>Provides input data, in the format specified in the <code>ContentType</code> request header. Amazon SageMaker passes all of the data in the body to the model. </p><p>For information about the format of the request body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable body;
 
@@ -64,9 +64,14 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 @property (nonatomic, strong) NSString * _Nullable endpointName;
 
 /**
- <p>Specifies the model to be requested for an inference when invoking a multi-model endpoint. </p>
+ <p>The model to request for inference when invoking a multi-model endpoint. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetModel;
+
+/**
+ <p>Specify the production variant to send the inference request to when invoking an endpoint that is running two or more variants. Note that this parameter overrides the default behavior for the endpoint, which is to distribute the invocation traffic based on the variant weights.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetVariant;
 
 @end
 
@@ -77,7 +82,7 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
 
 
 /**
- <p>Includes the inference provided by the model.</p><p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats—Inference</a>.</p>
+ <p>Includes the inference provided by the model.</p><p>For information about the format of the response body, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/cdf-inference.html">Common Data Formats-Inference</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable body;
 
