@@ -14,9 +14,9 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.13.4 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSEC2 2.13.5 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1839,6 +1839,9 @@
                 <a href="Classes/AWSEC2EbsInstanceBlockDeviceSpecification.html">AWSEC2EbsInstanceBlockDeviceSpecification</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2EbsOptimizedInfo.html">AWSEC2EbsOptimizedInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2EgressOnlyInternetGateway.html">AWSEC2EgressOnlyInternetGateway</a>
               </li>
               <li class="nav-group-task">
@@ -1957,6 +1960,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2FailedQueuedPurchaseDeletion.html">AWSEC2FailedQueuedPurchaseDeletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2FederatedAuthentication.html">AWSEC2FederatedAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2FederatedAuthenticationRequest.html">AWSEC2FederatedAuthenticationRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2Filter.html">AWSEC2Filter</a>
@@ -3585,6 +3594,12 @@
                 <a href="Classes/AWSEC2VCpuInfo.html">AWSEC2VCpuInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2ValidationError.html">AWSEC2ValidationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2ValidationWarning.html">AWSEC2ValidationWarning</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2VgwTelemetry.html">AWSEC2VgwTelemetry</a>
               </li>
               <li class="nav-group-task">
@@ -3842,6 +3857,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2EbsEncryptionSupport.html">AWSEC2EbsEncryptionSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2EbsNvmeSupport.html">AWSEC2EbsNvmeSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2EbsOptimizedSupport.html">AWSEC2EbsOptimizedSupport</a>
@@ -7824,7 +7842,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the authentication methods used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
+                        <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
 
                         <a href="Classes/AWSEC2ClientVpnAuthentication.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7857,7 +7875,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the authentication method to be used by a Client VPN endpoint. Client VPN supports Active Directory and mutual authentication. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
+                        <p>Describes the authentication method to be used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
 
                         <a href="Classes/AWSEC2ClientVpnAuthenticationRequest.html" class="slightly-smaller">See more</a>
                       </div>
@@ -23999,6 +24017,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2EbsOptimizedInfo"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2EbsOptimizedInfo" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2EbsOptimizedInfo">AWSEC2EbsOptimizedInfo</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the optimized EBS performance for supported instance types.</p>
+
+                        <a href="Classes/AWSEC2EbsOptimizedInfo.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2EbsOptimizedInfo</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2EbsOptimizedInfo</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2EgressOnlyInternetGateway"></a>
                     <a name="//apple_ref/objc/Class/AWSEC2EgressOnlyInternetGateway" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2EgressOnlyInternetGateway">AWSEC2EgressOnlyInternetGateway</a>
@@ -25308,6 +25359,72 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2FederatedAuthentication"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2FederatedAuthentication" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2FederatedAuthentication">AWSEC2FederatedAuthentication</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the IAM SAML identity provider used for federated authentication.</p>
+
+                        <a href="Classes/AWSEC2FederatedAuthentication.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2FederatedAuthentication</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2FederatedAuthentication</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2FederatedAuthenticationRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2FederatedAuthenticationRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2FederatedAuthenticationRequest">AWSEC2FederatedAuthenticationRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The IAM SAML identity provider used for federated authentication.</p>
+
+                        <a href="Classes/AWSEC2FederatedAuthenticationRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2FederatedAuthenticationRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2FederatedAuthenticationRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2Filter"></a>
                     <a name="//apple_ref/objc/Class/AWSEC2Filter" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2Filter">AWSEC2Filter</a>
@@ -25516,7 +25633,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a launch template.</p>
+                        <p>Describes the Amazon EC2 launch template and the launch template version that can be used by a Spot Fleet request to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
 
                         <a href="Classes/AWSEC2FleetLaunchTemplateSpecification.html" class="slightly-smaller">See more</a>
                       </div>
@@ -25549,7 +25666,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The launch template to use. You must specify either the launch template ID or launch template name in the request. </p>
+                        <p>Describes the Amazon EC2 launch template and the launch template version that can be used by an EC2 Fleet to configure Amazon EC2 instances. For information about launch templates, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html">Launching an instance from a launch template</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
 
                         <a href="Classes/AWSEC2FleetLaunchTemplateSpecificationRequest.html" class="slightly-smaller">See more</a>
                       </div>
@@ -42672,7 +42789,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the S3 bucket for the disk image.</p>
+                        <p>Describes the Amazon S3 bucket for the disk image.</p>
 
                         <a href="Classes/AWSEC2UserBucket.html" class="slightly-smaller">See more</a>
                       </div>
@@ -42705,7 +42822,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the S3 bucket for the disk image.</p>
+                        <p>Describes the Amazon S3 bucket for the disk image.</p>
 
                         <a href="Classes/AWSEC2UserBucketDetails.html" class="slightly-smaller">See more</a>
                       </div>
@@ -42818,6 +42935,72 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2VCpuInfo</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2ValidationError"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2ValidationError" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ValidationError">AWSEC2ValidationError</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The error code and error message that is returned for a parameter or parameter combination that is not valid when a new launch template or new version of a launch template is created.</p>
+
+                        <a href="Classes/AWSEC2ValidationError.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2ValidationError</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2ValidationError</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2ValidationWarning"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2ValidationWarning" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ValidationWarning">AWSEC2ValidationWarning</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The error codes and error messages that are returned for the parameters or parameter combinations that are not valid when a new launch template or new version of a launch template is created.</p>
+
+                        <a href="Classes/AWSEC2ValidationWarning.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2ValidationWarning</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2ValidationWarning</span></code></pre>
 
                         </div>
                       </div>
@@ -43924,8 +44107,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-05-21)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

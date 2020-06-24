@@ -14,9 +14,9 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.13.4 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSEC2 2.13.5 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2%2Exml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1839,6 +1839,9 @@
                 <a href="Classes/AWSEC2EbsInstanceBlockDeviceSpecification.html">AWSEC2EbsInstanceBlockDeviceSpecification</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2EbsOptimizedInfo.html">AWSEC2EbsOptimizedInfo</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2EgressOnlyInternetGateway.html">AWSEC2EgressOnlyInternetGateway</a>
               </li>
               <li class="nav-group-task">
@@ -1957,6 +1960,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2FailedQueuedPurchaseDeletion.html">AWSEC2FailedQueuedPurchaseDeletion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2FederatedAuthentication.html">AWSEC2FederatedAuthentication</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2FederatedAuthenticationRequest.html">AWSEC2FederatedAuthenticationRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2Filter.html">AWSEC2Filter</a>
@@ -3585,6 +3594,12 @@
                 <a href="Classes/AWSEC2VCpuInfo.html">AWSEC2VCpuInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSEC2ValidationError.html">AWSEC2ValidationError</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2ValidationWarning.html">AWSEC2ValidationWarning</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSEC2VgwTelemetry.html">AWSEC2VgwTelemetry</a>
               </li>
               <li class="nav-group-task">
@@ -3842,6 +3857,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2EbsEncryptionSupport.html">AWSEC2EbsEncryptionSupport</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSEC2EbsNvmeSupport.html">AWSEC2EbsNvmeSupport</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSEC2EbsOptimizedSupport.html">AWSEC2EbsOptimizedSupport</a>
@@ -5344,6 +5362,7 @@
     <span class="n">AWSEC2ClientVpnAuthenticationTypeUnknown</span><span class="p">,</span>
     <span class="n">AWSEC2ClientVpnAuthenticationTypeCertificateAuthentication</span><span class="p">,</span>
     <span class="n">AWSEC2ClientVpnAuthenticationTypeDirectoryServiceAuthentication</span><span class="p">,</span>
+    <span class="n">AWSEC2ClientVpnAuthenticationTypeFederatedAuthentication</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -6212,6 +6231,44 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2EbsEncryptionSupport</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2EbsNvmeSupport"></a>
+                    <a name="//apple_ref/objc/Enum/AWSEC2EbsNvmeSupport" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2EbsNvmeSupport">AWSEC2EbsNvmeSupport</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSEC2EbsNvmeSupport.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSEC2EbsNvmeSupport</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSEC2EbsNvmeSupportUnknown</span><span class="p">,</span>
+    <span class="n">AWSEC2EbsNvmeSupportUnsupported</span><span class="p">,</span>
+    <span class="n">AWSEC2EbsNvmeSupportSupported</span><span class="p">,</span>
+    <span class="n">AWSEC2EbsNvmeSupportRequired</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSEC2EbsNvmeSupport</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -7823,6 +7880,15 @@
     <span class="n">AWSEC2InstanceTypeR5Ad_12xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeR5Ad_16xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeR5Ad_24xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_medium</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_12xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeR6G_16xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeX1_16xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeX1_32xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeX1E_xlarge</span><span class="p">,</span>
@@ -7873,6 +7939,14 @@
     <span class="n">AWSEC2InstanceTypeC5_18xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5_24xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_12xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_16xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC5A_24xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5D_large</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5D_xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5D_2xlarge</span><span class="p">,</span>
@@ -7888,6 +7962,15 @@
     <span class="n">AWSEC2InstanceTypeC5N_4xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5N_9xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeC5N_18xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_medium</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_12xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeC6G_16xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeCC1_4xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeCC2_8xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeG2_2xlarge</span><span class="p">,</span>
@@ -7902,6 +7985,7 @@
     <span class="n">AWSEC2InstanceTypeG4Dn_8xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeG4Dn_12xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeG4Dn_16xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeG4Dn_metal</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeCG1_4xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeP2_xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeP2_8xlarge</span><span class="p">,</span>
@@ -8009,6 +8093,15 @@
     <span class="n">AWSEC2InstanceTypeINF1_2xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeINF1_6xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeINF1_24xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_medium</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_large</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_2xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_4xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_8xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_12xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeM6G_16xlarge</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -9760,14 +9853,20 @@
     <span class="n">AWSEC2ResourceTypeDedicatedHost</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeDHCPOptions</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeElasticIp</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeElasticGpu</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeExportImageTask</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeExportInstanceTask</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeFleet</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeFpgaImage</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeHostReservation</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeImage</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeImportImageTask</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeImportSnapshotTask</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeInstance</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeInternetGateway</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeKeyPair</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeLaunchTemplate</span><span class="p">,</span>
+    <span class="n">AWSEC2ResourceTypeLocalGatewayRouteTableVpcAssociation</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNatgateway</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkACL</span><span class="p">,</span>
     <span class="n">AWSEC2ResourceTypeNetworkInterface</span><span class="p">,</span>
@@ -12226,8 +12325,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-05-21)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
