@@ -14,9 +14,9 @@
     <a title="AWSLambdaErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.13.4 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.13.5 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -109,6 +109,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaEventSourceMappingConfiguration.html">AWSLambdaEventSourceMappingConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLambdaFileSystemConfig.html">AWSLambdaFileSystemConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLambdaFunctionCode.html">AWSLambdaFunctionCode</a>
@@ -436,6 +439,10 @@
     <span class="n">AWSLambdaErrorEC2AccessDenied</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorEC2Throttled</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorEC2Unexpected</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorEFSIO</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorEFSMountConnectivity</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorEFSMountFailure</span><span class="p">,</span>
+    <span class="n">AWSLambdaErrorEFSMountTimeout</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorENILimitReached</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorInvalidParameterValue</span><span class="p">,</span>
     <span class="n">AWSLambdaErrorInvalidRequestContent</span><span class="p">,</span>
@@ -632,6 +639,134 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSIO"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaErrorEFSIO" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSIO">AWSLambdaErrorEFSIO</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaErrorEFSIO</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="kt">EFSIO</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountConnectivity"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaErrorEFSMountConnectivity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountConnectivity">AWSLambdaErrorEFSMountConnectivity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaErrorEFSMountConnectivity</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountConnectivity</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountFailure"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaErrorEFSMountFailure" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountFailure">AWSLambdaErrorEFSMountFailure</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaErrorEFSMountFailure</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountFailure</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountTimeout"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaErrorEFSMountTimeout" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaErrorType@AWSLambdaErrorEFSMountTimeout">AWSLambdaErrorEFSMountTimeout</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaErrorEFSMountTimeout</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">efsMountTimeout</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSLambdaErrorType@AWSLambdaErrorENILimitReached"></a>
                     <a name="//apple_ref/objc/Case/AWSLambdaErrorENILimitReached" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSLambdaErrorType@AWSLambdaErrorENILimitReached">AWSLambdaErrorENILimitReached</a>
@@ -654,7 +789,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eniLimitReached</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eniLimitReached</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -686,7 +821,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameterValue</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameterValue</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -718,7 +853,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequestContent</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRequestContent</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -750,7 +885,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRuntime</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRuntime</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -782,7 +917,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidSecurityGroupID</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidSecurityGroupID</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
 
                         </div>
                       </div>
@@ -814,7 +949,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidSubnetID</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidSubnetID</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
 
                         </div>
                       </div>
@@ -846,7 +981,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidZipFile</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidZipFile</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
 
                         </div>
                       </div>
@@ -878,7 +1013,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsAccessDenied</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsAccessDenied</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
 
                         </div>
                       </div>
@@ -910,7 +1045,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsDisabled</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsDisabled</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
 
                         </div>
                       </div>
@@ -942,7 +1077,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidState</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsInvalidState</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
 
                         </div>
                       </div>
@@ -974,7 +1109,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsNotFound</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">kmsNotFound</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
 
                         </div>
                       </div>
@@ -1006,7 +1141,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">policyLengthExceeded</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">policyLengthExceeded</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
 
                         </div>
                       </div>
@@ -1038,7 +1173,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">preconditionFailed</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">preconditionFailed</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
 
                         </div>
                       </div>
@@ -1070,7 +1205,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedConcurrencyConfigNotFound</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedConcurrencyConfigNotFound</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
 
                         </div>
                       </div>
@@ -1102,7 +1237,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestTooLarge</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestTooLarge</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
 
                         </div>
                       </div>
@@ -1134,7 +1269,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceConflict</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceConflict</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
 
                         </div>
                       </div>
@@ -1166,7 +1301,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
 
                         </div>
                       </div>
@@ -1198,7 +1333,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
 
                         </div>
                       </div>
@@ -1230,7 +1365,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotReady</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotReady</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
 
                         </div>
                       </div>
@@ -1262,7 +1397,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">service</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">service</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
 
                         </div>
                       </div>
@@ -1294,7 +1429,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnetIPAddressLimitReached</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnetIPAddressLimitReached</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
 
                         </div>
                       </div>
@@ -1326,7 +1461,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
 
                         </div>
                       </div>
@@ -1358,7 +1493,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedMediaType</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedMediaType</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
 
                         </div>
                       </div>
@@ -1370,8 +1505,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-05-21)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>

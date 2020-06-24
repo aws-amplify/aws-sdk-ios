@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLambdaListProvisionedConcurrencyConfigsRequest Class Reference</title>
+    <title>AWSLambdaFileSystemConfig Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -10,8 +10,8 @@
     
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLambdaListProvisionedConcurrencyConfigsRequest" class="dashAnchor"></a>
-    <a title="AWSLambdaListProvisionedConcurrencyConfigsRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLambdaFileSystemConfig" class="dashAnchor"></a>
+    <a title="AWSLambdaFileSystemConfig Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLambda 2.13.5 Docs</a> (79% documented)</p>
@@ -23,7 +23,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLambda Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSLambdaListProvisionedConcurrencyConfigsRequest Class Reference
+        AWSLambdaFileSystemConfig Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -430,14 +430,17 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLambdaListProvisionedConcurrencyConfigsRequest</h1>
+            <h1>AWSLambdaFileSystemConfig</h1>
               <div class="declaration">
                 <div class="language">
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaListProvisionedConcurrencyConfigsRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaFileSystemConfig</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+
+<p>Required parameters: [Arn, LocalMountPath]</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -445,9 +448,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)functionName"></a>
-                    <a name="//apple_ref/objc/Property/functionName" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)functionName">functionName</a>
+                    <a name="/c:objc(cs)AWSLambdaFileSystemConfig(py)arn"></a>
+                    <a name="//apple_ref/objc/Property/arn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaFileSystemConfig(py)arn">arn</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -455,19 +458,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+                        <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">functionName</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">arn</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">functionName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">arn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -477,9 +480,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)marker"></a>
-                    <a name="//apple_ref/objc/Property/marker" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)marker">marker</a>
+                    <a name="/c:objc(cs)AWSLambdaFileSystemConfig(py)localMountPath"></a>
+                    <a name="//apple_ref/objc/Property/localMountPath" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLambdaFileSystemConfig(py)localMountPath">localMountPath</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -487,51 +490,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specify the pagination token that&rsquo;s returned by a previous request to retrieve the next page of results.</p>
+                        <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">marker</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">localMountPath</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">marker</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)maxItems"></a>
-                    <a name="//apple_ref/objc/Property/maxItems" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambdaListProvisionedConcurrencyConfigsRequest(py)maxItems">maxItems</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Specify a number to limit the number of configurations returned.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maxItems</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maxItems</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">localMountPath</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
