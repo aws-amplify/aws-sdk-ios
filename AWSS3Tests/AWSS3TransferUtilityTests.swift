@@ -1595,6 +1595,14 @@ class AWSS3TransferUtilityTests: XCTestCase {
     }
 
     func testRemovingTransferUtilityInvalidatesSession() {
+        // Register this before creating the transfer utility so we're comfortable that the expectation will receive
+        // all "DidBecomeInvalid" notifications
+        let sessionInvalidationExpectation = XCTNSNotificationExpectation(
+            name: .AWSS3TransferUtilityURLSessionDidBecomeInvalid,
+            object: nil,
+            notificationCenter: NotificationCenter.default
+        )
+
         // setup a custom transfer utility that will be registered then removed
         let serviceConfiguration = AWSServiceManager.default().defaultServiceConfiguration
         let transferUtilityConfiguration = AWSS3TransferUtilityConfiguration()
@@ -1612,7 +1620,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testCancelMultipartUpload.tmp"
         var testData = "CancelT"
-        for _ in 1...24 {
+        for _ in 1...12 {
             testData = testData + testData;
         }
         let fileURL = URL(fileURLWithPath: filePath)
@@ -1620,27 +1628,29 @@ class AWSS3TransferUtilityTests: XCTestCase {
 
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "to-remove")!
 
+        // Cancel as soon as we get any progress
+        var hasBeenRemoved = false
+        let expression = AWSS3TransferUtilityMultiPartUploadExpression()
+        expression.progressBlock = { _, _ in
+            if hasBeenRemoved {
+                return
+            }
+            hasBeenRemoved = true
+            AWSS3TransferUtility.remove(forKey: "to-remove")
+        }
+        
         transferUtility.uploadUsingMultiPart(
             fileURL:  fileURL,
             bucket: generalTestBucket,
             key: "testCancelMultipartUpload.txt",
             contentType: "text/plain",
-            expression: nil,
+            expression: expression,
             completionHandler: nil
         )
 
-        let sessionInvalidationExpectation = XCTNSNotificationExpectation(
-            name: .AWSS3TransferUtilityURLSessionDidBecomeInvalid,
-            object: nil,
-            notificationCenter: NotificationCenter.default
-        )
-
-        sleep(1)
-
-        AWSS3TransferUtility.remove(forKey: "to-remove")
-        
-        wait(for: [sessionInvalidationExpectation], timeout: 10)
-        
+        // This needs to wait for the multipart sections to be created, as well as for the transfer to start. Give it
+        // enough time to account for variations in runtime environment.
+        wait(for: [sessionInvalidationExpectation], timeout: 60)
     }
 
     
