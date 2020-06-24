@@ -1,0 +1,965 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSRekognitionSegmentDetection Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSRekognitionSegmentDetection" class="dashAnchor"></a>
+    <a title="AWSRekognitionSegmentDetection Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSRekognition 2.13.5 Docs</a> (79% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSRekognition Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSRekognitionSegmentDetection Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognition.html">AWSRekognition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionAgeRange.html">AWSRekognitionAgeRange</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionAsset.html">AWSRekognitionAsset</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionAudioMetadata.html">AWSRekognitionAudioMetadata</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionBoundingBox.html">AWSRekognitionBoundingBox</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCelebrity.html">AWSRekognitionCelebrity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCelebrityDetail.html">AWSRekognitionCelebrityDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCelebrityRecognition.html">AWSRekognitionCelebrityRecognition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCompareFacesMatch.html">AWSRekognitionCompareFacesMatch</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCompareFacesRequest.html">AWSRekognitionCompareFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCompareFacesResponse.html">AWSRekognitionCompareFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionComparedFace.html">AWSRekognitionComparedFace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionComparedSourceImageFace.html">AWSRekognitionComparedSourceImageFace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionContentModerationDetection.html">AWSRekognitionContentModerationDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateCollectionResponse.html">AWSRekognitionCreateCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateProjectRequest.html">AWSRekognitionCreateProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateProjectResponse.html">AWSRekognitionCreateProjectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateProjectVersionRequest.html">AWSRekognitionCreateProjectVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateProjectVersionResponse.html">AWSRekognitionCreateProjectVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateStreamProcessorRequest.html">AWSRekognitionCreateStreamProcessorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCreateStreamProcessorResponse.html">AWSRekognitionCreateStreamProcessorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCustomLabel.html">AWSRekognitionCustomLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteCollectionRequest.html">AWSRekognitionDeleteCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteCollectionResponse.html">AWSRekognitionDeleteCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteFacesRequest.html">AWSRekognitionDeleteFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteFacesResponse.html">AWSRekognitionDeleteFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectRequest.html">AWSRekognitionDeleteProjectRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectResponse.html">AWSRekognitionDeleteProjectResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectVersionRequest.html">AWSRekognitionDeleteProjectVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteProjectVersionResponse.html">AWSRekognitionDeleteProjectVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDeleteStreamProcessorRequest.html">AWSRekognitionDeleteStreamProcessorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSRekognitionDeleteStreamProcessorResponse">AWSRekognitionDeleteStreamProcessorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeCollectionRequest.html">AWSRekognitionDescribeCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeCollectionResponse.html">AWSRekognitionDescribeCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeProjectVersionsRequest.html">AWSRekognitionDescribeProjectVersionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeProjectVersionsResponse.html">AWSRekognitionDescribeProjectVersionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeProjectsRequest.html">AWSRekognitionDescribeProjectsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeProjectsResponse.html">AWSRekognitionDescribeProjectsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeStreamProcessorRequest.html">AWSRekognitionDescribeStreamProcessorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDescribeStreamProcessorResponse.html">AWSRekognitionDescribeStreamProcessorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectCustomLabelsRequest.html">AWSRekognitionDetectCustomLabelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectCustomLabelsResponse.html">AWSRekognitionDetectCustomLabelsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectFacesRequest.html">AWSRekognitionDetectFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectFacesResponse.html">AWSRekognitionDetectFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectLabelsRequest.html">AWSRekognitionDetectLabelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectLabelsResponse.html">AWSRekognitionDetectLabelsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectModerationLabelsRequest.html">AWSRekognitionDetectModerationLabelsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectTextFilters.html">AWSRekognitionDetectTextFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectTextRequest.html">AWSRekognitionDetectTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectTextResponse.html">AWSRekognitionDetectTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectionFilter.html">AWSRekognitionDetectionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEvaluationResult.html">AWSRekognitionEvaluationResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEyeOpen.html">AWSRekognitionEyeOpen</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEyeglasses.html">AWSRekognitionEyeglasses</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFace.html">AWSRekognitionFace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceDetail.html">AWSRekognitionFaceDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceDetection.html">AWSRekognitionFaceDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceMatch.html">AWSRekognitionFaceMatch</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceRecord.html">AWSRekognitionFaceRecord</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionFaceSearchSettings.html">AWSRekognitionFaceSearchSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGender.html">AWSRekognitionGender</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGeometry.html">AWSRekognitionGeometry</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetCelebrityInfoRequest.html">AWSRekognitionGetCelebrityInfoRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetCelebrityInfoResponse.html">AWSRekognitionGetCelebrityInfoResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetCelebrityRecognitionRequest.html">AWSRekognitionGetCelebrityRecognitionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetCelebrityRecognitionResponse.html">AWSRekognitionGetCelebrityRecognitionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetContentModerationRequest.html">AWSRekognitionGetContentModerationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetContentModerationResponse.html">AWSRekognitionGetContentModerationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceDetectionRequest.html">AWSRekognitionGetFaceDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceDetectionResponse.html">AWSRekognitionGetFaceDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceSearchRequest.html">AWSRekognitionGetFaceSearchRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetFaceSearchResponse.html">AWSRekognitionGetFaceSearchResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetLabelDetectionRequest.html">AWSRekognitionGetLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetLabelDetectionResponse.html">AWSRekognitionGetLabelDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetPersonTrackingRequest.html">AWSRekognitionGetPersonTrackingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetPersonTrackingResponse.html">AWSRekognitionGetPersonTrackingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetSegmentDetectionRequest.html">AWSRekognitionGetSegmentDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetSegmentDetectionResponse.html">AWSRekognitionGetSegmentDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetTextDetectionRequest.html">AWSRekognitionGetTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGetTextDetectionResponse.html">AWSRekognitionGetTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionGroundTruthManifest.html">AWSRekognitionGroundTruthManifest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionHumanLoopActivationOutput.html">AWSRekognitionHumanLoopActivationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionHumanLoopConfig.html">AWSRekognitionHumanLoopConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionHumanLoopDataAttributes.html">AWSRekognitionHumanLoopDataAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionImage.html">AWSRekognitionImage</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionImageQuality.html">AWSRekognitionImageQuality</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionIndexFacesRequest.html">AWSRekognitionIndexFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionIndexFacesResponse.html">AWSRekognitionIndexFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionInstance.html">AWSRekognitionInstance</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionKinesisDataStream.html">AWSRekognitionKinesisDataStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionKinesisVideoStream.html">AWSRekognitionKinesisVideoStream</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionLabel.html">AWSRekognitionLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionLabelDetection.html">AWSRekognitionLabelDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionLandmark.html">AWSRekognitionLandmark</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListCollectionsRequest.html">AWSRekognitionListCollectionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListCollectionsResponse.html">AWSRekognitionListCollectionsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListFacesRequest.html">AWSRekognitionListFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListFacesResponse.html">AWSRekognitionListFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListStreamProcessorsRequest.html">AWSRekognitionListStreamProcessorsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionListStreamProcessorsResponse.html">AWSRekognitionListStreamProcessorsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionModerationLabel.html">AWSRekognitionModerationLabel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionMouthOpen.html">AWSRekognitionMouthOpen</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionMustache.html">AWSRekognitionMustache</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionNotificationChannel.html">AWSRekognitionNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionOutputConfig.html">AWSRekognitionOutputConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionParent.html">AWSRekognitionParent</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionPersonDetail.html">AWSRekognitionPersonDetail</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionPersonDetection.html">AWSRekognitionPersonDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionPersonMatch.html">AWSRekognitionPersonMatch</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionPoint.html">AWSRekognitionPoint</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionPose.html">AWSRekognitionPose</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProjectDescription.html">AWSRekognitionProjectDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProjectVersionDescription.html">AWSRekognitionProjectVersionDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionRecognizeCelebritiesResponse.html">AWSRekognitionRecognizeCelebritiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionRegionOfInterest.html">AWSRekognitionRegionOfInterest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionResources.html">AWSRekognitionResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionS3Object.html">AWSRekognitionS3Object</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSearchFacesByImageRequest.html">AWSRekognitionSearchFacesByImageRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSearchFacesByImageResponse.html">AWSRekognitionSearchFacesByImageResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSearchFacesRequest.html">AWSRekognitionSearchFacesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSearchFacesResponse.html">AWSRekognitionSearchFacesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSegmentDetection.html">AWSRekognitionSegmentDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSegmentTypeInfo.html">AWSRekognitionSegmentTypeInfo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionShotSegment.html">AWSRekognitionShotSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSmile.html">AWSRekognitionSmile</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartCelebrityRecognitionRequest.html">AWSRekognitionStartCelebrityRecognitionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartCelebrityRecognitionResponse.html">AWSRekognitionStartCelebrityRecognitionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartContentModerationRequest.html">AWSRekognitionStartContentModerationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartContentModerationResponse.html">AWSRekognitionStartContentModerationResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartFaceDetectionRequest.html">AWSRekognitionStartFaceDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartFaceDetectionResponse.html">AWSRekognitionStartFaceDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartFaceSearchRequest.html">AWSRekognitionStartFaceSearchRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartFaceSearchResponse.html">AWSRekognitionStartFaceSearchResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartLabelDetectionRequest.html">AWSRekognitionStartLabelDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartLabelDetectionResponse.html">AWSRekognitionStartLabelDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartPersonTrackingRequest.html">AWSRekognitionStartPersonTrackingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartPersonTrackingResponse.html">AWSRekognitionStartPersonTrackingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartProjectVersionRequest.html">AWSRekognitionStartProjectVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartProjectVersionResponse.html">AWSRekognitionStartProjectVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartSegmentDetectionFilters.html">AWSRekognitionStartSegmentDetectionFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartSegmentDetectionRequest.html">AWSRekognitionStartSegmentDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartSegmentDetectionResponse.html">AWSRekognitionStartSegmentDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartShotDetectionFilter.html">AWSRekognitionStartShotDetectionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartStreamProcessorRequest.html">AWSRekognitionStartStreamProcessorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSRekognitionStartStreamProcessorResponse">AWSRekognitionStartStreamProcessorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartTechnicalCueDetectionFilter.html">AWSRekognitionStartTechnicalCueDetectionFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartTextDetectionFilters.html">AWSRekognitionStartTextDetectionFilters</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartTextDetectionRequest.html">AWSRekognitionStartTextDetectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStartTextDetectionResponse.html">AWSRekognitionStartTextDetectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStopProjectVersionRequest.html">AWSRekognitionStopProjectVersionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStopProjectVersionResponse.html">AWSRekognitionStopProjectVersionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStopStreamProcessorRequest.html">AWSRekognitionStopStreamProcessorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSRekognitionStopStreamProcessorResponse">AWSRekognitionStopStreamProcessorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStreamProcessor.html">AWSRekognitionStreamProcessor</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStreamProcessorInput.html">AWSRekognitionStreamProcessorInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStreamProcessorOutput.html">AWSRekognitionStreamProcessorOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionStreamProcessorSettings.html">AWSRekognitionStreamProcessorSettings</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSummary.html">AWSRekognitionSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionSunglasses.html">AWSRekognitionSunglasses</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTechnicalCueSegment.html">AWSRekognitionTechnicalCueSegment</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTestingData.html">AWSRekognitionTestingData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTestingDataResult.html">AWSRekognitionTestingDataResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTextDetection.html">AWSRekognitionTextDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTextDetectionResult.html">AWSRekognitionTextDetectionResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTrainingData.html">AWSRekognitionTrainingData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionTrainingDataResult.html">AWSRekognitionTrainingDataResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionUnindexedFace.html">AWSRekognitionUnindexedFace</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionVideoMetadata.html">AWSRekognitionVideoMetadata</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSRekognitionSDKVersion">AWSRekognitionSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSRekognitionVersionNumber">AWSRekognitionVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSRekognitionVersionString">AWSRekognitionVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionAttribute.html">AWSRekognitionAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionCelebrityRecognitionSortBy.html">AWSRekognitionCelebrityRecognitionSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionContentClassifier.html">AWSRekognitionContentClassifier</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionContentModerationSortBy.html">AWSRekognitionContentModerationSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionEmotionName.html">AWSRekognitionEmotionName</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionErrorType.html">AWSRekognitionErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionFaceAttributes.html">AWSRekognitionFaceAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionFaceSearchSortBy.html">AWSRekognitionFaceSearchSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionGenderType.html">AWSRekognitionGenderType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionLabelDetectionSortBy.html">AWSRekognitionLabelDetectionSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionLandmarkType.html">AWSRekognitionLandmarkType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionOrientationCorrection.html">AWSRekognitionOrientationCorrection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionPersonTrackingSortBy.html">AWSRekognitionPersonTrackingSortBy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionProjectStatus.html">AWSRekognitionProjectStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionProjectVersionStatus.html">AWSRekognitionProjectVersionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionQualityFilter.html">AWSRekognitionQualityFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionReason.html">AWSRekognitionReason</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionSegmentType.html">AWSRekognitionSegmentType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionStreamProcessorStatus.html">AWSRekognitionStreamProcessorStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionTechnicalCueType.html">AWSRekognitionTechnicalCueType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionTextTypes.html">AWSRekognitionTextTypes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionVideoJobStatus.html">AWSRekognitionVideoJobStatus</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSRekognitionSegmentDetection</h1>
+              <div class="declaration">
+                <div class="language">
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionSegmentDetection</span></code></pre>
+
+                </div>
+              </div>
+            <p>A technical cue or shot detection segment detected in a video. An array of <code>SegmentDetection</code> objects containing all segments detected in a stored video is returned by <a>GetSegmentDetection</a>. </p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)durationMillis"></a>
+                    <a name="//apple_ref/objc/Property/durationMillis" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)durationMillis">durationMillis</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The duration of the detected segment in milliseconds. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">durationMillis</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">durationMillis</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)durationSMPTE"></a>
+                    <a name="//apple_ref/objc/Property/durationSMPTE" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)durationSMPTE">durationSMPTE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The duration of the timecode for the detected segment in SMPTE format.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">durationSMPTE</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">durationSMPTE</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)endTimecodeSMPTE"></a>
+                    <a name="//apple_ref/objc/Property/endTimecodeSMPTE" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)endTimecodeSMPTE">endTimecodeSMPTE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. <code>EndTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates).</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">endTimecodeSMPTE</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">endTimecodeSMPTE</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)endTimestampMillis"></a>
+                    <a name="//apple_ref/objc/Property/endTimestampMillis" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)endTimestampMillis">endTimestampMillis</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The end time of the detected segment, in milliseconds, from the start of the video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">endTimestampMillis</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">endTimestampMillis</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)shotSegment"></a>
+                    <a name="//apple_ref/objc/Property/shotSegment" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)shotSegment">shotSegment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If the segment is a shot detection, contains information about the shot detection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionShotSegment.html">AWSRekognitionShotSegment</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">shotSegment</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">shotSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionShotSegment.html">AWSRekognitionShotSegment</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)startTimecodeSMPTE"></a>
+                    <a name="//apple_ref/objc/Property/startTimecodeSMPTE" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)startTimecodeSMPTE">startTimecodeSMPTE</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates). </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">startTimecodeSMPTE</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startTimecodeSMPTE</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)startTimestampMillis"></a>
+                    <a name="//apple_ref/objc/Property/startTimestampMillis" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)startTimestampMillis">startTimestampMillis</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The start time of the detected segment in milliseconds from the start of the video.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">startTimestampMillis</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">startTimestampMillis</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)technicalCueSegment"></a>
+                    <a name="//apple_ref/objc/Property/technicalCueSegment" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)technicalCueSegment">technicalCueSegment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>If the segment is a technical cue, contains information about the technical cue.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSRekognitionTechnicalCueSegment.html">AWSRekognitionTechnicalCueSegment</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">technicalCueSegment</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">technicalCueSegment</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionTechnicalCueSegment.html">AWSRekognitionTechnicalCueSegment</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionSegmentDetection(py)types"></a>
+                    <a name="//apple_ref/objc/Property/types" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionSegmentDetection(py)types">types</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The type of the segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSRekognitionSegmentType.html">AWSRekognitionSegmentType</a></span> <span class="n">types</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">types</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSRekognitionSegmentType.html">AWSRekognitionSegmentType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>
