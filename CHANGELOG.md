@@ -1,3 +1,19 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSOrganizations
+---AWSIam
+---AWSAutoscaling
+---AWSFsx
+---AWSBackup
+---AWSAmplify
+---AWSCodecommit
+---AWSEmr
+---AWSHoneycode
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
