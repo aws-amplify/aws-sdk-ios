@@ -1594,6 +1594,10 @@ class AWSS3TransferUtilityTests: XCTestCase {
         XCTAssertEqual(refUploadTask?.status, AWSS3TransferUtilityTransferStatusType.cancelled)
     }
 
+    /// - Given: A registered TransferUtility with an in-process upload
+    /// - When: I remove the registered TransferUtility
+    /// - Then: The NSURLSession with which the TU instance is associated should be invalidated, and TransferUtility
+    ///         should publish a notification to that effect
     func testRemovingTransferUtilityInvalidatesSession() {
         // Register this before creating the transfer utility so we're comfortable that the expectation will receive
         // all "DidBecomeInvalid" notifications
