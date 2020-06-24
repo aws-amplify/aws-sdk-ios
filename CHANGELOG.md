@@ -5,6 +5,8 @@
 ### Misc. Updates
 
 - Changed the repo's default branch to 'main'
+- Model updates for the following services:
+  - Amazon Autoscaling
 
 ## 2.13.5
 
