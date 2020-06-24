@@ -44,35 +44,42 @@
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 145,
+      "line": 147,
       "symbol": "AWSMobileClient.deviceOperations",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 152,
+      "line": 154,
       "symbol": "AWSMobileClient.userSub",
       "symbol_kind": "source.lang.swift.decl.var.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 210,
+      "line": 212,
       "symbol": "AWSMobileClient.handleAuthResponse(_:open:sourceApplication:annotation:)",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
+      "line": 644,
+      "symbol": "AWSMobileClient.updateCognitoService(userPoolConfiguration:identityPoolConfiguration:)",
+      "symbol_kind": "source.lang.swift.decl.function.method.static",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1056,
+      "line": 1057,
       "symbol": "AWSMobileClient.getViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1064,
+      "line": 1065,
       "symbol": "AWSMobileClient.shouldLaunchSignInVCIfRefreshTokenIsExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
