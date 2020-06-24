@@ -1,7 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Misc. Updates
+
+- Changed the repo's default branch to 'main'
 
 ## 2.13.5
 
@@ -296,7 +299,7 @@ This release is deprecated due to errors. Please use 2.12.5 or greater.
 - **Amazon Transcribe Streaming**
   - Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time using WebSockets.
     See [AWS Documentation](https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html) for more information, and the
-    [integration test](https://github.com/aws-amplify/aws-sdk-ios/blob/master/AWSTranscribeStreamingTests/AWSTranscribeStreamingSwiftTests.swift)
+    [integration test](https://github.com/aws-amplify/aws-sdk-ios/blob/main/AWSTranscribeStreamingTests/AWSTranscribeStreamingSwiftTests.swift)
     for an example of usage.
 
 ### Misc. Updates
@@ -1192,7 +1195,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
   * Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech to text capability to their applications.
 
 * **AWS IoT**
-  * Add new methods for `publish`, `subscribe` and `unsubscribe` which allow `ack` messages callback using `ackCallback` parameter. See [example.](https://github.com/aws/aws-sdk-ios/blob/master/AWSIoTTests/AWSIoTDataManagerTests.swift#L304)
+  * Add new methods for `publish`, `subscribe` and `unsubscribe` which allow `ack` messages callback using `ackCallback` parameter. See [example.](https://github.com/aws/aws-sdk-ios/blob/main/AWSIoTTests/AWSIoTDataManagerTests.swift#L304)
 
 ### Bug Fixes
 
