@@ -14,9 +14,9 @@
     <a title="AWSIoTData Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.13.4 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.13.5 Docs</a> (85% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -391,6 +391,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDataGetThingShadowResponse.html">AWSIoTDataGetThingShadowResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDataManager.html">AWSIoTDataManager</a>
@@ -1912,7 +1918,7 @@
 
                 </div>
               </div>
-            <p><fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p></p>
+            <p><fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a persistent representation of your things and their state in the AWS cloud.</p><p>Find the endpoint address for actions in the AWS IoT data plane by running this CLI command:</p><p><code>aws iot describe-endpoint --endpoint-type iot:Data-ATS</code></p><p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS Signature Version 4</a> to sign requests is: <i>iotdevicegateway</i>.</p></p>
 
           </section>
           <section class="section task-group-section">
@@ -2291,7 +2297,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Deletes the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataDeleteThingShadowRequest</p>
@@ -2355,7 +2361,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Deletes the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataDeleteThingShadowRequest</p>
@@ -2432,7 +2438,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Gets the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataGetThingShadowRequest</p>
@@ -2496,7 +2502,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Gets the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataGetThingShadowRequest</p>
@@ -2563,6 +2569,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSIoTData(im)listNamedShadowsForThing:"></a>
+                    <a name="//apple_ref/objc/Method/-listNamedShadowsForThing:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTData(im)listNamedShadowsForThing:">-listNamedShadowsForThing:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists the shadows for the specified thing.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDataListNamedShadowsForThingRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDataListNamedShadowsForThingResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listNamedShadowsForThing</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listNamedShadows</span><span class="p">(</span><span class="n">forThing</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListNamedShadowsForThing service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTDataErrorDomain">AWSIoTDataErrorDomain</a></code> domain and the following error code: <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTData(im)listNamedShadowsForThing:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listNamedShadowsForThing:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTData(im)listNamedShadowsForThing:completionHandler:">-listNamedShadowsForThing:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists the shadows for the specified thing.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDataListNamedShadowsForThingRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDataListNamedShadowsForThingResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listNamedShadowsForThing</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+               <span class="nf">completionHandler</span><span class="p">:</span>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listNamedShadows</span><span class="p">(</span><span class="n">forThing</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingRequest.html">AWSIoTDataListNamedShadowsForThingRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSIoTDataListNamedShadowsForThingResponse.html">AWSIoTDataListNamedShadowsForThingResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListNamedShadowsForThing service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTDataErrorDomain">AWSIoTDataErrorDomain</a></code> domain and the following error code: <code>AWSIoTDataErrorResourceNotFound</code>, <code>AWSIoTDataErrorInvalidRequest</code>, <code>AWSIoTDataErrorThrottling</code>, <code>AWSIoTDataErrorUnauthorized</code>, <code>AWSIoTDataErrorServiceUnavailable</code>, <code>AWSIoTDataErrorInternalFailure</code>, <code>AWSIoTDataErrorMethodNotAllowed</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSIoTData(im)publish:"></a>
                     <a name="//apple_ref/objc/Method/-publish:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSIoTData(im)publish:">-publish:<wbr></a>
@@ -2573,7 +2723,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataPublishRequest</p>
@@ -2633,7 +2783,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataPublishRequest</p>
@@ -2703,7 +2853,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Updates the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataUpdateThingShadowRequest</p>
@@ -2767,7 +2917,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+                        <p>Updates the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the AWS IoT Developer Guide.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDataUpdateThingShadowRequest</p>
@@ -2836,8 +2986,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-05-21)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
