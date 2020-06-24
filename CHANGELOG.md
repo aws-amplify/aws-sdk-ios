@@ -1,19 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSOrganizations
----AWSIam
----AWSAutoscaling
----AWSFsx
----AWSBackup
----AWSAmplify
----AWSCodecommit
----AWSEmr
----AWSHoneycode
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,6 +5,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Changed the repo's default branch to 'main'
+- Model updates for the following services:
+  - Amazon Autoscaling
 
 ## 2.13.5
 
