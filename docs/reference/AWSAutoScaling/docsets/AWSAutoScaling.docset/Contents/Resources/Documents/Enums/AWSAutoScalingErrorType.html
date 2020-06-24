@@ -14,9 +14,9 @@
     <a title="AWSAutoScalingErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.13.4 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.13.5 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
-        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws%2Damplify%2Egithub%2Eio%2Faws%2Dsdk%2Dios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling%2Exml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -96,6 +96,12 @@
                 <a href="../Classes/AWSAutoScalingBlockDeviceMapping.html">AWSAutoScalingBlockDeviceMapping</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingCancelInstanceRefreshAnswer.html">AWSAutoScalingCancelInstanceRefreshAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingCancelInstanceRefreshType.html">AWSAutoScalingCancelInstanceRefreshType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSAutoScalingCompleteLifecycleActionAnswer">AWSAutoScalingCompleteLifecycleActionAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -145,6 +151,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer.html">AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesAnswer.html">AWSAutoScalingDescribeInstanceRefreshesAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeInstanceRefreshesType.html">AWSAutoScalingDescribeInstanceRefreshesType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeLifecycleHookTypesAnswer.html">AWSAutoScalingDescribeLifecycleHookTypesAnswer</a>
@@ -249,6 +261,9 @@
                 <a href="../Classes/AWSAutoScalingInstanceMonitoring.html">AWSAutoScalingInstanceMonitoring</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingInstanceRefresh.html">AWSAutoScalingInstanceRefresh</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingInstancesDistribution.html">AWSAutoScalingInstancesDistribution</a>
               </li>
               <li class="nav-group-task">
@@ -336,6 +351,9 @@
                 <a href="../Classes/AWSAutoScalingRecordLifecycleActionHeartbeatType.html">AWSAutoScalingRecordLifecycleActionHeartbeatType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingRefreshPreferences.html">AWSAutoScalingRefreshPreferences</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingResources.html">AWSAutoScalingResources</a>
               </li>
               <li class="nav-group-task">
@@ -364,6 +382,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingSetInstanceProtectionQuery.html">AWSAutoScalingSetInstanceProtectionQuery</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingStartInstanceRefreshAnswer.html">AWSAutoScalingStartInstanceRefreshAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingStartInstanceRefreshType.html">AWSAutoScalingStartInstanceRefreshType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingStepAdjustment.html">AWSAutoScalingStepAdjustment</a>
@@ -415,6 +439,9 @@
                 <a href="../Enums/AWSAutoScalingErrorType.html">AWSAutoScalingErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingInstanceRefreshStatus.html">AWSAutoScalingInstanceRefreshStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingLifecycleState.html">AWSAutoScalingLifecycleState</a>
               </li>
               <li class="nav-group-task">
@@ -422,6 +449,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingMetricType.html">AWSAutoScalingMetricType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingRefreshStrategy.html">AWSAutoScalingRefreshStrategy</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingScalingActivityStatusCode.html">AWSAutoScalingScalingActivityStatusCode</a>
@@ -438,7 +468,9 @@
                 <div class="language">
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSAutoScalingErrorType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSAutoScalingErrorUnknown</span><span class="p">,</span>
+    <span class="n">AWSAutoScalingErrorActiveInstanceRefreshNotFound</span><span class="p">,</span>
     <span class="n">AWSAutoScalingErrorAlreadyExists</span><span class="p">,</span>
+    <span class="n">AWSAutoScalingErrorInstanceRefreshInProgress</span><span class="p">,</span>
     <span class="n">AWSAutoScalingErrorInvalidNextToken</span><span class="p">,</span>
     <span class="n">AWSAutoScalingErrorLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSAutoScalingErrorResourceContention</span><span class="p">,</span>
@@ -490,6 +522,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorActiveInstanceRefreshNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSAutoScalingErrorActiveInstanceRefreshNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorActiveInstanceRefreshNotFound">AWSAutoScalingErrorActiveInstanceRefreshNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSAutoScalingErrorActiveInstanceRefreshNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">activeInstanceRefreshNotFound</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorAlreadyExists"></a>
                     <a name="//apple_ref/objc/Case/AWSAutoScalingErrorAlreadyExists" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorAlreadyExists">AWSAutoScalingErrorAlreadyExists</a>
@@ -512,7 +576,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">alreadyExists</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">alreadyExists</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorInstanceRefreshInProgress"></a>
+                    <a name="//apple_ref/objc/Case/AWSAutoScalingErrorInstanceRefreshInProgress" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSAutoScalingErrorType@AWSAutoScalingErrorInstanceRefreshInProgress">AWSAutoScalingErrorInstanceRefreshInProgress</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSAutoScalingErrorInstanceRefreshInProgress</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">instanceRefreshInProgress</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -544,7 +640,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidNextToken</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidNextToken</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -576,7 +672,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -608,7 +704,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceContention</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceContention</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -640,7 +736,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -672,7 +768,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">scalingActivityInProgress</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">scalingActivityInProgress</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -704,7 +800,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceLinkedRoleFailure</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceLinkedRoleFailure</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -716,8 +812,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-05-21)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.3</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
