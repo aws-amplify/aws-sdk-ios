@@ -114,7 +114,7 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSCredentialsProvider.h",
-      "line": 260,
+      "line": 271,
       "symbol": "AWSCognitoCredentialsProvider.-setIdentityProviderManagerOnce:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
@@ -219,15 +219,22 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 139,
+      "line": 140,
       "symbol": "AWSCognitoCredentialsProviderHelper.useEnhancedFlow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 141,
+      "line": 142,
       "symbol": "AWSCognitoCredentialsProviderHelper.-initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
+      "line": 147,
+      "symbol": "AWSCognitoCredentialsProviderHelper.-initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:identityPoolConfiguration:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
@@ -4279,42 +4286,42 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 49,
+      "line": 54,
       "symbol": "AWSInfo.-serviceInfo:forKey:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 52,
+      "line": 57,
       "symbol": "AWSInfo.-defaultServiceInfo:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 56,
+      "line": 61,
       "symbol": "AWSServiceInfo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 58,
+      "line": 63,
       "symbol": "AWSServiceInfo.cognitoCredentialsProvider",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 60,
+      "line": 65,
       "symbol": "AWSServiceInfo.region",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSInfo.h",
-      "line": 62,
+      "line": 67,
       "symbol": "AWSServiceInfo.infoDictionary",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
