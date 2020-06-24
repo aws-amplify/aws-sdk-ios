@@ -1,7 +1,10 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Misc. Updates
+
+- Changed the repo's default branch to 'main'
 
 ## 2.13.5
 
