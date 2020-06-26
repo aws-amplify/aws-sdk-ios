@@ -46,8 +46,6 @@ NSString *const AWSCognitoAuthErrorDomain = @"com.amazon.cognito.AWSCognitoAuthE
 @property (nonatomic) BOOL isProcessingSignOut;
 @property (nonatomic) BOOL isProcessingSignIn;
 
-@property (nonatomic) AWSServiceConfiguration * userPoolConfig;
-
 @end
 
 API_AVAILABLE(ios(11.0))
@@ -66,6 +64,7 @@ API_AVAILABLE(ios(11.0))
 @property (nonatomic, readwrite) NSDictionary<NSString *, NSString *> * tokensUriQueryParameters;
 @property (nonatomic, readwrite) NSDictionary<NSString *, NSString *> * signOutUriQueryParameters;
 @property (nonatomic) BOOL isAuthProviderExternal;
+@property (nonatomic) AWSServiceConfiguration * userPoolConfig;
 
 @end
 
@@ -968,10 +967,10 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (NSString *)fetchBaseUserAgent {
-    if (self.userPoolConfig == nil) {
+    if (self.authConfiguration.userPoolConfig == nil) {
         return [AWSCognitoAuth userAgent];
     }
-    return [self.userPoolConfig userAgent];
+    return [self.authConfiguration.userPoolConfig userAgent];
 }
 /**
  Generate the user agent string
@@ -1219,6 +1218,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
         _signInUriQueryParameters = signInUriQueryParameters;
         _tokensUriQueryParameters = tokenUriQueryParameters;
         _isAuthProviderExternal = isProviderExternal;
+        _userPoolConfig = serviceConfig;
     }
     
     return self;
