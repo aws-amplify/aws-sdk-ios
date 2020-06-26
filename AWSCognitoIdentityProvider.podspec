@@ -17,6 +17,6 @@ Pod::Spec.new do |s|
   s.dependency 'AWSCognitoIdentityProviderASF', '1.0.1'
 
   s.source_files = 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
-  s.public_header_files = 'AWSCognitoIdentityProvider/*.h', 'AWSCognitoIdentityProvider/CognitoIdentityProvider/*.h'
+  s.public_header_files = 'AWSCognitoIdentityProvider/*.h'
   s.private_header_files = 'AWSCognitoIdentityProvider/Internal/*.h'
 end

@@ -144,7 +144,6 @@ class VersionBumper:
             "AWSAPIGateway/AWSAPIGatewayClient.m",
             "AWSCognito/CognitoSync/AWSCognitoSyncService.m",
             "AWSCognitoAuth/AWSCognitoAuth.m",
-            "AWSCognitoIdentityProvider/CognitoIdentityProvider/AWSCognitoIdentityProviderService.m",
             "AWSCore/Service/AWSService.m",
             "AWSIoT/AWSIoTDataService.m",
             "AWSKinesis/AWSFirehoseService.m",
