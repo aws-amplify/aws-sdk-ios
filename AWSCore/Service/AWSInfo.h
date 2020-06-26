@@ -47,10 +47,9 @@ FOUNDATION_EXPORT NSString *const AWSInfoDefault;
 + (void)configureDefaultAWSInfo:(NSDictionary<NSString *, id> *)config;
 
 /**
- * @internal
  * Service configuration to be used while creating the identity pool service.
  *
- * - Attention: This method is intended for internal use only.
+ * - Warning: This method is intended for internal use only.
  */
 + (void)configureIdentityPoolService:(nullable AWSServiceConfiguration *)config;
 

@@ -641,6 +641,9 @@ extension AWSMobileClient {
 
 public extension AWSMobileClient {
 
+    /// Updates the service configuration for the Cognito Services
+    ///
+    /// - Warning: This method is intended for internal user only.
     static func updateCognitoService(userPoolConfiguration: AWSServiceConfiguration?,
                                      identityPoolConfiguration: AWSServiceConfiguration?) {
         let configuration = CognitoServiceConfiguration(userPoolServiceConfiguration: userPoolConfiguration,
@@ -651,7 +654,7 @@ public extension AWSMobileClient {
     }
 }
 
-internal struct CognitoServiceConfiguration {
+struct CognitoServiceConfiguration {
 
     let userPoolServiceConfiguration: AWSServiceConfiguration?
 

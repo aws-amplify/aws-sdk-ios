@@ -64,7 +64,7 @@ AWSCognitoUserPoolInternalDelegate {
     var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
 
-    internal static var serviceConfiguration: CognitoServiceConfiguration? = nil
+    static var serviceConfiguration: CognitoServiceConfiguration? = nil
 
     
     public override init() {
