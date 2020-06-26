@@ -48,8 +48,10 @@ FOUNDATION_EXPORT NSString *const AWSInfoDefault;
 
 /**
  * Service configuration to be used while creating the identity pool service.
+ *
+ * - Warning: This method is intended for internal use only.
  */
-+ (void)configureIdentityPoolService:(AWSServiceConfiguration *)config;
++ (void)configureIdentityPoolService:(nullable AWSServiceConfiguration *)config;
 
 - (nullable AWSServiceInfo *)serviceInfo:(NSString *)serviceName
                                   forKey:(NSString *)key;
