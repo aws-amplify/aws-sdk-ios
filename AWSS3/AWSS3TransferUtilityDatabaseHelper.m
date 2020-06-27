@@ -170,6 +170,10 @@ NSString *const AWSS3TransferUtilityDatabaseName = @"transfer_utility_database";
        AWSDDLogError(@"Failed to update transfer_request since the transfer ID was nil");
        return;
     }
+    if (eTag == nil) {
+       AWSDDLogError(@"Failed to update transfer_request since the eTag was nil");
+       return;
+    }
     NSString *const AWSS3TransferUtilityUpdateTransferUtilityStatusAndETag = @"UPDATE awstransfer "
     @"SET status=:status, etag = :etag, session_task_id = :session_task_id, retry_count = :retry_count "
     @"WHERE transfer_id=:transfer_id and "
