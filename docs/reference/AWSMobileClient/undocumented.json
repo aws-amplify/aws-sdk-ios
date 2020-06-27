@@ -64,13 +64,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClient.swift",
-      "line": 644,
-      "symbol": "AWSMobileClient.updateCognitoService(userPoolConfiguration:identityPoolConfiguration:)",
-      "symbol_kind": "source.lang.swift.decl.function.method.static",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
       "line": 1057,
       "symbol": "AWSMobileClient.getViewController()",
