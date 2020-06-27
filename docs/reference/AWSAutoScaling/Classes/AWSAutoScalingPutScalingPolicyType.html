@@ -14,7 +14,7 @@
     <a title="AWSAutoScalingPutScalingPolicyType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.13.5 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.13.6 Docs</a> (89% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
       </div>
@@ -488,7 +488,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies whether the <code>ScalingAdjustment</code> parameter is an absolute number or a percentage of the current capacity. The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p><p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>Specifies how the scaling adjustment is interpreted (either an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p><p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -552,7 +552,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount of time, in seconds, after a scaling activity completes before any further dynamic scaling activities can start. If this parameter is not specified, the default cooldown period for the group applies.</p><p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p>The duration of the policy&rsquo;s cooldown period, in seconds. When a cooldown period is specified here, it overrides the default cooldown period defined for the Auto Scaling group.</p><p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
 
                       </div>
                       <div class="declaration">
@@ -616,7 +616,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. The default is to use the value specified for the default cooldown period for the group.</p><p>Valid only if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</p>
+                        <p>The estimated time, in seconds, until a newly launched instance can contribute to the CloudWatch metrics. If not provided, the default is to use the value from the default cooldown period for the Auto Scaling group.</p><p>Valid only if the policy type is <code>TargetTrackingScaling</code> or <code>StepScaling</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -680,7 +680,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The minimum value to scale by when scaling by percentages. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances. </p><p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code> and the adjustment type is <code>PercentChangeInCapacity</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+                        <p><p>The minimum value to scale by when the adjustment type is <code>PercentChangeInCapacity</code>. For example, suppose that you create a step scaling policy to scale out an Auto Scaling group by 25 percent and you specify a <code>MinAdjustmentMagnitude</code> of 2. If the group has 4 instances and the scaling policy is performed, 25 percent of 4 is 1. However, because you specified a <code>MinAdjustmentMagnitude</code> of 2, Amazon EC2 Auto Scaling scales out the group by 2 instances.</p><p>Valid only if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><note><p>Some Auto Scaling groups use instance weights. In this case, set the <code>MinAdjustmentMagnitude</code> to a value that is at least as large as your largest instance weight.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -776,7 +776,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The policy type. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, and <code>TargetTrackingScaling</code>. If the policy type is null, the value is treated as <code>SimpleScaling</code>.</p>
+                        <p><p>One of the following policy types: </p><ul><li><p><code>TargetTrackingScaling</code></p></li><li><p><code>StepScaling</code></p></li><li><p><code>SimpleScaling</code> (default)</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -808,7 +808,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The amount by which a simple scaling policy scales the Auto Scaling group in response to an alarm breach. The adjustment is based on the value that you specified in the <code>AdjustmentType</code> parameter (either an absolute number or a percentage). A positive value adds to the current capacity and a negative value subtracts from the current capacity. For exact capacity, you must specify a positive value.</p><p>Conditional: If you specify <code>SimpleScaling</code> for the policy type, you must specify this parameter. (Not used with any other policy type.) </p>
+                        <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p><p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>
 
                       </div>
                       <div class="declaration">
@@ -840,7 +840,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p><p>Conditional: If you specify <code>StepScaling</code> for the policy type, you must specify this parameter. (Not used with any other policy type.) </p>
+                        <p>A set of adjustments that enable you to scale based on the size of the alarm breach.</p><p>Required if the policy type is <code>StepScaling</code>. (Not used with any other policy type.) </p>
 
                       </div>
                       <div class="declaration">
@@ -872,7 +872,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p><p>Conditional: If you specify <code>TargetTrackingScaling</code> for the policy type, you must specify this parameter. (Not used with any other policy type.) </p>
+                        <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p><p>The following predefined metrics are available:</p><ul><li><p><code>ASGAverageCPUUtilization</code></p></li><li><p><code>ASGAverageNetworkIn</code></p></li><li><p><code>ASGAverageNetworkOut</code></p></li><li><p><code>ALBRequestCountPerTarget</code></p></li></ul><p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> parameter with the <code>PredefinedMetricSpecification</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p><p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -896,7 +896,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-24)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-27)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
