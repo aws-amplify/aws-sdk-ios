@@ -536,7 +536,7 @@ final public class AWSMobileClient: _AWSMobileClient {
         } else {
             self.showSign(inScreen: navigationController, signInUIConfiguration: signInUIOptions, completionHandler: { providerName, token, error in
                 if error == nil {
-                    if (providerName == IdentityProvider.facebook.rawValue) || (providerName == IdentityProvider.google.rawValue) {
+                    if (providerName == IdentityProvider.facebook.rawValue) || (providerName == IdentityProvider.google.rawValue || providerName == IdentityProvider.apple.rawValue) {
                         self.federatedSignIn(providerName: providerName!, token: token!, completionHandler: completionHandler)
                     } else {
                         self.currentUser?.getSession().continueWith(block: { (task) -> Any? in

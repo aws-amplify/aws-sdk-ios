@@ -148,6 +148,10 @@
 		B41F67EB233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */; };
 		B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */; };
+		B4B538A324AA3C7100EAE61C /* AWSAppleSignInProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B5389F24AA3C7100EAE61C /* AWSAppleSignInProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B538A424AA3C7100EAE61C /* AWSAppleSignInButton.h in Headers */ = {isa = PBXBuildFile; fileRef = B4B538A024AA3C7100EAE61C /* AWSAppleSignInButton.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		B4B538A524AA3C7100EAE61C /* AWSAppleSignInProvider.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B538A124AA3C7100EAE61C /* AWSAppleSignInProvider.m */; };
+		B4B538A624AA3C7100EAE61C /* AWSAppleSignInButton.m in Sources */ = {isa = PBXBuildFile; fileRef = B4B538A224AA3C7100EAE61C /* AWSAppleSignInButton.m */; };
 		B4B74C062332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */; };
 		B4C8E4212306064D0064C158 /* JSONHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E3A72306056A0064C158 /* JSONHelper.swift */; };
 		B4C8E4A023073D7B0064C158 /* AWSMobileClientTestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */; };
@@ -1413,6 +1417,10 @@
 		B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSDropInUIUserPoolTests.swift; sourceTree = "<group>"; };
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
+		B4B5389F24AA3C7100EAE61C /* AWSAppleSignInProvider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAppleSignInProvider.h; sourceTree = "<group>"; };
+		B4B538A024AA3C7100EAE61C /* AWSAppleSignInButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAppleSignInButton.h; sourceTree = "<group>"; };
+		B4B538A124AA3C7100EAE61C /* AWSAppleSignInProvider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAppleSignInProvider.m; sourceTree = "<group>"; };
+		B4B538A224AA3C7100EAE61C /* AWSAppleSignInButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAppleSignInButton.m; sourceTree = "<group>"; };
 		B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSUserPoolCustomAuthHandler.swift; sourceTree = "<group>"; };
 		B4C8E3A72306056A0064C158 /* JSONHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JSONHelper.swift; sourceTree = "<group>"; };
 		B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientTestBase.swift; sourceTree = "<group>"; };
@@ -1839,6 +1847,17 @@
 			path = AWSMobileClientIntegTestApp;
 			sourceTree = "<group>";
 		};
+		B4B5389E24AA3C7100EAE61C /* AWSAppleSignIn */ = {
+			isa = PBXGroup;
+			children = (
+				B4B538A024AA3C7100EAE61C /* AWSAppleSignInButton.h */,
+				B4B538A224AA3C7100EAE61C /* AWSAppleSignInButton.m */,
+				B4B5389F24AA3C7100EAE61C /* AWSAppleSignInProvider.h */,
+				B4B538A124AA3C7100EAE61C /* AWSAppleSignInProvider.m */,
+			);
+			path = AWSAppleSignIn;
+			sourceTree = "<group>";
+		};
 		B5345D101F366AFA009C1041 /* AWSAuthUI */ = {
 			isa = PBXGroup;
 			children = (
@@ -1981,6 +2000,7 @@
 		B5C564B61F2B2302004FF3CF /* AWSAuthCore */ = {
 			isa = PBXGroup;
 			children = (
+				B4B5389E24AA3C7100EAE61C /* AWSAppleSignIn */,
 				B5C564901F2B2162004FF3CF /* AWSAuthCore.h */,
 				B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */,
 				B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */,
@@ -2108,7 +2128,9 @@
 				B5170DA71F466CFE008FD811 /* AWSSignInProviderApplicationIntercept.h in Headers */,
 				B5170DA61F466CFE008FD811 /* AWSSignInProvider.h in Headers */,
 				B5170DA81F466D17008FD811 /* AWSUIConfiguration.h in Headers */,
+				B4B538A424AA3C7100EAE61C /* AWSAppleSignInButton.h in Headers */,
 				B5170DA21F466CFE008FD811 /* AWSAuthCore.h in Headers */,
+				B4B538A324AA3C7100EAE61C /* AWSAppleSignInProvider.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3500,7 +3522,9 @@
 			files = (
 				B5170DA11F466CFE008FD811 /* AWSIdentityManager.m in Sources */,
 				B5170DA51F466CFE008FD811 /* AWSSignInManager.m in Sources */,
+				B4B538A624AA3C7100EAE61C /* AWSAppleSignInButton.m in Sources */,
 				B9AC6319234F00FA00A713A5 /* AWSAuthUIHelper.m in Sources */,
+				B4B538A524AA3C7100EAE61C /* AWSAppleSignInProvider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

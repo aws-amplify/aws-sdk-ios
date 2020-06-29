@@ -36,6 +36,7 @@ typedef void(^AWSAuthUIExtendedCompletionHandler)(NSString * _Nullable signInPro
 static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
 static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 
 #pragma mark PresentViewController methods
 
@@ -124,13 +125,22 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
 + (AWSAuthUIConfiguration *)getDefaultAuthUIConfiguration {
     
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
-    
+
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
+        Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
+        if (appleClass) {
+            [authUIConfig addAWSSignInButtonViewClass:appleClass];
+        } else {
+            AWSDDLogWarn(@"Found Apple sign in configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
+    }
+
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
         Class userpoolClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
         if (userpoolClass) {
             authUIConfig.enableUserPoolsUI = true;
         } else {
-            AWSDDLogWarn(@"Found UserPool configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+            AWSDDLogWarn(@"Found Apple configuration but could not find dependencies. Skipping rendering in AuthUI");
         }
     }
     
