@@ -56,7 +56,7 @@ NS_ASSUME_NONNULL_BEGIN
                                    userPoolConfiguration:(AWSCognitoIdentityUserPoolConfiguration *)userPoolConfiguration
                                                   forKey:(NSString *)key;
 
-+ (instancetype)CognitoIdentityUserPoolForKey:(NSString *)key;
++ (nullable instancetype)CognitoIdentityUserPoolForKey:(NSString *)key;
 
 + (void)removeCognitoIdentityUserPoolForKey:(NSString *)key;
 

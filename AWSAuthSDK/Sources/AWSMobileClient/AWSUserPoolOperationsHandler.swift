@@ -75,22 +75,22 @@ AWSCognitoUserPoolInternalDelegate {
         }
     }
 
-    private func getUserPoolClient() -> AWSCognitoIdentityUserPool {
+    private func getUserPoolClient() -> AWSCognitoIdentityUserPool? {
         
         guard let serviceConfig = UserPoolOperationsHandler.serviceConfiguration?.userPoolServiceConfiguration else {
             return AWSCognitoIdentityUserPool.default()
         }
         let clientKey = "CognitoUserPoolKey"
-        let client = AWSCognitoIdentityUserPool.init(forKey: clientKey)
-        if (client == nil) {
-            let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
-            let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
-            AWSCognitoIdentityUserPool.register(with: serviceConfig,
-                                                userPoolConfiguration: userPoolConfig,
-                                                forKey: clientKey)
-            return AWSCognitoIdentityUserPool.init(forKey: clientKey)
+        if let client = AWSCognitoIdentityUserPool.init(forKey: clientKey) {
+            return client
         }
-        return client
+
+        let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
+        let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
+        AWSCognitoIdentityUserPool.register(with: serviceConfig,
+                                            userPoolConfiguration: userPoolConfig,
+                                            forKey: clientKey)
+        return AWSCognitoIdentityUserPool.init(forKey: clientKey)
     }
     
     internal func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {

@@ -3,6 +3,13 @@
 ## Unreleased
 -Features for next release
 
+## 2.14.0
+
+### Bug Fixes
+
+- **AWSCognitoIdentityProvider**
+  - Added `nullable` modifier to the return instance form the method `CognitoIdentityUserPoolForKey:`. 
+
 ## 2.13.6
 
 ### Misc. Updates
