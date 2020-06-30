@@ -3,6 +3,13 @@
 ## Unreleased
 -Features for next release
 
+## 2.14.0
+
+### Bug Fixes
+
+- **AWSCognitoIdentityProvider**
+  - **Breaking Change** Added `nullable` modifier to the return instance form the method `CognitoIdentityUserPoolForKey:`. See [PR: #2815](https://github.com/aws-amplify/aws-sdk-ios/pull/2815)
+
 ## 2.13.6
 
 ### Misc. Updates
