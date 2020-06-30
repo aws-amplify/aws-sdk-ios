@@ -26,7 +26,7 @@
 #import "AWSMobileAnalyticsERSResources.h"
 
 static NSString *const AWSInfoMobileAnalyticsERS = @"MobileAnalyticsERS";
-NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.13.6";
+NSString *const AWSMobileAnalyticsERSSDKVersion = @"2.14.0";
 
 
 @interface AWSMobileAnalyticsERSResponseSerializer : AWSJSONResponseSerializer

@@ -25,7 +25,7 @@
 #import "AWSKMSResources.h"
 
 static NSString *const AWSInfoKMS = @"KMS";
-NSString *const AWSKMSSDKVersion = @"2.13.6";
+NSString *const AWSKMSSDKVersion = @"2.14.0";
 
 
 @interface AWSKMSResponseSerializer : AWSJSONResponseSerializer
