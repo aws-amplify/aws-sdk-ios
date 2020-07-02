@@ -47,4 +47,4 @@ replaces = [
 ]
 for replaceaction in replaces:
     replaceaction["replace"] = replaceaction["replace"].replace("[version]", newsdkversion)
-replacefiles(root, replaces)
+    replacefiles(root, replaceaction)
