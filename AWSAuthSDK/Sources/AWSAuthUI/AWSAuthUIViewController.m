@@ -128,11 +128,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
         Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
-        if (appleClass) {
-            [authUIConfig addAWSSignInButtonViewClass:appleClass];
-        } else {
-            AWSDDLogWarn(@"Found Apple sign in configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
-        }
+        [authUIConfig addAWSSignInButtonViewClass:appleClass];
     }
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {

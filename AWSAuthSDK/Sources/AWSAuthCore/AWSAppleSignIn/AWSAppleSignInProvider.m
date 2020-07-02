@@ -86,16 +86,13 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 #pragma mark -
 
 - (void)appleLogin API_AVAILABLE(ios(13)) {
-    if (@available(iOS 13.0, *)) {
-
-        ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
-        ASAuthorizationAppleIDRequest *request = appleIDProvider.createRequest;
-        request.requestedScopes = @[ASAuthorizationScopeFullName, ASAuthorizationScopeEmail];
-        ASAuthorizationController *controller = [[ASAuthorizationController alloc] initWithAuthorizationRequests:@[request]];
-        controller.delegate = self;
-        controller.presentationContextProvider = self;
-        [controller performRequests];
-    }
+    ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
+    ASAuthorizationAppleIDRequest *request = appleIDProvider.createRequest;
+    request.requestedScopes = @[ASAuthorizationScopeFullName, ASAuthorizationScopeEmail];
+    ASAuthorizationController *controller = [[ASAuthorizationController alloc] initWithAuthorizationRequests:@[request]];
+    controller.delegate = self;
+    controller.presentationContextProvider = self;
+    [controller performRequests];
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller
@@ -108,9 +105,7 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
     } else {
 
     }
-
 }
-
 
 - (void)authorizationController:(ASAuthorizationController *)controller
            didCompleteWithError:(NSError *)error  API_AVAILABLE(ios(13.0)){

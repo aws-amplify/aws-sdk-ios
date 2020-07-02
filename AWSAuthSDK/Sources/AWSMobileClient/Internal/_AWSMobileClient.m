@@ -176,7 +176,7 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
     // Register the SignIn Providers automatically based on the awsconfiguration.json
     [self registerSignInProvider:AWSCognitoUserPoolsSignInProviderClass
         providerConfigurationKey:AWSInfoCognitoUserPoolIdentifier];
-    
+
     [self registerSignInProvider:AWSFacebookSignInProviderClass
         providerConfigurationKey:AWSInfoFacebookIdentifier];
     
