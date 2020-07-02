@@ -140,7 +140,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
         if (userpoolClass) {
             authUIConfig.enableUserPoolsUI = true;
         } else {
-            AWSDDLogWarn(@"Found Apple configuration but could not find dependencies. Skipping rendering in AuthUI");
+            AWSDDLogWarn(@"Found UserPool configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
         }
     }
     
