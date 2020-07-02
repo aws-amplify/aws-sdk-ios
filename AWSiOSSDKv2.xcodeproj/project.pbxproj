@@ -4241,12 +4241,12 @@
 		CEA33FB11C8A37230083D6BC /* FABKitProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FABKitProtocol.h; sourceTree = "<group>"; };
 		CEA33FB21C8A37230083D6BC /* Fabric+FABKits.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Fabric+FABKits.h"; sourceTree = "<group>"; };
 		CEA33FB31C8A37230083D6BC /* Fabric.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Fabric.h; sourceTree = "<group>"; };
-		CEAFE2091CC563830003D75D /* AWSCognitoIdentityProviderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderModel.h; path = CognitoIdentityProvider/AWSCognitoIdentityProviderModel.h; sourceTree = "<group>"; };
-		CEAFE20A1CC563830003D75D /* AWSCognitoIdentityProviderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderModel.m; path = CognitoIdentityProvider/AWSCognitoIdentityProviderModel.m; sourceTree = "<group>"; };
-		CEAFE20B1CC563830003D75D /* AWSCognitoIdentityProviderResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderResources.h; path = CognitoIdentityProvider/AWSCognitoIdentityProviderResources.h; sourceTree = "<group>"; };
-		CEAFE20C1CC563830003D75D /* AWSCognitoIdentityProviderResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = AWSCognitoIdentityProviderResources.m; path = CognitoIdentityProvider/AWSCognitoIdentityProviderResources.m; sourceTree = "<group>"; };
-		CEAFE20D1CC563830003D75D /* AWSCognitoIdentityProviderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AWSCognitoIdentityProviderService.h; path = CognitoIdentityProvider/AWSCognitoIdentityProviderService.h; sourceTree = "<group>"; };
-		CEAFE20E1CC563830003D75D /* AWSCognitoIdentityProviderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; name = AWSCognitoIdentityProviderService.m; path = CognitoIdentityProvider/AWSCognitoIdentityProviderService.m; sourceTree = "<group>"; };
+		CEAFE2091CC563830003D75D /* AWSCognitoIdentityProviderModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityProviderModel.h; sourceTree = "<group>"; };
+		CEAFE20A1CC563830003D75D /* AWSCognitoIdentityProviderModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityProviderModel.m; sourceTree = "<group>"; };
+		CEAFE20B1CC563830003D75D /* AWSCognitoIdentityProviderResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityProviderResources.h; sourceTree = "<group>"; };
+		CEAFE20C1CC563830003D75D /* AWSCognitoIdentityProviderResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityProviderResources.m; sourceTree = "<group>"; };
+		CEAFE20D1CC563830003D75D /* AWSCognitoIdentityProviderService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSCognitoIdentityProviderService.h; sourceTree = "<group>"; };
+		CEAFE20E1CC563830003D75D /* AWSCognitoIdentityProviderService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = AWSCognitoIdentityProviderService.m; sourceTree = "<group>"; };
 		CEB8EF221C6A69A00098B15B /* AWSClockSkewTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSClockSkewTests.m; sourceTree = "<group>"; };
 		CEB8EF231C6A69A00098B15B /* AWSCognitoCredentialsProviderTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoCredentialsProviderTests.m; sourceTree = "<group>"; };
 		CEB8EF241C6A69A00098B15B /* AWSCognitoIdentityServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityServiceTests.m; sourceTree = "<group>"; };
@@ -7605,11 +7605,11 @@
 			children = (
 				EF1D80031CBC924D007AC243 /* AWSCognitoIdentityProvider.h */,
 				EFDF14BF1C9929AE002CCFE2 /* AWSCognitoIdentityUser.h */,
-				EFDF14C01C9929AE002CCFE2 /* AWSCognitoIdentityUser.m */,
 				EFDF147A1C98A79C002CCFE2 /* AWSCognitoIdentityUserPool.h */,
+				EFDF14C01C9929AE002CCFE2 /* AWSCognitoIdentityUser.m */,
 				EFDF14761C986D7E002CCFE2 /* AWSCognitoIdentityUserPool.m */,
-				CEAFE2081CC563580003D75D /* CognitoIdentityProvider */,
 				CEA3169C1C93A0EA002A9F58 /* Info.plist */,
+				FAB6EDF424A67DAF001A0CFB /* CognitoIdentityProvider */,
 				EF76F9C41C9A11C900F881D3 /* Internal */,
 			);
 			path = AWSCognitoIdentityProvider;
@@ -7645,19 +7645,6 @@
 				CEA33FB31C8A37230083D6BC /* Fabric.h */,
 			);
 			path = Fabric;
-			sourceTree = "<group>";
-		};
-		CEAFE2081CC563580003D75D /* CognitoIdentityProvider */ = {
-			isa = PBXGroup;
-			children = (
-				CEAFE2091CC563830003D75D /* AWSCognitoIdentityProviderModel.h */,
-				CEAFE20A1CC563830003D75D /* AWSCognitoIdentityProviderModel.m */,
-				CEAFE20B1CC563830003D75D /* AWSCognitoIdentityProviderResources.h */,
-				CEAFE20C1CC563830003D75D /* AWSCognitoIdentityProviderResources.m */,
-				CEAFE20D1CC563830003D75D /* AWSCognitoIdentityProviderService.h */,
-				CEAFE20E1CC563830003D75D /* AWSCognitoIdentityProviderService.m */,
-			);
-			name = CognitoIdentityProvider;
 			sourceTree = "<group>";
 		};
 		CEB8EF541C6A6A2E0098B15B /* OCMock */ = {
@@ -7977,6 +7964,19 @@
 				FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */,
 			);
 			path = Common;
+			sourceTree = "<group>";
+		};
+		FAB6EDF424A67DAF001A0CFB /* CognitoIdentityProvider */ = {
+			isa = PBXGroup;
+			children = (
+				CEAFE2091CC563830003D75D /* AWSCognitoIdentityProviderModel.h */,
+				CEAFE20B1CC563830003D75D /* AWSCognitoIdentityProviderResources.h */,
+				CEAFE20D1CC563830003D75D /* AWSCognitoIdentityProviderService.h */,
+				CEAFE20A1CC563830003D75D /* AWSCognitoIdentityProviderModel.m */,
+				CEAFE20C1CC563830003D75D /* AWSCognitoIdentityProviderResources.m */,
+				CEAFE20E1CC563830003D75D /* AWSCognitoIdentityProviderService.m */,
+			);
+			name = CognitoIdentityProvider;
 			sourceTree = "<group>";
 		};
 		FAD9DD20245CD135003F84D0 /* AWSTestResources */ = {
