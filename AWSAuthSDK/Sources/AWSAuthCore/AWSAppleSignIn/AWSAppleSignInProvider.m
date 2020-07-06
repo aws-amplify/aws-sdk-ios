@@ -30,10 +30,13 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 @property (strong, nonatomic) UIViewController *signInViewController;
 @property (atomic, copy) AWSSignInManagerCompletionBlock completionHandler;
 @property (nonatomic, copy) NSString *idToken;
+@property (strong, nonatomic) NSArray *scopes;
 
 @end
 
 @implementation AWSAppleSignInProvider
+
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 
 + (instancetype)sharedInstance {
     static AWSAppleSignInProvider *_sharedInstance = nil;
@@ -42,6 +45,13 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
         _sharedInstance = [[AWSAppleSignInProvider alloc] init];
     });
     return _sharedInstance;
+}
+
+- (instancetype) init {
+    if (self == [super init]) {
+        _scopes = [self getScopeFromConfig];
+    }
+    return self;
 }
 
 - (void)setViewControllerForAppleSignIn:(UIViewController *)signInViewController {
@@ -57,7 +67,6 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 - (AWSTask<NSString *> *)token {
     AWSTask *task = [AWSTask taskWithResult:_idToken];
     return task;
-
 }
 
 #pragma mark - AWSSignInProvider
@@ -68,9 +77,7 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 
 - (void)login:(AWSSignInManagerCompletionBlock)completionHandler {
     self.completionHandler = completionHandler;
-    if (@available(iOS 13, *)) {
-        [self appleLogin];
-    }
+    [self appleLogin];
 }
 
 - (void)logout {
@@ -78,17 +85,28 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 }
 
 - (void)reloadSession {
-    if (@available(iOS 13, *)) {
-        [self appleLogin];
+    [self appleLogin];
+}
+
+- (NSArray<ASAuthorizationScope> *)getScopeFromConfig {
+    
+    NSDictionary *dict = [[AWSInfo defaultAWSInfo] rootInfoDictionary];
+    NSDictionary *providerDict = dict[AWSInfoAppleIdentifier];
+    NSString *scopeString = providerDict[@"Permissions"];
+    
+    if (!scopeString) {
+        AWSDDLogDebug(@"Scopes for `%@` is not set present in the configuration.", AWSInfoAppleIdentifier);
+        return @[ASAuthorizationScopeFullName, ASAuthorizationScopeEmail];
     }
+    return [scopeString componentsSeparatedByString:@","];
 }
 
 #pragma mark -
 
-- (void)appleLogin API_AVAILABLE(ios(13)) {
+- (void)appleLogin {
     ASAuthorizationAppleIDProvider *appleIDProvider = [ASAuthorizationAppleIDProvider new];
     ASAuthorizationAppleIDRequest *request = appleIDProvider.createRequest;
-    request.requestedScopes = @[ASAuthorizationScopeFullName, ASAuthorizationScopeEmail];
+    request.requestedScopes = self.scopes;
     ASAuthorizationController *controller = [[ASAuthorizationController alloc] initWithAuthorizationRequests:@[request]];
     controller.delegate = self;
     controller.presentationContextProvider = self;
@@ -96,25 +114,25 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller
-   didCompleteWithAuthorization:(ASAuthorization *)authorization  API_AVAILABLE(ios(13.0)){
+   didCompleteWithAuthorization:(ASAuthorization *)authorization {
     ASAuthorizationAppleIDCredential *credentials = [authorization credential];
     NSData *idTokenData = [credentials identityToken];
     if (idTokenData != nil) {
         self.idToken = [[NSString alloc] initWithData:idTokenData encoding:NSUTF8StringEncoding];
         [[AWSSignInManager sharedInstance] completeLogin];
     } else {
-
+        
     }
 }
 
 - (void)authorizationController:(ASAuthorizationController *)controller
-           didCompleteWithError:(NSError *)error  API_AVAILABLE(ios(13.0)){
+           didCompleteWithError:(NSError *)error {
     if (self.completionHandler) {
         self.completionHandler(nil, error);
     }
 }
 
-- (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller  API_AVAILABLE(ios(13.0)){
+- (ASPresentationAnchor)presentationAnchorForAuthorizationController:(ASAuthorizationController *)controller {
     return self.signInViewController.view.window;
 }
 

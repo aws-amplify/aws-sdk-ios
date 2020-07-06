@@ -14,6 +14,6 @@ Pod::Spec.new do |s|
    s.requires_arc = true
    s.dependency 'AWSCore', '2.14.0'
    s.source_files = 'AWSAuthSDK/Sources/AWSAuthCore/**/*.{h,m}'
-   s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthCore/*.h'
+   s.public_header_files = 'AWSAuthSDK/Sources/AWSAuthCore/**/*.h'
  end
  

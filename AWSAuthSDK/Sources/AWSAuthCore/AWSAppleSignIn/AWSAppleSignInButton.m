@@ -15,13 +15,12 @@
 
 #import "AWSAppleSignInButton.h"
 #import "AWSAppleSignInProvider.h"
-#import<AuthenticationServices/AuthenticationServices.h>
+#import <AuthenticationServices/AuthenticationServices.h>
 
 @interface AWSAppleSignInButton()
 
 @property (nonatomic, strong) id<AWSSignInProvider> signInProvider;
 
-@property (nonatomic, strong) UIControl *appleButton;
 @property (nonatomic, strong) UIStackView *appleStackView;
 
 @end
@@ -52,14 +51,12 @@
 }
 
 - (void)createAppleButton {
-    if (@available(iOS 13, *)) {
-        _appleButton = [[ASAuthorizationAppleIDButton alloc] init];
-        [_appleButton addTarget:self action:@selector(logInWithProvider:) forControlEvents:UIControlEventTouchUpInside];
-        CGRect buttonFrame = _appleButton.frame;
-        buttonFrame.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
-        _appleButton.frame = buttonFrame;
-        [self addSubview:_appleButton];
-    }
+    UIControl * appleButton = [[ASAuthorizationAppleIDButton alloc] init];
+    [appleButton addTarget:self action:@selector(logInWithProvider:) forControlEvents:UIControlEventTouchUpInside];
+    CGRect buttonFrame = appleButton.frame;
+    buttonFrame.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
+    appleButton.frame = buttonFrame;
+    [self addSubview:appleButton];
 }
 
 - (void)setSignInProvider:(id<AWSSignInProvider>)signInProvider {

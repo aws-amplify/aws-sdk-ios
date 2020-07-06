@@ -15,6 +15,7 @@
 
 #import "AWSAuthUIViewController.h"
 #import "AWSSignInViewController.h"
+#import <AWSAuthCore/AWSAppleSignInButton.h>
 
 @interface AWSSignInManager()
 @property (nonatomic) BOOL shouldFederate;
@@ -56,7 +57,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
     if (configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
     }
-                        
+
     if(configDictionary[@"disableSignUpButton"]) {
         NSString *disableSignUpButtonValue = (NSString *)configDictionary[@"disableSignUpButton"];
         if ([disableSignUpButtonValue isEqual: @"YES"]) {
@@ -65,7 +66,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
             [config setDisableSignUpButton:false];
         }
     }
-                        
+
     if (configDictionary[@"secondaryBackgroundColor"]) {
         [config setSecondaryBackgroundColor:(UIColor *)configDictionary[@"secondaryBackgroundColor"]];
     }
@@ -127,8 +128,11 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
-        Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
-        [authUIConfig addAWSSignInButtonViewClass:appleClass];
+        if (@available(iOS 13, *)) {
+            [authUIConfig addAWSSignInButtonViewClass:[AWSAppleSignInButton class]];
+        } else {
+            AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK supports Sign in with Apple for iOS 13+");
+        }
     }
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
