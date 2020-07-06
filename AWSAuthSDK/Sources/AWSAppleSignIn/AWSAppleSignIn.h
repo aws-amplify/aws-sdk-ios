@@ -15,16 +15,11 @@
 
 #import <UIKit/UIKit.h>
 
-//! Project version number for AWSAuthCore.
-FOUNDATION_EXPORT double AWSAuthCoreVersionNumber;
+//! Project version number for AWSAppleSignIn.
+FOUNDATION_EXPORT double AWSAppleSignInVersionNumber;
 
-//! Project version string for AWSAuthCore.
-FOUNDATION_EXPORT const unsigned char AWSAuthCoreVersionString[];
+//! Project version string for AWSAppleSignIn.
+FOUNDATION_EXPORT const unsigned char AWSAppleSignInVersionString[];
 
-#import <AWSAuthCore/AWSSignInManager.h>
-#import <AWSAuthCore/AWSIdentityManager.h>
-#import <AWSAuthCore/AWSSignInProviderApplicationIntercept.h>
-#import <AWSAuthCore/AWSSignInProvider.h>
-#import <AWSAuthCore/AWSSignInButtonView.h>
-#import <AWSAuthCore/AWSUIConfiguration.h>
-
+#import <AWSAppleSignIn/AWSAppleSignInProvider.h>
+#import <AWSAppleSignIn/AWSAppleSignInButton.h>

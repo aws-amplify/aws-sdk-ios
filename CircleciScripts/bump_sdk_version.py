@@ -49,6 +49,7 @@ class VersionBumper:
         "AWSTranslate",
         "AWSAuthSDK/Sources/AWSAuthCore",
         "AWSAuthSDK/Sources/AWSAuthUI",
+        "AWSAuthSDK/Sources/AWSAppleSignIn",
         "AWSAuthSDK/Sources/AWSFacebookSignIn",
         "AWSAuthSDK/Sources/AWSGoogleSignIn",
         "AWSAuthSDK/Sources/AWSMobileClient",

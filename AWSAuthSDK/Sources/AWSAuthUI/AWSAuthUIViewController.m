@@ -15,7 +15,6 @@
 
 #import "AWSAuthUIViewController.h"
 #import "AWSSignInViewController.h"
-#import <AWSAuthCore/AWSAppleSignInButton.h>
 
 @interface AWSSignInManager()
 @property (nonatomic) BOOL shouldFederate;
@@ -128,11 +127,17 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
-        if (@available(iOS 13, *)) {
-            [authUIConfig addAWSSignInButtonViewClass:[AWSAppleSignInButton class]];
+        Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
+        if (appleClass) {
+            if (@available(iOS 13, *)) {
+                [authUIConfig addAWSSignInButtonViewClass:appleClass];
+            } else {
+                AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK supports Sign in with Apple for iOS 13+");
+            }
         } else {
-            AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK supports Sign in with Apple for iOS 13+");
+            AWSDDLogWarn(@"Found Apple Sign In configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
         }
+
     }
 
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {

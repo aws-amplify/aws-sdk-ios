@@ -69,6 +69,7 @@ grouped_frameworks = [
 
         # Depends only on AWSAuthCore (and possibly external Pods, but nothing else
         # built locally)
+        'AWSAppleSignIn',
         'AWSFacebookSignIn',
         'AWSGoogleSignIn',
 
@@ -81,7 +82,7 @@ grouped_frameworks = [
         # Depends on most previous packages except auth
         'AWSiOSSDKv2',
 
-        # Depends on AWSAuthCore, AWSFacebookSignIn, AWSGoogleSignIn,
+        # Depends on AWSAuthCore, AWSAppleSignIn, AWSFacebookSignIn, AWSGoogleSignIn, 
         # AWSUserPoolsSignIn and AWSAuthUI
         'AWSAuth',
     ],
