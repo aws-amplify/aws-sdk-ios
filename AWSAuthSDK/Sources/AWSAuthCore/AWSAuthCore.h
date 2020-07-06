@@ -27,4 +27,3 @@ FOUNDATION_EXPORT const unsigned char AWSAuthCoreVersionString[];
 #import <AWSAuthCore/AWSSignInProvider.h>
 #import <AWSAuthCore/AWSSignInButtonView.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
-
