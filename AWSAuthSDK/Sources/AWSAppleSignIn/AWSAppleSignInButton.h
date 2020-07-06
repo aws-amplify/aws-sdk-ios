@@ -15,8 +15,6 @@
 
 #import <UIKit/UIKit.h>
 
-#import "AWSSignInProvider.h"
-#import "AWSSignInManager.h"
 #import "AWSSignInButtonView.h"
 
 NS_ASSUME_NONNULL_BEGIN

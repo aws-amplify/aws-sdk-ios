@@ -27,7 +27,10 @@
 
 @implementation AWSAppleSignInButton
 
+#pragma mark - (nonatomic, weak) id<AWSSignInDelegate>
 @synthesize delegate;
+
+#pragma mark - (nonatomic) AWSSignInButtonStyle buttonStyle
 @synthesize buttonStyle;
 
 - (id)initWithCoder:(NSCoder*)aDecoder {
@@ -57,10 +60,6 @@
     buttonFrame.size = CGSizeMake(self.frame.size.width, self.frame.size.height);
     appleButton.frame = buttonFrame;
     [self addSubview:appleButton];
-}
-
-- (void)setSignInProvider:(id<AWSSignInProvider>)signInProvider {
-    self.signInProvider = signInProvider;
 }
 
 - (void)logInWithProvider:(id)sender {

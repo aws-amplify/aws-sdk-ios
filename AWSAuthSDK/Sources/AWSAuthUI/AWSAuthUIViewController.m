@@ -132,7 +132,7 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
             if (@available(iOS 13, *)) {
                 [authUIConfig addAWSSignInButtonViewClass:appleClass];
             } else {
-                AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK supports Sign in with Apple for iOS 13+");
+                AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK only supports Sign in with Apple for iOS 13+");
             }
         } else {
             AWSDDLogWarn(@"Found Apple Sign In configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
