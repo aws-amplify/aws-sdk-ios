@@ -50,8 +50,10 @@ static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
 static NSString *const AWSInfoFacebookPermissionsIdentifier = @"Permissions";
 static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 static NSString *const AWSInfoGooglePermissionsIdentifier = @"Permissions";
 
+Class AWSAppleSignInProviderClass;
 Class AWSFacebookSignInProviderClass;
 Class AWSGoogleSignInProviderClass;
 Class AWSCognitoUserPoolsSignInProviderClass;
@@ -76,6 +78,7 @@ Class AWSCognitoUserPoolsSignInProviderClass;
     if (self) {
         _isInitialized = NO;
         _signInProviderConfig = nil;
+        AWSAppleSignInProviderClass = NSClassFromString(@"AWSAppleSignInProvider");
         AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
         AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
         AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
@@ -179,6 +182,9 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
     
     [self registerSignInProvider:AWSGoogleSignInProviderClass
         providerConfigurationKey:AWSInfoGoogleIdentifier];
+    
+    [self registerSignInProvider:AWSAppleSignInProviderClass
+        providerConfigurationKey:AWSInfoAppleIdentifier];
 }
 
 - (id)registerSignInProvider:(Class)providerClass

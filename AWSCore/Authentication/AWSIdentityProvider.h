@@ -22,6 +22,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityIdChangedNotification;
 FOUNDATION_EXPORT NSString *const AWSCognitoNotificationPreviousId;
 FOUNDATION_EXPORT NSString *const AWSCognitoNotificationNewId;
 
+FOUNDATION_EXPORT NSString *const AWSIdentityProviderApple;
 FOUNDATION_EXPORT NSString *const AWSIdentityProviderDigits;
 FOUNDATION_EXPORT NSString *const AWSIdentityProviderFacebook;
 FOUNDATION_EXPORT NSString *const AWSIdentityProviderGoogle;

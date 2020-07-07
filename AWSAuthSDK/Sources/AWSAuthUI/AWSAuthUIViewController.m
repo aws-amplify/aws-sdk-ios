@@ -36,6 +36,7 @@ typedef void(^AWSAuthUIExtendedCompletionHandler)(NSString * _Nullable signInPro
 static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
 static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 
 #pragma mark PresentViewController methods
 
@@ -55,7 +56,7 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
     if (configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
     }
-                        
+
     if(configDictionary[@"disableSignUpButton"]) {
         NSString *disableSignUpButtonValue = (NSString *)configDictionary[@"disableSignUpButton"];
         if ([disableSignUpButtonValue isEqual: @"YES"]) {
@@ -64,7 +65,7 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
             [config setDisableSignUpButton:false];
         }
     }
-                        
+
     if (configDictionary[@"secondaryBackgroundColor"]) {
         [config setSecondaryBackgroundColor:(UIColor *)configDictionary[@"secondaryBackgroundColor"]];
     }
@@ -124,7 +125,21 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
 + (AWSAuthUIConfiguration *)getDefaultAuthUIConfiguration {
     
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
-    
+
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
+        Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
+        if (appleClass) {
+            if (@available(iOS 13, *)) {
+                [authUIConfig addAWSSignInButtonViewClass:appleClass];
+            } else {
+                AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK only supports Sign in with Apple for iOS 13+");
+            }
+        } else {
+            AWSDDLogWarn(@"Found Apple Sign In configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
+
+    }
+
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
         Class userpoolClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
         if (userpoolClass) {

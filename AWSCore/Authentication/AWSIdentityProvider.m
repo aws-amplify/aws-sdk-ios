@@ -21,6 +21,7 @@ NSString *const AWSCognitoCredentialsProviderHelperErrorDomain = @"com.amazonaws
 NSString *const AWSCognitoNotificationPreviousId = @"PREVID";
 NSString *const AWSCognitoNotificationNewId = @"NEWID";
 
+NSString *const AWSIdentityProviderApple = @"appleid.apple.com";
 NSString *const AWSIdentityProviderDigits = @"www.digits.com";
 NSString *const AWSIdentityProviderFacebook = @"graph.facebook.com";
 NSString *const AWSIdentityProviderGoogle = @"accounts.google.com";
