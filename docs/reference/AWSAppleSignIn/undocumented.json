@@ -1,0 +1,19 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSAppleSignIn/AWSAppleSignIn.h",
+      "line": 19,
+      "symbol": "AWSAppleSignInVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSAppleSignIn/AWSAppleSignIn.h",
+      "line": 22,
+      "symbol": "AWSAppleSignInVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}
