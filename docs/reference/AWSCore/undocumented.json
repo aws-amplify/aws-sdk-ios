@@ -143,97 +143,104 @@
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
       "line": 25,
-      "symbol": "AWSIdentityProviderDigits",
+      "symbol": "AWSIdentityProviderApple",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
       "line": 26,
-      "symbol": "AWSIdentityProviderFacebook",
+      "symbol": "AWSIdentityProviderDigits",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
       "line": 27,
-      "symbol": "AWSIdentityProviderGoogle",
+      "symbol": "AWSIdentityProviderFacebook",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
       "line": 28,
-      "symbol": "AWSIdentityProviderLoginWithAmazon",
+      "symbol": "AWSIdentityProviderGoogle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
       "line": 29,
+      "symbol": "AWSIdentityProviderLoginWithAmazon",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
+      "line": 30,
       "symbol": "AWSIdentityProviderTwitter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 31,
+      "line": 32,
       "symbol": "AWSIdentityProviderAmazonCognitoIdentity",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 33,
+      "line": 34,
       "symbol": "AWSCognitoCredentialsProviderHelperErrorDomain",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 34,
+      "line": 35,
       "symbol": "AWSCognitoCredentialsProviderHelperErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 34,
+      "line": 35,
       "symbol": "AWSCognitoCredentialsProviderHelperErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 35,
+      "line": 36,
       "symbol": "AWSCognitoCredentialsProviderHelperErrorType.AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 36,
+      "line": 37,
       "symbol": "AWSCognitoCredentialsProviderHelperErrorType.AWSCognitoCredentialsProviderHelperErrorTypeTokenRefreshTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 140,
+      "line": 141,
       "symbol": "AWSCognitoCredentialsProviderHelper.useEnhancedFlow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 142,
+      "line": 143,
       "symbol": "AWSCognitoCredentialsProviderHelper.-initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Authentication/AWSIdentityProvider.h",
-      "line": 147,
+      "line": 148,
       "symbol": "AWSCognitoCredentialsProviderHelper.-initWithRegionType:identityPoolId:useEnhancedFlow:identityProviderManager:identityPoolConfiguration:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
