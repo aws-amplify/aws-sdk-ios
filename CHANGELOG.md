@@ -1,6 +1,7 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.14.1
+## Unreleased
+
 ### New features
 - **AWSMobileClient**
   - Add support for SignIn with Apple in DropInUI. See [PR: #2819](https://github.com/aws-amplify/aws-sdk-ios/pull/2819)
