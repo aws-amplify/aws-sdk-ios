@@ -8,15 +8,23 @@
     <script src="js/jquery.min.js" defer></script>
     <script src="js/jazzy.js" defer></script>
     
+    <script src="js/lunr.min.js" defer></script>
+    <script src="js/typeahead.jquery.js" defer></script>
+    <script src="js/jazzy.search.js" defer></script>
   </head>
   <body>
     <a name="//apple_ref/objc/Section/Enumerations" class="dashAnchor"></a>
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.14.0 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.14.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right">
+          <form role="search" action="search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
       </div>
     </header>
     <div class="content-wrapper">
@@ -1081,85 +1089,6 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSCognitoIdentityUserStatus"></a>
-                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityUserStatus" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSCognitoIdentityUserStatus">AWSCognitoIdentityUserStatus</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The status of the user.</p>
-
-<ul>
-<li>AWSCognitoIdentityUserStatusUnknown - The user status is unknown.</li>
-<li>AWSCognitoIdentityUserStatusConfirmed - The user was auto confirmed.</li>
-<li>AWSCognitoIdentityUserStatusUnconfirmed - The user was not confirmed.</li>
-</ul>
-
-                        <a href="Enums/AWSCognitoIdentityUserStatus.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">AWSCognitoIdentityUserStatus</span> <span class="p">{}</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityUserStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSCognitoIdentityClientErrorType"></a>
-                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityClientErrorType" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSCognitoIdentityClientErrorType">AWSCognitoIdentityClientErrorType</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>The error domain for AWSCognitoIdentityProvider errors.</p>
-
-<ul>
-<li>AWSCognitoIdentityProviderClientErrorUnknown - Unknown error.</li>
-<li>AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate - Necessary authentication delegate isn&rsquo;t set.</li>
-<li>AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported - Custom authentication is not supported by this SDK.</li>
-<li>AWSCognitoIdentityProviderClientErrorDeviceNotTracked - This device does not have an id, either it was never tracked or previously forgotten.</li>
-</ul>
-
-                        <a href="Enums/AWSCognitoIdentityClientErrorType.html" class="slightly-smaller">See more</a>
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">AWSCognitoIdentityClientErrorType</span> <span class="p">{}</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityClientErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -2502,13 +2431,92 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityUserStatus"></a>
+                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityUserStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityUserStatus">AWSCognitoIdentityUserStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of the user.</p>
+
+<ul>
+<li>AWSCognitoIdentityUserStatusUnknown - The user status is unknown.</li>
+<li>AWSCognitoIdentityUserStatusConfirmed - The user was auto confirmed.</li>
+<li>AWSCognitoIdentityUserStatusUnconfirmed - The user was not confirmed.</li>
+</ul>
+
+                        <a href="Enums/AWSCognitoIdentityUserStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">AWSCognitoIdentityUserStatus</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityUserStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityClientErrorType"></a>
+                    <a name="//apple_ref/objc/Enum/AWSCognitoIdentityClientErrorType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityClientErrorType">AWSCognitoIdentityClientErrorType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The error domain for AWSCognitoIdentityProvider errors.</p>
+
+<ul>
+<li>AWSCognitoIdentityProviderClientErrorUnknown - Unknown error.</li>
+<li>AWSCognitoIdentityProviderClientErrorInvalidAuthenticationDelegate - Necessary authentication delegate isn&rsquo;t set.</li>
+<li>AWSCognitoIdentityProviderClientErrorCustomAuthenticationNotSupported - Custom authentication is not supported by this SDK.</li>
+<li>AWSCognitoIdentityProviderClientErrorDeviceNotTracked - This device does not have an id, either it was never tracked or previously forgotten.</li>
+</ul>
+
+                        <a href="Enums/AWSCognitoIdentityClientErrorType.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">enum</span> <span class="n">AWSCognitoIdentityClientErrorType</span> <span class="p">{}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSCognitoIdentityClientErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-06-30)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.4</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-07)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
