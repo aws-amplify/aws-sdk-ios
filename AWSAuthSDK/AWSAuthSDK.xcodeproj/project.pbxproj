@@ -2023,8 +2023,6 @@
 			isa = PBXGroup;
 			children = (
 				B5C564901F2B2162004FF3CF /* AWSAuthCore.h */,
-				B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */,
-				B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */,
 				B5C5648B1F2B2162004FF3CF /* AWSIdentityManager.h */,
 				B5C5648C1F2B2162004FF3CF /* AWSIdentityManager.m */,
 				B5C564911F2B2162004FF3CF /* AWSSignInButtonView.h */,
@@ -2034,6 +2032,7 @@
 				B5C564951F2B2162004FF3CF /* AWSSignInProviderApplicationIntercept.h */,
 				1711A4F31F43D701006105D3 /* AWSUIConfiguration.h */,
 				B5C564961F2B2162004FF3CF /* Info.plist */,
+				FA7057BC24B628A400812696 /* Internal */,
 			);
 			path = AWSAuthCore;
 			sourceTree = "<group>";
@@ -2063,6 +2062,15 @@
 				B92BA3CA2318859D007C1175 /* Info.plist */,
 			);
 			path = AWSMobileClientUnitTests;
+			sourceTree = "<group>";
+		};
+		FA7057BC24B628A400812696 /* Internal */ = {
+			isa = PBXGroup;
+			children = (
+				B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */,
+				B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */,
+			);
+			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
