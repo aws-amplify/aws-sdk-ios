@@ -2,8 +2,8 @@
 
 # This script generates a private spec repo in your $HOME/.aws-amplify
 # directory, to enable `pod lib lint`. It also makes it easier to do
-# development against unreleased versions of Amplify, at least until we start
-# releasing nightly builds.
+# development against unreleased versions of the AWS Mobile SDK, at least until
+# we start releasing nightly builds.
 
 set -e
 
