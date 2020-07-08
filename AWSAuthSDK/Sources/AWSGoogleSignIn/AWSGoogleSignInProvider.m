@@ -38,7 +38,7 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 @property (nonatomic, strong) AWSExecutor *executor;
 @property (nonatomic, strong) UIViewController *signInViewController;
 @property (atomic, copy) AWSSignInManagerCompletionBlock completionHandler;
-@property (nonatomic, strong) id signInClient;
+@property (nonatomic, strong) GIDSignIn *signInClient;
 
 @end
 
@@ -91,9 +91,9 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
         _signInViewController = nil;
         
         _signInClient = [NSClassFromString(@"GIDSignIn") sharedInstance];
-        [self.signInClient setValue:self forKey:@"delegate"];
-        [self.signInClient setValue:googleClientID forKey:@"clientID"];
-        [self.signInClient setValue:@[AWSGoogleSignInProviderClientScope, AWSGoogleSignInProviderOIDCScope] forKey:@"scopes"];
+        self.signInClient.delegate = self;
+        self.signInClient.clientID = googleClientID;
+        self.signInClient.scopes = @[AWSGoogleSignInProviderClientScope, AWSGoogleSignInProviderOIDCScope];
     }
     
     return self;
@@ -102,7 +102,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 #pragma mark - Hub user interface
 
 - (void)setScopes:(NSArray *)scopes {
-     [self.signInClient setValue:scopes forKey:@"scopes"];
+    self.signInClient.scopes = scopes;
 }
 
 - (void)setViewControllerForGoogleSignIn:(UIViewController *)signInViewController {
@@ -130,8 +130,8 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
     AWSTask *task = [AWSTask taskWithResult:nil];
     return [task continueWithExecutor:self.executor withBlock:^id _Nullable(AWSTask * _Nonnull task) {
         
-        NSString *idToken = [self.signInClient currentUser].authentication.idToken;
-        NSDate *idTokenExpirationDate = [self.signInClient currentUser].authentication.idTokenExpirationDate;
+        NSString *idToken = self.signInClient.currentUser.authentication.idToken;
+        NSDate *idTokenExpirationDate = self.signInClient.currentUser.authentication.idTokenExpirationDate;
         
         if (idToken
             // If the cached token expires within 10 min, tries refreshing a token.
@@ -149,8 +149,8 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
             }
         }
         
-        idToken = [self.signInClient currentUser].authentication.idToken;
-        idTokenExpirationDate = [self.signInClient currentUser].authentication.idTokenExpirationDate;
+        idToken = self.signInClient.currentUser.authentication.idToken;
+        idTokenExpirationDate = self.signInClient.currentUser.authentication.idTokenExpirationDate;
         
         if (idToken
             // If the cached token expires within 10 min, tries refreshing a token.
@@ -191,7 +191,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 
 - (void)login:(AWSSignInManagerCompletionBlock)completionHandler {
     self.completionHandler = completionHandler;
-    [self.signInClient setValue:self.signInViewController forKey:@"presentingViewController"];
+    self.signInClient.presentingViewController = self.signInViewController;
     [self.signInClient signIn];
 }
 
