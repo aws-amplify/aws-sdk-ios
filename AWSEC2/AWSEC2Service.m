@@ -1645,6 +1645,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateManagedPrefixListResult *> *)createManagedPrefixList:(AWSEC2CreateManagedPrefixListRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateManagedPrefixList"
+                   outputClass:[AWSEC2CreateManagedPrefixListResult class]];
+}
+
+- (void)createManagedPrefixList:(AWSEC2CreateManagedPrefixListRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateManagedPrefixListResult *response, NSError *error))completionHandler {
+    [[self createManagedPrefixList:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateManagedPrefixListResult *> * _Nonnull task) {
+        AWSEC2CreateManagedPrefixListResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateNatGatewayResult *> *)createNatGateway:(AWSEC2CreateNatGatewayRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2732,6 +2755,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteLocalGatewayRouteTableVpcAssociationResult *response, NSError *error))completionHandler {
     [[self deleteLocalGatewayRouteTableVpcAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteLocalGatewayRouteTableVpcAssociationResult *> * _Nonnull task) {
         AWSEC2DeleteLocalGatewayRouteTableVpcAssociationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteManagedPrefixListResult *> *)deleteManagedPrefixList:(AWSEC2DeleteManagedPrefixListRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteManagedPrefixList"
+                   outputClass:[AWSEC2DeleteManagedPrefixListResult class]];
+}
+
+- (void)deleteManagedPrefixList:(AWSEC2DeleteManagedPrefixListRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteManagedPrefixListResult *response, NSError *error))completionHandler {
+    [[self deleteManagedPrefixList:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteManagedPrefixListResult *> * _Nonnull task) {
+        AWSEC2DeleteManagedPrefixListResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4877,6 +4923,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeLocalGatewaysResult *response, NSError *error))completionHandler {
     [[self describeLocalGateways:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeLocalGatewaysResult *> * _Nonnull task) {
         AWSEC2DescribeLocalGatewaysResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeManagedPrefixListsResult *> *)describeManagedPrefixLists:(AWSEC2DescribeManagedPrefixListsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeManagedPrefixLists"
+                   outputClass:[AWSEC2DescribeManagedPrefixListsResult class]];
+}
+
+- (void)describeManagedPrefixLists:(AWSEC2DescribeManagedPrefixListsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeManagedPrefixListsResult *response, NSError *error))completionHandler {
+    [[self describeManagedPrefixLists:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeManagedPrefixListsResult *> * _Nonnull task) {
+        AWSEC2DescribeManagedPrefixListsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -7110,6 +7179,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetManagedPrefixListAssociationsResult *> *)getManagedPrefixListAssociations:(AWSEC2GetManagedPrefixListAssociationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetManagedPrefixListAssociations"
+                   outputClass:[AWSEC2GetManagedPrefixListAssociationsResult class]];
+}
+
+- (void)getManagedPrefixListAssociations:(AWSEC2GetManagedPrefixListAssociationsRequest *)request
+     completionHandler:(void (^)(AWSEC2GetManagedPrefixListAssociationsResult *response, NSError *error))completionHandler {
+    [[self getManagedPrefixListAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetManagedPrefixListAssociationsResult *> * _Nonnull task) {
+        AWSEC2GetManagedPrefixListAssociationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetManagedPrefixListEntriesResult *> *)getManagedPrefixListEntries:(AWSEC2GetManagedPrefixListEntriesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetManagedPrefixListEntries"
+                   outputClass:[AWSEC2GetManagedPrefixListEntriesResult class]];
+}
+
+- (void)getManagedPrefixListEntries:(AWSEC2GetManagedPrefixListEntriesRequest *)request
+     completionHandler:(void (^)(AWSEC2GetManagedPrefixListEntriesResult *response, NSError *error))completionHandler {
+    [[self getManagedPrefixListEntries:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetManagedPrefixListEntriesResult *> * _Nonnull task) {
+        AWSEC2GetManagedPrefixListEntriesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2GetPasswordDataResult *> *)getPasswordData:(AWSEC2GetPasswordDataRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -7786,6 +7901,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyLaunchTemplateResult *response, NSError *error))completionHandler {
     [[self modifyLaunchTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyLaunchTemplateResult *> * _Nonnull task) {
         AWSEC2ModifyLaunchTemplateResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyManagedPrefixListResult *> *)modifyManagedPrefixList:(AWSEC2ModifyManagedPrefixListRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyManagedPrefixList"
+                   outputClass:[AWSEC2ModifyManagedPrefixListResult class]];
+}
+
+- (void)modifyManagedPrefixList:(AWSEC2ModifyManagedPrefixListRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyManagedPrefixListResult *response, NSError *error))completionHandler {
+    [[self modifyManagedPrefixList:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyManagedPrefixListResult *> * _Nonnull task) {
+        AWSEC2ModifyManagedPrefixListResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -9014,6 +9152,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2RestoreAddressToClassicResult *response, NSError *error))completionHandler {
     [[self restoreAddressToClassic:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RestoreAddressToClassicResult *> * _Nonnull task) {
         AWSEC2RestoreAddressToClassicResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2RestoreManagedPrefixListVersionResult *> *)restoreManagedPrefixListVersion:(AWSEC2RestoreManagedPrefixListVersionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RestoreManagedPrefixListVersion"
+                   outputClass:[AWSEC2RestoreManagedPrefixListVersionResult class]];
+}
+
+- (void)restoreManagedPrefixListVersion:(AWSEC2RestoreManagedPrefixListVersionRequest *)request
+     completionHandler:(void (^)(AWSEC2RestoreManagedPrefixListVersionResult *response, NSError *error))completionHandler {
+    [[self restoreManagedPrefixListVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RestoreManagedPrefixListVersionResult *> * _Nonnull task) {
+        AWSEC2RestoreManagedPrefixListVersionResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
