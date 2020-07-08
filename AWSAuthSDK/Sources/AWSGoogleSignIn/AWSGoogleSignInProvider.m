@@ -31,7 +31,7 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 
 @end
 
-@interface AWSGoogleSignInProvider() <GIDSignInDelegate, GIDSignInUIDelegate>
+@interface AWSGoogleSignInProvider() <GIDSignInDelegate>
 
 @property (atomic, strong) AWSTaskCompletionSource *taskCompletionSource;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
@@ -92,7 +92,6 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
         
         _signInClient = [NSClassFromString(@"GIDSignIn") sharedInstance];
         [self.signInClient setValue:self forKey:@"delegate"];
-        [self.signInClient setValue:self forKey:@"uiDelegate"];
         [self.signInClient setValue:googleClientID forKey:@"clientID"];
         [self.signInClient setValue:@[AWSGoogleSignInProviderClientScope, AWSGoogleSignInProviderOIDCScope] forKey:@"scopes"];
     }
@@ -108,6 +107,17 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 
 - (void)setViewControllerForGoogleSignIn:(UIViewController *)signInViewController {
     self.signInViewController = signInViewController;
+}
+
+- (UIViewController *)signInViewController {
+    if (!_signInViewController) {
+        UIViewController *topMostViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        while (topMostViewController.presentedViewController) {
+            topMostViewController = topMostViewController.presentedViewController;
+        }
+        return topMostViewController;
+    }
+    return _signInViewController;
 }
 
 #pragma mark - AWSIdentityProvider
@@ -153,7 +163,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
         // See the `GIDSignInDelegate` section of this file.
         self.taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.signInClient signInSilently];
+            [self signInSilently];
         });
         return self.taskCompletionSource.task;
     }];
@@ -162,13 +172,17 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 #pragma mark -
 
 - (BOOL)isLoggedIn {
-    return [self.signInClient hasAuthInKeychain];
+    return [self.signInClient hasPreviousSignIn];
 }
 
 - (void)reloadSession {
     if ([self isLoggedIn]) {
-        [self.signInClient signInSilently];
+        [self signInSilently];
     }
+}
+
+- (void)signInSilently {
+    [self.signInClient restorePreviousSignIn];
 }
 
 - (void)completeLoginWithToken {
@@ -177,6 +191,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 
 - (void)login:(AWSSignInManagerCompletionBlock)completionHandler {
     self.completionHandler = completionHandler;
+    [self.signInClient setValue:self.signInViewController forKey:@"presentingViewController"];
     [self.signInClient signIn];
 }
 
@@ -225,16 +240,7 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 
 - (void)signIn:(GIDSignIn *)signIn
 presentViewController:(UIViewController *)viewController {
-    
-    UIViewController *topMostViewController;
-    if (!self.signInViewController) {
-        topMostViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-        while (topMostViewController.presentedViewController) {
-            topMostViewController = topMostViewController.presentedViewController;
-        }
-    }
-    
-    [self.signInViewController ?: topMostViewController presentViewController:viewController animated:YES completion:nil];
+
 }
 
 - (void)signIn:(GIDSignIn *)signIn
@@ -253,26 +259,20 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
                      openURL:(NSURL *)url
            sourceApplication:(NSString *)sourceApplication
                   annotation:(id)annotation {
-    return [self.signInClient handleURL:url
-            sourceApplication:sourceApplication
-                   annotation:annotation];
+    return [self.signInClient handleURL:url];
 }
 
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options {
-    return [self.signInClient handleURL:url
-            sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                   annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    return [self.signInClient handleURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [self.signInClient handleURL:url
-            sourceApplication:sourceApplication
-                   annotation:annotation];
+    return [self.signInClient handleURL:url];
 }
 
 - (BOOL)isConfigurationKeyPresent {
