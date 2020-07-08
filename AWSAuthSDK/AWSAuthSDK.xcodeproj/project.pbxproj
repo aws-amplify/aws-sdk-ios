@@ -197,7 +197,7 @@
 		B92BA3D223188606007C1175 /* AWSMobileClientConfigTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BA3D123188605007C1175 /* AWSMobileClientConfigTests.swift */; };
 		B92BA3D42318867D007C1175 /* AWSMobileClientConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = B92BA3D32318867D007C1175 /* AWSMobileClientConfig.swift */; };
 		B9AC6319234F00FA00A713A5 /* AWSAuthUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */; };
-		B9AC631A234F00FA00A713A5 /* AWSAuthUIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */; };
+		B9AC631A234F00FA00A713A5 /* AWSAuthUIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9E2F6CD231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */; };
 		FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		FA5B0F11246A475500B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
@@ -1626,15 +1626,15 @@
 				1711A4BF1F43A461006105D3 /* AWSFormTableDelegate.m */,
 				1711A4C01F43A461006105D3 /* AWSTableInputCell.h */,
 				1711A4C11F43A461006105D3 /* AWSTableInputCell.m */,
+				1711A4C21F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.h */,
+				1711A4C31F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.m */,
 				1711A4C41F43A461006105D3 /* AWSUserPoolMFAViewController.h */,
 				1711A4C51F43A461006105D3 /* AWSUserPoolMFAViewController.m */,
+				B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */,
+				B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */,
 				1711A4C61F43A461006105D3 /* AWSUserPools.storyboard */,
 				1711A4C91F43A461006105D3 /* AWSUserPoolSignUpViewController.h */,
 				1711A4CA1F43A461006105D3 /* AWSUserPoolSignUpViewController.m */,
-				1711A4C21F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.h */,
-				1711A4C31F43A461006105D3 /* AWSUserPoolForgotPasswordViewController.m */,
-				B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */,
-				B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */,
 			);
 			path = UserPoolsUI;
 			sourceTree = "<group>";
@@ -1642,13 +1642,13 @@
 		1750D0081F2D4DFA006D915E /* AWSUserPoolsSignIn */ = {
 			isa = PBXGroup;
 			children = (
-				1711A4BB1F43A461006105D3 /* UserPoolsUI */,
+				1750D00F1F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.h */,
+				1750D0101F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.m */,
 				B5170D2E1F44F091008FD811 /* AWSUserPoolsSignIn.h */,
 				1711A4B91F43A461006105D3 /* AWSUserPoolsUIOperations.h */,
 				1711A4BA1F43A461006105D3 /* AWSUserPoolsUIOperations.m */,
-				1750D00F1F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.h */,
-				1750D0101F2D4E23006D915E /* AWSCognitoUserPoolsSignInProvider.m */,
 				1750D00A1F2D4DFA006D915E /* Info.plist */,
+				1711A4BB1F43A461006105D3 /* UserPoolsUI */,
 			);
 			path = AWSUserPoolsSignIn;
 			sourceTree = "<group>";
@@ -2023,6 +2023,8 @@
 			isa = PBXGroup;
 			children = (
 				B5C564901F2B2162004FF3CF /* AWSAuthCore.h */,
+				B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */,
+				B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */,
 				B5C5648B1F2B2162004FF3CF /* AWSIdentityManager.h */,
 				B5C5648C1F2B2162004FF3CF /* AWSIdentityManager.m */,
 				B5C564911F2B2162004FF3CF /* AWSSignInButtonView.h */,
@@ -2032,7 +2034,6 @@
 				B5C564951F2B2162004FF3CF /* AWSSignInProviderApplicationIntercept.h */,
 				1711A4F31F43D701006105D3 /* AWSUIConfiguration.h */,
 				B5C564961F2B2162004FF3CF /* Info.plist */,
-				FA7057BC24B628A400812696 /* Internal */,
 			);
 			path = AWSAuthCore;
 			sourceTree = "<group>";
@@ -2062,15 +2063,6 @@
 				B92BA3CA2318859D007C1175 /* Info.plist */,
 			);
 			path = AWSMobileClientUnitTests;
-			sourceTree = "<group>";
-		};
-		FA7057BC24B628A400812696 /* Internal */ = {
-			isa = PBXGroup;
-			children = (
-				B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */,
-				B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */,
-			);
-			path = Internal;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
