@@ -101,8 +101,9 @@ done < <( find "${src_dir}" -maxdepth 1 -mindepth 1 -name "*.podspec" | sort --i
 update_spec_repo
 
 echo "Done. You may now validate podspec files by running:"
+echo
+echo "pod cache clean --all"
 for podspec_file_name in "${podspec_file_names[@]}" ; do
-  echo
   echo "pod lib lint --sources=${LOCAL_SPEC_REPO_NAME},trunk ${podspec_file_name}"
 done
 
