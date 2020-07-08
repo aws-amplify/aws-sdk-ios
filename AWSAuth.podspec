@@ -17,10 +17,6 @@ Pod::Spec.new do |s|
       authcore.dependency 'AWSAuthCore', '2.14.1'
    end
 
-   s.subspec 'AppleSignIn' do  |apple|
-      apple.dependency 'AWSAppleSignIn', '2.14.1'
-   end
-
    s.subspec 'FacebookSignIn' do  |facebook|
       facebook.dependency 'AWSFacebookSignIn', '2.14.1'
    end

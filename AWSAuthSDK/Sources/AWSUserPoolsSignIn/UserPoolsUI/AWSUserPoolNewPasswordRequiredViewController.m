@@ -17,7 +17,7 @@
 #import "AWSUserPoolNewPasswordRequiredViewController.h"
 #import "AWSFormTableCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSAuthUIHelper.h"
+#import <AWSAuthCore/AWSAuthUIHelper.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
 
 @interface AWSUserPoolNewPasswordRequiredViewController ()

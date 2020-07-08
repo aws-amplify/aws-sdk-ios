@@ -1,7 +1,11 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Bug Fixes
+
+- **AWSAuthSDK**
+  - Fix import errors in AWSAppleSignIn, AWSAuth, AWSAuthCore
 
 ## 2.14.1
 

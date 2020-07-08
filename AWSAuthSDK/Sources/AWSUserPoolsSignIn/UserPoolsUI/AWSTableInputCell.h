@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
 
-#import "AWSAuthUIHelper.h"
+#import <AWSAuthCore/AWSAuthUIHelper.h>
 
 NS_ASSUME_NONNULL_BEGIN
 
