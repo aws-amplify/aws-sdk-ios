@@ -1656,12 +1656,12 @@
 		175869961EF8899700F1452C = {
 			isa = PBXGroup;
 			children = (
+				176B3BDC1F21704400ED3733 /* Sources */,
 				17CD4B0D218241B800953483 /* Tests */,
 				177AE7231F22715D00870762 /* Dependencies */,
 				17CD4B21218244EA00953483 /* AWSAuthSDKTestApp */,
 				177B8AE721E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
 				175869A11EF8899700F1452C /* Products */,
-				176B3BDC1F21704400ED3733 /* Sources */,
 				176375031F3287580086588B /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -1746,11 +1746,11 @@
 		1786CA421F2BED46003421FF /* AWSFacebookSignIn */ = {
 			isa = PBXGroup;
 			children = (
+				1786CA431F2BED46003421FF /* AWSFacebookSignIn.h */,
 				1786CA531F2BEDDD003421FF /* AWSFacebookSignInButton.h */,
 				1786CA541F2BEDDD003421FF /* AWSFacebookSignInButton.m */,
 				1786CA551F2BEDDD003421FF /* AWSFacebookSignInProvider.h */,
 				1786CA561F2BEDDD003421FF /* AWSFacebookSignInProvider.m */,
-				1786CA431F2BED46003421FF /* AWSFacebookSignIn.h */,
 				1786CA571F2BEDDD003421FF /* Images.xcassets */,
 				1786CA441F2BED46003421FF /* Info.plist */,
 			);
@@ -2553,18 +2553,18 @@
 			);
 			projectRoot = "";
 			targets = (
-				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
-				1786CA331F2BED3C003421FF /* AWSGoogleSignIn */,
-				1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */,
 				B49C887324B38746009739FC /* AWSAppleSignIn */,
-				1763753F1F328D210086588B /* AWSFacebookSignIn */,
-				B5345D0E1F366AFA009C1041 /* AWSAuthUI */,
 				B5170D971F466CE5008FD811 /* AWSAuthCore */,
-				B92BA3C52318859D007C1175 /* AWSMobileClientUnitTests */,
+				B5345D0E1F366AFA009C1041 /* AWSAuthUI */,
+				1763753F1F328D210086588B /* AWSFacebookSignIn */,
+				1786CA331F2BED3C003421FF /* AWSGoogleSignIn */,
+				B5FC69001FAFA1AA004790CB /* AWSMobileClient */,
 				17CD4AA3218241AD00953483 /* AWSMobileClientTests */,
+				B92BA3C52318859D007C1175 /* AWSMobileClientUnitTests */,
 				B412F5DE233445A500F1AC69 /* AWSMobileClientCustomAuthTests */,
-				177B8AE521E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
+				1750D0061F2D4DFA006D915E /* AWSUserPoolsSignIn */,
 				17CD4B1F218244EA00953483 /* AWSAuthSDKTestApp */,
+				177B8AE521E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
 				B412F63523347D1B00F1AC69 /* AWSMobileClientIntegTestApp */,
 				17D6F69521C0E1CD001E5F43 /* AWSAuthSDKAllTargets */,
 			);
@@ -4408,8 +4408,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/AWSAppleSignIn/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.14.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAppleSignIn;
 				PRODUCT_NAME = AWSAppleSignIn;
 				SKIP_INSTALL = YES;
@@ -4426,8 +4427,9 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = Sources/AWSAppleSignIn/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.14.1;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSAppleSignIn;
 				PRODUCT_NAME = AWSAppleSignIn;
 				SKIP_INSTALL = YES;
