@@ -3,8 +3,9 @@ import os
 import re
 import sys
 
-from functions import replacefiles
 from lxml import etree
+
+from functions import replace_files
 
 
 class VersionBumper:
@@ -109,9 +110,7 @@ class VersionBumper:
         formatted_plist = '<?xml version="1.0" encoding="UTF-8"?>\n' + plist_string
 
         # Replace self-closing '<string/>' tags with explicitly closed tags
-        formatted_plist = re.sub(
-            r"<string/>", "<string></string>", formatted_plist, flags=flags
-        )
+        formatted_plist = re.sub(r"<string/>", "<string></string>", formatted_plist, flags=flags)
 
         # Adjust lxml's default space-based indentation to Xcode's tab-based. Use the
         # multiline flag and match beginning of each line.
@@ -129,7 +128,7 @@ class VersionBumper:
 
     def bump_services(self):
         service_pattern = {
-            "match": r'(NSString[[:space:]]+\*const[[:space:]]+AWS.+SDKVersion[[:space:]]*=[[:space:]]+@")[0-9]+\.[0-9]+\.[0-9]+"',
+            "match": r'(NSString[[:space:]]+\*const[[:space:]]+AWS.+SDKVersion[[:space:]]*=[[:space:]]+@")[0-9]+\.[0-9]+\.[0-9]+"',  # noqa: E501
             "replace": r'\1{version}"'.format(version=self._new_sdk_version),
             "files": [],
         }
@@ -141,26 +140,28 @@ class VersionBumper:
                 service_pattern["files"].append(path)
 
         # Add files for special modules
-        service_pattern["files"].extend([
-            "AWSAPIGateway/AWSAPIGatewayClient.m",
-            "AWSCognito/CognitoSync/AWSCognitoSyncService.m",
-            "AWSCognitoAuth/AWSCognitoAuth.m",
-            "AWSCore/Service/AWSService.m",
-            "AWSIoT/AWSIoTDataService.m",
-            "AWSKinesis/AWSFirehoseService.m",
-            "AWSLex/AWSLexInteractionKit.m",
-            "AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.m",
-            "AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingService.m",
-            "AWSPolly/AWSPollySynthesizeSpeechURLBuilder.m",
-            "AWSS3/AWSS3PreSignedURL.m",
-        ])
-        replacefiles(self._root, service_pattern)
+        service_pattern["files"].extend(
+            [
+                "AWSAPIGateway/AWSAPIGatewayClient.m",
+                "AWSCognito/CognitoSync/AWSCognitoSyncService.m",
+                "AWSCognitoAuth/AWSCognitoAuth.m",
+                "AWSCore/Service/AWSService.m",
+                "AWSIoT/AWSIoTDataService.m",
+                "AWSKinesis/AWSFirehoseService.m",
+                "AWSLex/AWSLexInteractionKit.m",
+                "AWSMobileAnalytics/AWSMobileAnalyticsERS/AWSMobileAnalyticsERSService.m",
+                "AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingService.m",
+                "AWSPolly/AWSPollySynthesizeSpeechURLBuilder.m",
+                "AWSS3/AWSS3PreSignedURL.m",
+            ]
+        )
+        replace_files(self._root, service_pattern)
 
     def bump_podspecs(self):
         podspec_pattern1 = {
             "enclosemark": "double",
             "exclude": "AWSCognitoIdentityProviderASF",
-            "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",
+            "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",  # noqa: E501
             "replace": r"\1{version}\2".format(version=self._new_sdk_version),
             "files": [],
         }
@@ -179,8 +180,8 @@ class VersionBumper:
             podspec_pattern1["files"].append(file)
             podspec_pattern2["files"].append(file)
 
-        replacefiles(self._root, podspec_pattern1)
-        replacefiles(self._root, podspec_pattern2)
+        replace_files(self._root, podspec_pattern1)
+        replace_files(self._root, podspec_pattern2)
 
     def bump_changelog(self):
         changelog_pattern = {
@@ -190,7 +191,7 @@ class VersionBumper:
             ),
             "files": ["CHANGELOG.md"],
         }
-        replacefiles(self._root, changelog_pattern)
+        replace_files(self._root, changelog_pattern)
 
     def bump_generate_docs(self):
         generate_documentation_pattern = {
@@ -198,7 +199,7 @@ class VersionBumper:
             "replace": r'VERSION="{version}"'.format(version=self._new_sdk_version),
             "files": ["CircleciScripts/generate_documentation.sh"],
         }
-        replacefiles(self._root, generate_documentation_pattern)
+        replace_files(self._root, generate_documentation_pattern)
 
 
 if __name__ == "__main__":
