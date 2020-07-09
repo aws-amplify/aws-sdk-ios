@@ -1165,6 +1165,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"endpointArn" : @"EndpointArn",
              @"languageCode" : @"LanguageCode",
              @"text" : @"Text",
              };

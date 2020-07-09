@@ -189,7 +189,7 @@
         {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
+      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
     },\
     \"CreateEndpoint\":{\
       \"name\":\"CreateEndpoint\",\
@@ -453,6 +453,7 @@
       \"output\":{\"shape\":\"DetectEntitiesResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"TextSizeLimitExceededException\"},\
         {\"shape\":\"UnsupportedLanguageException\"},\
         {\"shape\":\"InternalServerException\"}\
@@ -932,7 +933,7 @@
       \"required\":[\"TextList\"],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
         }\
       }\
@@ -952,7 +953,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectEntitiesItemResult\":{\
       \"type\":\"structure\",\
@@ -976,7 +978,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1000,7 +1002,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectKeyPhrasesItemResult\":{\
       \"type\":\"structure\",\
@@ -1024,7 +1027,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1048,7 +1051,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectSentimentItemResult\":{\
       \"type\":\"structure\",\
@@ -1076,7 +1080,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1100,7 +1104,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectSyntaxItemResult\":{\
       \"type\":\"structure\",\
@@ -1124,7 +1129,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1148,7 +1153,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchItemError\":{\
       \"type\":\"structure\",\
@@ -1231,14 +1237,15 @@
         },\
         \"NumberOfTestDocuments\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents.</p>\"\
+          \"documentation\":\"<p>The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.</p>\"\
         },\
         \"EvaluationMetrics\":{\
           \"shape\":\"ClassifierEvaluationMetrics\",\
           \"documentation\":\"<p> Describes the result metrics for the test data associated with an documentation classifier.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides information about a document classifier.</p>\"\
+      \"documentation\":\"<p>Provides information about a document classifier.</p>\",\
+      \"sensitive\":true\
     },\
     \"ClassifyDocumentRequest\":{\
       \"type\":\"structure\",\
@@ -1248,7 +1255,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>The document text to be analyzed.</p>\"\
         },\
         \"EndpointArn\":{\
@@ -1268,7 +1275,8 @@
           \"shape\":\"ListOfLabels\",\
           \"documentation\":\"<p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"ClientRequestTokenString\":{\
       \"type\":\"string\",\
@@ -1289,7 +1297,7 @@
     \"ComprehendEndpointArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier-endpoint|entity-recognizer-endpoint)/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"ComprehendEndpointName\":{\
       \"type\":\"string\",\
@@ -1299,7 +1307,7 @@
     \"ComprehendModelArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"ConcurrentModificationException\":{\
       \"type\":\"structure\",\
@@ -1462,6 +1470,16 @@
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>\"\
         }\
       }\
+    },\
+    \"CustomerInputString\":{\
+      \"type\":\"string\",\
+      \"min\":1,\
+      \"sensitive\":true\
+    },\
+    \"CustomerInputStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"CustomerInputString\"},\
+      \"sensitive\":true\
     },\
     \"DeleteDocumentClassifierRequest\":{\
       \"type\":\"structure\",\
@@ -1684,7 +1702,7 @@
       \"required\":[\"Text\"],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         }\
       }\
@@ -1696,22 +1714,24 @@
           \"shape\":\"ListOfDominantLanguages\",\
           \"documentation\":\"<p>The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <a href=\\\"https://tools.ietf.org/html/rfc5646\\\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectEntitiesRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"Text\",\
-        \"LanguageCode\"\
-      ],\
+      \"required\":[\"Text\"],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p> <p>If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p>\"\
+        },\
+        \"EndpointArn\":{\
+          \"shape\":\"EntityRecognizerEndpointArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p>\"\
         }\
       }\
     },\
@@ -1720,9 +1740,10 @@
       \"members\":{\
         \"Entities\":{\
           \"shape\":\"ListOfEntities\",\
-          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. </p>\"\
+          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a>how-entities</a>.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectKeyPhrasesRequest\":{\
       \"type\":\"structure\",\
@@ -1732,7 +1753,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1748,7 +1769,8 @@
           \"shape\":\"ListOfKeyPhrases\",\
           \"documentation\":\"<p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectSentimentRequest\":{\
       \"type\":\"structure\",\
@@ -1758,7 +1780,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1778,7 +1800,8 @@
           \"shape\":\"SentimentScore\",\
           \"documentation\":\"<p>An object that lists the sentiments, and their corresponding confidence levels.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectSyntaxRequest\":{\
       \"type\":\"structure\",\
@@ -1788,7 +1811,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1804,7 +1827,8 @@
           \"shape\":\"ListOfSyntaxTokens\",\
           \"documentation\":\"<p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DocumentClass\":{\
       \"type\":\"structure\",\
@@ -1833,11 +1857,11 @@
         },\
         \"SubmitTimeBefore\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
         },\
         \"SubmitTimeAfter\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information for filtering a list of document classification jobs. For more information, see the operation. You can provide only one filter parameter in each request.</p>\"\
@@ -2350,6 +2374,11 @@
       },\
       \"documentation\":\"<p>Describes the training documents submitted with an entity recognizer.</p>\"\
     },\
+    \"EntityRecognizerEndpointArn\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+    },\
     \"EntityRecognizerEntityList\":{\
       \"type\":\"structure\",\
       \"required\":[\"S3Uri\"],\
@@ -2443,7 +2472,8 @@
           \"documentation\":\"<p>Entity types from the metadata of an entity recognizer.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Detailed information about an entity recognizer.</p>\"\
+      \"documentation\":\"<p>Detailed information about an entity recognizer.</p>\",\
+      \"sensitive\":true\
     },\
     \"EntityRecognizerMetadataEntityTypesList\":{\
       \"type\":\"list\",\
@@ -3224,7 +3254,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The specified name is already in use. Use a different name and try your request again.</p>\",\
+      \"documentation\":\"<p>The specified resource name is already in use. Use a different name and try your request again.</p>\",\
       \"exception\":true\
     },\
     \"ResourceLimitExceededException\":{\
@@ -3232,7 +3262,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>\",\
+      \"documentation\":\"<p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>\",\
       \"exception\":true\
     },\
     \"ResourceNotFoundException\":{\
@@ -3248,7 +3278,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The specified resource is not available. Check to see if the resource is in the <code>TRAINED</code> state and try your request again.</p>\",\
+      \"documentation\":\"<p>The specified resource is not available. Check the resource and try your request again.</p>\",\
       \"exception\":true\
     },\
     \"S3Uri\":{\
@@ -3844,10 +3874,6 @@
     \"String\":{\
       \"type\":\"string\",\
       \"min\":1\
-    },\
-    \"StringList\":{\
-      \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
     },\
     \"SubnetId\":{\
       \"type\":\"string\",\
