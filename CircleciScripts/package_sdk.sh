@@ -23,6 +23,10 @@ project_name=$1
 project_path=${2-$(pwd)/AWSiOSSDKv2.xcodeproj}
 echo "Project name: ${project_name}, Project Path: ${project_path}"
 
+#set the packagingType if $3 exists, if not, assign it to "buildFor32and64Bit"
+packagingType=${3-"buildFor32and64Bit"}
+echo "Packaging type ${packagingType}"
+
 # Define these to suit your nefarious purposes
 CURR_DIR=$(PWD)
 FRAMEWORK_NAME="${project_name}"
@@ -44,23 +48,46 @@ then
 fi
 
 # Build .a files
-xcodebuild ARCHS="i386 x86_64" \
-	ONLY_ACTIVE_ARCH=NO \
-	-configuration Debug \
-    -project "${project_path}" \
-    -target "${project_name}" \
-    -sdk iphonesimulator \
-    SYMROOT=$(PWD)/builtFramework 
-
+if [ "$packagingType" = "buildOnly64Bit" ]; then 
+    echo "Building for 64 bit debug"  
+    xcodebuild ARCHS="x86_64" \
+        ONLY_ACTIVE_ARCH=NO \
+        -configuration Debug \
+        -project "${project_path}" \
+        -target "${project_name}" \
+        -sdk iphonesimulator \
+        SYMROOT=$(PWD)/builtFramework 
+else
+    echo "Building for 32 bit and 64 bit debug"  
+    xcodebuild ARCHS="i386 x86_64" \
+        ONLY_ACTIVE_ARCH=NO \
+        -configuration Debug \
+        -project "${project_path}" \
+        -target "${project_name}" \
+        -sdk iphonesimulator \
+        SYMROOT=$(PWD)/builtFramework 
+fi;
 exitOnFailureCode $?
 
-xcodebuild ARCHS="armv7  arm64" \
-	ONLY_ACTIVE_ARCH=NO \
-	-configuration Release \
-    -project "${project_path}" \
-    -target "${project_name}" \
-    -sdk iphoneos  \
-    SYMROOT=$(PWD)/builtFramework 
+if [ "$packagingType" = "buildOnly64Bit" ]; then 
+    echo "Building for 64 bit release"  
+    xcodebuild ARCHS="arm64" \
+        ONLY_ACTIVE_ARCH=NO \
+        -configuration Release \
+        -project "${project_path}" \
+        -target "${project_name}" \
+        -sdk iphoneos  \
+        SYMROOT=$(PWD)/builtFramework
+else
+    echo "Building for 32 bit and 64 bit debug"  
+    xcodebuild ARCHS="armv7  arm64" \
+        ONLY_ACTIVE_ARCH=NO \
+        -configuration Release \
+        -project "${project_path}" \
+        -target "${project_name}" \
+        -sdk iphoneos  \
+        SYMROOT=$(PWD)/builtFramework 
+fi;
 exitOnFailureCode $?
 
 # This is the full name of the framework we'll

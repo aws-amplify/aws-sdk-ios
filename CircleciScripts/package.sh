@@ -64,7 +64,7 @@ if [ -f "CircleciScripts/package_sdk.sh" ]; then
 
     CircleciScripts/package_sdk.sh AWSAuthCore "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSAuthUI "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
-    CircleciScripts/package_sdk.sh AWSAppleSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
+    CircleciScripts/package_sdk.sh AWSAppleSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj" "buildOnly64Bit"
     CircleciScripts/package_sdk.sh AWSFacebookSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSGoogleSignIn "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
     CircleciScripts/package_sdk.sh AWSMobileClient "$(pwd)/AWSAuthSDK/AWSAuthSDK.xcodeproj"
