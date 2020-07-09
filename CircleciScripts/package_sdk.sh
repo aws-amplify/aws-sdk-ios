@@ -23,9 +23,9 @@ project_name=$1
 project_path=${2-$(pwd)/AWSiOSSDKv2.xcodeproj}
 echo "Project name: ${project_name}, Project Path: ${project_path}"
 
-#set the packageOnly64 if $3 exists, if not, assign it to "no"
-packageOnly64=${3-"no"}
-echo "Package only for 64 bit ${packageOnly64}"
+#set the packagingType if $3 exists, if not, assign it to "buildFor32and64Bit"
+packagingType=${3-"buildFor32and64Bit"}
+echo "Packaging type ${packagingType}"
 
 # Define these to suit your nefarious purposes
 CURR_DIR=$(PWD)
@@ -48,7 +48,7 @@ then
 fi
 
 # Build .a files
-if [ "$packageOnly64" = "yes" ]; then 
+if [ "$packagingType" = "buildOnly64Bit" ]; then 
     echo "Building for 64 bit debug"  
     xcodebuild ARCHS="x86_64" \
         ONLY_ACTIVE_ARCH=NO \
@@ -69,7 +69,7 @@ else
 fi;
 exitOnFailureCode $?
 
-if [ "$packageOnly64" = "yes" ]; then 
+if [ "$packagingType" = "buildOnly64Bit" ]; then 
     echo "Building for 64 bit release"  
     xcodebuild ARCHS="arm64" \
         ONLY_ACTIVE_ARCH=NO \
