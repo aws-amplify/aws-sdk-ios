@@ -104,6 +104,11 @@ NS_ASSUME_NONNULL_BEGIN
  **/
 @property(nonatomic, assign, readonly) NSUInteger publishRetryThrottle;
 
+@property (nonatomic, copy) NSString *username;
+
+@property (nonatomic, copy) NSString *password;
+
+
 /**
  Create an AWSIoTMQTTConfiguration object and initialize its parameters.
  The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
