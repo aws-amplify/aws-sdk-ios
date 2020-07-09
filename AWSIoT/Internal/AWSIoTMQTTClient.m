@@ -299,7 +299,7 @@
     if (self.session == nil ) {
         self.session= [[AWSMQTTSession alloc] initWithClientId:self.clientId
                                                userName:self.userMetaData
-                                               password:@""
+                                               password:self.password
                                               keepAlive:self.keepAliveInterval
                                            cleanSession:self.cleanSession
                                               willTopic:self.lastWillAndTestamentTopic
@@ -556,7 +556,7 @@
     if (self.session == nil ) {
         self.session = [[AWSMQTTSession alloc] initWithClientId:self.clientId
                                                        userName:self.userMetaData
-                                                       password:@""
+                                                       password:self.password
                                                       keepAlive:self.keepAliveInterval
                                                    cleanSession:self.cleanSession
                                                       willTopic:self.lastWillAndTestamentTopic
