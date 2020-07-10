@@ -1,5 +1,6 @@
 import os
 import platform
+import sys
 from datetime import datetime, timedelta
 from subprocess import PIPE, Popen, TimeoutExpired
 
@@ -46,7 +47,7 @@ def run_command(
     """
 
     deadline = datetime.now() + timedelta(seconds=timeout) if timeout is not None else None
-    process = Popen(command, stdin=PIPE, stdout=out_handle, stderr=PIPE, cwd=working_dir)
+    process = Popen(command, stdin=in_handle, stdout=out_handle, stderr=PIPE, cwd=working_dir)
     while not has_timed_out(deadline) and process.returncode is None:
         try:
             log(f"Communicating with {process.pid}; return code: {process.returncode}")
@@ -80,8 +81,8 @@ def replace_files(root, *replaces):
         replace = replace_action["replace"]
         files = replace_action["files"]
 
-        sed_params = ["-E", "-i ''"] if platform.system() == "Darwin" else ["-r", "-i''"]
-        enclose_mark = '"' if replace_action.get("enclosemark", "single") == "double" else "'"
+        extended_regex_flag = "-E" if platform.system() == "Darwin" else "-r"
+        sed_params = [extended_regex_flag, "-i", ""]
         exclude = f"/{replace_action['exclude']}/ ! " if "exclude" in replace_action else ""
 
         for file in files:
@@ -89,6 +90,10 @@ def replace_files(root, *replaces):
             command = (
                 ["sed"]
                 + sed_params
-                + [f"{enclose_mark}{exclude}s/{match}/{replace}/{enclose_mark}", target_file]
+                + [f"{exclude}s/{match}/{replace}/", target_file]
             )
-            run_command(command)
+
+            exit_code, out, err = run_command(command)
+            if exit_code != 0:
+                log(f"Failed to replace {target_file}; output={out}, error={err}'")
+                sys.exit(exit_code)

@@ -8,7 +8,6 @@ newsdkversion = sys.argv[2]
 
 replaces = [
     {
-        "enclosemark": "double",
         "match": r"(pod[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*'~>[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+'",  # noqa: E501
         "replace": r"\1[version]'",
         "files": [
@@ -18,14 +17,12 @@ replaces = [
             "CognitoYourUserPools-Sample/Swift/Podfile",
             "IoT-Sample/Swift/Podfile",
             "Lex-Sample/ObjC/Podfile",
-            "Lex-Sample/swift-3/Podfile",
             "Polly-Sample/Swift/Podfile",
             "S3TransferUtility-Sample/Objective-C/Podfile",
             "S3TransferUtility-Sample/Swift/Podfile",
         ],
     },
     {
-        "enclosemark": "double",
         "match": r"(awsVersion[[:space:]]*=[[:space:]]*'~>[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+'",
         "replace": r"\1[version]'",
         "files": [
@@ -35,7 +32,6 @@ replaces = [
             "CognitoYourUserPools-Sample/Swift/Podfile",
             "IoT-Sample/Swift/Podfile",
             "Lex-Sample/ObjC/Podfile",
-            "Lex-Sample/swift-3/Podfile",
             "Polly-Sample/Swift/Podfile",
             "S3TransferUtility-Sample/Objective-C/Podfile",
             "S3TransferUtility-Sample/Swift/Podfile",
@@ -44,4 +40,4 @@ replaces = [
 ]
 for replaceaction in replaces:
     replaceaction["replace"] = replaceaction["replace"].replace("[version]", newsdkversion)
-replace_files(root, replaces)
+replace_files(root, *replaces)

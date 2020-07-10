@@ -9,7 +9,6 @@ newsdkversion = sys.argv[2]
 replaces = [
     {
         "exclude": "AWSAppSync",
-        "enclosemark": "double",
         "match": r"(pod[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*'~>[[:space:]]*)[0-9]+\.[0-9]+\.[0-9]+'",  # noqa: E501
         "replace": r"\1[version]'",
         "files": [
@@ -25,13 +24,11 @@ replaces = [
         ],
     },
     {
-        "enclosemark": "double",
         "match": r"(so for version )[0-9]+\.[0-9]+\.[0-9]+(, the filename is `aws-ios-sdk-)[0-9]+\.[0-9]+\.[0-9]+",  # noqa: E501
         "replace": r"\1[version]\2[version]",
         "files": ["manualsetup.md"],
     },
     {
-        "enclosemark": "double",
         "match": r"(Replace )[0-9]+\.[0-9]+\.[0-9]+() in the preceding example with the version number}",  # noqa: E501
         "replace": r"\1[version]\2",
         "files": ["manualsetup.md"],
@@ -39,4 +36,4 @@ replaces = [
 ]
 for replaceaction in replaces:
     replaceaction["replace"] = replaceaction["replace"].replace("[version]", newsdkversion)
-replace_files(root, replaces)
+replace_files(root, *replaces)

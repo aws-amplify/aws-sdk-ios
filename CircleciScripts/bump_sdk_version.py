@@ -159,7 +159,6 @@ class VersionBumper:
 
     def bump_podspecs(self):
         podspec_pattern1 = {
-            "enclosemark": "double",
             "exclude": "AWSCognitoIdentityProviderASF",
             "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",  # noqa: E501
             "replace": r"\1{version}\2".format(version=self._new_sdk_version),
@@ -167,7 +166,6 @@ class VersionBumper:
         }
 
         podspec_pattern2 = {
-            "enclosemark": "double",
             "exclude": "AWSCognitoIdentityProviderASF",
             "match": r"(s\.version[[:space:]]+=[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",
             "replace": r"\1{version}\2".format(version=self._new_sdk_version),
