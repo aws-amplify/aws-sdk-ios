@@ -5,7 +5,7 @@
 ### New features
 
 - **AWSAuthSDK**
-  - **Breaking Change** Updated AWSGoogleSignInProvider to GoogleSignIn Version 5.0.2. This change requires any app that uses GoogleSignIn to update the framework to version 5.0.2. (See [PR #2836](https://github.com/aws-amplify/aws-sdk-ios/pull/2836)) Thanks, [@cornr](https://github.com/cornr)!
+  - **Breaking Change** Updated AWSGoogleSignInProvider to GoogleSignIn Version 5.0.2. This change requires any app that uses GoogleSignIn to update the framework to version 5.0.2. (See [PR #2851](https://github.com/aws-amplify/aws-sdk-ios/pull/2851)) Thanks, [@cornr](https://github.com/cornr)!
 
 ## 2.14.2
 
