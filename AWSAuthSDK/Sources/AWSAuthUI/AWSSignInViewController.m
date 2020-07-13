@@ -417,9 +417,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
         UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
         buttonView.buttonStyle = AWSSignInButtonStyleLarge;
-        if (self.config.primaryColor) {
-            buttonView.backgroundColor = self.config.primaryColor;
-        }
+        buttonView.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
         buttonView.delegate = self;
         
         [btn addSubview:buttonView];
