@@ -64,18 +64,25 @@ def run_command(
     return process.returncode, out, err
 
 
-# replaces is an array of dictionaries, each one having the format
-# {
-#   "exclude":string,
-#   "match":string,
-#   "replace":string,
-#   "files" : [
-#     string
-#   ]
-# }
-# match and replace will be used by sed command like  sed -E 's/{match}/{replace}/'
-# please check with sed document to see how to handle escape characters in match and replace
 def replace_files(root, *replaces):
+    """
+    Replaces is an array of dictionaries, each one having the format
+        {
+          "exclude":string,
+          "match":string,
+          "replace":string,
+          "files" : [
+            string
+          ]
+        }
+
+    `match` and `replace` will be used in the sed command: sed -E 's/{match}/{replace}/'.
+    Check sed documentation to see how to handle escape characters in match and replace.
+    `replace_files` will sys.exit if it encounters an error, but returns no values otherwise.
+
+    :param root: The root directory containing the files to replace
+    :param replaces: An array of `replace` dictionaries
+    """
     for replace_action in replaces:
         match = replace_action["match"]
         replace = replace_action["replace"]
