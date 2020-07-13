@@ -4,7 +4,9 @@ Pod::Spec.new do |s|
   s.version      = '2.14.2'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
-  s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
+  s.deprecated = true
+  s.deprecated_in_favor_of = 'Amplify'
+  s.description  = 'This pod is deprecated. Use Amplify for iOS to build fullstack iOS apps, or use individual AWS Mobile SDK pods for individual services.'
 
   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
   s.license      = 'Apache License, Version 2.0'
