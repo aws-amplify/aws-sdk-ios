@@ -23,7 +23,7 @@ def has_timed_out(deadline):
 
 def run_command(
         command,
-        keepalive_interval=10,
+        keepalive_interval=60,
         timeout=1800,
         in_handle=PIPE,
         out_handle=PIPE,
@@ -50,7 +50,7 @@ def run_command(
     process = Popen(command, stdin=in_handle, stdout=out_handle, stderr=PIPE, cwd=working_dir)
     while not has_timed_out(deadline) and process.returncode is None:
         try:
-            log(f"Communicating with {process.pid}; return code: {process.returncode}")
+            log(f"Communicating with {process.pid}")
             (out, err) = process.communicate(timeout=keepalive_interval)
         except TimeoutExpired:
             if has_timed_out(deadline):
