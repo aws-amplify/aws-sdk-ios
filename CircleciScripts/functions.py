@@ -22,12 +22,7 @@ def has_timed_out(deadline):
 
 
 def run_command(
-        command,
-        keepalive_interval=60,
-        timeout=1800,
-        in_handle=PIPE,
-        out_handle=PIPE,
-        working_dir=None
+    command, keepalive_interval=60, timeout=1800, in_handle=PIPE, out_handle=PIPE, working_dir=None
 ):
     """
     Runs the specified command, emitting a keepalive message every `keepalive_interval` seconds.
@@ -94,11 +89,7 @@ def replace_files(root, *replaces):
 
         for file in files:
             target_file = os.path.join(root, file)
-            command = (
-                ["sed"]
-                + sed_params
-                + [f"{exclude}s/{match}/{replace}/", target_file]
-            )
+            command = ["sed"] + sed_params + [f"{exclude}s/{match}/{replace}/", target_file]
 
             exit_code, out, err = run_command(command)
             if exit_code != 0:
