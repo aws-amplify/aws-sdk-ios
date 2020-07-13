@@ -5,8 +5,8 @@ from datetime import datetime, timedelta
 from subprocess import PIPE, Popen, TimeoutExpired
 
 
-def log(message):
-    print(str(datetime.now()) + f": {message}")
+def log(*messages):
+    print(f"{datetime.now()}:", *messages)
 
 
 def has_timed_out(deadline):
@@ -50,7 +50,7 @@ def run_command(
     process = Popen(command, stdin=in_handle, stdout=out_handle, stderr=PIPE, cwd=working_dir)
     while not has_timed_out(deadline) and process.returncode is None:
         try:
-            log(f"Communicating with {process.pid}")
+            log(f"Waiting for process {process.pid}")
             (out, err) = process.communicate(timeout=keepalive_interval)
         except TimeoutExpired:
             if has_timed_out(deadline):
