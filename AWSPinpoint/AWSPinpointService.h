@@ -19,7 +19,7 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
-@class AWSPinpointConfiguration, AWSPinpointTargetingClient, AWSPinpointAnalyticsClient, AWSPinpointNotificationManager, AWSPinpointSessionClient;
+@class AWSPinpointConfiguration, AWSPinpointTargetingClient, AWSPinpointAnalyticsClient, AWSPinpointNotificationManager, AWSPinpointSessionClient, AWSPinpointTargeting;
 
 /**
  Amazon Pinpoint
@@ -32,6 +32,13 @@ NS_ASSUME_NONNULL_BEGIN
  @returns the `AWSPinpointTargetingClient` to update endpoint profile information.
  */
 @property (nonatomic, readonly) AWSPinpointTargetingClient * targetingClient;
+
+/**
+ Returns the `AWSPinpointTargeting`. This is the low level client to be used to interface with the Pinpoint service
+
+ @returns the `AWSPinpointTargeting` low level client
+ */
+@property (nonatomic, readonly) AWSPinpointTargeting * targetingService;
 
 /**
  Returns the `AWSPinpointAnalyticsClient`. The AnalyticsClient is the high level client to be used for recording and sending events.
