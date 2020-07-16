@@ -183,4 +183,11 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
     return self.pinpointContext.sessionClient;
 }
 
+- (AWSPinpointTargeting *)targetingService {
+    if (!self.pinpointContext.targetingService) {
+        AWSDDLogError(@"Pinpoint Targeting Service is not enabled");
+    }
+    return self.pinpointContext.targetingService;
+}
+
 @end
