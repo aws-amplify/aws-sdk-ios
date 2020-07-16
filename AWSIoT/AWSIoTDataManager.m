@@ -335,9 +335,8 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 - (nonnull NSString*)baseUserMetaDataString:(nullable NSString*)username {
-    return username.length
-    ? [NSString stringWithFormat:@"%@%@%@", username, @"?SDK=iOS&Version=", AWSIoTSDKVersion]
-    : [NSString stringWithFormat:@"%@%@", @"?SDK=iOS&Version=", AWSIoTSDKVersion];
+    NSString *usernameComponent = username.length ? username : @"";
+    return [NSString stringWithFormat:@"%@?SDK=iOS&Version=%@", usernameComponent, AWSIoTSDKVersion];
 }
 
 - (void)enableMetricsCollection:(BOOL)enabled {

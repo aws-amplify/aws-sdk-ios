@@ -90,7 +90,7 @@
 
 @property(atomic, assign) BOOL isMetricsEnabled;
 @property(atomic, assign) NSUInteger publishRetryThrottle;
-@property(atomic, strong) NSString *userMetaData;
+@property(atomic, copy) NSString *userMetaData;
 @property(atomic, copy) NSString *password;
 
 /**
