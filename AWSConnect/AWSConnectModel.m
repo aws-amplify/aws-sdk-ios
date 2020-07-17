@@ -2479,6 +2479,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectResumeContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectResumeContactRecordingResponse
+
+@end
+
 @implementation AWSConnectRoutingProfileSummary
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2538,6 +2554,27 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStartContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             @"voiceRecordingConfiguration" : @"VoiceRecordingConfiguration",
+             };
+}
+
++ (NSValueTransformer *)voiceRecordingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectVoiceRecordingConfiguration class]];
+}
+
+@end
+
+@implementation AWSConnectStartContactRecordingResponse
+
+@end
+
 @implementation AWSConnectStartOutboundVoiceContactRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2564,6 +2601,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStopContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectStopContactRecordingResponse
+
+@end
+
 @implementation AWSConnectStopContactRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2576,6 +2629,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 @end
 
 @implementation AWSConnectStopContactResponse
+
+@end
+
+@implementation AWSConnectSuspendContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectSuspendContactRecordingResponse
 
 @end
 
@@ -2793,6 +2862,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"identifier" : @"Id",
              @"username" : @"Username",
              };
+}
+
+@end
+
+@implementation AWSConnectVoiceRecordingConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"voiceRecordingTrack" : @"VoiceRecordingTrack",
+             };
+}
+
++ (NSValueTransformer *)voiceRecordingTrackJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FROM_AGENT"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackFromAgent);
+        }
+        if ([value caseInsensitiveCompare:@"TO_AGENT"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackToAgent);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackAll);
+        }
+        return @(AWSConnectVoiceRecordingTrackUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVoiceRecordingTrackFromAgent:
+                return @"FROM_AGENT";
+            case AWSConnectVoiceRecordingTrackToAgent:
+                return @"TO_AGENT";
+            case AWSConnectVoiceRecordingTrackAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

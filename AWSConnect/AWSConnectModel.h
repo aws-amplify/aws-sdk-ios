@@ -385,6 +385,13 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitPercent,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
+    AWSConnectVoiceRecordingTrackUnknown,
+    AWSConnectVoiceRecordingTrackFromAgent,
+    AWSConnectVoiceRecordingTrackToAgent,
+    AWSConnectVoiceRecordingTrackAll,
+};
+
 @class AWSConnectChatMessage;
 @class AWSConnectContactFlowSummary;
 @class AWSConnectCreateUserRequest;
@@ -441,14 +448,22 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
+@class AWSConnectResumeContactRecordingRequest;
+@class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
+@class AWSConnectStartContactRecordingRequest;
+@class AWSConnectStartContactRecordingResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
+@class AWSConnectStopContactRecordingRequest;
+@class AWSConnectStopContactRecordingResponse;
 @class AWSConnectStopContactRequest;
 @class AWSConnectStopContactResponse;
+@class AWSConnectSuspendContactRecordingRequest;
+@class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagResourceRequest;
 @class AWSConnectThreshold;
 @class AWSConnectUntagResourceRequest;
@@ -463,6 +478,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectUserIdentityInfo;
 @class AWSConnectUserPhoneConfig;
 @class AWSConnectUserSummary;
+@class AWSConnectVoiceRecordingConfiguration;
 
 /**
  <p>A chat message.</p>
@@ -616,7 +632,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>Contains information about a real-time metric.</p>
+ <p>Contains information about a real-time metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @interface AWSConnectCurrentMetric : AWSModel
 
@@ -849,7 +865,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 
 
 /**
- <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available:</p><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CONTACT</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd><dt>SLOTS_ACTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>SLOTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p><dl><dt>AGENTS_AFTER_CONTACT_WORK</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ERROR</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_NON_PRODUCTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CALL</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ON_CONTACT</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_ONLINE</dt><dd><p>Unit: COUNT</p></dd><dt>AGENTS_STAFFED</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_IN_QUEUE</dt><dd><p>Unit: COUNT</p></dd><dt>CONTACTS_SCHEDULED</dt><dd><p>Unit: COUNT</p></dd><dt>OLDEST_CONTACT_AGE</dt><dd><p>Unit: SECONDS</p></dd><dt>SLOTS_ACTIVE</dt><dd><p>Unit: COUNT</p></dd><dt>SLOTS_AVAILABLE</dt><dd><p>Unit: COUNT</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
@@ -951,7 +967,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
 /**
- <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available:</p><dl><dt>ABANDON_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>API_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_CONSULTED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_MISSED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>HANDLE_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>OCCUPANCY</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p></dd><dt>QUEUE_ANSWER_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>QUEUED_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: MAX</p></dd><dt>SERVICE_LEVEL</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p><p>Threshold: Only "Less than" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p></dd></dl>
+ <p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p><dl><dt>ABANDON_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>AFTER_CONTACT_WORK_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>API_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CALLBACK_CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_ABANDONED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_CONSULTED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_INCOMING</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HANDLED_OUTBOUND</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_HOLD_ABANDONS</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_MISSED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_QUEUED</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt><dd><p>Unit: COUNT</p><p>Statistic: SUM</p></dd><dt>HANDLE_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_AND_HOLD_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>INTERACTION_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>OCCUPANCY</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p></dd><dt>QUEUE_ANSWER_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: AVG</p></dd><dt>QUEUED_TIME</dt><dd><p>Unit: SECONDS</p><p>Statistic: MAX</p></dd><dt>SERVICE_LEVEL</dt><dd><p>Unit: PERCENT</p><p>Statistic: AVG</p><p>Threshold: Only "Less than" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p></dd></dl>
  */
 @property (nonatomic, strong) NSArray<AWSConnectHistoricalMetric *> * _Nullable historicalMetrics;
 
@@ -1141,7 +1157,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
- <p>Contains information about a historical metric.</p>
+ <p>Contains information about a historical metric. For a description of each metric, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  */
 @interface AWSConnectHistoricalMetric : AWSModel
 
@@ -1695,6 +1711,37 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectResumeContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectResumeContactRecordingResponse : AWSModel
+
+
+@end
+
+/**
  <p>Contains summary information about a routing profile.</p>
  */
 @interface AWSConnectRoutingProfileSummary : AWSModel
@@ -1804,6 +1851,42 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectStartContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Who is being recorded.</p>
+ */
+@property (nonatomic, strong) AWSConnectVoiceRecordingConfiguration * _Nullable voiceRecordingConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactRecordingResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStartOutboundVoiceContactRequest : AWSRequest
 
 
@@ -1860,6 +1943,37 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectStopContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactRecordingResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStopContactRequest : AWSRequest
 
 
@@ -1879,6 +1993,37 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  
  */
 @interface AWSConnectStopContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSuspendContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSuspendContactRecordingResponse : AWSModel
 
 
 @end
@@ -2213,6 +2358,19 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The Amazon Connect user name of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ <p>Contains information about the recording configuration settings.</p>
+ */
+@interface AWSConnectVoiceRecordingConfiguration : AWSModel
+
+
+/**
+ <p>Identifies which track is being recorded.</p>
+ */
+@property (nonatomic, assign) AWSConnectVoiceRecordingTrack voiceRecordingTrack;
 
 @end
 
