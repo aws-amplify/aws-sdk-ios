@@ -204,6 +204,17 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2AddPrefixListEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"detail" : @"Description",
+             };
+}
+
+@end
+
 @implementation AWSEC2Address
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1088,10 +1099,13 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"messages" : @"Messages",
              @"networkBorderGroup" : @"NetworkBorderGroup",
              @"optInStatus" : @"OptInStatus",
+             @"parentZoneId" : @"ParentZoneId",
+             @"parentZoneName" : @"ParentZoneName",
              @"regionName" : @"RegionName",
              @"state" : @"State",
              @"zoneId" : @"ZoneId",
              @"zoneName" : @"ZoneName",
+             @"zoneType" : @"ZoneType",
              };
 }
 
@@ -3376,11 +3390,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dhcpConfigurations" : @"DhcpConfigurations",
              @"dryRun" : @"DryRun",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
 + (NSValueTransformer *)dhcpConfigurationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LatestDhcpConfiguration class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -3405,8 +3424,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"clientToken" : @"ClientToken",
              @"dryRun" : @"DryRun",
+             @"tagSpecifications" : @"TagSpecifications",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5439,7 +5463,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dryRun" : @"DryRun",
+             @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5613,6 +5642,44 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2CreateManagedPrefixListRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"addressFamily" : @"AddressFamily",
+             @"clientToken" : @"ClientToken",
+             @"dryRun" : @"DryRun",
+             @"entries" : @"Entries",
+             @"maxEntries" : @"MaxEntries",
+             @"prefixListName" : @"PrefixListName",
+             @"tagSpecifications" : @"TagSpecifications",
+             };
+}
+
++ (NSValueTransformer *)entriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AddPrefixListEntry class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2CreateManagedPrefixListResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefixList" : @"PrefixList",
+             };
+}
+
++ (NSValueTransformer *)prefixListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ManagedPrefixList class]];
+}
+
+@end
+
 @implementation AWSEC2CreateNatGatewayRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -5699,8 +5766,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dryRun" : @"DryRun",
+             @"tagSpecifications" : @"TagSpecifications",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5782,6 +5854,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"privateIpAddresses" : @"PrivateIpAddresses",
              @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
              @"subnetId" : @"SubnetId",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -5807,6 +5880,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PrivateIpAddressSpecification class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5920,6 +5997,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
+             @"destinationPrefixListId" : @"DestinationPrefixListId",
              @"dryRun" : @"DryRun",
              @"egressOnlyInternetGatewayId" : @"EgressOnlyInternetGatewayId",
              @"gatewayId" : @"GatewayId",
@@ -5977,8 +6055,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groupName" : @"GroupName",
+             @"tagSpecifications" : @"TagSpecifications",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -5988,7 +6071,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"groupId" : @"GroupId",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -6098,8 +6186,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dryRun" : @"DryRun",
              @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              @"outpostArn" : @"OutpostArn",
+             @"tagSpecifications" : @"TagSpecifications",
              @"vpcId" : @"VpcId",
              };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -6839,6 +6932,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ipv6CidrBlock" : @"Ipv6CidrBlock",
              @"ipv6CidrBlockNetworkBorderGroup" : @"Ipv6CidrBlockNetworkBorderGroup",
              @"ipv6Pool" : @"Ipv6Pool",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -6866,6 +6960,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -7506,6 +7604,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DeleteManagedPrefixListRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"prefixListId" : @"PrefixListId",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteManagedPrefixListResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefixList" : @"PrefixList",
+             };
+}
+
++ (NSValueTransformer *)prefixListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ManagedPrefixList class]];
+}
+
+@end
+
 @implementation AWSEC2DeleteNatGatewayRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -7668,6 +7791,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
+             @"destinationPrefixListId" : @"DestinationPrefixListId",
              @"dryRun" : @"DryRun",
              @"routeTableId" : @"RouteTableId",
              };
@@ -11961,6 +12085,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)localGatewaysJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LocalGateway class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeManagedPrefixListsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"prefixListIds" : @"PrefixListIds",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeManagedPrefixListsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"prefixLists" : @"PrefixLists",
+             };
+}
+
++ (NSValueTransformer *)prefixListsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ManagedPrefixList class]];
 }
 
 @end
@@ -21544,6 +21701,63 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchTemplateDataJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ResponseLaunchTemplateData class]];
+}
+
+@end
+
+@implementation AWSEC2GetManagedPrefixListAssociationsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"prefixListId" : @"PrefixListId",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetManagedPrefixListAssociationsResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"prefixListAssociations" : @"PrefixListAssociations",
+             };
+}
+
++ (NSValueTransformer *)prefixListAssociationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PrefixListAssociation class]];
+}
+
+@end
+
+@implementation AWSEC2GetManagedPrefixListEntriesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"prefixListId" : @"PrefixListId",
+             @"targetVersion" : @"TargetVersion",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetManagedPrefixListEntriesResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entries" : @"Entries",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)entriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PrefixListEntry class]];
 }
 
 @end
@@ -35929,6 +36143,100 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ManagedPrefixList
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"addressFamily" : @"AddressFamily",
+             @"maxEntries" : @"MaxEntries",
+             @"ownerId" : @"OwnerId",
+             @"prefixListArn" : @"PrefixListArn",
+             @"prefixListId" : @"PrefixListId",
+             @"prefixListName" : @"PrefixListName",
+             @"state" : @"State",
+             @"stateMessage" : @"StateMessage",
+             @"tags" : @"Tags",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"create-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateCreateInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"create-complete"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateCreateComplete);
+        }
+        if ([value caseInsensitiveCompare:@"create-failed"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateCreateFailed);
+        }
+        if ([value caseInsensitiveCompare:@"modify-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateModifyInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"modify-complete"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateModifyComplete);
+        }
+        if ([value caseInsensitiveCompare:@"modify-failed"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateModifyFailed);
+        }
+        if ([value caseInsensitiveCompare:@"restore-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateRestoreInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"restore-complete"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateRestoreComplete);
+        }
+        if ([value caseInsensitiveCompare:@"restore-failed"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateRestoreFailed);
+        }
+        if ([value caseInsensitiveCompare:@"delete-in-progress"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateDeleteInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"delete-complete"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateDeleteComplete);
+        }
+        if ([value caseInsensitiveCompare:@"delete-failed"] == NSOrderedSame) {
+            return @(AWSEC2PrefixListStateDeleteFailed);
+        }
+        return @(AWSEC2PrefixListStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2PrefixListStateCreateInProgress:
+                return @"create-in-progress";
+            case AWSEC2PrefixListStateCreateComplete:
+                return @"create-complete";
+            case AWSEC2PrefixListStateCreateFailed:
+                return @"create-failed";
+            case AWSEC2PrefixListStateModifyInProgress:
+                return @"modify-in-progress";
+            case AWSEC2PrefixListStateModifyComplete:
+                return @"modify-complete";
+            case AWSEC2PrefixListStateModifyFailed:
+                return @"modify-failed";
+            case AWSEC2PrefixListStateRestoreInProgress:
+                return @"restore-in-progress";
+            case AWSEC2PrefixListStateRestoreComplete:
+                return @"restore-complete";
+            case AWSEC2PrefixListStateRestoreFailed:
+                return @"restore-failed";
+            case AWSEC2PrefixListStateDeleteInProgress:
+                return @"delete-in-progress";
+            case AWSEC2PrefixListStateDeleteComplete:
+                return @"delete-complete";
+            case AWSEC2PrefixListStateDeleteFailed:
+                return @"delete-failed";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
 @implementation AWSEC2MemoryInfo
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -36833,6 +37141,43 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchTemplateJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplate class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyManagedPrefixListRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"addEntries" : @"AddEntries",
+             @"currentVersion" : @"CurrentVersion",
+             @"dryRun" : @"DryRun",
+             @"prefixListId" : @"PrefixListId",
+             @"prefixListName" : @"PrefixListName",
+             @"removeEntries" : @"RemoveEntries",
+             };
+}
+
++ (NSValueTransformer *)addEntriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AddPrefixListEntry class]];
+}
+
++ (NSValueTransformer *)removeEntriesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2RemovePrefixListEntry class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyManagedPrefixListResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefixList" : @"PrefixList",
+             };
+}
+
++ (NSValueTransformer *)prefixListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ManagedPrefixList class]];
 }
 
 @end
@@ -38787,6 +39132,28 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2PrefixListAssociation
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"resourceId" : @"ResourceId",
+             @"resourceOwner" : @"ResourceOwner",
+             };
+}
+
+@end
+
+@implementation AWSEC2PrefixListEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"detail" : @"Description",
+             };
+}
+
+@end
+
 @implementation AWSEC2PrefixListId
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -39156,6 +39523,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"hostIdSet" : @"HostIdSet",
              @"limitPrice" : @"LimitPrice",
              @"offeringId" : @"OfferingId",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -39173,6 +39541,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
@@ -39629,6 +40001,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2RemovePrefixListEntry
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             };
+}
+
+@end
+
 @implementation AWSEC2ReplaceIamInstanceProfileAssociationRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -39734,6 +40116,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
+             @"destinationPrefixListId" : @"DestinationPrefixListId",
              @"dryRun" : @"DryRun",
              @"egressOnlyInternetGatewayId" : @"EgressOnlyInternetGatewayId",
              @"gatewayId" : @"GatewayId",
@@ -41558,6 +41941,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"launchGroup" : @"LaunchGroup",
              @"launchSpecification" : @"LaunchSpecification",
              @"spotPrice" : @"SpotPrice",
+             @"tagSpecifications" : @"TagSpecifications",
              @"types" : @"Type",
              @"validFrom" : @"ValidFrom",
              @"validUntil" : @"ValidUntil",
@@ -41592,6 +41976,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)launchSpecificationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2RequestSpotLaunchSpecification class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 + (NSValueTransformer *)typesJSONTransformer {
@@ -50558,6 +50946,33 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSEC2RestoreManagedPrefixListVersionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"currentVersion" : @"CurrentVersion",
+             @"dryRun" : @"DryRun",
+             @"prefixListId" : @"PrefixListId",
+             @"previousVersion" : @"PreviousVersion",
+             };
+}
+
+@end
+
+@implementation AWSEC2RestoreManagedPrefixListVersionResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"prefixList" : @"PrefixList",
+             };
+}
+
++ (NSValueTransformer *)prefixListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ManagedPrefixList class]];
 }
 
 @end
