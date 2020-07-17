@@ -4,7 +4,9 @@ Pod::Spec.new do |s|
   s.version      = '2.14.2'
   s.summary      = 'Amazon Cognito SDK for iOS'
 
-  s.description  = 'Amazon Cognito offers multi device data synchronization with offline access'
+  s.deprecated = true
+  s.deprecated_in_favor_of = 'Amplify'
+  s.description  = 'This framework is deprecated. Use Amplify DataStore for synchronizing app data, and Amplify Auth for authentication and authorization.'
 
   s.homepage     = 'http://aws.amazon.com/cognito'
   s.license      = 'Apache License, Version 2.0'
@@ -15,7 +17,4 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.library      = 'sqlite3'
   s.dependency 'AWSCognito', '2.14.2'
-
-  s.deprecated = true
-  s.deprecated_in_favor_of = 'AWSCognito'
 end

@@ -3,7 +3,9 @@ Pod::Spec.new do |s|
   s.version      = '2.14.2'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
-  s.description  = 'The AWS SDK for iOS provides a library, code samples, and documentation for developers to build connected mobile applications using AWS.'
+  s.deprecated = true
+  s.deprecated_in_favor_of = 'Amplify'
+  s.description  = 'This framework is deprecated. Use Amplify Analytics or AWSPinpoint.'
 
   s.homepage     = 'http://aws.amazon.com/mobile/sdk'
   s.license      = 'Apache License, Version 2.0'
@@ -16,6 +18,4 @@ Pod::Spec.new do |s|
   s.source_files = 'AWSMobileAnalytics/*.{h,m}', 'AWSMobileAnalytics/**/*.{h,m}'
   s.private_header_files = 'AWSMobileAnalytics/Internal/*.h'
 
-  s.deprecated = true
-  s.deprecated_in_favor_of = 'AWSPinpoint'
 end
