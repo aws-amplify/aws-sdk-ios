@@ -820,6 +820,10 @@ extension AWSMobileClient {
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func verifyUserAttribute(attributeName: String,
                                     completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in to Cognito User Pool, please sign in to use this API."))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.verifyUserAttribute(attributeName: attributeName, completionHandler: completionHandler)
     }
@@ -831,6 +835,10 @@ extension AWSMobileClient {
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func updateUserAttributes(attributeMap: [String: String],
                                      completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in to Cognito User Pool, please sign in to use this API."))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.updateUserAttributes(attributeMap: attributeMap, completionHandler: completionHandler)
     }
@@ -839,6 +847,10 @@ extension AWSMobileClient {
     ///
     /// - Parameter completionHandler: completion handler which will be invoked when result is available.
     public func getUserAttributes(completionHandler: @escaping (([String: String]?, Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: "User is not signed in to Cognito User Pool, please sign in to use this API."))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.getUserAttributes(completionHandler: completionHandler)
     }
@@ -850,6 +862,10 @@ extension AWSMobileClient {
     ///   - code: the code sent to the user.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmUpdateUserAttributes(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(AWSMobileClientError.notSignedIn(message: "User is not signed in to Cognito User Pool, please sign in to use this API."))
+            return
+        }
         self.confirmVerifyUserAttribute(attributeName: attributeName, code: code, completionHandler: completionHandler)
     }
     
@@ -860,6 +876,10 @@ extension AWSMobileClient {
     ///   - code: the code sent to the user.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
     public func confirmVerifyUserAttribute(attributeName: String, code: String, completionHandler: @escaping ((Error?) -> Void)) {
+        guard self.federationProvider == .userPools || self.federationProvider == .hostedUI else {
+            completionHandler(AWSMobileClientError.notSignedIn(message: "User is not signed in to Cognito User Pool, please sign in to use this API."))
+            return
+        }
         let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
         userDetails.confirmVerifyUserAttribute(attributeName: attributeName,
                                                code: code,
