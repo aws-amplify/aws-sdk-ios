@@ -472,14 +472,14 @@ jobs:
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
       - run:
-          name: Build SDK for Carthage release
-          command: |
-            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination "${destination}" build
-      - run:
           name: Build Carthage
           command: |
             carthage build --no-skip-current | tee buildout.txt
           no_output_timeout: 100m
+      - save_cache:
+          key: carthage_build_result-{{ .Revision }}
+          paths:
+            - Carthage
       - run:
           name: Create Carthage archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
@@ -635,25 +635,23 @@ jobs:
       - update_brew
       - set_environment_variables
       - configure_aws
+      - restore_cache:
+          key: carthage_build_result-{{ .Revision }}
       - run:
-          name: Build library
-          command: |
-            bash CircleciScripts/package.sh
-      - run:
-          name: Copy frameworks
+          name: Make directory structure
           command: |
             mkdir -p "$sdkNameWithVersion/frameworks"
-            cp -R builtFramework/framework/* "$sdkNameWithVersion/frameworks"
+            mv "Carthage" "$sdkNameWithVersion"
+            mv "$sdkNameWithVersion/Build/iOS" "$sdkNameWithVersion/frameworks"
+            rmdir "$sdkNameWithVersion/Build"
       - run:
           name: Copy SDK resource files
           command: |
-            mkdir -p "$sdkNameWithVersion"
             python3 CircleciScripts/copy_resourcefiles.py "$(pwd)" "$(pwd)/$sdkNameWithVersion"
       - run:
           name: Zip SDK folder
           command: |
             zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
-
       - run:
           name: Copy zip file
           command: |
