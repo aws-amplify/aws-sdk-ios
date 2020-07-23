@@ -65,14 +65,14 @@
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1057,
+      "line": 1081,
       "symbol": "AWSMobileClient.getViewController()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileClientExtensions.swift",
-      "line": 1065,
+      "line": 1089,
       "symbol": "AWSMobileClient.shouldLaunchSignInVCIfRefreshTokenIsExpired()",
       "symbol_kind": "source.lang.swift.decl.function.method.instance",
       "warning": "undocumented"
