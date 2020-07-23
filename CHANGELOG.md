@@ -18,7 +18,6 @@
 
 ### Misc. Updates
 - Deprecated AWSiOSSDKv2 aggregate pod in favor of Amplify [PR: #2855](https://github.com/aws-amplify/aws-sdk-ios/pull/2855)
-
 - Model updates for the following services:
   - Amazon EC2
   - Amazon Connect
