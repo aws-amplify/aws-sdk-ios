@@ -2,10 +2,27 @@
 
 ## Unreleased
 
-### New features
+## 2.15.0
 
+### New features
 - **AWSAuthSDK**
   - **Breaking Change** Updated AWSGoogleSignInProvider to GoogleSignIn Version 5.0.2. This change requires any app that uses GoogleSignIn to update the framework to version 5.0.2. (See [Issue #1993](https://github.com/aws-amplify/aws-sdk-ios/issues/1993) and [PR #2851](https://github.com/aws-amplify/aws-sdk-ios/pull/2851)) Thanks, [@cornr](https://github.com/cornr)!
+
+### Bug Fixes
+- **AWSMobileClient**
+  - Fixed drop-in ui button background issue [PR: #2852](https://github.com/aws-amplify/aws-sdk-ios/pull/2852)
+  - Crash while accessing user attributes/password when not signed in to Cognito User Pool [PR: #2866](https://github.com/aws-amplify/aws-sdk-ios/pull/2866)
+
+- **AWSPinpoint**
+  - Removed global event source attributes on session end [PR: #2858](https://github.com/aws-amplify/aws-sdk-ios/pull/2858)
+
+### Misc. Updates
+- Deprecated AWSiOSSDKv2 aggregate pod in favor of Amplify [PR: #2855](https://github.com/aws-amplify/aws-sdk-ios/pull/2855)
+- Model updates for the following services:
+  - Amazon EC2
+  - Amazon Connect
+  - Amazon Comprehend
+  - Amazon SNS
 
 ## 2.14.2
 
