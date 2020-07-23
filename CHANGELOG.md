@@ -17,7 +17,13 @@
   - Removed global event source attributes on session end [PR: #2858](https://github.com/aws-amplify/aws-sdk-ios/pull/2858)
 
 ### Misc. Updates
-- Deprecated AWSiOSSDKv2 aggregate pod in favor of Amplify[PR: #2855](https://github.com/aws-amplify/aws-sdk-ios/pull/2855)
+- Deprecated AWSiOSSDKv2 aggregate pod in favor of Amplify [PR: #2855](https://github.com/aws-amplify/aws-sdk-ios/pull/2855)
+
+- Model updates for the following services:
+  - Amazon EC2
+  - Amazon Connect
+  - Amazon Comprehend
+  - Amazon SNS
 
 ## 2.14.2
 
