@@ -314,7 +314,8 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
     name.name = @"name";
     name.value = @"Joe Test";
     AWSCognitoIdentityUser * user = [pool getUser:username];
-    [[user updateAttributes:@[name]] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> * _Nonnull task) {
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user updateAttributes:@[name] clientMetaData:clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> * _Nonnull task) {
         if(task.isCancelled || task.error){
             XCTFail(@"Request returned an error %@",task.error);
         }
@@ -374,7 +375,8 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
     XCTestExpectation *expectation =
     [self expectationWithDescription:@"testGetAttributeVerification"];
     AWSCognitoIdentityUser * user = [pool getUser:username];
-    [[user getAttributeVerificationCode:@"phone_number"] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> * _Nonnull task) {
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user getAttributeVerificationCode:@"phone_number" clientMetaData:clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> * _Nonnull task) {
         if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorInvalidParameter){
             XCTFail(@"Request should have failed with InvalidParameterException (Invalid phone number provided..)");
         }
@@ -387,6 +389,25 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
         }
     }];
 
+}
+
+- (void)testResendConfirmationCode {
+    XCTestExpectation *expectation =
+    [self expectationWithDescription:@"testResendConfirmationCode"];
+    AWSCognitoIdentityUser * user = [pool getUser:username];
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user resendConfirmationCode: clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
+        if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorNotAuthorized){
+            XCTFail(@"Request should have failed with AWSCognitoIdentityProviderErrorNotAuthorized (Cannot resend codes. Auto verification not turned on.)");
+        }
+        [expectation fulfill];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
 }
 
 

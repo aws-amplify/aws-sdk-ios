@@ -30,7 +30,8 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
         signUpUser(username: username)
 
         let verificationCodeSent = expectation(description: "verification code should be sent via email.")
-        AWSMobileClient.default().resendSignUpCode(username: username) { (result, error) in
+        let clientMetaData = ["client": "metadata"]
+        AWSMobileClient.default().resendSignUpCode(username: username, clientMetaData: clientMetaData) { (result, error) in
             if let error = error {
                 XCTFail("Failed due to error: \(error.localizedDescription)")
                 return

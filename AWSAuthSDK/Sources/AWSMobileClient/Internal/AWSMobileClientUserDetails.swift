@@ -33,9 +33,14 @@ internal class AWSMobileClientUserDetails {
     ///
     /// - Parameters:
     ///   - attributeName: name of the attribute.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
-    public func verifyUserAttribute(attributeName: String, completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
-        self.cognitoIdentityUser.getAttributeVerificationCode(attributeName).continueWith { (task) -> Any? in
+    public func verifyUserAttribute(attributeName: String,
+                                    clientMetaData: [String:String] = [:],
+                                    completionHandler: @escaping ((UserCodeDeliveryDetails?, Error?) -> Void)) {
+        self.cognitoIdentityUser.getAttributeVerificationCode(attributeName,
+                                                              clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
@@ -53,10 +58,12 @@ internal class AWSMobileClientUserDetails {
     ///
     /// - Parameters:
     ///   - attributeMap: the attribute map of the user.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when the result is avilable.
-    public func updateUserAttributes(attributeMap: [String: String], completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
+    public func updateUserAttributes(attributeMap: [String: String], clientMetaData: [String:String] = [:], completionHandler: @escaping (([UserCodeDeliveryDetails]?, Error?) -> Void)) {
         let attributes = attributeMap.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
-        self.cognitoIdentityUser.update(attributes).continueWith { (task) -> Any? in
+        self.cognitoIdentityUser.update(attributes, clientMetaData: clientMetaData).continueWith { (task) -> Any? in
             if let error = task.error {
                 completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
