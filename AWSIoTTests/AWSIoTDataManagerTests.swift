@@ -21,6 +21,8 @@ class AWSIoTDataManagerTests: XCTestCase {
     static let certificateSigningRequestCountryName = "US"
     static let certificateSigningRequestOrganizationName = "Amazon.com"
     static let certificateSigningRequestOrganizationalUnitName = "Amazon Web Services"
+    static let mqttTestUserName = "aws-sdk-user"
+    static let mqttTestPassword = "%%aws-sdk-password**"
 
     var policyName: String? = nil
 
@@ -28,6 +30,11 @@ class AWSIoTDataManagerTests: XCTestCase {
     var tokenKeyName: String? = nil
     var tokenSignature: String? = nil
     var tokenValue: String? = nil
+
+    var customAuthorizerName_customAuthUserPass: String? = nil
+    var tokenKeyName_customAuthUserPass: String? = nil
+    var tokenSignature_customAuthUserPass: String? = nil
+    var tokenValue_customAuthUserPass: String? = nil
 
     override func setUp() {
         super.setUp()
@@ -134,11 +141,37 @@ class AWSIoTDataManagerTests: XCTestCase {
         let broker2CertIsSuccessful = createCertAndAttachPolicy(certName: "TestCertBroker2",
                                                                 iotManager: iotManagerBroker2,
                                                                 iot: iotBroker2)
+        setupBroker3(region: region)
+
         let classSetUpSuccessful = broker1CertIsSuccessful && broker2CertIsSuccessful
         guard classSetUpSuccessful else {
             XCTFail("setUp was unsuccessful. See console log for details")
             return
         }
+    }
+
+    func setupBroker3(region: AWSRegionType) {
+        guard let endpoint = AWSTestUtility.getIoTEndPoint("iot_beta_endpoint_address") else {
+            XCTFail("Could not fetch 'iot_beta_endpoint_address' from the config file.")
+            return
+        }
+        let iotConfigurationBroker = AWSServiceConfiguration(
+            region: region,
+            endpoint: AWSEndpoint(urlString: endpoint),
+            credentialsProvider: AWSServiceManager.default()?.defaultServiceConfiguration.credentialsProvider
+        )
+        guard let iotConfiguration = iotConfigurationBroker else {
+            XCTFail("Failed on creating IoTConfigurationBroker")
+            return
+        }
+        
+        let mqttConfigUserNamePassword = AWSIoTMQTTConfiguration()
+        mqttConfigUserNamePassword.username = AWSIoTDataManagerTests.mqttTestUserName
+        mqttConfigUserNamePassword.password = AWSIoTDataManagerTests.mqttTestPassword
+        
+        AWSIoTDataManager.register(with: iotConfiguration,
+                                   with: mqttConfigUserNamePassword,
+                                   forKey: "iot-data-manager-broker-custom-auth-enhanced")
     }
 
     func setUpCustomValues() {
@@ -150,6 +183,11 @@ class AWSIoTDataManagerTests: XCTestCase {
         tokenKeyName = packageConfig["custom_authorizer_token_key_name"]
         tokenSignature = packageConfig["custom_authorizer_token_signature"]
         tokenValue = packageConfig["custom_authorizer_token_value"]
+        
+        customAuthorizerName_customAuthUserPass = packageConfig["custom_authorizerUserPass_name"]
+        tokenKeyName_customAuthUserPass = packageConfig["custom_authorizerUserPass_token_key_name"]
+        tokenSignature_customAuthUserPass = packageConfig["custom_authorizerUserPass_token_signature"]
+        tokenValue_customAuthUserPass = packageConfig["custom_authorizerUserPass_token_value"]
     }
 
     override func tearDown() {
@@ -1234,6 +1272,57 @@ class AWSIoTDataManagerTests: XCTestCase {
             wait(for:[hasDisconnected], timeout: 30)
             XCTAssertFalse(connected)
         }
+    }
+
+    func testCustomAuthUserNamePasswordConnectAndDisconnect() {
+        var connected = false
+        let hasConnected = self.expectation(description: "MQTT connection has been established")
+        var disconnectIssued = false
+        let hasDisconnected = self.expectation(description: "Disconnected")
+
+        func mqttEventCallback( _ status: AWSIoTMQTTStatus){
+            switch(status) {
+            case .connecting:
+                print ("Connecting...")
+            case .connected:
+                print("Connected")
+                connected = true
+                hasConnected.fulfill()
+            case .disconnected:
+                if (disconnectIssued) {
+                    print("Disconnected")
+                    connected = false
+                    hasDisconnected.fulfill()
+                }
+            case .connectionRefused:
+                print("Connection Refused")
+            case .connectionError:
+                print("Connection Error")
+            case .protocolError:
+                print("Protocol Error")
+            default:
+                print("Unknown state: \(status.rawValue)")
+            }
+        }
+
+        let iotDataManager = AWSIoTDataManager(forKey: "iot-data-manager-broker-custom-auth-enhanced")
+        let uuid = UUID().uuidString
+        let connectedWS: Bool = iotDataManager.connectUsingWebSocket(withClientId: uuid,
+                                                                     cleanSession: true,
+                                                                     customAuthorizerName: customAuthorizerName_customAuthUserPass!,
+                                                                     tokenKeyName: tokenKeyName_customAuthUserPass!,
+                                                                     tokenValue: tokenValue_customAuthUserPass!,
+                                                                     tokenSignature: tokenSignature_customAuthUserPass!,
+                                                                     statusCallback: mqttEventCallback)
+        XCTAssertTrue(connectedWS, "Successfully established MQTT Connection using Custom Auth.")
+        
+        wait(for:[hasConnected], timeout: 5)
+        XCTAssertTrue(connected, "Successfully established MQTT Connection using Custom Auth.")
+
+        iotDataManager.disconnect()
+        disconnectIssued = true
+        wait(for:[hasDisconnected], timeout: 5)
+        XCTAssertFalse(connected)
     }
 
     // This test creates a WebSocket connection with Custom Auth, but passes an invalid token,
