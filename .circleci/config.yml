@@ -649,13 +649,14 @@ jobs:
       - set_environment_variables
       - configure_aws
       - restore_cache:
-          key: carthage_build_result-{{ .Revision }}
+          # TODO: Restore this once we're finished testing
+          # key: carthage_build_result-{{ .Revision }}
+          key: carthage_build_result-55aeed938ce7f3cc26695f576363a81e3df88940
       - run:
           name: Make directory structure
           command: |
             mkdir -p "$sdkNameWithVersion/frameworks"
-            mv "Carthage" "$sdkNameWithVersion"
-            mv "$sdkNameWithVersion/Build/iOS" "$sdkNameWithVersion/frameworks"
+            mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
             rmdir "$sdkNameWithVersion/Build"
       - run:
           name: Copy SDK resource files
@@ -818,13 +819,7 @@ workflows:
   # TODO: Delete this workflow once it's been tested in CCI
   test_new_carthage:
     jobs:
-      - build_carthage:
-          filters:
-            branches:
-              only: palpatim/use-carthage-frameworks
       - release_ios_s3:
-          requires:
-            - build_carthage
           filters:
             branches:
               only: palpatim/use-carthage-frameworks
