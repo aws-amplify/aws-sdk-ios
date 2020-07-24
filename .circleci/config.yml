@@ -819,8 +819,6 @@ workflows:
   test_new_carthage:
     jobs:
       - build_carthage:
-          requires:
-            - build
           filters:
             branches:
               only: palpatim/use-carthage-frameworks
