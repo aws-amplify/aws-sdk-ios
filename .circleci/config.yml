@@ -655,9 +655,9 @@ jobs:
       - run:
           name: Make directory structure
           command: |
-            mkdir -p "$sdkNameWithVersion/frameworks"
+            mkdir -p "$sdkNameWithVersion"
             mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
-            rmdir "$sdkNameWithVersion/Build"
+            rmdir -rf "Carthage/Build"
       - run:
           name: Copy SDK resource files
           command: |
