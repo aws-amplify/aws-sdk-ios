@@ -22,17 +22,16 @@ class AWSIoTDataManagerTests: XCTestCase {
     static let certificateSigningRequestOrganizationName = "Amazon.com"
     static let certificateSigningRequestOrganizationalUnitName = "Amazon Web Services"
 
-    static var policyName: String? = nil
+    var policyName: String? = nil
 
-    static var customAuthorizerName: String? = nil
-    static var tokenKeyName: String? = nil
-    static var tokenSignature: String? = nil
-    static var tokenValue: String? = nil
+    var customAuthorizerName: String? = nil
+    var tokenKeyName: String? = nil
+    var tokenSignature: String? = nil
+    var tokenValue: String? = nil
 
-    static var classSetUpSuccessful = false
-
-    override class func setUp() {
+    override func setUp() {
         super.setUp()
+        continueAfterFailure = false
 
         //Setup Log level
         AWSDDLog.sharedInstance.logLevel = .info
@@ -135,11 +134,14 @@ class AWSIoTDataManagerTests: XCTestCase {
         let broker2CertIsSuccessful = createCertAndAttachPolicy(certName: "TestCertBroker2",
                                                                 iotManager: iotManagerBroker2,
                                                                 iot: iotBroker2)
-
-        classSetUpSuccessful = broker1CertIsSuccessful && broker2CertIsSuccessful
+        let classSetUpSuccessful = broker1CertIsSuccessful && broker2CertIsSuccessful
+        guard classSetUpSuccessful else {
+            XCTFail("setUp was unsuccessful. See console log for details")
+            return
+        }
     }
 
-    static func setUpCustomValues() {
+    func setUpCustomValues() {
         guard let packageConfig = AWSTestUtility.getIntegrationTestConfiguration(forPackageId: "iot") as? [String: String] else {
             return
         }
@@ -148,15 +150,6 @@ class AWSIoTDataManagerTests: XCTestCase {
         tokenKeyName = packageConfig["custom_authorizer_token_key_name"]
         tokenSignature = packageConfig["custom_authorizer_token_signature"]
         tokenValue = packageConfig["custom_authorizer_token_value"]
-    }
-
-    override func setUp() {
-        guard AWSIoTDataManagerTests.classSetUpSuccessful else {
-            continueAfterFailure = false
-            XCTFail("Test class setUp was unsuccessful. See console log for details")
-            return
-        }
-        super.setUp()
     }
 
     override func tearDown() {
@@ -222,30 +215,27 @@ class AWSIoTDataManagerTests: XCTestCase {
         let defaults = UserDefaults.standard
         let certificateID:String? = defaults.string(forKey: "TestCertBroker1")
 
-        if (useALPN ) {
+        if (useALPN) {
             if #available(iOS 11, *) {
                 iotDataManager.connectUsingALPN(withClientId: uuid,
                                                 cleanSession: true,
                                                 certificateId: certificateID!,
                                                 statusCallback: mqttEventCallback)
             }
-        }
-        else {
+        } else {
             iotDataManager.connect(withClientId: uuid,
-                               cleanSession: true,
-                              certificateId: certificateID!,
-                             statusCallback: mqttEventCallback)
+                                   cleanSession: true,
+                                   certificateId: certificateID!,
+                                   statusCallback: mqttEventCallback)
         }
 
-        print("Connect call completed")
-
-        wait(for:[hasConnected], timeout: 30)
+        wait(for:[hasConnected], timeout: 5)
         XCTAssertTrue(connected, "Successfully established MQTT Connection")
 
         if (connected) {
             iotDataManager.disconnect()
             disconnectIssued = true
-            wait(for:[hasDisconnected], timeout: 30)
+            wait(for:[hasDisconnected], timeout: 5)
             XCTAssertFalse(connected)
         }
 
@@ -375,7 +365,7 @@ class AWSIoTDataManagerTests: XCTestCase {
         iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateID!, statusCallback: mqttEventCallback)
         print("Connect call completed")
 
-        wait(for:[hasConnected], timeout: 30)
+        wait(for:[hasConnected], timeout: 5)
         XCTAssertTrue(connected, "Successfully established MQTT Connection")
 
         XCTAssertFalse(iotDataManager.connect( withClientId: uuid, cleanSession:true, certificateId:certificateID!, statusCallback: mqttEventCallback))
@@ -389,7 +379,7 @@ class AWSIoTDataManagerTests: XCTestCase {
             iotDataManager.disconnect()
 
 
-            wait(for:[hasDisconnected], timeout: 30)
+            wait(for:[hasDisconnected], timeout: 5)
             XCTAssertFalse(connected)
         }
 
@@ -1227,10 +1217,10 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         let connectedWS: Bool = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                                      cleanSession: true,
-                                                                     customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                                     tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                                     tokenValue: AWSIoTDataManagerTests.tokenValue!,
-                                                                     tokenSignature: AWSIoTDataManagerTests.tokenSignature!,
+                                                                     customAuthorizerName: customAuthorizerName!,
+                                                                     tokenKeyName: tokenKeyName!,
+                                                                     tokenValue: tokenValue!,
+                                                                     tokenSignature: tokenSignature!,
                                                                      statusCallback: mqttEventCallback)
         print("Calling connect completed. Waiting for 30 seconds to see if the connection is established.")
         XCTAssertTrue(connectedWS, "Successfully established MQTT Connection using Custom Auth.")
@@ -1288,8 +1278,8 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         let connectedWS = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                                cleanSession: true,
-                                                               customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                               tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
+                                                               customAuthorizerName: customAuthorizerName!,
+                                                               tokenKeyName: tokenKeyName!,
                                                                tokenValue: "allow",
                                                                tokenSignature: "INVALID_SIGNATURE",
                                                                statusCallback: mqttEventCallback)
@@ -1356,10 +1346,10 @@ class AWSIoTDataManagerTests: XCTestCase {
 
         let connectedWS: Bool = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                                      cleanSession: true,
-                                                                     customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                                     tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                                     tokenValue: AWSIoTDataManagerTests.tokenValue!,
-                                                                     tokenSignature: AWSIoTDataManagerTests.tokenSignature!,
+                                                                     customAuthorizerName: customAuthorizerName!,
+                                                                     tokenKeyName: tokenKeyName!,
+                                                                     tokenValue: tokenValue!,
+                                                                     tokenSignature: tokenSignature!,
                                                                      statusCallback: mqttEventCallback)
         print("Calling connect completed. Waiting for 30 seconds to see if the connection is established.")
         XCTAssertTrue(connectedWS, "Successfully established MQTT Connection using Custom Auth.")
@@ -1464,10 +1454,10 @@ class AWSIoTDataManagerTests: XCTestCase {
 
             connected = iotDataManager.connectUsingWebSocket(withClientId: uuid,
                                                              cleanSession: true,
-                                                             customAuthorizerName: AWSIoTDataManagerTests.customAuthorizerName!,
-                                                             tokenKeyName: AWSIoTDataManagerTests.tokenKeyName!,
-                                                             tokenValue: AWSIoTDataManagerTests.tokenValue!,
-                                                             tokenSignature: AWSIoTDataManagerTests.tokenSignature!,
+                                                             customAuthorizerName: customAuthorizerName!,
+                                                             tokenKeyName: tokenKeyName!,
+                                                             tokenValue: tokenValue!,
+                                                             tokenSignature: tokenSignature!,
                                                              statusCallback: mqttEventCallback)
             wait(for:[hasConnected[iteration] as! XCTestExpectation], timeout: 90)
             if (!connected) {
@@ -1516,7 +1506,7 @@ class AWSIoTDataManagerTests: XCTestCase {
 
     // MARK: - Utilities
 
-    static func createCertAndAttachPolicy(certName: String, iotManager:AWSIoTManager, iot:AWSIoT) -> Bool {
+    func createCertAndAttachPolicy(certName: String, iotManager:AWSIoTManager, iot:AWSIoT) -> Bool {
         let defaults = UserDefaults.standard
         var certificateID = defaults.string(forKey: certName)
 
@@ -1525,10 +1515,10 @@ class AWSIoTDataManagerTests: XCTestCase {
             return true
         }
 
-        let csrDictionary = ["commonName": certificateSigningRequestCommonName,
-                             "countryName": certificateSigningRequestCountryName,
-                             "organizationName": certificateSigningRequestOrganizationName,
-                             "organizationalUnitName": certificateSigningRequestOrganizationalUnitName]
+        let csrDictionary = ["commonName": AWSIoTDataManagerTests.certificateSigningRequestCommonName,
+                             "countryName": AWSIoTDataManagerTests.certificateSigningRequestCountryName,
+                             "organizationName": AWSIoTDataManagerTests.certificateSigningRequestOrganizationName,
+                             "organizationalUnitName": AWSIoTDataManagerTests.certificateSigningRequestOrganizationalUnitName]
 
         var certCreated = false
         var policyAttached = false
@@ -1556,7 +1546,7 @@ class AWSIoTDataManagerTests: XCTestCase {
                 print("attachPrincipalPolicyRequest unexpectedly nil")
                 return
             }
-            attachPrincipalPolicyRequest.policyName = policyName
+            attachPrincipalPolicyRequest.policyName = self.policyName
             attachPrincipalPolicyRequest.principal = response.certificateArn
 
             dispatchGroup.enter()
