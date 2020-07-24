@@ -241,7 +241,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -255,7 +255,7 @@ jobs:
 
   unittest:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -277,7 +277,7 @@ jobs:
 
   pre_integrationtest:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     environment:
       TERM: xterm-256color
     steps:
@@ -320,7 +320,7 @@ jobs:
 
   post_integrationtest:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       #TODO need check why multiple key does not work here
       - skip_job_unless_required
@@ -398,7 +398,7 @@ jobs:
         default: stable_testList
         type: string
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - set_environment_variables
       - override_test_job
@@ -437,7 +437,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -454,7 +454,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -490,10 +490,17 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
+      - run:
+          # Note that this invocation of cocoapods_release requires at least
+          # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
+          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 11.6.0 Xcode
+          # image, but just to be safe, we'll manually update cocoapods-trunk
+          name: Update cocoapods-trunk to support --synchronous flag
+          command: gem update cocoapods-trunk
       - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
@@ -501,7 +508,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -531,7 +538,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - checkout
@@ -545,7 +552,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -589,7 +596,7 @@ jobs:
 
   bump_ios_amplifydocs_version:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -619,7 +626,7 @@ jobs:
 
   release_ios_s3:
     macos:
-      xcode: "11.4.1"
+      xcode: "11.6.0"
     environment:
       TERM: xterm-256color
     steps:
