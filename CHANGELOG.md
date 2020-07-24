@@ -1,7 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Misc. Updates
+- Binary framework distributions via Carthage and S3 are now built using Xcode 11.6
 
 ## 2.15.0
 
