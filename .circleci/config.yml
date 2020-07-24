@@ -497,9 +497,7 @@ jobs:
           no_output_timeout: 20m
       - run:
           name: Upload Carthage archive to GitHub release
-          # TODO: Re-enable this after testing
-          # command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
-          command: ls -la aws-sdk-ios-carthage.framework.zip
+          command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
   release_cocoapods:
     macos:
@@ -649,9 +647,7 @@ jobs:
       - set_environment_variables
       - configure_aws
       - restore_cache:
-          # TODO: Restore this once we're finished testing
-          # key: carthage_build_result-{{ .Revision }}
-          key: carthage_build_result-55aeed938ce7f3cc26695f576363a81e3df88940
+          key: carthage_build_result-{{ .Revision }}
       - run:
           name: Make directory structure
           command: |
@@ -676,14 +672,12 @@ jobs:
       - run:
           name: Upload to S3
           command: |
-            # TODO: Remove echo
-            echo aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
-            echo aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
       - run:
           name: Invalidate cloudfront
           command: |
-            # TODO: Re-enable
-            # echo python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
 
   bump_sdk_version:
     docker:
@@ -817,14 +811,6 @@ jobs:
 
 workflows:
   version: 2
-
-  # TODO: Delete this workflow once it's been tested in CCI
-  test_new_carthage:
-    jobs:
-      - release_ios_s3:
-          filters:
-            branches:
-              only: palpatim/use-carthage-frameworks
 
   bump_sdk_version:
     jobs:
