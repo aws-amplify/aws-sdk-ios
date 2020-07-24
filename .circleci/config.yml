@@ -657,7 +657,7 @@ jobs:
           command: |
             mkdir -p "$sdkNameWithVersion"
             mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
-            rmdir -rf "Carthage/Build"
+            rm -rf "Carthage/Build"
       - run:
           name: Copy SDK resource files
           command: |
