@@ -676,12 +676,14 @@ jobs:
       - run:
           name: Upload to S3
           command: |
-            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
-            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            # TODO: Remove echo
+            echo aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            echo aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
       - run:
           name: Invalidate cloudfront
           command: |
-            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+            # TODO: Re-enable
+            # echo python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
 
   bump_sdk_version:
     docker:
