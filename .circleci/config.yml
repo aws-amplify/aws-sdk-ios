@@ -452,6 +452,28 @@ jobs:
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
             echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} --name "$tagname" -d -
 
+  build_carthage:
+    macos:
+      xcode: "11.6.0"
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - pre_start_simulator
+      - update_brew
+      - run:
+          name: Upgrade Carthage
+          command: |
+            HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
+      - run:
+          name: Build Carthage
+          command: |
+            carthage build --no-skip-current | tee buildout.txt
+          no_output_timeout: 100m
+      - save_cache:
+          key: carthage_build_result-{{ .Revision }}
+          paths:
+            - Carthage
+
   release_carthage:
     macos:
       xcode: "11.6.0"
@@ -464,22 +486,11 @@ jobs:
           name: Install github-release
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
       - run:
-          name: Install AWS CLI
-          command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew install awscli
-      - run:
           name: Upgrade Carthage
           command: |
             HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
-      - run:
-          name: Build SDK for Carthage release
-          command: |
-            xcodebuild -project AWSiOSSDKv2.xcodeproj -scheme AWSCore -sdk iphonesimulator -destination "${destination}" build
-      - run:
-          name: Build Carthage
-          command: |
-            carthage build --no-skip-current | tee buildout.txt
-          no_output_timeout: 100m
+      - restore_cache:
+          key: carthage_build_result-{{ .Revision }}
       - run:
           name: Create Carthage archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
@@ -635,25 +646,22 @@ jobs:
       - update_brew
       - set_environment_variables
       - configure_aws
+      - restore_cache:
+          key: carthage_build_result-{{ .Revision }}
       - run:
-          name: Build library
+          name: Make directory structure
           command: |
-            bash CircleciScripts/package.sh
-      - run:
-          name: Copy frameworks
-          command: |
-            mkdir -p "$sdkNameWithVersion/frameworks"
-            cp -R builtFramework/framework/* "$sdkNameWithVersion/frameworks"
+            mkdir -p "$sdkNameWithVersion"
+            mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
+            rm -rf "Carthage/Build"
       - run:
           name: Copy SDK resource files
           command: |
-            mkdir -p "$sdkNameWithVersion"
             python3 CircleciScripts/copy_resourcefiles.py "$(pwd)" "$(pwd)/$sdkNameWithVersion"
       - run:
           name: Zip SDK folder
           command: |
             zip -r "$sdkNameWithVersion.zip" "$sdkNameWithVersion"
-
       - run:
           name: Copy zip file
           command: |
@@ -803,6 +811,7 @@ jobs:
 
 workflows:
   version: 2
+
   bump_sdk_version:
     jobs:
       - bump_sdk_version:
@@ -1511,8 +1520,18 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - build_carthage:
+          requires:
+            - unittest
+            - post_integrationtest
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_ios_s3:
           requires:
+            - build_carthage
             - unittest
             - post_integrationtest
           filters:
@@ -1566,6 +1585,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_carthage:
           requires:
+            - build_carthage
             - add_doc_tag
             - bump_ios_amplifydocs_version
           filters:
