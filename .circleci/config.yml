@@ -496,7 +496,12 @@ jobs:
       - checkout
       - run:
           # Note that this invocation of cocoapods_release requires at least
-          # CocoaPods 1.9.3, since it uses the `--synchronous` flag
+          # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
+          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 11.6.0 Xcode
+          # image, but just to be safe, we'll manually update cocoapods-trunk
+          name: Update cocoapods-trunk to support --synchronous flag
+          command: gem update cocoapods-trunk
+      - run:
           name: Release CocoaPods
           command: python3 ./CircleciScripts/cocoapods_release.py
           no_output_timeout: 20m
