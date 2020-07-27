@@ -96,6 +96,8 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Resend the confirmation code sent during sign up
  */
+- (AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *)resendConfirmationCode: (nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
 - (AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *)resendConfirmationCode;
 
 /**
@@ -149,6 +151,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Update this user's attributes
  */
+- (AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> *)updateAttributes:(NSArray<AWSCognitoIdentityUserAttributeType *> *)attributes
+                                                                 clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
 - (AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> *)updateAttributes:(NSArray<AWSCognitoIdentityUserAttributeType *> *)attributes;
 
 /**
@@ -166,6 +171,9 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Request a verification code to verify an attribute.
  */
+- (AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> *)getAttributeVerificationCode:(NSString *)attributeName
+                                                                                         clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
 - (AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> *)getAttributeVerificationCode:(NSString *)attributeName;
 
 /**

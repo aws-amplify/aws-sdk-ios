@@ -137,20 +137,24 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                               clientMetaData:nil];
 }
 
-
--(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *) resendConfirmationCode {
+-(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *) resendConfirmationCode: (nullable NSDictionary<NSString *,NSString *> *)clientMetaData {
     AWSCognitoIdentityProviderResendConfirmationCodeRequest *request = [AWSCognitoIdentityProviderResendConfirmationCodeRequest new];
     request.clientId = self.pool.userPoolConfiguration.clientId;
     request.username = self.username;
     request.secretHash = [self.pool calculateSecretHash:self.username];
     request.analyticsMetadata = [self.pool analyticsMetadata];
     request.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
-    
+    request.clientMetadata = clientMetaData;
+
     return [[self.pool.client resendConfirmationCode:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderResendConfirmationCodeResponse *> * _Nonnull task) {
         AWSCognitoIdentityUserResendConfirmationCodeResponse * response = [AWSCognitoIdentityUserResendConfirmationCodeResponse new];
         [response aws_copyPropertiesFromObject:task.result];
         return [AWSTask taskWithResult:response];
     }];
+}
+
+-(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> *) resendConfirmationCode {
+    return [self resendConfirmationCode: nil];
 }
 
 -(AWSTask<AWSCognitoIdentityUserChangePasswordResponse *>*) changePassword: (NSString*)currentPassword proposedPassword: (NSString *)proposedPassword {
@@ -1141,12 +1145,14 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 /**
  * Update this user's attributes
  */
--(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *>*) updateAttributes: (NSArray<AWSCognitoIdentityUserAttributeType *>*) attributes {
+-(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *>*) updateAttributes: (NSArray<AWSCognitoIdentityUserAttributeType *>*) attributes
+                                                                clientMetaData: (nullable NSDictionary<NSString *,NSString *> *) clientMetaData {
     AWSCognitoIdentityProviderUpdateUserAttributesRequest *request = [AWSCognitoIdentityProviderUpdateUserAttributesRequest new];
     return [[self getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         request.accessToken = task.result.accessToken.tokenString;
         NSMutableArray *userAttributes = [NSMutableArray new];
         request.userAttributes = userAttributes;
+        request.clientMetadata = clientMetaData;
         for (AWSCognitoIdentityUserAttributeType * attribute in attributes) {
             AWSCognitoIdentityProviderAttributeType *apiAttribute = [AWSCognitoIdentityProviderAttributeType new];
             apiAttribute.name = attribute.name;
@@ -1161,6 +1167,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
             return [AWSTask taskWithResult:response];
         }];
     }];
+}
+
+-(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *>*) updateAttributes: (NSArray<AWSCognitoIdentityUserAttributeType *>*) attributes {
+    return [self updateAttributes:attributes clientMetaData:nil];
 }
 
 /**
@@ -1199,17 +1209,23 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 /**
  * Request a verification code to verify an attribute.
  */
--(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *>*) getAttributeVerificationCode: (NSString *) attributeName {
+-(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *>*) getAttributeVerificationCode: (NSString *) attributeName
+                                                                                        clientMetaData: (nullable NSDictionary<NSString *,NSString *> *) clientMetaData {
     AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest *request = [AWSCognitoIdentityProviderGetUserAttributeVerificationCodeRequest new];
     return [[self getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
         request.accessToken = task.result.accessToken.tokenString;
         request.attributeName = attributeName;
+        request.clientMetadata = clientMetaData;
         return [[self.pool.client getUserAttributeVerificationCode:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderGetUserAttributeVerificationCodeResponse *> * _Nonnull task) {
             AWSCognitoIdentityUserGetAttributeVerificationCodeResponse * response = [AWSCognitoIdentityUserGetAttributeVerificationCodeResponse new];
             [response aws_copyPropertiesFromObject:task.result];
             return [AWSTask taskWithResult:response];
         }];
     }];
+}
+
+-(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *>*) getAttributeVerificationCode: (NSString *) attributeName {
+    return [self getAttributeVerificationCode:attributeName clientMetaData:nil];
 }
 
 /**
