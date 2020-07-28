@@ -771,6 +771,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR6G_8xlarge,
     AWSEC2InstanceTypeR6G_12xlarge,
     AWSEC2InstanceTypeR6G_16xlarge,
+    AWSEC2InstanceTypeR6Gd_metal,
+    AWSEC2InstanceTypeR6Gd_medium,
+    AWSEC2InstanceTypeR6Gd_large,
+    AWSEC2InstanceTypeR6Gd_xlarge,
+    AWSEC2InstanceTypeR6Gd_2xlarge,
+    AWSEC2InstanceTypeR6Gd_4xlarge,
+    AWSEC2InstanceTypeR6Gd_8xlarge,
+    AWSEC2InstanceTypeR6Gd_12xlarge,
+    AWSEC2InstanceTypeR6Gd_16xlarge,
     AWSEC2InstanceTypeX1_16xlarge,
     AWSEC2InstanceTypeX1_32xlarge,
     AWSEC2InstanceTypeX1E_xlarge,
@@ -853,6 +862,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeC6G_8xlarge,
     AWSEC2InstanceTypeC6G_12xlarge,
     AWSEC2InstanceTypeC6G_16xlarge,
+    AWSEC2InstanceTypeC6Gd_metal,
+    AWSEC2InstanceTypeC6Gd_medium,
+    AWSEC2InstanceTypeC6Gd_large,
+    AWSEC2InstanceTypeC6Gd_xlarge,
+    AWSEC2InstanceTypeC6Gd_2xlarge,
+    AWSEC2InstanceTypeC6Gd_4xlarge,
+    AWSEC2InstanceTypeC6Gd_8xlarge,
+    AWSEC2InstanceTypeC6Gd_12xlarge,
+    AWSEC2InstanceTypeC6Gd_16xlarge,
     AWSEC2InstanceTypeCC1_4xlarge,
     AWSEC2InstanceTypeCC2_8xlarge,
     AWSEC2InstanceTypeG2_2xlarge,
@@ -984,6 +1002,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM6G_8xlarge,
     AWSEC2InstanceTypeM6G_12xlarge,
     AWSEC2InstanceTypeM6G_16xlarge,
+    AWSEC2InstanceTypeM6Gd_metal,
+    AWSEC2InstanceTypeM6Gd_medium,
+    AWSEC2InstanceTypeM6Gd_large,
+    AWSEC2InstanceTypeM6Gd_xlarge,
+    AWSEC2InstanceTypeM6Gd_2xlarge,
+    AWSEC2InstanceTypeM6Gd_4xlarge,
+    AWSEC2InstanceTypeM6Gd_8xlarge,
+    AWSEC2InstanceTypeM6Gd_12xlarge,
+    AWSEC2InstanceTypeM6Gd_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -6559,6 +6586,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
 /**
+ <p>The tags to apply to the customer gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</p>
  */
 @property (nonatomic, assign) AWSEC2GatewayType types;
@@ -9128,6 +9160,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VpnConnectionOptionsSpecification * _Nullable options;
 
 /**
+ <p>The tags to apply to the VPN connection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
@@ -9197,6 +9234,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags to apply to the virtual private gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
  <p>The type of VPN connection this virtual private gateway supports.</p>
@@ -33255,7 +33297,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 

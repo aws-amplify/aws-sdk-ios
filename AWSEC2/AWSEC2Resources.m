@@ -7855,6 +7855,11 @@
           \"shape\":\"GatewayType\",\
           \"documentation\":\"<p>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</p>\"\
         },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the customer gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
         \"DeviceName\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>A name for the customer gateway device.</p> <p>Length Constraints: Up to 255 characters.</p>\"\
@@ -10137,6 +10142,11 @@
           \"shape\":\"VpnConnectionOptionsSpecification\",\
           \"documentation\":\"<p>The options for the VPN connection.</p>\",\
           \"locationName\":\"options\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the VPN connection.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for CreateVpnConnection.</p>\"\
@@ -10181,6 +10191,11 @@
         \"Type\":{\
           \"shape\":\"GatewayType\",\
           \"documentation\":\"<p>The type of VPN connection this virtual private gateway supports.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the virtual private gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         },\
         \"AmazonSideAsn\":{\
           \"shape\":\"Long\",\
@@ -23341,6 +23356,15 @@
         \"r6g.8xlarge\",\
         \"r6g.12xlarge\",\
         \"r6g.16xlarge\",\
+        \"r6gd.metal\",\
+        \"r6gd.medium\",\
+        \"r6gd.large\",\
+        \"r6gd.xlarge\",\
+        \"r6gd.2xlarge\",\
+        \"r6gd.4xlarge\",\
+        \"r6gd.8xlarge\",\
+        \"r6gd.12xlarge\",\
+        \"r6gd.16xlarge\",\
         \"x1.16xlarge\",\
         \"x1.32xlarge\",\
         \"x1e.xlarge\",\
@@ -23423,6 +23447,15 @@
         \"c6g.8xlarge\",\
         \"c6g.12xlarge\",\
         \"c6g.16xlarge\",\
+        \"c6gd.metal\",\
+        \"c6gd.medium\",\
+        \"c6gd.large\",\
+        \"c6gd.xlarge\",\
+        \"c6gd.2xlarge\",\
+        \"c6gd.4xlarge\",\
+        \"c6gd.8xlarge\",\
+        \"c6gd.12xlarge\",\
+        \"c6gd.16xlarge\",\
         \"cc1.4xlarge\",\
         \"cc2.8xlarge\",\
         \"g2.2xlarge\",\
@@ -23553,7 +23586,16 @@
         \"m6g.4xlarge\",\
         \"m6g.8xlarge\",\
         \"m6g.12xlarge\",\
-        \"m6g.16xlarge\"\
+        \"m6g.16xlarge\",\
+        \"m6gd.metal\",\
+        \"m6gd.medium\",\
+        \"m6gd.large\",\
+        \"m6gd.xlarge\",\
+        \"m6gd.2xlarge\",\
+        \"m6gd.4xlarge\",\
+        \"m6gd.8xlarge\",\
+        \"m6gd.12xlarge\",\
+        \"m6gd.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -34990,7 +35032,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
+          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
