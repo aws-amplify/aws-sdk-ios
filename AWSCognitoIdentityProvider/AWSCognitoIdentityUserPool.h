@@ -17,6 +17,7 @@
 @class AWSCognitoIdentityUserPoolConfiguration;
 @class AWSCognitoIdentityUserPoolSignUpResponse;
 @class AWSCognitoIdentityNewPasswordRequiredDetails;
+@class AWSCognitoIdentityMfaCodeDetails;
 @class AWSCognitoIdentitySoftwareMfaSetupRequiredDetails;
 @class AWSCognitoIdentitySelectMfaDetails;
 
@@ -231,6 +232,27 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
 @end
 
 /**
+ When responding to a mfa code challenge this encapsulates the end users' mfa code and client metadata
+ */
+@interface AWSCognitoIdentityMfaCodeDetails : NSObject
+/**
+ The end user's new password
+ */
+@property(nonatomic, strong, nonnull) NSString *mfaCode;
+
+/**
+ A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
+ */
+@property(nonatomic, copy, nullable) NSDictionary<NSString*, NSString*> *clientMetaData;
+
+/**
+ Initializer given the mfa code
+ **/
+-(instancetype) initWithMfaCode: (NSString *) mfaCode;
+
+@end
+
+/**
  When responding to a custom sign in, this encapsulates the challenge parameters that define the challenge
  */
 @interface AWSCognitoIdentityCustomAuthenticationInput : NSObject
@@ -390,11 +412,25 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityClientErrorType) {
 
 @protocol AWSCognitoIdentityMultiFactorAuthentication <NSObject>
 /**
- Obtain mfa code from the end user
+ Obtain mfa code from the end user. This is deprecated, thus made optional to account for new clients implementing only
+ `getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:`
  @param authenticationInput details about the deliveryMedium and masked destination for where the code was sent
  @param mfaCodeCompletionSource set mfaCodeCompletionSource.result with the mfa code from end user
  */
--(void) getMultiFactorAuthenticationCode: (AWSCognitoIdentityMultifactorAuthenticationInput *) authenticationInput mfaCodeCompletionSource: (AWSTaskCompletionSource<NSString *> *) mfaCodeCompletionSource;
+@optional
+-(void) getMultiFactorAuthenticationCode: (AWSCognitoIdentityMultifactorAuthenticationInput *) authenticationInput
+                 mfaCodeCompletionSource: (AWSTaskCompletionSource<NSString *> *) mfaCodeCompletionSource __attribute__((deprecated("Use `getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:` instead")));
+
+/**
+ Obtain mfa code and clientMetadata from the end user. This is optional for backwards compatibility with existing clients
+ that have already implemented the deprecated `getMultiFactorAuthenticationCode:mfaCodeCompletionSource` method.
+ New clients should implement this.
+ @param authenticationInput details about the deliveryMedium and masked destination for where the code was sent
+ @param mfaCodeCompletionSource set mfaCodeCompletionSource.result with the mfa code and client metadata from end user
+ */
+@optional
+-(void) getMultiFactorAuthenticationCode_v2: (AWSCognitoIdentityMultifactorAuthenticationInput *) authenticationInput
+                    mfaCodeCompletionSource: (AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> *) mfaCodeCompletionSource;
 /**
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured

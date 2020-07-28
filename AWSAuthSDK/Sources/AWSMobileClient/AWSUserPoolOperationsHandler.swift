@@ -32,11 +32,12 @@ protocol UserPoolAuthHelperlCallbacks {
     func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput, customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>)
     
     func didCompleteCustomAuthenticationStepWithError(_ error: Error?)
-    
-    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>)
+
+    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                 mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>)
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?)
-    
+
 }
 
 internal class UserPoolOperationsHandler: NSObject,
@@ -55,7 +56,7 @@ AWSCognitoUserPoolInternalDelegate {
     internal var customAuthChallengeTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>?
     
     internal var mfaAuthenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput?
-    internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
+    internal var mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>?
     
     internal var currentSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
@@ -151,7 +152,8 @@ extension UserPoolOperationsHandler: AWSCognitoIdentityNewPasswordRequired {
 
 extension UserPoolOperationsHandler: AWSCognitoIdentityMultiFactorAuthentication {
     
-    public func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>) {
+    public func getCode_v2(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                           mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>) {
         self.mfaAuthenticationInput = authenticationInput
         self.authHelperDelegate?.getCode(authenticationInput, mfaCodeCompletionSource: mfaCodeCompletionSource)
     }
