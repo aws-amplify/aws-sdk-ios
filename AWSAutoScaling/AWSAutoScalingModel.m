@@ -520,6 +520,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"kernelId" : @"KernelId",
              @"keyName" : @"KeyName",
              @"launchConfigurationName" : @"LaunchConfigurationName",
+             @"metadataOptions" : @"MetadataOptions",
              @"placementTenancy" : @"PlacementTenancy",
              @"ramdiskId" : @"RamdiskId",
              @"securityGroups" : @"SecurityGroups",
@@ -534,6 +535,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)instanceMonitoringJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMonitoring class]];
+}
+
++ (NSValueTransformer *)metadataOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMetadataOptions class]];
 }
 
 @end
@@ -1266,6 +1271,60 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingInstanceMetadataOptions
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"httpEndpoint" : @"HttpEndpoint",
+             @"httpPutResponseHopLimit" : @"HttpPutResponseHopLimit",
+             @"httpTokens" : @"HttpTokens",
+             };
+}
+
++ (NSValueTransformer *)httpEndpointJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceMetadataEndpointStateDisabled);
+        }
+        if ([value caseInsensitiveCompare:@"enabled"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceMetadataEndpointStateEnabled);
+        }
+        return @(AWSAutoScalingInstanceMetadataEndpointStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSAutoScalingInstanceMetadataEndpointStateDisabled:
+                return @"disabled";
+            case AWSAutoScalingInstanceMetadataEndpointStateEnabled:
+                return @"enabled";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)httpTokensJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"optional"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceMetadataHttpTokensStateOptional);
+        }
+        if ([value caseInsensitiveCompare:@"required"] == NSOrderedSame) {
+            return @(AWSAutoScalingInstanceMetadataHttpTokensStateRequired);
+        }
+        return @(AWSAutoScalingInstanceMetadataHttpTokensStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSAutoScalingInstanceMetadataHttpTokensStateOptional:
+                return @"optional";
+            case AWSAutoScalingInstanceMetadataHttpTokensStateRequired:
+                return @"required";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSAutoScalingInstanceMonitoring
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1383,6 +1442,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"keyName" : @"KeyName",
              @"launchConfigurationARN" : @"LaunchConfigurationARN",
              @"launchConfigurationName" : @"LaunchConfigurationName",
+             @"metadataOptions" : @"MetadataOptions",
              @"placementTenancy" : @"PlacementTenancy",
              @"ramdiskId" : @"RamdiskId",
              @"securityGroups" : @"SecurityGroups",
@@ -1405,6 +1465,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)instanceMonitoringJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMonitoring class]];
+}
+
++ (NSValueTransformer *)metadataOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingInstanceMetadataOptions class]];
 }
 
 @end

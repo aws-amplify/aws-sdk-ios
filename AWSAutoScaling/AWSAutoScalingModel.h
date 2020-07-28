@@ -34,6 +34,18 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingErrorType) {
     AWSAutoScalingErrorServiceLinkedRoleFailure,
 };
 
+typedef NS_ENUM(NSInteger, AWSAutoScalingInstanceMetadataEndpointState) {
+    AWSAutoScalingInstanceMetadataEndpointStateUnknown,
+    AWSAutoScalingInstanceMetadataEndpointStateDisabled,
+    AWSAutoScalingInstanceMetadataEndpointStateEnabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSAutoScalingInstanceMetadataHttpTokensState) {
+    AWSAutoScalingInstanceMetadataHttpTokensStateUnknown,
+    AWSAutoScalingInstanceMetadataHttpTokensStateOptional,
+    AWSAutoScalingInstanceMetadataHttpTokensStateRequired,
+};
+
 typedef NS_ENUM(NSInteger, AWSAutoScalingInstanceRefreshStatus) {
     AWSAutoScalingInstanceRefreshStatusUnknown,
     AWSAutoScalingInstanceRefreshStatusPending,
@@ -173,6 +185,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @class AWSAutoScalingFailedScheduledUpdateGroupActionRequest;
 @class AWSAutoScalingFilter;
 @class AWSAutoScalingInstance;
+@class AWSAutoScalingInstanceMetadataOptions;
 @class AWSAutoScalingInstanceMonitoring;
 @class AWSAutoScalingInstanceRefresh;
 @class AWSAutoScalingInstancesDistribution;
@@ -898,7 +911,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable maxInstanceLifetime;
 
 /**
- <p>The maximum size of the group.</p><note><p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your maximum instance weight (weights that define how many capacity units each instance contributes to the capacity of the group).</p></note>
+ <p>The maximum size of the group.</p><note><p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSize;
 
@@ -1019,6 +1032,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The name of the launch configuration. This name must be unique per Region per account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchConfigurationName;
+
+/**
+ <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceMetadataOptions * _Nullable metadataOptions;
 
 /**
  <p>The tenancy of the instance. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.</p><p>To launch dedicated instances into a shared tenancy VPC (a VPC with the instance placement tenancy attribute set to <code>default</code>), you must set the value of this parameter to <code>dedicated</code>.</p><p>If you specify <code>PlacementTenancy</code>, you must specify at least one subnet for <code>VPCZoneIdentifier</code> when you create your group.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-tenancy">Instance Placement Tenancy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Valid Values: <code>default</code> | <code>dedicated</code></p>
@@ -1776,12 +1794,12 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
 /**
- <p>The snapshot ID of the volume to use.</p><p><code>SnapshotId</code> is optional if you specify a volume size. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
+ <p>The snapshot ID of the volume to use.</p><p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
- <p>The volume size, in Gibibytes (GiB).</p><p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code> and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.</p><p>Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.</p><note><p>At least one of <code>VolumeSize</code> or <code>SnapshotId</code> is required.</p></note>
+ <p>The volume size, in Gibibytes (GiB).</p><p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code> and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.</p><p>Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.</p><p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
@@ -1886,7 +1904,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable breachThreshold;
 
 /**
- <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing the policy.</p><p>This parameter is not supported if the policy type is <code>StepScaling</code> or <code>TargetTrackingScaling</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Indicates whether Amazon EC2 Auto Scaling waits for the cooldown period to complete before executing the policy.</p><p>Valid only if the policy type is <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/Cooldown.html">Scaling Cooldowns for Amazon EC2 Auto Scaling</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable honorCooldown;
 
@@ -2026,6 +2044,29 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The number of capacity units contributed by the instance based on its instance type.</p><p>Valid Range: Minimum value of 1. Maximum value of 999.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable weightedCapacity;
+
+@end
+
+/**
+ <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
+@interface AWSAutoScalingInstanceMetadataOptions : AWSModel
+
+
+/**
+ <p>This parameter enables or disables the HTTP metadata endpoint on your instances. If the parameter is not specified, the default state is <code>enabled</code>.</p><note><p>If you specify a value of <code>disabled</code>, you will not be able to access your instance metadata. </p></note>
+ */
+@property (nonatomic, assign) AWSAutoScalingInstanceMetadataEndpointState httpEndpoint;
+
+/**
+ <p>The desired HTTP PUT response hop limit for instance metadata requests. The larger the number, the further instance metadata requests can travel.</p><p>Default: 1</p><p>Possible values: Integers from 1 to 64</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable httpPutResponseHopLimit;
+
+/**
+ <p>The state of token usage for your instance metadata requests. If the parameter is not specified in the request, the default state is <code>optional</code>.</p><p>If the state is <code>optional</code>, you can choose to retrieve instance metadata with or without a signed token header on your request. If you retrieve the IAM role credentials without a token, the version 1.0 role credentials are returned. If you retrieve the IAM role credentials using a valid signed token, the version 2.0 role credentials are returned.</p><p>If the state is <code>required</code>, you must send a signed token header with any instance metadata retrieval requests. In this state, retrieving the IAM role credentials always returns the version 2.0 credentials; the version 1.0 credentials are not available.</p>
+ */
+@property (nonatomic, assign) AWSAutoScalingInstanceMetadataHttpTokensState httpTokens;
 
 @end
 
@@ -2204,6 +2245,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The name of the launch configuration.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable launchConfigurationName;
+
+/**
+ <p>The metadata options for the instances. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance Metadata and User Data</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingInstanceMetadataOptions * _Nullable metadataOptions;
 
 /**
  <p>The tenancy of the instance, either <code>default</code> or <code>dedicated</code>. An instance with <code>dedicated</code> tenancy runs on isolated, single-tenant hardware and can only be launched into a VPC.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/asg-in-vpc.html#as-vpc-tenancy">Instance Placement Tenancy</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
@@ -2485,7 +2531,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- <p>One of the following metrics:</p><ul><li><p><code>GroupMinSize</code></p></li><li><p><code>GroupMaxSize</code></p></li><li><p><code>GroupDesiredCapacity</code></p></li><li><p><code>GroupInServiceInstances</code></p></li><li><p><code>GroupPendingInstances</code></p></li><li><p><code>GroupStandbyInstances</code></p></li><li><p><code>GroupTerminatingInstances</code></p></li><li><p><code>GroupTotalInstances</code></p></li></ul>
+ <p>One of the following metrics:</p><ul><li><p><code>GroupMinSize</code></p></li><li><p><code>GroupMaxSize</code></p></li><li><p><code>GroupDesiredCapacity</code></p></li><li><p><code>GroupInServiceInstances</code></p></li><li><p><code>GroupPendingInstances</code></p></li><li><p><code>GroupStandbyInstances</code></p></li><li><p><code>GroupTerminatingInstances</code></p></li><li><p><code>GroupTotalInstances</code></p></li><li><p><code>GroupInServiceCapacity</code></p></li><li><p><code>GroupPendingCapacity</code></p></li><li><p><code>GroupStandbyCapacity</code></p></li><li><p><code>GroupTerminatingCapacity</code></p></li><li><p><code>GroupTotalCapacity</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable metric;
 
@@ -2732,7 +2778,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- <p>Specifies how the scaling adjustment is interpreted (either an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p><p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p><p>Required if the policy type is <code>StepScaling</code> or <code>SimpleScaling</code>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-adjustment">Scaling Adjustment Types</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable adjustmentType;
 
@@ -2912,7 +2958,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 
 
 /**
- <p>Specifies how the scaling adjustment is interpreted (either an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
+ <p>Specifies how the scaling adjustment is interpreted (for example, an absolute number or a percentage). The valid values are <code>ChangeInCapacity</code>, <code>ExactCapacity</code>, and <code>PercentChangeInCapacity</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable adjustmentType;
 
@@ -3465,7 +3511,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSNumber * _Nullable maxInstanceLifetime;
 
 /**
- <p>The maximum size of the Auto Scaling group.</p><note><p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your maximum instance weight (weights that define how many capacity units each instance contributes to the capacity of the group).</p></note>
+ <p>The maximum size of the Auto Scaling group.</p><note><p>With a mixed instances policy that uses instance weighting, Amazon EC2 Auto Scaling may need to go above <code>MaxSize</code> to meet your capacity requirements. In this event, Amazon EC2 Auto Scaling will never go above <code>MaxSize</code> by more than your largest instance weight (weights that define how many units each instance contributes to the desired capacity of the group).</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxSize;
 
