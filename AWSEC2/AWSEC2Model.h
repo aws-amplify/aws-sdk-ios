@@ -771,6 +771,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR6G_8xlarge,
     AWSEC2InstanceTypeR6G_12xlarge,
     AWSEC2InstanceTypeR6G_16xlarge,
+    AWSEC2InstanceTypeR6Gd_metal,
+    AWSEC2InstanceTypeR6Gd_medium,
+    AWSEC2InstanceTypeR6Gd_large,
+    AWSEC2InstanceTypeR6Gd_xlarge,
+    AWSEC2InstanceTypeR6Gd_2xlarge,
+    AWSEC2InstanceTypeR6Gd_4xlarge,
+    AWSEC2InstanceTypeR6Gd_8xlarge,
+    AWSEC2InstanceTypeR6Gd_12xlarge,
+    AWSEC2InstanceTypeR6Gd_16xlarge,
     AWSEC2InstanceTypeX1_16xlarge,
     AWSEC2InstanceTypeX1_32xlarge,
     AWSEC2InstanceTypeX1E_xlarge,
@@ -853,6 +862,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeC6G_8xlarge,
     AWSEC2InstanceTypeC6G_12xlarge,
     AWSEC2InstanceTypeC6G_16xlarge,
+    AWSEC2InstanceTypeC6Gd_metal,
+    AWSEC2InstanceTypeC6Gd_medium,
+    AWSEC2InstanceTypeC6Gd_large,
+    AWSEC2InstanceTypeC6Gd_xlarge,
+    AWSEC2InstanceTypeC6Gd_2xlarge,
+    AWSEC2InstanceTypeC6Gd_4xlarge,
+    AWSEC2InstanceTypeC6Gd_8xlarge,
+    AWSEC2InstanceTypeC6Gd_12xlarge,
+    AWSEC2InstanceTypeC6Gd_16xlarge,
     AWSEC2InstanceTypeCC1_4xlarge,
     AWSEC2InstanceTypeCC2_8xlarge,
     AWSEC2InstanceTypeG2_2xlarge,
@@ -984,6 +1002,15 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM6G_8xlarge,
     AWSEC2InstanceTypeM6G_12xlarge,
     AWSEC2InstanceTypeM6G_16xlarge,
+    AWSEC2InstanceTypeM6Gd_metal,
+    AWSEC2InstanceTypeM6Gd_medium,
+    AWSEC2InstanceTypeM6Gd_large,
+    AWSEC2InstanceTypeM6Gd_xlarge,
+    AWSEC2InstanceTypeM6Gd_2xlarge,
+    AWSEC2InstanceTypeM6Gd_4xlarge,
+    AWSEC2InstanceTypeM6Gd_8xlarge,
+    AWSEC2InstanceTypeM6Gd_12xlarge,
+    AWSEC2InstanceTypeM6Gd_16xlarge,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {
@@ -1921,6 +1948,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CancelSpotInstanceRequestsResult;
 @class AWSEC2CancelledSpotInstanceRequest;
 @class AWSEC2CapacityReservation;
+@class AWSEC2CapacityReservationGroup;
 @class AWSEC2CapacityReservationOptions;
 @class AWSEC2CapacityReservationOptionsRequest;
 @class AWSEC2CapacityReservationSpecification;
@@ -2517,6 +2545,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2GetEbsDefaultKmsKeyIdResult;
 @class AWSEC2GetEbsEncryptionByDefaultRequest;
 @class AWSEC2GetEbsEncryptionByDefaultResult;
+@class AWSEC2GetGroupsForCapacityReservationRequest;
+@class AWSEC2GetGroupsForCapacityReservationResult;
 @class AWSEC2GetHostReservationPurchasePreviewRequest;
 @class AWSEC2GetHostReservationPurchasePreviewResult;
 @class AWSEC2GetLaunchTemplateDataRequest;
@@ -5219,6 +5249,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+ */
+@interface AWSEC2CapacityReservationGroup : AWSModel
+
+
+/**
+ <p>The ARN of the resource group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable groupArn;
+
+/**
+ <p>The ID of the AWS account that owns the resource group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+@end
+
+/**
  <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.</p><note><p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p></note><p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet Example Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @interface AWSEC2CapacityReservationOptions : AWSModel
@@ -5245,25 +5293,25 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p><p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+ <p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p><p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>
  */
 @interface AWSEC2CapacityReservationSpecification : AWSModel
 
 
 /**
- <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.</p></li></ul><p>When <code>CapacityReservationPreference</code> is not specified, it defaults to <code>open</code>.</p>
+ <p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p><ul><li><p><code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p></li><li><p><code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.</p></li></ul>
  */
 @property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
 
 /**
- <p>Information about the target Capacity Reservation.</p>
+ <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
  */
 @property (nonatomic, strong) AWSEC2CapacityReservationTarget * _Nullable capacityReservationTarget;
 
 @end
 
 /**
- <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation.</p>
+ <p>Describes the instance's Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group.</p>
  */
 @interface AWSEC2CapacityReservationSpecificationResponse : AWSModel
 
@@ -5274,35 +5322,45 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
 
 /**
- <p>Information about the targeted Capacity Reservation.</p>
+ <p>Information about the targeted Capacity Reservation or Capacity Reservation group.</p>
  */
 @property (nonatomic, strong) AWSEC2CapacityReservationTargetResponse * _Nullable capacityReservationTarget;
 
 @end
 
 /**
- <p>Describes a target Capacity Reservation.</p>
+ <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 @interface AWSEC2CapacityReservationTarget : AWSModel
 
 
 /**
- <p>The ID of the Capacity Reservation.</p>
+ <p>The ID of the Capacity Reservation in which to run the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationResourceGroupArn;
 
 @end
 
 /**
- <p>Describes a target Capacity Reservation.</p>
+ <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
  */
 @interface AWSEC2CapacityReservationTargetResponse : AWSModel
 
 
 /**
- <p>The ID of the Capacity Reservation.</p>
+ <p>The ID of the targeted Capacity Reservation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>The ARN of the targeted Capacity Reservation group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationResourceGroupArn;
 
 @end
 
@@ -6300,7 +6358,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable availabilityZoneId;
 
 /**
- <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p><p>Constraint: Maximum 64 ASCII characters.</p>
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
@@ -6557,6 +6615,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Internet-routable IP address for the customer gateway's outside interface. The address must be static.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
+
+/**
+ <p>The tags to apply to the customer gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
  <p>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</p>
@@ -9128,6 +9191,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2VpnConnectionOptionsSpecification * _Nullable options;
 
 /**
+ <p>The tags to apply to the VPN connection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
  <p>The ID of the transit gateway. If you specify a transit gateway, you cannot specify a virtual private gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
@@ -9197,6 +9265,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags to apply to the virtual private gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
 /**
  <p>The type of VPN connection this virtual private gateway supports.</p>
@@ -11180,12 +11253,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p>
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token to use to retrieve the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19239,12 +19312,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p><p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p><p>Valid range: Minimum value of 1. Maximum value of 1000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The token to retrieve the next page of results.</p>
+ <p>The token to use to retrieve the next page of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -19516,6 +19589,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether encryption by default is enabled.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable ebsEncryptionByDefault;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetGroupsForCapacityReservationRequest : AWSRequest
+
+
+/**
+ <p>The ID of the Capacity Reservation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable capacityReservationId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token to use to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetGroupsForCapacityReservationResult : AWSModel
+
+
+/**
+ <p>Information about the resource groups to which the Capacity Reservation has been added.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2CapacityReservationGroup *> * _Nullable capacityReservationGroups;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -23284,7 +23403,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+ <p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>
  */
 @interface AWSEC2LaunchTemplateCapacityReservationSpecificationRequest : AWSModel
 
@@ -23295,7 +23414,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
 
 /**
- <p>Information about the target Capacity Reservation.</p>
+ <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
  */
 @property (nonatomic, strong) AWSEC2CapacityReservationTarget * _Nullable capacityReservationTarget;
 
@@ -23313,7 +23432,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2CapacityReservationPreference capacityReservationPreference;
 
 /**
- <p>Information about the target Capacity Reservation.</p>
+ <p>Information about the target Capacity Reservation or Capacity Reservation group.</p>
  */
 @property (nonatomic, strong) AWSEC2CapacityReservationTargetResponse * _Nullable capacityReservationTarget;
 
@@ -33255,7 +33374,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 

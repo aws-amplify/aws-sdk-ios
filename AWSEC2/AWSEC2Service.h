@@ -7561,6 +7561,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)getEbsEncryptionByDefault:(AWSEC2GetEbsEncryptionByDefaultRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetEbsEncryptionByDefaultResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetGroupsForCapacityReservation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetGroupsForCapacityReservationResult`.
+ 
+ @see AWSEC2GetGroupsForCapacityReservationRequest
+ @see AWSEC2GetGroupsForCapacityReservationResult
+ */
+- (AWSTask<AWSEC2GetGroupsForCapacityReservationResult *> *)getGroupsForCapacityReservation:(AWSEC2GetGroupsForCapacityReservationRequest *)request;
+
+/**
+ <p>Lists the resource groups to which a Capacity Reservation has been added.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetGroupsForCapacityReservation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetGroupsForCapacityReservationRequest
+ @see AWSEC2GetGroupsForCapacityReservationResult
+ */
+- (void)getGroupsForCapacityReservation:(AWSEC2GetGroupsForCapacityReservationRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetGroupsForCapacityReservationResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Preview a reservation purchase with configurations that match those of your Dedicated Host. You must have active Dedicated Hosts in your account before you purchase a reservation.</p><p>This is a preview of the <a>PurchaseHostReservation</a> action and does not result in the offering being purchased.</p>
  
  @param request A container for the necessary parameters to execute the GetHostReservationPurchasePreview service method.

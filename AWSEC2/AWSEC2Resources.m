@@ -3032,6 +3032,16 @@
       \"output\":{\"shape\":\"GetEbsEncryptionByDefaultResult\"},\
       \"documentation\":\"<p>Describes whether EBS encryption by default is enabled for your account in the current Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSEncryption.html\\\">Amazon EBS Encryption</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
+    \"GetGroupsForCapacityReservation\":{\
+      \"name\":\"GetGroupsForCapacityReservation\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"GetGroupsForCapacityReservationRequest\"},\
+      \"output\":{\"shape\":\"GetGroupsForCapacityReservationResult\"},\
+      \"documentation\":\"<p>Lists the resource groups to which a Capacity Reservation has been added.</p>\"\
+    },\
     \"GetHostReservationPurchasePreview\":{\
       \"name\":\"GetHostReservationPurchasePreview\",\
       \"http\":{\
@@ -6397,6 +6407,29 @@
       },\
       \"documentation\":\"<p>Describes a Capacity Reservation.</p>\"\
     },\
+    \"CapacityReservationGroup\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"GroupArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ARN of the resource group.</p>\",\
+          \"locationName\":\"groupArn\"\
+        },\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ID of the AWS account that owns the resource group.</p>\",\
+          \"locationName\":\"ownerId\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a resource group to which a Capacity Reservation has been added.</p>\"\
+    },\
+    \"CapacityReservationGroupSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"CapacityReservationGroup\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"CapacityReservationId\":{\"type\":\"string\"},\
     \"CapacityReservationIdSet\":{\
       \"type\":\"list\",\
@@ -6461,14 +6494,14 @@
       \"members\":{\
         \"CapacityReservationPreference\":{\
           \"shape\":\"CapacityReservationPreference\",\
-          \"documentation\":\"<p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p> <ul> <li> <p> <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p> </li> <li> <p> <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.</p> </li> </ul> <p>When <code>CapacityReservationPreference</code> is not specified, it defaults to <code>open</code>.</p>\"\
+          \"documentation\":\"<p>Indicates the instance's Capacity Reservation preferences. Possible preferences include:</p> <ul> <li> <p> <code>open</code> - The instance can run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone).</p> </li> <li> <p> <code>none</code> - The instance avoids running in a Capacity Reservation even if one is available. The instance runs as an On-Demand Instance.</p> </li> </ul>\"\
         },\
         \"CapacityReservationTarget\":{\
           \"shape\":\"CapacityReservationTarget\",\
-          \"documentation\":\"<p>Information about the target Capacity Reservation.</p>\"\
+          \"documentation\":\"<p>Information about the target Capacity Reservation or Capacity Reservation group.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p> <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>\"\
+      \"documentation\":\"<p>Describes an instance's Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p> <p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>\"\
     },\
     \"CapacityReservationSpecificationResponse\":{\
       \"type\":\"structure\",\
@@ -6480,11 +6513,11 @@
         },\
         \"CapacityReservationTarget\":{\
           \"shape\":\"CapacityReservationTargetResponse\",\
-          \"documentation\":\"<p>Information about the targeted Capacity Reservation.</p>\",\
+          \"documentation\":\"<p>Information about the targeted Capacity Reservation or Capacity Reservation group.</p>\",\
           \"locationName\":\"capacityReservationTarget\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the instance's Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation.</p>\"\
+      \"documentation\":\"<p>Describes the instance's Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group.</p>\"\
     },\
     \"CapacityReservationState\":{\
       \"type\":\"string\",\
@@ -6501,21 +6534,30 @@
       \"members\":{\
         \"CapacityReservationId\":{\
           \"shape\":\"CapacityReservationId\",\
-          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
+          \"documentation\":\"<p>The ID of the Capacity Reservation in which to run the instance.</p>\"\
+        },\
+        \"CapacityReservationResourceGroupArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ARN of the Capacity Reservation resource group in which to run the instance.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a target Capacity Reservation.</p>\"\
+      \"documentation\":\"<p>Describes a target Capacity Reservation or Capacity Reservation group.</p>\"\
     },\
     \"CapacityReservationTargetResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"CapacityReservationId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\",\
+          \"documentation\":\"<p>The ID of the targeted Capacity Reservation.</p>\",\
           \"locationName\":\"capacityReservationId\"\
+        },\
+        \"CapacityReservationResourceGroupArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The ARN of the targeted Capacity Reservation group.</p>\",\
+          \"locationName\":\"capacityReservationResourceGroupArn\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a target Capacity Reservation.</p>\"\
+      \"documentation\":\"<p>Describes a target Capacity Reservation or Capacity Reservation group.</p>\"\
     },\
     \"CapacityReservationTenancy\":{\
       \"type\":\"string\",\
@@ -7629,7 +7671,7 @@
       \"members\":{\
         \"ClientToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p> <p>Constraint: Maximum 64 ASCII characters.</p>\"\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p>\"\
         },\
         \"InstanceType\":{\
           \"shape\":\"String\",\
@@ -7854,6 +7896,11 @@
         \"Type\":{\
           \"shape\":\"GatewayType\",\
           \"documentation\":\"<p>The type of VPN connection that this customer gateway supports (<code>ipsec.1</code>).</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the customer gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         },\
         \"DeviceName\":{\
           \"shape\":\"String\",\
@@ -10137,6 +10184,11 @@
           \"shape\":\"VpnConnectionOptionsSpecification\",\
           \"documentation\":\"<p>The options for the VPN connection.</p>\",\
           \"locationName\":\"options\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the VPN connection.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for CreateVpnConnection.</p>\"\
@@ -10181,6 +10233,11 @@
         \"Type\":{\
           \"shape\":\"GatewayType\",\
           \"documentation\":\"<p>The type of VPN connection this virtual private gateway supports.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to apply to the virtual private gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
         },\
         \"AmazonSideAsn\":{\
           \"shape\":\"Long\",\
@@ -11948,11 +12005,11 @@
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The token to retrieve the next page of results.</p>\"\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"DescribeCapacityReservationsMaxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p>\"\
+          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>\"\
         },\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
@@ -19667,11 +19724,11 @@
         },\
         \"NextToken\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The token to retrieve the next page of results.</p>\"\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results.</p>\"\
         },\
         \"MaxResults\":{\
           \"shape\":\"GetCapacityReservationUsageRequestMaxResults\",\
-          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned nextToken value.</p> <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>\"\
+          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p> <p>Valid range: Minimum value of 1. Maximum value of 1000.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -19902,6 +19959,48 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether encryption by default is enabled.</p>\",\
           \"locationName\":\"ebsEncryptionByDefault\"\
+        }\
+      }\
+    },\
+    \"GetGroupsForCapacityReservationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CapacityReservationId\"],\
+      \"members\":{\
+        \"CapacityReservationId\":{\
+          \"shape\":\"CapacityReservationId\",\
+          \"documentation\":\"<p>The ID of the Capacity Reservation.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"GetGroupsForCapacityReservationRequestMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return for the request in a single page. The remaining results can be seen by sending another request with the returned <code>nextToken</code> value. This value can be between 5 and 500. If <code>maxResults</code> is given a larger value than 500, you receive an error.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"GetGroupsForCapacityReservationRequestMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":1\
+    },\
+    \"GetGroupsForCapacityReservationResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"CapacityReservationGroups\":{\
+          \"shape\":\"CapacityReservationGroupSet\",\
+          \"documentation\":\"<p>Information about the resource groups to which the Capacity Reservation has been added.</p>\",\
+          \"locationName\":\"capacityReservationGroupSet\"\
         }\
       }\
     },\
@@ -23341,6 +23440,15 @@
         \"r6g.8xlarge\",\
         \"r6g.12xlarge\",\
         \"r6g.16xlarge\",\
+        \"r6gd.metal\",\
+        \"r6gd.medium\",\
+        \"r6gd.large\",\
+        \"r6gd.xlarge\",\
+        \"r6gd.2xlarge\",\
+        \"r6gd.4xlarge\",\
+        \"r6gd.8xlarge\",\
+        \"r6gd.12xlarge\",\
+        \"r6gd.16xlarge\",\
         \"x1.16xlarge\",\
         \"x1.32xlarge\",\
         \"x1e.xlarge\",\
@@ -23423,6 +23531,15 @@
         \"c6g.8xlarge\",\
         \"c6g.12xlarge\",\
         \"c6g.16xlarge\",\
+        \"c6gd.metal\",\
+        \"c6gd.medium\",\
+        \"c6gd.large\",\
+        \"c6gd.xlarge\",\
+        \"c6gd.2xlarge\",\
+        \"c6gd.4xlarge\",\
+        \"c6gd.8xlarge\",\
+        \"c6gd.12xlarge\",\
+        \"c6gd.16xlarge\",\
         \"cc1.4xlarge\",\
         \"cc2.8xlarge\",\
         \"g2.2xlarge\",\
@@ -23553,7 +23670,16 @@
         \"m6g.4xlarge\",\
         \"m6g.8xlarge\",\
         \"m6g.12xlarge\",\
-        \"m6g.16xlarge\"\
+        \"m6g.16xlarge\",\
+        \"m6gd.metal\",\
+        \"m6gd.medium\",\
+        \"m6gd.large\",\
+        \"m6gd.xlarge\",\
+        \"m6gd.2xlarge\",\
+        \"m6gd.4xlarge\",\
+        \"m6gd.8xlarge\",\
+        \"m6gd.12xlarge\",\
+        \"m6gd.16xlarge\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -24373,10 +24499,10 @@
         },\
         \"CapacityReservationTarget\":{\
           \"shape\":\"CapacityReservationTarget\",\
-          \"documentation\":\"<p>Information about the target Capacity Reservation.</p>\"\
+          \"documentation\":\"<p>Information about the target Capacity Reservation or Capacity Reservation group.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>\"\
+      \"documentation\":\"<p>Describes an instance's Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>\"\
     },\
     \"LaunchTemplateCapacityReservationSpecificationResponse\":{\
       \"type\":\"structure\",\
@@ -24388,7 +24514,7 @@
         },\
         \"CapacityReservationTarget\":{\
           \"shape\":\"CapacityReservationTargetResponse\",\
-          \"documentation\":\"<p>Information about the target Capacity Reservation.</p>\",\
+          \"documentation\":\"<p>Information about the target Capacity Reservation or Capacity Reservation group.</p>\",\
           \"locationName\":\"capacityReservationTarget\"\
         }\
       },\
@@ -34990,7 +35116,7 @@
       \"members\":{\
         \"ResourceType\":{\
           \"shape\":\"ResourceType\",\
-          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
+          \"documentation\":\"<p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p> <p>To tag a resource after it has been created, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html\\\">CreateTags</a>.</p>\",\
           \"locationName\":\"resourceType\"\
         },\
         \"Tags\":{\
