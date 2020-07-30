@@ -1102,12 +1102,12 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                                       authenticationDelegate: (id<AWSCognitoIdentityMultiFactorAuthentication>) authenticationDelegate {
 
     if ([authenticationDelegate respondsToSelector:@selector(getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:)]) {
-        AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> *mfaCode = [[AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> alloc] init];
+        AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> *mfaCompletionSource = [[AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> alloc] init];
         AWSCognitoIdentityMultifactorAuthenticationInput* authenticationInput = [[AWSCognitoIdentityMultifactorAuthenticationInput alloc]
                                                                                  initWithDeliveryMedium:deliveryMedium
                                                                                  destination:destination];
-        [authenticationDelegate getMultiFactorAuthenticationCode_v2:authenticationInput mfaCodeCompletionSource:mfaCode];
-        return [mfaCode.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityMfaCodeDetails *> * _Nonnull task) {
+        [authenticationDelegate getMultiFactorAuthenticationCode_v2:authenticationInput mfaCodeCompletionSource:mfaCompletionSource];
+        return [mfaCompletionSource.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityMfaCodeDetails *> * _Nonnull task) {
             return [self mfaAuthInternal:deliveryMedium
                              destination:destination
                                authState:authState
@@ -1117,10 +1117,10 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                           clientMetaData:task.result.clientMetaData];
         }];
     } else {
-        AWSTaskCompletionSource<NSString *> *mfaCode = [[AWSTaskCompletionSource<NSString *> alloc] init];
+        AWSTaskCompletionSource<NSString *> *mfaCompletionSource = [[AWSTaskCompletionSource<NSString *> alloc] init];
         AWSCognitoIdentityMultifactorAuthenticationInput* authenticationInput = [[AWSCognitoIdentityMultifactorAuthenticationInput alloc] initWithDeliveryMedium:deliveryMedium destination:destination];
-        [authenticationDelegate getMultiFactorAuthenticationCode:authenticationInput mfaCodeCompletionSource:mfaCode];
-        return [mfaCode.task continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+        [authenticationDelegate getMultiFactorAuthenticationCode:authenticationInput mfaCodeCompletionSource:mfaCompletionSource];
+        return [mfaCompletionSource.task continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
             return [self mfaAuthInternal:deliveryMedium
                              destination:destination
                                authState:authState
