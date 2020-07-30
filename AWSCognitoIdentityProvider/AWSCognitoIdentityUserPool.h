@@ -238,7 +238,7 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
 /**
  The end user's new password
  */
-@property(nonatomic, strong, nonnull) NSString *mfaCode;
+@property(nonatomic, copy, nonnull) NSString *mfaCode;
 
 /**
  A map of custom key-value pairs that you can provide as input for any custom workflows that this action triggers.
