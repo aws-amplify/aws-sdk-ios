@@ -353,7 +353,7 @@ To initialize logging to your Xcode console, use the following code:
 **Swift**
 
 ```swift
-AWSDDLog.add(AWSDDTTYLogger.sharedInstance()) // TTY = Xcode console
+AWSDDLog.add(AWSDDTTYLogger.sharedInstance) // TTY = Xcode console
 ```
 
 **Objective-C**
