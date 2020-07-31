@@ -347,7 +347,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)completeLifecycleAction:(AWSAutoScalingCompleteLifecycleActionType *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingCompleteLifecycleActionAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an Auto Scaling group with the specified name and attributes. </p><p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling Service Quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting Started with Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial: Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates an Auto Scaling group with the specified name and attributes. </p><p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling Service Quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting Started with Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial: Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>
  
  @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
 
@@ -358,7 +358,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)createAutoScalingGroup:(AWSAutoScalingCreateAutoScalingGroupType *)request;
 
 /**
- <p>Creates an Auto Scaling group with the specified name and attributes. </p><p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling Service Quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting Started with Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial: Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>Creates an Auto Scaling group with the specified name and attributes. </p><p>If you exceed your maximum limit of Auto Scaling groups, the call fails. To query this limit, call the <a>DescribeAccountLimits</a> API. For information about updating this limit, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-account-limits.html">Amazon EC2 Auto Scaling Service Quotas</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>For introductory exercises for creating an Auto Scaling group, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/GettingStartedTutorial.html">Getting Started with Amazon EC2 Auto Scaling</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-register-lbs-with-asg.html">Tutorial: Set Up a Scaled and Load-Balanced Application</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/AutoScalingGroup.html">Auto Scaling Groups</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p><p>Every Auto Scaling group has three size parameters (<code>DesiredCapacity</code>, <code>MaxSize</code>, and <code>MinSize</code>). Usually, you set these sizes based on a specific number of instances. However, if you configure a mixed instances policy that defines weights for the instance types, you must specify these sizes with the same units that you use for weighting instances.</p>
  
  @param request A container for the necessary parameters to execute the CreateAutoScalingGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1189,7 +1189,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (void)enterStandby:(AWSAutoScalingEnterStandbyQuery *)request completionHandler:(void (^ _Nullable)(AWSAutoScalingEnterStandbyAnswer * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Executes the specified policy.</p>
+ <p>Executes the specified policy. This can be useful for testing the design of your scaling policy.</p>
  
  @param request A container for the necessary parameters to execute the ExecutePolicy service method.
 
@@ -1200,7 +1200,7 @@ FOUNDATION_EXPORT NSString *const AWSAutoScalingSDKVersion;
 - (AWSTask *)executePolicy:(AWSAutoScalingExecutePolicyType *)request;
 
 /**
- <p>Executes the specified policy.</p>
+ <p>Executes the specified policy. This can be useful for testing the design of your scaling policy.</p>
  
  @param request A container for the necessary parameters to execute the ExecutePolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
