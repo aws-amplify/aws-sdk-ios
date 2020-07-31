@@ -5,15 +5,15 @@
 ##################################################
 # CANONICAL SOURCE OF THIS FILE IS
 #   https://github.com/aws-amplify/amplify-ci-support/blob/master/src/integ_test_resources/common/scripts/generate-test-config.sh
-# 
+#
 # As of this writing (06-May-2020), we manually copy this file into the CI
 # support directories for the projects that use it:
 # - https://github.com/aws-amplify/aws-sdk-ios/tree/master/Scripts/generate-test-config.sh
 # - https://github.com/aws-amplify/aws-sdk-android/tree/master/build-support/generate-test-config.sh
-# 
+#
 # From there, this script will be invoked by the CircleCI build process during
 # test setup, or it may be invoked manually for local integration test runs
-# 
+#
 
 
 ##################################################
@@ -101,7 +101,7 @@ REQUIREMENTS
     and available on your PATH:
         - Python - v3.7 or higher, accessible as 'python3'
           (https://www.python.org/)
-    
+
     If you use the -a option to assume the test execution role prior to
     generating the test configuration file, you must also have the following
     utilities installed:
@@ -196,6 +196,7 @@ cmd_quiet_flag="--quiet"
 [[ -n $platform ]] || die "'platform' not specified"
 
 [[ -n $region ]] || die "'region' not specified"
+export AWS_DEFAULT_REGION=${region}
 
 
 ##################################################
@@ -253,7 +254,7 @@ function resolve_credentials {
     [[ $LOG_LEVEL -ge $LOG_LEVEL_TRACE ]] && set +x
 
     local circleci_execution_role_arn
-    circleci_execution_role_arn=$(aws ssm get-parameter --name '/mobile-sdk/ios/common/circleci_execution_role' | jq -r .Parameter.Value)
+    circleci_execution_role_arn=$(aws ssm get-parameter --name "/mobile-sdk/${platform}/common/circleci_execution_role" | jq -r .Parameter.Value)
     readonly circleci_execution_role_arn
 
     local assume_role_creds
@@ -274,8 +275,6 @@ function resolve_credentials {
   else
     log_debug "Using credentials in environment"
   fi
-
-  export AWS_DEFAULT_REGION=${region}
 
   # Restore verbose logging
   [[ $LOG_LEVEL -lt $LOG_LEVEL_TRACE ]] || set -x
