@@ -115,7 +115,7 @@
   - Amazon EC2
   - Amazon Transcribe
   - AWS Lambda
-  
+
 ## 2.13.2
 
 ### New features
