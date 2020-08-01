@@ -7133,6 +7133,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2GetGroupsForCapacityReservationResult *> *)getGroupsForCapacityReservation:(AWSEC2GetGroupsForCapacityReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetGroupsForCapacityReservation"
+                   outputClass:[AWSEC2GetGroupsForCapacityReservationResult class]];
+}
+
+- (void)getGroupsForCapacityReservation:(AWSEC2GetGroupsForCapacityReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2GetGroupsForCapacityReservationResult *response, NSError *error))completionHandler {
+    [[self getGroupsForCapacityReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetGroupsForCapacityReservationResult *> * _Nonnull task) {
+        AWSEC2GetGroupsForCapacityReservationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2GetHostReservationPurchasePreviewResult *> *)getHostReservationPurchasePreview:(AWSEC2GetHostReservationPurchasePreviewRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
