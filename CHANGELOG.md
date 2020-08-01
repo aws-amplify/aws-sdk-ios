@@ -1,9 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
