@@ -4,15 +4,20 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
 
-- Model updates for the following services
----AWSSES
----AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
+### Bug Fixes
+- **AWSMobileClient**
+  - Serialized access to keychain on setData (See [PR #2900](https://github.com/aws-amplify/aws-sdk-ios/pull/2900))
+
 ### Misc. Updates
 - Binary framework distributions via Carthage and S3 are now built using Xcode 11.6
+- Model updates for the following services
+  - AWS AutoScaling
+  - Amazon EC2
+  - Amazon Kinesis Data Firehose
 
 ## 2.15.0
 
