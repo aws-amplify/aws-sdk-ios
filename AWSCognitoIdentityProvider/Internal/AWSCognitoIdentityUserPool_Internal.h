@@ -16,7 +16,8 @@
 
 - (NSString * _Nullable) calculateSecretHash: (NSString* _Nonnull) userName;
 - (void) setCurrentUser:(NSString * _Nullable) username;
-- (NSDictionary<NSString *, NSString*>* _Nonnull)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>* _Nullable)devProvidedValidationData;
+- (NSDictionary<NSString *, NSString*>* _Nonnull)getValidationData:(NSArray<AWSCognitoIdentityUserAttributeType*>* _Nullable)devProvidedValidationData
+                                                    clientMetaData:(nullable NSDictionary<NSString *,NSString *> *)clientMetaData;
 - (AWSCognitoIdentityProviderUserContextDataType * _Nonnull) userContextData: (NSString * _Nonnull)  username deviceId:(NSString * _Nullable) deviceId;
 - (NSString* _Nullable) currentUsername;
 - (NSString* _Nonnull) strippedPoolId;

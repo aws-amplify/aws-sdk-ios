@@ -743,7 +743,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     else{
         AWSCognitoIdentityProviderInitiateAuthRequest *input = [AWSCognitoIdentityProviderInitiateAuthRequest new];
         input.clientId = self.pool.userPoolConfiguration.clientId;
-        input.clientMetadata = [self.pool getValidationData:validationData];
+        input.clientMetadata = [self.pool getValidationData:validationData clientMetaData: clientMetaData];
         input.analyticsMetadata = [self.pool analyticsMetadata];
         input.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
         input.authFlow = AWSCognitoIdentityProviderAuthFlowTypeUserPasswordAuth;
@@ -804,7 +804,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 - (AWSTask<AWSCognitoIdentityProviderInitiateAuthResponse*>*) performInitiateCustomAuthChallenge: (AWSCognitoIdentityCustomChallengeDetails *) challengeDetails {
     AWSCognitoIdentityProviderInitiateAuthRequest *input = [AWSCognitoIdentityProviderInitiateAuthRequest new];
     input.clientId = self.pool.userPoolConfiguration.clientId;
-    input.clientMetadata = [self.pool getValidationData:challengeDetails.validationData];
+    input.clientMetadata = [self.pool getValidationData:challengeDetails.validationData clientMetaData:challengeDetails.clientMetaData];
     input.analyticsMetadata = [self.pool analyticsMetadata];
     input.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
 
@@ -948,7 +948,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }else{
         AWSCognitoIdentityProviderInitiateAuthRequest *input = [AWSCognitoIdentityProviderInitiateAuthRequest new];
         input.clientId = self.pool.userPoolConfiguration.clientId;
-        input.clientMetadata = [self.pool getValidationData:validationData];
+        input.clientMetadata = [self.pool getValidationData:validationData clientMetaData:clientMetaData];
         input.analyticsMetadata = [self.pool analyticsMetadata];
         input.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
 
