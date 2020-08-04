@@ -623,7 +623,9 @@ extension AWSMobileClient {
                               completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         if (self.userpoolOpsHelper.mfaCodeCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
-            self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: challengeResponse as NSString)
+            let mfaDetails = AWSCognitoIdentityMfaCodeDetails.init(mfaCode: challengeResponse);
+            mfaDetails.clientMetaData = clientMetaData;
+            self.userpoolOpsHelper.mfaCodeCompletionSource?.set(result: mfaDetails)
         } else if (self.userpoolOpsHelper.newPasswordRequiredTaskCompletionSource != nil) {
             self.userpoolOpsHelper.currentConfirmSignInHandlerCallback = completionHandler
             let passwordDetails = AWSCognitoIdentityNewPasswordRequiredDetails.init(proposedPassword: challengeResponse,
@@ -980,8 +982,9 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
             invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
         }
     }
-    
-    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>) {
+
+    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                 mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>) {
         self.userpoolOpsHelper.mfaCodeCompletionSource = mfaCodeCompletionSource
         var codeDeliveryDetails: UserCodeDeliveryDetails? = nil
             switch(authenticationInput.deliveryMedium) {

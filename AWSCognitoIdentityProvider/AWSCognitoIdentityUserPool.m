@@ -531,6 +531,16 @@ shouldProvideCognitoValidationData:(BOOL)shouldProvideCognitoValidationData
 
 @end
 
+@implementation AWSCognitoIdentityMfaCodeDetails
+-(instancetype) initWithMfaCode: (NSString *) mfaCode {
+    self = [super init];
+    if(nil != self){
+        _mfaCode = mfaCode;
+    }
+    return self;
+}
+@end
+
 @implementation AWSCognitoIdentityUserPoolSignUpResponse
 
 @end

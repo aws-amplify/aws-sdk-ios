@@ -1095,51 +1095,92 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 /**
  * Invoke developer's ui to prompt user for mfa code and call enhanceAuth
  */
--(AWSTask<AWSCognitoIdentityUserSession *>*) mfaAuthInternal: (NSString *) deliveryMedium destination:(NSString *) destination  authState:(NSString *) authState challengeName: (AWSCognitoIdentityProviderChallengeNameType) challengeName authenticationDelegate:(id<AWSCognitoIdentityMultiFactorAuthentication>)authenticationDelegate{
-    AWSTaskCompletionSource<NSString *> *mfaCode = [[AWSTaskCompletionSource<NSString *> alloc] init];
-    AWSCognitoIdentityMultifactorAuthenticationInput* authenticationInput = [[AWSCognitoIdentityMultifactorAuthenticationInput alloc] initWithDeliveryMedium:deliveryMedium destination:destination];
-    [authenticationDelegate getMultiFactorAuthenticationCode:authenticationInput mfaCodeCompletionSource:mfaCode];
-    return [mfaCode.task
-            continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
-                AWSCognitoIdentityProviderRespondToAuthChallengeRequest *mfaChallenge = [AWSCognitoIdentityProviderRespondToAuthChallengeRequest new];
-                mfaChallenge.session = authState;
-                mfaChallenge.challengeName = challengeName;
-                mfaChallenge.clientId = self.pool.userPoolConfiguration.clientId;
-                
-                NSString * responseKey = @"SMS_MFA_CODE";
-                if(AWSCognitoIdentityProviderChallengeNameTypeSoftwareTokenMfa == challengeName){
-                    responseKey = @"SOFTWARE_TOKEN_MFA_CODE";
-                }
-                NSMutableDictionary * challengeResponses = [[NSMutableDictionary alloc] initWithDictionary:@{responseKey: mfaCode.task.result}];
-                [self addSecretHashDeviceKeyAndUsername:challengeResponses];
-                mfaChallenge.challengeResponses = challengeResponses;
-                mfaChallenge.analyticsMetadata = [self.pool analyticsMetadata];
-                mfaChallenge.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
+-(AWSTask<AWSCognitoIdentityUserSession *>*) mfaAuthInternal: (NSString *) deliveryMedium
+                                                 destination: (NSString *) destination
+                                                   authState: (NSString *) authState
+                                               challengeName: (AWSCognitoIdentityProviderChallengeNameType) challengeName
+                                      authenticationDelegate: (id<AWSCognitoIdentityMultiFactorAuthentication>) authenticationDelegate {
 
-                return [[[self.pool.client respondToAuthChallenge:mfaChallenge] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
-                    AWSCognitoIdentityProviderRespondToAuthChallengeResponse *response = task.result;
-                    AWSCognitoIdentityProviderAuthenticationResultType * authResult = response.authenticationResult;
-                    AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
-                    //last step is to perform device auth if device key is supplied or we are being challenged with device auth
-                    if(authResult.latestDeviceMetadata != nil || response.challengeName == AWSCognitoIdentityProviderChallengeNameTypeDeviceSrpAuth){
-                        return [self performDeviceAuth: task session:session];
-                    }else{
-                        [self updateUsernameAndPersistTokens:session];
-                        return [AWSTask taskWithResult:session];
-                    }
-                }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
-                    [authenticationDelegate didCompleteMultifactorAuthenticationStepWithError:task.error];
-                    if([task isCancelled]){
-                        return task;
-                    }
-                    if(task.error){
-                        //retry on error
-                        return [self mfaAuthInternal:deliveryMedium destination:destination authState:authState challengeName: challengeName authenticationDelegate:authenticationDelegate];
-                    }else {
-                        return task;
-                    }
+    if ([authenticationDelegate respondsToSelector:@selector(getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:)]) {
+        AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> *mfaCompletionSource = [[AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails *> alloc] init];
+        AWSCognitoIdentityMultifactorAuthenticationInput* authenticationInput = [[AWSCognitoIdentityMultifactorAuthenticationInput alloc]
+                                                                                 initWithDeliveryMedium:deliveryMedium
+                                                                                 destination:destination];
+        [authenticationDelegate getMultiFactorAuthenticationCode_v2:authenticationInput mfaCodeCompletionSource:mfaCompletionSource];
+        return [mfaCompletionSource.task continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityMfaCodeDetails *> * _Nonnull task) {
+            return [self mfaAuthInternal:deliveryMedium
+                             destination:destination
+                               authState:authState
+                           challengeName:challengeName
+                  authenticationDelegate:authenticationDelegate
+                                 mfaCode:task.result.mfaCode
+                          clientMetaData:task.result.clientMetaData];
+        }];
+    } else {
+        AWSTaskCompletionSource<NSString *> *mfaCompletionSource = [[AWSTaskCompletionSource<NSString *> alloc] init];
+        AWSCognitoIdentityMultifactorAuthenticationInput* authenticationInput = [[AWSCognitoIdentityMultifactorAuthenticationInput alloc] initWithDeliveryMedium:deliveryMedium destination:destination];
+        [authenticationDelegate getMultiFactorAuthenticationCode:authenticationInput mfaCodeCompletionSource:mfaCompletionSource];
+        return [mfaCompletionSource.task continueWithSuccessBlock:^id _Nullable(AWSTask<NSString *> * _Nonnull task) {
+            return [self mfaAuthInternal:deliveryMedium
+                             destination:destination
+                               authState:authState
+                           challengeName:challengeName
+                  authenticationDelegate:authenticationDelegate
+                                 mfaCode:task.result
+                          clientMetaData:nil];
                 }];
-            }];
+    }
+}
+
+-(AWSTask<AWSCognitoIdentityUserSession *>*) mfaAuthInternal: (NSString *) deliveryMedium
+                                                 destination: (NSString *) destination
+                                                   authState: (NSString *) authState
+                                               challengeName: (AWSCognitoIdentityProviderChallengeNameType) challengeName
+                                      authenticationDelegate: (id<AWSCognitoIdentityMultiFactorAuthentication>) authenticationDelegate
+                                                     mfaCode: (NSString *) mfaCode
+                                              clientMetaData: (nullable NSDictionary<NSString *,NSString *> *) clientMetaData {
+
+    AWSCognitoIdentityProviderRespondToAuthChallengeRequest *mfaChallenge = [AWSCognitoIdentityProviderRespondToAuthChallengeRequest new];
+    mfaChallenge.session = authState;
+    mfaChallenge.challengeName = challengeName;
+    mfaChallenge.clientId = self.pool.userPoolConfiguration.clientId;
+
+    NSString * responseKey = @"SMS_MFA_CODE";
+    if(AWSCognitoIdentityProviderChallengeNameTypeSoftwareTokenMfa == challengeName){
+        responseKey = @"SOFTWARE_TOKEN_MFA_CODE";
+    }
+
+    NSMutableDictionary * challengeResponses = [[NSMutableDictionary alloc] initWithDictionary:@{responseKey: mfaCode}];
+    [self addSecretHashDeviceKeyAndUsername:challengeResponses];
+
+    mfaChallenge.challengeResponses = challengeResponses;
+    mfaChallenge.analyticsMetadata = [self.pool analyticsMetadata];
+    mfaChallenge.userContextData = [self.pool userContextData:self.username deviceId: [self asfDeviceId]];
+    mfaChallenge.clientMetadata = clientMetaData;
+
+    return [[[self.pool.client respondToAuthChallenge:mfaChallenge] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRespondToAuthChallengeResponse *> * _Nonnull task) {
+        AWSCognitoIdentityProviderRespondToAuthChallengeResponse *response = task.result;
+        AWSCognitoIdentityProviderAuthenticationResultType * authResult = response.authenticationResult;
+        AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:authResult.idToken accessToken:authResult.accessToken refreshToken:authResult.refreshToken expiresIn:authResult.expiresIn];
+        //last step is to perform device auth if device key is supplied or we are being challenged with device auth
+        if(authResult.latestDeviceMetadata != nil || response.challengeName == AWSCognitoIdentityProviderChallengeNameTypeDeviceSrpAuth){
+            return [self performDeviceAuth: task session:session];
+        } else {
+            [self updateUsernameAndPersistTokens:session];
+            return [AWSTask taskWithResult:session];
+        }
+    }] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        [authenticationDelegate didCompleteMultifactorAuthenticationStepWithError:task.error];
+        if([task isCancelled]){
+            return task;
+        }
+        if(task.error){
+            //retry on error
+            return [self mfaAuthInternal:deliveryMedium destination:destination authState:authState challengeName: challengeName authenticationDelegate:authenticationDelegate];
+        }else {
+            return task;
+        }
+    }];
 }
 
 /**
