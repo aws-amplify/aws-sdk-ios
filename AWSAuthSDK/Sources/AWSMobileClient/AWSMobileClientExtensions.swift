@@ -171,7 +171,8 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - username: username of the user.
     ///   - password: password of the user.
-    ///   - validationData: validation data for this sign in. Takes precedent if there is the same key in `clientMetaData`. 
+    ///   - validationData: validation data for this sign in. Overrides any key-value pairs in `clientMetadata` when the
+    ///   same key exists in validation data.
     ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
     ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
