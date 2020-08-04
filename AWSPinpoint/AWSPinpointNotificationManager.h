@@ -69,14 +69,27 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
 
 /**
  Intercepts the `- application:didReceiveRemoteNotification:fetchCompletionHandler:` application delegate.
- 
+
  Targeting must intercept this callback in order to report campaign analytics correctly.
  
  @param userInfo    A dictionary that contains information related to the remote notification, potentially including a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the dictionary may contain only property-list objects plus `NSNull`.
  @param handler     The block to execute when the download operation is complete. When calling this block, pass in the fetch result value that best describes the results of your download operation. You must call this handler and should do so as soon as possible. For a list of possible values, see the UIBackgroundFetchResult type.
  */
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
-                       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler;
+                       fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler __attribute__((deprecated("Replaced by -interceptDidReceiveRemoteNotification:")));
+
+/**
+ For iOS 9 and below, intercept the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` application delegate.
+
+ For iOS 10 and above, intercept `userNotificationCenter(_:willPresent:withCompletionHandler:)` and `userNotificationCenter(_:didReceive:withCompletionHandler:)`. When intercepting the UserNotificationCenter on willPresent,
+ pass in `notification.request.content.userInfo` as userInfo. When intercepting UserNotificationCenter on didReceive,
+ pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ Targeting must intercept this callback in order to report campaign analytics correctly.
+
+ @param userInfo    A dictionary that contains information related to the remote notification, potentially including a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the dictionary may contain only property-list objects plus `NSNull`.
+ */
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo;
 
 /**
  Intercepts the `- application:didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:` application delegate.
@@ -89,6 +102,21 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
  */
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink __attribute__((deprecated("Replaced by -interceptDidReceiveRemoteNotification:shouldHandleNotificationDeepLink:")));
+
+/**
+ For iOS 9 and below, intercept the `application(_:didReceiveRemoteNotification:fetchCompletionHandler:)` application delegate.
+
+ For iOS 10 and above, intercept `userNotificationCenter(_:willPresent:withCompletionHandler:)` and `userNotificationCenter(_:didReceive:withCompletionHandler:)`. When intercepting the UserNotificationCenter on willPresent,
+ pass in `notification.request.content.userInfo` as `userInfo`. When intercepting UserNotificationCenter on didReceive,
+ pass in `response.notification.request.content.userInfo` as `userInfo`.
+
+ Targeting must intercept this callback in order to report campaign analytics correctly. Optionally specify 'shouldHandleNotificationDeepLink' to control whether or not the notification manager should attempt to open the remote notification deeplink, if present.
+
+ @param userInfo        A dictionary that contains information related to the remote notification, potentially including a badge number for the app icon, an alert sound, an alert message to display to the user, a notification identifier, and custom data. The provider originates it as a JSON-defined dictionary that iOS converts to an `NSDictionary` object; the dictionary may contain only property-list objects plus `NSNull`.
+ @param handleDeepLink  Whether or not notification manager should attempt to open the remote notification deeplink, if present
+ */
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
              shouldHandleNotificationDeepLink:(BOOL) handleDeepLink;
 
 @end

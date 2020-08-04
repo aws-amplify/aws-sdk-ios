@@ -124,9 +124,18 @@ NSString *const AWSPinpointJourneyKey = @"journey";
     }
 }
 
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo {
+    [self interceptDidReceiveRemoteNotification:userInfo shouldHandleNotificationDeepLink:YES];
+}
+
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
                        fetchCompletionHandler:(void (^)(UIBackgroundFetchResult result))handler {
     [self interceptDidReceiveRemoteNotification:userInfo fetchCompletionHandler:handler shouldHandleNotificationDeepLink:YES];
+}
+
+- (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
+             shouldHandleNotificationDeepLink:(BOOL) handleDeepLink {
+    [self handleNotificationReceived:[UIApplication sharedApplication] withNotification:userInfo shouldHandleNotificationDeepLink:handleDeepLink];
 }
 
 - (void)interceptDidReceiveRemoteNotification:(NSDictionary *)userInfo
