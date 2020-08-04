@@ -115,6 +115,17 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
                                                 password:(NSString *)password
                                           validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                          clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData;
+
+- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
+                                                password:(NSString *)password
+                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                isInitialCustomChallenge:(BOOL)isInitialCustomChallenge;
+
+- (AWSTask<AWSCognitoIdentityUserSession *> *)getSession:(NSString *)username
+                                                password:(NSString *)password
+                                          validationData:(nullable NSArray<AWSCognitoIdentityUserAttributeType *> *)validationData
+                                          clientMetaData:(nullable NSDictionary<NSString *, NSString*> *) clientMetaData
                                 isInitialCustomChallenge:(BOOL)isInitialCustomChallenge;
 
 /**

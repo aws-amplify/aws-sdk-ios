@@ -171,11 +171,15 @@ extension AWSMobileClient {
     /// - Parameters:
     ///   - username: username of the user.
     ///   - password: password of the user.
-    ///   - validationData: validation data for this sign in.
+    ///   - validationData: validation data for this sign in. Overrides any key-value pairs in `clientMetadata` when the
+    ///   same key exists in validation data.
+    ///   - clientMetaData: A map of custom key-value pairs that you can provide as input for any
+    ///   custom workflows that this action triggers.
     ///   - completionHandler: completionHandler which will be called when result is available.
     public func signIn(username: String,
                        password: String,
                        validationData: [String: String]? = nil,
+                       clientMetaData: [String: String] = [:],
                        completionHandler: @escaping ((SignInResult?, Error?) -> Void)) {
         
         switch self.currentUserState {
@@ -211,6 +215,7 @@ extension AWSMobileClient {
             user!.getSession(username,
                              password: password,
                              validationData: validationAttributes,
+                             clientMetaData: clientMetaData,
                              isInitialCustomChallenge: isCustomAuth).continueWith { (task) -> Any? in
                 if let error = task.error {
                     self.invokeSignInCallback(signResult: nil, error: AWSMobileClientError.makeMobileClientError(from: error))
