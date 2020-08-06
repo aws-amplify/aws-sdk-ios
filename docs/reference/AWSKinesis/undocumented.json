@@ -142,763 +142,889 @@
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 43,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 43,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 44,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusUnknown",
+      "line": 41,
+      "symbol": "AWSFirehoseCompressionFormat.AWSFirehoseCompressionFormatHadoopSnappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 44,
+      "symbol": "AWSFirehoseContentEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 44,
+      "symbol": "AWSFirehoseContentEncoding",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 45,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabled",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 46,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabling",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 47,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 48,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabled",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 49,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabling",
+      "symbol": "AWSFirehoseContentEncoding.AWSFirehoseContentEncodingGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 50,
-      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 50,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 51,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 52,
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 53,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 53,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 54,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusEnablingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 55,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 56,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 57,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 58,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 59,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey",
+      "symbol": "AWSFirehoseDeliveryStreamEncryptionStatus.AWSFirehoseDeliveryStreamEncryptionStatusDisablingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 60,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 60,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 61,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 62,
-      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknownError",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeRetireKmsGrantFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 63,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateKmsGrantFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 64,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 65,
-      "symbol": "AWSFirehoseDeliveryStreamStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 65,
-      "symbol": "AWSFirehoseDeliveryStreamStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDisabledKmsKey",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 66,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 67,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreating",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 68,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreatingFailed",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 69,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeleting",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 70,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeletingFailed",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 71,
-      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusActive",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 72,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 73,
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 74,
-      "symbol": "AWSFirehoseDeliveryStreamType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 74,
-      "symbol": "AWSFirehoseDeliveryStreamType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 75,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 76,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeDirectPut",
+      "symbol": "AWSFirehoseDeliveryStreamFailureType.AWSFirehoseDeliveryStreamFailureTypeUnknownError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 77,
-      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 80,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
+      "line": 79,
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 80,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
+      "line": 79,
+      "symbol": "AWSFirehoseDeliveryStreamStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 80,
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 81,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 82,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodNoRotation",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusCreatingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 83,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneHour",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 84,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneDay",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusDeletingFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 85,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneWeek",
+      "symbol": "AWSFirehoseDeliveryStreamStatus.AWSFirehoseDeliveryStreamStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 86,
-      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneMonth",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 89,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "line": 88,
+      "symbol": "AWSFirehoseDeliveryStreamType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 89,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
+      "line": 88,
+      "symbol": "AWSFirehoseDeliveryStreamType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 89,
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 90,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeUnknown",
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeDirectPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 91,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly",
+      "symbol": "AWSFirehoseDeliveryStreamType.AWSFirehoseDeliveryStreamTypeKinesisStreamAsSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 92,
-      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeAllDocuments",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 95,
-      "symbol": "AWSFirehoseHECEndpointType",
+      "line": 94,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 95,
-      "symbol": "AWSFirehoseHECEndpointType",
+      "line": 94,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 95,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 96,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeUnknown",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodNoRotation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 97,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeRaw",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneHour",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 98,
-      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeEvent",
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneDay",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 101,
-      "symbol": "AWSFirehoseKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 99,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneWeek",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 101,
-      "symbol": "AWSFirehoseKeyType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 102,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeUnknown",
+      "line": 100,
+      "symbol": "AWSFirehoseElasticsearchIndexRotationPeriod.AWSFirehoseElasticsearchIndexRotationPeriodOneMonth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 103,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeAwsOwnedCmk",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 104,
-      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeCustomerManagedCmk",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 107,
-      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 107,
-      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "line": 103,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 108,
-      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigUnknown",
+      "line": 104,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 105,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeFailedDocumentsOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 106,
+      "symbol": "AWSFirehoseElasticsearchS3BackupMode.AWSFirehoseElasticsearchS3BackupModeAllDocuments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 109,
-      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigNoEncryption",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 112,
-      "symbol": "AWSFirehoseOrcCompression",
+      "symbol": "AWSFirehoseHECEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 112,
-      "symbol": "AWSFirehoseOrcCompression",
+      "line": 109,
+      "symbol": "AWSFirehoseHECEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 113,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionUnknown",
+      "line": 110,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 114,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionNone",
+      "line": 111,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeRaw",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 112,
+      "symbol": "AWSFirehoseHECEndpointType.AWSFirehoseHECEndpointTypeEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 115,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionZlib",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 116,
-      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionSnappy",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 119,
-      "symbol": "AWSFirehoseOrcFormatVersion",
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 119,
-      "symbol": "AWSFirehoseOrcFormatVersion",
+      "line": 115,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 120,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionUnknown",
+      "line": 116,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 117,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeFailedDataOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 118,
+      "symbol": "AWSFirehoseHttpEndpointS3BackupMode.AWSFirehoseHttpEndpointS3BackupModeAllData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 121,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV011",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 122,
-      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV012",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 125,
-      "symbol": "AWSFirehoseParquetCompression",
+      "symbol": "AWSFirehoseKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 125,
-      "symbol": "AWSFirehoseParquetCompression",
+      "line": 121,
+      "symbol": "AWSFirehoseKeyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 126,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUnknown",
+      "line": 122,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 123,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeAwsOwnedCmk",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 124,
+      "symbol": "AWSFirehoseKeyType.AWSFirehoseKeyTypeCustomerManagedCmk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 127,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUncompressed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 127,
+      "symbol": "AWSFirehoseNoEncryptionConfig",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 128,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionGzip",
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 129,
-      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionSnappy",
+      "symbol": "AWSFirehoseNoEncryptionConfig.AWSFirehoseNoEncryptionConfigNoEncryption",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 132,
-      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol": "AWSFirehoseOrcCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 132,
-      "symbol": "AWSFirehoseParquetWriterVersion",
+      "symbol": "AWSFirehoseOrcCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 133,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionUnknown",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 134,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV1",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 135,
-      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV2",
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionZlib",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 138,
-      "symbol": "AWSFirehoseProcessorParameterName",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 138,
-      "symbol": "AWSFirehoseProcessorParameterName",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 136,
+      "symbol": "AWSFirehoseOrcCompression.AWSFirehoseOrcCompressionSnappy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 139,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSFirehoseOrcFormatVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 139,
+      "symbol": "AWSFirehoseOrcFormatVersion",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 140,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameLambdaArn",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 141,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameNumberOfRetries",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV011",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 142,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameRoleArn",
+      "symbol": "AWSFirehoseOrcFormatVersion.AWSFirehoseOrcFormatVersionV012",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 143,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferSizeInMBs",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 144,
-      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferIntervalInSeconds",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 147,
-      "symbol": "AWSFirehoseProcessorType",
+      "line": 145,
+      "symbol": "AWSFirehoseParquetCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 147,
-      "symbol": "AWSFirehoseProcessorType",
+      "line": 145,
+      "symbol": "AWSFirehoseParquetCompression",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 146,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 147,
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionUncompressed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 148,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeUnknown",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionGzip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 149,
-      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeLambda",
+      "symbol": "AWSFirehoseParquetCompression.AWSFirehoseParquetCompressionSnappy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 152,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol": "AWSFirehoseParquetWriterVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 152,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol": "AWSFirehoseParquetWriterVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 153,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeUnknown",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 154,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeDisabled",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 155,
-      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeEnabled",
+      "symbol": "AWSFirehoseParquetWriterVersion.AWSFirehoseParquetWriterVersionV2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 158,
-      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol": "AWSFirehoseProcessorParameterName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 158,
-      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol": "AWSFirehoseProcessorParameterName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 159,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeUnknown",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 160,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeDisabled",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameLambdaArn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 161,
-      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeEnabled",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameNumberOfRetries",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 162,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameRoleArn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 163,
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferSizeInMBs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 164,
-      "symbol": "AWSFirehoseSplunkS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 164,
-      "symbol": "AWSFirehoseSplunkS3BackupMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 165,
-      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
-      "line": 166,
-      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeFailedEventsOnly",
+      "symbol": "AWSFirehoseProcessorParameterName.AWSFirehoseProcessorParameterNameBufferIntervalInSeconds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
       "line": 167,
+      "symbol": "AWSFirehoseProcessorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 167,
+      "symbol": "AWSFirehoseProcessorType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 168,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 169,
+      "symbol": "AWSFirehoseProcessorType.AWSFirehoseProcessorTypeLambda",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 172,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 172,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 173,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 174,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 175,
+      "symbol": "AWSFirehoseRedshiftS3BackupMode.AWSFirehoseRedshiftS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 178,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 178,
+      "symbol": "AWSFirehoseS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 179,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 180,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 181,
+      "symbol": "AWSFirehoseS3BackupMode.AWSFirehoseS3BackupModeEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 184,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 184,
+      "symbol": "AWSFirehoseSplunkS3BackupMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 185,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 186,
+      "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeFailedEventsOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSKinesis/AWSFirehoseModel.h",
+      "line": 187,
       "symbol": "AWSFirehoseSplunkS3BackupMode.AWSFirehoseSplunkS3BackupModeAllEvents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

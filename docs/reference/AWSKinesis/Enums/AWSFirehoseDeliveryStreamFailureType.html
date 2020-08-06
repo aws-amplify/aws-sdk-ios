@@ -17,7 +17,7 @@
     <a title="AWSFirehoseDeliveryStreamFailureType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKinesis 2.15.0 Docs</a> (76% documented)</p>
+        <p><a href="../index.html">AWSKinesis 2.15.1 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -120,6 +120,33 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseHiveJsonSerDe.html">AWSFirehoseHiveJsonSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointBufferingHints.html">AWSFirehoseHttpEndpointBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointCommonAttribute.html">AWSFirehoseHttpEndpointCommonAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointConfiguration.html">AWSFirehoseHttpEndpointConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointDescription.html">AWSFirehoseHttpEndpointDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointDestinationConfiguration.html">AWSFirehoseHttpEndpointDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointDestinationDescription.html">AWSFirehoseHttpEndpointDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointDestinationUpdate.html">AWSFirehoseHttpEndpointDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointRequestConfiguration.html">AWSFirehoseHttpEndpointRequestConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseHttpEndpointRetryOptions.html">AWSFirehoseHttpEndpointRetryOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSFirehoseInputFormatConfiguration.html">AWSFirehoseInputFormatConfiguration</a>
@@ -267,6 +294,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSFirehoseUpdateDestinationOutput">AWSFirehoseUpdateDestinationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseVpcConfiguration.html">AWSFirehoseVpcConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSFirehoseVpcConfigurationDescription.html">AWSFirehoseVpcConfigurationDescription</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKinesis.html">AWSKinesis</a>
@@ -468,6 +501,9 @@
                 <a href="../Enums/AWSFirehoseCompressionFormat.html">AWSFirehoseCompressionFormat</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseContentEncoding.html">AWSFirehoseContentEncoding</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseDeliveryStreamEncryptionStatus.html">AWSFirehoseDeliveryStreamEncryptionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -490,6 +526,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseHECEndpointType.html">AWSFirehoseHECEndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSFirehoseHttpEndpointS3BackupMode.html">AWSFirehoseHttpEndpointS3BackupMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSFirehoseKeyType.html">AWSFirehoseKeyType</a>
@@ -568,6 +607,13 @@
     <span class="n">AWSFirehoseDeliveryStreamFailureTypeInvalidKmsKey</span><span class="p">,</span>
     <span class="n">AWSFirehoseDeliveryStreamFailureTypeKmsKeyNotFound</span><span class="p">,</span>
     <span class="n">AWSFirehoseDeliveryStreamFailureTypeKmsOptInRequired</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied</span><span class="p">,</span>
     <span class="n">AWSFirehoseDeliveryStreamFailureTypeUnknownError</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
@@ -843,6 +889,230 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed">AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeCreateEniFailed</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">createEniFailed</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed">AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeDeleteEniFailed</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">deleteEniFailed</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound">AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeSubnetNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnetNotFound</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroupNotFound</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied">AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeEniAccessDenied</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">eniAccessDenied</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied">AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeSubnetAccessDenied</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">subnetAccessDenied</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied"></a>
+                    <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSFirehoseDeliveryStreamFailureTypeSecurityGroupAccessDenied</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">securityGroupAccessDenied</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeUnknownError"></a>
                     <a name="//apple_ref/objc/Case/AWSFirehoseDeliveryStreamFailureTypeUnknownError" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSFirehoseDeliveryStreamFailureType@AWSFirehoseDeliveryStreamFailureTypeUnknownError">AWSFirehoseDeliveryStreamFailureTypeUnknownError</a>
@@ -865,7 +1135,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownError</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknownError</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
 
                         </div>
                       </div>
@@ -877,7 +1147,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

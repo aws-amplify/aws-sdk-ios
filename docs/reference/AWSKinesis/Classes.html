@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKinesis 2.15.0 Docs</a> (76% documented)</p>
+        <p><a href="index.html">AWSKinesis 2.15.1 Docs</a> (76% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKinesis.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -120,6 +120,33 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseHiveJsonSerDe.html">AWSFirehoseHiveJsonSerDe</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointBufferingHints.html">AWSFirehoseHttpEndpointBufferingHints</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointCommonAttribute.html">AWSFirehoseHttpEndpointCommonAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointConfiguration.html">AWSFirehoseHttpEndpointConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointDescription.html">AWSFirehoseHttpEndpointDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointDestinationConfiguration.html">AWSFirehoseHttpEndpointDestinationConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointDestinationDescription.html">AWSFirehoseHttpEndpointDestinationDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointDestinationUpdate.html">AWSFirehoseHttpEndpointDestinationUpdate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointRequestConfiguration.html">AWSFirehoseHttpEndpointRequestConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseHttpEndpointRetryOptions.html">AWSFirehoseHttpEndpointRetryOptions</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSFirehoseInputFormatConfiguration.html">AWSFirehoseInputFormatConfiguration</a>
@@ -267,6 +294,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSFirehoseUpdateDestinationOutput">AWSFirehoseUpdateDestinationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseVpcConfiguration.html">AWSFirehoseVpcConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSFirehoseVpcConfigurationDescription.html">AWSFirehoseVpcConfigurationDescription</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKinesis.html">AWSKinesis</a>
@@ -468,6 +501,9 @@
                 <a href="Enums/AWSFirehoseCompressionFormat.html">AWSFirehoseCompressionFormat</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseContentEncoding.html">AWSFirehoseContentEncoding</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseDeliveryStreamEncryptionStatus.html">AWSFirehoseDeliveryStreamEncryptionStatus</a>
               </li>
               <li class="nav-group-task">
@@ -490,6 +526,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseHECEndpointType.html">AWSFirehoseHECEndpointType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSFirehoseHttpEndpointS3BackupMode.html">AWSFirehoseHttpEndpointS3BackupMode</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSFirehoseKeyType.html">AWSFirehoseKeyType</a>
@@ -937,7 +976,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Used to specify the type and Amazon Resource Name (ARN) of the CMK needed for Server-Side Encryption (SSE). </p>
+                        <p>Specifies the type and Amazon Resource Name (ARN) of the CMK to use for Server-Side Encryption (SSE). </p>
 
 <p>Required parameters: [KeyType]</p>
 
@@ -1465,6 +1504,309 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointBufferingHints"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointBufferingHints" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointBufferingHints">AWSFirehoseHttpEndpointBufferingHints</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the buffering options that can be applied before data is delivered to the HTTP endpoint destination. Kinesis Data Firehose treats these options as hints, and it might choose to use more optimal values. The <code>SizeInMBs</code> and <code>IntervalInSeconds</code> parameters are optional. However, if specify a value for one of them, you must also provide a value for the other. </p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointBufferingHints.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointBufferingHints</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointBufferingHints</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointCommonAttribute"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointCommonAttribute" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointCommonAttribute">AWSFirehoseHttpEndpointCommonAttribute</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the metadata that&rsquo;s delivered to the specified HTTP endpoint destination.</p>
+
+<p>Required parameters: [AttributeName, AttributeValue]</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointCommonAttribute.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointCommonAttribute</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointCommonAttribute</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointConfiguration">AWSFirehoseHttpEndpointConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the configuration of the HTTP endpoint to which Kinesis Firehose delivers data.</p>
+
+<p>Required parameters: [Url]</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointDescription">AWSFirehoseHttpEndpointDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the HTTP endpoint selected as the destination. </p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointDestinationConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointDestinationConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointDestinationConfiguration">AWSFirehoseHttpEndpointDestinationConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the configuration of the HTTP endpoint destination.</p>
+
+<p>Required parameters: [EndpointConfiguration, S3Configuration]</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointDestinationConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointDestinationConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointDestinationConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointDestinationDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointDestinationDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointDestinationDescription">AWSFirehoseHttpEndpointDestinationDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the HTTP endpoint destination.</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointDestinationDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointDestinationDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointDestinationDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointDestinationUpdate"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointDestinationUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointDestinationUpdate">AWSFirehoseHttpEndpointDestinationUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified HTTP endpoint destination.</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointDestinationUpdate.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointDestinationUpdate</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointDestinationUpdate</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointRequestConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointRequestConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointRequestConfiguration">AWSFirehoseHttpEndpointRequestConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The configuration of the HTTP endpoint request.</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointRequestConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointRequestConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointRequestConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseHttpEndpointRetryOptions"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseHttpEndpointRetryOptions" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseHttpEndpointRetryOptions">AWSFirehoseHttpEndpointRetryOptions</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the retry behavior in case Kinesis Data Firehose is unable to deliver data to the specified HTTP endpoint destination, or if it doesn&rsquo;t receive a valid acknowledgment of receipt from the specified HTTP endpoint destination.</p>
+
+                        <a href="Classes/AWSFirehoseHttpEndpointRetryOptions.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseHttpEndpointRetryOptions</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseHttpEndpointRetryOptions</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSFirehoseInputFormatConfiguration"></a>
                     <a name="//apple_ref/objc/Class/AWSFirehoseInputFormatConfiguration" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSFirehoseInputFormatConfiguration">AWSFirehoseInputFormatConfiguration</a>
@@ -1475,7 +1817,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the deserializer you want to use to convert the format of the input data.</p>
+                        <p>Specifies the deserializer you want to use to convert the format of the input data. This parameter is required if <code>Enabled</code> is set to true.</p>
 
                         <a href="Classes/AWSFirehoseInputFormatConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1805,7 +2147,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3.</p>
+                        <p>Specifies the serializer that you want Kinesis Data Firehose to use to convert the format of your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
 
                         <a href="Classes/AWSFirehoseOutputFormatConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2409,7 +2751,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3.</p>
+                        <p>Specifies the schema to which you want Kinesis Data Firehose to configure your data before it writes it to Amazon S3. This parameter is required if <code>Enabled</code> is set to true.</p>
 
                         <a href="Classes/AWSFirehoseSchemaConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2973,6 +3315,76 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseUpdateDestinationOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseVpcConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseVpcConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseVpcConfiguration">AWSFirehoseVpcConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The details of the VPC of the Amazon ES destination.</p>
+
+<p>Required parameters: [SubnetIds, RoleARN, SecurityGroupIds]</p>
+
+                        <a href="Classes/AWSFirehoseVpcConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseVpcConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseVpcConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSFirehoseVpcConfigurationDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSFirehoseVpcConfigurationDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSFirehoseVpcConfigurationDescription">AWSFirehoseVpcConfigurationDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The details of the VPC of the Amazon ES destination.</p>
+
+<p>Required parameters: [SubnetIds, RoleARN, SecurityGroupIds, VpcId]</p>
+
+                        <a href="Classes/AWSFirehoseVpcConfigurationDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSFirehoseVpcConfigurationDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSFirehoseVpcConfigurationDescription</span></code></pre>
 
                         </div>
                       </div>
@@ -4730,7 +5142,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
