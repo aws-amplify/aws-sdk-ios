@@ -70,7 +70,7 @@ API_AVAILABLE(ios(11.0))
 
 @implementation AWSCognitoAuth
 
-NSString *const AWSCognitoAuthSDKVersion = @"2.15.0";
+NSString *const AWSCognitoAuthSDKVersion = @"2.15.1";
 
 
 static NSMutableDictionary *_instanceDictionary = nil;
