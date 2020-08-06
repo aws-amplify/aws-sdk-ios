@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityMultiFactorAuthentication Protocol Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.0 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityCustomChallengeDetails.html">AWSCognitoIdentityCustomChallengeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityMfaCodeDetails.html">AWSCognitoIdentityMfaCodeDetails</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a>
@@ -1088,11 +1091,25 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="k">@protocol</span> <span class="nc">AWSCognitoIdentityMultiFactorAuthentication</span> <span class="o">&lt;</span><span class="n">NSObject</span><span class="o">&gt;</span>
 <span class="cm">/**
- Obtain mfa code from the end user
+ Obtain mfa code from the end user. This is deprecated, thus made optional to account for new clients implementing only
+ `getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:`
  @param authenticationInput details about the deliveryMedium and masked destination for where the code was sent
  @param mfaCodeCompletionSource set mfaCodeCompletionSource.result with the mfa code from end user
  */</span>
-<span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">getMultiFactorAuthenticationCode</span><span class="o">:</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span> <span class="n">authenticationInput</span> <span class="n">mfaCodeCompletionSource</span><span class="o">:</span> <span class="p">(</span><span class="n">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">mfaCodeCompletionSource</span><span class="p">;</span>
+<span class="k">@optional</span>
+<span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">getMultiFactorAuthenticationCode</span><span class="o">:</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span> <span class="n">authenticationInput</span>
+                 <span class="n">mfaCodeCompletionSource</span><span class="o">:</span> <span class="p">(</span><span class="n">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">mfaCodeCompletionSource</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Use `getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:` instead"</span><span class="p">)));</span>
+
+<span class="cm">/**
+ Obtain mfa code and clientMetadata from the end user. This is optional for backwards compatibility with existing clients
+ that have already implemented the deprecated `getMultiFactorAuthenticationCode:mfaCodeCompletionSource` method.
+ New clients should implement this.
+ @param authenticationInput details about the deliveryMedium and masked destination for where the code was sent
+ @param mfaCodeCompletionSource set mfaCodeCompletionSource.result with the mfa code and client metadata from end user
+ */</span>
+<span class="k">@optional</span>
+<span class="o">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="n">getMultiFactorAuthenticationCode_v2</span><span class="o">:</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span> <span class="n">authenticationInput</span>
+                    <span class="n">mfaCodeCompletionSource</span><span class="o">:</span> <span class="p">(</span><span class="n">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSCognitoIdentityMfaCodeDetails.html">AWSCognitoIdentityMfaCodeDetails</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">mfaCodeCompletionSource</span><span class="p">;</span>
 <span class="cm">/**
  This step completed, usually either display an error to the end user or dismiss ui
  @param error the error if any that occured
@@ -1118,7 +1135,45 @@
                     <code>
                     <a name="/c:objc(pl)AWSCognitoIdentityMultiFactorAuthentication(im)getMultiFactorAuthenticationCode:mfaCodeCompletionSource:"></a>
                     <a name="//apple_ref/objc/Method/-getMultiFactorAuthenticationCode:mfaCodeCompletionSource:" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(pl)AWSCognitoIdentityMultiFactorAuthentication(im)getMultiFactorAuthenticationCode:mfaCodeCompletionSource:">-getMultiFactorAuthenticationCode:<wbr>mfaCodeCompletionSource:<wbr></a>
+                    <a class="token discouraged" href="#/c:objc(pl)AWSCognitoIdentityMultiFactorAuthentication(im)getMultiFactorAuthenticationCode:mfaCodeCompletionSource:">-getMultiFactorAuthenticationCode:<wbr>mfaCodeCompletionSource:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>Use <code>getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:</code> instead</p>
+
+                      </div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">getMultiFactorAuthenticationCode</span><span class="p">:</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span> <span class="n">authenticationInput</span>
+                 <span class="n">mfaCodeCompletionSource</span><span class="o">:</span> <span class="p">(</span><span class="n">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">mfaCodeCompletionSource</span> <span class="n">__attribute__</span><span class="p">((</span><span class="n">deprecated</span><span class="p">(</span><span class="s">"Use `getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:` instead"</span><span class="p">)));</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">getCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">authenticationInput</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span><span class="p">,</span> <span class="nv">mfaCodeCompletionSource</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(pl)AWSCognitoIdentityMultiFactorAuthentication(im)getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:"></a>
+                    <a name="//apple_ref/objc/Method/-getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(pl)AWSCognitoIdentityMultiFactorAuthentication(im)getMultiFactorAuthenticationCode_v2:mfaCodeCompletionSource:">-getMultiFactorAuthenticationCode_v2:<wbr>mfaCodeCompletionSource:<wbr></a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1126,55 +1181,22 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Obtain mfa code from the end user</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getMultiFactorAuthenticationCode</span><span class="p">:</span>
-            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span>
-                <span class="n">authenticationInput</span>
-                 <span class="n">mfaCodeCompletionSource</span><span class="o">:</span><span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">mfaCodeCompletionSource</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">-</span><span class="p">(</span><span class="kt">void</span><span class="p">)</span> <span class="nf">getMultiFactorAuthenticationCode_v2</span><span class="p">:</span> <span class="p">(</span><span class="n"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span> <span class="o">*</span><span class="p">)</span> <span class="n">authenticationInput</span>
+                    <span class="n">mfaCodeCompletionSource</span><span class="o">:</span> <span class="p">(</span><span class="n">AWSTaskCompletionSource</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSCognitoIdentityMfaCodeDetails.html">AWSCognitoIdentityMfaCodeDetails</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">mfaCodeCompletionSource</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getCode</span><span class="p">(</span><span class="n">_</span> <span class="nv">authenticationInput</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span><span class="p">,</span> <span class="nv">mfaCodeCompletionSource</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">getCode_v2</span><span class="p">(</span><span class="n">_</span> <span class="nv">authenticationInput</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a></span><span class="p">,</span> <span class="nv">mfaCodeCompletionSource</span><span class="p">:</span> <span class="kt">Any</span><span class="o">!</span><span class="p">)</span></code></pre>
 
                         </div>
-                      </div>
-                      <div>
-                        <h4>Parameters</h4>
-                        <table class="graybox">
-                          <tbody>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>authenticationInput</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>details about the deliveryMedium and masked destination for where the code was sent</p>
-                                </div>
-                              </td>
-                            </tr>
-                            <tr>
-                              <td>
-                                <code>
-                                <em>mfaCodeCompletionSource</em>
-                                </code>
-                              </td>
-                              <td>
-                                <div>
-                                  <p>set mfaCodeCompletionSource.result with the mfa code from end user</p>
-                                </div>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
                       </div>
                     </section>
                   </div>
@@ -1205,7 +1227,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">didCompleteMultifactorAuthenticationStepWithError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">optional</span> <span class="kd">func</span> <span class="nf">didCompleteMultifactorAuthenticationStepWithError</span><span class="p">(</span><span class="n">_</span> <span class="nv">error</span><span class="p">:</span> <span class="kt">Error</span><span class="p">?)</span></code></pre>
 
                         </div>
                       </div>
@@ -1236,7 +1258,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCognitoIdentityProvider 2.15.0 Docs</a> (78% documented)</p>
+        <p><a href="index.html">AWSCognitoIdentityProvider 2.15.1 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityCustomChallengeDetails.html">AWSCognitoIdentityCustomChallengeDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSCognitoIdentityMfaCodeDetails.html">AWSCognitoIdentityMfaCodeDetails</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSCognitoIdentityMultifactorAuthenticationInput.html">AWSCognitoIdentityMultifactorAuthenticationInput</a>
@@ -9525,6 +9528,8 @@ Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
 <span class="cm">/**
  Resend the confirmation code sent during sign up
  */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserResendConfirmationCodeResponse">AWSCognitoIdentityUserResendConfirmationCodeResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">resendConfirmationCode</span><span class="p">:</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserResendConfirmationCodeResponse">AWSCognitoIdentityUserResendConfirmationCodeResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="n">resendConfirmationCode</span><span class="p">;</span>
 
 <span class="cm">/**
@@ -9542,7 +9547,18 @@ Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserSession.html">AWSCognitoIdentityUserSession</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSession</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
                                                 <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
                                           <span class="nf">validationData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">validationData</span>
+                                          <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserSession.html">AWSCognitoIdentityUserSession</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSession</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
+                                                <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+                                          <span class="nf">validationData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">validationData</span>
                                 <span class="nf">isInitialCustomChallenge</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">isInitialCustomChallenge</span><span class="p">;</span>
+
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserSession.html">AWSCognitoIdentityUserSession</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getSession</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">username</span>
+                                                <span class="nf">password</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">password</span>
+                                          <span class="nf">validationData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">validationData</span>
+                                          <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span>
+                                <span class="n">isInitialCustomChallenge</span><span class="o">:</span><span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">isInitialCustomChallenge</span><span class="p">;</span>
 
 <span class="cm">/**
  Get details about this user, including user attributes
@@ -9578,6 +9594,9 @@ Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
 <span class="cm">/**
  Update this user's attributes
  */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserUpdateAttributesResponse">AWSCognitoIdentityUserUpdateAttributesResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">updateAttributes</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">attributes</span>
+                                                                 <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserUpdateAttributesResponse">AWSCognitoIdentityUserUpdateAttributesResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">updateAttributes</span><span class="p">:(</span><span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="Classes/AWSCognitoIdentityUserAttributeType.html">AWSCognitoIdentityUserAttributeType</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">attributes</span><span class="p">;</span>
 
 <span class="cm">/**
@@ -9595,6 +9614,9 @@ Required parameters: [ApplicationId, RoleArn, ExternalId]</p>
 <span class="cm">/**
  Request a verification code to verify an attribute.
  */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserGetAttributeVerificationCodeResponse">AWSCognitoIdentityUserGetAttributeVerificationCodeResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getAttributeVerificationCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">attributeName</span>
+                                                                                         <span class="nf">clientMetaData</span><span class="p">:(</span><span class="n">nullable</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span><span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">clientMetaData</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="Classes.html#/c:objc(cs)AWSCognitoIdentityUserGetAttributeVerificationCodeResponse">AWSCognitoIdentityUserGetAttributeVerificationCodeResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nf">getAttributeVerificationCode</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">attributeName</span><span class="p">;</span>
 
 <span class="cm">/**
@@ -10866,6 +10888,39 @@ destination and delivery medium</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityMfaCodeDetails"></a>
+                    <a name="//apple_ref/objc/Class/AWSCognitoIdentityMfaCodeDetails" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityMfaCodeDetails">AWSCognitoIdentityMfaCodeDetails</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>When responding to a mfa code challenge this encapsulates the end users&rsquo; mfa code and client metadata</p>
+
+                        <a href="Classes/AWSCognitoIdentityMfaCodeDetails.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSCognitoIdentityMfaCodeDetails</span> <span class="p">:</span> <span class="nc">NSObject</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSCognitoIdentityMfaCodeDetails</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityCustomAuthenticationInput"></a>
                     <a name="//apple_ref/objc/Class/AWSCognitoIdentityCustomAuthenticationInput" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityCustomAuthenticationInput">AWSCognitoIdentityCustomAuthenticationInput</a>
@@ -11100,7 +11155,7 @@ destination and delivery medium</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
