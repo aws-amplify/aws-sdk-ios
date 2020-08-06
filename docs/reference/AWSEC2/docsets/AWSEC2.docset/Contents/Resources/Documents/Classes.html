@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSEC2 2.15.0 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSEC2 2.15.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -318,6 +318,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2CapacityReservation.html">AWSEC2CapacityReservation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2CapacityReservationGroup.html">AWSEC2CapacityReservationGroup</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2CapacityReservationOptions.html">AWSEC2CapacityReservationOptions</a>
@@ -2088,6 +2091,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2GetEbsEncryptionByDefaultResult.html">AWSEC2GetEbsEncryptionByDefaultResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2GetGroupsForCapacityReservationRequest.html">AWSEC2GetGroupsForCapacityReservationRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSEC2GetGroupsForCapacityReservationResult.html">AWSEC2GetGroupsForCapacityReservationResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSEC2GetHostReservationPurchasePreviewRequest.html">AWSEC2GetHostReservationPurchasePreviewRequest</a>
@@ -7405,6 +7414,39 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2CapacityReservationGroup"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2CapacityReservationGroup" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2CapacityReservationGroup">AWSEC2CapacityReservationGroup</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes a resource group to which a Capacity Reservation has been added.</p>
+
+                        <a href="Classes/AWSEC2CapacityReservationGroup.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2CapacityReservationGroup</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2CapacityReservationGroup</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2CapacityReservationOptions"></a>
                     <a name="//apple_ref/objc/Class/AWSEC2CapacityReservationOptions" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2CapacityReservationOptions">AWSEC2CapacityReservationOptions</a>
@@ -7481,7 +7523,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes an instance&rsquo;s Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p><p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+                        <p>Describes an instance&rsquo;s Capacity Reservation targeting option. You can specify only one parameter at a time. If you specify <code>CapacityReservationPreference</code> and <code>CapacityReservationTarget</code>, the request fails.</p><p>Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run as an On-Demand Instance or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>
 
                         <a href="Classes/AWSEC2CapacityReservationSpecification.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7514,7 +7556,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the instance&rsquo;s Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation.</p>
+                        <p>Describes the instance&rsquo;s Capacity Reservation targeting preferences. The action returns the <code>capacityReservationPreference</code> response element if the instance is configured to run in On-Demand capacity, or if it is configured in run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). The action returns the <code>capacityReservationTarget</code> response element if the instance explicily targets a specific Capacity Reservation or Capacity Reservation group.</p>
 
                         <a href="Classes/AWSEC2CapacityReservationSpecificationResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7547,7 +7589,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a target Capacity Reservation.</p>
+                        <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
 
                         <a href="Classes/AWSEC2CapacityReservationTarget.html" class="slightly-smaller">See more</a>
                       </div>
@@ -7580,7 +7622,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes a target Capacity Reservation.</p>
+                        <p>Describes a target Capacity Reservation or Capacity Reservation group.</p>
 
                         <a href="Classes/AWSEC2CapacityReservationTargetResponse.html" class="slightly-smaller">See more</a>
                       </div>
@@ -26727,6 +26769,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2GetGroupsForCapacityReservationRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2GetGroupsForCapacityReservationRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2GetGroupsForCapacityReservationRequest">AWSEC2GetGroupsForCapacityReservationRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSEC2GetGroupsForCapacityReservationRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2GetGroupsForCapacityReservationRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2GetGroupsForCapacityReservationRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2GetGroupsForCapacityReservationResult"></a>
+                    <a name="//apple_ref/objc/Class/AWSEC2GetGroupsForCapacityReservationResult" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2GetGroupsForCapacityReservationResult">AWSEC2GetGroupsForCapacityReservationResult</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSEC2GetGroupsForCapacityReservationResult.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSEC2GetGroupsForCapacityReservationResult</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSEC2GetGroupsForCapacityReservationResult</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2GetHostReservationPurchasePreviewRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSEC2GetHostReservationPurchasePreviewRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2GetHostReservationPurchasePreviewRequest">AWSEC2GetHostReservationPurchasePreviewRequest</a>
@@ -30537,7 +30643,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes an instance&rsquo;s Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation.</p>
+                        <p>Describes an instance&rsquo;s Capacity Reservation targeting option. You can specify only one option at a time. Use the <code>CapacityReservationPreference</code> parameter to configure the instance to run in On-Demand capacity or to run in any <code>open</code> Capacity Reservation that has matching attributes (instance type, platform, Availability Zone). Use the <code>CapacityReservationTarget</code> parameter to explicitly target a specific Capacity Reservation or a Capacity Reservation group.</p>
 
                         <a href="Classes/AWSEC2LaunchTemplateCapacityReservationSpecificationRequest.html" class="slightly-smaller">See more</a>
                       </div>
@@ -44792,7 +44898,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
