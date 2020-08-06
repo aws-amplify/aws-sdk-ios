@@ -2,6 +2,15 @@
 
 ## Unreleased
 
+### New features
+- **AWSMobileClient**
+  - Support ClientMetaData in verifyUserAttribute, resendSignUpCode, updateUserAttributes (See [PR #2872](https://github.com/aws-amplify/aws-sdk-ios/pull/2872))
+  - Pass clientMetadata for MFA confirmSignIn (See [PR #2890](https://github.com/aws-amplify/aws-sdk-ios/pull/2890))
+  - Pass clientMetadata for SignIn SRP_A, migration, customAuth auth flows (See [PR #2883](https://github.com/aws-amplify/aws-sdk-ios/pull/2883))
+  
+- **AWSIoT**
+  - Add username and password to MQTT ioTMQTTConfiguration for enhanced custom authorizer (See [PR #2856](https://github.com/aws-amplify/aws-sdk-ios/pull/2856), [PR #2875](https://github.com/aws-amplify/aws-sdk-ios/pull/2875))
+  
 ### Bug Fixes
 - **AWSMobileClient**
   - Serialized access to keychain on setData (See [PR #2900](https://github.com/aws-amplify/aws-sdk-ios/pull/2900))
