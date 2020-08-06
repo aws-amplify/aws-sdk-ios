@@ -17,7 +17,7 @@
     <a title="AWSMobileClient Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSMobileClient 2.15.0 Docs</a> (51% documented)</p>
+        <p><a href="../index.html">AWSMobileClient 2.15.1 Docs</a> (51% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMobileClient.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -903,9 +903,9 @@ all instances will have the same configuration reference.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC6signIn8username8password14validationData17completionHandlerySS_SSSDyS2SGSgyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/signIn(username:password:validationData:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC6signIn8username8password14validationData17completionHandlerySS_SSSDyS2SGSgyAA04SignD6ResultVSg_s5Error_pSgtctF">signIn(username:<wbr>password:<wbr>validationData:<wbr>completionHandler:<wbr>)</a>
+                    <a name="/s:15AWSMobileClientAAC6signIn8username8password14validationData010clientMetaH017completionHandlerySS_SSSDyS2SGSgAIyAA04SignD6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/signIn(username:password:validationData:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC6signIn8username8password14validationData010clientMetaH017completionHandlerySS_SSSDyS2SGSgAIyAA04SignD6ResultVSg_s5Error_pSgtctF">signIn(username:<wbr>password:<wbr>validationData:<wbr>clientMetaData:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -923,6 +923,7 @@ all instances will have the same configuration reference.</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">signIn</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                    <span class="nv">password</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
                    <span class="nv">validationData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">,</span>
+                   <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
                    <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignInResult.html">SignInResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
@@ -963,7 +964,21 @@ all instances will have the same configuration reference.</p>
                               </td>
                               <td>
                                 <div>
-                                  <p>validation data for this sign in.</p>
+                                  <p>validation data for this sign in. Overrides any key-value pairs in <code>clientMetadata</code> when the
+same key exists in validation data.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1260,9 +1275,9 @@ custom workflows that this action triggers.</p>
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC16resendSignUpCode8username17completionHandlerySS_yAA0dE6ResultVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/resendSignUpCode(username:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC16resendSignUpCode8username17completionHandlerySS_yAA0dE6ResultVSg_s5Error_pSgtctF">resendSignUpCode(username:<wbr>completionHandler:<wbr>)</a>
+                    <a name="/s:15AWSMobileClientAAC16resendSignUpCode8username14clientMetaData17completionHandlerySS_SDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/resendSignUpCode(username:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC16resendSignUpCode8username14clientMetaData17completionHandlerySS_SDyS2SGyAA0dE6ResultVSg_s5Error_pSgtctF">resendSignUpCode(username:<wbr>clientMetaData:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1277,7 +1292,9 @@ custom workflows that this action triggers.</p>
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resendSignUpCode</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">resendSignUpCode</span><span class="p">(</span><span class="nv">username</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                             <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
+                             <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/SignUpResult.html">SignUpResult</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
                       </div>
@@ -1294,6 +1311,19 @@ custom workflows that this action triggers.</p>
                               <td>
                                 <div>
                                   <p>username of the user who wants a new registration code.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1868,9 +1898,9 @@ The call to wait will be synchronized so that if multiple threads call this meth
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName17completionHandlerySS_yAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/verifyUserAttribute(attributeName:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName17completionHandlerySS_yAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF">verifyUserAttribute(attributeName:<wbr>completionHandler:<wbr>)</a>
+                    <a name="/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName14clientMetaData17completionHandlerySS_SDyS2SGyAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/verifyUserAttribute(attributeName:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC19verifyUserAttribute13attributeName14clientMetaData17completionHandlerySS_SDyS2SGyAA0D19CodeDeliveryDetailsVSg_s5Error_pSgtctF">verifyUserAttribute(attributeName:<wbr>clientMetaData:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1886,6 +1916,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">verifyUserAttribute</span><span class="p">(</span><span class="nv">attributeName</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span>
+                                <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
                                 <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">((</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
@@ -1903,6 +1934,19 @@ The call to wait will be synchronized so that if multiple threads call this meth
                               <td>
                                 <div>
                                   <p>name of the attribute.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1927,9 +1971,9 @@ The call to wait will be synchronized so that if multiple threads call this meth
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap17completionHandlerySDyS2SG_ySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF"></a>
-                    <a name="//apple_ref/swift/Method/updateUserAttributes(attributeMap:completionHandler:)" class="dashAnchor"></a>
-                    <a class="token" href="#/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap17completionHandlerySDyS2SG_ySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF">updateUserAttributes(attributeMap:<wbr>completionHandler:<wbr>)</a>
+                    <a name="/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap14clientMetaData17completionHandlerySDyS2SG_AGySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF"></a>
+                    <a name="//apple_ref/swift/Method/updateUserAttributes(attributeMap:clientMetaData:completionHandler:)" class="dashAnchor"></a>
+                    <a class="token" href="#/s:15AWSMobileClientAAC20updateUserAttributes12attributeMap14clientMetaData17completionHandlerySDyS2SG_AGySayAA0D19CodeDeliveryDetailsVGSg_s5Error_pSgtctF">updateUserAttributes(attributeMap:<wbr>clientMetaData:<wbr>completionHandler:<wbr>)</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -1945,6 +1989,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">public</span> <span class="kd">func</span> <span class="nf">updateUserAttributes</span><span class="p">(</span><span class="nv">attributeMap</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span> <span class="kt">String</span><span class="p">],</span>
+                                 <span class="nv">clientMetaData</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">:</span><span class="kt">String</span><span class="p">]</span> <span class="o">=</span> <span class="p">[:],</span>
                                  <span class="nv">completionHandler</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="p">(([</span><span class="kt"><a href="../Structs/UserCodeDeliveryDetails.html">UserCodeDeliveryDetails</a></span><span class="p">]?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">))</span></code></pre>
 
                         </div>
@@ -1962,6 +2007,19 @@ The call to wait will be synchronized so that if multiple threads call this meth
                               <td>
                                 <div>
                                   <p>the attribute map of the user.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>clientMetaData</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A map of custom key-value pairs that you can provide as input for any
+custom workflows that this action triggers.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2241,7 +2299,7 @@ The call to wait will be synchronized so that if multiple threads call this meth
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-07-23)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
