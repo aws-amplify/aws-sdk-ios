@@ -1552,22 +1552,20 @@ static const size_t SRFrameHeaderOverhead = 32;
                 if (aStream.streamError) {
                     [self _failWithError:aStream.streamError];
                 } else {
-                    dispatch_async(self->_workQueue, ^{
-                        if (self.readyState != AWSSR_CLOSED) {
-                            self.readyState = AWSSR_CLOSED;
-                            self->_selfRetain = nil;
-                        }
+                    if (self.readyState != AWSSR_CLOSED) {
+                        self.readyState = AWSSR_CLOSED;
+                        self->_selfRetain = nil;
+                    }
 
-                        if (!self->_sentClose && !self->_failed) {
-                            self->_sentClose = YES;
-                            // If we get closed in this state it's probably not clean because we should be sending this when we send messages
-                            [self _performDelegateBlock:^{
-                                if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
-                                    [self.delegate webSocket:self didCloseWithCode:AWSSRStatusCodeGoingAway reason:@"Stream end encountered" wasClean:NO];
-                                }
-                            }];
-                        }
-                    });
+                    if (!self->_sentClose && !self->_failed) {
+                        self->_sentClose = YES;
+                        // If we get closed in this state it's probably not clean because we should be sending this when we send messages
+                        [self _performDelegateBlock:^{
+                            if ([self.delegate respondsToSelector:@selector(webSocket:didCloseWithCode:reason:wasClean:)]) {
+                                [self.delegate webSocket:self didCloseWithCode:AWSSRStatusCodeGoingAway reason:@"Stream end encountered" wasClean:NO];
+                            }
+                        }];
+                    }
                 }
                 
                 break;
