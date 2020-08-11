@@ -39,7 +39,10 @@ public struct SessionToken {
             
             let paddedLength = claims.count + (4 - (claims.count % 4)) % 4
             //JWT is not padded with =, pad it if necessary
-            let updatedClaims = claims.padding(toLength: paddedLength, withPad: "=", startingAt: 0)
+            var updatedClaims = claims.padding(toLength: paddedLength, withPad: "=", startingAt: 0)
+            updatedClaims = updatedClaims.replacingOccurrences(of: "_", with: "/")
+            updatedClaims = updatedClaims.replacingOccurrences(of: "-", with: "+")
+
             let claimsData = Data.init(base64Encoded: updatedClaims, options: .ignoreUnknownCharacters)
             
             guard claimsData != nil else {
