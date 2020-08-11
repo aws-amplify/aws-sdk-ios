@@ -221,6 +221,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"allocationId" : @"AllocationId",
              @"associationId" : @"AssociationId",
+             @"carrierIp" : @"CarrierIp",
              @"customerOwnedIp" : @"CustomerOwnedIp",
              @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
              @"domain" : @"Domain",
@@ -328,6 +329,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allocationId" : @"AllocationId",
+             @"carrierIp" : @"CarrierIp",
              @"customerOwnedIp" : @"CustomerOwnedIp",
              @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
              @"domain" : @"Domain",
@@ -1914,9 +1916,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Linux with SQL Server Enterprise"] == NSOrderedSame) {
             return @(AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerEnterprise);
         }
-        if ([value caseInsensitiveCompare:@"Windows BYOL"] == NSOrderedSame) {
-            return @(AWSEC2CapacityReservationInstancePlatformWindowsBYOL);
-        }
         return @(AWSEC2CapacityReservationInstancePlatformUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1942,8 +1941,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Linux with SQL Server Web";
             case AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerEnterprise:
                 return @"Linux with SQL Server Enterprise";
-            case AWSEC2CapacityReservationInstancePlatformWindowsBYOL:
-                return @"Windows BYOL";
             default:
                 return nil;
         }
@@ -2166,6 +2163,55 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"capacityReservationId" : @"CapacityReservationId",
              @"capacityReservationResourceGroupArn" : @"CapacityReservationResourceGroupArn",
              };
+}
+
+@end
+
+@implementation AWSEC2CarrierGateway
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGatewayId" : @"CarrierGatewayId",
+             @"ownerId" : @"OwnerId",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             @"vpcId" : @"VpcId",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"pending"] == NSOrderedSame) {
+            return @(AWSEC2CarrierGatewayStatePending);
+        }
+        if ([value caseInsensitiveCompare:@"available"] == NSOrderedSame) {
+            return @(AWSEC2CarrierGatewayStateAvailable);
+        }
+        if ([value caseInsensitiveCompare:@"deleting"] == NSOrderedSame) {
+            return @(AWSEC2CarrierGatewayStateDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"deleted"] == NSOrderedSame) {
+            return @(AWSEC2CarrierGatewayStateDeleted);
+        }
+        return @(AWSEC2CarrierGatewayStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2CarrierGatewayStatePending:
+                return @"pending";
+            case AWSEC2CarrierGatewayStateAvailable:
+                return @"available";
+            case AWSEC2CarrierGatewayStateDeleting:
+                return @"deleting";
+            case AWSEC2CarrierGatewayStateDeleted:
+                return @"deleted";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
 }
 
 @end
@@ -3136,9 +3182,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Linux with SQL Server Enterprise"] == NSOrderedSame) {
             return @(AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerEnterprise);
         }
-        if ([value caseInsensitiveCompare:@"Windows BYOL"] == NSOrderedSame) {
-            return @(AWSEC2CapacityReservationInstancePlatformWindowsBYOL);
-        }
         return @(AWSEC2CapacityReservationInstancePlatformUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3164,8 +3207,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Linux with SQL Server Web";
             case AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerEnterprise:
                 return @"Linux with SQL Server Enterprise";
-            case AWSEC2CapacityReservationInstancePlatformWindowsBYOL:
-                return @"Windows BYOL";
             default:
                 return nil;
         }
@@ -3209,6 +3250,37 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)capacityReservationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CapacityReservation class]];
+}
+
+@end
+
+@implementation AWSEC2CreateCarrierGatewayRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"dryRun" : @"DryRun",
+             @"tagSpecifications" : @"TagSpecifications",
+             @"vpcId" : @"VpcId",
+             };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2CreateCarrierGatewayResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGateway" : @"CarrierGateway",
+             };
+}
+
++ (NSValueTransformer *)carrierGatewayJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CarrierGateway class]];
 }
 
 @end
@@ -6159,6 +6231,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"carrierGatewayId" : @"CarrierGatewayId",
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
              @"destinationPrefixListId" : @"DestinationPrefixListId",
@@ -7290,6 +7363,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2DeleteCarrierGatewayRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGatewayId" : @"CarrierGatewayId",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteCarrierGatewayResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGateway" : @"CarrierGateway",
+             };
+}
+
++ (NSValueTransformer *)carrierGatewayJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2CarrierGateway class]];
 }
 
 @end
@@ -8769,6 +8867,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)capacityReservationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2CapacityReservation class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeCarrierGatewaysRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGatewayIds" : @"CarrierGatewayIds",
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeCarrierGatewaysResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"carrierGateways" : @"CarrierGateways",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)carrierGatewaysJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2CarrierGateway class]];
 }
 
 @end
@@ -28387,6 +28518,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"carrierIp" : @"CarrierIp",
              @"ipOwnerId" : @"IpOwnerId",
              @"publicDnsName" : @"PublicDnsName",
              @"publicIp" : @"PublicIp",
@@ -28452,6 +28584,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"associateCarrierIpAddress" : @"AssociateCarrierIpAddress",
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"deleteOnTermination" : @"DeleteOnTermination",
              @"detail" : @"Description",
@@ -34871,6 +35004,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"associateCarrierIpAddress" : @"AssociateCarrierIpAddress",
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"deleteOnTermination" : @"DeleteOnTermination",
              @"detail" : @"Description",
@@ -34901,6 +35035,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"associateCarrierIpAddress" : @"AssociateCarrierIpAddress",
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
              @"deleteOnTermination" : @"DeleteOnTermination",
              @"detail" : @"Description",
@@ -38908,18 +39043,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assignIpv6AddressOnCreation" : @"AssignIpv6AddressOnCreation",
-             @"customerOwnedIpv4Pool" : @"CustomerOwnedIpv4Pool",
-             @"mapCustomerOwnedIpOnLaunch" : @"MapCustomerOwnedIpOnLaunch",
              @"mapPublicIpOnLaunch" : @"MapPublicIpOnLaunch",
              @"subnetId" : @"SubnetId",
              };
 }
 
 + (NSValueTransformer *)assignIpv6AddressOnCreationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
-}
-
-+ (NSValueTransformer *)mapCustomerOwnedIpOnLaunchJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
 }
 
@@ -40068,6 +40197,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"allocationId" : @"AllocationId",
              @"associationId" : @"AssociationId",
+             @"carrierIp" : @"CarrierIp",
              @"ipOwnerId" : @"IpOwnerId",
              @"publicDnsName" : @"PublicDnsName",
              @"publicIp" : @"PublicIp",
@@ -41676,6 +41806,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"carrierGatewayId" : @"CarrierGatewayId",
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
              @"destinationPrefixListId" : @"DestinationPrefixListId",
@@ -53426,6 +53557,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"carrierGatewayId" : @"CarrierGatewayId",
              @"destinationCidrBlock" : @"DestinationCidrBlock",
              @"destinationIpv6CidrBlock" : @"DestinationIpv6CidrBlock",
              @"destinationPrefixListId" : @"DestinationPrefixListId",

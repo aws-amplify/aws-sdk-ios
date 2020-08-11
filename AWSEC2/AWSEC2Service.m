@@ -1231,6 +1231,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateCarrierGatewayResult *> *)createCarrierGateway:(AWSEC2CreateCarrierGatewayRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateCarrierGateway"
+                   outputClass:[AWSEC2CreateCarrierGatewayResult class]];
+}
+
+- (void)createCarrierGateway:(AWSEC2CreateCarrierGatewayRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateCarrierGatewayResult *response, NSError *error))completionHandler {
+    [[self createCarrierGateway:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateCarrierGatewayResult *> * _Nonnull task) {
+        AWSEC2CreateCarrierGatewayResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2CreateClientVpnEndpointResult *> *)createClientVpnEndpoint:(AWSEC2CreateClientVpnEndpointRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -2437,6 +2460,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2CreateVpnGatewayResult *response, NSError *error))completionHandler {
     [[self createVpnGateway:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateVpnGatewayResult *> * _Nonnull task) {
         AWSEC2CreateVpnGatewayResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteCarrierGatewayResult *> *)deleteCarrierGateway:(AWSEC2DeleteCarrierGatewayRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteCarrierGateway"
+                   outputClass:[AWSEC2DeleteCarrierGatewayResult class]];
+}
+
+- (void)deleteCarrierGateway:(AWSEC2DeleteCarrierGatewayRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteCarrierGatewayResult *response, NSError *error))completionHandler {
+    [[self deleteCarrierGateway:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteCarrierGatewayResult *> * _Nonnull task) {
+        AWSEC2DeleteCarrierGatewayResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3796,6 +3842,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeCapacityReservationsResult *response, NSError *error))completionHandler {
     [[self describeCapacityReservations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeCapacityReservationsResult *> * _Nonnull task) {
         AWSEC2DescribeCapacityReservationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeCarrierGatewaysResult *> *)describeCarrierGateways:(AWSEC2DescribeCarrierGatewaysRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeCarrierGateways"
+                   outputClass:[AWSEC2DescribeCarrierGatewaysResult class]];
+}
+
+- (void)describeCarrierGateways:(AWSEC2DescribeCarrierGatewaysRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeCarrierGatewaysResult *response, NSError *error))completionHandler {
+    [[self describeCarrierGateways:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeCarrierGatewaysResult *> * _Nonnull task) {
+        AWSEC2DescribeCarrierGatewaysResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
