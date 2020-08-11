@@ -171,6 +171,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
+             @"topics" : @"Topics",
              };
 }
 
@@ -537,6 +538,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
+             @"topics" : @"Topics",
              @"UUID" : @"UUID",
              };
 }
