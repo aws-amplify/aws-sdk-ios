@@ -195,7 +195,6 @@ typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationInstancePlatform) {
     AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerStandard,
     AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerWeb,
     AWSEC2CapacityReservationInstancePlatformLinuxWithSQLServerEnterprise,
-    AWSEC2CapacityReservationInstancePlatformWindowsBYOL,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationPreference) {
@@ -217,6 +216,14 @@ typedef NS_ENUM(NSInteger, AWSEC2CapacityReservationTenancy) {
     AWSEC2CapacityReservationTenancyUnknown,
     AWSEC2CapacityReservationTenancyDefault,
     AWSEC2CapacityReservationTenancyDedicated,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2CarrierGatewayState) {
+    AWSEC2CarrierGatewayStateUnknown,
+    AWSEC2CarrierGatewayStatePending,
+    AWSEC2CarrierGatewayStateAvailable,
+    AWSEC2CarrierGatewayStateDeleting,
+    AWSEC2CarrierGatewayStateDeleted,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ClientCertificateRevocationListStatusCode) {
@@ -1699,6 +1706,12 @@ typedef NS_ENUM(NSInteger, AWSEC2TransportProtocol) {
     AWSEC2TransportProtocolUdp,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2TunnelInsideIpVersion) {
+    AWSEC2TunnelInsideIpVersionUnknown,
+    AWSEC2TunnelInsideIpVersionIpv4,
+    AWSEC2TunnelInsideIpVersionIpv6,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2UnlimitedSupportedInstanceFamily) {
     AWSEC2UnlimitedSupportedInstanceFamilyUnknown,
     AWSEC2UnlimitedSupportedInstanceFamilyT2,
@@ -1956,6 +1969,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CapacityReservationSpecificationResponse;
 @class AWSEC2CapacityReservationTarget;
 @class AWSEC2CapacityReservationTargetResponse;
+@class AWSEC2CarrierGateway;
 @class AWSEC2CertificateAuthentication;
 @class AWSEC2CertificateAuthenticationRequest;
 @class AWSEC2CidrAuthorizationContext;
@@ -1993,6 +2007,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CpuOptionsRequest;
 @class AWSEC2CreateCapacityReservationRequest;
 @class AWSEC2CreateCapacityReservationResult;
+@class AWSEC2CreateCarrierGatewayRequest;
+@class AWSEC2CreateCarrierGatewayResult;
 @class AWSEC2CreateClientVpnEndpointRequest;
 @class AWSEC2CreateClientVpnEndpointResult;
 @class AWSEC2CreateClientVpnRouteRequest;
@@ -2101,6 +2117,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreditSpecification;
 @class AWSEC2CreditSpecificationRequest;
 @class AWSEC2CustomerGateway;
+@class AWSEC2DeleteCarrierGatewayRequest;
+@class AWSEC2DeleteCarrierGatewayResult;
 @class AWSEC2DeleteClientVpnEndpointRequest;
 @class AWSEC2DeleteClientVpnEndpointResult;
 @class AWSEC2DeleteClientVpnRouteRequest;
@@ -2207,6 +2225,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeByoipCidrsResult;
 @class AWSEC2DescribeCapacityReservationsRequest;
 @class AWSEC2DescribeCapacityReservationsResult;
+@class AWSEC2DescribeCarrierGatewaysRequest;
+@class AWSEC2DescribeCarrierGatewaysResult;
 @class AWSEC2DescribeClassicLinkInstancesRequest;
 @class AWSEC2DescribeClassicLinkInstancesResult;
 @class AWSEC2DescribeClientVpnAuthorizationRulesRequest;
@@ -3343,7 +3363,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes an Elastic IP address.</p>
+ <p>Describes an Elastic IP address, or a carrier IP address.</p>
  */
 @interface AWSEC2Address : AWSModel
 
@@ -3357,6 +3377,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID representing the association of the address with an instance in a VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationId;
+
+/**
+ <p>The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierIp;
 
 /**
  <p>The customer-owned IP address.</p>
@@ -3379,7 +3404,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The name of the location from which the IP address is advertised.</p>
+ <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -3473,7 +3498,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The location from which the IP address is advertised. Use this parameter to limit the address to this location.</p><p>A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises IP addresses and limits the addresses to the group. IP addresses cannot move between network border groups.</p><p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p><note><p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p></note>
+ <p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.</p><p>Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html">DescribeAvailabilityZones</a> to view the network border groups.</p><note><p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -3496,6 +3521,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
 /**
+ <p>The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierIp;
+
+/**
  <p>The customer-owned IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customerOwnedIp;
@@ -3511,7 +3541,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DomainType domain;
 
 /**
- <p>The location from which the IP address is advertised.</p>
+ <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -4085,7 +4115,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlock;
 
 /**
- <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p><p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p><p> You can have one IPv6 CIDR block association per network border group.</p>
+ <p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p><p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p><p> You can have one IPv6 CIDR block association per network border group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipv6CidrBlockNetworkBorderGroup;
 
@@ -4563,38 +4593,38 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes a Zone.</p>
+ <p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>
  */
 @interface AWSEC2AvailabilityZone : AWSModel
 
 
 /**
- <p> For Availability Zones, this parameter has the same value as the Region name.</p><p>For Local Zones, the name of the associated group, for example <code>us-west-2-lax-1</code>.</p>
+ <p> For Availability Zones, this parameter has the same value as the Region name.</p><p>For Local Zones, the name of the associated group, for example <code>us-west-2-lax-1</code>.</p><p>For Wavelength Zones, the name of the associated group, for example <code>us-east-1-wl1-bos-wlz-1</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>Any messages about the Zone.</p>
+ <p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AvailabilityZoneMessage *> * _Nullable messages;
 
 /**
- <p>The name of the location from which the address is advertised.</p>
+ <p>The name of the network border group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
 /**
- <p> For Availability Zones, this parameter always has the value of <code>opt-in-not-required</code>.</p><p>For Local Zones, this parameter is the opt in status. The possible values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>
+ <p>For Availability Zones, this parameter always has the value of <code>opt-in-not-required</code>.</p><p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2AvailabilityZoneOptInStatus optInStatus;
 
 /**
- <p>The ID of the zone that handles some of the Local Zone control plane operations, such as API calls.</p>
+ <p>The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable parentZoneId;
 
 /**
- <p>The name of the zone that handles some of the Local Zone control plane operations, such as API calls.</p>
+ <p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable parentZoneName;
 
@@ -4604,35 +4634,35 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
 /**
- <p>The state of the Zone.</p>
+ <p>The state of the Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @property (nonatomic, assign) AWSEC2AvailabilityZoneState state;
 
 /**
- <p>The ID of the Zone.</p>
+ <p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable zoneId;
 
 /**
- <p>The name of the Zone.</p>
+ <p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable zoneName;
 
 /**
- <p>The type of zone. The valid values are <code>availability-zone</code> and <code>local-zone</code>.</p>
+ <p>The type of zone. The valid values are <code>availability-zone</code>, <code>local-zone</code>, and <code>wavelength-zone</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable zoneType;
 
 @end
 
 /**
- <p>Describes a message about a Zone.</p>
+ <p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @interface AWSEC2AvailabilityZoneMessage : AWSModel
 
 
 /**
- <p>The message about the Zone.</p>
+ <p>The message about the Availability Zone, Local Zone, or Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -5362,6 +5392,39 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ARN of the targeted Capacity Reservation group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable capacityReservationResourceGroupArn;
+
+@end
+
+/**
+ <p>Describes a carrier gateway.</p>
+ */
+@interface AWSEC2CarrierGateway : AWSModel
+
+
+/**
+ <p>The ID of the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
+
+/**
+ <p>The AWS account ID of the owner of the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
+ <p>The state of the carrier gateway.</p>
+ */
+@property (nonatomic, assign) AWSEC2CarrierGatewayState state;
+
+/**
+ <p>The tags assigned to the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the VPC associated with the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
 
 @end
 
@@ -6430,6 +6493,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the Capacity Reservation.</p>
  */
 @property (nonatomic, strong) AWSEC2CapacityReservation * _Nullable capacityReservation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCarrierGatewayRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The tags to associate with the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the VPC to associate with the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateCarrierGatewayResult : AWSModel
+
+
+/**
+ <p>Information about the carrier gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2CarrierGateway * _Nullable carrierGateway;
 
 @end
 
@@ -7858,6 +7962,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2CreateRouteRequest : AWSRequest
 
+
+/**
+ <p>The ID of the carrier gateway.</p><p>You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
 
 /**
  <p>The IPv4 CIDR address block used for the destination match. Routing decisions are based on the most specific match. We modify the specified CIDR block to its canonical form; for example, if you specify <code>100.68.0.18/18</code>, we modify it to <code>100.68.0.0/18</code>.</p>
@@ -9364,6 +9473,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The type of VPN connection the customer gateway supports (<code>ipsec.1</code>).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteCarrierGatewayRequest : AWSRequest
+
+
+/**
+ <p>The ID of the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteCarrierGatewayResult : AWSModel
+
+
+/**
+ <p>Information about the carrier gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2CarrierGateway * _Nullable carrierGateway;
 
 @end
 
@@ -11054,7 +11194,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - The location from where the IP address is advertised.</p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The AWS account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where AWS advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The AWS account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -11116,7 +11256,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Include all Availability Zones and Local Zones regardless of your opt in status.</p><p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
+ <p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.</p><p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allAvailabilityZones;
 
@@ -11126,17 +11266,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt in status (<code>opted-in</code>, and <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p>The ID of the zone that handles some of the Local Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone or Local Zone (<code>available</code> | <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>) or the Local Zone (for example, use <code>usw2-lax1-az1</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>) or the Local Zone (for example, use <code>us-west-2-lax-1a</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>message</code> - The Zone message.</p></li><li><p><code>opt-in-status</code> - The opt-in status (<code>opted-in</code>, and <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p></li><li><p><code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p></li><li><p><code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p></li><li><p><code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code> | <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</p></li><li><p><code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li><li><p><code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p></li><li><p><code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The IDs of the Zones.</p>
+ <p>The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable zoneIds;
 
 /**
- <p>The names of the Zones.</p>
+ <p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable zoneNames;
 
@@ -11149,7 +11289,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Information about the Zones.</p>
+ <p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2AvailabilityZone *> * _Nullable availabilityZones;
 
@@ -11275,6 +11415,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the Capacity Reservations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2CapacityReservation *> * _Nullable capacityReservations;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeCarrierGatewaysRequest : AWSRequest
+
+
+/**
+ <p>One or more carrier gateway IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable carrierGatewayIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>carrier-gateway-id</code> - The ID of the carrier gateway.</p></li><li><p><code>state</code> - The state of the carrier gateway (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner of the carrier gateway.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC associated with the carrier gateway.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeCarrierGatewaysResult : AWSModel
+
+
+/**
+ <p>Information about the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2CarrierGateway *> * _Nullable carrierGateways;
 
 /**
  <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
@@ -17582,7 +17773,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code> volumes in most Regions. Maximum <code>io1</code> IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
+ <p>The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000 IOPS for <code>io1</code> volumes in most Regions. Maximum <code>io1</code> IOPS of 64,000 is guaranteed only on <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
@@ -21847,7 +22038,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicDnsName;
 
 /**
- <p>The public IPv4 address assigned to the instance, if applicable.</p>
+ <p>The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.</p><p>A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIpAddress;
 
@@ -22373,6 +22564,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>The carrier IP address associated with the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierIp;
+
+/**
  <p>The ID of the owner of the Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipOwnerId;
@@ -22427,6 +22623,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2InstanceNetworkInterfaceSpecification : AWSModel
 
+
+/**
+ <p>Indicates whether to assign a carrier IP address to the network interface.</p><p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
  <p>Indicates whether to assign a public IPv4 address to an instance you launch in a VPC. The public IP address can only be assigned to a network interface for eth0, and can only be assigned to a new network interface, not an existing one. You cannot specify more than one network interface in the request. If launching into a default subnet, the default value is <code>true</code>.</p>
@@ -23772,6 +23973,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>Indicates whether to associate a Carrier IP address with eth0 for a new network interface.</p><p>Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>AWS Wavelength Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
+
+/**
  <p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associatePublicIpAddress;
@@ -23843,6 +24049,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2LaunchTemplateInstanceNetworkInterfaceSpecificationRequest : AWSModel
 
+
+/**
+ <p>Associates a Carrier IP address with eth0 for a new network interface.</p><p>Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <a href="https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip">Carrier IP addresses</a> in the <i>AWS Wavelength Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
 /**
  <p>Associates a public IPv4 address with eth0 for a new network interface.</p>
@@ -24702,12 +24913,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The name of the Availability Zone Group.</p>
+ <p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>Indicates whether to enable or disable membership. The valid values are <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">AWS Support</a> to disable an Availability Zone group.</p>
+ <p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is <code>opted-in</code>. You must contact <a href="https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services">AWS Support</a> to opt out of a Local Zone group, or Wavelength Zone group.</p>
  */
 @property (nonatomic, assign) AWSEC2ModifyAvailabilityZoneOptInStatus optInStatus;
 
@@ -26558,17 +26769,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IKEVersionsRequestListValue *> * _Nullable IKEVersions;
 
 /**
- <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
+ <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1DHGroupNumbersRequestListValue *> * _Nullable phase1DHGroupNumbers;
 
 /**
- <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code></p>
+ <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1EncryptionAlgorithmsRequestListValue *> * _Nullable phase1EncryptionAlgorithms;
 
 /**
- <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code></p>
+ <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1IntegrityAlgorithmsRequestListValue *> * _Nullable phase1IntegrityAlgorithms;
 
@@ -26578,17 +26789,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable phase1LifetimeSeconds;
 
 /**
- <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
+ <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2DHGroupNumbersRequestListValue *> * _Nullable phase2DHGroupNumbers;
 
 /**
- <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code></p>
+ <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2EncryptionAlgorithmsRequestListValue *> * _Nullable phase2EncryptionAlgorithms;
 
 /**
- <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code></p>
+ <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2IntegrityAlgorithmsRequestListValue *> * _Nullable phase2IntegrityAlgorithms;
 
@@ -26618,9 +26829,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable replayWindowSize;
 
 /**
- <p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p><p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p><ul><li><p><code>169.254.0.0/30</code></p></li><li><p><code>169.254.1.0/30</code></p></li><li><p><code>169.254.2.0/30</code></p></li><li><p><code>169.254.3.0/30</code></p></li><li><p><code>169.254.4.0/30</code></p></li><li><p><code>169.254.5.0/30</code></p></li><li><p><code>169.254.169.252/30</code></p></li></ul>
+ <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p><p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p><ul><li><p><code>169.254.0.0/30</code></p></li><li><p><code>169.254.1.0/30</code></p></li><li><p><code>169.254.2.0/30</code></p></li><li><p><code>169.254.3.0/30</code></p></li><li><p><code>169.254.4.0/30</code></p></li><li><p><code>169.254.5.0/30</code></p></li><li><p><code>169.254.169.252/30</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable tunnelInsideCidr;
+
+/**
+ <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p><p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tunnelInsideIpv6Cidr;
 
 @end
 
@@ -27084,7 +27300,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes association information for an Elastic IP address (IPv4 only).</p>
+ <p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier IP address (for a network interface which resides in a subnet in a Wavelength Zone).</p>
  */
 @interface AWSEC2NetworkInterfaceAssociation : AWSModel
 
@@ -27100,6 +27316,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable associationId;
 
 /**
+ <p>The carrier IP address associated with the network interface.</p><p>This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierIp;
+
+/**
+ <p>The customer-owned IP address associated with the network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerOwnedIp;
+
+/**
  <p>The ID of the Elastic IP address owner.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipOwnerId;
@@ -27110,7 +27336,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicDnsName;
 
 /**
- <p>The address of the Elastic IP address bound to the network interface.</p>
+ <p>The address of the Elastic IP address or Carrier IP address bound to the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -28841,7 +29067,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The location that the IP address is released from.</p><p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p><note><p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p></note>
+ <p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.</p><p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p><note><p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html">Error Codes</a>.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -29027,6 +29253,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2ReplaceRouteRequest : AWSRequest
 
+
+/**
+ <p>[IPv4 traffic only] The ID of a carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
 
 /**
  <p>The IPv4 CIDR address block used for the destination match. The value that you provide must match the CIDR of an existing route in the table.</p>
@@ -30573,6 +30804,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2Route : AWSModel
 
+
+/**
+ <p>The ID of the carrier gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable carrierGatewayId;
 
 /**
  <p>The IPv4 CIDR block used for the destination match.</p>
@@ -34799,9 +35035,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable replayWindowSize;
 
 /**
- <p>The range of inside IP addresses for the tunnel.</p>
+ <p>The range of inside IPv4 addresses for the tunnel.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable tunnelInsideCidr;
+
+/**
+ <p>The range of inside IPv6 addresses for the tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tunnelInsideIpv6Cidr;
 
 @end
 
@@ -35622,7 +35863,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2VpcCidrBlockAssociation *> * _Nullable cidrBlockAssociationSet;
 
 /**
- <p>The ID of the set of DHCP options you've associated with the VPC (or <code>default</code> if the default options are associated with the VPC).</p>
+ <p>The ID of the set of DHCP options you've associated with the VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dhcpOptionsId;
 
@@ -35908,7 +36149,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipv6Pool;
 
 /**
- <p>The name of the location from which we advertise the IPV6 CIDR block.</p>
+ <p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, <code>us-east-1-wl1-bos-wlz-1</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -36121,6 +36362,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
 
 /**
+ <p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>
+ */
+@property (nonatomic, assign) AWSEC2TunnelInsideIpVersion tunnelInsideIpVersion;
+
+/**
  <p>Indicates the VPN tunnel options.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TunnelOption *> * _Nullable tunnelOptions;
@@ -36142,6 +36388,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p><p>Default: <code>false</code></p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable staticRoutesOnly;
+
+/**
+ <p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p><p>Default: <code>ipv4</code></p>
+ */
+@property (nonatomic, assign) AWSEC2TunnelInsideIpVersion tunnelInsideIpVersion;
 
 /**
  <p>The tunnel options for the VPN connection.</p>
@@ -36233,17 +36484,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IKEVersionsRequestListValue *> * _Nullable IKEVersions;
 
 /**
- <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
+ <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1DHGroupNumbersRequestListValue *> * _Nullable phase1DHGroupNumbers;
 
 /**
- <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code></p>
+ <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1EncryptionAlgorithmsRequestListValue *> * _Nullable phase1EncryptionAlgorithms;
 
 /**
- <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code></p>
+ <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase1IntegrityAlgorithmsRequestListValue *> * _Nullable phase1IntegrityAlgorithms;
 
@@ -36253,17 +36504,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable phase1LifetimeSeconds;
 
 /**
- <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
+ <p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2DHGroupNumbersRequestListValue *> * _Nullable phase2DHGroupNumbers;
 
 /**
- <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code></p>
+ <p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2EncryptionAlgorithmsRequestListValue *> * _Nullable phase2EncryptionAlgorithms;
 
 /**
- <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code></p>
+ <p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p><p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code></p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Phase2IntegrityAlgorithmsRequestListValue *> * _Nullable phase2IntegrityAlgorithms;
 
@@ -36293,9 +36544,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable replayWindowSize;
 
 /**
- <p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p><p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p><ul><li><p><code>169.254.0.0/30</code></p></li><li><p><code>169.254.1.0/30</code></p></li><li><p><code>169.254.2.0/30</code></p></li><li><p><code>169.254.3.0/30</code></p></li><li><p><code>169.254.4.0/30</code></p></li><li><p><code>169.254.5.0/30</code></p></li><li><p><code>169.254.169.252/30</code></p></li></ul>
+ <p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p><p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p><ul><li><p><code>169.254.0.0/30</code></p></li><li><p><code>169.254.1.0/30</code></p></li><li><p><code>169.254.2.0/30</code></p></li><li><p><code>169.254.3.0/30</code></p></li><li><p><code>169.254.4.0/30</code></p></li><li><p><code>169.254.5.0/30</code></p></li><li><p><code>169.254.169.252/30</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable tunnelInsideCidr;
+
+/**
+ <p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p><p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tunnelInsideIpv6Cidr;
 
 @end
 
