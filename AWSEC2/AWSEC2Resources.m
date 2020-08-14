@@ -138,7 +138,7 @@
       },\
       \"input\":{\"shape\":\"AllocateAddressRequest\"},\
       \"output\":{\"shape\":\"AllocateAddressResult\"},\
-      \"documentation\":\"<p>Allocates an Elastic IP address to your AWS account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different AWS account.</p> <p>You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Allocates an Elastic IP address to your AWS account. After you allocate the Elastic IP address you can associate it with an instance or network interface. After you release an Elastic IP address, it is released to the IP address pool and can be allocated to a different AWS account.</p> <p>You can allocate an Elastic IP address from an address pool owned by AWS or from an address pool created from a public IPv4 address range that you have brought to AWS for use with your AWS resources using bring your own IP addresses (BYOIP). For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html\\\">Bring Your Own IP Addresses (BYOIP)</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-VPC] If you release an Elastic IP address, you might be able to recover it. You cannot recover an Elastic IP address that you released after it is allocated to another AWS account. You cannot recover an Elastic IP address for EC2-Classic. To attempt to recover an Elastic IP address that you released, specify it in this operation.</p> <p>An Elastic IP address is for use either in the EC2-Classic platform or in a VPC. By default, you can allocate 5 Elastic IP addresses for EC2-Classic per Region and 5 Elastic IP addresses for EC2-VPC per Region.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>You can allocate a carrier IP address which is a public IP address from a telecommunication carrier, to a network interface which resides in a subnet in a Wavelength Zone (for example an EC2 instance). </p>\"\
     },\
     \"AllocateHosts\":{\
       \"name\":\"AllocateHosts\",\
@@ -188,7 +188,7 @@
       },\
       \"input\":{\"shape\":\"AssociateAddressRequest\"},\
       \"output\":{\"shape\":\"AssociateAddressResult\"},\
-      \"documentation\":\"<p>Associates an Elastic IP address with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.</p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\\\"http://aws.amazon.com/ec2/pricing/\\\">Amazon EC2 Pricing</a>.</p> </important>\"\
+      \"documentation\":\"<p>Associates an Elastic IP address, or carrier IP address (for instances that are in subnets in Wavelength Zones) with an instance or a network interface. Before you can use an Elastic IP address, you must allocate it to your account.</p> <p>An Elastic IP address is for use in either the EC2-Classic platform or in a VPC. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/elastic-ip-addresses-eip.html\\\">Elastic IP Addresses</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>[EC2-Classic, VPC in an EC2-VPC-only account] If the Elastic IP address is already associated with a different instance, it is disassociated from that instance and associated with the specified instance. If you associate an Elastic IP address with an instance that has an existing Elastic IP address, the existing address is disassociated from the instance, but remains allocated to your account.</p> <p>[VPC in an EC2-Classic account] If you don't specify a private IP address, the Elastic IP address is associated with the primary IP address. If the Elastic IP address is already associated with a different instance or a network interface, you get an error unless you allow reassociation. You cannot associate an Elastic IP address with an instance or network interface that has an existing Elastic IP address.</p> <p>[Subnets in Wavelength Zones] You can associate an IP address from the telecommunication carrier to the instance or network interface. </p> <p>You cannot associate an Elastic IP address with an interface in a different network border group.</p> <important> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error, and you may be charged for each time the Elastic IP address is remapped to the same instance. For more information, see the <i>Elastic IP Addresses</i> section of <a href=\\\"http://aws.amazon.com/ec2/pricing/\\\">Amazon EC2 Pricing</a>.</p> </important>\"\
     },\
     \"AssociateClientVpnTargetNetwork\":{\
       \"name\":\"AssociateClientVpnTargetNetwork\",\
@@ -483,6 +483,16 @@
       \"input\":{\"shape\":\"CreateCapacityReservationRequest\"},\
       \"output\":{\"shape\":\"CreateCapacityReservationResult\"},\
       \"documentation\":\"<p>Creates a new Capacity Reservation with the specified attributes.</p> <p>Capacity Reservations enable you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration. This gives you the flexibility to selectively add capacity reservations and still get the Regional RI discounts for that usage. By creating Capacity Reservations, you ensure that you always have access to Amazon EC2 capacity when you need it, for as long as you need it. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html\\\">Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Your request to create a Capacity Reservation could fail if Amazon EC2 does not have sufficient capacity to fulfill the request. If your request fails due to Amazon EC2 capacity constraints, either try again at a later time, try in a different Availability Zone, or request a smaller capacity reservation. If your application is flexible across instance types and sizes, try to create a Capacity Reservation with different instance attributes.</p> <p>Your request could also fail if the requested quantity exceeds your On-Demand Instance limit for the selected instance type. If your request fails due to limit constraints, increase your On-Demand Instance limit for the required instance type and try again. For more information about increasing your instance limits, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-resource-limits.html\\\">Amazon EC2 Service Limits</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+    },\
+    \"CreateCarrierGateway\":{\
+      \"name\":\"CreateCarrierGateway\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"CreateCarrierGatewayRequest\"},\
+      \"output\":{\"shape\":\"CreateCarrierGatewayResult\"},\
+      \"documentation\":\"<p>Creates a carrier gateway. For more information about carrier gateways, see <a href=\\\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#wavelength-carrier-gateway\\\">Carrier gateways</a> in the <i>AWS Wavelength Developer Guide</i>.</p>\"\
     },\
     \"CreateClientVpnEndpoint\":{\
       \"name\":\"CreateClientVpnEndpoint\",\
@@ -990,7 +1000,7 @@
       },\
       \"input\":{\"shape\":\"CreateVpnConnectionRequest\"},\
       \"output\":{\"shape\":\"CreateVpnConnectionResult\"},\
-      \"documentation\":\"<p>Creates a VPN connection between an existing virtual private gateway and a VPN customer gateway. The supported connection type is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Creates a VPN connection between an existing virtual private gateway or transit gateway and a customer gateway. The supported connection type is <code>ipsec.1</code>.</p> <p>The response includes information that you need to give to your network administrator to configure your customer gateway.</p> <important> <p>We strongly recommend that you use HTTPS when calling this operation because the response contains sensitive cryptographic information for configuring your customer gateway device.</p> </important> <p>If you decide to shut down your VPN connection for any reason and later create a new VPN connection, you must reconfigure your customer gateway with the new information returned from this call.</p> <p>This is an idempotent operation. If you perform the operation more than once, Amazon EC2 doesn't return an error.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
     },\
     \"CreateVpnConnectionRoute\":{\
       \"name\":\"CreateVpnConnectionRoute\",\
@@ -1010,6 +1020,16 @@
       \"input\":{\"shape\":\"CreateVpnGatewayRequest\"},\
       \"output\":{\"shape\":\"CreateVpnGatewayResult\"},\
       \"documentation\":\"<p>Creates a virtual private gateway. A virtual private gateway is the endpoint on the VPC side of your VPN connection. You can create a virtual private gateway before creating the VPC itself.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/s2svpn/VPC_VPN.html\\\">AWS Site-to-Site VPN</a> in the <i>AWS Site-to-Site VPN User Guide</i>.</p>\"\
+    },\
+    \"DeleteCarrierGateway\":{\
+      \"name\":\"DeleteCarrierGateway\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DeleteCarrierGatewayRequest\"},\
+      \"output\":{\"shape\":\"DeleteCarrierGatewayResult\"},\
+      \"documentation\":\"<p>Deletes a carrier gateway.</p> <important> <p>If you do not delete the route that contains the carrier gateway as the Target, the route is a blackhole route. For information about how to delete a route, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DeleteRoute.html\\\">DeleteRoute</a>.</p> </important>\"\
     },\
     \"DeleteClientVpnEndpoint\":{\
       \"name\":\"DeleteClientVpnEndpoint\",\
@@ -1558,7 +1578,7 @@
       },\
       \"input\":{\"shape\":\"DescribeAvailabilityZonesRequest\"},\
       \"output\":{\"shape\":\"DescribeAvailabilityZonesResult\"},\
-      \"documentation\":\"<p>Describes the Availability Zones and Local Zones that are available to you. If there is an event impacting an Availability Zone or Local Zone, you can use this request to view the state and any provided messages for that Availability Zone or Local Zone.</p> <p>For more information about Availability Zones and Local Zones, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\">Regions and Availability Zones</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
+      \"documentation\":\"<p>Describes the Availability Zones, Local Zones, and Wavelength Zones that are available to you. If there is an event impacting a zone, you can use this request to view the state and any provided messages for that zone.</p> <p>For more information about Availability Zones, Local Zones, and Wavelength Zones, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-regions-availability-zones.html\\\">Regions, Zones and Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>\"\
     },\
     \"DescribeBundleTasks\":{\
       \"name\":\"DescribeBundleTasks\",\
@@ -1589,6 +1609,16 @@
       \"input\":{\"shape\":\"DescribeCapacityReservationsRequest\"},\
       \"output\":{\"shape\":\"DescribeCapacityReservationsResult\"},\
       \"documentation\":\"<p>Describes one or more of your Capacity Reservations. The results describe only the Capacity Reservations in the AWS Region that you're currently using.</p>\"\
+    },\
+    \"DescribeCarrierGateways\":{\
+      \"name\":\"DescribeCarrierGateways\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribeCarrierGatewaysRequest\"},\
+      \"output\":{\"shape\":\"DescribeCarrierGatewaysResult\"},\
+      \"documentation\":\"<p>Describes one or more of your carrier gateways.</p>\"\
     },\
     \"DescribeClassicLinkInstances\":{\
       \"name\":\"DescribeClassicLinkInstances\",\
@@ -3210,7 +3240,7 @@
       },\
       \"input\":{\"shape\":\"ModifyAvailabilityZoneGroupRequest\"},\
       \"output\":{\"shape\":\"ModifyAvailabilityZoneGroupResult\"},\
-      \"documentation\":\"<p>Enables or disables an Availability Zone group for your account.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\"> DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>\"\
+      \"documentation\":\"<p>Changes the opt-in status of the Local Zone and Wavelength Zone group for your account.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\"> DescribeAvailabilityZones</a> to view the value for <code>GroupName</code>.</p>\"\
     },\
     \"ModifyCapacityReservation\":{\
       \"name\":\"ModifyCapacityReservation\",\
@@ -4432,7 +4462,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the location from which the IP address is advertised.</p>\",\
+          \"documentation\":\"<p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. </p>\",\
           \"locationName\":\"networkBorderGroup\"\
         },\
         \"CustomerOwnedIp\":{\
@@ -4444,9 +4474,14 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
           \"locationName\":\"customerOwnedIpv4Pool\"\
+        },\
+        \"CarrierIp\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The carrier IP address associated. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>\",\
+          \"locationName\":\"carrierIp\"\
         }\
       },\
-      \"documentation\":\"<p>Describes an Elastic IP address.</p>\"\
+      \"documentation\":\"<p>Describes an Elastic IP address, or a carrier IP address.</p>\"\
     },\
     \"AddressList\":{\
       \"type\":\"list\",\
@@ -4503,7 +4538,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The location from which the IP address is advertised. Use this parameter to limit the address to this location.</p> <p>A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises IP addresses and limits the addresses to the group. IP addresses cannot move between network border groups.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\">DescribeAvailabilityZones</a> to view the network border groups.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
+          \"documentation\":\"<p> A unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses. Use this parameter to limit the IP address to this location. IP addresses cannot move between network border groups.</p> <p>Use <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAvailabilityZones.html\\\">DescribeAvailabilityZones</a> to view the network border groups.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
         },\
         \"CustomerOwnedIpv4Pool\":{\
           \"shape\":\"String\",\
@@ -4536,7 +4571,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The location from which the IP address is advertised.</p>\",\
+          \"documentation\":\"<p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.</p>\",\
           \"locationName\":\"networkBorderGroup\"\
         },\
         \"Domain\":{\
@@ -4553,6 +4588,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the customer-owned address pool.</p>\",\
           \"locationName\":\"customerOwnedIpv4Pool\"\
+        },\
+        \"CarrierIp\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The carrier IP address. This option is only available for network interfaces which reside in a subnet in a Wavelength Zone (for example an EC2 instance). </p>\",\
+          \"locationName\":\"carrierIp\"\
         }\
       }\
     },\
@@ -5120,7 +5160,7 @@
         },\
         \"Ipv6CidrBlockNetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CiDR block to this location.</p> <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> <p> You can have one IPv6 CIDR block association per network border group.</p>\"\
+          \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block. Use this parameter to limit the CIDR block to this location.</p> <p> You must set <code>AmazonProvidedIpv6CidrBlock</code> to <code>true</code> to use this parameter.</p> <p> You can have one IPv6 CIDR block association per network border group.</p>\"\
         },\
         \"Ipv6Pool\":{\
           \"shape\":\"Ipv6PoolEc2Id\",\
@@ -5618,17 +5658,17 @@
       \"members\":{\
         \"State\":{\
           \"shape\":\"AvailabilityZoneState\",\
-          \"documentation\":\"<p>The state of the Zone.</p>\",\
+          \"documentation\":\"<p>The state of the Availability Zone, Local Zone, or Wavelength Zone.</p>\",\
           \"locationName\":\"zoneState\"\
         },\
         \"OptInStatus\":{\
           \"shape\":\"AvailabilityZoneOptInStatus\",\
-          \"documentation\":\"<p> For Availability Zones, this parameter always has the value of <code>opt-in-not-required</code>.</p> <p>For Local Zones, this parameter is the opt in status. The possible values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>\",\
+          \"documentation\":\"<p>For Availability Zones, this parameter always has the value of <code>opt-in-not-required</code>.</p> <p>For Local Zones and Wavelength Zones, this parameter is the opt-in status. The possible values are <code>opted-in</code>, and <code>not-opted-in</code>.</p>\",\
           \"locationName\":\"optInStatus\"\
         },\
         \"Messages\":{\
           \"shape\":\"AvailabilityZoneMessageList\",\
-          \"documentation\":\"<p>Any messages about the Zone.</p>\",\
+          \"documentation\":\"<p>Any messages about the Availability Zone, Local Zone, or Wavelength Zone.</p>\",\
           \"locationName\":\"messageSet\"\
         },\
         \"RegionName\":{\
@@ -5638,41 +5678,41 @@
         },\
         \"ZoneName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the Zone.</p>\",\
+          \"documentation\":\"<p>The name of the Availability Zone, Local Zone, or Wavelength Zone.</p>\",\
           \"locationName\":\"zoneName\"\
         },\
         \"ZoneId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the Zone.</p>\",\
+          \"documentation\":\"<p>The ID of the Availability Zone, Local Zone, or Wavelength Zone.</p>\",\
           \"locationName\":\"zoneId\"\
         },\
         \"GroupName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p> For Availability Zones, this parameter has the same value as the Region name.</p> <p>For Local Zones, the name of the associated group, for example <code>us-west-2-lax-1</code>.</p>\",\
+          \"documentation\":\"<p> For Availability Zones, this parameter has the same value as the Region name.</p> <p>For Local Zones, the name of the associated group, for example <code>us-west-2-lax-1</code>.</p> <p>For Wavelength Zones, the name of the associated group, for example <code>us-east-1-wl1-bos-wlz-1</code>.</p>\",\
           \"locationName\":\"groupName\"\
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the location from which the address is advertised.</p>\",\
+          \"documentation\":\"<p>The name of the network border group.</p>\",\
           \"locationName\":\"networkBorderGroup\"\
         },\
         \"ZoneType\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The type of zone. The valid values are <code>availability-zone</code> and <code>local-zone</code>.</p>\",\
+          \"documentation\":\"<p>The type of zone. The valid values are <code>availability-zone</code>, <code>local-zone</code>, and <code>wavelength-zone</code>.</p>\",\
           \"locationName\":\"zoneType\"\
         },\
         \"ParentZoneName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the zone that handles some of the Local Zone control plane operations, such as API calls.</p>\",\
+          \"documentation\":\"<p>The name of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.</p>\",\
           \"locationName\":\"parentZoneName\"\
         },\
         \"ParentZoneId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the zone that handles some of the Local Zone control plane operations, such as API calls.</p>\",\
+          \"documentation\":\"<p>The ID of the zone that handles some of the Local Zone or Wavelength Zone control plane operations, such as API calls.</p>\",\
           \"locationName\":\"parentZoneId\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a Zone.</p>\"\
+      \"documentation\":\"<p>Describes Availability Zones, Local Zones, and Wavelength Zones.</p>\"\
     },\
     \"AvailabilityZoneList\":{\
       \"type\":\"list\",\
@@ -5686,11 +5726,11 @@
       \"members\":{\
         \"Message\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The message about the Zone.</p>\",\
+          \"documentation\":\"<p>The message about the Availability Zone, Local Zone, or Wavelength Zone.</p>\",\
           \"locationName\":\"message\"\
         }\
       },\
-      \"documentation\":\"<p>Describes a message about a Zone.</p>\"\
+      \"documentation\":\"<p>Describes a message about an Availability Zone, Local Zone, or Wavelength Zone.</p>\"\
     },\
     \"AvailabilityZoneMessageList\":{\
       \"type\":\"list\",\
@@ -6451,8 +6491,7 @@
         \"Windows with SQL Server Web\",\
         \"Linux with SQL Server Standard\",\
         \"Linux with SQL Server Web\",\
-        \"Linux with SQL Server Enterprise\",\
-        \"Windows BYOL\"\
+        \"Linux with SQL Server Enterprise\"\
       ]\
     },\
     \"CapacityReservationOptions\":{\
@@ -6565,6 +6604,63 @@
       \"enum\":[\
         \"default\",\
         \"dedicated\"\
+      ]\
+    },\
+    \"CarrierGateway\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CarrierGatewayId\":{\
+          \"shape\":\"CarrierGatewayId\",\
+          \"documentation\":\"<p>The ID of the carrier gateway.</p>\",\
+          \"locationName\":\"carrierGatewayId\"\
+        },\
+        \"VpcId\":{\
+          \"shape\":\"VpcId\",\
+          \"documentation\":\"<p>The ID of the VPC associated with the carrier gateway.</p>\",\
+          \"locationName\":\"vpcId\"\
+        },\
+        \"State\":{\
+          \"shape\":\"CarrierGatewayState\",\
+          \"documentation\":\"<p>The state of the carrier gateway.</p>\",\
+          \"locationName\":\"state\"\
+        },\
+        \"OwnerId\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The AWS account ID of the owner of the carrier gateway.</p>\",\
+          \"locationName\":\"ownerId\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>The tags assigned to the carrier gateway.</p>\",\
+          \"locationName\":\"tagSet\"\
+        }\
+      },\
+      \"documentation\":\"<p>Describes a carrier gateway.</p>\"\
+    },\
+    \"CarrierGatewayId\":{\"type\":\"string\"},\
+    \"CarrierGatewayIdSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"CarrierGatewayId\"}\
+    },\
+    \"CarrierGatewayMaxResults\":{\
+      \"type\":\"integer\",\
+      \"max\":1000,\
+      \"min\":5\
+    },\
+    \"CarrierGatewaySet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"CarrierGateway\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
+    \"CarrierGatewayState\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"pending\",\
+        \"available\",\
+        \"deleting\",\
+        \"deleted\"\
       ]\
     },\
     \"CertificateAuthentication\":{\
@@ -7735,6 +7831,40 @@
           \"shape\":\"CapacityReservation\",\
           \"documentation\":\"<p>Information about the Capacity Reservation.</p>\",\
           \"locationName\":\"capacityReservation\"\
+        }\
+      }\
+    },\
+    \"CreateCarrierGatewayRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"VpcId\"],\
+      \"members\":{\
+        \"VpcId\":{\
+          \"shape\":\"VpcId\",\
+          \"documentation\":\"<p>The ID of the VPC to associate with the carrier gateway.</p>\"\
+        },\
+        \"TagSpecifications\":{\
+          \"shape\":\"TagSpecificationList\",\
+          \"documentation\":\"<p>The tags to associate with the carrier gateway.</p>\",\
+          \"locationName\":\"TagSpecification\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html\\\">How to Ensure Idempotency</a>.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"CreateCarrierGatewayResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CarrierGateway\":{\
+          \"shape\":\"CarrierGateway\",\
+          \"documentation\":\"<p>Information about the carrier gateway.</p>\",\
+          \"locationName\":\"carrierGateway\"\
         }\
       }\
     },\
@@ -9060,6 +9190,10 @@
         \"LocalGatewayId\":{\
           \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\"\
+        },\
+        \"CarrierGatewayId\":{\
+          \"shape\":\"CarrierGatewayId\",\
+          \"documentation\":\"<p>The ID of the carrier gateway.</p> <p>You can only use this option when the VPC contains a subnet which is associated with a Wavelength Zone.</p>\"\
         },\
         \"NetworkInterfaceId\":{\
           \"shape\":\"NetworkInterfaceId\",\
@@ -10393,6 +10527,30 @@
       ]\
     },\
     \"DefaultingDhcpOptionsId\":{\"type\":\"string\"},\
+    \"DeleteCarrierGatewayRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"CarrierGatewayId\"],\
+      \"members\":{\
+        \"CarrierGatewayId\":{\
+          \"shape\":\"CarrierGatewayId\",\
+          \"documentation\":\"<p>The ID of the carrier gateway.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DeleteCarrierGatewayResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CarrierGateway\":{\
+          \"shape\":\"CarrierGateway\",\
+          \"documentation\":\"<p>Information about the carrier gateway.</p>\",\
+          \"locationName\":\"carrierGateway\"\
+        }\
+      }\
+    },\
     \"DeleteClientVpnEndpointRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"ClientVpnEndpointId\"],\
@@ -11830,7 +11988,7 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p> </li> <li> <p> <code>association-id</code> - [EC2-VPC] The association ID for the address.</p> </li> <li> <p> <code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance the address is associated with, if any.</p> </li> <li> <p> <code>network-border-group</code> - The location from where the IP address is advertised.</p> </li> <li> <p> <code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p> </li> <li> <p> <code>network-interface-owner-id</code> - The AWS account ID of the owner.</p> </li> <li> <p> <code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p> </li> <li> <p> <code>public-ip</code> - The Elastic IP address.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
+          \"documentation\":\"<p>One or more filters. Filter names and values are case-sensitive.</p> <ul> <li> <p> <code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p> </li> <li> <p> <code>association-id</code> - [EC2-VPC] The association ID for the address.</p> </li> <li> <p> <code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p> </li> <li> <p> <code>instance-id</code> - The ID of the instance the address is associated with, if any.</p> </li> <li> <p> <code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where AWS advertises IP addresses. </p> </li> <li> <p> <code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p> </li> <li> <p> <code>network-interface-owner-id</code> - The AWS account ID of the owner.</p> </li> <li> <p> <code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p> </li> <li> <p> <code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"PublicIps\":{\
@@ -11889,22 +12047,22 @@
       \"members\":{\
         \"Filters\":{\
           \"shape\":\"FilterList\",\
-          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>).</p> </li> <li> <p> <code>message</code> - The Zone message.</p> </li> <li> <p> <code>opt-in-status</code> - The opt in status (<code>opted-in</code>, and <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p> </li> <li> <p>The ID of the zone that handles some of the Local Zone control plane operations, such as API calls.</p> </li> <li> <p> <code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p> </li> <li> <p> <code>state</code> - The state of the Availability Zone or Local Zone (<code>available</code> | <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>) or the Local Zone (for example, use <code>usw2-lax1-az1</code>).</p> </li> <li> <p> <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p> </li> <li> <p> <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>) or the Local Zone (for example, use <code>us-west-2-lax-1a</code>).</p> </li> <li> <p> <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The filters.</p> <ul> <li> <p> <code>group-name</code> - For Availability Zones, use the Region name. For Local Zones, use the name of the group associated with the Local Zone (for example, <code>us-west-2-lax-1</code>) For Wavelength Zones, use the name of the group associated with the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p> </li> <li> <p> <code>message</code> - The Zone message.</p> </li> <li> <p> <code>opt-in-status</code> - The opt-in status (<code>opted-in</code>, and <code>not-opted-in</code> | <code>opt-in-not-required</code>).</p> </li> <li> <p> <code>parent-zoneID</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p> </li> <li> <p> <code>parent-zoneName</code> - The ID of the zone that handles some of the Local Zone and Wavelength Zone control plane operations, such as API calls.</p> </li> <li> <p> <code>region-name</code> - The name of the Region for the Zone (for example, <code>us-east-1</code>).</p> </li> <li> <p> <code>state</code> - The state of the Availability Zone, the Local Zone, or the Wavelength Zone (<code>available</code> | <code>information</code> | <code>impaired</code> | <code>unavailable</code>).</p> </li> <li> <p> <code>zone-id</code> - The ID of the Availability Zone (for example, <code>use1-az1</code>), the Local Zone (for example, <code>usw2-lax1-az1</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p> </li> <li> <p> <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p> </li> <li> <p> <code>zone-name</code> - The name of the Availability Zone (for example, <code>us-east-1a</code>), the Local Zone (for example, <code>us-west-2-lax-1a</code>), or the Wavelength Zone (for example, <code>us-east-1-wl1-bos-wlz-1</code>).</p> </li> <li> <p> <code>zone-type</code> - The type of zone, for example, <code>local-zone</code>.</p> </li> </ul>\",\
           \"locationName\":\"Filter\"\
         },\
         \"ZoneNames\":{\
           \"shape\":\"ZoneNameStringList\",\
-          \"documentation\":\"<p>The names of the Zones.</p>\",\
+          \"documentation\":\"<p>The names of the Availability Zones, Local Zones, and Wavelength Zones.</p>\",\
           \"locationName\":\"ZoneName\"\
         },\
         \"ZoneIds\":{\
           \"shape\":\"ZoneIdStringList\",\
-          \"documentation\":\"<p>The IDs of the Zones.</p>\",\
+          \"documentation\":\"<p>The IDs of the Availability Zones, Local Zones, and Wavelength Zones.</p>\",\
           \"locationName\":\"ZoneId\"\
         },\
         \"AllAvailabilityZones\":{\
           \"shape\":\"Boolean\",\
-          \"documentation\":\"<p>Include all Availability Zones and Local Zones regardless of your opt in status.</p> <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>\"\
+          \"documentation\":\"<p>Include all Availability Zones, Local Zones, and Wavelength Zones regardless of your opt-in status.</p> <p>If you do not use this parameter, the results include only the zones for the Regions where you have chosen the option to opt in.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -11918,7 +12076,7 @@
       \"members\":{\
         \"AvailabilityZones\":{\
           \"shape\":\"AvailabilityZoneList\",\
-          \"documentation\":\"<p>Information about the Zones.</p>\",\
+          \"documentation\":\"<p>Information about the Availability Zones, Local Zones, and Wavelength Zones.</p>\",\
           \"locationName\":\"availabilityZoneInfo\"\
         }\
       }\
@@ -12035,6 +12193,48 @@
           \"shape\":\"CapacityReservationSet\",\
           \"documentation\":\"<p>Information about the Capacity Reservations.</p>\",\
           \"locationName\":\"capacityReservationSet\"\
+        }\
+      }\
+    },\
+    \"DescribeCarrierGatewaysRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CarrierGatewayIds\":{\
+          \"shape\":\"CarrierGatewayIdSet\",\
+          \"documentation\":\"<p>One or more carrier gateway IDs.</p>\",\
+          \"locationName\":\"CarrierGatewayId\"\
+        },\
+        \"Filters\":{\
+          \"shape\":\"FilterList\",\
+          \"documentation\":\"<p>One or more filters.</p> <ul> <li> <p> <code>carrier-gateway-id</code> - The ID of the carrier gateway.</p> </li> <li> <p> <code>state</code> - The state of the carrier gateway (<code>pending</code> | <code>failed</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p> </li> <li> <p> <code>owner-id</code> - The AWS account ID of the owner of the carrier gateway.</p> </li> <li> <p> <code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p> </li> <li> <p> <code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p> </li> <li> <p> <code>vpc-id</code> - The ID of the VPC associated with the carrier gateway.</p> </li> </ul>\",\
+          \"locationName\":\"Filter\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"CarrierGatewayMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token for the next page of results.</p>\"\
+        },\
+        \"DryRun\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeCarrierGatewaysResult\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"CarrierGateways\":{\
+          \"shape\":\"CarrierGatewaySet\",\
+          \"documentation\":\"<p>Information about the carrier gateway.</p>\",\
+          \"locationName\":\"carrierGatewaySet\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"nextToken\"\
         }\
       }\
     },\
@@ -17720,7 +17920,7 @@
         },\
         \"Iops\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000IOPS for <code>io1</code> volumes in most Regions. Maximum <code>io1</code> IOPS of 64,000 is guaranteed only on <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\\\">Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>\",\
+          \"documentation\":\"<p>The number of I/O operations per second (IOPS) that the volume supports. For <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS volume types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Constraints: Range is 100-16,000 IOPS for <code>gp2</code> volumes and 100 to 64,000 IOPS for <code>io1</code> volumes in most Regions. Maximum <code>io1</code> IOPS of 64,000 is guaranteed only on <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances\\\">Nitro-based instances</a>. Other instance families guarantee performance up to 32,000 IOPS. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html\\\">Amazon EBS Volume Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p> <p>Condition: This parameter is required for requests to create <code>io1</code> volumes; it is not used in requests to create <code>gp2</code>, <code>st1</code>, <code>sc1</code>, or <code>standard</code> volumes.</p>\",\
           \"locationName\":\"iops\"\
         },\
         \"SnapshotId\":{\
@@ -22205,7 +22405,7 @@
         },\
         \"PublicIpAddress\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The public IPv4 address assigned to the instance, if applicable.</p>\",\
+          \"documentation\":\"<p>The public IPv4 address, or the Carrier IP address assigned to the instance, if applicable.</p> <p>A Carrier IP address only applies to an instance launched in a subnet associated with a Wavelength Zone.</p>\",\
           \"locationName\":\"ipAddress\"\
         },\
         \"RamdiskId\":{\
@@ -22932,6 +23132,11 @@
     \"InstanceNetworkInterfaceAssociation\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"CarrierIp\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The carrier IP address associated with the network interface.</p>\",\
+          \"locationName\":\"carrierIp\"\
+        },\
         \"IpOwnerId\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the owner of the Elastic IP address.</p>\",\
@@ -23052,6 +23257,10 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the subnet associated with the network interface. Applies only if creating a network interface when launching an instance.</p>\",\
           \"locationName\":\"subnetId\"\
+        },\
+        \"AssociateCarrierIpAddress\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to assign a carrier IP address to the network interface.</p> <p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.</p>\"\
         },\
         \"InterfaceType\":{\
           \"shape\":\"String\",\
@@ -23508,6 +23717,14 @@
         \"c5a.12xlarge\",\
         \"c5a.16xlarge\",\
         \"c5a.24xlarge\",\
+        \"c5ad.large\",\
+        \"c5ad.xlarge\",\
+        \"c5ad.2xlarge\",\
+        \"c5ad.4xlarge\",\
+        \"c5ad.8xlarge\",\
+        \"c5ad.12xlarge\",\
+        \"c5ad.16xlarge\",\
+        \"c5ad.24xlarge\",\
         \"c5d.large\",\
         \"c5d.xlarge\",\
         \"c5d.2xlarge\",\
@@ -24866,6 +25083,11 @@
     \"LaunchTemplateInstanceNetworkInterfaceSpecification\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"AssociateCarrierIpAddress\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Indicates whether to associate a Carrier IP address with eth0 for a new network interface.</p> <p>Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <a href=\\\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip\\\">Carrier IP addresses</a> in the <i>AWS Wavelength Developer Guide</i>.</p>\",\
+          \"locationName\":\"associateCarrierIpAddress\"\
+        },\
         \"AssociatePublicIpAddress\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicates whether to associate a public IPv4 address with eth0 for a new network interface.</p>\",\
@@ -24944,6 +25166,10 @@
     \"LaunchTemplateInstanceNetworkInterfaceSpecificationRequest\":{\
       \"type\":\"structure\",\
       \"members\":{\
+        \"AssociateCarrierIpAddress\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<p>Associates a Carrier IP address with eth0 for a new network interface.</p> <p>Use this option when you launch an instance in a Wavelength Zone and want to associate a Carrier IP address with the network interface. For more information about Carrier IP addresses, see <a href=\\\"https://docs.aws.amazon.com/wavelength/latest/developerguide/how-wavelengths-work.html#provider-owned-ip\\\">Carrier IP addresses</a> in the <i>AWS Wavelength Developer Guide</i>.</p>\"\
+        },\
         \"AssociatePublicIpAddress\":{\
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Associates a public IPv4 address with eth0 for a new network interface.</p>\"\
@@ -25986,11 +26212,11 @@
       \"members\":{\
         \"GroupName\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the Availability Zone Group.</p>\"\
+          \"documentation\":\"<p>The name of the Availability Zone group, Local Zone group, or Wavelength Zone group.</p>\"\
         },\
         \"OptInStatus\":{\
           \"shape\":\"ModifyAvailabilityZoneOptInStatus\",\
-          \"documentation\":\"<p>Indicates whether to enable or disable membership. The valid values are <code>opted-in</code>. You must contact <a href=\\\"https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services\\\">AWS Support</a> to disable an Availability Zone group.</p>\"\
+          \"documentation\":\"<p>Indicates whether you are opted in to the Local Zone group or Wavelength Zone group. The only valid value is <code>opted-in</code>. You must contact <a href=\\\"https://console.aws.amazon.com/support/home#/case/create%3FissueType=customer-service%26serviceCode=general-info%26getting-started%26categoryCode=using-aws%26services\\\">AWS Support</a> to opt out of a Local Zone group, or Wavelength Zone group.</p>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -27545,7 +27771,11 @@
       \"members\":{\
         \"TunnelInsideCidr\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p> <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p> <ul> <li> <p> <code>169.254.0.0/30</code> </p> </li> <li> <p> <code>169.254.1.0/30</code> </p> </li> <li> <p> <code>169.254.2.0/30</code> </p> </li> <li> <p> <code>169.254.3.0/30</code> </p> </li> <li> <p> <code>169.254.4.0/30</code> </p> </li> <li> <p> <code>169.254.5.0/30</code> </p> </li> <li> <p> <code>169.254.169.252/30</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p> <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p> <ul> <li> <p> <code>169.254.0.0/30</code> </p> </li> <li> <p> <code>169.254.1.0/30</code> </p> </li> <li> <p> <code>169.254.2.0/30</code> </p> </li> <li> <p> <code>169.254.3.0/30</code> </p> </li> <li> <p> <code>169.254.4.0/30</code> </p> </li> <li> <p> <code>169.254.5.0/30</code> </p> </li> <li> <p> <code>169.254.169.252/30</code> </p> </li> </ul>\"\
+        },\
+        \"TunnelInsideIpv6Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p> <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>\"\
         },\
         \"PreSharedKey\":{\
           \"shape\":\"String\",\
@@ -27577,32 +27807,32 @@
         },\
         \"Phase1EncryptionAlgorithms\":{\
           \"shape\":\"Phase1EncryptionAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code> </p>\",\
           \"locationName\":\"Phase1EncryptionAlgorithm\"\
         },\
         \"Phase2EncryptionAlgorithms\":{\
           \"shape\":\"Phase2EncryptionAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code> </p>\",\
           \"locationName\":\"Phase2EncryptionAlgorithm\"\
         },\
         \"Phase1IntegrityAlgorithms\":{\
           \"shape\":\"Phase1IntegrityAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code> </p>\",\
           \"locationName\":\"Phase1IntegrityAlgorithm\"\
         },\
         \"Phase2IntegrityAlgorithms\":{\
           \"shape\":\"Phase2IntegrityAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code> </p>\",\
           \"locationName\":\"Phase2IntegrityAlgorithm\"\
         },\
         \"Phase1DHGroupNumbers\":{\
           \"shape\":\"Phase1DHGroupNumbersRequestList\",\
-          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
           \"locationName\":\"Phase1DHGroupNumber\"\
         },\
         \"Phase2DHGroupNumbers\":{\
           \"shape\":\"Phase2DHGroupNumbersRequestList\",\
-          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
           \"locationName\":\"Phase2DHGroupNumber\"\
         },\
         \"IKEVersions\":{\
@@ -28161,11 +28391,21 @@
         },\
         \"PublicIp\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The address of the Elastic IP address bound to the network interface.</p>\",\
+          \"documentation\":\"<p>The address of the Elastic IP address or Carrier IP address bound to the network interface.</p>\",\
           \"locationName\":\"publicIp\"\
+        },\
+        \"CustomerOwnedIp\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The customer-owned IP address associated with the network interface.</p>\",\
+          \"locationName\":\"customerOwnedIp\"\
+        },\
+        \"CarrierIp\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The carrier IP address associated with the network interface.</p> <p>This option is only available when the network interface is in a subnet which is associated with a Wavelength Zone.</p>\",\
+          \"locationName\":\"carrierIp\"\
         }\
       },\
-      \"documentation\":\"<p>Describes association information for an Elastic IP address (IPv4 only).</p>\"\
+      \"documentation\":\"<p>Describes association information for an Elastic IP address (IPv4 only), or a Carrier IP address (for a network interface which resides in a subnet in a Wavelength Zone).</p>\"\
     },\
     \"NetworkInterfaceAttachment\":{\
       \"type\":\"structure\",\
@@ -30236,7 +30476,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The location that the IP address is released from.</p> <p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
+          \"documentation\":\"<p>The set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses.</p> <p>If you provide an incorrect network border group, you will receive an <code>InvalidAddress.NotFound</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> <note> <p>You cannot use a network border group with EC2 Classic. If you attempt this operation on EC2 classic, you will receive an <code>InvalidParameterCombination</code> error. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/errors-overview.html\\\">Error Codes</a>.</p> </note>\"\
         },\
         \"DryRun\":{\
           \"shape\":\"Boolean\",\
@@ -30465,6 +30705,10 @@
         \"LocalGatewayId\":{\
           \"shape\":\"LocalGatewayId\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\"\
+        },\
+        \"CarrierGatewayId\":{\
+          \"shape\":\"CarrierGatewayId\",\
+          \"documentation\":\"<p>[IPv4 traffic only] The ID of a carrier gateway.</p>\"\
         },\
         \"NetworkInterfaceId\":{\
           \"shape\":\"NetworkInterfaceId\",\
@@ -32160,6 +32404,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The ID of the local gateway.</p>\",\
           \"locationName\":\"localGatewayId\"\
+        },\
+        \"CarrierGatewayId\":{\
+          \"shape\":\"CarrierGatewayId\",\
+          \"documentation\":\"<p>The ID of the carrier gateway.</p>\",\
+          \"locationName\":\"carrierGatewayId\"\
         },\
         \"NetworkInterfaceId\":{\
           \"shape\":\"String\",\
@@ -36788,6 +37037,13 @@
         \"udp\"\
       ]\
     },\
+    \"TunnelInsideIpVersion\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ipv4\",\
+        \"ipv6\"\
+      ]\
+    },\
     \"TunnelOption\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -36798,8 +37054,13 @@
         },\
         \"TunnelInsideCidr\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The range of inside IP addresses for the tunnel.</p>\",\
+          \"documentation\":\"<p>The range of inside IPv4 addresses for the tunnel.</p>\",\
           \"locationName\":\"tunnelInsideCidr\"\
+        },\
+        \"TunnelInsideIpv6Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The range of inside IPv6 addresses for the tunnel.</p>\",\
+          \"locationName\":\"tunnelInsideIpv6Cidr\"\
         },\
         \"PreSharedKey\":{\
           \"shape\":\"String\",\
@@ -37868,7 +38129,7 @@
         },\
         \"DhcpOptionsId\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The ID of the set of DHCP options you've associated with the VPC (or <code>default</code> if the default options are associated with the VPC).</p>\",\
+          \"documentation\":\"<p>The ID of the set of DHCP options you've associated with the VPC.</p>\",\
           \"locationName\":\"dhcpOptionsId\"\
         },\
         \"State\":{\
@@ -38254,7 +38515,7 @@
         },\
         \"NetworkBorderGroup\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The name of the location from which we advertise the IPV6 CIDR block.</p>\",\
+          \"documentation\":\"<p>The name of the unique set of Availability Zones, Local Zones, or Wavelength Zones from which AWS advertises IP addresses, for example, <code>us-east-1-wl1-bos-wlz-1</code>.</p>\",\
           \"locationName\":\"networkBorderGroup\"\
         },\
         \"Ipv6Pool\":{\
@@ -38527,6 +38788,11 @@
           \"documentation\":\"<p>Indicates whether the VPN connection uses static routes only. Static routes must be used for devices that don't support BGP.</p>\",\
           \"locationName\":\"staticRoutesOnly\"\
         },\
+        \"TunnelInsideIpVersion\":{\
+          \"shape\":\"TunnelInsideIpVersion\",\
+          \"documentation\":\"<p>Indicates whether the VPN tunnels process IPv4 or IPv6 traffic.</p>\",\
+          \"locationName\":\"tunnelInsideIpVersion\"\
+        },\
         \"TunnelOptions\":{\
           \"shape\":\"TunnelOptionsList\",\
           \"documentation\":\"<p>Indicates the VPN tunnel options.</p>\",\
@@ -38546,6 +38812,10 @@
           \"shape\":\"Boolean\",\
           \"documentation\":\"<p>Indicate whether the VPN connection uses static routes only. If you are creating a VPN connection for a device that does not support BGP, you must specify <code>true</code>. Use <a>CreateVpnConnectionRoute</a> to create a static route.</p> <p>Default: <code>false</code> </p>\",\
           \"locationName\":\"staticRoutesOnly\"\
+        },\
+        \"TunnelInsideIpVersion\":{\
+          \"shape\":\"TunnelInsideIpVersion\",\
+          \"documentation\":\"<p>Indicate whether the VPN tunnels process IPv4 or IPv6 traffic.</p> <p>Default: <code>ipv4</code> </p>\"\
         },\
         \"TunnelOptions\":{\
           \"shape\":\"VpnTunnelOptionsSpecificationsList\",\
@@ -38667,7 +38937,11 @@
       \"members\":{\
         \"TunnelInsideCidr\":{\
           \"shape\":\"String\",\
-          \"documentation\":\"<p>The range of inside IP addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p> <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p> <ul> <li> <p> <code>169.254.0.0/30</code> </p> </li> <li> <p> <code>169.254.1.0/30</code> </p> </li> <li> <p> <code>169.254.2.0/30</code> </p> </li> <li> <p> <code>169.254.3.0/30</code> </p> </li> <li> <p> <code>169.254.4.0/30</code> </p> </li> <li> <p> <code>169.254.5.0/30</code> </p> </li> <li> <p> <code>169.254.169.252/30</code> </p> </li> </ul>\"\
+          \"documentation\":\"<p>The range of inside IPv4 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same virtual private gateway. </p> <p>Constraints: A size /30 CIDR block from the <code>169.254.0.0/16</code> range. The following CIDR blocks are reserved and cannot be used:</p> <ul> <li> <p> <code>169.254.0.0/30</code> </p> </li> <li> <p> <code>169.254.1.0/30</code> </p> </li> <li> <p> <code>169.254.2.0/30</code> </p> </li> <li> <p> <code>169.254.3.0/30</code> </p> </li> <li> <p> <code>169.254.4.0/30</code> </p> </li> <li> <p> <code>169.254.5.0/30</code> </p> </li> <li> <p> <code>169.254.169.252/30</code> </p> </li> </ul>\"\
+        },\
+        \"TunnelInsideIpv6Cidr\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The range of inside IPv6 addresses for the tunnel. Any specified CIDR blocks must be unique across all VPN connections that use the same transit gateway.</p> <p>Constraints: A size /126 CIDR block from the local <code>fd00::/8</code> range.</p>\"\
         },\
         \"PreSharedKey\":{\
           \"shape\":\"String\",\
@@ -38699,32 +38973,32 @@
         },\
         \"Phase1EncryptionAlgorithms\":{\
           \"shape\":\"Phase1EncryptionAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code> </p>\",\
           \"locationName\":\"Phase1EncryptionAlgorithm\"\
         },\
         \"Phase2EncryptionAlgorithms\":{\
           \"shape\":\"Phase2EncryptionAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> </p>\",\
+          \"documentation\":\"<p>One or more encryption algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>AES128</code> | <code>AES256</code> | <code>AES128-GCM-16</code> | <code>AES256-GCM-16</code> </p>\",\
           \"locationName\":\"Phase2EncryptionAlgorithm\"\
         },\
         \"Phase1IntegrityAlgorithms\":{\
           \"shape\":\"Phase1IntegrityAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code> </p>\",\
           \"locationName\":\"Phase1IntegrityAlgorithm\"\
         },\
         \"Phase2IntegrityAlgorithms\":{\
           \"shape\":\"Phase2IntegrityAlgorithmsRequestList\",\
-          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> </p>\",\
+          \"documentation\":\"<p>One or more integrity algorithms that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>SHA1</code> | <code>SHA2-256</code> | <code>SHA2-384</code> | <code>SHA2-512</code> </p>\",\
           \"locationName\":\"Phase2IntegrityAlgorithm\"\
         },\
         \"Phase1DHGroupNumbers\":{\
           \"shape\":\"Phase1DHGroupNumbersRequestList\",\
-          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 1 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
           \"locationName\":\"Phase1DHGroupNumber\"\
         },\
         \"Phase2DHGroupNumbers\":{\
           \"shape\":\"Phase2DHGroupNumbersRequestList\",\
-          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
+          \"documentation\":\"<p>One or more Diffie-Hellman group numbers that are permitted for the VPN tunnel for phase 2 IKE negotiations.</p> <p>Valid values: <code>2</code> | <code>5</code> | <code>14</code> | <code>15</code> | <code>16</code> | <code>17</code> | <code>18</code> | <code>19</code> | <code>20</code> | <code>21</code> | <code>22</code> | <code>23</code> | <code>24</code> </p>\",\
           \"locationName\":\"Phase2DHGroupNumber\"\
         },\
         \"IKEVersions\":{\
