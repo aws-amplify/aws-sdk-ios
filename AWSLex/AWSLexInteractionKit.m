@@ -1000,7 +1000,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     [session overrideOutputAudioPort:portOverride error:outError];
 }
 
-- (void)requestRecordPermission:(PermissionBlock)response {
+- (void)requestRecordPermission:(void (^)(BOOL granted))response {
     AVAudioSession *session = [AVAudioSession sharedInstance];
     [session requestRecordPermission:response];
 }
