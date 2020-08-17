@@ -715,7 +715,8 @@
     //The unit of measure for the dispatch_time function is nano seconds.
 
     dispatch_semaphore_wait(_timerSemaphore, dispatch_time(DISPATCH_TIME_NOW, 1800 * NSEC_PER_SEC));
-    if (! self.reconnectTimer && self.mqttStatus != AWSIoTMQTTStatusConnected ) {
+    BOOL isConnectingOrConnected = self.mqttStatus == AWSIoTMQTTStatusConnected || self.mqttStatus == AWSIoTMQTTStatusConnecting;
+    if (!self.reconnectTimer && !isConnectingOrConnected) {
         self.reconnectTimer = [NSTimer timerWithTimeInterval:self.currentReconnectTime
                                                       target:self
                                                     selector: @selector(reconnectToSession)
