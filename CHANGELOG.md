@@ -5,7 +5,7 @@
 
 ### Bug Fixes
 - **AWSMobileClient**
-  - Fixed an issue where the completion handler is not set before a status change is returned to the api. (See [PR #<>](https://github.com/aws-amplify/aws-sdk-ios/pull/))
+  - Fixed an issue where the completion handler is not set before a status change is returned to the api. (See [PR #2948](https://github.com/aws-amplify/aws-sdk-ios/pull/2948))
 
 ## 2.15.1
 
