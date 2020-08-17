@@ -697,11 +697,10 @@ extension AWSMobileClient {
                     } else if error._domain == AWSCognitoIdentityErrorDomain
                         && error._code == AWSCognitoIdentityErrorType.notAuthorized.rawValue
                         && self.federationProvider == .oidcFederation {
-                        
-                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                         // store a reference to the completion handler which we would be calling later on.
                         self.pendingAWSCredentialsCompletion = completionHandler
                         
+                        self.mobileClientStatusChanged(userState: .signedOutFederatedTokensInvalid, additionalInfo: [self.ProviderKey:self.cachedLoginsMap.first!.key])
                     } else {
                         self.credentialsFetchLock.leave()
                         completionHandler(nil, error)
