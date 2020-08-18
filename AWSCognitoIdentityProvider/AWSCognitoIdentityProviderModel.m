@@ -1080,6 +1080,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"applicationArn" : @"ApplicationArn",
              @"applicationId" : @"ApplicationId",
              @"externalId" : @"ExternalId",
              @"roleArn" : @"RoleArn",
@@ -1649,6 +1650,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accessTokenValidity" : @"AccessTokenValidity",
              @"allowedOAuthFlows" : @"AllowedOAuthFlows",
              @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
              @"allowedOAuthScopes" : @"AllowedOAuthScopes",
@@ -1658,11 +1660,13 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
              @"generateSecret" : @"GenerateSecret",
+             @"idTokenValidity" : @"IdTokenValidity",
              @"logoutURLs" : @"LogoutURLs",
              @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
+             @"tokenValidityUnits" : @"TokenValidityUnits",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
@@ -1691,6 +1695,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tokenValidityUnitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderTokenValidityUnitsType class]];
 }
 
 @end
@@ -4221,6 +4229,111 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderTokenValidityUnitsType
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"accessToken" : @"AccessToken",
+             @"idToken" : @"IdToken",
+             @"refreshToken" : @"RefreshToken",
+             };
+}
+
++ (NSValueTransformer *)accessTokenJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"seconds"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"minutes"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeMinutes);
+        }
+        if ([value caseInsensitiveCompare:@"hours"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeHours);
+        }
+        if ([value caseInsensitiveCompare:@"days"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeDays);
+        }
+        return @(AWSCognitoIdentityProviderTimeUnitsTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderTimeUnitsTypeSeconds:
+                return @"seconds";
+            case AWSCognitoIdentityProviderTimeUnitsTypeMinutes:
+                return @"minutes";
+            case AWSCognitoIdentityProviderTimeUnitsTypeHours:
+                return @"hours";
+            case AWSCognitoIdentityProviderTimeUnitsTypeDays:
+                return @"days";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)idTokenJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"seconds"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"minutes"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeMinutes);
+        }
+        if ([value caseInsensitiveCompare:@"hours"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeHours);
+        }
+        if ([value caseInsensitiveCompare:@"days"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeDays);
+        }
+        return @(AWSCognitoIdentityProviderTimeUnitsTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderTimeUnitsTypeSeconds:
+                return @"seconds";
+            case AWSCognitoIdentityProviderTimeUnitsTypeMinutes:
+                return @"minutes";
+            case AWSCognitoIdentityProviderTimeUnitsTypeHours:
+                return @"hours";
+            case AWSCognitoIdentityProviderTimeUnitsTypeDays:
+                return @"days";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)refreshTokenJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"seconds"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"minutes"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeMinutes);
+        }
+        if ([value caseInsensitiveCompare:@"hours"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeHours);
+        }
+        if ([value caseInsensitiveCompare:@"days"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderTimeUnitsTypeDays);
+        }
+        return @(AWSCognitoIdentityProviderTimeUnitsTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderTimeUnitsTypeSeconds:
+                return @"seconds";
+            case AWSCognitoIdentityProviderTimeUnitsTypeMinutes:
+                return @"minutes";
+            case AWSCognitoIdentityProviderTimeUnitsTypeHours:
+                return @"hours";
+            case AWSCognitoIdentityProviderTimeUnitsTypeDays:
+                return @"days";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderUICustomizationType
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -4465,6 +4578,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accessTokenValidity" : @"AccessTokenValidity",
              @"allowedOAuthFlows" : @"AllowedOAuthFlows",
              @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
              @"allowedOAuthScopes" : @"AllowedOAuthScopes",
@@ -4474,11 +4588,13 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"clientName" : @"ClientName",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
+             @"idTokenValidity" : @"IdTokenValidity",
              @"logoutURLs" : @"LogoutURLs",
              @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
+             @"tokenValidityUnits" : @"TokenValidityUnits",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
@@ -4507,6 +4623,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tokenValidityUnitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderTokenValidityUnitsType class]];
 }
 
 @end
@@ -4802,6 +4922,7 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accessTokenValidity" : @"AccessTokenValidity",
              @"allowedOAuthFlows" : @"AllowedOAuthFlows",
              @"allowedOAuthFlowsUserPoolClient" : @"AllowedOAuthFlowsUserPoolClient",
              @"allowedOAuthScopes" : @"AllowedOAuthScopes",
@@ -4813,12 +4934,14 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"creationDate" : @"CreationDate",
              @"defaultRedirectURI" : @"DefaultRedirectURI",
              @"explicitAuthFlows" : @"ExplicitAuthFlows",
+             @"idTokenValidity" : @"IdTokenValidity",
              @"lastModifiedDate" : @"LastModifiedDate",
              @"logoutURLs" : @"LogoutURLs",
              @"preventUserExistenceErrors" : @"PreventUserExistenceErrors",
              @"readAttributes" : @"ReadAttributes",
              @"refreshTokenValidity" : @"RefreshTokenValidity",
              @"supportedIdentityProviders" : @"SupportedIdentityProviders",
+             @"tokenValidityUnits" : @"TokenValidityUnits",
              @"userPoolId" : @"UserPoolId",
              @"writeAttributes" : @"WriteAttributes",
              };
@@ -4863,6 +4986,10 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tokenValidityUnitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderTokenValidityUnitsType class]];
 }
 
 @end
