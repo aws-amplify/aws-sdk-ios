@@ -119,7 +119,7 @@ For a complete list of our pods, check out the .podspec files in the root direct
         Input Files: Empty
         Output Files: Empty
 
-> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using Xcode 11.2.1. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
+> Note: Currently, the AWS SDK for iOS builds the Carthage binaries using the latest released version of Xcode. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing `--no-use-binaries` flag to `carthage update` command.
 
 ### Frameworks
 
