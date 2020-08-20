@@ -645,6 +645,13 @@
     }
 }
 
+- (void)cleanUpToDecoderStream {
+    self.toDecoderStream.delegate = nil;
+    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+    [self.toDecoderStream close];
+    self.toDecoderStream = nil;
+}
+
 - (void)reconnectToSession {
     
     self.reconnectTimer = nil;
@@ -761,10 +768,7 @@
         [self.session close];
 
         if (self.toDecoderStream != nil) {
-            self.toDecoderStream.delegate = nil;
-            [self.toDecoderStream removeFromRunLoop:runLoopForStreamsThread forMode:NSDefaultRunLoopMode];
-            [self.toDecoderStream close];
-            self.toDecoderStream = nil;
+            [self cleanUpToDecoderStream];
         }
 
         if (self.webSocket) {
@@ -1187,10 +1191,7 @@
 
     // The WebSocket has failed.The input/output streams can be closed here.
     // Also, the webSocket can be set to nil
-    self.toDecoderStream.delegate = nil;
-    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [self.toDecoderStream close];
-    self.toDecoderStream = nil;
+    [self cleanUpToDecoderStream];
 
     [self.encoderStream  close];
     [self.webSocket close];
@@ -1228,10 +1229,7 @@
     AWSDDLogInfo(@"WebSocket closed with code:%ld with reason:%@", (long)code, reason);
     
     // The WebSocket has closed. The input/output streams can be closed here.
-    self.toDecoderStream.delegate = nil;
-    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    [self.toDecoderStream close];
-    self.toDecoderStream = nil;
+    [self cleanUpToDecoderStream];
 
     [self.encoderStream  close];
     [self.webSocket close];
