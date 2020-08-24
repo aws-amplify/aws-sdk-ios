@@ -1,7 +1,9 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Misc. Updates
+- Deprecated 2 MD5-related methods in AWSCore. These methods will be removed in an upcoming version of the SDK. (#2964)
 
 ## 2.15.1
 

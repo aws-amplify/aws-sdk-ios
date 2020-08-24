@@ -46,6 +46,8 @@ NSString *const AWSFirehoseRecorderCacheName = @"com.amazonaws.AWSFirehoseRecord
                            identifier:(NSString *)identifier
                             cacheName:(NSString *)cacheName;
 
++ (NSString *) databasePathForKey:(NSString *)key;
+
 @end
 
 @implementation AWSFirehoseRecorder
@@ -87,8 +89,9 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
 
+    NSString *identifier = [AWSAbstractKinesisRecorder databasePathForKey:key];
     AWSFirehoseRecorder *FirehoseRecorder = [[AWSFirehoseRecorder alloc] initWithConfiguration:configuration
-                                                                                 identifier:[key aws_md5StringLittleEndian]
+                                                                                 identifier:identifier
                                                                                   cacheName:[NSString stringWithFormat:@"%@.%@", AWSFirehoseRecorderCacheName, key]];
     [_serviceClients setObject:FirehoseRecorder
                         forKey:key];
