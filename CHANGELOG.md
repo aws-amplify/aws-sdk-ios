@@ -1,17 +1,19 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSLogs
----AWSSSM
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
--Features for next release
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon CloudWatch Logs
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Lambda
+  - Amazon Lex
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Transcribe
+
+- **AWSCore**
+  - Deprecated two extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK.
 
 ## 2.15.1
 
