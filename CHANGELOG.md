@@ -3,7 +3,17 @@
 ## Unreleased
 
 ### Misc. Updates
-- Deprecated 2 MD5-related methods in AWSCore. These methods will be removed in an upcoming version of the SDK. (#2964)
+- Model updates for the following services
+  - Amazon CloudWatch Logs
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Lambda
+  - Amazon Lex
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Transcribe
+
+- **AWSCore**
+  - Deprecated two MD5-related extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK. ([PR #2964](https://github.com/aws-amplify/aws-sdk-ios/pull/2964))
 
 ## 2.15.1
 
