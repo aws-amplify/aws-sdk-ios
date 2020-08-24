@@ -13,7 +13,7 @@
   - Amazon Transcribe
 
 - **AWSCore**
-  - Deprecated two extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK.
+  - Deprecated two extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK. ([PR #2964](https://github.com/aws-amplify/aws-sdk-ios/pull/2964))
 
 ## 2.15.1
 
