@@ -52,6 +52,12 @@ typedef __nullable id(^AWSContinuationBlock)(AWSTask<ResultType> *t);
  */
 + (instancetype)taskWithResult:(nullable ResultType)result;
 
+/*
+  Copy With Zone Method Added for Mutable Copy Option
+ */
+
+- (id)copyWithZone:(NSZone *)zone;
+
 /*!
  Creates a task that is already completed with the given error.
  @param error The error for the task.

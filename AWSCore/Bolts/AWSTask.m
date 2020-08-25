@@ -83,6 +83,20 @@ NSString *const AWSTaskMultipleErrorsUserInfoKey = @"errors";
     return self;
 }
 
+- (id)copyWithZone:(NSZone *)zone {
+    AWSTask *task = [AWSTask allocWithZone:zone];
+    task.lock = self.lock;
+    task.condition = self.condition;
+    task.callbacks = self.callbacks;
+    
+    task.cancelled = self.cancelled;
+    task.completed = self.completed;
+    task.faulted   = self.faulted;
+    [task trySetError:_result];
+    [task trySetError:_error];
+    return task;
+}
+
 #pragma mark - Task Class methods
 
 + (instancetype)taskWithResult:(nullable id)result {
