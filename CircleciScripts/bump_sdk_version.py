@@ -184,7 +184,7 @@ class VersionBumper:
     def bump_changelog(self):
         changelog_pattern = {
             "match": r"## Unreleased",
-            "replace": "## Unreleased\\\n-Features for next release\\\n\\\n## {version}".format(
+            "replace": "## Unreleased\\\n\\\n-Features for next release\\\n\\\n## {version}".format(
                 version=self._new_sdk_version
             ),
             "files": ["CHANGELOG.md"],
