@@ -17,7 +17,7 @@
     <a title="AWSLexPostContentResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLex 2.15.1 Docs</a> (54% documented)</p>
+        <p><a href="../index.html">AWSLex 2.15.2 Docs</a> (56% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLex.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -71,6 +71,9 @@
                 <a href="../Classes/AWSLexGetSessionResponse.html">AWSLexGetSessionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLexIntentConfidence.html">AWSLexIntentConfidence</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLexIntentSummary.html">AWSLexIntentSummary</a>
               </li>
               <li class="nav-group-task">
@@ -90,6 +93,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLexPostTextResponse.html">AWSLexPostTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexPredictedIntent.html">AWSLexPredictedIntent</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLexPutSessionRequest.html">AWSLexPutSessionRequest</a>
@@ -248,6 +254,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)alternativeIntents"></a>
+                    <a name="//apple_ref/objc/Property/alternativeIntents" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)alternativeIntents">alternativeIntents</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>One to four alternative intents that may be applicable to the user&rsquo;s intent.</p><p>Each alternative includes a score that indicates how confident Amazon Lex is that the intent matches the user&rsquo;s intent. The intents are sorted by the confidence score.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">alternativeIntents</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">alternativeIntents</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLexPostContentResponse(py)audioStream"></a>
                     <a name="//apple_ref/objc/Property/audioStream" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)audioStream">audioStream</a>
@@ -271,6 +309,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">audioStream</span><span class="p">:</span> <span class="kt">Data</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)botVersion"></a>
+                    <a name="//apple_ref/objc/Property/botVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)botVersion">botVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p><p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p><p>For more information about enabling the new NLU, see the <a href="https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">botVersion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">botVersion</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -472,6 +542,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)nluIntentConfidence"></a>
+                    <a name="//apple_ref/objc/Property/nluIntentConfidence" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)nluIntentConfidence">nluIntentConfidence</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user&rsquo;s intent. The score is between 0.0 and 1.0.</p><p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex NLU.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nluIntentConfidence</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nluIntentConfidence</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLexPostContentResponse(py)sentimentResponse"></a>
                     <a name="//apple_ref/objc/Property/sentimentResponse" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)sentimentResponse">sentimentResponse</a>
@@ -482,7 +584,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The sentiment expressed in and utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
+                        <p>The sentiment expressed in an utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field contains the result of the analysis.</p>
 
                       </div>
                       <div class="declaration">
@@ -634,7 +736,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

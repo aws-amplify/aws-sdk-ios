@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLexDialogState Enumeration Reference</title>
+    <title>AWSLexIntentConfidence Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/AWSLexDialogState" class="dashAnchor"></a>
-    <a title="AWSLexDialogState Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLexIntentConfidence" class="dashAnchor"></a>
+    <a title="AWSLexIntentConfidence Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLex 2.15.2 Docs</a> (56% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLex Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSLexDialogState Enumeration Reference
+        AWSLexIntentConfidence Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -233,28 +233,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLexDialogState</h1>
+            <h1>AWSLexIntentConfidence</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLexDialogState</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AWSLexDialogStateUnknown</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateElicitIntent</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateConfirmIntent</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateElicitSlot</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateFulfilled</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateReadyForFulfillment</span><span class="p">,</span>
-    <span class="n">AWSLexDialogStateFailed</span><span class="p">,</span>
-<span class="p">}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexIntentConfidence</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLexDialogState</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexIntentConfidence</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
+            <p>Provides a score that indicates the confidence that Amazon Lex has that an intent is the one that satisfies the user&rsquo;s intent.</p>
 
           </section>
           <section class="section task-group-section">
@@ -263,9 +255,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateUnknown"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateUnknown" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateUnknown">AWSLexDialogStateUnknown</a>
+                    <a name="/c:objc(cs)AWSLexIntentConfidence(py)score"></a>
+                    <a name="//apple_ref/objc/Property/score" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexIntentConfidence(py)score">score</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -273,211 +265,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A score that indicates how confident Amazon Lex is that an intent satisfies the user&rsquo;s intent. Ranges between 0.00 and 1.00. Higher scores indicate higher confidence.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateUnknown</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">score</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateElicitIntent"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateElicitIntent" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateElicitIntent">AWSLexDialogStateElicitIntent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateElicitIntent</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elicitIntent</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateConfirmIntent"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateConfirmIntent" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateConfirmIntent">AWSLexDialogStateConfirmIntent</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateConfirmIntent</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">confirmIntent</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateElicitSlot"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateElicitSlot" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateElicitSlot">AWSLexDialogStateElicitSlot</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateElicitSlot</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">elicitSlot</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateFulfilled"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateFulfilled" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateFulfilled">AWSLexDialogStateFulfilled</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateFulfilled</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">fulfilled</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateReadyForFulfillment"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateReadyForFulfillment" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateReadyForFulfillment">AWSLexDialogStateReadyForFulfillment</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateReadyForFulfillment</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">readyForFulfillment</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:@E@AWSLexDialogState@AWSLexDialogStateFailed"></a>
-                    <a name="//apple_ref/objc/Case/AWSLexDialogStateFailed" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSLexDialogState@AWSLexDialogStateFailed">AWSLexDialogStateFailed</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSLexDialogStateFailed</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">failed</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">score</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
