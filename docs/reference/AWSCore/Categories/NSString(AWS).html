@@ -17,7 +17,7 @@
     <a title="NSString(AWS) Category Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCore 2.15.1 Docs</a> (47% documented)</p>
+        <p><a href="../index.html">AWSCore 2.15.2 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -989,13 +989,26 @@
                   
                   <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">NSString</span> <span class="p">(</span><span class="nl">AWS</span><span class="p">)</span>
 
-<span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">aws_base64md5FromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span><span class="p">;</span>
+<span class="c1">/// A convenience method for calculating an MD5 hash of `data`.
+///
+/// MD5 is not suited for cryptographically-sensitive operations. Usages of this
+/// method in the AWS Mobile SDK are limited to calculating checksums for AWS S3
+/// operations that require a `Content-MD5` HTTP header, and do not repesent a
+/// security risk. We are exposing this method as a convenience API for
+/// applications that need to calculate that value manually.
+</span><span class="k">+</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nf">aws_base64md5FromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span><span class="p">;</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">aws_isBase64Data</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_stringWithURLEncoding</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_stringWithURLEncodingPath</span><span class="p">;</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_stringWithURLEncodingPathWithoutPriorDecoding</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_md5String</span><span class="p">;</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_md5StringLittleEndian</span><span class="p">;</span>
+
+<span class="c1">/// Deprecated. This method will be removed in an upcoming version of the SDK.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_md5String</span> <span class="n">DEPRECATED_MSG_ATTRIBUTE</span><span class="p">(</span><span class="s">"This method will be removed in an upcoming version of the SDK."</span><span class="p">);</span>
+
+<span class="c1">/// Deprecated. This method will be removed in an upcoming version of the SDK.
+</span><span class="k">-</span> <span class="p">(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="n">aws_md5StringLittleEndian</span> <span class="n">DEPRECATED_MSG_ATTRIBUTE</span><span class="p">(</span><span class="s">"This method will be removed in an upcoming version of the SDK."</span><span class="p">);</span>
+
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="n">aws_isVirtualHostedStyleCompliant</span><span class="p">;</span>
 
 <span class="k">-</span> <span class="p">(</span><span class="n"><a href="../Enums/AWSRegionType.html">AWSRegionType</a></span><span class="p">)</span><span class="n">aws_regionTypeValue</span><span class="p">;</span>
@@ -1023,7 +1036,13 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A convenience method for calculating an MD5 hash of <code>data</code>.</p>
+
+<p>MD5 is not suited for cryptographically-sensitive operations. Usages of this
+method in the AWS Mobile SDK are limited to calculating checksums for AWS S3
+operations that require a <code>Content-MD5</code> HTTP header, and do not repesent a
+security risk. We are exposing this method as a convenience API for
+applications that need to calculate that value manually.</p>
 
                       </div>
                       <div class="declaration">
@@ -1175,15 +1194,20 @@
                     <code>
                     <a name="/c:objc(cs)NSString(im)aws_md5String"></a>
                     <a name="//apple_ref/objc/Method/-aws_md5String" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NSString(im)aws_md5String">-aws_md5String</a>
+                    <a class="token discouraged" href="#/c:objc(cs)NSString(im)aws_md5String">-aws_md5String</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>This method will be removed in an upcoming version of the SDK.</p>
+
+                      </div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Deprecated. This method will be removed in an upcoming version of the SDK.</p>
 
                       </div>
                       <div class="declaration">
@@ -1207,15 +1231,20 @@
                     <code>
                     <a name="/c:objc(cs)NSString(im)aws_md5StringLittleEndian"></a>
                     <a name="//apple_ref/objc/Method/-aws_md5StringLittleEndian" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)NSString(im)aws_md5StringLittleEndian">-aws_md5StringLittleEndian</a>
+                    <a class="token discouraged" href="#/c:objc(cs)NSString(im)aws_md5StringLittleEndian">-aws_md5StringLittleEndian</a>
                     </code>
                   </div>
                   <div class="height-container">
                     <div class="pointer-container"></div>
                     <section class="section">
                       <div class="pointer"></div>
+                      <div class="aside aside-deprecated">
+                        <p class="aside-title">Deprecated</p>
+                        <p>This method will be removed in an upcoming version of the SDK.</p>
+
+                      </div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>Deprecated. This method will be removed in an upcoming version of the SDK.</p>
 
                       </div>
                       <div class="declaration">
@@ -1303,7 +1332,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

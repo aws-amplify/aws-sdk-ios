@@ -6099,77 +6099,56 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 81,
-      "symbol": "NSString(AWS).+aws_base64md5FromData:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 82,
+      "line": 90,
       "symbol": "NSString(AWS).-aws_isBase64Data",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 83,
+      "line": 91,
       "symbol": "NSString(AWS).-aws_stringWithURLEncoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 84,
+      "line": 92,
       "symbol": "NSString(AWS).-aws_stringWithURLEncodingPath",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 85,
+      "line": 93,
       "symbol": "NSString(AWS).-aws_stringWithURLEncodingPathWithoutPriorDecoding",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 86,
-      "symbol": "NSString(AWS).-aws_md5String",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 87,
-      "symbol": "NSString(AWS).-aws_md5StringLittleEndian",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 88,
+      "line": 101,
       "symbol": "NSString(AWS).-aws_isVirtualHostedStyleCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 90,
+      "line": 103,
       "symbol": "NSString(AWS).-aws_regionTypeValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 94,
+      "line": 107,
       "symbol": "NSFileManager(AWS)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 96,
+      "line": 109,
       "symbol": "NSFileManager(AWS).-aws_atomicallyCopyItemAtURL:toURL:backupItemName:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
