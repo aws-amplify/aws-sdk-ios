@@ -24,6 +24,7 @@
 			buildPhases = (
 			);
 			dependencies = (
+				FA0E11EE24F6D4560003A65F /* PBXTargetDependency */,
 				18D04CE41DD51416008A3E01 /* PBXTargetDependency */,
 				18D04CE61DD51416008A3E01 /* PBXTargetDependency */,
 				9A19D4E32107EBA600C2FBB9 /* PBXTargetDependency */,
@@ -2545,6 +2546,13 @@
 			proxyType = 1;
 			remoteGlobalIDString = FAD9DD1E245CD135003F84D0;
 			remoteInfo = AWSTestResources;
+		};
+		FA0E11ED24F6D4560003A65F /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
 		};
 		FA0FEE8824645C8100D14F7F /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -14635,6 +14643,11 @@
 			isa = PBXTargetDependency;
 			target = FAD9DD1E245CD135003F84D0 /* AWSTestResources */;
 			targetProxy = FA0909162463948600E174F8 /* PBXContainerItemProxy */;
+		};
+		FA0E11EE24F6D4560003A65F /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = FA0E11ED24F6D4560003A65F /* PBXContainerItemProxy */;
 		};
 		FA0FEE8924645C8100D14F7F /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
