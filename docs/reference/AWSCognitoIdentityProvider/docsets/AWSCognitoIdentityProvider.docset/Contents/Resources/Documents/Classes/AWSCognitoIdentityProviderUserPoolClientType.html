@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderUserPoolClientType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -713,6 +713,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html">AWSCognitoIdentityProviderTokenValidityUnitsType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderUICustomizationType.html">AWSCognitoIdentityProviderUICustomizationType</a>
               </li>
               <li class="nav-group-task">
@@ -1029,6 +1032,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderStatusType.html">AWSCognitoIdentityProviderStatusType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderTimeUnitsType.html">AWSCognitoIdentityProviderTimeUnitsType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderUserImportJobStatusType.html">AWSCognitoIdentityProviderUserImportJobStatusType</a>
               </li>
               <li class="nav-group-task">
@@ -1104,6 +1110,38 @@
           <section class="section task-group-section">
             <div class="task-group">
               <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)accessTokenValidity"></a>
+                    <a name="//apple_ref/objc/Property/accessTokenValidity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)accessTokenValidity">accessTokenValidity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">accessTokenValidity</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">accessTokenValidity</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
                 <li class="item">
                   <div>
                     <code>
@@ -1459,6 +1497,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)idTokenValidity"></a>
+                    <a name="//apple_ref/objc/Property/idTokenValidity" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)idTokenValidity">idTokenValidity</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">idTokenValidity</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">idTokenValidity</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)lastModifiedDate"></a>
                     <a name="//apple_ref/objc/Property/lastModifiedDate" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)lastModifiedDate">lastModifiedDate</a>
@@ -1533,7 +1603,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note></p>
+                        <p><p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -1651,6 +1721,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)tokenValidityUnits"></a>
+                    <a name="//apple_ref/objc/Property/tokenValidityUnits" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)tokenValidityUnits">tokenValidityUnits</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time units used to specify the token validity times of their respective token.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html">AWSCognitoIdentityProviderTokenValidityUnitsType</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tokenValidityUnits</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tokenValidityUnits</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html">AWSCognitoIdentityProviderTokenValidityUnitsType</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)userPoolId"></a>
                     <a name="//apple_ref/objc/Property/userPoolId" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityProviderUserPoolClientType(py)userPoolId">userPoolId</a>
@@ -1717,7 +1819,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

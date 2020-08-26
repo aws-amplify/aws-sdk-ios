@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProvider Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -713,6 +713,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html">AWSCognitoIdentityProviderTokenValidityUnitsType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderUICustomizationType.html">AWSCognitoIdentityProviderUICustomizationType</a>
               </li>
               <li class="nav-group-task">
@@ -1027,6 +1030,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderStatusType.html">AWSCognitoIdentityProviderStatusType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderTimeUnitsType.html">AWSCognitoIdentityProviderTimeUnitsType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderUserImportJobStatusType.html">AWSCognitoIdentityProviderUserImportJobStatusType</a>
@@ -1902,7 +1908,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p>
+                        <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><p>This message is based on a template that you configured in your call to create or update a user pool. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p><p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p><code>AdminCreateUser</code> requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminCreateUserRequest</p>
@@ -1967,7 +1973,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><note><p>This message is based on a template that you configured in your call to or . This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p></note><p>Alternatively, you can call AdminCreateUser with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p>AdminCreateUser requires developer credentials.</p>
+                        <p>Creates a new user in the specified user pool.</p><p>If <code>MessageAction</code> is not set, the default is to send a welcome message via email or phone (SMS).</p><p>This message is based on a template that you configured in your call to create or update a user pool. This template includes your custom sign-up instructions and placeholders for user name and temporary password.</p><p>Alternatively, you can call <code>AdminCreateUser</code> with “SUPPRESS” for the <code>MessageAction</code> parameter, and Amazon Cognito will not send any email. </p><p>In either case, the user will be in the <code>FORCE_CHANGE_PASSWORD</code> state until they sign in and change their password.</p><p><code>AdminCreateUser</code> requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminCreateUserRequest</p>
@@ -2327,7 +2333,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See .</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
+                        <p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</p>
@@ -2393,7 +2399,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See .</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked in the call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
+                        <p>Disables the user from signing in with the specified external (SAML or social) identity provider. If the user to disable is a Cognito User Pools native username + password user, they are not permitted to use their password to sign-in. If the user to disable is a linked external IdP user, any link between that user and an existing user is removed. The next time the external user (no longer attached to the previously linked <code>DestinationUser</code>) signs in, they must create a new user account. See <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminLinkProviderForUser.html">AdminLinkProviderForUser</a>.</p><p>This action is enabled only for admin access and requires developer credentials.</p><p>The <code>ProviderName</code> must match the value specified when creating an IdP for the pool. </p><p>To disable a native username + password user, the <code>ProviderName</code> value must be <code>Cognito</code> and the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code>, with the <code>ProviderAttributeValue</code> being the name that is used in the user pool for the user.</p><p>The <code>ProviderAttributeName</code> must always be <code>Cognito_Subject</code> for social identity providers. The <code>ProviderAttributeValue</code> must always be the exact subject that was used when the user was originally linked as a source user.</p><p>For de-linking a SAML identity, there are two scenarios. If the linked identity has not yet been used to sign-in, the <code>ProviderAttributeName</code> and <code>ProviderAttributeValue</code> must be the same values that were used for the <code>SourceUser</code> when the identities were originally linked using <code> AdminLinkProviderForUser</code> call. (If the linking was done with <code>ProviderAttributeName</code> set to <code>Cognito_Subject</code>, the same applies here). However, if the user has already signed in, the <code>ProviderAttributeName</code> must be <code>Cognito_Subject</code> and <code>ProviderAttributeValue</code> must be the subject of the SAML assertion.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminDisableProviderForUserRequest</p>
@@ -3329,7 +3335,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>See also .</p><p>This action is enabled only for admin access and requires developer credentials.</p>
+                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p><note><p>The maximum number of federated identities linked to a user is 5.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>This action is enabled only for admin access and requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</p>
@@ -3377,7 +3383,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminLinkProviderForUserResponse">AWSCognitoIdentityProviderAdminLinkProviderForUserResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderAdminLinkProviderForUserResponse">AWSCognitoIdentityProviderAdminLinkProviderForUserResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -3395,7 +3401,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>See also .</p><p>This action is enabled only for admin access and requires developer credentials.</p>
+                        <p>Links an existing user account in a user pool (<code>DestinationUser</code>) to an identity from an external identity provider (<code>SourceUser</code>) based on a specified attribute name and value from the external identity provider. This allows you to create a link from the existing user account to an external federated user identity that has not yet been used to sign in, so that the federated user identity can be used to sign in as the existing user account. </p><p> For example, if there is an existing user with a username and password, this API links that user to a federated user identity, so that when the federated user identity is used, the user signs in as the existing user account. </p><note><p>The maximum number of federated identities linked to a user is 5.</p></note><important><p>Because this API allows a user with an external federated identity to sign in as an existing user in the user pool, it is critical that it only be used with external identity providers and provider attributes that have been trusted by the application owner.</p></important><p>This action is enabled only for admin access and requires developer credentials.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminLinkProviderForUserRequest</p>
@@ -3454,7 +3460,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorTooManyRequests</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorUserNotFound</code>, <code>AWSCognitoIdentityProviderErrorAliasExists</code>, <code>AWSCognitoIdentityProviderErrorLimitExceeded</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4637,7 +4643,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>AdminSetUserMFAPreference</a> action instead.</p>
+                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminSetUserSettingsRequest</p>
@@ -4702,7 +4708,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>AdminSetUserMFAPreference</a> action instead.</p>
+                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminSetUserMFAPreference.html">AdminSetUserMFAPreference</a> instead.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderAdminSetUserSettingsRequest</p>
@@ -5418,7 +5424,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenResponse.html">AWSCognitoIdentityProviderAssociateSoftwareTokenResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSCognitoIdentityProviderAssociateSoftwareTokenResponse.html">AWSCognitoIdentityProviderAssociateSoftwareTokenResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -5494,7 +5500,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSCognitoIdentityProviderErrorDomain">AWSCognitoIdentityProviderErrorDomain</a></code> domain and the following error code: <code>AWSCognitoIdentityProviderErrorConcurrentModification</code>, <code>AWSCognitoIdentityProviderErrorInvalidParameter</code>, <code>AWSCognitoIdentityProviderErrorNotAuthorized</code>, <code>AWSCognitoIdentityProviderErrorResourceNotFound</code>, <code>AWSCognitoIdentityProviderErrorInternalError</code>, <code>AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9357,7 +9363,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the <code>Username</code> parameter, you can use the username or user alias. The method used to send the confirmation code is sent according to the specified AccountRecoverySetting. For more information, see <a href="">Recovering User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If neither a verified phone number nor a verified email exists, an <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call .</p>
+                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the <code>Username</code> parameter, you can use the username or user alias. The method used to send the confirmation code is sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If neither a verified phone number nor a verified email exists, an <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderForgotPasswordRequest</p>
@@ -9422,7 +9428,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the <code>Username</code> parameter, you can use the username or user alias. The method used to send the confirmation code is sent according to the specified AccountRecoverySetting. For more information, see <a href="">Recovering User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If neither a verified phone number nor a verified email exists, an <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call .</p>
+                        <p>Calling this API causes a message to be sent to the end user with a confirmation code that is required to change the user&rsquo;s password. For the <code>Username</code> parameter, you can use the username or user alias. The method used to send the confirmation code is sent according to the specified AccountRecoverySetting. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/how-to-recover-a-user-account.html">Recovering User Accounts</a> in the <i>Amazon Cognito Developer Guide</i>. If neither a verified phone number nor a verified email exists, an <code>InvalidParameterException</code> is thrown. To use the confirmation code for resetting the password, call <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ConfirmForgotPassword.html">ConfirmForgotPassword</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderForgotPasswordRequest</p>
@@ -12827,7 +12833,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p><p>See .</p>
+                        <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderSetRiskConfigurationRequest</p>
@@ -12892,7 +12898,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p><p>See .</p>
+                        <p>Configures actions on detected risks. To delete the risk configuration for <code>UserPoolId</code> or <code>ClientId</code>, pass null values for all four configuration types.</p><p>To enable Amazon Cognito advanced security features, update the user pool to include the <code>UserPoolAddOns</code> key<code>AdvancedSecurityMode</code>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderSetRiskConfigurationRequest</p>
@@ -13410,7 +13416,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>SetUserMFAPreference</a> action instead.</p>
+                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a> instead.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderSetUserSettingsRequest</p>
@@ -13475,7 +13481,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use the <a>SetUserMFAPreference</a> action instead.</p>
+                        <p><i>This action is no longer supported.</i> You can use it to configure only SMS MFA. You can&rsquo;t use it to configure TOTP software token MFA. To configure either type of MFA, use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_SetUserMFAPreference.html">SetUserMFAPreference</a> instead.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderSetUserSettingsRequest</p>
@@ -15146,7 +15152,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
+                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolRequest</p>
@@ -15211,7 +15217,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings with .</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
+                        <p><p>Updates the specified user pool with the specified attributes. You can get a list of the current user pool settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPool.html">DescribeUserPool</a>.</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolRequest</p>
@@ -15290,7 +15296,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
+                        <p><p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolClientRequest</p>
@@ -15355,7 +15361,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings with .</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
+                        <p><p>Updates the specified user pool app client with the specified attributes. You can get a list of the current user pool app client settings using <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_DescribeUserPoolClient.html">DescribeUserPoolClient</a>.</p><important><p>If you don&rsquo;t provide a value for an attribute, it will be set to the default value.</p></important></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSCognitoIdentityProviderUpdateUserPoolClientRequest</p>
@@ -15864,7 +15870,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderCreateUserPoolRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.15.2 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -713,6 +713,9 @@
                 <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderTagResourceResponse">AWSCognitoIdentityProviderTagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderTokenValidityUnitsType.html">AWSCognitoIdentityProviderTokenValidityUnitsType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderUICustomizationType.html">AWSCognitoIdentityProviderUICustomizationType</a>
               </li>
               <li class="nav-group-task">
@@ -1029,6 +1032,9 @@
                 <a href="../Enums/AWSCognitoIdentityProviderStatusType.html">AWSCognitoIdentityProviderStatusType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderTimeUnitsType.html">AWSCognitoIdentityProviderTimeUnitsType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderUserImportJobStatusType.html">AWSCognitoIdentityProviderUserImportJobStatusType</a>
               </li>
               <li class="nav-group-task">
@@ -1119,7 +1125,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p><note><p>Starting February 1, 2020, the value of <code>AccountRecoverySetting</code> will default to <code>verified_email</code> first and <code>verified_phone_number</code> as the second option for newly created user pools if no value is provided.</p></note></p>
+                        <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
 
                       </div>
                       <div class="declaration">
@@ -1727,7 +1733,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either &ldquo;username&rdquo; or &ldquo;Username&rdquo;. This configuration is immutable once it has been set. For more information, see .</p>
+                        <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either &ldquo;username&rdquo; or &ldquo;Username&rdquo;. This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -1783,7 +1789,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
