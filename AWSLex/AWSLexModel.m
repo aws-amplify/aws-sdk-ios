@@ -215,6 +215,16 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @end
 
+@implementation AWSLexIntentConfidence
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"score" : @"score",
+             };
+}
+
+@end
+
 @implementation AWSLexIntentSummary
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -340,13 +350,16 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"alternativeIntents" : @"alternativeIntents",
              @"audioStream" : @"audioStream",
+             @"botVersion" : @"botVersion",
              @"contentType" : @"contentType",
              @"dialogState" : @"dialogState",
              @"inputTranscript" : @"inputTranscript",
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
              @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
              @"sessionId" : @"sessionId",
@@ -448,10 +461,13 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"alternativeIntents" : @"alternativeIntents",
+             @"botVersion" : @"botVersion",
              @"dialogState" : @"dialogState",
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
              @"responseCard" : @"responseCard",
              @"sentimentResponse" : @"sentimentResponse",
              @"sessionAttributes" : @"sessionAttributes",
@@ -459,6 +475,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"slotToElicit" : @"slotToElicit",
              @"slots" : @"slots",
              };
+}
+
++ (NSValueTransformer *)alternativeIntentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLexPredictedIntent class]];
 }
 
 + (NSValueTransformer *)dialogStateJSONTransformer {
@@ -533,12 +553,32 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
     }];
 }
 
++ (NSValueTransformer *)nluIntentConfidenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexIntentConfidence class]];
+}
+
 + (NSValueTransformer *)responseCardJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexResponseCard class]];
 }
 
 + (NSValueTransformer *)sentimentResponseJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexSentimentResponse class]];
+}
+
+@end
+
+@implementation AWSLexPredictedIntent
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"intentName" : @"intentName",
+             @"nluIntentConfidence" : @"nluIntentConfidence",
+             @"slots" : @"slots",
+             };
+}
+
++ (NSValueTransformer *)nluIntentConfidenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLexIntentConfidence class]];
 }
 
 @end

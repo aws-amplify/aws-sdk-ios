@@ -115,6 +115,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs10X,
     AWSLambdaRuntimeNodejs12X,
     AWSLambdaRuntimeJava8,
+    AWSLambdaRuntimeJava8Al2,
     AWSLambdaRuntimeJava11,
     AWSLambdaRuntimePython27,
     AWSLambdaRuntimePython36,
@@ -129,6 +130,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeRuby25,
     AWSLambdaRuntimeRuby27,
     AWSLambdaRuntimeProvided,
+    AWSLambdaRuntimeProvidedAl2,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -550,7 +552,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -565,12 +567,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>Disables the event source mapping to pause polling and invocation.</p>
+ <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -585,12 +587,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -600,7 +602,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
- <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+ <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
 
@@ -608,6 +610,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startingPositionTimestamp;
+
+/**
+ <p> (MSK) The name of the Kafka topic. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 @end
 
@@ -970,6 +977,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable stateTransitionReason;
+
+/**
+ <p> (MSK) The name of the Kafka topic. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
  <p>The identifier of the event source mapping.</p>
@@ -1876,7 +1888,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -2650,7 +2662,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -2665,7 +2677,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>Disables the event source mapping to pause polling and invocation.</p>
+ <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -2680,12 +2692,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 

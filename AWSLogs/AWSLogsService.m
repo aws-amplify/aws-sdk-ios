@@ -483,6 +483,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLogsDeleteQueryDefinitionResponse *> *)deleteQueryDefinition:(AWSLogsDeleteQueryDefinitionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DeleteQueryDefinition"
+                   outputClass:[AWSLogsDeleteQueryDefinitionResponse class]];
+}
+
+- (void)deleteQueryDefinition:(AWSLogsDeleteQueryDefinitionRequest *)request
+     completionHandler:(void (^)(AWSLogsDeleteQueryDefinitionResponse *response, NSError *error))completionHandler {
+    [[self deleteQueryDefinition:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDeleteQueryDefinitionResponse *> * _Nonnull task) {
+        AWSLogsDeleteQueryDefinitionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteResourcePolicy:(AWSLogsDeleteResourcePolicyRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -677,6 +700,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLogsDescribeQueriesResponse *response, NSError *error))completionHandler {
     [[self describeQueries:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeQueriesResponse *> * _Nonnull task) {
         AWSLogsDescribeQueriesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsDescribeQueryDefinitionsResponse *> *)describeQueryDefinitions:(AWSLogsDescribeQueryDefinitionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"DescribeQueryDefinitions"
+                   outputClass:[AWSLogsDescribeQueryDefinitionsResponse class]];
+}
+
+- (void)describeQueryDefinitions:(AWSLogsDescribeQueryDefinitionsRequest *)request
+     completionHandler:(void (^)(AWSLogsDescribeQueryDefinitionsResponse *response, NSError *error))completionHandler {
+    [[self describeQueryDefinitions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsDescribeQueryDefinitionsResponse *> * _Nonnull task) {
+        AWSLogsDescribeQueryDefinitionsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -977,6 +1023,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLogsPutQueryDefinitionResponse *> *)putQueryDefinition:(AWSLogsPutQueryDefinitionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Logs_20140328"
+                 operationName:@"PutQueryDefinition"
+                   outputClass:[AWSLogsPutQueryDefinitionResponse class]];
+}
+
+- (void)putQueryDefinition:(AWSLogsPutQueryDefinitionRequest *)request
+     completionHandler:(void (^)(AWSLogsPutQueryDefinitionResponse *response, NSError *error))completionHandler {
+    [[self putQueryDefinition:request] continueWithBlock:^id _Nullable(AWSTask<AWSLogsPutQueryDefinitionResponse *> * _Nonnull task) {
+        AWSLogsPutQueryDefinitionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
