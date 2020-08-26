@@ -17,7 +17,7 @@
     <a title="AWSLogsDescribeLogStreamsRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLogs 2.15.1 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLogs 2.15.2 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -74,6 +74,12 @@
                 <a href="../Classes/AWSLogsDeleteMetricFilterRequest.html">AWSLogsDeleteMetricFilterRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteQueryDefinitionRequest.html">AWSLogsDeleteQueryDefinitionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDeleteQueryDefinitionResponse.html">AWSLogsDeleteQueryDefinitionResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDeleteResourcePolicyRequest.html">AWSLogsDeleteResourcePolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -117,6 +123,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDescribeQueriesResponse.html">AWSLogsDescribeQueriesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeQueryDefinitionsRequest.html">AWSLogsDescribeQueryDefinitionsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsDescribeQueryDefinitionsResponse.html">AWSLogsDescribeQueryDefinitionsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsDescribeResourcePoliciesRequest.html">AWSLogsDescribeResourcePoliciesRequest</a>
@@ -227,6 +239,12 @@
                 <a href="../Classes/AWSLogsPutMetricFilterRequest.html">AWSLogsPutMetricFilterRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutQueryDefinitionRequest.html">AWSLogsPutQueryDefinitionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsPutQueryDefinitionResponse.html">AWSLogsPutQueryDefinitionResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLogsPutResourcePolicyRequest.html">AWSLogsPutResourcePolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -243,6 +261,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsQueryCompileErrorLocation.html">AWSLogsQueryCompileErrorLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLogsQueryDefinition.html">AWSLogsQueryDefinition</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLogsQueryInfo.html">AWSLogsQueryInfo</a>
@@ -463,7 +484,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The prefix to match.</p><p>If <code><a href="../Classes/AWSLogsDescribeLogStreamsRequest.html#/c:objc(cs)AWSLogsDescribeLogStreamsRequest(py)orderBy">orderBy</a></code> is <code>LastEventTime</code>,you cannot specify this parameter.</p>
+                        <p>The prefix to match.</p><p>If <code><a href="../Classes/AWSLogsDescribeLogStreamsRequest.html#/c:objc(cs)AWSLogsDescribeLogStreamsRequest(py)orderBy">orderBy</a></code> is <code>LastEventTime</code>, you cannot specify this parameter.</p>
 
                       </div>
                       <div class="declaration">
@@ -527,7 +548,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code><a href="../Classes/AWSLogsDescribeLogStreamsRequest.html#/c:objc(cs)AWSLogsDescribeLogStreamsRequest(py)logStreamNamePrefix">logStreamNamePrefix</a></code> parameter.</p><p>lastEventTimestamp represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. lastEventTimeStamp updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but may take longer in some rare situations.</p>
+                        <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code><a href="../Classes/AWSLogsDescribeLogStreamsRequest.html#/c:objc(cs)AWSLogsDescribeLogStreamsRequest(py)logStreamNamePrefix">logStreamNamePrefix</a></code> parameter.</p><p><code>lastEventTimeStamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimeStamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
 
                       </div>
                       <div class="declaration">
@@ -551,7 +572,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-06)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-08-26)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
