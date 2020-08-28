@@ -22,7 +22,7 @@
 
 ### Bug Fixes
 - **AWSLex**
-  - Replace PermissionBlock alias with block signature (#2868)
+  - Replace PermissionBlock alias with block signature (See [PR #2868](https://github.com/aws-amplify/aws-sdk-ios/pull/2868))
 - **AWSMobileClient**
   - Fixed an issue where the completion handler is not set before a status change is returned to the api. (See [PR #2948](https://github.com/aws-amplify/aws-sdk-ios/pull/2948))
 
