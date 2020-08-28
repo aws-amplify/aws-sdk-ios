@@ -15,7 +15,7 @@
   - Amazon Lex
   - Amazon Simple Notification Service (SNS)
   - Amazon Transcribe
-- Improved IoT reconnection handling to reduce occurrences of crashes reported in #2770 and #2939. (#2949, #2957)
+- Improved IoT reconnection handling to reduce occurrences of crashes reported in [#2770](https://github.com/aws-amplify/aws-sdk-ios/issues/2770) and [#2939](https://github.com/aws-amplify/aws-sdk-ios/issues/2939). ([PR #2949](https://github.com/aws-amplify/aws-sdk-ios/pull/2949), [PR #2957](https://github.com/aws-amplify/aws-sdk-ios/pull/2957))
 
 - **AWSCore**
   - Deprecated two MD5-related extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK. ([PR #2964](https://github.com/aws-amplify/aws-sdk-ios/pull/2964))
