@@ -5,7 +5,9 @@
 
 ## 2.15.3
 
--Features for next release
+### Misc. Updates
+
+- Updated version for AWSCognitoIdentityProviderASF library to reconcile discrepancy between previous published version and license
 
 ## 2.15.2
 
