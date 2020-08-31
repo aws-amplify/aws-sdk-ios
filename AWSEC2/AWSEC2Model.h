@@ -1367,6 +1367,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeCustomerGateway,
     AWSEC2ResourceTypeDedicatedHost,
     AWSEC2ResourceTypeDHCPOptions,
+    AWSEC2ResourceTypeEgressOnlyInternetGateway,
     AWSEC2ResourceTypeElasticIp,
     AWSEC2ResourceTypeElasticGpu,
     AWSEC2ResourceTypeExportImageTask,
@@ -25308,6 +25309,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable fleetId;
 
 /**
+ <p>The launch template and overrides.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2FleetLaunchTemplateConfigRequest *> * _Nullable launchTemplateConfigs;
+
+/**
  <p>The size of the EC2 Fleet.</p>
  */
 @property (nonatomic, strong) AWSEC2TargetCapacitySpecificationRequest * _Nullable targetCapacitySpecification;
@@ -26089,6 +26095,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether running Spot Instances should be terminated if the target capacity of the Spot Fleet request is decreased below the current size of the Spot Fleet.</p>
  */
 @property (nonatomic, assign) AWSEC2ExcessCapacityTerminationPolicy excessCapacityTerminationPolicy;
+
+/**
+ <p>The launch template and overrides. You can only use this parameter if you specified a launch template (<code>LaunchTemplateConfigs</code>) in your Spot Fleet request. If you specified <code>LaunchSpecifications</code> in your Spot Fleet request, then omit this parameter.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateConfig *> * _Nullable launchTemplateConfigs;
 
 /**
  <p>The number of On-Demand Instances in the fleet.</p>

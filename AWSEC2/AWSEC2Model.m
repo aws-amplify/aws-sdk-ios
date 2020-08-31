@@ -37584,6 +37584,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
+        if ([value caseInsensitiveCompare:@"egress-only-internet-gateway"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeEgressOnlyInternetGateway);
+        }
         if ([value caseInsensitiveCompare:@"elastic-ip"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeElasticIp);
         }
@@ -37712,6 +37715,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
+            case AWSEC2ResourceTypeEgressOnlyInternetGateway:
+                return @"egress-only-internet-gateway";
             case AWSEC2ResourceTypeElasticIp:
                 return @"elastic-ip";
             case AWSEC2ResourceTypeElasticGpu:
@@ -37825,6 +37830,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
+        if ([value caseInsensitiveCompare:@"egress-only-internet-gateway"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeEgressOnlyInternetGateway);
+        }
         if ([value caseInsensitiveCompare:@"elastic-ip"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeElasticIp);
         }
@@ -37953,6 +37961,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
+            case AWSEC2ResourceTypeEgressOnlyInternetGateway:
+                return @"egress-only-internet-gateway";
             case AWSEC2ResourceTypeElasticIp:
                 return @"elastic-ip";
             case AWSEC2ResourceTypeElasticGpu:
@@ -38704,6 +38714,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dryRun" : @"DryRun",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"fleetId" : @"FleetId",
+             @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
              @"targetCapacitySpecification" : @"TargetCapacitySpecification",
              };
 }
@@ -38727,6 +38738,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)launchTemplateConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2FleetLaunchTemplateConfigRequest class]];
 }
 
 + (NSValueTransformer *)targetCapacitySpecificationJSONTransformer {
@@ -39546,6 +39561,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
+             @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
              @"onDemandTargetCapacity" : @"OnDemandTargetCapacity",
              @"spotFleetRequestId" : @"SpotFleetRequestId",
              @"targetCapacity" : @"TargetCapacity",
@@ -39571,6 +39587,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)launchTemplateConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateConfig class]];
 }
 
 @end
@@ -59619,6 +59639,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
+        if ([value caseInsensitiveCompare:@"egress-only-internet-gateway"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeEgressOnlyInternetGateway);
+        }
         if ([value caseInsensitiveCompare:@"elastic-ip"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeElasticIp);
         }
@@ -59747,6 +59770,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
+            case AWSEC2ResourceTypeEgressOnlyInternetGateway:
+                return @"egress-only-internet-gateway";
             case AWSEC2ResourceTypeElasticIp:
                 return @"elastic-ip";
             case AWSEC2ResourceTypeElasticGpu:
@@ -62440,6 +62465,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
+        if ([value caseInsensitiveCompare:@"egress-only-internet-gateway"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeEgressOnlyInternetGateway);
+        }
         if ([value caseInsensitiveCompare:@"elastic-ip"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeElasticIp);
         }
@@ -62568,6 +62596,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
+            case AWSEC2ResourceTypeEgressOnlyInternetGateway:
+                return @"egress-only-internet-gateway";
             case AWSEC2ResourceTypeElasticIp:
                 return @"elastic-ip";
             case AWSEC2ResourceTypeElasticGpu:
@@ -62677,6 +62707,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"dhcp-options"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeDHCPOptions);
         }
+        if ([value caseInsensitiveCompare:@"egress-only-internet-gateway"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeEgressOnlyInternetGateway);
+        }
         if ([value caseInsensitiveCompare:@"elastic-ip"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeElasticIp);
         }
@@ -62805,6 +62838,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"dedicated-host";
             case AWSEC2ResourceTypeDHCPOptions:
                 return @"dhcp-options";
+            case AWSEC2ResourceTypeEgressOnlyInternetGateway:
+                return @"egress-only-internet-gateway";
             case AWSEC2ResourceTypeElasticIp:
                 return @"elastic-ip";
             case AWSEC2ResourceTypeElasticGpu:
