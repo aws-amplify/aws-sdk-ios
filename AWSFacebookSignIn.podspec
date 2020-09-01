@@ -13,8 +13,8 @@ Pod::Spec.new do |s|
                       :tag => s.version}
    s.requires_arc = true
    s.dependency 'AWSAuthCore', '2.15.3'
-   s.dependency 'FBSDKLoginKit', '5.8'
-   s.dependency 'FBSDKCoreKit', '5.8'
+   s.dependency 'FBSDKLoginKit', '6.5'
+   s.dependency 'FBSDKCoreKit', '6.5'
    s.source_files = 'AWSAuthSDK/Sources/AWSFacebookSignIn/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSFacebookSignIn/*.h'
    s.resource_bundle = {  'AWSFacebookSignIn' => 'AWSAuthSDK/Sources/AWSFacebookSignIn/Images.xcassets' }
