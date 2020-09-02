@@ -2,16 +2,19 @@
 
 MOVE THIS SECTION TO THE CORRECT LOCATION
 
-### Misc. Updates
 
-- Model updates for the following services
----AWSSQS
----AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
-- *Features for next release*
+### Note for Xcode 12 support
+- All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires upgrading to this version to continue building on Xcode 12.
+
+### Misc. Updates
+- Model updates for the following services.
+  - **Breaking Change** Amazon SQS
+  - **Breaking Change** Amazon EC2
+  - **Breaking Change** Amazon Elastic Load Balancing (ELB)
 
 ## 2.15.3
 
