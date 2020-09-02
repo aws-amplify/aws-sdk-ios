@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2017 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -54,8 +54,69 @@
     return [_requestSerializer validateRequest:request];
 }
 
-- (AWSTask *)serializeRequest:(NSMutableURLRequest *)request headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters{
-    return [_requestSerializer serializeRequest:request headers:headers parameters:parameters];
+- (AWSTask *)serializeRequest:(NSMutableURLRequest *)request headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters {
+    return [[_requestSerializer serializeRequest:request headers:headers parameters:parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+        [self updateRequestToUseVirtualHostURL:request];
+        return nil;
+    }];
+}
+
+// Virtual host logic from Boto
+// https://github.com/boto/botocore/blob/08d0e5995284656895f5c8a0bddd8c386a8483c4/botocore/utils.py#L954
+- (void)updateRequestToUseVirtualHostURL:(NSMutableURLRequest *)request {
+    if ([self isGetBucketLocationRequest:request]) {
+        AWSDDLogDebug(@"Request is for bucket location request, continuing to use path-style URL");
+        return;
+    }
+
+    NSURLComponents *components = [NSURLComponents componentsWithURL:request.URL resolvingAgainstBaseURL:NO];
+    NSMutableArray<NSString *> *pathParts = [self normalizedPathPartsFromComponents:components];
+
+    NSString *bucketName = [pathParts firstObject];
+    if (![bucketName aws_isVirtualHostedStyleCompliant]) {
+        AWSDDLogDebug(@"Bucket name '%@' is not compatible with virtual-host URLs, continuing to use path-style URL", bucketName);
+        return;
+    }
+
+    AWSDDLogDebug(@"Updating request to use virtual-host style URL");
+    [self updatePathComponentForVirtualHostStyleURL:components pathParts:pathParts];
+    [self updateHostComponentForVirtualHostStyleURL:components bucketName:bucketName];
+
+    NSURL *newURL = [components URL];
+
+    AWSDDLogDebug(@"Rewrote request URL to: %@", newURL);
+    request.URL = newURL;
+
+    return;
+}
+
+- (NSMutableArray<NSString *> *)normalizedPathPartsFromComponents:(NSURLComponents *)components {
+    NSMutableArray<NSString *> *pathParts = [[components.percentEncodedPath componentsSeparatedByString:@"/"] mutableCopy];
+    // remove leading '/' if path exists
+    if (pathParts.count > 0) {
+        [pathParts removeObjectAtIndex:0];
+    }
+    return pathParts;
+}
+
+- (void)updatePathComponentForVirtualHostStyleURL:(NSURLComponents *)components
+                                        pathParts:(NSMutableArray<NSString *> *)pathParts {
+    [pathParts removeObjectAtIndex:0];
+    NSMutableString *path = [[pathParts componentsJoinedByString:@"/"] mutableCopy];
+    // ALl paths must have leading slash
+    [path insertString:@"/" atIndex:0];
+    components.percentEncodedPath = path;
+}
+
+- (void)updateHostComponentForVirtualHostStyleURL:(NSURLComponents *)components
+                                       bucketName:(NSString *) bucketName {
+    NSString *oldHostName = components.host;
+    NSString *newHostName = [NSString stringWithFormat:@"%@.%@", bucketName, oldHostName];
+    components.host = newHostName;
+}
+
+- (BOOL)isGetBucketLocationRequest:(NSMutableURLRequest *)request {
+    return [request.URL.query hasSuffix:@"?location"];
 }
 
 @end
