@@ -63431,6 +63431,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -63443,6 +63446,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -63524,6 +63529,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -63536,6 +63544,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -63548,6 +63558,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value caseInsensitiveCompare:@"initiating"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStateInitiating);
+        }
+        if ([value caseInsensitiveCompare:@"initiatingRequest"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentStateInitiatingRequest);
         }
         if ([value caseInsensitiveCompare:@"pendingAcceptance"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStatePendingAcceptance);
@@ -63587,6 +63600,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2TransitGatewayAttachmentStateInitiating:
                 return @"initiating";
+            case AWSEC2TransitGatewayAttachmentStateInitiatingRequest:
+                return @"initiatingRequest";
             case AWSEC2TransitGatewayAttachmentStatePendingAcceptance:
                 return @"pendingAcceptance";
             case AWSEC2TransitGatewayAttachmentStateRollingBack:
@@ -63808,6 +63823,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -63820,6 +63838,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -63857,6 +63877,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -63869,6 +63892,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -63932,6 +63957,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -63944,6 +63972,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64178,6 +64208,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"initiating"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStateInitiating);
         }
+        if ([value caseInsensitiveCompare:@"initiatingRequest"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentStateInitiatingRequest);
+        }
         if ([value caseInsensitiveCompare:@"pendingAcceptance"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStatePendingAcceptance);
         }
@@ -64216,6 +64249,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2TransitGatewayAttachmentStateInitiating:
                 return @"initiating";
+            case AWSEC2TransitGatewayAttachmentStateInitiatingRequest:
+                return @"initiatingRequest";
             case AWSEC2TransitGatewayAttachmentStatePendingAcceptance:
                 return @"pendingAcceptance";
             case AWSEC2TransitGatewayAttachmentStateRollingBack:
@@ -64275,6 +64310,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -64287,6 +64325,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64370,6 +64410,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -64382,6 +64425,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64661,6 +64706,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -64673,6 +64721,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64764,6 +64814,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -64776,6 +64829,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64839,6 +64894,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"direct-connect-gateway"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway);
         }
+        if ([value caseInsensitiveCompare:@"peering"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentResourceTypePeering);
+        }
         if ([value caseInsensitiveCompare:@"tgw-peering"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering);
         }
@@ -64851,6 +64909,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"vpn";
             case AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway:
                 return @"direct-connect-gateway";
+            case AWSEC2TransitGatewayAttachmentResourceTypePeering:
+                return @"peering";
             case AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering:
                 return @"tgw-peering";
             default:
@@ -64925,6 +64985,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"initiating"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStateInitiating);
         }
+        if ([value caseInsensitiveCompare:@"initiatingRequest"] == NSOrderedSame) {
+            return @(AWSEC2TransitGatewayAttachmentStateInitiatingRequest);
+        }
         if ([value caseInsensitiveCompare:@"pendingAcceptance"] == NSOrderedSame) {
             return @(AWSEC2TransitGatewayAttachmentStatePendingAcceptance);
         }
@@ -64963,6 +65026,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         switch ([value integerValue]) {
             case AWSEC2TransitGatewayAttachmentStateInitiating:
                 return @"initiating";
+            case AWSEC2TransitGatewayAttachmentStateInitiatingRequest:
+                return @"initiatingRequest";
             case AWSEC2TransitGatewayAttachmentStatePendingAcceptance:
                 return @"pendingAcceptance";
             case AWSEC2TransitGatewayAttachmentStateRollingBack:
