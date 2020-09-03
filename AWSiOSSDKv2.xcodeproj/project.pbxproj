@@ -1207,6 +1207,8 @@
 		FA53333A22D4D54800BD88AF /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		FA53334122D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h in Headers */ = {isa = PBXBuildFile; fileRef = FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA53334222D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m in Sources */ = {isa = PBXBuildFile; fileRef = FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */; };
+		FA5D34FC250C0D77007AA030 /* AWSNSCodingUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = FA5D34FA250C0D77007AA030 /* AWSNSCodingUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		FA5D34FD250C0D77007AA030 /* AWSNSCodingUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5D34FB250C0D77007AA030 /* AWSNSCodingUtilities.m */; };
 		FA5DFE5821FB8E4700C554E7 /* AWSCognitoIdentityASF.m in Sources */ = {isa = PBXBuildFile; fileRef = FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */; };
 		FA62A7172167C9F100EFB444 /* AWSGZIPBaseTestCase.m in Sources */ = {isa = PBXBuildFile; fileRef = FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */; };
 		FA643A5C246B30C800106CB1 /* amazon-developer-tools.jpg in Resources */ = {isa = PBXBuildFile; fileRef = FA643A5B246B30C800106CB1 /* amazon-developer-tools.jpg */; };
@@ -1256,6 +1258,7 @@
 		FADA6AFF22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h in Headers */ = {isa = PBXBuildFile; fileRef = FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */; };
 		FADA6B0022D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */; };
 		FADAB0A3246B0FAD00CE2D11 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		FADAEAE9250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAEAE8250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m */; };
 		FAE19B6F23341A5100560F1D /* AWSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D417B1C6A66E5006B91B5 /* AWSCoreTests.m */; };
 		FAE19B7123341DA900560F1D /* ec2-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3F1C6A69AB0098B15B /* ec2-input.json */; };
 		FAE19B7223341DAE00560F1D /* ec2-output.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF401C6A69AB0098B15B /* ec2-output.json */; };
@@ -4374,6 +4377,8 @@
 		FA53332F22D4D47E00BD88AF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FA53333F22D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingEventDecoder.h; sourceTree = "<group>"; };
 		FA53334022D4D80600BD88AF /* AWSTranscribeStreamingEventDecoder.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeStreamingEventDecoder.m; sourceTree = "<group>"; };
+		FA5D34FA250C0D77007AA030 /* AWSNSCodingUtilities.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSNSCodingUtilities.h; sourceTree = "<group>"; };
+		FA5D34FB250C0D77007AA030 /* AWSNSCodingUtilities.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSNSCodingUtilities.m; sourceTree = "<group>"; };
 		FA5DFE5721FB8E4700C554E7 /* AWSCognitoIdentityASF.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSCognitoIdentityASF.m; sourceTree = "<group>"; };
 		FA62A7152167C9F100EFB444 /* AWSGZIPBaseTestCase.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSGZIPBaseTestCase.h; sourceTree = "<group>"; };
 		FA62A7162167C9F100EFB444 /* AWSGZIPBaseTestCase.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPBaseTestCase.m; sourceTree = "<group>"; };
@@ -4443,6 +4448,7 @@
 		FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTestConfiguration.m; sourceTree = "<group>"; };
 		FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocketDelegateAdaptor.h; sourceTree = "<group>"; };
 		FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketDelegateAdaptor.m; sourceTree = "<group>"; };
+		FADAEAE8250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
 		FAF13AAE2167C6AA008115D1 /* AWSGZIPTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGZIPTestHelper.h; sourceTree = "<group>"; };
 		FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPTestHelper.m; sourceTree = "<group>"; };
@@ -5744,6 +5750,7 @@
 			children = (
 				1879900A1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m */,
 				C436FB092437EBE30004738F /* AWSPinpointNotificationManagerTests.m */,
+				FADAEAE8250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m */,
 				18798F9D1DEF9EF900BC419B /* Info.plist */,
 			);
 			path = AWSPinpointUnitTests;
@@ -6602,6 +6609,8 @@
 				CE0D42161C6A673E006B91B5 /* AWSLogging.m */,
 				CE0D42171C6A673E006B91B5 /* AWSModel.h */,
 				CE0D42181C6A673E006B91B5 /* AWSModel.m */,
+				FA5D34FA250C0D77007AA030 /* AWSNSCodingUtilities.h */,
+				FA5D34FB250C0D77007AA030 /* AWSNSCodingUtilities.m */,
 				CE0D42191C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.h */,
 				CE0D421A1C6A673E006B91B5 /* AWSSynchronizedMutableDictionary.m */,
 			);
@@ -8343,6 +8352,7 @@
 				CE0D42A11C6A673E006B91B5 /* AWSCategory.h in Headers */,
 				184F431D1E930A2D004F3FE2 /* AWSDDLogMacros.h in Headers */,
 				184F43141E930A2D004F3FE2 /* AWSDDASLLogger.h in Headers */,
+				FA5D34FC250C0D77007AA030 /* AWSNSCodingUtilities.h in Headers */,
 				CE0D42291C6A673E006B91B5 /* AWSBolts.h in Headers */,
 				CE0D42561C6A673E006B91B5 /* AWSMTLJSONAdapter.h in Headers */,
 				184F43121E930A2D004F3FE2 /* AWSDDASLLogCapture.h in Headers */,
@@ -12575,6 +12585,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADAEAE9250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m in Sources */,
 				18F455471DEFE875000D2F68 /* AWSTestUtility.m in Sources */,
 				C436FB0A2437EBE30004738F /* AWSPinpointNotificationManagerTests.m in Sources */,
 				1879900C1DEFCBFC00BC419B /* AWSGeneralPinpointTargetingTests.m in Sources */,
@@ -12890,6 +12901,7 @@
 				CE0D42981C6A673E006B91B5 /* AWSTMDiskCache.m in Sources */,
 				CE0D42571C6A673E006B91B5 /* AWSMTLJSONAdapter.m in Sources */,
 				CE0D42281C6A673E006B91B5 /* AWSSignature.m in Sources */,
+				FA5D34FD250C0D77007AA030 /* AWSNSCodingUtilities.m in Sources */,
 				CE0D42701C6A673E006B91B5 /* NSObject+AWSMTLComparisonAdditions.m in Sources */,
 				CE0D42241C6A673E006B91B5 /* AWSCredentialsProvider.m in Sources */,
 				184F431B1E930A2D004F3FE2 /* AWSDDLog.m in Sources */,

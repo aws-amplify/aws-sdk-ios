@@ -89,7 +89,7 @@
 
         aws_mp_init_size(&m_value, alloc);
 		
-		NSData *data = (NSData *)[decoder decodeObjectForKey:@"AWSJKBigIntegerDP"];
+        NSData *data = (NSData *)[decoder decodeObjectOfClass:[NSData class] forKey:@"AWSJKBigIntegerDP"];
         aws_mp_digit *temp = (aws_mp_digit *)[data bytes];
         
         for (unsigned int i = 0; i < alloc; ++i) {
