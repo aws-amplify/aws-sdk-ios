@@ -12,7 +12,6 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 ### Misc. Updates
 - Model updates for the following services.
-  - **Breaking Change** Amazon SQS
   - **Breaking Change** Amazon EC2
   - **Breaking Change** Amazon Elastic Load Balancing (ELB)
 
