@@ -8,12 +8,12 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ## Unreleased
 
 ### Note for Xcode 12 support
-- All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires upgrading to this version to continue building on Xcode 12.
+- All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires upgrading to this version to continue building on Xcode 12. ([PR #2981](https://github.com/aws-amplify/aws-sdk-ios/pull/2981))
 
 ### Misc. Updates
 - Model updates for the following services.
-  - **Breaking Change** Amazon EC2
-  - **Breaking Change** Amazon Elastic Load Balancing (ELB)
+  - **Breaking Change** Amazon EC2 ([PR #2986](https://github.com/aws-amplify/aws-sdk-ios/pull/2986))
+  - **Breaking Change** Amazon Elastic Load Balancing (ELB) ([PR #2951](https://github.com/aws-amplify/aws-sdk-ios/pull/2951))
 
 ## 2.15.3
 
