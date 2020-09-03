@@ -6,6 +6,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
+-Features for next release
+
+## 2.16.0
 
 ### Note for Xcode 12 support
 - All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires setting your app's minimum supported version to 9.0 or greater to continue building on Xcode 12. ([PR #2981](https://github.com/aws-amplify/aws-sdk-ios/pull/2981))
