@@ -13,7 +13,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 - Model updates for the following services.
   - **Breaking Change** Amazon EC2 - reverted a change that was mistakenly released in the previous model update ([PR #2986](https://github.com/aws-amplify/aws-sdk-ios/pull/2986))
-  - **Breaking Change** Amazon Elastic Load Balancing (ELB) ([PR #2951](https://github.com/aws-amplify/aws-sdk-ios/pull/2951))
+  - **Breaking Change** Amazon Elastic Load Balancing - updated to API version `2015-12-01` ([PR #2951](https://github.com/aws-amplify/aws-sdk-ios/pull/2951))
 
 ## 2.15.3
 
