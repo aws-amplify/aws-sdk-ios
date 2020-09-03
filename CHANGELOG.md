@@ -1,8 +1,23 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
-- *Features for next release*
+### Note for Xcode 12 support
+- All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires setting your app's minimum supported version to 9.0 or greater to continue building on Xcode 12. ([PR #2981](https://github.com/aws-amplify/aws-sdk-ios/pull/2981))
+
+### Bug Fixes
+- **AWSiOT** 
+  - Backport crash fix into AWSSRWebSocket ([PR #2984](https://github.com/aws-amplify/aws-sdk-ios/pull/2984))
+
+### Misc. Updates
+- Model updates for the following services.
+  - **Breaking Change** Amazon EC2 - reverted a change that was mistakenly released in the previous model update ([PR #2986](https://github.com/aws-amplify/aws-sdk-ios/pull/2986))
+  - **Breaking Change** Amazon Elastic Load Balancing - updated to API version `2015-12-01` ([PR #2951](https://github.com/aws-amplify/aws-sdk-ios/pull/2951))
 
 ## 2.15.3
 
