@@ -25,7 +25,7 @@
 #import "AWSSageMakerRuntimeResources.h"
 
 static NSString *const AWSInfoSageMakerRuntime = @"SageMakerRuntime";
-NSString *const AWSSageMakerRuntimeSDKVersion = @"2.15.2";
+NSString *const AWSSageMakerRuntimeSDKVersion = @"2.15.3";
 
 
 @interface AWSSageMakerRuntimeResponseSerializer : AWSJSONResponseSerializer

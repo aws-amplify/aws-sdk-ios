@@ -24,7 +24,7 @@
 #import "Fabric+FABKits.h"
 
 static NSString *const AWSInfoCognito = @"Cognito";
-NSString *const AWSCognitoSDKVersion = @"2.15.2";
+NSString *const AWSCognitoSDKVersion = @"2.15.3";
 
 NSString *const AWSCognitoDidStartSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidStartSynchronizeNotification";
 NSString *const AWSCognitoDidEndSynchronizeNotification = @"com.amazon.cognito.AWSCognitoDidEndSynchronizeNotification";
