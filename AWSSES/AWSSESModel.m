@@ -18,83 +18,13 @@
 
 NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
-@implementation AWSSESAccountDetails
+@implementation AWSSESAddHeaderAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"additionalContactEmailAddresses" : @"AdditionalContactEmailAddresses",
-             @"contactLanguage" : @"ContactLanguage",
-             @"mailType" : @"MailType",
-             @"reviewDetails" : @"ReviewDetails",
-             @"useCaseDescription" : @"UseCaseDescription",
-             @"websiteURL" : @"WebsiteURL",
+             @"headerName" : @"HeaderName",
+             @"headerValue" : @"HeaderValue",
              };
-}
-
-+ (NSValueTransformer *)contactLanguageJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"EN"] == NSOrderedSame) {
-            return @(AWSSESContactLanguageEn);
-        }
-        if ([value caseInsensitiveCompare:@"JA"] == NSOrderedSame) {
-            return @(AWSSESContactLanguageJa);
-        }
-        return @(AWSSESContactLanguageUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESContactLanguageEn:
-                return @"EN";
-            case AWSSESContactLanguageJa:
-                return @"JA";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)mailTypeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MARKETING"] == NSOrderedSame) {
-            return @(AWSSESMailTypeMarketing);
-        }
-        if ([value caseInsensitiveCompare:@"TRANSACTIONAL"] == NSOrderedSame) {
-            return @(AWSSESMailTypeTransactional);
-        }
-        return @(AWSSESMailTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESMailTypeMarketing:
-                return @"MARKETING";
-            case AWSSESMailTypeTransactional:
-                return @"TRANSACTIONAL";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)reviewDetailsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReviewDetails class]];
-}
-
-@end
-
-@implementation AWSSESBlacklistEntry
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"detail" : @"Description",
-             @"listingTime" : @"ListingTime",
-             @"rblName" : @"RblName",
-             };
-}
-
-+ (NSValueTransformer *)listingTimeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
 }
 
 @end
@@ -118,36 +48,90 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESBulkEmailContent
+@implementation AWSSESBounceAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"template" : @"Template",
+             @"message" : @"Message",
+             @"sender" : @"Sender",
+             @"smtpReplyCode" : @"SmtpReplyCode",
+             @"statusCode" : @"StatusCode",
+             @"topicArn" : @"TopicArn",
              };
-}
-
-+ (NSValueTransformer *)templateJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
 }
 
 @end
 
-@implementation AWSSESBulkEmailEntry
+@implementation AWSSESBouncedRecipientInfo
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bounceType" : @"BounceType",
+             @"recipient" : @"Recipient",
+             @"recipientArn" : @"RecipientArn",
+             @"recipientDsnFields" : @"RecipientDsnFields",
+             };
+}
+
++ (NSValueTransformer *)bounceTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DoesNotExist"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeDoesNotExist);
+        }
+        if ([value caseInsensitiveCompare:@"MessageTooLarge"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeMessageTooLarge);
+        }
+        if ([value caseInsensitiveCompare:@"ExceededQuota"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeExceededQuota);
+        }
+        if ([value caseInsensitiveCompare:@"ContentRejected"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeContentRejected);
+        }
+        if ([value caseInsensitiveCompare:@"Undefined"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeUndefined);
+        }
+        if ([value caseInsensitiveCompare:@"TemporaryFailure"] == NSOrderedSame) {
+            return @(AWSSESBounceTypeTemporaryFailure);
+        }
+        return @(AWSSESBounceTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESBounceTypeDoesNotExist:
+                return @"DoesNotExist";
+            case AWSSESBounceTypeMessageTooLarge:
+                return @"MessageTooLarge";
+            case AWSSESBounceTypeExceededQuota:
+                return @"ExceededQuota";
+            case AWSSESBounceTypeContentRejected:
+                return @"ContentRejected";
+            case AWSSESBounceTypeUndefined:
+                return @"Undefined";
+            case AWSSESBounceTypeTemporaryFailure:
+                return @"TemporaryFailure";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)recipientDsnFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESRecipientDsnFields class]];
+}
+
+@end
+
+@implementation AWSSESBulkEmailDestination
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"destination" : @"Destination",
-             @"replacementEmailContent" : @"ReplacementEmailContent",
              @"replacementTags" : @"ReplacementTags",
+             @"replacementTemplateData" : @"ReplacementTemplateData",
              };
 }
 
 + (NSValueTransformer *)destinationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
-}
-
-+ (NSValueTransformer *)replacementEmailContentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReplacementEmailContent class]];
 }
 
 + (NSValueTransformer *)replacementTagsJSONTransformer {
@@ -156,7 +140,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESBulkEmailEntryResult
+@implementation AWSSESBulkEmailDestinationStatus
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -168,84 +152,99 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)statusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"Success"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusSuccess);
         }
-        if ([value caseInsensitiveCompare:@"MESSAGE_REJECTED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"MessageRejected"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusMessageRejected);
         }
-        if ([value caseInsensitiveCompare:@"MAIL_FROM_DOMAIN_NOT_VERIFIED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"MailFromDomainNotVerified"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusMailFromDomainNotVerified);
         }
-        if ([value caseInsensitiveCompare:@"CONFIGURATION_SET_NOT_FOUND"] == NSOrderedSame) {
-            return @(AWSSESBulkEmailStatusConfigurationSetNotFound);
+        if ([value caseInsensitiveCompare:@"ConfigurationSetDoesNotExist"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusConfigurationSetDoesNotExist);
         }
-        if ([value caseInsensitiveCompare:@"TEMPLATE_NOT_FOUND"] == NSOrderedSame) {
-            return @(AWSSESBulkEmailStatusTemplateNotFound);
+        if ([value caseInsensitiveCompare:@"TemplateDoesNotExist"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusTemplateDoesNotExist);
         }
-        if ([value caseInsensitiveCompare:@"ACCOUNT_SUSPENDED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"AccountSuspended"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusAccountSuspended);
         }
-        if ([value caseInsensitiveCompare:@"ACCOUNT_THROTTLED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"AccountThrottled"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusAccountThrottled);
         }
-        if ([value caseInsensitiveCompare:@"ACCOUNT_DAILY_QUOTA_EXCEEDED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"AccountDailyQuotaExceeded"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusAccountDailyQuotaExceeded);
         }
-        if ([value caseInsensitiveCompare:@"INVALID_SENDING_POOL_NAME"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"InvalidSendingPoolName"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusInvalidSendingPoolName);
         }
-        if ([value caseInsensitiveCompare:@"ACCOUNT_SENDING_PAUSED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"AccountSendingPaused"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusAccountSendingPaused);
         }
-        if ([value caseInsensitiveCompare:@"CONFIGURATION_SET_SENDING_PAUSED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"ConfigurationSetSendingPaused"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusConfigurationSetSendingPaused);
         }
-        if ([value caseInsensitiveCompare:@"INVALID_PARAMETER"] == NSOrderedSame) {
-            return @(AWSSESBulkEmailStatusInvalidParameter);
+        if ([value caseInsensitiveCompare:@"InvalidParameterValue"] == NSOrderedSame) {
+            return @(AWSSESBulkEmailStatusInvalidParameterValue);
         }
-        if ([value caseInsensitiveCompare:@"TRANSIENT_FAILURE"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"TransientFailure"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusTransientFailure);
         }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
             return @(AWSSESBulkEmailStatusFailed);
         }
         return @(AWSSESBulkEmailStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSSESBulkEmailStatusSuccess:
-                return @"SUCCESS";
+                return @"Success";
             case AWSSESBulkEmailStatusMessageRejected:
-                return @"MESSAGE_REJECTED";
+                return @"MessageRejected";
             case AWSSESBulkEmailStatusMailFromDomainNotVerified:
-                return @"MAIL_FROM_DOMAIN_NOT_VERIFIED";
-            case AWSSESBulkEmailStatusConfigurationSetNotFound:
-                return @"CONFIGURATION_SET_NOT_FOUND";
-            case AWSSESBulkEmailStatusTemplateNotFound:
-                return @"TEMPLATE_NOT_FOUND";
+                return @"MailFromDomainNotVerified";
+            case AWSSESBulkEmailStatusConfigurationSetDoesNotExist:
+                return @"ConfigurationSetDoesNotExist";
+            case AWSSESBulkEmailStatusTemplateDoesNotExist:
+                return @"TemplateDoesNotExist";
             case AWSSESBulkEmailStatusAccountSuspended:
-                return @"ACCOUNT_SUSPENDED";
+                return @"AccountSuspended";
             case AWSSESBulkEmailStatusAccountThrottled:
-                return @"ACCOUNT_THROTTLED";
+                return @"AccountThrottled";
             case AWSSESBulkEmailStatusAccountDailyQuotaExceeded:
-                return @"ACCOUNT_DAILY_QUOTA_EXCEEDED";
+                return @"AccountDailyQuotaExceeded";
             case AWSSESBulkEmailStatusInvalidSendingPoolName:
-                return @"INVALID_SENDING_POOL_NAME";
+                return @"InvalidSendingPoolName";
             case AWSSESBulkEmailStatusAccountSendingPaused:
-                return @"ACCOUNT_SENDING_PAUSED";
+                return @"AccountSendingPaused";
             case AWSSESBulkEmailStatusConfigurationSetSendingPaused:
-                return @"CONFIGURATION_SET_SENDING_PAUSED";
-            case AWSSESBulkEmailStatusInvalidParameter:
-                return @"INVALID_PARAMETER";
+                return @"ConfigurationSetSendingPaused";
+            case AWSSESBulkEmailStatusInvalidParameterValue:
+                return @"InvalidParameterValue";
             case AWSSESBulkEmailStatusTransientFailure:
-                return @"TRANSIENT_FAILURE";
+                return @"TransientFailure";
             case AWSSESBulkEmailStatusFailed:
-                return @"FAILED";
+                return @"Failed";
             default:
                 return nil;
         }
     }];
 }
+
+@end
+
+@implementation AWSSESCloneReceiptRuleSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"originalRuleSetName" : @"OriginalRuleSetName",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESCloneReceiptRuleSetResponse
 
 @end
 
@@ -275,28 +274,38 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSValueTransformer *)dimensionValueSourceJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MESSAGE_TAG"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"messageTag"] == NSOrderedSame) {
             return @(AWSSESDimensionValueSourceMessageTag);
         }
-        if ([value caseInsensitiveCompare:@"EMAIL_HEADER"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"emailHeader"] == NSOrderedSame) {
             return @(AWSSESDimensionValueSourceEmailHeader);
         }
-        if ([value caseInsensitiveCompare:@"LINK_TAG"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"linkTag"] == NSOrderedSame) {
             return @(AWSSESDimensionValueSourceLinkTag);
         }
         return @(AWSSESDimensionValueSourceUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSSESDimensionValueSourceMessageTag:
-                return @"MESSAGE_TAG";
+                return @"messageTag";
             case AWSSESDimensionValueSourceEmailHeader:
-                return @"EMAIL_HEADER";
+                return @"emailHeader";
             case AWSSESDimensionValueSourceLinkTag:
-                return @"LINK_TAG";
+                return @"linkTag";
             default:
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSSESConfigurationSet
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             };
 }
 
 @end
@@ -318,12 +327,11 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 	return @{
              @"configurationSetName" : @"ConfigurationSetName",
              @"eventDestination" : @"EventDestination",
-             @"eventDestinationName" : @"EventDestinationName",
              };
 }
 
 + (NSValueTransformer *)eventDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestinationDefinition class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestination class]];
 }
 
 @end
@@ -336,34 +344,27 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"deliveryOptions" : @"DeliveryOptions",
-             @"reputationOptions" : @"ReputationOptions",
-             @"sendingOptions" : @"SendingOptions",
-             @"suppressionOptions" : @"SuppressionOptions",
-             @"tags" : @"Tags",
-             @"trackingOptions" : @"TrackingOptions",
+             @"configurationSet" : @"ConfigurationSet",
              };
 }
 
-+ (NSValueTransformer *)deliveryOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
++ (NSValueTransformer *)configurationSetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESConfigurationSet class]];
 }
 
-+ (NSValueTransformer *)reputationOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReputationOptions class]];
-}
+@end
 
-+ (NSValueTransformer *)sendingOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSendingOptions class]];
-}
+@implementation AWSSESCreateConfigurationSetResponse
 
-+ (NSValueTransformer *)suppressionOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressionOptions class]];
-}
+@end
 
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
+@implementation AWSSESCreateConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"trackingOptions" : @"TrackingOptions",
+             };
 }
 
 + (NSValueTransformer *)trackingOptionsJSONTransformer {
@@ -372,7 +373,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESCreateConfigurationSetResponse
+@implementation AWSSESCreateConfigurationSetTrackingOptionsResponse
 
 @end
 
@@ -391,209 +392,77 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESCreateCustomVerificationEmailTemplateResponse
-
-@end
-
-@implementation AWSSESCreateDedicatedIpPoolRequest
+@implementation AWSSESCreateReceiptFilterRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"poolName" : @"PoolName",
-             @"tags" : @"Tags",
+             @"filter" : @"Filter",
              };
 }
 
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
++ (NSValueTransformer *)filterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptFilter class]];
 }
 
 @end
 
-@implementation AWSSESCreateDedicatedIpPoolResponse
+@implementation AWSSESCreateReceiptFilterResponse
 
 @end
 
-@implementation AWSSESCreateDeliverabilityTestReportRequest
+@implementation AWSSESCreateReceiptRuleRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"content" : @"Content",
-             @"fromEmailAddress" : @"FromEmailAddress",
-             @"reportName" : @"ReportName",
-             @"tags" : @"Tags",
+             @"after" : @"After",
+             @"rule" : @"Rule",
+             @"ruleSetName" : @"RuleSetName",
              };
 }
 
-+ (NSValueTransformer *)contentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEmailContent class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
++ (NSValueTransformer *)ruleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptRule class]];
 }
 
 @end
 
-@implementation AWSSESCreateDeliverabilityTestReportResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"deliverabilityTestStatus" : @"DeliverabilityTestStatus",
-             @"reportId" : @"ReportId",
-             };
-}
-
-+ (NSValueTransformer *)deliverabilityTestStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityTestStatusInProgress);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityTestStatusCompleted);
-        }
-        return @(AWSSESDeliverabilityTestStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDeliverabilityTestStatusInProgress:
-                return @"IN_PROGRESS";
-            case AWSSESDeliverabilityTestStatusCompleted:
-                return @"COMPLETED";
-            default:
-                return nil;
-        }
-    }];
-}
+@implementation AWSSESCreateReceiptRuleResponse
 
 @end
 
-@implementation AWSSESCreateEmailIdentityPolicyRequest
+@implementation AWSSESCreateReceiptRuleSetRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             @"policy" : @"Policy",
-             @"policyName" : @"PolicyName",
+             @"ruleSetName" : @"RuleSetName",
              };
 }
 
 @end
 
-@implementation AWSSESCreateEmailIdentityPolicyResponse
+@implementation AWSSESCreateReceiptRuleSetResponse
 
 @end
 
-@implementation AWSSESCreateEmailIdentityRequest
+@implementation AWSSESCreateTemplateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dkimSigningAttributes" : @"DkimSigningAttributes",
-             @"emailIdentity" : @"EmailIdentity",
-             @"tags" : @"Tags",
+             @"template" : @"Template",
              };
 }
 
-+ (NSValueTransformer *)dkimSigningAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDkimSigningAttributes class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
 }
 
 @end
 
-@implementation AWSSESCreateEmailIdentityResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dkimAttributes" : @"DkimAttributes",
-             @"identityType" : @"IdentityType",
-             @"verifiedForSendingStatus" : @"VerifiedForSendingStatus",
-             };
-}
-
-+ (NSValueTransformer *)dkimAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDkimAttributes class]];
-}
-
-+ (NSValueTransformer *)identityTypeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"EMAIL_ADDRESS"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeEmailAddress);
-        }
-        if ([value caseInsensitiveCompare:@"DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeDomain);
-        }
-        if ([value caseInsensitiveCompare:@"MANAGED_DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeManagedDomain);
-        }
-        return @(AWSSESIdentityTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESIdentityTypeEmailAddress:
-                return @"EMAIL_ADDRESS";
-            case AWSSESIdentityTypeDomain:
-                return @"DOMAIN";
-            case AWSSESIdentityTypeManagedDomain:
-                return @"MANAGED_DOMAIN";
-            default:
-                return nil;
-        }
-    }];
-}
+@implementation AWSSESCreateTemplateResponse
 
 @end
 
-@implementation AWSSESCreateEmailTemplateRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"templateContent" : @"TemplateContent",
-             @"templateName" : @"TemplateName",
-             };
-}
-
-+ (NSValueTransformer *)templateContentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEmailTemplateContent class]];
-}
-
-@end
-
-@implementation AWSSESCreateEmailTemplateResponse
-
-@end
-
-@implementation AWSSESCreateImportJobRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"importDataSource" : @"ImportDataSource",
-             @"importDestination" : @"ImportDestination",
-             };
-}
-
-+ (NSValueTransformer *)importDataSourceJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESImportDataSource class]];
-}
-
-+ (NSValueTransformer *)importDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESImportDestination class]];
-}
-
-@end
-
-@implementation AWSSESCreateImportJobResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"jobId" : @"JobId",
-             };
-}
-
-@end
-
-@implementation AWSSESCustomVerificationEmailTemplateMetadata
+@implementation AWSSESCustomVerificationEmailTemplate
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -603,68 +472,6 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
              @"templateName" : @"TemplateName",
              @"templateSubject" : @"TemplateSubject",
              };
-}
-
-@end
-
-@implementation AWSSESDailyVolume
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domainIspPlacements" : @"DomainIspPlacements",
-             @"startDate" : @"StartDate",
-             @"volumeStatistics" : @"VolumeStatistics",
-             };
-}
-
-+ (NSValueTransformer *)domainIspPlacementsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainIspPlacement class]];
-}
-
-+ (NSValueTransformer *)startDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)volumeStatisticsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESVolumeStatistics class]];
-}
-
-@end
-
-@implementation AWSSESDedicatedIp
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"ip" : @"Ip",
-             @"poolName" : @"PoolName",
-             @"warmupPercentage" : @"WarmupPercentage",
-             @"warmupStatus" : @"WarmupStatus",
-             };
-}
-
-+ (NSValueTransformer *)warmupStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
-            return @(AWSSESWarmupStatusInProgress);
-        }
-        if ([value caseInsensitiveCompare:@"DONE"] == NSOrderedSame) {
-            return @(AWSSESWarmupStatusDone);
-        }
-        return @(AWSSESWarmupStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESWarmupStatusInProgress:
-                return @"IN_PROGRESS";
-            case AWSSESWarmupStatusDone:
-                return @"DONE";
-            default:
-                return nil;
-        }
-    }];
 }
 
 @end
@@ -698,6 +505,20 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESDeleteConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteConfigurationSetTrackingOptionsResponse
+
+@end
+
 @implementation AWSSESDeleteCustomVerificationEmailTemplateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -708,54 +529,79 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESDeleteCustomVerificationEmailTemplateResponse
-
-@end
-
-@implementation AWSSESDeleteDedicatedIpPoolRequest
+@implementation AWSSESDeleteIdentityPolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"poolName" : @"PoolName",
-             };
-}
-
-@end
-
-@implementation AWSSESDeleteDedicatedIpPoolResponse
-
-@end
-
-@implementation AWSSESDeleteEmailIdentityPolicyRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailIdentity" : @"EmailIdentity",
+             @"identity" : @"Identity",
              @"policyName" : @"PolicyName",
              };
 }
 
 @end
 
-@implementation AWSSESDeleteEmailIdentityPolicyResponse
+@implementation AWSSESDeleteIdentityPolicyResponse
 
 @end
 
-@implementation AWSSESDeleteEmailIdentityRequest
+@implementation AWSSESDeleteIdentityRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailIdentity" : @"EmailIdentity",
+             @"identity" : @"Identity",
              };
 }
 
 @end
 
-@implementation AWSSESDeleteEmailIdentityResponse
+@implementation AWSSESDeleteIdentityResponse
 
 @end
 
-@implementation AWSSESDeleteEmailTemplateRequest
+@implementation AWSSESDeleteReceiptFilterRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filterName" : @"FilterName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteReceiptFilterResponse
+
+@end
+
+@implementation AWSSESDeleteReceiptRuleRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleName" : @"RuleName",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteReceiptRuleResponse
+
+@end
+
+@implementation AWSSESDeleteReceiptRuleSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDeleteReceiptRuleSetResponse
+
+@end
+
+@implementation AWSSESDeleteTemplateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -765,11 +611,11 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESDeleteEmailTemplateResponse
+@implementation AWSSESDeleteTemplateResponse
 
 @end
 
-@implementation AWSSESDeleteSuppressedDestinationRequest
+@implementation AWSSESDeleteVerifiedEmailAddressRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -779,82 +625,155 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESDeleteSuppressedDestinationResponse
-
-@end
-
-@implementation AWSSESDeliverabilityTestReport
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"createDate" : @"CreateDate",
-             @"deliverabilityTestStatus" : @"DeliverabilityTestStatus",
-             @"fromEmailAddress" : @"FromEmailAddress",
-             @"reportId" : @"ReportId",
-             @"reportName" : @"ReportName",
-             @"subject" : @"Subject",
-             };
-}
-
-+ (NSValueTransformer *)createDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)deliverabilityTestStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityTestStatusInProgress);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityTestStatusCompleted);
-        }
-        return @(AWSSESDeliverabilityTestStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDeliverabilityTestStatusInProgress:
-                return @"IN_PROGRESS";
-            case AWSSESDeliverabilityTestStatusCompleted:
-                return @"COMPLETED";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
 @implementation AWSSESDeliveryOptions
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"sendingPoolName" : @"SendingPoolName",
              @"tlsPolicy" : @"TlsPolicy",
              };
 }
 
 + (NSValueTransformer *)tlsPolicyJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"REQUIRE"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"Require"] == NSOrderedSame) {
             return @(AWSSESTlsPolicyRequire);
         }
-        if ([value caseInsensitiveCompare:@"OPTIONAL"] == NSOrderedSame) {
+        if ([value caseInsensitiveCompare:@"Optional"] == NSOrderedSame) {
             return @(AWSSESTlsPolicyOptional);
         }
         return @(AWSSESTlsPolicyUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSSESTlsPolicyRequire:
-                return @"REQUIRE";
+                return @"Require";
             case AWSSESTlsPolicyOptional:
-                return @"OPTIONAL";
+                return @"Optional";
             default:
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSSESDescribeActiveReceiptRuleSetRequest
+
+@end
+
+@implementation AWSSESDescribeActiveReceiptRuleSetResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metadata" : @"Metadata",
+             @"rules" : @"Rules",
+             };
+}
+
++ (NSValueTransformer *)metadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptRuleSetMetadata class]];
+}
+
++ (NSValueTransformer *)rulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptRule class]];
+}
+
+@end
+
+@implementation AWSSESDescribeConfigurationSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetAttributeNames" : @"ConfigurationSetAttributeNames",
+             @"configurationSetName" : @"ConfigurationSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDescribeConfigurationSetResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSet" : @"ConfigurationSet",
+             @"deliveryOptions" : @"DeliveryOptions",
+             @"eventDestinations" : @"EventDestinations",
+             @"reputationOptions" : @"ReputationOptions",
+             @"trackingOptions" : @"TrackingOptions",
+             };
+}
+
++ (NSValueTransformer *)configurationSetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
++ (NSValueTransformer *)deliveryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
+}
+
++ (NSValueTransformer *)eventDestinationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESEventDestination class]];
+}
+
++ (NSValueTransformer *)reputationOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReputationOptions class]];
+}
+
++ (NSValueTransformer *)trackingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
+}
+
+@end
+
+@implementation AWSSESDescribeReceiptRuleRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleName" : @"RuleName",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDescribeReceiptRuleResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"rule" : @"Rule",
+             };
+}
+
++ (NSValueTransformer *)ruleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptRule class]];
+}
+
+@end
+
+@implementation AWSSESDescribeReceiptRuleSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESDescribeReceiptRuleSetResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"metadata" : @"Metadata",
+             @"rules" : @"Rules",
+             };
+}
+
++ (NSValueTransformer *)metadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptRuleSetMetadata class]];
+}
+
++ (NSValueTransformer *)rulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptRule class]];
 }
 
 @end
@@ -871,219 +790,6 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESDkimAttributes
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"signingAttributesOrigin" : @"SigningAttributesOrigin",
-             @"signingEnabled" : @"SigningEnabled",
-             @"status" : @"Status",
-             @"tokens" : @"Tokens",
-             };
-}
-
-+ (NSValueTransformer *)signingAttributesOriginJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"AWS_SES"] == NSOrderedSame) {
-            return @(AWSSESDkimSigningAttributesOriginAwsSes);
-        }
-        if ([value caseInsensitiveCompare:@"EXTERNAL"] == NSOrderedSame) {
-            return @(AWSSESDkimSigningAttributesOriginExternal);
-        }
-        return @(AWSSESDkimSigningAttributesOriginUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDkimSigningAttributesOriginAwsSes:
-                return @"AWS_SES";
-            case AWSSESDkimSigningAttributesOriginExternal:
-                return @"EXTERNAL";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)statusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusPending);
-        }
-        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusSuccess);
-        }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusFailed);
-        }
-        if ([value caseInsensitiveCompare:@"TEMPORARY_FAILURE"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusTemporaryFailure);
-        }
-        if ([value caseInsensitiveCompare:@"NOT_STARTED"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusNotStarted);
-        }
-        return @(AWSSESDkimStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDkimStatusPending:
-                return @"PENDING";
-            case AWSSESDkimStatusSuccess:
-                return @"SUCCESS";
-            case AWSSESDkimStatusFailed:
-                return @"FAILED";
-            case AWSSESDkimStatusTemporaryFailure:
-                return @"TEMPORARY_FAILURE";
-            case AWSSESDkimStatusNotStarted:
-                return @"NOT_STARTED";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESDkimSigningAttributes
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domainSigningPrivateKey" : @"DomainSigningPrivateKey",
-             @"domainSigningSelector" : @"DomainSigningSelector",
-             };
-}
-
-@end
-
-@implementation AWSSESDomainDeliverabilityCampaign
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"campaignId" : @"CampaignId",
-             @"deleteRate" : @"DeleteRate",
-             @"esps" : @"Esps",
-             @"firstSeenDateTime" : @"FirstSeenDateTime",
-             @"fromAddress" : @"FromAddress",
-             @"imageUrl" : @"ImageUrl",
-             @"inboxCount" : @"InboxCount",
-             @"lastSeenDateTime" : @"LastSeenDateTime",
-             @"projectedVolume" : @"ProjectedVolume",
-             @"readDeleteRate" : @"ReadDeleteRate",
-             @"readRate" : @"ReadRate",
-             @"sendingIps" : @"SendingIps",
-             @"spamCount" : @"SpamCount",
-             @"subject" : @"Subject",
-             };
-}
-
-+ (NSValueTransformer *)firstSeenDateTimeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)lastSeenDateTimeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
-@implementation AWSSESDomainDeliverabilityTrackingOption
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domain" : @"Domain",
-             @"inboxPlacementTrackingOption" : @"InboxPlacementTrackingOption",
-             @"subscriptionStartDate" : @"SubscriptionStartDate",
-             };
-}
-
-+ (NSValueTransformer *)inboxPlacementTrackingOptionJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESInboxPlacementTrackingOption class]];
-}
-
-+ (NSValueTransformer *)subscriptionStartDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
-@implementation AWSSESDomainIspPlacement
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"inboxPercentage" : @"InboxPercentage",
-             @"inboxRawCount" : @"InboxRawCount",
-             @"ispName" : @"IspName",
-             @"spamPercentage" : @"SpamPercentage",
-             @"spamRawCount" : @"SpamRawCount",
-             };
-}
-
-@end
-
-@implementation AWSSESEmailContent
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"raw" : @"Raw",
-             @"simple" : @"Simple",
-             @"template" : @"Template",
-             };
-}
-
-+ (NSValueTransformer *)rawJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESRawMessage class]];
-}
-
-+ (NSValueTransformer *)simpleJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessage class]];
-}
-
-+ (NSValueTransformer *)templateJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
-}
-
-@end
-
-@implementation AWSSESEmailTemplateContent
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"html" : @"Html",
-             @"subject" : @"Subject",
-             @"text" : @"Text",
-             };
-}
-
-@end
-
-@implementation AWSSESEmailTemplateMetadata
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"createdTimestamp" : @"CreatedTimestamp",
-             @"templateName" : @"TemplateName",
-             };
-}
-
-+ (NSValueTransformer *)createdTimestampJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
 @implementation AWSSESEventDestination
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1093,8 +799,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
              @"kinesisFirehoseDestination" : @"KinesisFirehoseDestination",
              @"matchingEventTypes" : @"MatchingEventTypes",
              @"name" : @"Name",
-             @"pinpointDestination" : @"PinpointDestination",
-             @"snsDestination" : @"SnsDestination",
+             @"SNSDestination" : @"SNSDestination",
              };
 }
 
@@ -1106,188 +811,29 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESKinesisFirehoseDestination class]];
 }
 
-+ (NSValueTransformer *)pinpointDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESPinpointDestination class]];
-}
-
-+ (NSValueTransformer *)snsDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSnsDestination class]];
++ (NSValueTransformer *)SNSDestinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSNSDestination class]];
 }
 
 @end
 
-@implementation AWSSESEventDestinationDefinition
+@implementation AWSSESExtensionField
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"cloudWatchDestination" : @"CloudWatchDestination",
+             @"name" : @"Name",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
+@implementation AWSSESGetAccountSendingEnabledResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
              @"enabled" : @"Enabled",
-             @"kinesisFirehoseDestination" : @"KinesisFirehoseDestination",
-             @"matchingEventTypes" : @"MatchingEventTypes",
-             @"pinpointDestination" : @"PinpointDestination",
-             @"snsDestination" : @"SnsDestination",
              };
-}
-
-+ (NSValueTransformer *)cloudWatchDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESCloudWatchDestination class]];
-}
-
-+ (NSValueTransformer *)kinesisFirehoseDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESKinesisFirehoseDestination class]];
-}
-
-+ (NSValueTransformer *)pinpointDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESPinpointDestination class]];
-}
-
-+ (NSValueTransformer *)snsDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSnsDestination class]];
-}
-
-@end
-
-@implementation AWSSESFailureInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"errorMessage" : @"ErrorMessage",
-             @"failedRecordsS3Url" : @"FailedRecordsS3Url",
-             };
-}
-
-@end
-
-@implementation AWSSESGetAccountRequest
-
-@end
-
-@implementation AWSSESGetAccountResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dedicatedIpAutoWarmupEnabled" : @"DedicatedIpAutoWarmupEnabled",
-             @"details" : @"Details",
-             @"enforcementStatus" : @"EnforcementStatus",
-             @"productionAccessEnabled" : @"ProductionAccessEnabled",
-             @"sendQuota" : @"SendQuota",
-             @"sendingEnabled" : @"SendingEnabled",
-             @"suppressionAttributes" : @"SuppressionAttributes",
-             };
-}
-
-+ (NSValueTransformer *)detailsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESAccountDetails class]];
-}
-
-+ (NSValueTransformer *)sendQuotaJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSendQuota class]];
-}
-
-+ (NSValueTransformer *)suppressionAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressionAttributes class]];
-}
-
-@end
-
-@implementation AWSSESGetBlacklistReportsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"blacklistItemNames" : @"BlacklistItemNames",
-             };
-}
-
-@end
-
-@implementation AWSSESGetBlacklistReportsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"blacklistReport" : @"BlacklistReport",
-             };
-}
-
-+ (NSValueTransformer *)blacklistReportJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
-        return [AWSModelUtility mapMTLDictionaryFromJSONArrayDictionary:JSONDictionary arrayElementType:@"structure" withModelClass:[AWSSESBlacklistEntry class]];
-    } reverseBlock:^id(id mapMTLDictionary) {
-        return [AWSModelUtility JSONArrayDictionaryFromMapMTLDictionary:mapMTLDictionary arrayElementType:@"structure"];
-    }];
-}
-
-@end
-
-@implementation AWSSESGetConfigurationSetEventDestinationsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             };
-}
-
-@end
-
-@implementation AWSSESGetConfigurationSetEventDestinationsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"eventDestinations" : @"EventDestinations",
-             };
-}
-
-+ (NSValueTransformer *)eventDestinationsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESEventDestination class]];
-}
-
-@end
-
-@implementation AWSSESGetConfigurationSetRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             };
-}
-
-@end
-
-@implementation AWSSESGetConfigurationSetResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"deliveryOptions" : @"DeliveryOptions",
-             @"reputationOptions" : @"ReputationOptions",
-             @"sendingOptions" : @"SendingOptions",
-             @"suppressionOptions" : @"SuppressionOptions",
-             @"tags" : @"Tags",
-             @"trackingOptions" : @"TrackingOptions",
-             };
-}
-
-+ (NSValueTransformer *)deliveryOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
-}
-
-+ (NSValueTransformer *)reputationOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReputationOptions class]];
-}
-
-+ (NSValueTransformer *)sendingOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSendingOptions class]];
-}
-
-+ (NSValueTransformer *)suppressionOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressionOptions class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
-}
-
-+ (NSValueTransformer *)trackingOptionsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
 }
 
 @end
@@ -1317,313 +863,166 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESGetDedicatedIpRequest
+@implementation AWSSESGetIdentityDkimAttributesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"ip" : @"Ip",
+             @"identities" : @"Identities",
              };
 }
 
 @end
 
-@implementation AWSSESGetDedicatedIpResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dedicatedIp" : @"DedicatedIp",
-             };
-}
-
-+ (NSValueTransformer *)dedicatedIpJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDedicatedIp class]];
-}
-
-@end
-
-@implementation AWSSESGetDedicatedIpsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
-             @"poolName" : @"PoolName",
-             };
-}
-
-@end
-
-@implementation AWSSESGetDedicatedIpsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dedicatedIps" : @"DedicatedIps",
-             @"nextToken" : @"NextToken",
-             };
-}
-
-+ (NSValueTransformer *)dedicatedIpsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDedicatedIp class]];
-}
-
-@end
-
-@implementation AWSSESGetDeliverabilityDashboardOptionsRequest
-
-@end
-
-@implementation AWSSESGetDeliverabilityDashboardOptionsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"accountStatus" : @"AccountStatus",
-             @"activeSubscribedDomains" : @"ActiveSubscribedDomains",
-             @"dashboardEnabled" : @"DashboardEnabled",
-             @"pendingExpirationSubscribedDomains" : @"PendingExpirationSubscribedDomains",
-             @"subscriptionExpiryDate" : @"SubscriptionExpiryDate",
-             };
-}
-
-+ (NSValueTransformer *)accountStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityDashboardAccountStatusActive);
-        }
-        if ([value caseInsensitiveCompare:@"PENDING_EXPIRATION"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityDashboardAccountStatusPendingExpiration);
-        }
-        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
-            return @(AWSSESDeliverabilityDashboardAccountStatusDisabled);
-        }
-        return @(AWSSESDeliverabilityDashboardAccountStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDeliverabilityDashboardAccountStatusActive:
-                return @"ACTIVE";
-            case AWSSESDeliverabilityDashboardAccountStatusPendingExpiration:
-                return @"PENDING_EXPIRATION";
-            case AWSSESDeliverabilityDashboardAccountStatusDisabled:
-                return @"DISABLED";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)activeSubscribedDomainsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainDeliverabilityTrackingOption class]];
-}
-
-+ (NSValueTransformer *)pendingExpirationSubscribedDomainsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainDeliverabilityTrackingOption class]];
-}
-
-+ (NSValueTransformer *)subscriptionExpiryDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
-@implementation AWSSESGetDeliverabilityTestReportRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"reportId" : @"ReportId",
-             };
-}
-
-@end
-
-@implementation AWSSESGetDeliverabilityTestReportResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"deliverabilityTestReport" : @"DeliverabilityTestReport",
-             @"ispPlacements" : @"IspPlacements",
-             @"message" : @"Message",
-             @"overallPlacement" : @"OverallPlacement",
-             @"tags" : @"Tags",
-             };
-}
-
-+ (NSValueTransformer *)deliverabilityTestReportJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliverabilityTestReport class]];
-}
-
-+ (NSValueTransformer *)ispPlacementsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESIspPlacement class]];
-}
-
-+ (NSValueTransformer *)overallPlacementJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESPlacementStatistics class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
-}
-
-@end
-
-@implementation AWSSESGetDomainDeliverabilityCampaignRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"campaignId" : @"CampaignId",
-             };
-}
-
-@end
-
-@implementation AWSSESGetDomainDeliverabilityCampaignResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domainDeliverabilityCampaign" : @"DomainDeliverabilityCampaign",
-             };
-}
-
-+ (NSValueTransformer *)domainDeliverabilityCampaignJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDomainDeliverabilityCampaign class]];
-}
-
-@end
-
-@implementation AWSSESGetDomainStatisticsReportRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domain" : @"Domain",
-             @"endDate" : @"EndDate",
-             @"startDate" : @"StartDate",
-             };
-}
-
-+ (NSValueTransformer *)endDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)startDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
-@implementation AWSSESGetDomainStatisticsReportResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dailyVolumes" : @"DailyVolumes",
-             @"overallVolume" : @"OverallVolume",
-             };
-}
-
-+ (NSValueTransformer *)dailyVolumesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDailyVolume class]];
-}
-
-+ (NSValueTransformer *)overallVolumeJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESOverallVolume class]];
-}
-
-@end
-
-@implementation AWSSESGetEmailIdentityPoliciesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             };
-}
-
-@end
-
-@implementation AWSSESGetEmailIdentityPoliciesResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"policies" : @"Policies",
-             };
-}
-
-@end
-
-@implementation AWSSESGetEmailIdentityRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             };
-}
-
-@end
-
-@implementation AWSSESGetEmailIdentityResponse
+@implementation AWSSESGetIdentityDkimAttributesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dkimAttributes" : @"DkimAttributes",
-             @"feedbackForwardingStatus" : @"FeedbackForwardingStatus",
-             @"identityType" : @"IdentityType",
-             @"mailFromAttributes" : @"MailFromAttributes",
-             @"policies" : @"Policies",
-             @"tags" : @"Tags",
-             @"verifiedForSendingStatus" : @"VerifiedForSendingStatus",
              };
 }
 
 + (NSValueTransformer *)dkimAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDkimAttributes class]];
-}
-
-+ (NSValueTransformer *)identityTypeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"EMAIL_ADDRESS"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeEmailAddress);
-        }
-        if ([value caseInsensitiveCompare:@"DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeDomain);
-        }
-        if ([value caseInsensitiveCompare:@"MANAGED_DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeManagedDomain);
-        }
-        return @(AWSSESIdentityTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESIdentityTypeEmailAddress:
-                return @"EMAIL_ADDRESS";
-            case AWSSESIdentityTypeDomain:
-                return @"DOMAIN";
-            case AWSSESIdentityTypeManagedDomain:
-                return @"MANAGED_DOMAIN";
-            default:
-                return nil;
-        }
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityDkimAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
-}
-
-+ (NSValueTransformer *)mailFromAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMailFromAttributes class]];
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
 }
 
 @end
 
-@implementation AWSSESGetEmailTemplateRequest
+@implementation AWSSESGetIdentityMailFromDomainAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identities" : @"Identities",
+             };
+}
+
+@end
+
+@implementation AWSSESGetIdentityMailFromDomainAttributesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"mailFromDomainAttributes" : @"MailFromDomainAttributes",
+             };
+}
+
++ (NSValueTransformer *)mailFromDomainAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityMailFromDomainAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSSESGetIdentityNotificationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identities" : @"Identities",
+             };
+}
+
+@end
+
+@implementation AWSSESGetIdentityNotificationAttributesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"notificationAttributes" : @"NotificationAttributes",
+             };
+}
+
++ (NSValueTransformer *)notificationAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityNotificationAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSSESGetIdentityPoliciesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identity" : @"Identity",
+             @"policyNames" : @"PolicyNames",
+             };
+}
+
+@end
+
+@implementation AWSSESGetIdentityPoliciesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policies" : @"Policies",
+             };
+}
+
+@end
+
+@implementation AWSSESGetIdentityVerificationAttributesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identities" : @"Identities",
+             };
+}
+
+@end
+
+@implementation AWSSESGetIdentityVerificationAttributesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"verificationAttributes" : @"VerificationAttributes",
+             };
+}
+
++ (NSValueTransformer *)verificationAttributesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSSESIdentityVerificationAttributes class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
+@end
+
+@implementation AWSSESGetSendQuotaResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"max24HourSend" : @"Max24HourSend",
+             @"maxSendRate" : @"MaxSendRate",
+             @"sentLast24Hours" : @"SentLast24Hours",
+             };
+}
+
+@end
+
+@implementation AWSSESGetSendStatisticsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"sendDataPoints" : @"SendDataPoints",
+             };
+}
+
++ (NSValueTransformer *)sendDataPointsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESSendDataPoint class]];
+}
+
+@end
+
+@implementation AWSSESGetTemplateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1633,100 +1032,60 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESGetEmailTemplateResponse
+@implementation AWSSESGetTemplateResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"templateContent" : @"TemplateContent",
-             @"templateName" : @"TemplateName",
+             @"template" : @"Template",
              };
 }
 
-+ (NSValueTransformer *)templateContentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEmailTemplateContent class]];
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
 }
 
 @end
 
-@implementation AWSSESGetImportJobRequest
+@implementation AWSSESIdentityDkimAttributes
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"jobId" : @"JobId",
+             @"dkimEnabled" : @"DkimEnabled",
+             @"dkimTokens" : @"DkimTokens",
+             @"dkimVerificationStatus" : @"DkimVerificationStatus",
              };
 }
 
-@end
-
-@implementation AWSSESGetImportJobResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"completedTimestamp" : @"CompletedTimestamp",
-             @"createdTimestamp" : @"CreatedTimestamp",
-             @"failedRecordsCount" : @"FailedRecordsCount",
-             @"failureInfo" : @"FailureInfo",
-             @"importDataSource" : @"ImportDataSource",
-             @"importDestination" : @"ImportDestination",
-             @"jobId" : @"JobId",
-             @"jobStatus" : @"JobStatus",
-             @"processedRecordsCount" : @"ProcessedRecordsCount",
-             };
-}
-
-+ (NSValueTransformer *)completedTimestampJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)createdTimestampJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)failureInfoJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESFailureInfo class]];
-}
-
-+ (NSValueTransformer *)importDataSourceJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESImportDataSource class]];
-}
-
-+ (NSValueTransformer *)importDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESImportDestination class]];
-}
-
-+ (NSValueTransformer *)jobStatusJSONTransformer {
++ (NSValueTransformer *)dkimVerificationStatusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusCreated);
+        if ([value caseInsensitiveCompare:@"Pending"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusPending);
         }
-        if ([value caseInsensitiveCompare:@"PROCESSING"] == NSOrderedSame) {
-            return @(AWSSESJobStatusProcessing);
+        if ([value caseInsensitiveCompare:@"Success"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusSuccess);
         }
-        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusCompleted);
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusFailed);
         }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusFailed);
+        if ([value caseInsensitiveCompare:@"TemporaryFailure"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusTemporaryFailure);
         }
-        return @(AWSSESJobStatusUnknown);
+        if ([value caseInsensitiveCompare:@"NotStarted"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusNotStarted);
+        }
+        return @(AWSSESVerificationStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSSESJobStatusCreated:
-                return @"CREATED";
-            case AWSSESJobStatusProcessing:
-                return @"PROCESSING";
-            case AWSSESJobStatusCompleted:
-                return @"COMPLETED";
-            case AWSSESJobStatusFailed:
-                return @"FAILED";
+            case AWSSESVerificationStatusPending:
+                return @"Pending";
+            case AWSSESVerificationStatusSuccess:
+                return @"Success";
+            case AWSSESVerificationStatusFailed:
+                return @"Failed";
+            case AWSSESVerificationStatusTemporaryFailure:
+                return @"TemporaryFailure";
+            case AWSSESVerificationStatusNotStarted:
+                return @"NotStarted";
             default:
                 return nil;
         }
@@ -1735,60 +1094,62 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESGetSuppressedDestinationRequest
+@implementation AWSSESIdentityMailFromDomainAttributes
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailAddress" : @"EmailAddress",
+             @"behaviorOnMXFailure" : @"BehaviorOnMXFailure",
+             @"mailFromDomain" : @"MailFromDomain",
+             @"mailFromDomainStatus" : @"MailFromDomainStatus",
              };
 }
 
-@end
-
-@implementation AWSSESGetSuppressedDestinationResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressedDestination" : @"SuppressedDestination",
-             };
-}
-
-+ (NSValueTransformer *)suppressedDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressedDestination class]];
-}
-
-@end
-
-@implementation AWSSESIdentityInfo
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"identityName" : @"IdentityName",
-             @"identityType" : @"IdentityType",
-             @"sendingEnabled" : @"SendingEnabled",
-             };
-}
-
-+ (NSValueTransformer *)identityTypeJSONTransformer {
++ (NSValueTransformer *)behaviorOnMXFailureJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"EMAIL_ADDRESS"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeEmailAddress);
+        if ([value caseInsensitiveCompare:@"UseDefaultValue"] == NSOrderedSame) {
+            return @(AWSSESBehaviorOnMXFailureUseDefaultValue);
         }
-        if ([value caseInsensitiveCompare:@"DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeDomain);
+        if ([value caseInsensitiveCompare:@"RejectMessage"] == NSOrderedSame) {
+            return @(AWSSESBehaviorOnMXFailureRejectMessage);
         }
-        if ([value caseInsensitiveCompare:@"MANAGED_DOMAIN"] == NSOrderedSame) {
-            return @(AWSSESIdentityTypeManagedDomain);
-        }
-        return @(AWSSESIdentityTypeUnknown);
+        return @(AWSSESBehaviorOnMXFailureUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSSESIdentityTypeEmailAddress:
-                return @"EMAIL_ADDRESS";
-            case AWSSESIdentityTypeDomain:
-                return @"DOMAIN";
-            case AWSSESIdentityTypeManagedDomain:
-                return @"MANAGED_DOMAIN";
+            case AWSSESBehaviorOnMXFailureUseDefaultValue:
+                return @"UseDefaultValue";
+            case AWSSESBehaviorOnMXFailureRejectMessage:
+                return @"RejectMessage";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)mailFromDomainStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Pending"] == NSOrderedSame) {
+            return @(AWSSESCustomMailFromStatusPending);
+        }
+        if ([value caseInsensitiveCompare:@"Success"] == NSOrderedSame) {
+            return @(AWSSESCustomMailFromStatusSuccess);
+        }
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSSESCustomMailFromStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"TemporaryFailure"] == NSOrderedSame) {
+            return @(AWSSESCustomMailFromStatusTemporaryFailure);
+        }
+        return @(AWSSESCustomMailFromStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESCustomMailFromStatusPending:
+                return @"Pending";
+            case AWSSESCustomMailFromStatusSuccess:
+                return @"Success";
+            case AWSSESCustomMailFromStatusFailed:
+                return @"Failed";
+            case AWSSESCustomMailFromStatusTemporaryFailure:
+                return @"TemporaryFailure";
             default:
                 return nil;
         }
@@ -1797,130 +1158,65 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESImportDataSource
+@implementation AWSSESIdentityNotificationAttributes
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"dataFormat" : @"DataFormat",
-             @"s3Url" : @"S3Url",
+             @"bounceTopic" : @"BounceTopic",
+             @"complaintTopic" : @"ComplaintTopic",
+             @"deliveryTopic" : @"DeliveryTopic",
+             @"forwardingEnabled" : @"ForwardingEnabled",
+             @"headersInBounceNotificationsEnabled" : @"HeadersInBounceNotificationsEnabled",
+             @"headersInComplaintNotificationsEnabled" : @"HeadersInComplaintNotificationsEnabled",
+             @"headersInDeliveryNotificationsEnabled" : @"HeadersInDeliveryNotificationsEnabled",
              };
 }
 
-+ (NSValueTransformer *)dataFormatJSONTransformer {
+@end
+
+@implementation AWSSESIdentityVerificationAttributes
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"verificationStatus" : @"VerificationStatus",
+             @"verificationToken" : @"VerificationToken",
+             };
+}
+
++ (NSValueTransformer *)verificationStatusJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"CSV"] == NSOrderedSame) {
-            return @(AWSSESDataFormatCsv);
+        if ([value caseInsensitiveCompare:@"Pending"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusPending);
         }
-        if ([value caseInsensitiveCompare:@"JSON"] == NSOrderedSame) {
-            return @(AWSSESDataFormatJson);
+        if ([value caseInsensitiveCompare:@"Success"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusSuccess);
         }
-        return @(AWSSESDataFormatUnknown);
+        if ([value caseInsensitiveCompare:@"Failed"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusFailed);
+        }
+        if ([value caseInsensitiveCompare:@"TemporaryFailure"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusTemporaryFailure);
+        }
+        if ([value caseInsensitiveCompare:@"NotStarted"] == NSOrderedSame) {
+            return @(AWSSESVerificationStatusNotStarted);
+        }
+        return @(AWSSESVerificationStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSSESDataFormatCsv:
-                return @"CSV";
-            case AWSSESDataFormatJson:
-                return @"JSON";
+            case AWSSESVerificationStatusPending:
+                return @"Pending";
+            case AWSSESVerificationStatusSuccess:
+                return @"Success";
+            case AWSSESVerificationStatusFailed:
+                return @"Failed";
+            case AWSSESVerificationStatusTemporaryFailure:
+                return @"TemporaryFailure";
+            case AWSSESVerificationStatusNotStarted:
+                return @"NotStarted";
             default:
                 return nil;
         }
     }];
-}
-
-@end
-
-@implementation AWSSESImportDestination
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressionListDestination" : @"SuppressionListDestination",
-             };
-}
-
-+ (NSValueTransformer *)suppressionListDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressionListDestination class]];
-}
-
-@end
-
-@implementation AWSSESImportJobSummary
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"createdTimestamp" : @"CreatedTimestamp",
-             @"importDestination" : @"ImportDestination",
-             @"jobId" : @"JobId",
-             @"jobStatus" : @"JobStatus",
-             };
-}
-
-+ (NSValueTransformer *)createdTimestampJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)importDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESImportDestination class]];
-}
-
-+ (NSValueTransformer *)jobStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusCreated);
-        }
-        if ([value caseInsensitiveCompare:@"PROCESSING"] == NSOrderedSame) {
-            return @(AWSSESJobStatusProcessing);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusCompleted);
-        }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESJobStatusFailed);
-        }
-        return @(AWSSESJobStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESJobStatusCreated:
-                return @"CREATED";
-            case AWSSESJobStatusProcessing:
-                return @"PROCESSING";
-            case AWSSESJobStatusCompleted:
-                return @"COMPLETED";
-            case AWSSESJobStatusFailed:
-                return @"FAILED";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESInboxPlacementTrackingOption
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"global" : @"Global",
-             @"trackedIsps" : @"TrackedIsps",
-             };
-}
-
-@end
-
-@implementation AWSSESIspPlacement
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"ispName" : @"IspName",
-             @"placementStatistics" : @"PlacementStatistics",
-             };
-}
-
-+ (NSValueTransformer *)placementStatisticsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESPlacementStatistics class]];
 }
 
 @end
@@ -1929,9 +1225,42 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"deliveryStreamArn" : @"DeliveryStreamArn",
-             @"iamRoleArn" : @"IamRoleArn",
+             @"deliveryStreamARN" : @"DeliveryStreamARN",
+             @"IAMRoleARN" : @"IAMRoleARN",
              };
+}
+
+@end
+
+@implementation AWSSESLambdaAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionArn" : @"FunctionArn",
+             @"invocationType" : @"InvocationType",
+             @"topicArn" : @"TopicArn",
+             };
+}
+
++ (NSValueTransformer *)invocationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Event"] == NSOrderedSame) {
+            return @(AWSSESInvocationTypeEvent);
+        }
+        if ([value caseInsensitiveCompare:@"RequestResponse"] == NSOrderedSame) {
+            return @(AWSSESInvocationTypeRequestResponse);
+        }
+        return @(AWSSESInvocationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESInvocationTypeEvent:
+                return @"Event";
+            case AWSSESInvocationTypeRequestResponse:
+                return @"RequestResponse";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1940,8 +1269,8 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxItems" : @"MaxItems",
              @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
              };
 }
 
@@ -1956,14 +1285,18 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
              };
 }
 
++ (NSValueTransformer *)configurationSetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESConfigurationSet class]];
+}
+
 @end
 
 @implementation AWSSESListCustomVerificationEmailTemplatesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxResults" : @"MaxResults",
              @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
              };
 }
 
@@ -1979,142 +1312,130 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)customVerificationEmailTemplatesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESCustomVerificationEmailTemplateMetadata class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESCustomVerificationEmailTemplate class]];
 }
 
 @end
 
-@implementation AWSSESListDedicatedIpPoolsRequest
+@implementation AWSSESListIdentitiesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
-             };
-}
-
-@end
-
-@implementation AWSSESListDedicatedIpPoolsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dedicatedIpPools" : @"DedicatedIpPools",
+             @"identityType" : @"IdentityType",
+             @"maxItems" : @"MaxItems",
              @"nextToken" : @"NextToken",
              };
 }
 
-@end
-
-@implementation AWSSESListDeliverabilityTestReportsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
-             };
-}
-
-@end
-
-@implementation AWSSESListDeliverabilityTestReportsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"deliverabilityTestReports" : @"DeliverabilityTestReports",
-             @"nextToken" : @"NextToken",
-             };
-}
-
-+ (NSValueTransformer *)deliverabilityTestReportsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDeliverabilityTestReport class]];
-}
-
-@end
-
-@implementation AWSSESListDomainDeliverabilityCampaignsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"endDate" : @"EndDate",
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
-             @"startDate" : @"StartDate",
-             @"subscribedDomain" : @"SubscribedDomain",
-             };
-}
-
-+ (NSValueTransformer *)endDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)startDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
++ (NSValueTransformer *)identityTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EmailAddress"] == NSOrderedSame) {
+            return @(AWSSESIdentityTypeEmailAddress);
+        }
+        if ([value caseInsensitiveCompare:@"Domain"] == NSOrderedSame) {
+            return @(AWSSESIdentityTypeDomain);
+        }
+        return @(AWSSESIdentityTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESIdentityTypeEmailAddress:
+                return @"EmailAddress";
+            case AWSSESIdentityTypeDomain:
+                return @"Domain";
+            default:
+                return nil;
+        }
     }];
 }
 
 @end
 
-@implementation AWSSESListDomainDeliverabilityCampaignsResponse
+@implementation AWSSESListIdentitiesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"domainDeliverabilityCampaigns" : @"DomainDeliverabilityCampaigns",
+             @"identities" : @"Identities",
              @"nextToken" : @"NextToken",
-             };
-}
-
-+ (NSValueTransformer *)domainDeliverabilityCampaignsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainDeliverabilityCampaign class]];
-}
-
-@end
-
-@implementation AWSSESListEmailIdentitiesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
              };
 }
 
 @end
 
-@implementation AWSSESListEmailIdentitiesResponse
+@implementation AWSSESListIdentityPoliciesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailIdentities" : @"EmailIdentities",
-             @"nextToken" : @"NextToken",
-             };
-}
-
-+ (NSValueTransformer *)emailIdentitiesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESIdentityInfo class]];
-}
-
-@end
-
-@implementation AWSSESListEmailTemplatesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
+             @"identity" : @"Identity",
              };
 }
 
 @end
 
-@implementation AWSSESListEmailTemplatesResponse
+@implementation AWSSESListIdentityPoliciesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"policyNames" : @"PolicyNames",
+             };
+}
+
+@end
+
+@implementation AWSSESListReceiptFiltersRequest
+
+@end
+
+@implementation AWSSESListReceiptFiltersResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"filters" : @"Filters",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptFilter class]];
+}
+
+@end
+
+@implementation AWSSESListReceiptRuleSetsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSESListReceiptRuleSetsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"ruleSets" : @"RuleSets",
+             };
+}
+
++ (NSValueTransformer *)ruleSetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptRuleSetMetadata class]];
+}
+
+@end
+
+@implementation AWSSESListTemplatesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxItems" : @"MaxItems",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSESListTemplatesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2124,183 +1445,17 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 }
 
 + (NSValueTransformer *)templatesMetadataJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESEmailTemplateMetadata class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTemplateMetadata class]];
 }
 
 @end
 
-@implementation AWSSESListImportJobsRequest
+@implementation AWSSESListVerifiedEmailAddressesResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"importDestinationType" : @"ImportDestinationType",
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
+             @"verifiedEmailAddresses" : @"VerifiedEmailAddresses",
              };
-}
-
-+ (NSValueTransformer *)importDestinationTypeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"SUPPRESSION_LIST"] == NSOrderedSame) {
-            return @(AWSSESImportDestinationTypeSuppressionList);
-        }
-        return @(AWSSESImportDestinationTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESImportDestinationTypeSuppressionList:
-                return @"SUPPRESSION_LIST";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESListImportJobsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"importJobs" : @"ImportJobs",
-             @"nextToken" : @"NextToken",
-             };
-}
-
-+ (NSValueTransformer *)importJobsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESImportJobSummary class]];
-}
-
-@end
-
-@implementation AWSSESListSuppressedDestinationsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"endDate" : @"EndDate",
-             @"nextToken" : @"NextToken",
-             @"pageSize" : @"PageSize",
-             @"reasons" : @"Reasons",
-             @"startDate" : @"StartDate",
-             };
-}
-
-+ (NSValueTransformer *)endDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)startDateJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-@end
-
-@implementation AWSSESListSuppressedDestinationsResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"nextToken" : @"NextToken",
-             @"suppressedDestinationSummaries" : @"SuppressedDestinationSummaries",
-             };
-}
-
-+ (NSValueTransformer *)suppressedDestinationSummariesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESSuppressedDestinationSummary class]];
-}
-
-@end
-
-@implementation AWSSESListTagsForResourceRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
-             };
-}
-
-@end
-
-@implementation AWSSESListTagsForResourceResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"tags" : @"Tags",
-             };
-}
-
-+ (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
-}
-
-@end
-
-@implementation AWSSESMailFromAttributes
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"behaviorOnMxFailure" : @"BehaviorOnMxFailure",
-             @"mailFromDomain" : @"MailFromDomain",
-             @"mailFromDomainStatus" : @"MailFromDomainStatus",
-             };
-}
-
-+ (NSValueTransformer *)behaviorOnMxFailureJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"USE_DEFAULT_VALUE"] == NSOrderedSame) {
-            return @(AWSSESBehaviorOnMxFailureUseDefaultValue);
-        }
-        if ([value caseInsensitiveCompare:@"REJECT_MESSAGE"] == NSOrderedSame) {
-            return @(AWSSESBehaviorOnMxFailureRejectMessage);
-        }
-        return @(AWSSESBehaviorOnMxFailureUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESBehaviorOnMxFailureUseDefaultValue:
-                return @"USE_DEFAULT_VALUE";
-            case AWSSESBehaviorOnMxFailureRejectMessage:
-                return @"REJECT_MESSAGE";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)mailFromDomainStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
-            return @(AWSSESMailFromDomainStatusPending);
-        }
-        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
-            return @(AWSSESMailFromDomainStatusSuccess);
-        }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESMailFromDomainStatusFailed);
-        }
-        if ([value caseInsensitiveCompare:@"TEMPORARY_FAILURE"] == NSOrderedSame) {
-            return @(AWSSESMailFromDomainStatusTemporaryFailure);
-        }
-        return @(AWSSESMailFromDomainStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESMailFromDomainStatusPending:
-                return @"PENDING";
-            case AWSSESMailFromDomainStatusSuccess:
-                return @"SUCCESS";
-            case AWSSESMailFromDomainStatusFailed:
-                return @"FAILED";
-            case AWSSESMailFromDomainStatusTemporaryFailure:
-                return @"TEMPORARY_FAILURE";
-            default:
-                return nil;
-        }
-    }];
 }
 
 @end
@@ -2324,6 +1479,30 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESMessageDsn
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arrivalDate" : @"ArrivalDate",
+             @"extensionFields" : @"ExtensionFields",
+             @"reportingMta" : @"ReportingMta",
+             };
+}
+
++ (NSValueTransformer *)arrivalDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)extensionFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESExtensionField class]];
+}
+
+@end
+
 @implementation AWSSESMessageTag
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2335,182 +1514,17 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESOverallVolume
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"domainIspPlacements" : @"DomainIspPlacements",
-             @"readRatePercent" : @"ReadRatePercent",
-             @"volumeStatistics" : @"VolumeStatistics",
-             };
-}
-
-+ (NSValueTransformer *)domainIspPlacementsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainIspPlacement class]];
-}
-
-+ (NSValueTransformer *)volumeStatisticsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESVolumeStatistics class]];
-}
-
-@end
-
-@implementation AWSSESPinpointDestination
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"applicationArn" : @"ApplicationArn",
-             };
-}
-
-@end
-
-@implementation AWSSESPlacementStatistics
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dkimPercentage" : @"DkimPercentage",
-             @"inboxPercentage" : @"InboxPercentage",
-             @"missingPercentage" : @"MissingPercentage",
-             @"spamPercentage" : @"SpamPercentage",
-             @"spfPercentage" : @"SpfPercentage",
-             };
-}
-
-@end
-
-@implementation AWSSESPutAccountDedicatedIpWarmupAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"autoWarmupEnabled" : @"AutoWarmupEnabled",
-             };
-}
-
-@end
-
-@implementation AWSSESPutAccountDedicatedIpWarmupAttributesResponse
-
-@end
-
-@implementation AWSSESPutAccountDetailsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"additionalContactEmailAddresses" : @"AdditionalContactEmailAddresses",
-             @"contactLanguage" : @"ContactLanguage",
-             @"mailType" : @"MailType",
-             @"productionAccessEnabled" : @"ProductionAccessEnabled",
-             @"useCaseDescription" : @"UseCaseDescription",
-             @"websiteURL" : @"WebsiteURL",
-             };
-}
-
-+ (NSValueTransformer *)contactLanguageJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"EN"] == NSOrderedSame) {
-            return @(AWSSESContactLanguageEn);
-        }
-        if ([value caseInsensitiveCompare:@"JA"] == NSOrderedSame) {
-            return @(AWSSESContactLanguageJa);
-        }
-        return @(AWSSESContactLanguageUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESContactLanguageEn:
-                return @"EN";
-            case AWSSESContactLanguageJa:
-                return @"JA";
-            default:
-                return nil;
-        }
-    }];
-}
-
-+ (NSValueTransformer *)mailTypeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"MARKETING"] == NSOrderedSame) {
-            return @(AWSSESMailTypeMarketing);
-        }
-        if ([value caseInsensitiveCompare:@"TRANSACTIONAL"] == NSOrderedSame) {
-            return @(AWSSESMailTypeTransactional);
-        }
-        return @(AWSSESMailTypeUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESMailTypeMarketing:
-                return @"MARKETING";
-            case AWSSESMailTypeTransactional:
-                return @"TRANSACTIONAL";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESPutAccountDetailsResponse
-
-@end
-
-@implementation AWSSESPutAccountSendingAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"sendingEnabled" : @"SendingEnabled",
-             };
-}
-
-@end
-
-@implementation AWSSESPutAccountSendingAttributesResponse
-
-@end
-
-@implementation AWSSESPutAccountSuppressionAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressedReasons" : @"SuppressedReasons",
-             };
-}
-
-@end
-
-@implementation AWSSESPutAccountSuppressionAttributesResponse
-
-@end
-
 @implementation AWSSESPutConfigurationSetDeliveryOptionsRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"configurationSetName" : @"ConfigurationSetName",
-             @"sendingPoolName" : @"SendingPoolName",
-             @"tlsPolicy" : @"TlsPolicy",
+             @"deliveryOptions" : @"DeliveryOptions",
              };
 }
 
-+ (NSValueTransformer *)tlsPolicyJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"REQUIRE"] == NSOrderedSame) {
-            return @(AWSSESTlsPolicyRequire);
-        }
-        if ([value caseInsensitiveCompare:@"OPTIONAL"] == NSOrderedSame) {
-            return @(AWSSESTlsPolicyOptional);
-        }
-        return @(AWSSESTlsPolicyUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESTlsPolicyRequire:
-                return @"REQUIRE";
-            case AWSSESTlsPolicyOptional:
-                return @"OPTIONAL";
-            default:
-                return nil;
-        }
-    }];
++ (NSValueTransformer *)deliveryOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDeliveryOptions class]];
 }
 
 @end
@@ -2519,299 +1533,19 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESPutConfigurationSetReputationOptionsRequest
+@implementation AWSSESPutIdentityPolicyRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"reputationMetricsEnabled" : @"ReputationMetricsEnabled",
+             @"identity" : @"Identity",
+             @"policy" : @"Policy",
+             @"policyName" : @"PolicyName",
              };
 }
 
 @end
 
-@implementation AWSSESPutConfigurationSetReputationOptionsResponse
-
-@end
-
-@implementation AWSSESPutConfigurationSetSendingOptionsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"sendingEnabled" : @"SendingEnabled",
-             };
-}
-
-@end
-
-@implementation AWSSESPutConfigurationSetSendingOptionsResponse
-
-@end
-
-@implementation AWSSESPutConfigurationSetSuppressionOptionsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"suppressedReasons" : @"SuppressedReasons",
-             };
-}
-
-@end
-
-@implementation AWSSESPutConfigurationSetSuppressionOptionsResponse
-
-@end
-
-@implementation AWSSESPutConfigurationSetTrackingOptionsRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"customRedirectDomain" : @"CustomRedirectDomain",
-             };
-}
-
-@end
-
-@implementation AWSSESPutConfigurationSetTrackingOptionsResponse
-
-@end
-
-@implementation AWSSESPutDedicatedIpInPoolRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"destinationPoolName" : @"DestinationPoolName",
-             @"ip" : @"Ip",
-             };
-}
-
-@end
-
-@implementation AWSSESPutDedicatedIpInPoolResponse
-
-@end
-
-@implementation AWSSESPutDedicatedIpWarmupAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"ip" : @"Ip",
-             @"warmupPercentage" : @"WarmupPercentage",
-             };
-}
-
-@end
-
-@implementation AWSSESPutDedicatedIpWarmupAttributesResponse
-
-@end
-
-@implementation AWSSESPutDeliverabilityDashboardOptionRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dashboardEnabled" : @"DashboardEnabled",
-             @"subscribedDomains" : @"SubscribedDomains",
-             };
-}
-
-+ (NSValueTransformer *)subscribedDomainsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESDomainDeliverabilityTrackingOption class]];
-}
-
-@end
-
-@implementation AWSSESPutDeliverabilityDashboardOptionResponse
-
-@end
-
-@implementation AWSSESPutEmailIdentityDkimAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             @"signingEnabled" : @"SigningEnabled",
-             };
-}
-
-@end
-
-@implementation AWSSESPutEmailIdentityDkimAttributesResponse
-
-@end
-
-@implementation AWSSESPutEmailIdentityDkimSigningAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             @"signingAttributes" : @"SigningAttributes",
-             @"signingAttributesOrigin" : @"SigningAttributesOrigin",
-             };
-}
-
-+ (NSValueTransformer *)signingAttributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDkimSigningAttributes class]];
-}
-
-+ (NSValueTransformer *)signingAttributesOriginJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"AWS_SES"] == NSOrderedSame) {
-            return @(AWSSESDkimSigningAttributesOriginAwsSes);
-        }
-        if ([value caseInsensitiveCompare:@"EXTERNAL"] == NSOrderedSame) {
-            return @(AWSSESDkimSigningAttributesOriginExternal);
-        }
-        return @(AWSSESDkimSigningAttributesOriginUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDkimSigningAttributesOriginAwsSes:
-                return @"AWS_SES";
-            case AWSSESDkimSigningAttributesOriginExternal:
-                return @"EXTERNAL";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESPutEmailIdentityDkimSigningAttributesResponse
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"dkimStatus" : @"DkimStatus",
-             @"dkimTokens" : @"DkimTokens",
-             };
-}
-
-+ (NSValueTransformer *)dkimStatusJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusPending);
-        }
-        if ([value caseInsensitiveCompare:@"SUCCESS"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusSuccess);
-        }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusFailed);
-        }
-        if ([value caseInsensitiveCompare:@"TEMPORARY_FAILURE"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusTemporaryFailure);
-        }
-        if ([value caseInsensitiveCompare:@"NOT_STARTED"] == NSOrderedSame) {
-            return @(AWSSESDkimStatusNotStarted);
-        }
-        return @(AWSSESDkimStatusUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESDkimStatusPending:
-                return @"PENDING";
-            case AWSSESDkimStatusSuccess:
-                return @"SUCCESS";
-            case AWSSESDkimStatusFailed:
-                return @"FAILED";
-            case AWSSESDkimStatusTemporaryFailure:
-                return @"TEMPORARY_FAILURE";
-            case AWSSESDkimStatusNotStarted:
-                return @"NOT_STARTED";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESPutEmailIdentityFeedbackAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailForwardingEnabled" : @"EmailForwardingEnabled",
-             @"emailIdentity" : @"EmailIdentity",
-             };
-}
-
-@end
-
-@implementation AWSSESPutEmailIdentityFeedbackAttributesResponse
-
-@end
-
-@implementation AWSSESPutEmailIdentityMailFromAttributesRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"behaviorOnMxFailure" : @"BehaviorOnMxFailure",
-             @"emailIdentity" : @"EmailIdentity",
-             @"mailFromDomain" : @"MailFromDomain",
-             };
-}
-
-+ (NSValueTransformer *)behaviorOnMxFailureJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"USE_DEFAULT_VALUE"] == NSOrderedSame) {
-            return @(AWSSESBehaviorOnMxFailureUseDefaultValue);
-        }
-        if ([value caseInsensitiveCompare:@"REJECT_MESSAGE"] == NSOrderedSame) {
-            return @(AWSSESBehaviorOnMxFailureRejectMessage);
-        }
-        return @(AWSSESBehaviorOnMxFailureUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESBehaviorOnMxFailureUseDefaultValue:
-                return @"USE_DEFAULT_VALUE";
-            case AWSSESBehaviorOnMxFailureRejectMessage:
-                return @"REJECT_MESSAGE";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESPutEmailIdentityMailFromAttributesResponse
-
-@end
-
-@implementation AWSSESPutSuppressedDestinationRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"emailAddress" : @"EmailAddress",
-             @"reason" : @"Reason",
-             };
-}
-
-+ (NSValueTransformer *)reasonJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"BOUNCE"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonBounce);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLAINT"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonComplaint);
-        }
-        return @(AWSSESSuppressionListReasonUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESSuppressionListReasonBounce:
-                return @"BOUNCE";
-            case AWSSESSuppressionListReasonComplaint:
-                return @"COMPLAINT";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESPutSuppressedDestinationResponse
+@implementation AWSSESPutIdentityPolicyResponse
 
 @end
 
@@ -2825,27 +1559,232 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESReplacementEmailContent
+@implementation AWSSESReceiptAction
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"replacementTemplate" : @"ReplacementTemplate",
+             @"addHeaderAction" : @"AddHeaderAction",
+             @"bounceAction" : @"BounceAction",
+             @"lambdaAction" : @"LambdaAction",
+             @"s3Action" : @"S3Action",
+             @"SNSAction" : @"SNSAction",
+             @"stopAction" : @"StopAction",
+             @"workmailAction" : @"WorkmailAction",
              };
 }
 
-+ (NSValueTransformer *)replacementTemplateJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReplacementTemplate class]];
++ (NSValueTransformer *)addHeaderActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESAddHeaderAction class]];
+}
+
++ (NSValueTransformer *)bounceActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESBounceAction class]];
+}
+
++ (NSValueTransformer *)lambdaActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESLambdaAction class]];
+}
+
++ (NSValueTransformer *)s3ActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESS3Action class]];
+}
+
++ (NSValueTransformer *)SNSActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSNSAction class]];
+}
+
++ (NSValueTransformer *)stopActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESStopAction class]];
+}
+
++ (NSValueTransformer *)workmailActionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESWorkmailAction class]];
 }
 
 @end
 
-@implementation AWSSESReplacementTemplate
+@implementation AWSSESReceiptFilter
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"replacementTemplateData" : @"ReplacementTemplateData",
+             @"ipFilter" : @"IpFilter",
+             @"name" : @"Name",
              };
 }
+
++ (NSValueTransformer *)ipFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptIpFilter class]];
+}
+
+@end
+
+@implementation AWSSESReceiptIpFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"policy" : @"Policy",
+             };
+}
+
++ (NSValueTransformer *)policyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Block"] == NSOrderedSame) {
+            return @(AWSSESReceiptFilterPolicyBlock);
+        }
+        if ([value caseInsensitiveCompare:@"Allow"] == NSOrderedSame) {
+            return @(AWSSESReceiptFilterPolicyAllow);
+        }
+        return @(AWSSESReceiptFilterPolicyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESReceiptFilterPolicyBlock:
+                return @"Block";
+            case AWSSESReceiptFilterPolicyAllow:
+                return @"Allow";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESReceiptRule
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"actions" : @"Actions",
+             @"enabled" : @"Enabled",
+             @"name" : @"Name",
+             @"recipients" : @"Recipients",
+             @"scanEnabled" : @"ScanEnabled",
+             @"tlsPolicy" : @"TlsPolicy",
+             };
+}
+
++ (NSValueTransformer *)actionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESReceiptAction class]];
+}
+
++ (NSValueTransformer *)tlsPolicyJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Require"] == NSOrderedSame) {
+            return @(AWSSESTlsPolicyRequire);
+        }
+        if ([value caseInsensitiveCompare:@"Optional"] == NSOrderedSame) {
+            return @(AWSSESTlsPolicyOptional);
+        }
+        return @(AWSSESTlsPolicyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESTlsPolicyRequire:
+                return @"Require";
+            case AWSSESTlsPolicyOptional:
+                return @"Optional";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESReceiptRuleSetMetadata
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createdTimestamp" : @"CreatedTimestamp",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)createdTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSSESRecipientDsnFields
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"Action",
+             @"diagnosticCode" : @"DiagnosticCode",
+             @"extensionFields" : @"ExtensionFields",
+             @"finalRecipient" : @"FinalRecipient",
+             @"lastAttemptDate" : @"LastAttemptDate",
+             @"remoteMta" : @"RemoteMta",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"failed"] == NSOrderedSame) {
+            return @(AWSSESDsnActionFailed);
+        }
+        if ([value caseInsensitiveCompare:@"delayed"] == NSOrderedSame) {
+            return @(AWSSESDsnActionDelayed);
+        }
+        if ([value caseInsensitiveCompare:@"delivered"] == NSOrderedSame) {
+            return @(AWSSESDsnActionDelivered);
+        }
+        if ([value caseInsensitiveCompare:@"relayed"] == NSOrderedSame) {
+            return @(AWSSESDsnActionRelayed);
+        }
+        if ([value caseInsensitiveCompare:@"expanded"] == NSOrderedSame) {
+            return @(AWSSESDsnActionExpanded);
+        }
+        return @(AWSSESDsnActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESDsnActionFailed:
+                return @"failed";
+            case AWSSESDsnActionDelayed:
+                return @"delayed";
+            case AWSSESDsnActionDelivered:
+                return @"delivered";
+            case AWSSESDsnActionRelayed:
+                return @"relayed";
+            case AWSSESDsnActionExpanded:
+                return @"expanded";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)extensionFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESExtensionField class]];
+}
+
++ (NSValueTransformer *)lastAttemptDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSSESReorderReceiptRuleSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleNames" : @"RuleNames",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESReorderReceiptRuleSetResponse
 
 @end
 
@@ -2855,53 +1794,57 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 	return @{
              @"lastFreshStart" : @"LastFreshStart",
              @"reputationMetricsEnabled" : @"ReputationMetricsEnabled",
+             @"sendingEnabled" : @"SendingEnabled",
              };
 }
 
 + (NSValueTransformer *)lastFreshStartJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
     } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
 @end
 
-@implementation AWSSESReviewDetails
+@implementation AWSSESS3Action
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"caseId" : @"CaseId",
-             @"status" : @"Status",
+             @"bucketName" : @"BucketName",
+             @"kmsKeyArn" : @"KmsKeyArn",
+             @"objectKeyPrefix" : @"ObjectKeyPrefix",
+             @"topicArn" : @"TopicArn",
              };
 }
 
-+ (NSValueTransformer *)statusJSONTransformer {
+@end
+
+@implementation AWSSESSNSAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"encoding" : @"Encoding",
+             @"topicArn" : @"TopicArn",
+             };
+}
+
++ (NSValueTransformer *)encodingJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"PENDING"] == NSOrderedSame) {
-            return @(AWSSESReviewStatusPending);
+        if ([value caseInsensitiveCompare:@"UTF-8"] == NSOrderedSame) {
+            return @(AWSSESSNSActionEncodingUtf8);
         }
-        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
-            return @(AWSSESReviewStatusFailed);
+        if ([value caseInsensitiveCompare:@"Base64"] == NSOrderedSame) {
+            return @(AWSSESSNSActionEncodingBase64);
         }
-        if ([value caseInsensitiveCompare:@"GRANTED"] == NSOrderedSame) {
-            return @(AWSSESReviewStatusGranted);
-        }
-        if ([value caseInsensitiveCompare:@"DENIED"] == NSOrderedSame) {
-            return @(AWSSESReviewStatusDenied);
-        }
-        return @(AWSSESReviewStatusUnknown);
+        return @(AWSSESSNSActionEncodingUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
-            case AWSSESReviewStatusPending:
-                return @"PENDING";
-            case AWSSESReviewStatusFailed:
-                return @"FAILED";
-            case AWSSESReviewStatusGranted:
-                return @"GRANTED";
-            case AWSSESReviewStatusDenied:
-                return @"DENIED";
+            case AWSSESSNSActionEncodingUtf8:
+                return @"UTF-8";
+            case AWSSESSNSActionEncodingBase64:
+                return @"Base64";
             default:
                 return nil;
         }
@@ -2910,46 +1853,87 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESSendBulkEmailRequest
+@implementation AWSSESSNSDestination
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"bulkEmailEntries" : @"BulkEmailEntries",
-             @"configurationSetName" : @"ConfigurationSetName",
-             @"defaultContent" : @"DefaultContent",
-             @"defaultEmailTags" : @"DefaultEmailTags",
-             @"feedbackForwardingEmailAddress" : @"FeedbackForwardingEmailAddress",
-             @"feedbackForwardingEmailAddressIdentityArn" : @"FeedbackForwardingEmailAddressIdentityArn",
-             @"fromEmailAddress" : @"FromEmailAddress",
-             @"fromEmailAddressIdentityArn" : @"FromEmailAddressIdentityArn",
-             @"replyToAddresses" : @"ReplyToAddresses",
+             @"topicARN" : @"TopicARN",
              };
-}
-
-+ (NSValueTransformer *)bulkEmailEntriesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailEntry class]];
-}
-
-+ (NSValueTransformer *)defaultContentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESBulkEmailContent class]];
-}
-
-+ (NSValueTransformer *)defaultEmailTagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
 }
 
 @end
 
-@implementation AWSSESSendBulkEmailResponse
+@implementation AWSSESSendBounceRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"bulkEmailEntryResults" : @"BulkEmailEntryResults",
+             @"bounceSender" : @"BounceSender",
+             @"bounceSenderArn" : @"BounceSenderArn",
+             @"bouncedRecipientInfoList" : @"BouncedRecipientInfoList",
+             @"explanation" : @"Explanation",
+             @"messageDsn" : @"MessageDsn",
+             @"originalMessageId" : @"OriginalMessageId",
              };
 }
 
-+ (NSValueTransformer *)bulkEmailEntryResultsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailEntryResult class]];
++ (NSValueTransformer *)bouncedRecipientInfoListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBouncedRecipientInfo class]];
+}
+
++ (NSValueTransformer *)messageDsnJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessageDsn class]];
+}
+
+@end
+
+@implementation AWSSESSendBounceResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageId" : @"MessageId",
+             };
+}
+
+@end
+
+@implementation AWSSESSendBulkTemplatedEmailRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"defaultTags" : @"DefaultTags",
+             @"defaultTemplateData" : @"DefaultTemplateData",
+             @"destinations" : @"Destinations",
+             @"replyToAddresses" : @"ReplyToAddresses",
+             @"returnPath" : @"ReturnPath",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
+             @"template" : @"Template",
+             @"templateArn" : @"TemplateArn",
+             };
+}
+
++ (NSValueTransformer *)defaultTagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
+}
+
++ (NSValueTransformer *)destinationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailDestination class]];
+}
+
+@end
+
+@implementation AWSSESSendBulkTemplatedEmailResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESBulkEmailDestinationStatus class]];
 }
 
 @end
@@ -2976,31 +1960,53 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
+@implementation AWSSESSendDataPoint
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bounces" : @"Bounces",
+             @"complaints" : @"Complaints",
+             @"deliveryAttempts" : @"DeliveryAttempts",
+             @"rejects" : @"Rejects",
+             @"timestamp" : @"Timestamp",
+             };
+}
+
++ (NSValueTransformer *)timestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
 @implementation AWSSESSendEmailRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"configurationSetName" : @"ConfigurationSetName",
-             @"content" : @"Content",
              @"destination" : @"Destination",
-             @"emailTags" : @"EmailTags",
-             @"feedbackForwardingEmailAddress" : @"FeedbackForwardingEmailAddress",
-             @"feedbackForwardingEmailAddressIdentityArn" : @"FeedbackForwardingEmailAddressIdentityArn",
-             @"fromEmailAddress" : @"FromEmailAddress",
-             @"fromEmailAddressIdentityArn" : @"FromEmailAddressIdentityArn",
+             @"message" : @"Message",
              @"replyToAddresses" : @"ReplyToAddresses",
+             @"returnPath" : @"ReturnPath",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
+             @"tags" : @"Tags",
              };
-}
-
-+ (NSValueTransformer *)contentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEmailContent class]];
 }
 
 + (NSValueTransformer *)destinationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
 }
 
-+ (NSValueTransformer *)emailTagsJSONTransformer {
++ (NSValueTransformer *)messageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESMessage class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
 }
 
@@ -3016,214 +2022,284 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESSendQuota
+@implementation AWSSESSendRawEmailRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"max24HourSend" : @"Max24HourSend",
-             @"maxSendRate" : @"MaxSendRate",
-             @"sentLast24Hours" : @"SentLast24Hours",
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"destinations" : @"Destinations",
+             @"fromArn" : @"FromArn",
+             @"rawMessage" : @"RawMessage",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
+             @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)rawMessageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESRawMessage class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
 }
 
 @end
 
-@implementation AWSSESSendingOptions
+@implementation AWSSESSendRawEmailResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"sendingEnabled" : @"SendingEnabled",
-             };
-}
-
-@end
-
-@implementation AWSSESSnsDestination
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"topicArn" : @"TopicArn",
-             };
-}
-
-@end
-
-@implementation AWSSESSuppressedDestination
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"attributes" : @"Attributes",
-             @"emailAddress" : @"EmailAddress",
-             @"lastUpdateTime" : @"LastUpdateTime",
-             @"reason" : @"Reason",
-             };
-}
-
-+ (NSValueTransformer *)attributesJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESSuppressedDestinationAttributes class]];
-}
-
-+ (NSValueTransformer *)lastUpdateTimeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)reasonJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"BOUNCE"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonBounce);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLAINT"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonComplaint);
-        }
-        return @(AWSSESSuppressionListReasonUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESSuppressionListReasonBounce:
-                return @"BOUNCE";
-            case AWSSESSuppressionListReasonComplaint:
-                return @"COMPLAINT";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESSuppressedDestinationAttributes
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"feedbackId" : @"FeedbackId",
              @"messageId" : @"MessageId",
              };
 }
 
 @end
 
-@implementation AWSSESSuppressedDestinationSummary
+@implementation AWSSESSendTemplatedEmailRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailAddress" : @"EmailAddress",
-             @"lastUpdateTime" : @"LastUpdateTime",
-             @"reason" : @"Reason",
-             };
-}
-
-+ (NSValueTransformer *)lastUpdateTimeJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
-        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
-    } reverseBlock:^id(NSDate *date) {
-        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
-    }];
-}
-
-+ (NSValueTransformer *)reasonJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"BOUNCE"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonBounce);
-        }
-        if ([value caseInsensitiveCompare:@"COMPLAINT"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListReasonComplaint);
-        }
-        return @(AWSSESSuppressionListReasonUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESSuppressionListReasonBounce:
-                return @"BOUNCE";
-            case AWSSESSuppressionListReasonComplaint:
-                return @"COMPLAINT";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESSuppressionAttributes
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressedReasons" : @"SuppressedReasons",
-             };
-}
-
-@end
-
-@implementation AWSSESSuppressionListDestination
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressionListImportAction" : @"SuppressionListImportAction",
-             };
-}
-
-+ (NSValueTransformer *)suppressionListImportActionJSONTransformer {
-    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
-        if ([value caseInsensitiveCompare:@"DELETE"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListImportActionDelete);
-        }
-        if ([value caseInsensitiveCompare:@"PUT"] == NSOrderedSame) {
-            return @(AWSSESSuppressionListImportActionPut);
-        }
-        return @(AWSSESSuppressionListImportActionUnknown);
-    } reverseBlock:^NSString *(NSNumber *value) {
-        switch ([value integerValue]) {
-            case AWSSESSuppressionListImportActionDelete:
-                return @"DELETE";
-            case AWSSESSuppressionListImportActionPut:
-                return @"PUT";
-            default:
-                return nil;
-        }
-    }];
-}
-
-@end
-
-@implementation AWSSESSuppressionOptions
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"suppressedReasons" : @"SuppressedReasons",
-             };
-}
-
-@end
-
-@implementation AWSSESTag
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"key" : @"Key",
-             @"value" : @"Value",
-             };
-}
-
-@end
-
-@implementation AWSSESTagResourceRequest
-
-+ (NSDictionary *)JSONKeyPathsByPropertyKey {
-	return @{
-             @"resourceArn" : @"ResourceArn",
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"destination" : @"Destination",
+             @"replyToAddresses" : @"ReplyToAddresses",
+             @"returnPath" : @"ReturnPath",
+             @"returnPathArn" : @"ReturnPathArn",
+             @"source" : @"Source",
+             @"sourceArn" : @"SourceArn",
              @"tags" : @"Tags",
+             @"template" : @"Template",
+             @"templateArn" : @"TemplateArn",
+             @"templateData" : @"TemplateData",
              };
+}
+
++ (NSValueTransformer *)destinationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESDestination class]];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESTag class]];
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSESMessageTag class]];
 }
 
 @end
 
-@implementation AWSSESTagResourceResponse
+@implementation AWSSESSendTemplatedEmailResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageId" : @"MessageId",
+             };
+}
+
+@end
+
+@implementation AWSSESSetActiveReceiptRuleSetRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESSetActiveReceiptRuleSetResponse
+
+@end
+
+@implementation AWSSESSetIdentityDkimEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dkimEnabled" : @"DkimEnabled",
+             @"identity" : @"Identity",
+             };
+}
+
+@end
+
+@implementation AWSSESSetIdentityDkimEnabledResponse
+
+@end
+
+@implementation AWSSESSetIdentityFeedbackForwardingEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"forwardingEnabled" : @"ForwardingEnabled",
+             @"identity" : @"Identity",
+             };
+}
+
+@end
+
+@implementation AWSSESSetIdentityFeedbackForwardingEnabledResponse
+
+@end
+
+@implementation AWSSESSetIdentityHeadersInNotificationsEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             @"identity" : @"Identity",
+             @"notificationType" : @"NotificationType",
+             };
+}
+
++ (NSValueTransformer *)notificationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Bounce"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeBounce);
+        }
+        if ([value caseInsensitiveCompare:@"Complaint"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeComplaint);
+        }
+        if ([value caseInsensitiveCompare:@"Delivery"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeDelivery);
+        }
+        return @(AWSSESNotificationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESNotificationTypeBounce:
+                return @"Bounce";
+            case AWSSESNotificationTypeComplaint:
+                return @"Complaint";
+            case AWSSESNotificationTypeDelivery:
+                return @"Delivery";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESSetIdentityHeadersInNotificationsEnabledResponse
+
+@end
+
+@implementation AWSSESSetIdentityMailFromDomainRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"behaviorOnMXFailure" : @"BehaviorOnMXFailure",
+             @"identity" : @"Identity",
+             @"mailFromDomain" : @"MailFromDomain",
+             };
+}
+
++ (NSValueTransformer *)behaviorOnMXFailureJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"UseDefaultValue"] == NSOrderedSame) {
+            return @(AWSSESBehaviorOnMXFailureUseDefaultValue);
+        }
+        if ([value caseInsensitiveCompare:@"RejectMessage"] == NSOrderedSame) {
+            return @(AWSSESBehaviorOnMXFailureRejectMessage);
+        }
+        return @(AWSSESBehaviorOnMXFailureUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESBehaviorOnMXFailureUseDefaultValue:
+                return @"UseDefaultValue";
+            case AWSSESBehaviorOnMXFailureRejectMessage:
+                return @"RejectMessage";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESSetIdentityMailFromDomainResponse
+
+@end
+
+@implementation AWSSESSetIdentityNotificationTopicRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identity" : @"Identity",
+             @"notificationType" : @"NotificationType",
+             @"snsTopic" : @"SnsTopic",
+             };
+}
+
++ (NSValueTransformer *)notificationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Bounce"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeBounce);
+        }
+        if ([value caseInsensitiveCompare:@"Complaint"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeComplaint);
+        }
+        if ([value caseInsensitiveCompare:@"Delivery"] == NSOrderedSame) {
+            return @(AWSSESNotificationTypeDelivery);
+        }
+        return @(AWSSESNotificationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESNotificationTypeBounce:
+                return @"Bounce";
+            case AWSSESNotificationTypeComplaint:
+                return @"Complaint";
+            case AWSSESNotificationTypeDelivery:
+                return @"Delivery";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSESSetIdentityNotificationTopicResponse
+
+@end
+
+@implementation AWSSESSetReceiptRulePositionRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"after" : @"After",
+             @"ruleName" : @"RuleName",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
+@end
+
+@implementation AWSSESSetReceiptRulePositionResponse
+
+@end
+
+@implementation AWSSESStopAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"scope" : @"Scope",
+             @"topicArn" : @"TopicArn",
+             };
+}
+
++ (NSValueTransformer *)scopeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"RuleSet"] == NSOrderedSame) {
+            return @(AWSSESStopScopeRuleSet);
+        }
+        return @(AWSSESStopScopeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSESStopScopeRuleSet:
+                return @"RuleSet";
+            default:
+                return nil;
+        }
+    }];
+}
 
 @end
 
@@ -3231,15 +2307,35 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"templateArn" : @"TemplateArn",
-             @"templateData" : @"TemplateData",
+             @"htmlPart" : @"HtmlPart",
+             @"subjectPart" : @"SubjectPart",
              @"templateName" : @"TemplateName",
+             @"textPart" : @"TextPart",
              };
 }
 
 @end
 
-@implementation AWSSESTestRenderEmailTemplateRequest
+@implementation AWSSESTemplateMetadata
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createdTimestamp" : @"CreatedTimestamp",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)createdTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
+@end
+
+@implementation AWSSESTestRenderTemplateRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3250,7 +2346,7 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESTestRenderEmailTemplateResponse
+@implementation AWSSESTestRenderTemplateResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3270,18 +2366,13 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESUntagResourceRequest
+@implementation AWSSESUpdateAccountSendingEnabledRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"resourceArn" : @"ResourceArn",
-             @"tagKeys" : @"TagKeys",
+             @"enabled" : @"Enabled",
              };
 }
-
-@end
-
-@implementation AWSSESUntagResourceResponse
 
 @end
 
@@ -3291,17 +2382,57 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 	return @{
              @"configurationSetName" : @"ConfigurationSetName",
              @"eventDestination" : @"EventDestination",
-             @"eventDestinationName" : @"EventDestinationName",
              };
 }
 
 + (NSValueTransformer *)eventDestinationJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestinationDefinition class]];
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEventDestination class]];
 }
 
 @end
 
 @implementation AWSSESUpdateConfigurationSetEventDestinationResponse
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetSendingEnabledRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetTrackingOptionsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"configurationSetName" : @"ConfigurationSetName",
+             @"trackingOptions" : @"TrackingOptions",
+             };
+}
+
++ (NSValueTransformer *)trackingOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTrackingOptions class]];
+}
+
+@end
+
+@implementation AWSSESUpdateConfigurationSetTrackingOptionsResponse
 
 @end
 
@@ -3320,53 +2451,113 @@ NSString *const AWSSESErrorDomain = @"com.amazonaws.AWSSESErrorDomain";
 
 @end
 
-@implementation AWSSESUpdateCustomVerificationEmailTemplateResponse
-
-@end
-
-@implementation AWSSESUpdateEmailIdentityPolicyRequest
+@implementation AWSSESUpdateReceiptRuleRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"emailIdentity" : @"EmailIdentity",
-             @"policy" : @"Policy",
-             @"policyName" : @"PolicyName",
+             @"rule" : @"Rule",
+             @"ruleSetName" : @"RuleSetName",
+             };
+}
+
++ (NSValueTransformer *)ruleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESReceiptRule class]];
+}
+
+@end
+
+@implementation AWSSESUpdateReceiptRuleResponse
+
+@end
+
+@implementation AWSSESUpdateTemplateRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"template" : @"Template",
+             };
+}
+
++ (NSValueTransformer *)templateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESTemplate class]];
+}
+
+@end
+
+@implementation AWSSESUpdateTemplateResponse
+
+@end
+
+@implementation AWSSESVerifyDomainDkimRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domain" : @"Domain",
              };
 }
 
 @end
 
-@implementation AWSSESUpdateEmailIdentityPolicyResponse
-
-@end
-
-@implementation AWSSESUpdateEmailTemplateRequest
+@implementation AWSSESVerifyDomainDkimResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"templateContent" : @"TemplateContent",
-             @"templateName" : @"TemplateName",
+             @"dkimTokens" : @"DkimTokens",
              };
 }
 
-+ (NSValueTransformer *)templateContentJSONTransformer {
-    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSSESEmailTemplateContent class]];
+@end
+
+@implementation AWSSESVerifyDomainIdentityRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"domain" : @"Domain",
+             };
 }
 
 @end
 
-@implementation AWSSESUpdateEmailTemplateResponse
-
-@end
-
-@implementation AWSSESVolumeStatistics
+@implementation AWSSESVerifyDomainIdentityResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
-             @"inboxRawCount" : @"InboxRawCount",
-             @"projectedInbox" : @"ProjectedInbox",
-             @"projectedSpam" : @"ProjectedSpam",
-             @"spamRawCount" : @"SpamRawCount",
+             @"verificationToken" : @"VerificationToken",
+             };
+}
+
+@end
+
+@implementation AWSSESVerifyEmailAddressRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"emailAddress" : @"EmailAddress",
+             };
+}
+
+@end
+
+@implementation AWSSESVerifyEmailIdentityRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"emailAddress" : @"EmailAddress",
+             };
+}
+
+@end
+
+@implementation AWSSESVerifyEmailIdentityResponse
+
+@end
+
+@implementation AWSSESWorkmailAction
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"organizationArn" : @"OrganizationArn",
+             @"topicArn" : @"TopicArn",
              };
 }
 

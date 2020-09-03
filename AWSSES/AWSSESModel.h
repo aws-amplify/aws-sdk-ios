@@ -23,24 +23,56 @@ FOUNDATION_EXPORT NSString *const AWSSESErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSSESErrorType) {
     AWSSESErrorUnknown,
-    AWSSESErrorAccountSuspended,
+    AWSSESErrorAccountSendingPaused,
     AWSSESErrorAlreadyExists,
-    AWSSESErrorBadRequest,
-    AWSSESErrorConcurrentModification,
-    AWSSESErrorConflict,
-    AWSSESErrorInvalidNextToken,
+    AWSSESErrorCannotDelete,
+    AWSSESErrorConfigurationSetAlreadyExists,
+    AWSSESErrorConfigurationSetDoesNotExist,
+    AWSSESErrorConfigurationSetSendingPaused,
+    AWSSESErrorCustomVerificationEmailInvalidContent,
+    AWSSESErrorCustomVerificationEmailTemplateAlreadyExists,
+    AWSSESErrorCustomVerificationEmailTemplateDoesNotExist,
+    AWSSESErrorEventDestinationAlreadyExists,
+    AWSSESErrorEventDestinationDoesNotExist,
+    AWSSESErrorFromEmailAddressNotVerified,
+    AWSSESErrorInvalidCloudWatchDestination,
+    AWSSESErrorInvalidConfigurationSet,
+    AWSSESErrorInvalidDeliveryOptions,
+    AWSSESErrorInvalidFirehoseDestination,
+    AWSSESErrorInvalidLambdaFunction,
+    AWSSESErrorInvalidPolicy,
+    AWSSESErrorInvalidRenderingParameter,
+    AWSSESErrorInvalidS3Configuration,
+    AWSSESErrorInvalidSNSDestination,
+    AWSSESErrorInvalidSnsTopic,
+    AWSSESErrorInvalidTemplate,
+    AWSSESErrorInvalidTrackingOptions,
     AWSSESErrorLimitExceeded,
     AWSSESErrorMailFromDomainNotVerified,
     AWSSESErrorMessageRejected,
-    AWSSESErrorNotFound,
-    AWSSESErrorSendingPaused,
-    AWSSESErrorTooManyRequests,
+    AWSSESErrorMissingRenderingAttribute,
+    AWSSESErrorProductionAccessNotGranted,
+    AWSSESErrorRuleDoesNotExist,
+    AWSSESErrorRuleSetDoesNotExist,
+    AWSSESErrorTemplateDoesNotExist,
+    AWSSESErrorTrackingOptionsAlreadyExists,
+    AWSSESErrorTrackingOptionsDoesNotExist,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESBehaviorOnMxFailure) {
-    AWSSESBehaviorOnMxFailureUnknown,
-    AWSSESBehaviorOnMxFailureUseDefaultValue,
-    AWSSESBehaviorOnMxFailureRejectMessage,
+typedef NS_ENUM(NSInteger, AWSSESBehaviorOnMXFailure) {
+    AWSSESBehaviorOnMXFailureUnknown,
+    AWSSESBehaviorOnMXFailureUseDefaultValue,
+    AWSSESBehaviorOnMXFailureRejectMessage,
+};
+
+typedef NS_ENUM(NSInteger, AWSSESBounceType) {
+    AWSSESBounceTypeUnknown,
+    AWSSESBounceTypeDoesNotExist,
+    AWSSESBounceTypeMessageTooLarge,
+    AWSSESBounceTypeExceededQuota,
+    AWSSESBounceTypeContentRejected,
+    AWSSESBounceTypeUndefined,
+    AWSSESBounceTypeTemporaryFailure,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESBulkEmailStatus) {
@@ -48,42 +80,33 @@ typedef NS_ENUM(NSInteger, AWSSESBulkEmailStatus) {
     AWSSESBulkEmailStatusSuccess,
     AWSSESBulkEmailStatusMessageRejected,
     AWSSESBulkEmailStatusMailFromDomainNotVerified,
-    AWSSESBulkEmailStatusConfigurationSetNotFound,
-    AWSSESBulkEmailStatusTemplateNotFound,
+    AWSSESBulkEmailStatusConfigurationSetDoesNotExist,
+    AWSSESBulkEmailStatusTemplateDoesNotExist,
     AWSSESBulkEmailStatusAccountSuspended,
     AWSSESBulkEmailStatusAccountThrottled,
     AWSSESBulkEmailStatusAccountDailyQuotaExceeded,
     AWSSESBulkEmailStatusInvalidSendingPoolName,
     AWSSESBulkEmailStatusAccountSendingPaused,
     AWSSESBulkEmailStatusConfigurationSetSendingPaused,
-    AWSSESBulkEmailStatusInvalidParameter,
+    AWSSESBulkEmailStatusInvalidParameterValue,
     AWSSESBulkEmailStatusTransientFailure,
     AWSSESBulkEmailStatusFailed,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESContactLanguage) {
-    AWSSESContactLanguageUnknown,
-    AWSSESContactLanguageEn,
-    AWSSESContactLanguageJa,
+typedef NS_ENUM(NSInteger, AWSSESConfigurationSetAttribute) {
+    AWSSESConfigurationSetAttributeUnknown,
+    AWSSESConfigurationSetAttributeEventDestinations,
+    AWSSESConfigurationSetAttributeTrackingOptions,
+    AWSSESConfigurationSetAttributeDeliveryOptions,
+    AWSSESConfigurationSetAttributeReputationOptions,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESDataFormat) {
-    AWSSESDataFormatUnknown,
-    AWSSESDataFormatCsv,
-    AWSSESDataFormatJson,
-};
-
-typedef NS_ENUM(NSInteger, AWSSESDeliverabilityDashboardAccountStatus) {
-    AWSSESDeliverabilityDashboardAccountStatusUnknown,
-    AWSSESDeliverabilityDashboardAccountStatusActive,
-    AWSSESDeliverabilityDashboardAccountStatusPendingExpiration,
-    AWSSESDeliverabilityDashboardAccountStatusDisabled,
-};
-
-typedef NS_ENUM(NSInteger, AWSSESDeliverabilityTestStatus) {
-    AWSSESDeliverabilityTestStatusUnknown,
-    AWSSESDeliverabilityTestStatusInProgress,
-    AWSSESDeliverabilityTestStatusCompleted,
+typedef NS_ENUM(NSInteger, AWSSESCustomMailFromStatus) {
+    AWSSESCustomMailFromStatusUnknown,
+    AWSSESCustomMailFromStatusPending,
+    AWSSESCustomMailFromStatusSuccess,
+    AWSSESCustomMailFromStatusFailed,
+    AWSSESCustomMailFromStatusTemporaryFailure,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESDimensionValueSource) {
@@ -93,19 +116,13 @@ typedef NS_ENUM(NSInteger, AWSSESDimensionValueSource) {
     AWSSESDimensionValueSourceLinkTag,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESDkimSigningAttributesOrigin) {
-    AWSSESDkimSigningAttributesOriginUnknown,
-    AWSSESDkimSigningAttributesOriginAwsSes,
-    AWSSESDkimSigningAttributesOriginExternal,
-};
-
-typedef NS_ENUM(NSInteger, AWSSESDkimStatus) {
-    AWSSESDkimStatusUnknown,
-    AWSSESDkimStatusPending,
-    AWSSESDkimStatusSuccess,
-    AWSSESDkimStatusFailed,
-    AWSSESDkimStatusTemporaryFailure,
-    AWSSESDkimStatusNotStarted,
+typedef NS_ENUM(NSInteger, AWSSESDsnAction) {
+    AWSSESDsnActionUnknown,
+    AWSSESDsnActionFailed,
+    AWSSESDsnActionDelayed,
+    AWSSESDsnActionDelivered,
+    AWSSESDsnActionRelayed,
+    AWSSESDsnActionExpanded,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESEventType) {
@@ -118,61 +135,42 @@ typedef NS_ENUM(NSInteger, AWSSESEventType) {
     AWSSESEventTypeOpen,
     AWSSESEventTypeClick,
     AWSSESEventTypeRenderingFailure,
-    AWSSESEventTypeDeliveryDelay,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESIdentityType) {
     AWSSESIdentityTypeUnknown,
     AWSSESIdentityTypeEmailAddress,
     AWSSESIdentityTypeDomain,
-    AWSSESIdentityTypeManagedDomain,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESImportDestinationType) {
-    AWSSESImportDestinationTypeUnknown,
-    AWSSESImportDestinationTypeSuppressionList,
+typedef NS_ENUM(NSInteger, AWSSESInvocationType) {
+    AWSSESInvocationTypeUnknown,
+    AWSSESInvocationTypeEvent,
+    AWSSESInvocationTypeRequestResponse,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESJobStatus) {
-    AWSSESJobStatusUnknown,
-    AWSSESJobStatusCreated,
-    AWSSESJobStatusProcessing,
-    AWSSESJobStatusCompleted,
-    AWSSESJobStatusFailed,
+typedef NS_ENUM(NSInteger, AWSSESNotificationType) {
+    AWSSESNotificationTypeUnknown,
+    AWSSESNotificationTypeBounce,
+    AWSSESNotificationTypeComplaint,
+    AWSSESNotificationTypeDelivery,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESMailFromDomainStatus) {
-    AWSSESMailFromDomainStatusUnknown,
-    AWSSESMailFromDomainStatusPending,
-    AWSSESMailFromDomainStatusSuccess,
-    AWSSESMailFromDomainStatusFailed,
-    AWSSESMailFromDomainStatusTemporaryFailure,
+typedef NS_ENUM(NSInteger, AWSSESReceiptFilterPolicy) {
+    AWSSESReceiptFilterPolicyUnknown,
+    AWSSESReceiptFilterPolicyBlock,
+    AWSSESReceiptFilterPolicyAllow,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESMailType) {
-    AWSSESMailTypeUnknown,
-    AWSSESMailTypeMarketing,
-    AWSSESMailTypeTransactional,
+typedef NS_ENUM(NSInteger, AWSSESSNSActionEncoding) {
+    AWSSESSNSActionEncodingUnknown,
+    AWSSESSNSActionEncodingUtf8,
+    AWSSESSNSActionEncodingBase64,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESReviewStatus) {
-    AWSSESReviewStatusUnknown,
-    AWSSESReviewStatusPending,
-    AWSSESReviewStatusFailed,
-    AWSSESReviewStatusGranted,
-    AWSSESReviewStatusDenied,
-};
-
-typedef NS_ENUM(NSInteger, AWSSESSuppressionListImportAction) {
-    AWSSESSuppressionListImportActionUnknown,
-    AWSSESSuppressionListImportActionDelete,
-    AWSSESSuppressionListImportActionPut,
-};
-
-typedef NS_ENUM(NSInteger, AWSSESSuppressionListReason) {
-    AWSSESSuppressionListReasonUnknown,
-    AWSSESSuppressionListReasonBounce,
-    AWSSESSuppressionListReasonComplaint,
+typedef NS_ENUM(NSInteger, AWSSESStopScope) {
+    AWSSESStopScopeUnknown,
+    AWSSESStopScopeRuleSet,
 };
 
 typedef NS_ENUM(NSInteger, AWSSESTlsPolicy) {
@@ -181,329 +179,315 @@ typedef NS_ENUM(NSInteger, AWSSESTlsPolicy) {
     AWSSESTlsPolicyOptional,
 };
 
-typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
-    AWSSESWarmupStatusUnknown,
-    AWSSESWarmupStatusInProgress,
-    AWSSESWarmupStatusDone,
+typedef NS_ENUM(NSInteger, AWSSESVerificationStatus) {
+    AWSSESVerificationStatusUnknown,
+    AWSSESVerificationStatusPending,
+    AWSSESVerificationStatusSuccess,
+    AWSSESVerificationStatusFailed,
+    AWSSESVerificationStatusTemporaryFailure,
+    AWSSESVerificationStatusNotStarted,
 };
 
-@class AWSSESAccountDetails;
-@class AWSSESBlacklistEntry;
+@class AWSSESAddHeaderAction;
 @class AWSSESBody;
-@class AWSSESBulkEmailContent;
-@class AWSSESBulkEmailEntry;
-@class AWSSESBulkEmailEntryResult;
+@class AWSSESBounceAction;
+@class AWSSESBouncedRecipientInfo;
+@class AWSSESBulkEmailDestination;
+@class AWSSESBulkEmailDestinationStatus;
+@class AWSSESCloneReceiptRuleSetRequest;
+@class AWSSESCloneReceiptRuleSetResponse;
 @class AWSSESCloudWatchDestination;
 @class AWSSESCloudWatchDimensionConfiguration;
+@class AWSSESConfigurationSet;
 @class AWSSESContent;
 @class AWSSESCreateConfigurationSetEventDestinationRequest;
 @class AWSSESCreateConfigurationSetEventDestinationResponse;
 @class AWSSESCreateConfigurationSetRequest;
 @class AWSSESCreateConfigurationSetResponse;
+@class AWSSESCreateConfigurationSetTrackingOptionsRequest;
+@class AWSSESCreateConfigurationSetTrackingOptionsResponse;
 @class AWSSESCreateCustomVerificationEmailTemplateRequest;
-@class AWSSESCreateCustomVerificationEmailTemplateResponse;
-@class AWSSESCreateDedicatedIpPoolRequest;
-@class AWSSESCreateDedicatedIpPoolResponse;
-@class AWSSESCreateDeliverabilityTestReportRequest;
-@class AWSSESCreateDeliverabilityTestReportResponse;
-@class AWSSESCreateEmailIdentityPolicyRequest;
-@class AWSSESCreateEmailIdentityPolicyResponse;
-@class AWSSESCreateEmailIdentityRequest;
-@class AWSSESCreateEmailIdentityResponse;
-@class AWSSESCreateEmailTemplateRequest;
-@class AWSSESCreateEmailTemplateResponse;
-@class AWSSESCreateImportJobRequest;
-@class AWSSESCreateImportJobResponse;
-@class AWSSESCustomVerificationEmailTemplateMetadata;
-@class AWSSESDailyVolume;
-@class AWSSESDedicatedIp;
+@class AWSSESCreateReceiptFilterRequest;
+@class AWSSESCreateReceiptFilterResponse;
+@class AWSSESCreateReceiptRuleRequest;
+@class AWSSESCreateReceiptRuleResponse;
+@class AWSSESCreateReceiptRuleSetRequest;
+@class AWSSESCreateReceiptRuleSetResponse;
+@class AWSSESCreateTemplateRequest;
+@class AWSSESCreateTemplateResponse;
+@class AWSSESCustomVerificationEmailTemplate;
 @class AWSSESDeleteConfigurationSetEventDestinationRequest;
 @class AWSSESDeleteConfigurationSetEventDestinationResponse;
 @class AWSSESDeleteConfigurationSetRequest;
 @class AWSSESDeleteConfigurationSetResponse;
+@class AWSSESDeleteConfigurationSetTrackingOptionsRequest;
+@class AWSSESDeleteConfigurationSetTrackingOptionsResponse;
 @class AWSSESDeleteCustomVerificationEmailTemplateRequest;
-@class AWSSESDeleteCustomVerificationEmailTemplateResponse;
-@class AWSSESDeleteDedicatedIpPoolRequest;
-@class AWSSESDeleteDedicatedIpPoolResponse;
-@class AWSSESDeleteEmailIdentityPolicyRequest;
-@class AWSSESDeleteEmailIdentityPolicyResponse;
-@class AWSSESDeleteEmailIdentityRequest;
-@class AWSSESDeleteEmailIdentityResponse;
-@class AWSSESDeleteEmailTemplateRequest;
-@class AWSSESDeleteEmailTemplateResponse;
-@class AWSSESDeleteSuppressedDestinationRequest;
-@class AWSSESDeleteSuppressedDestinationResponse;
-@class AWSSESDeliverabilityTestReport;
+@class AWSSESDeleteIdentityPolicyRequest;
+@class AWSSESDeleteIdentityPolicyResponse;
+@class AWSSESDeleteIdentityRequest;
+@class AWSSESDeleteIdentityResponse;
+@class AWSSESDeleteReceiptFilterRequest;
+@class AWSSESDeleteReceiptFilterResponse;
+@class AWSSESDeleteReceiptRuleRequest;
+@class AWSSESDeleteReceiptRuleResponse;
+@class AWSSESDeleteReceiptRuleSetRequest;
+@class AWSSESDeleteReceiptRuleSetResponse;
+@class AWSSESDeleteTemplateRequest;
+@class AWSSESDeleteTemplateResponse;
+@class AWSSESDeleteVerifiedEmailAddressRequest;
 @class AWSSESDeliveryOptions;
+@class AWSSESDescribeActiveReceiptRuleSetRequest;
+@class AWSSESDescribeActiveReceiptRuleSetResponse;
+@class AWSSESDescribeConfigurationSetRequest;
+@class AWSSESDescribeConfigurationSetResponse;
+@class AWSSESDescribeReceiptRuleRequest;
+@class AWSSESDescribeReceiptRuleResponse;
+@class AWSSESDescribeReceiptRuleSetRequest;
+@class AWSSESDescribeReceiptRuleSetResponse;
 @class AWSSESDestination;
-@class AWSSESDkimAttributes;
-@class AWSSESDkimSigningAttributes;
-@class AWSSESDomainDeliverabilityCampaign;
-@class AWSSESDomainDeliverabilityTrackingOption;
-@class AWSSESDomainIspPlacement;
-@class AWSSESEmailContent;
-@class AWSSESEmailTemplateContent;
-@class AWSSESEmailTemplateMetadata;
 @class AWSSESEventDestination;
-@class AWSSESEventDestinationDefinition;
-@class AWSSESFailureInfo;
-@class AWSSESGetAccountRequest;
-@class AWSSESGetAccountResponse;
-@class AWSSESGetBlacklistReportsRequest;
-@class AWSSESGetBlacklistReportsResponse;
-@class AWSSESGetConfigurationSetEventDestinationsRequest;
-@class AWSSESGetConfigurationSetEventDestinationsResponse;
-@class AWSSESGetConfigurationSetRequest;
-@class AWSSESGetConfigurationSetResponse;
+@class AWSSESExtensionField;
+@class AWSSESGetAccountSendingEnabledResponse;
 @class AWSSESGetCustomVerificationEmailTemplateRequest;
 @class AWSSESGetCustomVerificationEmailTemplateResponse;
-@class AWSSESGetDedicatedIpRequest;
-@class AWSSESGetDedicatedIpResponse;
-@class AWSSESGetDedicatedIpsRequest;
-@class AWSSESGetDedicatedIpsResponse;
-@class AWSSESGetDeliverabilityDashboardOptionsRequest;
-@class AWSSESGetDeliverabilityDashboardOptionsResponse;
-@class AWSSESGetDeliverabilityTestReportRequest;
-@class AWSSESGetDeliverabilityTestReportResponse;
-@class AWSSESGetDomainDeliverabilityCampaignRequest;
-@class AWSSESGetDomainDeliverabilityCampaignResponse;
-@class AWSSESGetDomainStatisticsReportRequest;
-@class AWSSESGetDomainStatisticsReportResponse;
-@class AWSSESGetEmailIdentityPoliciesRequest;
-@class AWSSESGetEmailIdentityPoliciesResponse;
-@class AWSSESGetEmailIdentityRequest;
-@class AWSSESGetEmailIdentityResponse;
-@class AWSSESGetEmailTemplateRequest;
-@class AWSSESGetEmailTemplateResponse;
-@class AWSSESGetImportJobRequest;
-@class AWSSESGetImportJobResponse;
-@class AWSSESGetSuppressedDestinationRequest;
-@class AWSSESGetSuppressedDestinationResponse;
-@class AWSSESIdentityInfo;
-@class AWSSESImportDataSource;
-@class AWSSESImportDestination;
-@class AWSSESImportJobSummary;
-@class AWSSESInboxPlacementTrackingOption;
-@class AWSSESIspPlacement;
+@class AWSSESGetIdentityDkimAttributesRequest;
+@class AWSSESGetIdentityDkimAttributesResponse;
+@class AWSSESGetIdentityMailFromDomainAttributesRequest;
+@class AWSSESGetIdentityMailFromDomainAttributesResponse;
+@class AWSSESGetIdentityNotificationAttributesRequest;
+@class AWSSESGetIdentityNotificationAttributesResponse;
+@class AWSSESGetIdentityPoliciesRequest;
+@class AWSSESGetIdentityPoliciesResponse;
+@class AWSSESGetIdentityVerificationAttributesRequest;
+@class AWSSESGetIdentityVerificationAttributesResponse;
+@class AWSSESGetSendQuotaResponse;
+@class AWSSESGetSendStatisticsResponse;
+@class AWSSESGetTemplateRequest;
+@class AWSSESGetTemplateResponse;
+@class AWSSESIdentityDkimAttributes;
+@class AWSSESIdentityMailFromDomainAttributes;
+@class AWSSESIdentityNotificationAttributes;
+@class AWSSESIdentityVerificationAttributes;
 @class AWSSESKinesisFirehoseDestination;
+@class AWSSESLambdaAction;
 @class AWSSESListConfigurationSetsRequest;
 @class AWSSESListConfigurationSetsResponse;
 @class AWSSESListCustomVerificationEmailTemplatesRequest;
 @class AWSSESListCustomVerificationEmailTemplatesResponse;
-@class AWSSESListDedicatedIpPoolsRequest;
-@class AWSSESListDedicatedIpPoolsResponse;
-@class AWSSESListDeliverabilityTestReportsRequest;
-@class AWSSESListDeliverabilityTestReportsResponse;
-@class AWSSESListDomainDeliverabilityCampaignsRequest;
-@class AWSSESListDomainDeliverabilityCampaignsResponse;
-@class AWSSESListEmailIdentitiesRequest;
-@class AWSSESListEmailIdentitiesResponse;
-@class AWSSESListEmailTemplatesRequest;
-@class AWSSESListEmailTemplatesResponse;
-@class AWSSESListImportJobsRequest;
-@class AWSSESListImportJobsResponse;
-@class AWSSESListSuppressedDestinationsRequest;
-@class AWSSESListSuppressedDestinationsResponse;
-@class AWSSESListTagsForResourceRequest;
-@class AWSSESListTagsForResourceResponse;
-@class AWSSESMailFromAttributes;
+@class AWSSESListIdentitiesRequest;
+@class AWSSESListIdentitiesResponse;
+@class AWSSESListIdentityPoliciesRequest;
+@class AWSSESListIdentityPoliciesResponse;
+@class AWSSESListReceiptFiltersRequest;
+@class AWSSESListReceiptFiltersResponse;
+@class AWSSESListReceiptRuleSetsRequest;
+@class AWSSESListReceiptRuleSetsResponse;
+@class AWSSESListTemplatesRequest;
+@class AWSSESListTemplatesResponse;
+@class AWSSESListVerifiedEmailAddressesResponse;
 @class AWSSESMessage;
+@class AWSSESMessageDsn;
 @class AWSSESMessageTag;
-@class AWSSESOverallVolume;
-@class AWSSESPinpointDestination;
-@class AWSSESPlacementStatistics;
-@class AWSSESPutAccountDedicatedIpWarmupAttributesRequest;
-@class AWSSESPutAccountDedicatedIpWarmupAttributesResponse;
-@class AWSSESPutAccountDetailsRequest;
-@class AWSSESPutAccountDetailsResponse;
-@class AWSSESPutAccountSendingAttributesRequest;
-@class AWSSESPutAccountSendingAttributesResponse;
-@class AWSSESPutAccountSuppressionAttributesRequest;
-@class AWSSESPutAccountSuppressionAttributesResponse;
 @class AWSSESPutConfigurationSetDeliveryOptionsRequest;
 @class AWSSESPutConfigurationSetDeliveryOptionsResponse;
-@class AWSSESPutConfigurationSetReputationOptionsRequest;
-@class AWSSESPutConfigurationSetReputationOptionsResponse;
-@class AWSSESPutConfigurationSetSendingOptionsRequest;
-@class AWSSESPutConfigurationSetSendingOptionsResponse;
-@class AWSSESPutConfigurationSetSuppressionOptionsRequest;
-@class AWSSESPutConfigurationSetSuppressionOptionsResponse;
-@class AWSSESPutConfigurationSetTrackingOptionsRequest;
-@class AWSSESPutConfigurationSetTrackingOptionsResponse;
-@class AWSSESPutDedicatedIpInPoolRequest;
-@class AWSSESPutDedicatedIpInPoolResponse;
-@class AWSSESPutDedicatedIpWarmupAttributesRequest;
-@class AWSSESPutDedicatedIpWarmupAttributesResponse;
-@class AWSSESPutDeliverabilityDashboardOptionRequest;
-@class AWSSESPutDeliverabilityDashboardOptionResponse;
-@class AWSSESPutEmailIdentityDkimAttributesRequest;
-@class AWSSESPutEmailIdentityDkimAttributesResponse;
-@class AWSSESPutEmailIdentityDkimSigningAttributesRequest;
-@class AWSSESPutEmailIdentityDkimSigningAttributesResponse;
-@class AWSSESPutEmailIdentityFeedbackAttributesRequest;
-@class AWSSESPutEmailIdentityFeedbackAttributesResponse;
-@class AWSSESPutEmailIdentityMailFromAttributesRequest;
-@class AWSSESPutEmailIdentityMailFromAttributesResponse;
-@class AWSSESPutSuppressedDestinationRequest;
-@class AWSSESPutSuppressedDestinationResponse;
+@class AWSSESPutIdentityPolicyRequest;
+@class AWSSESPutIdentityPolicyResponse;
 @class AWSSESRawMessage;
-@class AWSSESReplacementEmailContent;
-@class AWSSESReplacementTemplate;
+@class AWSSESReceiptAction;
+@class AWSSESReceiptFilter;
+@class AWSSESReceiptIpFilter;
+@class AWSSESReceiptRule;
+@class AWSSESReceiptRuleSetMetadata;
+@class AWSSESRecipientDsnFields;
+@class AWSSESReorderReceiptRuleSetRequest;
+@class AWSSESReorderReceiptRuleSetResponse;
 @class AWSSESReputationOptions;
-@class AWSSESReviewDetails;
-@class AWSSESSendBulkEmailRequest;
-@class AWSSESSendBulkEmailResponse;
+@class AWSSESS3Action;
+@class AWSSESSNSAction;
+@class AWSSESSNSDestination;
+@class AWSSESSendBounceRequest;
+@class AWSSESSendBounceResponse;
+@class AWSSESSendBulkTemplatedEmailRequest;
+@class AWSSESSendBulkTemplatedEmailResponse;
 @class AWSSESSendCustomVerificationEmailRequest;
 @class AWSSESSendCustomVerificationEmailResponse;
+@class AWSSESSendDataPoint;
 @class AWSSESSendEmailRequest;
 @class AWSSESSendEmailResponse;
-@class AWSSESSendQuota;
-@class AWSSESSendingOptions;
-@class AWSSESSnsDestination;
-@class AWSSESSuppressedDestination;
-@class AWSSESSuppressedDestinationAttributes;
-@class AWSSESSuppressedDestinationSummary;
-@class AWSSESSuppressionAttributes;
-@class AWSSESSuppressionListDestination;
-@class AWSSESSuppressionOptions;
-@class AWSSESTag;
-@class AWSSESTagResourceRequest;
-@class AWSSESTagResourceResponse;
+@class AWSSESSendRawEmailRequest;
+@class AWSSESSendRawEmailResponse;
+@class AWSSESSendTemplatedEmailRequest;
+@class AWSSESSendTemplatedEmailResponse;
+@class AWSSESSetActiveReceiptRuleSetRequest;
+@class AWSSESSetActiveReceiptRuleSetResponse;
+@class AWSSESSetIdentityDkimEnabledRequest;
+@class AWSSESSetIdentityDkimEnabledResponse;
+@class AWSSESSetIdentityFeedbackForwardingEnabledRequest;
+@class AWSSESSetIdentityFeedbackForwardingEnabledResponse;
+@class AWSSESSetIdentityHeadersInNotificationsEnabledRequest;
+@class AWSSESSetIdentityHeadersInNotificationsEnabledResponse;
+@class AWSSESSetIdentityMailFromDomainRequest;
+@class AWSSESSetIdentityMailFromDomainResponse;
+@class AWSSESSetIdentityNotificationTopicRequest;
+@class AWSSESSetIdentityNotificationTopicResponse;
+@class AWSSESSetReceiptRulePositionRequest;
+@class AWSSESSetReceiptRulePositionResponse;
+@class AWSSESStopAction;
 @class AWSSESTemplate;
-@class AWSSESTestRenderEmailTemplateRequest;
-@class AWSSESTestRenderEmailTemplateResponse;
+@class AWSSESTemplateMetadata;
+@class AWSSESTestRenderTemplateRequest;
+@class AWSSESTestRenderTemplateResponse;
 @class AWSSESTrackingOptions;
-@class AWSSESUntagResourceRequest;
-@class AWSSESUntagResourceResponse;
+@class AWSSESUpdateAccountSendingEnabledRequest;
 @class AWSSESUpdateConfigurationSetEventDestinationRequest;
 @class AWSSESUpdateConfigurationSetEventDestinationResponse;
+@class AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest;
+@class AWSSESUpdateConfigurationSetSendingEnabledRequest;
+@class AWSSESUpdateConfigurationSetTrackingOptionsRequest;
+@class AWSSESUpdateConfigurationSetTrackingOptionsResponse;
 @class AWSSESUpdateCustomVerificationEmailTemplateRequest;
-@class AWSSESUpdateCustomVerificationEmailTemplateResponse;
-@class AWSSESUpdateEmailIdentityPolicyRequest;
-@class AWSSESUpdateEmailIdentityPolicyResponse;
-@class AWSSESUpdateEmailTemplateRequest;
-@class AWSSESUpdateEmailTemplateResponse;
-@class AWSSESVolumeStatistics;
+@class AWSSESUpdateReceiptRuleRequest;
+@class AWSSESUpdateReceiptRuleResponse;
+@class AWSSESUpdateTemplateRequest;
+@class AWSSESUpdateTemplateResponse;
+@class AWSSESVerifyDomainDkimRequest;
+@class AWSSESVerifyDomainDkimResponse;
+@class AWSSESVerifyDomainIdentityRequest;
+@class AWSSESVerifyDomainIdentityResponse;
+@class AWSSESVerifyEmailAddressRequest;
+@class AWSSESVerifyEmailIdentityRequest;
+@class AWSSESVerifyEmailIdentityResponse;
+@class AWSSESWorkmailAction;
 
 /**
- <p>An object that contains information about your account details.</p>
+ <p>When included in a receipt rule, this action adds a header to the received email.</p><p>For information about adding a header using a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-add-header.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [HeaderName, HeaderValue]
  */
-@interface AWSSESAccountDetails : AWSModel
+@interface AWSSESAddHeaderAction : AWSModel
 
 
 /**
- <p>Additional email addresses where updates are sent about your account review process.</p>
+ <p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>
  */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalContactEmailAddresses;
+@property (nonatomic, strong) NSString * _Nullable headerName;
 
 /**
- <p>The language you would prefer for the case. The contact language can be one of <code>ENGLISH</code> or <code>JAPANESE</code>.</p>
+ <p>Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").</p>
  */
-@property (nonatomic, assign) AWSSESContactLanguage contactLanguage;
-
-/**
- <p>The type of email your account is sending. The mail type can be one of the following:</p><ul><li><p><code>MARKETING</code> – Most of your sending traffic is to keep your customers informed of your latest offering.</p></li><li><p><code>TRANSACTIONAL</code> – Most of your sending traffic is to communicate during a transaction with a customer.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESMailType mailType;
-
-/**
- <p>Information about the review of the latest details you submitted.</p>
- */
-@property (nonatomic, strong) AWSSESReviewDetails * _Nullable reviewDetails;
-
-/**
- <p>A description of the types of email that you plan to send.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable useCaseDescription;
-
-/**
- <p>The URL of your website. This information helps us better understand the type of content that you plan to send.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable websiteURL;
+@property (nonatomic, strong) NSString * _Nullable headerValue;
 
 @end
 
 /**
- <p>An object that contains information about a blacklisting event that impacts one of the dedicated IP addresses that is associated with your account.</p>
- */
-@interface AWSSESBlacklistEntry : AWSModel
-
-
-/**
- <p>Additional information about the blacklisting event, as provided by the blacklist maintainer.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>The time when the blacklisting event occurred, shown in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable listingTime;
-
-/**
- <p>The name of the blacklist that the IP address appears on.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable rblName;
-
-@end
-
-/**
- <p>Represents the body of the email message.</p>
+ <p>Represents the body of the message. You can specify text, HTML, or both. If you use both, then the message should display correctly in the widest variety of email clients.</p>
  */
 @interface AWSSESBody : AWSModel
 
 
 /**
- <p>An object that represents the version of the message that is displayed in email clients that support HTML. HTML messages can include formatted text, hyperlinks, images, and more. </p>
+ <p>The content of the message, in HTML format. Use this for email clients that can process HTML. You can include clickable links, formatted text, and much more in an HTML message.</p>
  */
 @property (nonatomic, strong) AWSSESContent * _Nullable html;
 
 /**
- <p>An object that represents the version of the message that is displayed in email clients that don't support HTML, or clients where the recipient has disabled HTML rendering.</p>
+ <p>The content of the message, in text format. Use this for text-based email clients, or clients on high-latency networks (such as mobile devices).</p>
  */
 @property (nonatomic, strong) AWSSESContent * _Nullable text;
 
 @end
 
 /**
- <p>An object that contains the body of the message. You can specify a template message.</p>
+ <p>When included in a receipt rule, this action rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>For information about sending a bounce message in response to a received email, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-bounce.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [SmtpReplyCode, Message, Sender]
  */
-@interface AWSSESBulkEmailContent : AWSModel
+@interface AWSSESBounceAction : AWSModel
 
 
 /**
- <p>The template to use for the bulk email message.</p>
+ <p>Human-readable text to include in the bounce message.</p>
  */
-@property (nonatomic, strong) AWSSESTemplate * _Nullable template;
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The email address of the sender of the bounced email. This is the address from which the bounce message will be sent.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sender;
+
+/**
+ <p>The SMTP reply code, as defined by <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable smtpReplyCode;
+
+/**
+ <p>The SMTP enhanced status code, as defined by <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusCode;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the bounce action is taken. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicArn;
 
 @end
 
 /**
- 
+ <p>Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Recipient]
  */
-@interface AWSSESBulkEmailEntry : AWSModel
+@interface AWSSESBouncedRecipientInfo : AWSModel
 
 
 /**
- <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the local part of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the domain part of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p></note>
+ <p>The reason for the bounce. You must provide either this parameter or <code>RecipientDsnFields</code>.</p>
+ */
+@property (nonatomic, assign) AWSSESBounceType bounceType;
+
+/**
+ <p>The email address of the recipient of the bounced email.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable recipient;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to receive email for the recipient of the bounced email. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable recipientArn;
+
+/**
+ <p>Recipient-related DSN fields, most of which would normally be filled in automatically when provided with a <code>BounceType</code>. You must provide either this parameter or <code>BounceType</code>.</p>
+ */
+@property (nonatomic, strong) AWSSESRecipientDsnFields * _Nullable recipientDsnFields;
+
+@end
+
+/**
+ <p>An array that contains one or more Destinations, as well as the tags and replacement data associated with each of those Destinations.</p>
+ Required parameters: [Destination]
+ */
+@interface AWSSESBulkEmailDestination : AWSModel
+
+
+/**
+ <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p></note>
  */
 @property (nonatomic, strong) AWSSESDestination * _Nullable destination;
 
 /**
- <p>The <code>ReplacementEmailContent</code> associated with a <code>BulkEmailEntry</code>.</p>
- */
-@property (nonatomic, strong) AWSSESReplacementEmailContent * _Nullable replacementEmailContent;
-
-/**
- <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendBulkTemplatedEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
+ <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendBulkTemplatedEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
  */
 @property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable replacementTags;
+
+/**
+ <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replacementTemplateData;
 
 @end
 
 /**
- <p>The result of the <code>SendBulkEmail</code> operation of each specified <code>BulkEmailEntry</code>.</p>
+ <p>An object that contains the response from the <code>SendBulkTemplatedEmail</code> operation.</p>
  */
-@interface AWSSESBulkEmailEntryResult : AWSModel
+@interface AWSSESBulkEmailDestinationStatus : AWSModel
 
 
 /**
@@ -517,95 +501,131 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @property (nonatomic, strong) NSString * _Nullable messageId;
 
 /**
- <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p><p>Possible values for this parameter include:</p><ul><li><p>SUCCESS: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p></li><li><p>MESSAGE_REJECTED: The message was rejected because it contained a virus.</p></li><li><p>MAIL_FROM_DOMAIN_NOT_VERIFIED: The sender's email address or domain was not verified.</p></li><li><p>CONFIGURATION_SET_DOES_NOT_EXIST: The configuration set you specified does not exist.</p></li><li><p>TEMPLATE_DOES_NOT_EXIST: The template you specified does not exist.</p></li><li><p>ACCOUNT_SUSPENDED: Your account has been shut down because of issues related to your email sending practices.</p></li><li><p>ACCOUNT_THROTTLED: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p></li><li><p>ACCOUNT_DAILY_QUOTA_EXCEEDED: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p></li><li><p>INVALID_SENDING_POOL_NAME: The configuration set you specified refers to an IP pool that does not exist.</p></li><li><p>ACCOUNT_SENDING_PAUSED: Email sending for the Amazon SES account was disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateAccountSendingEnabled.html">UpdateAccountSendingEnabled</a> operation.</p></li><li><p>CONFIGURATION_SET_SENDING_PAUSED: Email sending for this configuration set was disabled using the <a href="https://docs.aws.amazon.com/ses/latest/APIReference/API_UpdateConfigurationSetSendingEnabled.html">UpdateConfigurationSetSendingEnabled</a> operation.</p></li><li><p>INVALID_PARAMETER_VALUE: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p></li><li><p>TRANSIENT_FAILURE: Amazon SES was unable to process your request because of a temporary issue.</p></li><li><p>FAILED: Amazon SES was unable to process your request. See the error message for additional information.</p></li></ul>
+ <p>The status of a message sent using the <code>SendBulkTemplatedEmail</code> operation.</p><p>Possible values for this parameter include:</p><ul><li><p><code>Success</code>: Amazon SES accepted the message, and will attempt to deliver it to the recipients.</p></li><li><p><code>MessageRejected</code>: The message was rejected because it contained a virus.</p></li><li><p><code>MailFromDomainNotVerified</code>: The sender's email address or domain was not verified.</p></li><li><p><code>ConfigurationSetDoesNotExist</code>: The configuration set you specified does not exist.</p></li><li><p><code>TemplateDoesNotExist</code>: The template you specified does not exist.</p></li><li><p><code>AccountSuspended</code>: Your account has been shut down because of issues related to your email sending practices.</p></li><li><p><code>AccountThrottled</code>: The number of emails you can send has been reduced because your account has exceeded its allocated sending limit.</p></li><li><p><code>AccountDailyQuotaExceeded</code>: You have reached or exceeded the maximum number of emails you can send from your account in a 24-hour period.</p></li><li><p><code>InvalidSendingPoolName</code>: The configuration set you specified refers to an IP pool that does not exist.</p></li><li><p><code>AccountSendingPaused</code>: Email sending for the Amazon SES account was disabled using the <a>UpdateAccountSendingEnabled</a> operation.</p></li><li><p><code>ConfigurationSetSendingPaused</code>: Email sending for this configuration set was disabled using the <a>UpdateConfigurationSetSendingEnabled</a> operation.</p></li><li><p><code>InvalidParameterValue</code>: One or more of the parameters you specified when calling this operation was invalid. See the error message for additional information.</p></li><li><p><code>TransientFailure</code>: Amazon SES was unable to process your request because of a temporary issue.</p></li><li><p><code>Failed</code>: Amazon SES was unable to process your request. See the error message for additional information.</p></li></ul>
  */
 @property (nonatomic, assign) AWSSESBulkEmailStatus status;
 
 @end
 
 /**
- <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.</p>
+ <p>Represents a request to create a receipt rule set by cloning an existing one. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, OriginalRuleSetName]
+ */
+@interface AWSSESCloneReceiptRuleSetRequest : AWSRequest
+
+
+/**
+ <p>The name of the rule set to clone.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable originalRuleSetName;
+
+/**
+ <p>The name of the rule set to create. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESCloneReceiptRuleSetResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Contains information associated with an Amazon CloudWatch event destination to which email sending events are published.</p><p>Event destinations, such as Amazon CloudWatch, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [DimensionConfigurations]
  */
 @interface AWSSESCloudWatchDestination : AWSModel
 
 
 /**
- <p>An array of objects that define the dimensions to use when you send email events to Amazon CloudWatch.</p>
+ <p>A list of dimensions upon which to categorize your emails when you publish email sending events to Amazon CloudWatch.</p>
  */
 @property (nonatomic, strong) NSArray<AWSSESCloudWatchDimensionConfiguration *> * _Nullable dimensionConfigurations;
 
 @end
 
 /**
- <p>An object that defines the dimension configuration to use when you send email events to Amazon CloudWatch.</p>
+ <p>Contains the dimension configuration to use when you publish email sending events to Amazon CloudWatch.</p><p>For information about publishing email sending events to Amazon CloudWatch, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [DimensionName, DimensionValueSource, DefaultDimensionValue]
  */
 @interface AWSSESCloudWatchDimensionConfiguration : AWSModel
 
 
 /**
- <p>The default value of the dimension that is published to Amazon CloudWatch if you don't provide the value of the dimension when you send an email. This value has to meet the following criteria:</p><ul><li><p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p></li><li><p>It can contain no more than 256 characters.</p></li></ul>
+ <p>The default value of the dimension that is published to Amazon CloudWatch if you do not provide the value of the dimension when you send an email. The default value must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain less than 256 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable defaultDimensionValue;
 
 /**
- <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name has to meet the following criteria:</p><ul><li><p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p></li><li><p>It can contain no more than 256 characters.</p></li></ul>
+ <p>The name of an Amazon CloudWatch dimension associated with an email sending metric. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain less than 256 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable dimensionName;
 
 /**
- <p>The location where the Amazon SES API v2 finds the value of a dimension to publish to Amazon CloudWatch. If you want to use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code> or <code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want to use your own email headers, choose <code>emailHeader</code>. If you want to use link tags, choose <code>linkTags</code>.</p>
+ <p>The place where Amazon SES finds the value of a dimension to publish to Amazon CloudWatch. If you want Amazon SES to use the message tags that you specify using an <code>X-SES-MESSAGE-TAGS</code> header or a parameter to the <code>SendEmail</code>/<code>SendRawEmail</code> API, choose <code>messageTag</code>. If you want Amazon SES to use your own email headers, choose <code>emailHeader</code>.</p>
  */
 @property (nonatomic, assign) AWSSESDimensionValueSource dimensionValueSource;
 
 @end
 
 /**
- <p>An object that represents the content of the email, and optionally a character set specification.</p>
+ <p>The name of the configuration set.</p><p>Configuration sets let you create groups of rules that you can apply to the emails you send using Amazon SES. For more information about using configuration sets, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/using-configuration-sets.html">Using Amazon SES Configuration Sets</a> in the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Name]
+ */
+@interface AWSSESConfigurationSet : AWSModel
+
+
+/**
+ <p>The name of the configuration set. The name must meet the following requirements:</p><ul><li><p>Contain only letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain 64 characters or fewer.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Represents textual data, plus an optional character set specification.</p><p>By default, the text must be 7-bit ASCII, due to the constraints of the SMTP protocol. If the text must contain any other characters, then you must also specify a character set. Examples include UTF-8, ISO-8859-1, and Shift_JIS.</p>
  Required parameters: [Data]
  */
 @interface AWSSESContent : AWSModel
 
 
 /**
- <p>The character set for the content. Because of the constraints of the SMTP protocol, Amazon SES uses 7-bit ASCII by default. If the text includes characters outside of the ASCII range, you have to specify a character set. For example, you could specify <code>UTF-8</code>, <code>ISO-8859-1</code>, or <code>Shift_JIS</code>.</p>
+ <p>The character set of the content.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable charset;
 
 /**
- <p>The content of the message itself.</p>
+ <p>The textual data of the content.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable data;
 
 @end
 
 /**
- <p>A request to add an event destination to a configuration set.</p>
- Required parameters: [ConfigurationSetName, EventDestinationName, EventDestination]
+ <p>Represents a request to create a configuration set event destination. A configuration set event destination, which can be either Amazon CloudWatch or Amazon Kinesis Firehose, describes an AWS service in which Amazon SES publishes the email sending events associated with a configuration set. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [ConfigurationSetName, EventDestination]
  */
 @interface AWSSESCreateConfigurationSetEventDestinationRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that you want to add an event destination to.</p>
+ <p>The name of the configuration set that the event destination should be associated with.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>An object that defines the event destination.</p>
+ <p>An object that describes the AWS service that email sending event information will be published to.</p>
  */
-@property (nonatomic, strong) AWSSESEventDestinationDefinition * _Nullable eventDestination;
-
-/**
- <p>A name that identifies the event destination within the configuration set.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable eventDestinationName;
+@property (nonatomic, strong) AWSSESEventDestination * _Nullable eventDestination;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESCreateConfigurationSetEventDestinationResponse : AWSModel
 
@@ -613,53 +633,50 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>A request to create a configuration set.</p>
- Required parameters: [ConfigurationSetName]
+ <p>Represents a request to create a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [ConfigurationSet]
  */
 @interface AWSSESCreateConfigurationSetRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set.</p>
+ <p>A data structure that contains the name of the configuration set.</p>
+ */
+@property (nonatomic, strong) AWSSESConfigurationSet * _Nullable configurationSet;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESCreateConfigurationSetResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to create an open and click tracking option object in a configuration set. </p>
+ Required parameters: [ConfigurationSetName, TrackingOptions]
+ */
+@interface AWSSESCreateConfigurationSetTrackingOptionsRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set that the tracking options should be associated with.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESDeliveryOptions * _Nullable deliveryOptions;
-
-/**
- <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESReputationOptions * _Nullable reputationOptions;
-
-/**
- <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESSendingOptions * _Nullable sendingOptions;
-
-/**
- <p>An object that contains information about the suppression list preferences for your account.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressionOptions * _Nullable suppressionOptions;
-
-/**
- <p>An array of objects that define the tags (keys and values) that you want to associate with the configuration set.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-/**
- <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
+ <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This domain captures open and click events generated by Amazon SES emails.</p><p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring Custom Domains to Handle Open and Click Tracking</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSSESTrackingOptions * _Nullable trackingOptions;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESCreateConfigurationSetResponse : AWSModel
+@interface AWSSESCreateConfigurationSetTrackingOptionsResponse : AWSModel
 
 
 @end
@@ -687,7 +704,7 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @property (nonatomic, strong) NSString * _Nullable successRedirectionURL;
 
 /**
- <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
+ <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateContent;
 
@@ -704,230 +721,107 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ <p>Represents a request to create a new IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Filter]
  */
-@interface AWSSESCreateCustomVerificationEmailTemplateResponse : AWSModel
+@interface AWSSESCreateReceiptFilterRequest : AWSRequest
+
+
+/**
+ <p>A data structure that describes the IP address filter to create, which consists of a name, an IP address range, and whether to allow or block mail from it.</p>
+ */
+@property (nonatomic, strong) AWSSESReceiptFilter * _Nullable filter;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESCreateReceiptFilterResponse : AWSModel
 
 
 @end
 
 /**
- <p>A request to create a new dedicated IP pool.</p>
- Required parameters: [PoolName]
+ <p>Represents a request to create a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, Rule]
  */
-@interface AWSSESCreateDedicatedIpPoolRequest : AWSRequest
+@interface AWSSESCreateReceiptRuleRequest : AWSRequest
 
 
 /**
- <p>The name of the dedicated IP pool.</p>
+ <p>The name of an existing rule after which the new rule will be placed. If this parameter is null, the new rule will be inserted at the beginning of the rule list.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable poolName;
+@property (nonatomic, strong) NSString * _Nullable after;
 
 /**
- <p>An object that defines the tags (keys and values) that you want to associate with the pool.</p>
+ <p>A data structure that contains the specified rule's name, actions, recipients, domains, enabled status, scan status, and TLS policy.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
+@property (nonatomic, strong) AWSSESReceiptRule * _Nullable rule;
+
+/**
+ <p>The name of the rule set that the receipt rule will be added to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESCreateDedicatedIpPoolResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to perform a predictive inbox placement test. Predictive inbox placement tests can help you predict how your messages will be handled by various email providers around the world. When you perform a predictive inbox placement test, you provide a sample message that contains the content that you plan to send to your customers. We send that message to special email addresses spread across several major email providers around the world. The test takes about 24 hours to complete. When the test is complete, you can use the <code>GetDeliverabilityTestReport</code> operation to view the results of the test.</p>
- Required parameters: [FromEmailAddress, Content]
- */
-@interface AWSSESCreateDeliverabilityTestReportRequest : AWSRequest
-
-
-/**
- <p>The HTML body of the message that you sent when you performed the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) AWSSESEmailContent * _Nullable content;
-
-/**
- <p>The email address that the predictive inbox placement test email was sent from.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddress;
-
-/**
- <p>A unique name that helps you to identify the predictive inbox placement test when you retrieve the results.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable reportName;
-
-/**
- <p>An array of objects that define the tags (keys and values) that you want to associate with the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-@end
-
-/**
- <p>Information about the predictive inbox placement test that you created.</p>
- Required parameters: [ReportId, DeliverabilityTestStatus]
- */
-@interface AWSSESCreateDeliverabilityTestReportResponse : AWSModel
-
-
-/**
- <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
- */
-@property (nonatomic, assign) AWSSESDeliverabilityTestStatus deliverabilityTestStatus;
-
-/**
- <p>A unique string that identifies the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable reportId;
-
-@end
-
-/**
- <p>Represents a request to create a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [EmailIdentity, PolicyName, Policy]
- */
-@interface AWSSESCreateEmailIdentityPolicyRequest : AWSRequest
-
-
-/**
- <p>The email identity for which you want to create a policy.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p><p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable policy;
-
-/**
- <p>The name of the policy.</p><p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable policyName;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESCreateEmailIdentityPolicyResponse : AWSModel
+@interface AWSSESCreateReceiptRuleResponse : AWSModel
 
 
 @end
 
 /**
- <p>A request to begin the verification process for an email identity (an email address or domain).</p>
- Required parameters: [EmailIdentity]
+ <p>Represents a request to create an empty receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
  */
-@interface AWSSESCreateEmailIdentityRequest : AWSRequest
+@interface AWSSESCreateReceiptRuleSetRequest : AWSRequest
 
 
 /**
- <p>If your request includes this object, Amazon SES configures the identity to use Bring Your Own DKIM (BYODKIM) for DKIM authentication purposes, as opposed to the default method, <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p><p>You can only specify this object if the email identity is a domain, as opposed to an address.</p>
+ <p>The name of the rule set to create. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
-@property (nonatomic, strong) AWSSESDkimSigningAttributes * _Nullable dkimSigningAttributes;
-
-/**
- <p>The email address or domain that you want to verify.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>An array of objects that define the tags (keys and values) that you want to associate with the email identity.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
 
 @end
 
 /**
- <p>If the email identity is a domain, this object contains information about the DKIM verification status for the domain.</p><p>If the email identity is an email address, this object is empty. </p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESCreateEmailIdentityResponse : AWSModel
+@interface AWSSESCreateReceiptRuleSetResponse : AWSModel
 
-
-/**
- <p>An object that contains information about the DKIM attributes for the identity.</p>
- */
-@property (nonatomic, strong) AWSSESDkimAttributes * _Nullable dkimAttributes;
-
-/**
- <p>The email identity type.</p>
- */
-@property (nonatomic, assign) AWSSESIdentityType identityType;
-
-/**
- <p>Specifies whether or not the identity is verified. You can only send email from verified email addresses or domains. For more information about verifying identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable verifiedForSendingStatus;
 
 @end
 
 /**
  <p>Represents a request to create an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [TemplateName, TemplateContent]
+ Required parameters: [Template]
  */
-@interface AWSSESCreateEmailTemplateRequest : AWSRequest
+@interface AWSSESCreateTemplateRequest : AWSRequest
 
 
 /**
- <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
+ <p>The content of the email, composed of a subject line, an HTML part, and a text-only part.</p>
  */
-@property (nonatomic, strong) AWSSESEmailTemplateContent * _Nullable templateContent;
-
-/**
- <p>The name of the template you want to create.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable templateName;
+@property (nonatomic, strong) AWSSESTemplate * _Nullable template;
 
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ 
  */
-@interface AWSSESCreateEmailTemplateResponse : AWSModel
+@interface AWSSESCreateTemplateResponse : AWSModel
 
-
-@end
-
-/**
- <p>Represents a request to create an import job from a data source for a data destination.</p>
- Required parameters: [ImportDestination, ImportDataSource]
- */
-@interface AWSSESCreateImportJobRequest : AWSRequest
-
-
-/**
- <p>The data source for the import job.</p>
- */
-@property (nonatomic, strong) AWSSESImportDataSource * _Nullable importDataSource;
-
-/**
- <p>The destination for the import job.</p>
- */
-@property (nonatomic, strong) AWSSESImportDestination * _Nullable importDestination;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESCreateImportJobResponse : AWSModel
-
-
-/**
- <p>A string that represents the import job ID.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable jobId;
 
 @end
 
 /**
  <p>Contains information about a custom verification email template.</p>
  */
-@interface AWSSESCustomVerificationEmailTemplateMetadata : AWSModel
+@interface AWSSESCustomVerificationEmailTemplate : AWSModel
 
 
 /**
@@ -958,78 +852,26 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>An object that contains information about the volume of email sent on each day of the analysis period.</p>
- */
-@interface AWSSESDailyVolume : AWSModel
-
-
-/**
- <p>An object that contains inbox placement metrics for a specified day in the analysis period, broken out by the recipient's email provider.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDomainIspPlacement *> * _Nullable domainIspPlacements;
-
-/**
- <p>The date that the DailyVolume metrics apply to, in Unix time.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable startDate;
-
-/**
- <p>An object that contains inbox placement metrics for a specific day in the analysis period.</p>
- */
-@property (nonatomic, strong) AWSSESVolumeStatistics * _Nullable volumeStatistics;
-
-@end
-
-/**
- <p>Contains information about a dedicated IP address that is associated with your Amazon SES account.</p><p>To learn more about requesting dedicated IP addresses, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/dedicated-ip-case.html">Requesting and Relinquishing Dedicated IP Addresses</a> in the <i>Amazon SES Developer Guide</i>.</p>
- Required parameters: [Ip, WarmupStatus, WarmupPercentage]
- */
-@interface AWSSESDedicatedIp : AWSModel
-
-
-/**
- <p>An IPv4 address.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ip;
-
-/**
- <p>The name of the dedicated IP pool that the IP address is associated with.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable poolName;
-
-/**
- <p>Indicates how complete the dedicated IP warm-up process is. When this value equals 1, the address has completed the warm-up process and is ready for use.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable warmupPercentage;
-
-/**
- <p>The warm-up status of a dedicated IP address. The status can have one of the following values:</p><ul><li><p><code>IN_PROGRESS</code> – The IP address isn't ready to use because the dedicated IP warm-up process is ongoing.</p></li><li><p><code>DONE</code> – The dedicated IP warm-up process is complete, and the IP address is ready to use.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESWarmupStatus warmupStatus;
-
-@end
-
-/**
- <p>A request to delete an event destination from a configuration set.</p>
+ <p>Represents a request to delete a configuration set event destination. Configuration set event destinations are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [ConfigurationSetName, EventDestinationName]
  */
 @interface AWSSESDeleteConfigurationSetEventDestinationRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that contains the event destination that you want to delete.</p>
+ <p>The name of the configuration set from which to delete the event destination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>The name of the event destination that you want to delete.</p>
+ <p>The name of the event destination to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable eventDestinationName;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteConfigurationSetEventDestinationResponse : AWSModel
 
@@ -1037,23 +879,45 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>A request to delete a configuration set.</p>
+ <p>Represents a request to delete a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [ConfigurationSetName]
  */
 @interface AWSSESDeleteConfigurationSetRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that you want to delete.</p>
+ <p>The name of the configuration set to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESDeleteConfigurationSetResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to delete open and click tracking options in a configuration set. </p>
+ Required parameters: [ConfigurationSetName]
+ */
+@interface AWSSESDeleteConfigurationSetTrackingOptionsRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set from which you want to delete the tracking options.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESDeleteConfigurationSetTrackingOptionsResponse : AWSModel
 
 
 @end
@@ -1073,80 +937,121 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ <p>Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyName]
  */
-@interface AWSSESDeleteCustomVerificationEmailTemplateResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to delete a dedicated IP pool.</p>
- Required parameters: [PoolName]
- */
-@interface AWSSESDeleteDedicatedIpPoolRequest : AWSRequest
+@interface AWSSESDeleteIdentityPolicyRequest : AWSRequest
 
 
 /**
- <p>The name of the dedicated IP pool that you want to delete.</p>
+ <p>The identity that is associated with the policy that you want to delete. You can specify the identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p><p>To successfully call this API, you must own the identity.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable poolName;
-
-@end
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESDeleteDedicatedIpPoolResponse : AWSModel
-
-
-@end
-
-/**
- <p>Represents a request to delete a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [EmailIdentity, PolicyName]
- */
-@interface AWSSESDeleteEmailIdentityPolicyRequest : AWSRequest
-
-
-/**
- <p>The email identity for which you want to delete a policy.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>The name of the policy.</p><p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
+ <p>The name of the policy to be deleted.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESDeleteEmailIdentityPolicyResponse : AWSModel
+@interface AWSSESDeleteIdentityPolicyResponse : AWSModel
 
 
 @end
 
 /**
- <p>A request to delete an existing email identity. When you delete an identity, you lose the ability to send email from that identity. You can restore your ability to send email by completing the verification process for the identity again.</p>
- Required parameters: [EmailIdentity]
+ <p>Represents a request to delete one of your Amazon SES identities (an email address or domain).</p>
+ Required parameters: [Identity]
  */
-@interface AWSSESDeleteEmailIdentityRequest : AWSRequest
+@interface AWSSESDeleteIdentityRequest : AWSRequest
 
 
 /**
- <p>The identity (that is, the email address or domain) that you want to delete.</p>
+ <p>The identity to be removed from the list of identities for the AWS Account.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESDeleteEmailIdentityResponse : AWSModel
+@interface AWSSESDeleteIdentityResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to delete an IP address filter. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [FilterName]
+ */
+@interface AWSSESDeleteReceiptFilterRequest : AWSRequest
+
+
+/**
+ <p>The name of the IP address filter to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable filterName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESDeleteReceiptFilterResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to delete a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
+ */
+@interface AWSSESDeleteReceiptRuleRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleName;
+
+/**
+ <p>The name of the receipt rule set that contains the receipt rule to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESDeleteReceiptRuleResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to delete a receipt rule set and all of the receipt rules it contains. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
+ */
+@interface AWSSESDeleteReceiptRuleSetRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule set to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESDeleteReceiptRuleSetResponse : AWSModel
 
 
 @end
@@ -1155,7 +1060,7 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
  <p>Represents a request to delete an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [TemplateName]
  */
-@interface AWSSESDeleteEmailTemplateRequest : AWSRequest
+@interface AWSSESDeleteTemplateRequest : AWSRequest
 
 
 /**
@@ -1166,83 +1071,32 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ 
  */
-@interface AWSSESDeleteEmailTemplateResponse : AWSModel
+@interface AWSSESDeleteTemplateResponse : AWSModel
 
 
 @end
 
 /**
- <p>A request to remove an email address from the suppression list for your account.</p>
+ <p>Represents a request to delete an email address from the list of email addresses you have attempted to verify under your AWS account.</p>
  Required parameters: [EmailAddress]
  */
-@interface AWSSESDeleteSuppressedDestinationRequest : AWSRequest
+@interface AWSSESDeleteVerifiedEmailAddressRequest : AWSRequest
 
 
 /**
- <p>The suppressed email destination to remove from the account suppression list.</p>
+ <p>An email address to be removed from the list of verified addresses.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailAddress;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESDeleteSuppressedDestinationResponse : AWSModel
-
-
-@end
-
-/**
- <p>An object that contains metadata related to a predictive inbox placement test.</p>
- */
-@interface AWSSESDeliverabilityTestReport : AWSModel
-
-
-/**
- <p>The date and time when the predictive inbox placement test was created, in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable createDate;
-
-/**
- <p>The status of the predictive inbox placement test. If the status is <code>IN_PROGRESS</code>, then the predictive inbox placement test is currently running. Predictive inbox placement tests are usually complete within 24 hours of creating the test. If the status is <code>COMPLETE</code>, then the test is finished, and you can use the <code>GetDeliverabilityTestReport</code> to view the results of the test.</p>
- */
-@property (nonatomic, assign) AWSSESDeliverabilityTestStatus deliverabilityTestStatus;
-
-/**
- <p>The sender address that you specified for the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddress;
-
-/**
- <p>A unique string that identifies the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable reportId;
-
-/**
- <p>A name that helps you identify a predictive inbox placement test report.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable reportName;
-
-/**
- <p>The subject line for an email that you submitted in a predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subject;
-
-@end
-
-/**
- <p>Used to associate a configuration set with a dedicated IP pool.</p>
+ <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).</p>
  */
 @interface AWSSESDeliveryOptions : AWSModel
 
-
-/**
- <p>The name of the dedicated IP pool that you want to associate with the configuration set.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable sendingPoolName;
 
 /**
  <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
@@ -1252,533 +1106,238 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>An object that describes the recipients for an email.</p>
+ <p>Represents a request to return the metadata and receipt rules for the receipt rule set that is currently active. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ */
+@interface AWSSESDescribeActiveReceiptRuleSetRequest : AWSRequest
+
+
+@end
+
+/**
+ <p>Represents the metadata and receipt rules for the receipt rule set that is currently active.</p>
+ */
+@interface AWSSESDescribeActiveReceiptRuleSetResponse : AWSModel
+
+
+/**
+ <p>The metadata for the currently active receipt rule set. The metadata consists of the rule set name and a timestamp of when the rule set was created.</p>
+ */
+@property (nonatomic, strong) AWSSESReceiptRuleSetMetadata * _Nullable metadata;
+
+/**
+ <p>The receipt rules that belong to the active rule set.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESReceiptRule *> * _Nullable rules;
+
+@end
+
+/**
+ <p>Represents a request to return the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [ConfigurationSetName]
+ */
+@interface AWSSESDescribeConfigurationSetRequest : AWSRequest
+
+
+/**
+ <p>A list of configuration set attributes to return.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable configurationSetAttributeNames;
+
+/**
+ <p>The name of the configuration set to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+@end
+
+/**
+ <p>Represents the details of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ */
+@interface AWSSESDescribeConfigurationSetResponse : AWSModel
+
+
+/**
+ <p>The configuration set object associated with the specified configuration set.</p>
+ */
+@property (nonatomic, strong) AWSSESConfigurationSet * _Nullable configurationSet;
+
+/**
+ <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).</p>
+ */
+@property (nonatomic, strong) AWSSESDeliveryOptions * _Nullable deliveryOptions;
+
+/**
+ <p>A list of event destinations associated with the configuration set. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESEventDestination *> * _Nullable eventDestinations;
+
+/**
+ <p>An object that represents the reputation settings for the configuration set. </p>
+ */
+@property (nonatomic, strong) AWSSESReputationOptions * _Nullable reputationOptions;
+
+/**
+ <p>The name of the custom open and click tracking domain associated with the configuration set.</p>
+ */
+@property (nonatomic, strong) AWSSESTrackingOptions * _Nullable trackingOptions;
+
+@end
+
+/**
+ <p>Represents a request to return the details of a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
+ */
+@interface AWSSESDescribeReceiptRuleRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleName;
+
+/**
+ <p>The name of the receipt rule set that the receipt rule belongs to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>Represents the details of a receipt rule.</p>
+ */
+@interface AWSSESDescribeReceiptRuleResponse : AWSModel
+
+
+/**
+ <p>A data structure that contains the specified receipt rule's name, actions, recipients, domains, enabled status, scan status, and Transport Layer Security (TLS) policy.</p>
+ */
+@property (nonatomic, strong) AWSSESReceiptRule * _Nullable rule;
+
+@end
+
+/**
+ <p>Represents a request to return the details of a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName]
+ */
+@interface AWSSESDescribeReceiptRuleSetRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule set to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>Represents the details of the specified receipt rule set.</p>
+ */
+@interface AWSSESDescribeReceiptRuleSetResponse : AWSModel
+
+
+/**
+ <p>The metadata for the receipt rule set, which consists of the rule set name and the timestamp of when the rule set was created.</p>
+ */
+@property (nonatomic, strong) AWSSESReceiptRuleSetMetadata * _Nullable metadata;
+
+/**
+ <p>A list of the receipt rules that belong to the specified receipt rule set.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESReceiptRule *> * _Nullable rules;
+
+@end
+
+/**
+ <p>Represents the destination of the message, consisting of To:, CC:, and BCC: fields.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a destination email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>.</p></note>
  */
 @interface AWSSESDestination : AWSModel
 
 
 /**
- <p>An array that contains the email addresses of the "BCC" (blind carbon copy) recipients for the email.</p>
+ <p>The recipients to place on the BCC: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable bccAddresses;
 
 /**
- <p>An array that contains the email addresses of the "CC" (carbon copy) recipients for the email.</p>
+ <p>The recipients to place on the CC: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable ccAddresses;
 
 /**
- <p>An array that contains the email addresses of the "To" recipients for the email.</p>
+ <p>The recipients to place on the To: line of the message.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable toAddresses;
 
 @end
 
 /**
- <p>An object that contains information about the DKIM authentication status for an email identity.</p><p>Amazon SES determines the authentication status by searching for specific records in the DNS configuration for the domain. If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME records in the DNS configuration for your domain. If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT record that uses the selector that you specified. The value of the TXT record must be a public key that's paired with the private key that you specified in the process of creating the identity</p>
- */
-@interface AWSSESDkimAttributes : AWSModel
-
-
-/**
- <p>A string that indicates how DKIM was configured for the identity. There are two possible values:</p><ul><li><p><code>AWS_SES</code> – Indicates that DKIM was configured for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p></li><li><p><code>EXTERNAL</code> – Indicates that DKIM was configured for the identity by using Bring Your Own DKIM (BYODKIM).</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESDkimSigningAttributesOrigin signingAttributesOrigin;
-
-/**
- <p>If the value is <code>true</code>, then the messages that you send from the identity are signed using DKIM. If the value is <code>false</code>, then the messages that you send from the identity aren't DKIM-signed.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable signingEnabled;
-
-/**
- <p>Describes whether or not Amazon SES has successfully located the DKIM records in the DNS records for the domain. The status can be one of the following:</p><ul><li><p><code>PENDING</code> – The verification process was initiated, but Amazon SES hasn't yet detected the DKIM records in the DNS configuration for the domain.</p></li><li><p><code>SUCCESS</code> – The verification process completed successfully.</p></li><li><p><code>FAILED</code> – The verification process failed. This typically occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the domain.</p></li><li><p><code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES from determining the DKIM authentication status of the domain.</p></li><li><p><code>NOT_STARTED</code> – The DKIM verification process hasn't been initiated for the domain.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESDkimStatus status;
-
-/**
- <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p><p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector for the public key.</p><p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable tokens;
-
-@end
-
-/**
- <p>An object that contains information about the tokens used for setting up Bring Your Own DKIM (BYODKIM).</p>
- Required parameters: [DomainSigningSelector, DomainSigningPrivateKey]
- */
-@interface AWSSESDkimSigningAttributes : AWSModel
-
-
-/**
- <p>A private key that's used to generate a DKIM signature.</p><p>The private key must use 1024-bit RSA encryption, and must be encoded using base64 encoding.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable domainSigningPrivateKey;
-
-/**
- <p>A string that's used to identify a public key in the DNS configuration for a domain.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable domainSigningSelector;
-
-@end
-
-/**
- <p>An object that contains the deliverability data for a specific campaign. This data is available for a campaign only if the campaign sent email by using a domain that the Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code> operation).</p>
- */
-@interface AWSSESDomainDeliverabilityCampaign : AWSModel
-
-
-/**
- <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable campaignId;
-
-/**
- <p>The percentage of email messages that were deleted by recipients, without being opened first. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable deleteRate;
-
-/**
- <p>The major email providers who handled the email message.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable esps;
-
-/**
- <p>The first time, in Unix time format, when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable firstSeenDateTime;
-
-/**
- <p>The verified email address that the email message was sent from.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromAddress;
-
-/**
- <p>The URL of an image that contains a snapshot of the email message that was sent.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable imageUrl;
-
-/**
- <p>The number of email messages that were delivered to recipients’ inboxes.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable inboxCount;
-
-/**
- <p>The last time, in Unix time format, when the email message was delivered to any recipient's inbox. This value can help you determine how long it took for a campaign to deliver an email message.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable lastSeenDateTime;
-
-/**
- <p>The projected number of recipients that the email message was sent to.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable projectedVolume;
-
-/**
- <p>The percentage of email messages that were opened and then deleted by recipients. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable readDeleteRate;
-
-/**
- <p>The percentage of email messages that were opened by recipients. Due to technical limitations, this value only includes recipients who opened the message by using an email client that supports images.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable readRate;
-
-/**
- <p>The IP addresses that were used to send the email message.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable sendingIps;
-
-/**
- <p>The number of email messages that were delivered to recipients' spam or junk mail folders.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spamCount;
-
-/**
- <p>The subject line, or title, of the email message.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subject;
-
-@end
-
-/**
- <p>An object that contains information about the Deliverability dashboard subscription for a verified domain that you use to send email and currently has an active Deliverability dashboard subscription. If a Deliverability dashboard subscription is active for a domain, you gain access to reputation, inbox placement, and other metrics for the domain.</p>
- */
-@interface AWSSESDomainDeliverabilityTrackingOption : AWSModel
-
-
-/**
- <p>A verified domain that’s associated with your AWS account and currently has an active Deliverability dashboard subscription.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable domain;
-
-/**
- <p>An object that contains information about the inbox placement data settings for the domain.</p>
- */
-@property (nonatomic, strong) AWSSESInboxPlacementTrackingOption * _Nullable inboxPlacementTrackingOption;
-
-/**
- <p>The date, in Unix time format, when you enabled the Deliverability dashboard for the domain.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable subscriptionStartDate;
-
-@end
-
-/**
- <p>An object that contains inbox placement data for email sent from one of your email domains to a specific email provider.</p>
- */
-@interface AWSSESDomainIspPlacement : AWSModel
-
-
-/**
- <p>The percentage of messages that were sent from the selected domain to the specified email provider that arrived in recipients' inboxes.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable inboxPercentage;
-
-/**
- <p>The total number of messages that were sent from the selected domain to the specified email provider that arrived in recipients' inboxes.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable inboxRawCount;
-
-/**
- <p>The name of the email provider that the inbox placement data applies to.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ispName;
-
-/**
- <p>The percentage of messages that were sent from the selected domain to the specified email provider that arrived in recipients' spam or junk mail folders.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spamPercentage;
-
-/**
- <p>The total number of messages that were sent from the selected domain to the specified email provider that arrived in recipients' spam or junk mail folders.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spamRawCount;
-
-@end
-
-/**
- <p>An object that defines the entire content of the email, including the message headers and the body content. You can create a simple email message, in which you specify the subject and the text and HTML versions of the message body. You can also create raw messages, in which you specify a complete MIME-formatted message. Raw messages can include attachments and custom headers.</p>
- */
-@interface AWSSESEmailContent : AWSModel
-
-
-/**
- <p>The raw email message. The message has to meet the following criteria:</p><ul><li><p>The message has to contain a header and a body, separated by one blank line.</p></li><li><p>All of the required header fields must be present in the message.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>If you include attachments, they must be in a file format that the Amazon SES API v2 supports. </p></li><li><p>The entire message must be Base64 encoded.</p></li><li><p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients' email clients render the message properly.</p></li><li><p>The length of any single line of text in the message can't exceed 1,000 characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p></li></ul>
- */
-@property (nonatomic, strong) AWSSESRawMessage * _Nullable raw;
-
-/**
- <p>The simple email message. The message consists of a subject and a message body.</p>
- */
-@property (nonatomic, strong) AWSSESMessage * _Nullable simple;
-
-/**
- <p>The template to use for the email message.</p>
- */
-@property (nonatomic, strong) AWSSESTemplate * _Nullable template;
-
-@end
-
-/**
- <p>The content of the email, composed of a subject line, an HTML part, and a text-only part.</p>
- */
-@interface AWSSESEmailTemplateContent : AWSModel
-
-
-/**
- <p>The HTML body of the email.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable html;
-
-/**
- <p>The subject line of the email.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subject;
-
-/**
- <p>The email body that will be visible to recipients whose email clients do not display HTML.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable text;
-
-@end
-
-/**
- <p>Contains information about an email template.</p>
- */
-@interface AWSSESEmailTemplateMetadata : AWSModel
-
-
-/**
- <p>The time and date the template was created.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
-
-/**
- <p>The name of the template.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable templateName;
-
-@end
-
-/**
- <p>In the Amazon SES API v2, <i>events</i> include message sends, deliveries, opens, clicks, bounces, complaints and delivery delays. <i>Event destinations</i> are places that you can send information about these events to. For example, you can send event data to Amazon SNS to receive notifications when you receive bounces or complaints, or you can use Amazon Kinesis Data Firehose to stream data to Amazon S3 for long-term storage.</p>
+ <p>Contains information about the event destination that the specified email sending events will be published to.</p><note><p>When you create or update an event destination, you must provide one, and only one, destination. The destination can be Amazon CloudWatch, Amazon Kinesis Firehose or Amazon Simple Notification Service (Amazon SNS).</p></note><p>Event destinations are associated with configuration sets, which enable you to publish email sending events to Amazon CloudWatch, Amazon Kinesis Firehose, or Amazon Simple Notification Service (Amazon SNS). For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [Name, MatchingEventTypes]
  */
 @interface AWSSESEventDestination : AWSModel
 
 
 /**
- <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.</p>
+ <p>An object that contains the names, default values, and sources of the dimensions associated with an Amazon CloudWatch event destination.</p>
  */
 @property (nonatomic, strong) AWSSESCloudWatchDestination * _Nullable cloudWatchDestination;
 
 /**
- <p>If <code>true</code>, the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</p><p>If <code>false</code>, the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.</p>
+ <p>Sets whether Amazon SES publishes events to this destination when you send an email with the associated configuration set. Set to <code>true</code> to enable publishing to this destination; set to <code>false</code> to prevent publishing to this destination. The default value is <code>false</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
+ <p>An object that contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.</p>
  */
 @property (nonatomic, strong) AWSSESKinesisFirehoseDestination * _Nullable kinesisFirehoseDestination;
 
 /**
- <p>The types of events that Amazon SES sends to the specified event destinations.</p>
+ <p>The type of email sending events to publish to the event destination.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable matchingEventTypes;
 
 /**
- <p>A name that identifies the event destination.</p>
+ <p>The name of the event destination. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain less than 64 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>An object that defines an Amazon Pinpoint project destination for email events. You can send email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
+ <p>An object that contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p>
  */
-@property (nonatomic, strong) AWSSESPinpointDestination * _Nullable pinpointDestination;
-
-/**
- <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.</p>
- */
-@property (nonatomic, strong) AWSSESSnsDestination * _Nullable snsDestination;
+@property (nonatomic, strong) AWSSESSNSDestination * _Nullable SNSDestination;
 
 @end
 
 /**
- <p>An object that defines the event destination. Specifically, it defines which services receive events from emails sent using the configuration set that the event destination is associated with. Also defines the types of events that are sent to the event destination.</p>
+ <p>Additional X-headers to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Name, Value]
  */
-@interface AWSSESEventDestinationDefinition : AWSModel
+@interface AWSSESExtensionField : AWSModel
 
 
 /**
- <p>An object that defines an Amazon CloudWatch destination for email events. You can use Amazon CloudWatch to monitor and gain insights on your email sending metrics.</p>
+ <p>The name of the header to add. Must be between 1 and 50 characters, inclusive, and consist of alphanumeric (a-z, A-Z, 0-9) characters and dashes only.</p>
  */
-@property (nonatomic, strong) AWSSESCloudWatchDestination * _Nullable cloudWatchDestination;
+@property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>If <code>true</code>, the event destination is enabled. When the event destination is enabled, the specified event types are sent to the destinations in this <code>EventDestinationDefinition</code>.</p><p>If <code>false</code>, the event destination is disabled. When the event destination is disabled, events aren't sent to the specified destinations.</p>
+ <p>The value of the header to add. Must be less than 2048 characters, and must not contain newline characters ("\r" or "\n").</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
+ <p>Represents a request to return the email sending status for your Amazon SES account in the current AWS Region.</p>
+ */
+@interface AWSSESGetAccountSendingEnabledResponse : AWSModel
+
+
+/**
+ <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
-
-/**
- <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
- */
-@property (nonatomic, strong) AWSSESKinesisFirehoseDestination * _Nullable kinesisFirehoseDestination;
-
-/**
- <p>An array that specifies which events the Amazon SES API v2 should send to the destinations in this <code>EventDestinationDefinition</code>.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable matchingEventTypes;
-
-/**
- <p>An object that defines an Amazon Pinpoint project destination for email events. You can send email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
- */
-@property (nonatomic, strong) AWSSESPinpointDestination * _Nullable pinpointDestination;
-
-/**
- <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.</p>
- */
-@property (nonatomic, strong) AWSSESSnsDestination * _Nullable snsDestination;
-
-@end
-
-/**
- <p>An object that contains the failure details about an import job.</p>
- */
-@interface AWSSESFailureInfo : AWSModel
-
-
-/**
- <p>A message about why the import job failed.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable errorMessage;
-
-/**
- <p>An Amazon S3 presigned URL that contains all the failed records and related information.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable failedRecordsS3Url;
-
-@end
-
-/**
- <p>A request to obtain information about the email-sending capabilities of your Amazon SES account.</p>
- */
-@interface AWSSESGetAccountRequest : AWSRequest
-
-
-@end
-
-/**
- <p>A list of details about the email-sending capabilities of your Amazon SES account in the current AWS Region.</p>
- */
-@interface AWSSESGetAccountResponse : AWSModel
-
-
-/**
- <p>Indicates whether or not the automatic warm-up feature is enabled for dedicated IP addresses that are associated with your account.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dedicatedIpAutoWarmupEnabled;
-
-/**
- <p>An object that defines your account details.</p>
- */
-@property (nonatomic, strong) AWSSESAccountDetails * _Nullable details;
-
-/**
- <p>The reputation status of your Amazon SES account. The status can be one of the following:</p><ul><li><p><code>HEALTHY</code> – There are no reputation-related issues that currently impact your account.</p></li><li><p><code>PROBATION</code> – We've identified potential issues with your Amazon SES account. We're placing your account under review while you work on correcting these issues.</p></li><li><p><code>SHUTDOWN</code> – Your account's ability to send email is currently paused because of an issue with the email sent from your account. When you correct the issue, you can contact us and request that your account's ability to send email is resumed.</p></li></ul>
- */
-@property (nonatomic, strong) NSString * _Nullable enforcementStatus;
-
-/**
- <p>Indicates whether or not your account has production access in the current AWS Region.</p><p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p><p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable productionAccessEnabled;
-
-/**
- <p>An object that contains information about the per-day and per-second sending limits for your Amazon SES account in the current AWS Region.</p>
- */
-@property (nonatomic, strong) AWSSESSendQuota * _Nullable sendQuota;
-
-/**
- <p>Indicates whether or not email sending is enabled for your Amazon SES account in the current AWS Region.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
-
-/**
- <p>An object that contains information about the email address suppression preferences for your account in the current AWS Region.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressionAttributes * _Nullable suppressionAttributes;
-
-@end
-
-/**
- <p>A request to retrieve a list of the blacklists that your dedicated IP addresses appear on.</p>
- Required parameters: [BlacklistItemNames]
- */
-@interface AWSSESGetBlacklistReportsRequest : AWSRequest
-
-
-/**
- <p>A list of IP addresses that you want to retrieve blacklist information about. You can only specify the dedicated IP addresses that you use to send email using Amazon SES or Amazon Pinpoint.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable blacklistItemNames;
-
-@end
-
-/**
- <p>An object that contains information about blacklist events.</p>
- Required parameters: [BlacklistReport]
- */
-@interface AWSSESGetBlacklistReportsResponse : AWSModel
-
-
-/**
- <p>An object that contains information about a blacklist that one of your dedicated IP addresses appears on.</p>
- */
-@property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSSESBlacklistEntry *> *> * _Nullable blacklistReport;
-
-@end
-
-/**
- <p>A request to obtain information about the event destinations for a configuration set.</p>
- Required parameters: [ConfigurationSetName]
- */
-@interface AWSSESGetConfigurationSetEventDestinationsRequest : AWSRequest
-
-
-/**
- <p>The name of the configuration set that contains the event destination.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-@end
-
-/**
- <p>Information about an event destination for a configuration set.</p>
- */
-@interface AWSSESGetConfigurationSetEventDestinationsResponse : AWSModel
-
-
-/**
- <p>An array that includes all of the events destinations that have been configured for the configuration set.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESEventDestination *> * _Nullable eventDestinations;
-
-@end
-
-/**
- <p>A request to obtain information about a configuration set.</p>
- Required parameters: [ConfigurationSetName]
- */
-@interface AWSSESGetConfigurationSetRequest : AWSRequest
-
-
-/**
- <p>The name of the configuration set that you want to obtain more information about.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-@end
-
-/**
- <p>Information about a configuration set.</p>
- */
-@interface AWSSESGetConfigurationSetResponse : AWSModel
-
-
-/**
- <p>The name of the configuration set.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-/**
- <p>An object that defines the dedicated IP pool that is used to send emails that you send using the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESDeliveryOptions * _Nullable deliveryOptions;
-
-/**
- <p>An object that defines whether or not Amazon SES collects reputation metrics for the emails that you send that use the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESReputationOptions * _Nullable reputationOptions;
-
-/**
- <p>An object that defines whether or not Amazon SES can send email that you send using the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESSendingOptions * _Nullable sendingOptions;
-
-/**
- <p>An object that contains information about the suppression list preferences for your account.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressionOptions * _Nullable suppressionOptions;
-
-/**
- <p>An array of objects that define the tags (keys and values) that are associated with the configuration set.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-/**
- <p>An object that defines the open and click tracking options for emails that you send using the configuration set.</p>
- */
-@property (nonatomic, strong) AWSSESTrackingOptions * _Nullable trackingOptions;
 
 @end
 
@@ -1797,7 +1356,7 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>The following elements are returned by the service.</p>
+ <p>The content of the custom verification email template.</p>
  */
 @interface AWSSESGetCustomVerificationEmailTemplateResponse : AWSModel
 
@@ -1835,252 +1394,113 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>A request to obtain more information about a dedicated IP address.</p>
- Required parameters: [Ip]
+ <p>Represents a request for the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this request also returns the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published. For more information about Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
-@interface AWSSESGetDedicatedIpRequest : AWSRequest
+@interface AWSSESGetIdentityDkimAttributesRequest : AWSRequest
 
 
 /**
- <p>The IP address that you want to obtain more information about. The value you specify has to be a dedicated IP address that's assocaited with your AWS account.</p>
+ <p>A list of one or more verified identities - email addresses, domains, or both.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable ip;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable identities;
 
 @end
 
 /**
- <p>Information about a dedicated IP address.</p>
+ <p>Represents the status of Amazon SES Easy DKIM signing for an identity. For domain identities, this response also contains the DKIM tokens that are required for Easy DKIM signing, and whether Amazon SES successfully verified that these tokens were published.</p>
+ Required parameters: [DkimAttributes]
  */
-@interface AWSSESGetDedicatedIpResponse : AWSModel
+@interface AWSSESGetIdentityDkimAttributesResponse : AWSModel
 
 
 /**
- <p>An object that contains information about a dedicated IP address.</p>
+ <p>The DKIM attributes for an email address or a domain.</p>
  */
-@property (nonatomic, strong) AWSSESDedicatedIp * _Nullable dedicatedIp;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSESIdentityDkimAttributes *> * _Nullable dkimAttributes;
 
 @end
 
 /**
- <p>A request to obtain more information about dedicated IP pools.</p>
+ <p>Represents a request to return the Amazon SES custom MAIL FROM attributes for a list of identities. For information about using a custom MAIL FROM domain, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
-@interface AWSSESGetDedicatedIpsRequest : AWSRequest
+@interface AWSSESGetIdentityMailFromDomainAttributesRequest : AWSRequest
 
 
 /**
- <p>A token returned from a previous call to <code>GetDedicatedIps</code> to indicate the position of the dedicated IP pool in the list of IP pools.</p>
+ <p>A list of one or more identities.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>The number of results to show in a single call to <code>GetDedicatedIpsRequest</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
-
-/**
- <p>The name of the IP pool that the dedicated IP address is associated with.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable poolName;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable identities;
 
 @end
 
 /**
- <p>Information about the dedicated IP addresses that are associated with your AWS account.</p>
+ <p>Represents the custom MAIL FROM attributes for a list of identities.</p>
+ Required parameters: [MailFromDomainAttributes]
  */
-@interface AWSSESGetDedicatedIpsResponse : AWSModel
+@interface AWSSESGetIdentityMailFromDomainAttributesResponse : AWSModel
 
 
 /**
- <p>A list of dedicated IP addresses that are associated with your AWS account.</p>
+ <p>A map of identities to custom MAIL FROM attributes.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESDedicatedIp *> * _Nullable dedicatedIps;
-
-/**
- <p>A token that indicates that there are additional dedicated IP addresses to list. To view additional addresses, issue another request to <code>GetDedicatedIps</code>, passing this token in the <code>NextToken</code> parameter.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSESIdentityMailFromDomainAttributes *> * _Nullable mailFromDomainAttributes;
 
 @end
 
 /**
- <p>Retrieve information about the status of the Deliverability dashboard for your AWS account. When the Deliverability dashboard is enabled, you gain access to reputation, deliverability, and other metrics for your domains. You also gain the ability to perform predictive inbox placement tests.</p><p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other AWS services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
+ <p>Represents a request to return the notification attributes for a list of identities you verified with Amazon SES. For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
-@interface AWSSESGetDeliverabilityDashboardOptionsRequest : AWSRequest
+@interface AWSSESGetIdentityNotificationAttributesRequest : AWSRequest
 
+
+/**
+ <p>A list of one or more identities. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable identities;
 
 @end
 
 /**
- <p>An object that shows the status of the Deliverability dashboard.</p>
- Required parameters: [DashboardEnabled]
+ <p>Represents the notification attributes for a list of identities.</p>
+ Required parameters: [NotificationAttributes]
  */
-@interface AWSSESGetDeliverabilityDashboardOptionsResponse : AWSModel
+@interface AWSSESGetIdentityNotificationAttributesResponse : AWSModel
 
 
 /**
- <p>The current status of your Deliverability dashboard subscription. If this value is <code>PENDING_EXPIRATION</code>, your subscription is scheduled to expire at the end of the current calendar month.</p>
+ <p>A map of Identity to IdentityNotificationAttributes.</p>
  */
-@property (nonatomic, assign) AWSSESDeliverabilityDashboardAccountStatus accountStatus;
-
-/**
- <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that isn’t scheduled to expire at the end of the current calendar month.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDomainDeliverabilityTrackingOption *> * _Nullable activeSubscribedDomains;
-
-/**
- <p>Specifies whether the Deliverability dashboard is enabled. If this value is <code>true</code>, the dashboard is enabled.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dashboardEnabled;
-
-/**
- <p>An array of objects, one for each verified domain that you use to send email and currently has an active Deliverability dashboard subscription that's scheduled to expire at the end of the current calendar month.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDomainDeliverabilityTrackingOption *> * _Nullable pendingExpirationSubscribedDomains;
-
-/**
- <p>The date, in Unix time format, when your current subscription to the Deliverability dashboard is scheduled to expire, if your subscription is scheduled to expire at the end of the current calendar month. This value is null if you have an active subscription that isn’t due to expire at the end of the month.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable subscriptionExpiryDate;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSESIdentityNotificationAttributes *> * _Nullable notificationAttributes;
 
 @end
 
 /**
- <p>A request to retrieve the results of a predictive inbox placement test.</p>
- Required parameters: [ReportId]
+ <p>Represents a request to return the requested sending authorization policies for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyNames]
  */
-@interface AWSSESGetDeliverabilityTestReportRequest : AWSRequest
+@interface AWSSESGetIdentityPoliciesRequest : AWSRequest
 
 
 /**
- <p>A unique string that identifies the predictive inbox placement test.</p>
+ <p>The identity for which the policies will be retrieved. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p><p>To successfully call this API, you must own the identity.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable reportId;
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ <p>A list of the names of policies to be retrieved. You can retrieve a maximum of 20 policies at a time. If you do not know the names of the policies that are attached to the identity, you can use <code>ListIdentityPolicies</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 @end
 
 /**
- <p>The results of the predictive inbox placement test.</p>
- Required parameters: [DeliverabilityTestReport, OverallPlacement, IspPlacements]
+ <p>Represents the requested sending authorization policies.</p>
+ Required parameters: [Policies]
  */
-@interface AWSSESGetDeliverabilityTestReportResponse : AWSModel
-
-
-/**
- <p>An object that contains the results of the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) AWSSESDeliverabilityTestReport * _Nullable deliverabilityTestReport;
-
-/**
- <p>An object that describes how the test email was handled by several email providers, including Gmail, Hotmail, Yahoo, AOL, and others.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESIspPlacement *> * _Nullable ispPlacements;
-
-/**
- <p>An object that contains the message that you sent when you performed this predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable message;
-
-/**
- <p>An object that specifies how many test messages that were sent during the predictive inbox placement test were delivered to recipients' inboxes, how many were sent to recipients' spam folders, and how many weren't delivered.</p>
- */
-@property (nonatomic, strong) AWSSESPlacementStatistics * _Nullable overallPlacement;
-
-/**
- <p>An array of objects that define the tags (keys and values) that are associated with the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-@end
-
-/**
- <p>Retrieve all the deliverability data for a specific campaign. This data is available for a campaign only if the campaign sent email by using a domain that the Deliverability dashboard is enabled for (<code>PutDeliverabilityDashboardOption</code> operation).</p>
- Required parameters: [CampaignId]
- */
-@interface AWSSESGetDomainDeliverabilityCampaignRequest : AWSRequest
-
-
-/**
- <p>The unique identifier for the campaign. The Deliverability dashboard automatically generates and assigns this identifier to a campaign.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable campaignId;
-
-@end
-
-/**
- <p>An object that contains all the deliverability data for a specific campaign. This data is available for a campaign only if the campaign sent email by using a domain that the Deliverability dashboard is enabled for.</p>
- Required parameters: [DomainDeliverabilityCampaign]
- */
-@interface AWSSESGetDomainDeliverabilityCampaignResponse : AWSModel
-
-
-/**
- <p>An object that contains the deliverability data for the campaign.</p>
- */
-@property (nonatomic, strong) AWSSESDomainDeliverabilityCampaign * _Nullable domainDeliverabilityCampaign;
-
-@end
-
-/**
- <p>A request to obtain deliverability metrics for a domain.</p>
- Required parameters: [Domain, StartDate, EndDate]
- */
-@interface AWSSESGetDomainStatisticsReportRequest : AWSRequest
-
-
-/**
- <p>The domain that you want to obtain deliverability metrics for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable domain;
-
-/**
- <p>The last day (in Unix time) that you want to obtain domain deliverability metrics for. The <code>EndDate</code> that you specify has to be less than or equal to 30 days after the <code>StartDate</code>.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable endDate;
-
-/**
- <p>The first day (in Unix time) that you want to obtain domain deliverability metrics for.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable startDate;
-
-@end
-
-/**
- <p>An object that includes statistics that are related to the domain that you specified.</p>
- Required parameters: [OverallVolume, DailyVolumes]
- */
-@interface AWSSESGetDomainStatisticsReportResponse : AWSModel
-
-
-/**
- <p>An object that contains deliverability metrics for the domain that you specified. This object contains data for each day, starting on the <code>StartDate</code> and ending on the <code>EndDate</code>.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDailyVolume *> * _Nullable dailyVolumes;
-
-/**
- <p>An object that contains deliverability metrics for the domain that you specified. The data in this object is a summary of all of the data that was collected from the <code>StartDate</code> to the <code>EndDate</code>.</p>
- */
-@property (nonatomic, strong) AWSSESOverallVolume * _Nullable overallVolume;
-
-@end
-
-/**
- <p>A request to return the policies of an email identity.</p>
- Required parameters: [EmailIdentity]
- */
-@interface AWSSESGetEmailIdentityPoliciesRequest : AWSRequest
-
-
-/**
- <p>The email identity that you want to retrieve policies for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-@end
-
-/**
- <p>Identity policies associated with email identity.</p>
- */
-@interface AWSSESGetEmailIdentityPoliciesResponse : AWSModel
+@interface AWSSESGetIdentityPoliciesResponse : AWSModel
 
 
 /**
@@ -2091,385 +1511,305 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>A request to return details about an email identity.</p>
- Required parameters: [EmailIdentity]
+ <p>Represents a request to return the Amazon SES verification status of a list of identities. For domain identities, this request also returns the verification token. For information about verifying identities with Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identities]
  */
-@interface AWSSESGetEmailIdentityRequest : AWSRequest
+@interface AWSSESGetIdentityVerificationAttributesRequest : AWSRequest
 
 
 /**
- <p>The email identity that you want to retrieve details for.</p>
+ <p>A list of identities.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable identities;
 
 @end
 
 /**
- <p>Details about an email identity.</p>
+ <p>The Amazon SES verification status of a list of identities. For domain identities, this response also contains the verification token.</p>
+ Required parameters: [VerificationAttributes]
  */
-@interface AWSSESGetEmailIdentityResponse : AWSModel
+@interface AWSSESGetIdentityVerificationAttributesResponse : AWSModel
 
 
 /**
- <p>An object that contains information about the DKIM attributes for the identity.</p>
+ <p>A map of Identities to IdentityVerificationAttributes objects.</p>
  */
-@property (nonatomic, strong) AWSSESDkimAttributes * _Nullable dkimAttributes;
-
-/**
- <p>The feedback forwarding configuration for the identity.</p><p>If the value is <code>true</code>, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the <code>Return-Path</code> header of the original email.</p><p>You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable feedbackForwardingStatus;
-
-/**
- <p>The email identity type.</p>
- */
-@property (nonatomic, assign) AWSSESIdentityType identityType;
-
-/**
- <p>An object that contains information about the Mail-From attributes for the email identity.</p>
- */
-@property (nonatomic, strong) AWSSESMailFromAttributes * _Nullable mailFromAttributes;
-
-/**
- <p>A map of policy names to policies.</p>
- */
-@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable policies;
-
-/**
- <p>An array of objects that define the tags (keys and values) that are associated with the email identity.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-/**
- <p>Specifies whether or not the identity is verified. You can only send email from verified email addresses or domains. For more information about verifying identities, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-email-manage-verify.html">Amazon Pinpoint User Guide</a>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable verifiedForSendingStatus;
+@property (nonatomic, strong) NSDictionary<NSString *, AWSSESIdentityVerificationAttributes *> * _Nullable verificationAttributes;
 
 @end
 
 /**
- <p>Represents a request to display the template object (which includes the subject line, HTML part and text part) for the template you specify.</p>
- Required parameters: [TemplateName]
+ <p>Represents your Amazon SES daily sending quota, maximum send rate, and the number of emails you have sent in the last 24 hours.</p>
  */
-@interface AWSSESGetEmailTemplateRequest : AWSRequest
+@interface AWSSESGetSendQuotaResponse : AWSModel
 
 
 /**
- <p>The name of the template you want to retrieve.</p>
+ <p>The maximum number of emails the user is allowed to send in a 24-hour interval. A value of -1 signifies an unlimited quota.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable templateName;
+@property (nonatomic, strong) NSNumber * _Nullable max24HourSend;
+
+/**
+ <p>The maximum number of emails that Amazon SES can accept from the user's account per second.</p><note><p>The rate at which Amazon SES accepts the user's messages might be less than the maximum send rate.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxSendRate;
+
+/**
+ <p>The number of emails sent during the previous 24 hours.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sentLast24Hours;
 
 @end
 
 /**
- <p>The following element is returned by the service.</p>
- Required parameters: [TemplateName, TemplateContent]
+ <p>Represents a list of data points. This list contains aggregated data from the previous two weeks of your sending activity with Amazon SES.</p>
  */
-@interface AWSSESGetEmailTemplateResponse : AWSModel
+@interface AWSSESGetSendStatisticsResponse : AWSModel
 
 
 /**
- <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
+ <p>A list of data points, each of which represents 15 minutes of activity.</p>
  */
-@property (nonatomic, strong) AWSSESEmailTemplateContent * _Nullable templateContent;
-
-/**
- <p>The name of the template you want to retrieve.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable templateName;
+@property (nonatomic, strong) NSArray<AWSSESSendDataPoint *> * _Nullable sendDataPoints;
 
 @end
-
-/**
- <p>Represents a request for information about an import job using the import job ID.</p>
- Required parameters: [JobId]
- */
-@interface AWSSESGetImportJobRequest : AWSRequest
-
-
-/**
- <p>The ID of the import job.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable jobId;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESGetImportJobResponse : AWSModel
-
-
-/**
- <p>The time stamp of when the import job was completed.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable completedTimestamp;
-
-/**
- <p>The time stamp of when the import job was created.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
-
-/**
- <p>The number of records that failed processing because of invalid input or other reasons.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable failedRecordsCount;
-
-/**
- <p>The failure details about an import job.</p>
- */
-@property (nonatomic, strong) AWSSESFailureInfo * _Nullable failureInfo;
-
-/**
- <p>The data source of the import job.</p>
- */
-@property (nonatomic, strong) AWSSESImportDataSource * _Nullable importDataSource;
-
-/**
- <p>The destination of the import job.</p>
- */
-@property (nonatomic, strong) AWSSESImportDestination * _Nullable importDestination;
-
-/**
- <p>A string that represents the import job ID.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable jobId;
-
-/**
- <p>The status of the import job.</p>
- */
-@property (nonatomic, assign) AWSSESJobStatus jobStatus;
-
-/**
- <p>The current number of records processed.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable processedRecordsCount;
-
-@end
-
-/**
- <p>A request to retrieve information about an email address that's on the suppression list for your account.</p>
- Required parameters: [EmailAddress]
- */
-@interface AWSSESGetSuppressedDestinationRequest : AWSRequest
-
-
-/**
- <p>The email address that's on the account suppression list.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailAddress;
-
-@end
-
-/**
- <p>Information about the suppressed email address.</p>
- Required parameters: [SuppressedDestination]
- */
-@interface AWSSESGetSuppressedDestinationResponse : AWSModel
-
-
-/**
- <p>An object containing information about the suppressed email address.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressedDestination * _Nullable suppressedDestination;
-
-@end
-
-/**
- <p>Information about an email identity.</p>
- */
-@interface AWSSESIdentityInfo : AWSModel
-
-
-/**
- <p>The address or domain of the identity.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable identityName;
-
-/**
- <p>The email identity type. The identity type can be one of the following:</p><ul><li><p><code>EMAIL_ADDRESS</code> – The identity is an email address.</p></li><li><p><code>DOMAIN</code> – The identity is a domain.</p></li><li><p><code>MANAGED_DOMAIN</code> – The identity is a domain that is managed by AWS.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESIdentityType identityType;
-
-/**
- <p>Indicates whether or not you can send email from the identity.</p><p>An <i>identity</i> is an email address or domain that you send email from. Before you can send email from an identity, you have to demostrate that you own the identity, and that you authorize Amazon SES to send email from that identity.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
-
-@end
-
-/**
- <p>An object that contains details about the data source of the import job.</p>
- Required parameters: [S3Url, DataFormat]
- */
-@interface AWSSESImportDataSource : AWSModel
-
-
-/**
- <p>The data format of the import job's data source.</p>
- */
-@property (nonatomic, assign) AWSSESDataFormat dataFormat;
-
-/**
- <p>An Amazon S3 URL in the format s3://<i>&lt;bucket_name&gt;</i>/<i>&lt;object&gt;</i>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable s3Url;
-
-@end
-
-/**
- <p>An object that contains details about the resource destination the import job is going to target.</p>
- Required parameters: [SuppressionListDestination]
- */
-@interface AWSSESImportDestination : AWSModel
-
-
-/**
- <p>An object that contains the action of the import job towards suppression list.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressionListDestination * _Nullable suppressionListDestination;
-
-@end
-
-/**
- <p>A summary of the import job.</p>
- */
-@interface AWSSESImportJobSummary : AWSModel
-
 
 /**
  
  */
-@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+@interface AWSSESGetTemplateRequest : AWSRequest
+
 
 /**
- <p>An object that contains details about the resource destination the import job is going to target.</p>
+ <p>The name of the template you want to retrieve.</p>
  */
-@property (nonatomic, strong) AWSSESImportDestination * _Nullable importDestination;
-
-/**
- <p>A string that represents the import job ID.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable jobId;
-
-/**
- <p>The status of the import job.</p>
- */
-@property (nonatomic, assign) AWSSESJobStatus jobStatus;
+@property (nonatomic, strong) NSString * _Nullable templateName;
 
 @end
 
 /**
- <p>An object that contains information about the inbox placement data settings for a verified domain that’s associated with your AWS account. This data is available only if you enabled the Deliverability dashboard for the domain.</p>
+ 
  */
-@interface AWSSESInboxPlacementTrackingOption : AWSModel
+@interface AWSSESGetTemplateResponse : AWSModel
 
 
 /**
- <p>Specifies whether inbox placement data is being tracked for the domain.</p>
+ <p>The content of the email, composed of a subject line, an HTML part, and a text-only part.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable global;
-
-/**
- <p>An array of strings, one for each major email provider that the inbox placement data applies to.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable trackedIsps;
+@property (nonatomic, strong) AWSSESTemplate * _Nullable template;
 
 @end
 
 /**
- <p>An object that describes how email sent during the predictive inbox placement test was handled by a certain email provider.</p>
+ <p>Represents the DKIM attributes of a verified email address or a domain.</p>
+ Required parameters: [DkimEnabled, DkimVerificationStatus]
  */
-@interface AWSSESIspPlacement : AWSModel
+@interface AWSSESIdentityDkimAttributes : AWSModel
 
 
 /**
- <p>The name of the email provider that the inbox placement data applies to.</p>
+ <p>Is true if DKIM signing is enabled for email sent from the identity. It's false otherwise. The default value is true.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable ispName;
+@property (nonatomic, strong) NSNumber * _Nullable dkimEnabled;
 
 /**
- <p>An object that contains inbox placement metrics for a specific email provider.</p>
+ <p>A set of character strings that represent the domain's identity. Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)</p><p>For more information about creating DNS records using DKIM tokens, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
  */
-@property (nonatomic, strong) AWSSESPlacementStatistics * _Nullable placementStatistics;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable dkimTokens;
+
+/**
+ <p>Describes whether Amazon SES has successfully verified the DKIM DNS records (tokens) published in the domain name's DNS. (This only applies to domain identities, not email address identities.)</p>
+ */
+@property (nonatomic, assign) AWSSESVerificationStatus dkimVerificationStatus;
 
 @end
 
 /**
- <p>An object that defines an Amazon Kinesis Data Firehose destination for email events. You can use Amazon Kinesis Data Firehose to stream data to other services, such as Amazon S3 and Amazon Redshift.</p>
- Required parameters: [IamRoleArn, DeliveryStreamArn]
+ <p>Represents the custom MAIL FROM domain attributes of a verified identity (email address or domain).</p>
+ Required parameters: [MailFromDomain, MailFromDomainStatus, BehaviorOnMXFailure]
+ */
+@interface AWSSESIdentityMailFromDomainAttributes : AWSModel
+
+
+/**
+ <p>The action that Amazon SES takes if it cannot successfully read the required MX record when you send an email. A value of <code>UseDefaultValue</code> indicates that if Amazon SES cannot read the required MX record, it uses amazonses.com (or a subdomain of that) as the MAIL FROM domain. A value of <code>RejectMessage</code> indicates that if Amazon SES cannot read the required MX record, Amazon SES returns a <code>MailFromDomainNotVerified</code> error and does not send the email.</p><p>The custom MAIL FROM setup states that result in this behavior are <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code>.</p>
+ */
+@property (nonatomic, assign) AWSSESBehaviorOnMXFailure behaviorOnMXFailure;
+
+/**
+ <p>The custom MAIL FROM domain that the identity is configured to use.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mailFromDomain;
+
+/**
+ <p>The state that indicates whether Amazon SES has successfully read the MX record required for custom MAIL FROM domain setup. If the state is <code>Success</code>, Amazon SES uses the specified custom MAIL FROM domain when the verified identity sends an email. All other states indicate that Amazon SES takes the action described by <code>BehaviorOnMXFailure</code>.</p>
+ */
+@property (nonatomic, assign) AWSSESCustomMailFromStatus mailFromDomainStatus;
+
+@end
+
+/**
+ <p>Represents the notification attributes of an identity, including whether an identity has Amazon Simple Notification Service (Amazon SNS) topics set for bounce, complaint, and/or delivery notifications, and whether feedback forwarding is enabled for bounce and complaint notifications.</p>
+ Required parameters: [BounceTopic, ComplaintTopic, DeliveryTopic, ForwardingEnabled]
+ */
+@interface AWSSESIdentityNotificationAttributes : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish bounce notifications.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bounceTopic;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish complaint notifications.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable complaintTopic;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic where Amazon SES will publish delivery notifications.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deliveryTopic;
+
+/**
+ <p>Describes whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> indicates that Amazon SES will forward bounce and complaint notifications as email, while <code>false</code> indicates that bounce and complaint notifications will be published only to the specified bounce and complaint Amazon SNS topics.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forwardingEnabled;
+
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Bounce</code>. A value of <code>true</code> specifies that Amazon SES will include headers in bounce notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in bounce notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInBounceNotificationsEnabled;
+
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Complaint</code>. A value of <code>true</code> specifies that Amazon SES will include headers in complaint notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in complaint notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInComplaintNotificationsEnabled;
+
+/**
+ <p>Describes whether Amazon SES includes the original email headers in Amazon SNS notifications of type <code>Delivery</code>. A value of <code>true</code> specifies that Amazon SES will include headers in delivery notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in delivery notifications.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable headersInDeliveryNotificationsEnabled;
+
+@end
+
+/**
+ <p>Represents the verification attributes of a single identity.</p>
+ Required parameters: [VerificationStatus]
+ */
+@interface AWSSESIdentityVerificationAttributes : AWSModel
+
+
+/**
+ <p>The verification status of the identity: "Pending", "Success", "Failed", or "TemporaryFailure".</p>
+ */
+@property (nonatomic, assign) AWSSESVerificationStatus verificationStatus;
+
+/**
+ <p>The verification token for a domain identity. Null for email address identities.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verificationToken;
+
+@end
+
+/**
+ <p>Contains the delivery stream ARN and the IAM role ARN associated with an Amazon Kinesis Firehose event destination.</p><p>Event destinations, such as Amazon Kinesis Firehose, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [IAMRoleARN, DeliveryStreamARN]
  */
 @interface AWSSESKinesisFirehoseDestination : AWSModel
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Kinesis Data Firehose stream that the Amazon SES API v2 sends email events to.</p>
+ <p>The ARN of the Amazon Kinesis Firehose stream that email sending events should be published to.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable deliveryStreamArn;
+@property (nonatomic, strong) NSString * _Nullable deliveryStreamARN;
 
 /**
- <p>The Amazon Resource Name (ARN) of the IAM role that the Amazon SES API v2 uses to send email events to the Amazon Kinesis Data Firehose stream.</p>
+ <p>The ARN of the IAM role under which Amazon SES publishes email sending events to the Amazon Kinesis Firehose stream.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable iamRoleArn;
+@property (nonatomic, strong) NSString * _Nullable IAMRoleARN;
 
 @end
 
 /**
- <p>A request to obtain a list of configuration sets for your Amazon SES account in the current AWS Region.</p>
+ <p>When included in a receipt rule, this action calls an AWS Lambda function and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>To enable Amazon SES to call your AWS Lambda function or to publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><p>For information about using AWS Lambda actions in receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-lambda.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [FunctionArn]
+ */
+@interface AWSSESLambdaAction : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Lambda function. An example of an AWS Lambda function ARN is <code>arn:aws:lambda:us-west-2:account-id:function:MyFunction</code>. For more information about AWS Lambda, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">AWS Lambda Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionArn;
+
+/**
+ <p>The invocation type of the AWS Lambda function. An invocation type of <code>RequestResponse</code> means that the execution of the function will immediately result in a response, and a value of <code>Event</code> means that the function will be invoked asynchronously. The default value is <code>Event</code>. For information about AWS Lambda invocation types, see the <a href="https://docs.aws.amazon.com/lambda/latest/dg/API_Invoke.html">AWS Lambda Developer Guide</a>.</p><important><p>There is a 30-second timeout on <code>RequestResponse</code> invocations. You should use <code>Event</code> invocation in most cases. Use <code>RequestResponse</code> only when you want to make a mail flow decision, such as whether to stop the receipt rule or the receipt rule set.</p></important>
+ */
+@property (nonatomic, assign) AWSSESInvocationType invocationType;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the Lambda action is taken. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicArn;
+
+@end
+
+/**
+ <p>Represents a request to list the configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESListConfigurationSetsRequest : AWSRequest
 
 
 /**
- <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position in the list of configuration sets.</p>
+ <p>The number of configuration sets to return.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
 /**
- <p>The number of results to show in a single call to <code>ListConfigurationSets</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+ <p>A token returned from a previous call to <code>ListConfigurationSets</code> to indicate the position of the configuration set in the configuration set list.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>A list of configuration sets in your Amazon SES account in the current AWS Region.</p>
+ <p>A list of configuration sets associated with your AWS account. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  */
 @interface AWSSESListConfigurationSetsResponse : AWSModel
 
 
 /**
- <p>An array that contains all of the configuration sets in your Amazon SES account in the current AWS Region.</p>
+ <p>A list of configuration sets.</p>
  */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable configurationSets;
+@property (nonatomic, strong) NSArray<AWSSESConfigurationSet *> * _Nullable configurationSets;
 
 /**
- <p>A token that indicates that there are additional configuration sets to list. To view additional configuration sets, issue another request to <code>ListConfigurationSets</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+ <p>A token indicating that there are additional configuration sets available to be listed. Pass this token to successive calls of <code>ListConfigurationSets</code>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>Represents a request to list the existing custom verification email templates for your account.</p>
+ <p>Represents a request to list the existing custom verification email templates for your account.</p><p>For more information about custom verification email templates, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html">Using Custom Verification Email Templates</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @interface AWSSESListCustomVerificationEmailTemplatesRequest : AWSRequest
 
 
 /**
- <p>A token returned from a previous call to <code>ListCustomVerificationEmailTemplates</code> to indicate the position in the list of custom verification email templates.</p>
+ <p>The maximum number of custom verification email templates to return. This value must be at least 1 and less than or equal to 50. If you do not specify a value, or if you specify a value less than 1 or greater than 50, the operation will return up to 50 results.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>The number of results to show in a single call to <code>ListCustomVerificationEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p><p>The value you specify has to be at least 1, and can be no more than 50.</p>
+ <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>The following elements are returned by the service.</p>
+ <p>A paginated list of custom verification email templates.</p>
  */
 @interface AWSSESListCustomVerificationEmailTemplatesResponse : AWSModel
 
@@ -2477,593 +1817,264 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 /**
  <p>A list of the custom verification email templates that exist in your account.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESCustomVerificationEmailTemplateMetadata *> * _Nullable customVerificationEmailTemplates;
+@property (nonatomic, strong) NSArray<AWSSESCustomVerificationEmailTemplate *> * _Nullable customVerificationEmailTemplates;
 
 /**
- <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListCustomVerificationEmailTemplates</code> to retrieve the next 50 custom verification email templates.</p>
+ <p>A token indicating that there are additional custom verification email templates available to be listed. Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next 50 custom verification email templates.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>A request to obtain a list of dedicated IP pools.</p>
+ <p>Represents a request to return a list of all identities (email addresses and domains) that you have attempted to verify under your AWS account, regardless of verification status.</p>
  */
-@interface AWSSESListDedicatedIpPoolsRequest : AWSRequest
+@interface AWSSESListIdentitiesRequest : AWSRequest
 
 
 /**
- <p>A token returned from a previous call to <code>ListDedicatedIpPools</code> to indicate the position in the list of dedicated IP pools.</p>
+ <p>The type of the identities to list. Possible values are "EmailAddress" and "Domain". If this parameter is omitted, then all identities will be listed.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, assign) AWSSESIdentityType identityType;
 
 /**
- <p>The number of results to show in a single call to <code>ListDedicatedIpPools</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
+ <p>The maximum number of identities per page. Possible values are 1-1000 inclusive.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
-
-@end
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
 /**
- <p>A list of dedicated IP pools.</p>
- */
-@interface AWSSESListDedicatedIpPoolsResponse : AWSModel
-
-
-/**
- <p>A list of all of the dedicated IP pools that are associated with your AWS account in the current Region.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable dedicatedIpPools;
-
-/**
- <p>A token that indicates that there are additional IP pools to list. To view additional IP pools, issue another request to <code>ListDedicatedIpPools</code>, passing this token in the <code>NextToken</code> parameter.</p>
+ <p>The token to use for pagination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>A request to list all of the predictive inbox placement tests that you've performed.</p>
+ <p>A list of all identities that you have attempted to verify under your AWS account, regardless of verification status.</p>
+ Required parameters: [Identities]
  */
-@interface AWSSESListDeliverabilityTestReportsRequest : AWSRequest
+@interface AWSSESListIdentitiesResponse : AWSModel
 
 
 /**
- <p>A token returned from a previous call to <code>ListDeliverabilityTestReports</code> to indicate the position in the list of predictive inbox placement tests.</p>
+ <p>A list of identities.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable identities;
 
 /**
- <p>The number of results to show in a single call to <code>ListDeliverabilityTestReports</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p><p>The value you specify has to be at least 0, and can be no more than 1000.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
-
-@end
-
-/**
- <p>A list of the predictive inbox placement test reports that are available for your account, regardless of whether or not those tests are complete.</p>
- Required parameters: [DeliverabilityTestReports]
- */
-@interface AWSSESListDeliverabilityTestReportsResponse : AWSModel
-
-
-/**
- <p>An object that contains a lists of predictive inbox placement tests that you've performed.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDeliverabilityTestReport *> * _Nullable deliverabilityTestReports;
-
-/**
- <p>A token that indicates that there are additional predictive inbox placement tests to list. To view additional predictive inbox placement tests, issue another request to <code>ListDeliverabilityTestReports</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+ <p>The token used for pagination.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>Retrieve deliverability data for all the campaigns that used a specific domain to send email during a specified time range. This data is available for a domain only if you enabled the Deliverability dashboard.</p>
- Required parameters: [StartDate, EndDate, SubscribedDomain]
+ <p>Represents a request to return a list of sending authorization policies that are attached to an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity]
  */
-@interface AWSSESListDomainDeliverabilityCampaignsRequest : AWSRequest
+@interface AWSSESListIdentityPoliciesRequest : AWSRequest
 
 
 /**
- <p>The last day, in Unix time format, that you want to obtain deliverability data for. This value has to be less than or equal to 30 days after the value of the <code>StartDate</code> parameter.</p>
+ <p>The identity that is associated with the policy for which the policies will be listed. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p><p>To successfully call this API, you must own the identity.</p>
  */
-@property (nonatomic, strong) NSDate * _Nullable endDate;
-
-/**
- <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of a campaign in the list of campaigns.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>The maximum number of results to include in response to a single call to the <code>ListDomainDeliverabilityCampaigns</code> operation. If the number of results is larger than the number that you specify in this parameter, the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
-
-/**
- <p>The first day, in Unix time format, that you want to obtain deliverability data for.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable startDate;
-
-/**
- <p>The domain to obtain deliverability data for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable subscribedDomain;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 @end
 
 /**
- <p>An array of objects that provide deliverability data for all the campaigns that used a specific domain to send email during a specified time range. This data is available for a domain only if you enabled the Deliverability dashboard for the domain.</p>
- Required parameters: [DomainDeliverabilityCampaigns]
+ <p>A list of names of sending authorization policies that apply to an identity.</p>
+ Required parameters: [PolicyNames]
  */
-@interface AWSSESListDomainDeliverabilityCampaignsResponse : AWSModel
+@interface AWSSESListIdentityPoliciesResponse : AWSModel
 
 
 /**
- <p>An array of responses, one for each campaign that used the domain to send email during the specified time range.</p>
+ <p>A list of names of policies that apply to the specified identity.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESDomainDeliverabilityCampaign *> * _Nullable domainDeliverabilityCampaigns;
-
-/**
- <p>A token that’s returned from a previous call to the <code>ListDomainDeliverabilityCampaigns</code> operation. This token indicates the position of the campaign in the list of campaigns.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 @end
 
 /**
- <p>A request to list all of the email identities associated with your AWS account. This list includes identities that you've already verified, identities that are unverified, and identities that were verified in the past, but are no longer verified.</p>
+ <p>Represents a request to list the IP address filters that exist under your AWS account. You use IP address filters when you receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
  */
-@interface AWSSESListEmailIdentitiesRequest : AWSRequest
+@interface AWSSESListReceiptFiltersRequest : AWSRequest
 
-
-/**
- <p>A token returned from a previous call to <code>ListEmailIdentities</code> to indicate the position in the list of identities.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>The number of results to show in a single call to <code>ListEmailIdentities</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p><p>The value you specify has to be at least 0, and can be no more than 1000.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
 
 @end
 
 /**
- <p>A list of all of the identities that you've attempted to verify, regardless of whether or not those identities were successfully verified.</p>
+ <p>A list of IP address filters that exist under your AWS account.</p>
  */
-@interface AWSSESListEmailIdentitiesResponse : AWSModel
+@interface AWSSESListReceiptFiltersResponse : AWSModel
 
 
 /**
- <p>An array that includes all of the email identities associated with your AWS account.</p>
+ <p>A list of IP address filter data structures, which each consist of a name, an IP address range, and whether to allow or block mail from it.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESIdentityInfo *> * _Nullable emailIdentities;
+@property (nonatomic, strong) NSArray<AWSSESReceiptFilter *> * _Nullable filters;
+
+@end
 
 /**
- <p>A token that indicates that there are additional configuration sets to list. To view additional configuration sets, issue another request to <code>ListEmailIdentities</code>, and pass this token in the <code>NextToken</code> parameter.</p>
+ <p>Represents a request to list the receipt rule sets that exist under your AWS account. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ */
+@interface AWSSESListReceiptRuleSetsRequest : AWSRequest
+
+
+/**
+ <p>A token returned from a previous call to <code>ListReceiptRuleSets</code> to indicate the position in the receipt rule set list.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
 /**
- <p>Represents a request to list the email templates present in your Amazon SES account in the current AWS Region. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+ <p>A list of receipt rule sets that exist under your AWS account.</p>
  */
-@interface AWSSESListEmailTemplatesRequest : AWSRequest
+@interface AWSSESListReceiptRuleSetsResponse : AWSModel
 
 
 /**
- <p>A token returned from a previous call to <code>ListEmailTemplates</code> to indicate the position in the list of email templates.</p>
+ <p>A token indicating that there are additional receipt rule sets available to be listed. Pass this token to successive calls of <code>ListReceiptRuleSets</code> to retrieve up to 100 receipt rule sets at a time.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The number of results to show in a single call to <code>ListEmailTemplates</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p><p>The value you specify has to be at least 1, and can be no more than 10.</p>
+ <p>The metadata for the currently active receipt rule set. The metadata consists of the rule set name and the timestamp of when the rule set was created.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+@property (nonatomic, strong) NSArray<AWSSESReceiptRuleSetMetadata *> * _Nullable ruleSets;
 
 @end
 
 /**
- <p>The following elements are returned by the service.</p>
+ 
  */
-@interface AWSSESListEmailTemplatesResponse : AWSModel
+@interface AWSSESListTemplatesRequest : AWSRequest
 
 
 /**
- <p>A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent <code>ListEmailTemplates</code> call to retrieve the next 10 email templates.</p>
+ <p>The maximum number of templates to return. This value must be at least 1 and less than or equal to 10. If you do not specify a value, or if you specify a value less than 1 or greater than 10, the operation will return up to 10 results.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+/**
+ <p>A token returned from a previous call to <code>ListTemplates</code> to indicate the position in the list of email templates.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSESListTemplatesResponse : AWSModel
+
+
+/**
+ <p>A token indicating that there are additional email templates available to be listed. Pass this token to a subsequent call to <code>ListTemplates</code> to retrieve the next 50 email templates.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
  <p>An array the contains the name and creation time stamp for each template in your Amazon SES account.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESEmailTemplateMetadata *> * _Nullable templatesMetadata;
+@property (nonatomic, strong) NSArray<AWSSESTemplateMetadata *> * _Nullable templatesMetadata;
 
 @end
 
 /**
- <p>Represents a request to list all of the import jobs for a data destination within the specified maximum number of import jobs.</p>
+ <p>A list of email addresses that you have verified with Amazon SES under your AWS account.</p>
  */
-@interface AWSSESListImportJobsRequest : AWSRequest
+@interface AWSSESListVerifiedEmailAddressesResponse : AWSModel
 
 
 /**
- <p>The destination of the import job, which can be used to list import jobs that have a certain <code>ImportDestinationType</code>.</p>
+ <p>A list of email addresses that have been verified.</p>
  */
-@property (nonatomic, assign) AWSSESImportDestinationType importDestinationType;
-
-/**
- <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>Maximum number of import jobs to return at once. Use this parameter to paginate results. If additional import jobs exist beyond the specified limit, the <code>NextToken</code> element is sent in the response. Use the <code>NextToken</code> value in subsequent requests to retrieve additional addresses.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable verifiedEmailAddresses;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESListImportJobsResponse : AWSModel
-
-
-/**
- <p>A list of the import job summaries.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESImportJobSummary *> * _Nullable importJobs;
-
-/**
- <p>A string token indicating that there might be additional import jobs available to be listed. Copy this token to a subsequent call to <code>ListImportJobs</code> with the same parameters to retrieve the next page of import jobs.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-@end
-
-/**
- <p>A request to obtain a list of email destinations that are on the suppression list for your account.</p>
- */
-@interface AWSSESListSuppressedDestinationsRequest : AWSRequest
-
-
-/**
- <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list before a specific date. The date that you specify should be in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable endDate;
-
-/**
- <p>A token returned from a previous call to <code>ListSuppressedDestinations</code> to indicate the position in the list of suppressed email addresses.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>The number of results to show in a single call to <code>ListSuppressedDestinations</code>. If the number of results is larger than the number you specified in this parameter, then the response includes a <code>NextToken</code> element, which you can use to obtain additional results.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable pageSize;
-
-/**
- <p>The factors that caused the email address to be added to .</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable reasons;
-
-/**
- <p>Used to filter the list of suppressed email destinations so that it only includes addresses that were added to the list after a specific date. The date that you specify should be in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable startDate;
-
-@end
-
-/**
- <p>A list of suppressed email addresses.</p>
- */
-@interface AWSSESListSuppressedDestinationsResponse : AWSModel
-
-
-/**
- <p>A token that indicates that there are additional email addresses on the suppression list for your account. To view additional suppressed addresses, issue another request to <code>ListSuppressedDestinations</code>, and pass this token in the <code>NextToken</code> parameter.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>A list of summaries, each containing a summary for a suppressed email destination.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESSuppressedDestinationSummary *> * _Nullable suppressedDestinationSummaries;
-
-@end
-
-/**
- 
- */
-@interface AWSSESListTagsForResourceRequest : AWSRequest
-
-
-/**
- <p>The Amazon Resource Name (ARN) of the resource that you want to retrieve tag information for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable resourceArn;
-
-@end
-
-/**
- 
- */
-@interface AWSSESListTagsForResourceResponse : AWSModel
-
-
-/**
- <p>An array that lists all the tags that are associated with the resource. Each tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>)</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-@end
-
-/**
- <p>A list of attributes that are associated with a MAIL FROM domain.</p>
- Required parameters: [MailFromDomain, MailFromDomainStatus, BehaviorOnMxFailure]
- */
-@interface AWSSESMailFromAttributes : AWSModel
-
-
-/**
- <p>The action that you want to take if the required MX record can't be found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p><p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
- */
-@property (nonatomic, assign) AWSSESBehaviorOnMxFailure behaviorOnMxFailure;
-
-/**
- <p>The name of a domain that an email identity uses as a custom MAIL FROM domain.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable mailFromDomain;
-
-/**
- <p>The status of the MAIL FROM domain. This status can have the following values:</p><ul><li><p><code>PENDING</code> – Amazon SES hasn't started searching for the MX record yet.</p></li><li><p><code>SUCCESS</code> – Amazon SES detected the required MX record for the MAIL FROM domain.</p></li><li><p><code>FAILED</code> – Amazon SES can't find the required MX record, or the record no longer exists.</p></li><li><p><code>TEMPORARY_FAILURE</code> – A temporary issue occurred, which prevented Amazon SES from determining the status of the MAIL FROM domain.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESMailFromDomainStatus mailFromDomainStatus;
-
-@end
-
-/**
- <p>Represents the email message that you're sending. The <code>Message</code> object consists of a subject line and a message body.</p>
+ <p>Represents the message to be sent, composed of a subject and a body.</p>
  Required parameters: [Subject, Body]
  */
 @interface AWSSESMessage : AWSModel
 
 
 /**
- <p>The body of the message. You can specify an HTML version of the message, a text-only version of the message, or both.</p>
+ <p>The message body.</p>
  */
 @property (nonatomic, strong) AWSSESBody * _Nullable body;
 
 /**
- <p>The subject line of the email. The subject line can only contain 7-bit ASCII characters. However, you can specify non-ASCII characters in the subject line by using encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>.</p>
+ <p>The subject of the message: A short summary of the content, which will appear in the recipient's inbox.</p>
  */
 @property (nonatomic, strong) AWSSESContent * _Nullable subject;
 
 @end
 
 /**
- <p>Contains the name and value of a tag that you apply to an email. You can use message tags when you publish email sending events. </p>
+ <p>Message-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [ReportingMta]
+ */
+@interface AWSSESMessageDsn : AWSModel
+
+
+/**
+ <p>When the message was received by the reporting mail transfer agent (MTA), in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable arrivalDate;
+
+/**
+ <p>Additional X-headers to include in the DSN.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESExtensionField *> * _Nullable extensionFields;
+
+/**
+ <p>The reporting MTA that attempted to deliver the message, formatted as specified in <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a> (<code>mta-name-type; mta-name</code>). The default value is <code>dns; inbound-smtp.[region].amazonaws.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable reportingMta;
+
+@end
+
+/**
+ <p>Contains the name and value of a tag that you can provide to <code>SendEmail</code> or <code>SendRawEmail</code> to apply to an email.</p><p>Message tags, which you use with configuration sets, enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
  Required parameters: [Name, Value]
  */
 @interface AWSSESMessageTag : AWSModel
 
 
 /**
- <p>The name of the message tag. The message tag name has to meet the following criteria:</p><ul><li><p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p></li><li><p>It can contain no more than 256 characters.</p></li></ul>
+ <p>The name of the tag. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain less than 256 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The value of the message tag. The message tag value has to meet the following criteria:</p><ul><li><p>It can only contain ASCII letters (a–z, A–Z), numbers (0–9), underscores (_), or dashes (-).</p></li><li><p>It can contain no more than 256 characters.</p></li></ul>
+ <p>The value of the tag. The value must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Contain less than 256 characters.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
 /**
- <p>An object that contains information about email that was sent from the selected domain.</p>
- */
-@interface AWSSESOverallVolume : AWSModel
-
-
-/**
- <p>An object that contains inbox and junk mail placement metrics for individual email providers.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDomainIspPlacement *> * _Nullable domainIspPlacements;
-
-/**
- <p>The percentage of emails that were sent from the domain that were read by their recipients.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable readRatePercent;
-
-/**
- <p>An object that contains information about the numbers of messages that arrived in recipients' inboxes and junk mail folders.</p>
- */
-@property (nonatomic, strong) AWSSESVolumeStatistics * _Nullable volumeStatistics;
-
-@end
-
-/**
- <p>An object that defines an Amazon Pinpoint project destination for email events. You can send email event data to a Amazon Pinpoint project to view metrics using the Transactional Messaging dashboards that are built in to Amazon Pinpoint. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/analytics-transactional-messages.html">Transactional Messaging Charts</a> in the <i>Amazon Pinpoint User Guide</i>.</p>
- */
-@interface AWSSESPinpointDestination : AWSModel
-
-
-/**
- <p>The Amazon Resource Name (ARN) of the Amazon Pinpoint project that you want to send email events to.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable applicationArn;
-
-@end
-
-/**
- <p>An object that contains inbox placement data for an email provider.</p>
- */
-@interface AWSSESPlacementStatistics : AWSModel
-
-
-/**
- <p>The percentage of emails that were authenticated by using DomainKeys Identified Mail (DKIM) during the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dkimPercentage;
-
-/**
- <p>The percentage of emails that arrived in recipients' inboxes during the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable inboxPercentage;
-
-/**
- <p>The percentage of emails that didn't arrive in recipients' inboxes at all during the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable missingPercentage;
-
-/**
- <p>The percentage of emails that arrived in recipients' spam or junk mail folders during the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spamPercentage;
-
-/**
- <p>The percentage of emails that were authenticated by using Sender Policy Framework (SPF) during the predictive inbox placement test.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spfPercentage;
-
-@end
-
-/**
- <p>A request to enable or disable the automatic IP address warm-up feature.</p>
- */
-@interface AWSSESPutAccountDedicatedIpWarmupAttributesRequest : AWSRequest
-
-
-/**
- <p>Enables or disables the automatic warm-up feature for dedicated IP addresses that are associated with your Amazon SES account in the current AWS Region. Set to <code>true</code> to enable the automatic warm-up feature, or set to <code>false</code> to disable it.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable autoWarmupEnabled;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutAccountDedicatedIpWarmupAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to submit new account details.</p>
- Required parameters: [MailType, WebsiteURL, UseCaseDescription]
- */
-@interface AWSSESPutAccountDetailsRequest : AWSRequest
-
-
-/**
- <p>Additional email addresses that you would like to be notified regarding Amazon SES matters.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalContactEmailAddresses;
-
-/**
- <p>The language you would prefer to be contacted with.</p>
- */
-@property (nonatomic, assign) AWSSESContactLanguage contactLanguage;
-
-/**
- <p>The type of email your account will send.</p>
- */
-@property (nonatomic, assign) AWSSESMailType mailType;
-
-/**
- <p>Indicates whether or not your account should have production access in the current AWS Region.</p><p>If the value is <code>false</code>, then your account is in the <i>sandbox</i>. When your account is in the sandbox, you can only send email to verified identities. Additionally, the maximum number of emails you can send in a 24-hour period (your sending quota) is 200, and the maximum number of emails you can send per second (your maximum sending rate) is 1.</p><p>If the value is <code>true</code>, then your account has production access. When your account has production access, you can send email to any address. The sending quota and maximum sending rate for your account vary based on your specific use case.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable productionAccessEnabled;
-
-/**
- <p>A description of the types of email that you plan to send.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable useCaseDescription;
-
-/**
- <p>The URL of your website. This information helps us better understand the type of content that you plan to send.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable websiteURL;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutAccountDetailsResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to change the ability of your account to send email.</p>
- */
-@interface AWSSESPutAccountSendingAttributesRequest : AWSRequest
-
-
-/**
- <p>Enables or disables your account's ability to send email. Set to <code>true</code> to enable email sending, or set to <code>false</code> to disable email sending.</p><note><p>If AWS paused your account's ability to send email, you can't use this operation to resume your account's ability to send email.</p></note>
- */
-@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutAccountSendingAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to change your account's suppression preferences.</p>
- */
-@interface AWSSESPutAccountSuppressionAttributesRequest : AWSRequest
-
-
-/**
- <p>A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:</p><ul><li><p><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p></li><li><p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable suppressedReasons;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutAccountSuppressionAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to associate a configuration set with a dedicated IP pool.</p>
+ <p>A request to modify the delivery options for a configuration set.</p>
  Required parameters: [ConfigurationSetName]
  */
 @interface AWSSESPutConfigurationSetDeliveryOptionsRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that you want to associate with a dedicated IP pool.</p>
+ <p>The name of the configuration set that you want to specify the delivery options for.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>The name of the dedicated IP pool that you want to associate with the configuration set.</p>
+ <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS).</p>
  */
-@property (nonatomic, strong) NSString * _Nullable sendingPoolName;
-
-/**
- <p>Specifies whether messages that use the configuration set are required to use Transport Layer Security (TLS). If the value is <code>Require</code>, messages are only delivered if a TLS connection can be established. If the value is <code>Optional</code>, messages can be delivered in plain text if a TLS connection can't be established.</p>
- */
-@property (nonatomic, assign) AWSSESTlsPolicy tlsPolicy;
+@property (nonatomic, strong) AWSSESDeliveryOptions * _Nullable deliveryOptions;
 
 @end
 
@@ -3076,490 +2087,471 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>A request to enable or disable tracking of reputation metrics for a configuration set.</p>
- Required parameters: [ConfigurationSetName]
+ <p>Represents a request to add or update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, PolicyName, Policy]
  */
-@interface AWSSESPutConfigurationSetReputationOptionsRequest : AWSRequest
+@interface AWSSESPutIdentityPolicyRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that you want to enable or disable reputation metric tracking for.</p>
+ <p>The identity that the policy will apply to. You can specify an identity by using its name or by using its Amazon Resource Name (ARN). Examples: <code>user@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p><p>To successfully call this API, you must own the identity.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+@property (nonatomic, strong) NSString * _Nullable identity;
 
 /**
- <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
+ <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p><p>For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>. </p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable reputationMetricsEnabled;
+@property (nonatomic, strong) NSString * _Nullable policy;
+
+/**
+ <p>The name of the policy.</p><p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
-@interface AWSSESPutConfigurationSetReputationOptionsResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to enable or disable the ability of Amazon SES to send emails that use a specific configuration set.</p>
- Required parameters: [ConfigurationSetName]
- */
-@interface AWSSESPutConfigurationSetSendingOptionsRequest : AWSRequest
-
-
-/**
- <p>The name of the configuration set that you want to enable or disable email sending for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-/**
- <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutConfigurationSetSendingOptionsResponse : AWSModel
+@interface AWSSESPutIdentityPolicyResponse : AWSModel
 
 
 @end
 
 /**
- <p>A request to change the account suppression list preferences for a specific configuration set.</p>
- Required parameters: [ConfigurationSetName]
- */
-@interface AWSSESPutConfigurationSetSuppressionOptionsRequest : AWSRequest
-
-
-/**
- <p>The name of the configuration set that you want to change the suppression list preferences for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-/**
- <p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account. This list can contain any or all of the following:</p><ul><li><p><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p></li><li><p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable suppressedReasons;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutConfigurationSetSuppressionOptionsResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to add a custom domain for tracking open and click events to a configuration set.</p>
- Required parameters: [ConfigurationSetName]
- */
-@interface AWSSESPutConfigurationSetTrackingOptionsRequest : AWSRequest
-
-
-/**
- <p>The name of the configuration set that you want to add a custom tracking domain to.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable configurationSetName;
-
-/**
- <p>The domain that you want to use to track open and click events.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable customRedirectDomain;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutConfigurationSetTrackingOptionsResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to move a dedicated IP address to a dedicated IP pool.</p>
- Required parameters: [Ip, DestinationPoolName]
- */
-@interface AWSSESPutDedicatedIpInPoolRequest : AWSRequest
-
-
-/**
- <p>The name of the IP pool that you want to add the dedicated IP address to. You have to specify an IP pool that already exists.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable destinationPoolName;
-
-/**
- <p>The IP address that you want to move to the dedicated IP pool. The value you specify has to be a dedicated IP address that's associated with your AWS account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ip;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutDedicatedIpInPoolResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to change the warm-up attributes for a dedicated IP address. This operation is useful when you want to resume the warm-up process for an existing IP address.</p>
- Required parameters: [Ip, WarmupPercentage]
- */
-@interface AWSSESPutDedicatedIpWarmupAttributesRequest : AWSRequest
-
-
-/**
- <p>The dedicated IP address that you want to update the warm-up attributes for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ip;
-
-/**
- <p>The warm-up percentage that you want to associate with the dedicated IP address.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable warmupPercentage;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutDedicatedIpWarmupAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>Enable or disable the Deliverability dashboard. When you enable the Deliverability dashboard, you gain access to reputation, deliverability, and other metrics for the domains that you use to send email using Amazon SES API v2. You also gain the ability to perform predictive inbox placement tests.</p><p>When you use the Deliverability dashboard, you pay a monthly subscription charge, in addition to any other fees that you accrue by using Amazon SES and other AWS services. For more information about the features and cost of a Deliverability dashboard subscription, see <a href="http://aws.amazon.com/pinpoint/pricing/">Amazon Pinpoint Pricing</a>.</p>
- Required parameters: [DashboardEnabled]
- */
-@interface AWSSESPutDeliverabilityDashboardOptionRequest : AWSRequest
-
-
-/**
- <p>Specifies whether to enable the Deliverability dashboard. To enable the dashboard, set this value to <code>true</code>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dashboardEnabled;
-
-/**
- <p>An array of objects, one for each verified domain that you use to send email and enabled the Deliverability dashboard for.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESDomainDeliverabilityTrackingOption *> * _Nullable subscribedDomains;
-
-@end
-
-/**
- <p>A response that indicates whether the Deliverability dashboard is enabled.</p>
- */
-@interface AWSSESPutDeliverabilityDashboardOptionResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to enable or disable DKIM signing of email that you send from an email identity.</p>
- Required parameters: [EmailIdentity]
- */
-@interface AWSSESPutEmailIdentityDkimAttributesRequest : AWSRequest
-
-
-/**
- <p>The email identity that you want to change the DKIM settings for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>Sets the DKIM signing configuration for the identity.</p><p>When you set this value <code>true</code>, then the messages that are sent from the identity are signed using DKIM. If you set this value to <code>false</code>, your messages are sent without DKIM signing.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable signingEnabled;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutEmailIdentityDkimAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to change the DKIM attributes for an email identity.</p>
- Required parameters: [EmailIdentity, SigningAttributesOrigin]
- */
-@interface AWSSESPutEmailIdentityDkimSigningAttributesRequest : AWSRequest
-
-
-/**
- <p>The email identity that you want to configure DKIM for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>An object that contains information about the private key and selector that you want to use to configure DKIM for the identity. This object is only required if you want to configure Bring Your Own DKIM (BYODKIM) for the identity.</p>
- */
-@property (nonatomic, strong) AWSSESDkimSigningAttributes * _Nullable signingAttributes;
-
-/**
- <p>The method that you want to use to configure DKIM for the identity. There are two possible values:</p><ul><li><p><code>AWS_SES</code> – Configure DKIM for the identity by using <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a>.</p></li><li><p><code>EXTERNAL</code> – Configure DKIM for the identity by using Bring Your Own DKIM (BYODKIM).</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESDkimSigningAttributesOrigin signingAttributesOrigin;
-
-@end
-
-/**
- <p>If the action is successful, the service sends back an HTTP 200 response.</p><p>The following data is returned in JSON format by the service.</p>
- */
-@interface AWSSESPutEmailIdentityDkimSigningAttributesResponse : AWSModel
-
-
-/**
- <p>The DKIM authentication status of the identity. Amazon SES determines the authentication status by searching for specific records in the DNS configuration for your domain. If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to set up DKIM authentication, Amazon SES tries to find three unique CNAME records in the DNS configuration for your domain.</p><p>If you provided a public key to perform DKIM authentication, Amazon SES tries to find a TXT record that uses the selector that you specified. The value of the TXT record must be a public key that's paired with the private key that you specified in the process of creating the identity.</p><p>The status can be one of the following:</p><ul><li><p><code>PENDING</code> – The verification process was initiated, but Amazon SES hasn't yet detected the DKIM records in the DNS configuration for the domain.</p></li><li><p><code>SUCCESS</code> – The verification process completed successfully.</p></li><li><p><code>FAILED</code> – The verification process failed. This typically occurs when Amazon SES fails to find the DKIM records in the DNS configuration of the domain.</p></li><li><p><code>TEMPORARY_FAILURE</code> – A temporary issue is preventing Amazon SES from determining the DKIM authentication status of the domain.</p></li><li><p><code>NOT_STARTED</code> – The DKIM verification process hasn't been initiated for the domain.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESDkimStatus dkimStatus;
-
-/**
- <p>If you used <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Easy DKIM</a> to configure DKIM authentication for the domain, then this object contains a set of unique strings that you use to create a set of CNAME records that you add to the DNS configuration for your domain. When Amazon SES detects these records in the DNS configuration for your domain, the DKIM authentication process is complete.</p><p>If you configured DKIM authentication for the domain by providing your own public-private key pair, then this object contains the selector that's associated with your public key.</p><p>Regardless of the DKIM authentication method you use, Amazon SES searches for the appropriate records in the DNS configuration of the domain for up to 72 hours.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable dkimTokens;
-
-@end
-
-/**
- <p>A request to set the attributes that control how bounce and complaint events are processed.</p>
- Required parameters: [EmailIdentity]
- */
-@interface AWSSESPutEmailIdentityFeedbackAttributesRequest : AWSRequest
-
-
-/**
- <p>Sets the feedback forwarding configuration for the identity.</p><p>If the value is <code>true</code>, you receive email notifications when bounce or complaint events occur. These notifications are sent to the address that you specified in the <code>Return-Path</code> header of the original email.</p><p>You're required to have a method of tracking bounces and complaints. If you haven't set up another mechanism for receiving bounce or complaint notifications (for example, by setting up an event destination), you receive an email notification when these events occur (even if this setting is disabled).</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable emailForwardingEnabled;
-
-/**
- <p>The email identity that you want to configure bounce and complaint feedback forwarding for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutEmailIdentityFeedbackAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to configure the custom MAIL FROM domain for a verified identity.</p>
- Required parameters: [EmailIdentity]
- */
-@interface AWSSESPutEmailIdentityMailFromAttributesRequest : AWSRequest
-
-
-/**
- <p>The action that you want to take if the required MX record isn't found when you send an email. When you set this value to <code>UseDefaultValue</code>, the mail is sent using <i>amazonses.com</i> as the MAIL FROM domain. When you set this value to <code>RejectMessage</code>, the Amazon SES API v2 returns a <code>MailFromDomainNotVerified</code> error, and doesn't attempt to deliver the email.</p><p>These behaviors are taken when the custom MAIL FROM domain configuration is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
- */
-@property (nonatomic, assign) AWSSESBehaviorOnMxFailure behaviorOnMxFailure;
-
-/**
- <p>The verified email identity that you want to set up the custom MAIL FROM domain for.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p> The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must meet the following criteria:</p><ul><li><p>It has to be a subdomain of the verified identity.</p></li><li><p>It can't be used to receive email.</p></li><li><p>It can't be used in a "From" address if the MAIL FROM domain is a destination for feedback forwarding emails.</p></li></ul>
- */
-@property (nonatomic, strong) NSString * _Nullable mailFromDomain;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutEmailIdentityMailFromAttributesResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to add an email destination to the suppression list for your account.</p>
- Required parameters: [EmailAddress, Reason]
- */
-@interface AWSSESPutSuppressedDestinationRequest : AWSRequest
-
-
-/**
- <p>The email address that should be added to the suppression list for your account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailAddress;
-
-/**
- <p>The factors that should cause the email address to be added to the suppression list for your account.</p>
- */
-@property (nonatomic, assign) AWSSESSuppressionListReason reason;
-
-@end
-
-/**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
- */
-@interface AWSSESPutSuppressedDestinationResponse : AWSModel
-
-
-@end
-
-/**
- <p>Represents the raw content of an email message.</p>
+ <p>Represents the raw data of the message.</p>
  Required parameters: [Data]
  */
 @interface AWSSESRawMessage : AWSModel
 
 
 /**
- <p>The raw email message. The message has to meet the following criteria:</p><ul><li><p>The message has to contain a header and a body, separated by one blank line.</p></li><li><p>All of the required header fields must be present in the message.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>Attachments must be in a file format that the Amazon SES supports.</p></li><li><p>The entire message must be Base64 encoded.</p></li><li><p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, you should encode that content to ensure that recipients' email clients render the message properly.</p></li><li><p>The length of any single line of text in the message can't exceed 1,000 characters. This restriction is defined in <a href="https://tools.ietf.org/html/rfc5321">RFC 5321</a>.</p></li></ul>
+ <p>The raw data of the message. This data needs to base64-encoded if you are accessing Amazon SES directly through the HTTPS interface. If you are accessing Amazon SES using an AWS SDK, the SDK takes care of the base 64-encoding for you. In all cases, the client must ensure that the message format complies with Internet email standards regarding email header fields, MIME types, and MIME encoding.</p><p>The To:, CC:, and BCC: headers in the raw message can contain a group list.</p><p>If you are using <code>SendRawEmail</code> with sending authorization, you can include X-headers in the raw message to specify the "Source," "From," and "Return-Path" addresses. For more information, see the documentation for <code>SendRawEmail</code>. </p><important><p>Do not include these X-headers in the DKIM signature, because they are removed by Amazon SES before sending the email.</p></important><p>For more information, go to the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable data;
 
 @end
 
 /**
- <p>The <code>ReplaceEmailContent</code> object to be used for a specific <code>BulkEmailEntry</code>. The <code>ReplacementTemplate</code> can be specified within this object.</p>
+ <p>An action that Amazon SES can take when it receives an email on behalf of one or more email addresses or domains that you own. An instance of this data type can represent only one action.</p><p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
  */
-@interface AWSSESReplacementEmailContent : AWSModel
+@interface AWSSESReceiptAction : AWSModel
 
 
 /**
- <p>The <code>ReplacementTemplate</code> associated with <code>ReplacementEmailContent</code>.</p>
+ <p>Adds a header to the received email.</p>
  */
-@property (nonatomic, strong) AWSSESReplacementTemplate * _Nullable replacementTemplate;
+@property (nonatomic, strong) AWSSESAddHeaderAction * _Nullable addHeaderAction;
+
+/**
+ <p>Rejects the received email by returning a bounce response to the sender and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p>
+ */
+@property (nonatomic, strong) AWSSESBounceAction * _Nullable bounceAction;
+
+/**
+ <p>Calls an AWS Lambda function, and optionally, publishes a notification to Amazon SNS.</p>
+ */
+@property (nonatomic, strong) AWSSESLambdaAction * _Nullable lambdaAction;
+
+/**
+ <p>Saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon SNS.</p>
+ */
+@property (nonatomic, strong) AWSSESS3Action * _Nullable s3Action;
+
+/**
+ <p>Publishes the email content within a notification to Amazon SNS.</p>
+ */
+@property (nonatomic, strong) AWSSESSNSAction * _Nullable SNSAction;
+
+/**
+ <p>Terminates the evaluation of the receipt rule set and optionally publishes a notification to Amazon SNS.</p>
+ */
+@property (nonatomic, strong) AWSSESStopAction * _Nullable stopAction;
+
+/**
+ <p>Calls Amazon WorkMail and, optionally, publishes a notification to Amazon Amazon SNS.</p>
+ */
+@property (nonatomic, strong) AWSSESWorkmailAction * _Nullable workmailAction;
 
 @end
 
 /**
- <p>An object which contains <code>ReplacementTemplateData</code> to be used for a specific <code>BulkEmailEntry</code>.</p>
+ <p>A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.</p><p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Name, IpFilter]
  */
-@interface AWSSESReplacementTemplate : AWSModel
+@interface AWSSESReceiptFilter : AWSModel
 
 
 /**
- <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+ <p>A structure that provides the IP addresses to block or allow, and whether to block or allow incoming mail from them.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable replacementTemplateData;
+@property (nonatomic, strong) AWSSESReceiptIpFilter * _Nullable ipFilter;
+
+/**
+ <p>The name of the IP address filter. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
 
 @end
 
 /**
- <p>Enable or disable collection of reputation metrics for emails that you send using this configuration set in the current AWS Region. </p>
+ <p>A receipt IP address filter enables you to specify whether to accept or reject mail originating from an IP address or range of IP addresses.</p><p>For information about setting up IP address filters, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-ip-filters.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Policy, Cidr]
+ */
+@interface AWSSESReceiptIpFilter : AWSModel
+
+
+/**
+ <p>A single IP address or a range of IP addresses that you want to block or allow, specified in Classless Inter-Domain Routing (CIDR) notation. An example of a single email address is 10.0.0.1. An example of a range of IP addresses is 10.0.0.1/24. For more information about CIDR notation, see <a href="https://tools.ietf.org/html/rfc2317">RFC 2317</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>Indicates whether to block or allow incoming mail from the specified IP addresses.</p>
+ */
+@property (nonatomic, assign) AWSSESReceiptFilterPolicy policy;
+
+@end
+
+/**
+ <p>Receipt rules enable you to specify which actions Amazon SES should take when it receives mail on behalf of one or more email addresses or domains that you own.</p><p>Each receipt rule defines a set of email addresses or domains that it applies to. If the email addresses or domains match at least one recipient address of the message, Amazon SES executes all of the receipt rule's actions on the message.</p><p>For information about setting up receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rules.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Name]
+ */
+@interface AWSSESReceiptRule : AWSModel
+
+
+/**
+ <p>An ordered list of actions to perform on messages that match at least one of the recipient email addresses or domains specified in the receipt rule.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESReceiptAction *> * _Nullable actions;
+
+/**
+ <p>If <code>true</code>, the receipt rule is active. The default value is <code>false</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The name of the receipt rule. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The recipient domains and email addresses that the receipt rule applies to. If this field is not specified, this rule will match all recipients under all verified domains.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable recipients;
+
+/**
+ <p>If <code>true</code>, then messages that this receipt rule applies to are scanned for spam and viruses. The default value is <code>false</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable scanEnabled;
+
+/**
+ <p>Specifies whether Amazon SES should require that incoming email is delivered over a connection encrypted with Transport Layer Security (TLS). If this parameter is set to <code>Require</code>, Amazon SES will bounce emails that are not received over TLS. The default is <code>Optional</code>.</p>
+ */
+@property (nonatomic, assign) AWSSESTlsPolicy tlsPolicy;
+
+@end
+
+/**
+ <p>Information about a receipt rule set.</p><p>A receipt rule set is a collection of rules that specify what Amazon SES should do with mail it receives on behalf of your account's verified domains.</p><p>For information about setting up receipt rule sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-receipt-rule-set.html">Amazon SES Developer Guide</a>.</p>
+ */
+@interface AWSSESReceiptRuleSetMetadata : AWSModel
+
+
+/**
+ <p>The date and time the receipt rule set was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+
+/**
+ <p>The name of the receipt rule set. The name must:</p><ul><li><p>This value can only contain ASCII letters (a-z, A-Z), numbers (0-9), underscores (_), or dashes (-).</p></li><li><p>Start and end with a letter or number.</p></li><li><p>Contain less than 64 characters.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>Recipient-related information to include in the Delivery Status Notification (DSN) when an email that Amazon SES receives on your behalf bounces.</p><p>For information about receiving email through Amazon SES, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Action, Status]
+ */
+@interface AWSSESRecipientDsnFields : AWSModel
+
+
+/**
+ <p>The action performed by the reporting mail transfer agent (MTA) as a result of its attempt to deliver the message to the recipient address. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
+ */
+@property (nonatomic, assign) AWSSESDsnAction action;
+
+/**
+ <p>An extended explanation of what went wrong; this is usually an SMTP response. See <a href="https://tools.ietf.org/html/rfc3463">RFC 3463</a> for the correct formatting of this parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable diagnosticCode;
+
+/**
+ <p>Additional X-headers to include in the DSN.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESExtensionField *> * _Nullable extensionFields;
+
+/**
+ <p>The email address that the message was ultimately delivered to. This corresponds to the <code>Final-Recipient</code> in the DSN. If not specified, <code>FinalRecipient</code> will be set to the <code>Recipient</code> specified in the <code>BouncedRecipientInfo</code> structure. Either <code>FinalRecipient</code> or the recipient in <code>BouncedRecipientInfo</code> must be a recipient of the original bounced message.</p><note><p>Do not prepend the <code>FinalRecipient</code> email address with <code>rfc 822;</code>, as described in <a href="https://tools.ietf.org/html/rfc3798">RFC 3798</a>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable finalRecipient;
+
+/**
+ <p>The time the final delivery attempt was made, in <a href="https://www.ietf.org/rfc/rfc0822.txt">RFC 822</a> date-time format.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastAttemptDate;
+
+/**
+ <p>The MTA to which the remote MTA attempted to deliver the message, formatted as specified in <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a> (<code>mta-name-type; mta-name</code>). This parameter typically applies only to propagating synchronous bounces.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable remoteMta;
+
+/**
+ <p>The status code that indicates what went wrong. This is required by <a href="https://tools.ietf.org/html/rfc3464">RFC 3464</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable status;
+
+@end
+
+/**
+ <p>Represents a request to reorder the receipt rules within a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleNames]
+ */
+@interface AWSSESReorderReceiptRuleSetRequest : AWSRequest
+
+
+/**
+ <p>A list of the specified receipt rule set's receipt rules in the order that you want to put them.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable ruleNames;
+
+/**
+ <p>The name of the receipt rule set to reorder.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESReorderReceiptRuleSetResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Contains information about the reputation settings for a configuration set.</p>
  */
 @interface AWSSESReputationOptions : AWSModel
 
 
 /**
- <p>The date and time (in Unix time) when the reputation metrics were last given a fresh start. When your account is given a fresh start, your reputation metrics are calculated starting from the date of the fresh start.</p>
+ <p>The date and time at which the reputation metrics for the configuration set were last reset. Resetting these metrics is known as a <i>fresh start</i>.</p><p>When you disable email sending for a configuration set using <a>UpdateConfigurationSetSendingEnabled</a> and later re-enable it, the reputation metrics for the configuration set (but not for the entire Amazon SES account) are reset.</p><p>If email sending for the configuration set has never been disabled and later re-enabled, the value of this attribute is <code>null</code>.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastFreshStart;
 
 /**
- <p>If <code>true</code>, tracking of reputation metrics is enabled for the configuration set. If <code>false</code>, tracking of reputation metrics is disabled for the configuration set.</p>
+ <p>Describes whether or not Amazon SES publishes reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p><p>If the value is <code>true</code>, reputation metrics are published. If the value is <code>false</code>, reputation metrics are not published. The default value is <code>false</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable reputationMetricsEnabled;
 
-@end
-
 /**
- <p>An object that contains information about your account details review.</p>
+ <p>Describes whether email sending is enabled or disabled for the configuration set. If the value is <code>true</code>, then Amazon SES will send emails that use the configuration set. If the value is <code>false</code>, Amazon SES will not send emails that use the configuration set. The default value is <code>true</code>. You can change this setting using <a>UpdateConfigurationSetSendingEnabled</a>.</p>
  */
-@interface AWSSESReviewDetails : AWSModel
-
-
-/**
- <p>The associated support center case ID (if any).</p>
- */
-@property (nonatomic, strong) NSString * _Nullable caseId;
-
-/**
- <p>The status of the latest review of your account. The status can be one of the following:</p><ul><li><p><code>PENDING</code> – We have received your appeal and are in the process of reviewing it.</p></li><li><p><code>GRANTED</code> – Your appeal has been reviewed and your production access has been granted.</p></li><li><p><code>DENIED</code> – Your appeal has been reviewed and your production access has been denied.</p></li><li><p><code>FAILED</code> – An internal error occurred and we didn't receive your appeal. You can submit your appeal again.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESReviewStatus status;
+@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
 
 @end
 
 /**
- <p>Represents a request to send email messages to multiple destinations using Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [DefaultContent, BulkEmailEntries]
+ <p>When included in a receipt rule, this action saves the received message to an Amazon Simple Storage Service (Amazon S3) bucket and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>To enable Amazon SES to write emails to your Amazon S3 bucket, use an AWS KMS key to encrypt your emails, or publish to an Amazon SNS topic of another account, Amazon SES must have permission to access those resources. For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><note><p>When you save your emails to an Amazon S3 bucket, the maximum email size (including headers) is 30 MB. Emails larger than that will bounce.</p></note><p>For information about specifying Amazon S3 actions in receipt rules, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-s3.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [BucketName]
  */
-@interface AWSSESSendBulkEmailRequest : AWSRequest
+@interface AWSSESS3Action : AWSModel
 
 
 /**
- <p>The list of bulk email entry objects.</p>
+ <p>The name of the Amazon S3 bucket that incoming email will be saved to.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESBulkEmailEntry *> * _Nullable bulkEmailEntries;
+@property (nonatomic, strong) NSString * _Nullable bucketName;
 
 /**
- <p>The name of the configuration set that you want to use when sending the email.</p>
+ <p>The customer master key that Amazon SES should use to encrypt your emails before saving them to the Amazon S3 bucket. You can use the default master key or a custom master key you created in AWS KMS as follows:</p><ul><li><p>To use the default master key, provide an ARN in the form of <code>arn:aws:kms:REGION:ACCOUNT-ID-WITHOUT-HYPHENS:alias/aws/ses</code>. For example, if your AWS account ID is 123456789012 and you want to use the default master key in the US West (Oregon) region, the ARN of the default master key would be <code>arn:aws:kms:us-west-2:123456789012:alias/aws/ses</code>. If you use the default master key, you don't need to perform any extra steps to give Amazon SES permission to use the key.</p></li><li><p>To use a custom master key you created in AWS KMS, provide the ARN of the master key and ensure that you add a statement to your key's policy to give Amazon SES permission to use it. For more information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p></li></ul><p>For more information about key policies, see the <a href="https://docs.aws.amazon.com/kms/latest/developerguide/concepts.html">AWS KMS Developer Guide</a>. If you do not specify a master key, Amazon SES will not encrypt your emails.</p><important><p>Your mail is encrypted by Amazon SES using the Amazon S3 encryption client before the mail is submitted to Amazon S3 for storage. It is not encrypted using Amazon S3 server-side encryption. This means that you must use the Amazon S3 encryption client to decrypt the email after retrieving it from Amazon S3, as the service has no access to use your AWS KMS keys for decryption. This encryption client is currently available with the <a href="http://aws.amazon.com/sdk-for-java/">AWS SDK for Java</a> and <a href="http://aws.amazon.com/sdk-for-ruby/">AWS SDK for Ruby</a> only. For more information about client-side encryption using AWS KMS master keys, see the <a href="https://docs.aws.amazon.com/AmazonS3/latest/dev/UsingClientSideEncryption.html">Amazon S3 Developer Guide</a>.</p></important>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyArn;
+
+/**
+ <p>The key prefix of the Amazon S3 bucket. The key prefix is similar to a directory name that enables you to store similar data under the same directory in a bucket.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable objectKeyPrefix;
+
+/**
+ <p>The ARN of the Amazon SNS topic to notify when the message is saved to the Amazon S3 bucket. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicArn;
+
+@end
+
+/**
+ <p>When included in a receipt rule, this action publishes a notification to Amazon Simple Notification Service (Amazon SNS). This action includes a complete copy of the email content in the Amazon SNS notifications. Amazon SNS notifications for all other actions simply provide information about the email. They do not include the email content itself.</p><p>If you own the Amazon SNS topic, you don't need to do anything to give Amazon SES permission to publish emails to it. However, if you don't own the Amazon SNS topic, you need to attach a policy to the topic to give Amazon SES permissions to access it. For information about giving permissions, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-permissions.html">Amazon SES Developer Guide</a>.</p><important><p>You can only publish emails that are 150 KB or less (including the header) to Amazon SNS. Larger emails will bounce. If you anticipate emails larger than 150 KB, use the S3 action instead.</p></important><p>For information about using a receipt rule to publish an Amazon SNS notification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-sns.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [TopicArn]
+ */
+@interface AWSSESSNSAction : AWSModel
+
+
+/**
+ <p>The encoding to use for the email within the Amazon SNS notification. UTF-8 is easier to use, but may not preserve all special characters when a message was encoded with a different encoding format. Base64 preserves all special characters. The default value is UTF-8.</p>
+ */
+@property (nonatomic, assign) AWSSESSNSActionEncoding encoding;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicArn;
+
+@end
+
+/**
+ <p>Contains the topic ARN associated with an Amazon Simple Notification Service (Amazon SNS) event destination.</p><p>Event destinations, such as Amazon SNS, are associated with configuration sets, which enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [TopicARN]
+ */
+@interface AWSSESSNSDestination : AWSModel
+
+
+/**
+ <p>The ARN of the Amazon SNS topic that email sending events will be published to. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topicARN;
+
+@end
+
+/**
+ <p>Represents a request to send a bounce message to the sender of an email you received through Amazon SES.</p>
+ Required parameters: [OriginalMessageId, BounceSender, BouncedRecipientInfoList]
+ */
+@interface AWSSESSendBounceRequest : AWSRequest
+
+
+/**
+ <p>The address to use in the "From" header of the bounce message. This must be an identity that you have verified with Amazon SES.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bounceSender;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the address in the "From" header of the bounce. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable bounceSenderArn;
+
+/**
+ <p>A list of recipients of the bounced message, including the information required to create the Delivery Status Notifications (DSNs) for the recipients. You must specify at least one <code>BouncedRecipientInfo</code> in the list.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESBouncedRecipientInfo *> * _Nullable bouncedRecipientInfoList;
+
+/**
+ <p>Human-readable text for the bounce message to explain the failure. If not specified, the text will be auto-generated based on the bounced recipient information.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable explanation;
+
+/**
+ <p>Message-related DSN fields. If not specified, Amazon SES will choose the values.</p>
+ */
+@property (nonatomic, strong) AWSSESMessageDsn * _Nullable messageDsn;
+
+/**
+ <p>The message ID of the message to be bounced.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable originalMessageId;
+
+@end
+
+/**
+ <p>Represents a unique message ID.</p>
+ */
+@interface AWSSESSendBounceResponse : AWSModel
+
+
+/**
+ <p>The message ID of the bounce message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable messageId;
+
+@end
+
+/**
+ <p>Represents a request to send a templated email to multiple destinations using Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Source, Template, Destinations]
+ */
+@interface AWSSESSendBulkTemplatedEmailRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set to use when you send an email using <code>SendBulkTemplatedEmail</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>An object that contains the body of the message. You can specify a template message.</p>
+ <p>A list of tags, in the form of name/value pairs, to apply to an email that you send to a destination using <code>SendBulkTemplatedEmail</code>.</p>
  */
-@property (nonatomic, strong) AWSSESBulkEmailContent * _Nullable defaultContent;
+@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable defaultTags;
 
 /**
- <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
+ <p>A list of replacement values to apply to the template when replacement data is not specified in a Destination object. These values act as a default or fallback option when no other data is available.</p><p>The template data is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable defaultEmailTags;
+@property (nonatomic, strong) NSString * _Nullable defaultTemplateData;
 
 /**
- <p>The address that you want bounce and complaint notifications to be sent to.</p>
+ <p>One or more <code>Destination</code> objects. All of the recipients in a <code>Destination</code> will receive the same version of the email. You can specify up to 50 <code>Destination</code> objects within a <code>Destinations</code> array.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable feedbackForwardingEmailAddress;
+@property (nonatomic, strong) NSArray<AWSSESBulkEmailDestination *> * _Nullable destinations;
 
 /**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p><p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable feedbackForwardingEmailAddressIdentityArn;
-
-/**
- <p>The email address that you want to use as the "From" address for the email. The address that you specify has to be verified.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddress;
-
-/**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p><p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddressIdentityArn;
-
-/**
- <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
+ <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable replyToAddresses;
+
+/**
+ <p>The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPath;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPathArn;
+
+/**
+ <p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p><p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceArn;
+
+/**
+ <p>The template to use when sending this email.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable template;
+
+/**
+ <p>The ARN of the template to use when sending this email.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateArn;
 
 @end
 
 /**
- <p>The following data is returned in JSON format by the service.</p>
- Required parameters: [BulkEmailEntryResults]
+ 
  */
-@interface AWSSESSendBulkEmailResponse : AWSModel
+@interface AWSSESSendBulkTemplatedEmailResponse : AWSModel
 
 
 /**
- <p>A list of <code>BulkMailEntry</code> objects.</p>
+ <p>The unique message identifier returned from the <code>SendBulkTemplatedEmail</code> action.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESBulkEmailEntryResult *> * _Nullable bulkEmailEntryResults;
+@property (nonatomic, strong) NSArray<AWSSESBulkEmailDestinationStatus *> * _Nullable status;
 
 @end
 
@@ -3588,7 +2580,7 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>The following element is returned by the service.</p>
+ <p>The response received when attempting to send the custom verification email.</p>
  */
 @interface AWSSESSendCustomVerificationEmailResponse : AWSModel
 
@@ -3601,306 +2593,519 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
+ <p>Represents sending statistics data. Each <code>SendDataPoint</code> contains statistics for a 15-minute period of sending activity. </p>
+ */
+@interface AWSSESSendDataPoint : AWSModel
+
+
+/**
+ <p>Number of emails that have bounced.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable bounces;
+
+/**
+ <p>Number of unwanted emails that were rejected by recipients.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable complaints;
+
+/**
+ <p>Number of emails that have been sent.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable deliveryAttempts;
+
+/**
+ <p>Number of emails rejected by Amazon SES.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable rejects;
+
+/**
+ <p>Time of the data point.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable timestamp;
+
+@end
+
+/**
  <p>Represents a request to send a single formatted email using Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-formatted.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [Content]
+ Required parameters: [Source, Destination, Message]
  */
 @interface AWSSESSendEmailRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that you want to use when sending the email.</p>
+ <p>The name of the configuration set to use when you send an email using <code>SendEmail</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>An object that contains the body of the message. You can send either a Simple message Raw message or a template Message.</p>
- */
-@property (nonatomic, strong) AWSSESEmailContent * _Nullable content;
-
-/**
- <p>An object that contains the recipients of the email message.</p>
+ <p>The destination for this email, composed of To:, CC:, and BCC: fields.</p>
  */
 @property (nonatomic, strong) AWSSESDestination * _Nullable destination;
 
 /**
- <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using the <code>SendEmail</code> operation. Tags correspond to characteristics of the email that you define, so that you can publish email sending events. </p>
+ <p>The message to be sent.</p>
  */
-@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable emailTags;
+@property (nonatomic, strong) AWSSESMessage * _Nullable message;
 
 /**
- <p>The address that you want bounce and complaint notifications to be sent to.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable feedbackForwardingEmailAddress;
-
-/**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FeedbackForwardingEmailAddress</code> parameter.</p><p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use feedback@example.com, then you would specify the <code>FeedbackForwardingEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FeedbackForwardingEmailAddress</code> to be feedback@example.com.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable feedbackForwardingEmailAddressIdentityArn;
-
-/**
- <p>The email address that you want to use as the "From" address for the email. The address that you specify has to be verified. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddress;
-
-/**
- <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>FromEmailAddress</code> parameter.</p><p>For example, if the owner of example.com (which has ARN arn:aws:ses:us-east-1:123456789012:identity/example.com) attaches a policy to it that authorizes you to use sender@example.com, then you would specify the <code>FromEmailAddressIdentityArn</code> to be arn:aws:ses:us-east-1:123456789012:identity/example.com, and the <code>FromEmailAddress</code> to be sender@example.com.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><p>For Raw emails, the <code>FromEmailAddressIdentityArn</code> value overrides the X-SES-SOURCE-ARN and X-SES-FROM-ARN headers specified in raw email message content.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable fromEmailAddressIdentityArn;
-
-/**
- <p>The "Reply-to" email addresses for the message. When the recipient replies to the message, each Reply-to address receives the reply.</p>
+ <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable replyToAddresses;
+
+/**
+ <p>The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPath;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPathArn;
+
+/**
+ <p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p><p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceArn;
+
+/**
+ <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable tags;
 
 @end
 
 /**
- <p>A unique message ID that you receive when an email is accepted for sending.</p>
+ <p>Represents a unique message ID.</p>
+ Required parameters: [MessageId]
  */
 @interface AWSSESSendEmailResponse : AWSModel
 
 
 /**
- <p>A unique identifier for the message that is generated when the message is accepted.</p><note><p>It's possible for Amazon SES to accept a message without sending it. This can happen when the message that you're trying to send has an attachment contains a virus, or when you send a templated email that contains invalid personalization content, for example.</p></note>
+ <p>The unique message identifier returned from the <code>SendEmail</code> action. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable messageId;
 
 @end
 
 /**
- <p>An object that contains information about the per-day and per-second sending limits for your Amazon SES account in the current AWS Region.</p>
+ <p>Represents a request to send a single raw email using Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RawMessage]
  */
-@interface AWSSESSendQuota : AWSModel
+@interface AWSSESSendRawEmailRequest : AWSRequest
 
 
 /**
- <p>The maximum number of emails that you can send in the current AWS Region over a 24-hour period. This value is also called your <i>sending quota</i>.</p>
+ <p>The name of the configuration set to use when you send an email using <code>SendRawEmail</code>.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable max24HourSend;
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>The maximum number of emails that you can send per second in the current AWS Region. This value is also called your <i>maximum sending rate</i> or your <i>maximum TPS (transactions per second) rate</i>.</p>
+ <p>A list of destinations for the message, consisting of To:, CC:, and BCC: addresses.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable maxSendRate;
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable destinations;
 
 /**
- <p>The number of emails sent from your Amazon SES account in the current AWS Region over the past 24 hours.</p>
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to specify a particular "From" address in the header of the raw email.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-FROM-ARN</code> in the raw message of the email. If you use both the <code>FromArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>FromArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
  */
-@property (nonatomic, strong) NSNumber * _Nullable sentLast24Hours;
+@property (nonatomic, strong) NSString * _Nullable fromArn;
+
+/**
+ <p>The raw email message itself. The message has to meet the following criteria:</p><ul><li><p>The message has to contain a header and a body, separated by a blank line.</p></li><li><p>All of the required header fields must be present in the message.</p></li><li><p>Each part of a multipart MIME message must be formatted properly.</p></li><li><p>Attachments must be of a content type that Amazon SES supports. For a list on unsupported content types, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mime-types.html">Unsupported Attachment Types</a> in the <i>Amazon SES Developer Guide</i>.</p></li><li><p>The entire message must be base64-encoded.</p></li><li><p>If any of the MIME parts in your message contain content that is outside of the 7-bit ASCII character range, we highly recommend that you encode that content. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-raw.html">Sending Raw Email</a> in the <i>Amazon SES Developer Guide</i>.</p></li><li><p>Per <a href="https://tools.ietf.org/html/rfc5321#section-4.5.3.1.6">RFC 5321</a>, the maximum length of each line of text, including the &lt;CRLF&gt;, must not exceed 1,000 characters.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSSESRawMessage * _Nullable rawMessage;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-RETURN-PATH-ARN</code> in the raw message of the email. If you use both the <code>ReturnPathArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>ReturnPathArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPathArn;
+
+/**
+ <p>The identity's email address. If you do not provide a value for this parameter, you must specify a "From" address in the raw text of the message. (You can also specify both.)</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in<a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in <a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p></note><p>If you specify the <code>Source</code> parameter and have feedback forwarding enabled, then bounces and complaints will be sent to this email address. This takes precedence over any Return-Path header that you might include in the raw text of the message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>Instead of using this parameter, you can use the X-header <code>X-SES-SOURCE-ARN</code> in the raw message of the email. If you use both the <code>SourceArn</code> parameter and the corresponding X-header, Amazon SES uses the value of the <code>SourceArn</code> parameter.</p><note><p>For information about when to use this parameter, see the description of <code>SendRawEmail</code> in this guide, or see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-delegate-sender-tasks-email.html">Amazon SES Developer Guide</a>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceArn;
+
+/**
+ <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendRawEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable tags;
 
 @end
 
 /**
- <p>Used to enable or disable email sending for messages that use this configuration set in the current AWS Region.</p>
+ <p>Represents a unique message ID.</p>
+ Required parameters: [MessageId]
  */
-@interface AWSSESSendingOptions : AWSModel
+@interface AWSSESSendRawEmailResponse : AWSModel
 
 
 /**
- <p>If <code>true</code>, email sending is enabled for the configuration set. If <code>false</code>, email sending is disabled for the configuration set.</p>
+ <p>The unique message identifier returned from the <code>SendRawEmail</code> action. </p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable sendingEnabled;
+@property (nonatomic, strong) NSString * _Nullable messageId;
 
 @end
 
 /**
- <p>An object that defines an Amazon SNS destination for email events. You can use Amazon SNS to send notification when certain email events occur.</p>
- Required parameters: [TopicArn]
+ <p>Represents a request to send a templated email using Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Source, Destination, Template, TemplateData]
  */
-@interface AWSSESSnsDestination : AWSModel
+@interface AWSSESSendTemplatedEmailRequest : AWSRequest
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon SNS topic that you want to publish email events to. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
+ <p>The name of the configuration set to use when you send an email using <code>SendTemplatedEmail</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+/**
+ <p>The destination for this email, composed of To:, CC:, and BCC: fields. A Destination can include up to 50 recipients across these three fields.</p>
+ */
+@property (nonatomic, strong) AWSSESDestination * _Nullable destination;
+
+/**
+ <p>The reply-to email address(es) for the message. If the recipient replies to the message, each reply-to address will receive the reply.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable replyToAddresses;
+
+/**
+ <p>The email address that bounces and complaints will be forwarded to when feedback forwarding is enabled. If the message cannot be delivered to the recipient, then an error message will be returned from the recipient's ISP; this message will then be forwarded to the email address specified by the <code>ReturnPath</code> parameter. The <code>ReturnPath</code> parameter is never overwritten. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPath;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to use the email address specified in the <code>ReturnPath</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to use <code>feedback@example.com</code>, then you would specify the <code>ReturnPathArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>ReturnPath</code> to be <code>feedback@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable returnPathArn;
+
+/**
+ <p>The email address that is sending the email. This email address must be either individually verified with Amazon SES, or from a domain that has been verified with Amazon SES. For information about verifying identities, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-addresses-and-domains.html">Amazon SES Developer Guide</a>.</p><p>If you are sending on behalf of another user and have been permitted to do so by a sending authorization policy, then you must also specify the <code>SourceArn</code> parameter. For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p><note><p>Amazon SES does not support the SMTPUTF8 extension, as described in <a href="https://tools.ietf.org/html/rfc6531">RFC6531</a>. For this reason, the <i>local part</i> of a source email address (the part of the email address that precedes the @ sign) may only contain <a href="https://en.wikipedia.org/wiki/Email_address#Local-part">7-bit ASCII characters</a>. If the <i>domain part</i> of an address (the part after the @ sign) contains non-ASCII characters, they must be encoded using Punycode, as described in <a href="https://tools.ietf.org/html/rfc3492.html">RFC3492</a>. The sender name (also known as the <i>friendly name</i>) may contain non-ASCII characters. These characters must be encoded using MIME encoded-word syntax, as described in<a href="https://tools.ietf.org/html/rfc2047">RFC 2047</a>. MIME encoded-word syntax uses the following form: <code>=?charset?encoding?encoded-text?=</code>.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>This parameter is used only for sending authorization. It is the ARN of the identity that is associated with the sending authorization policy that permits you to send for the email address specified in the <code>Source</code> parameter.</p><p>For example, if the owner of <code>example.com</code> (which has ARN <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>) attaches a policy to it that authorizes you to send from <code>user@example.com</code>, then you would specify the <code>SourceArn</code> to be <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>, and the <code>Source</code> to be <code>user@example.com</code>.</p><p>For more information about sending authorization, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceArn;
+
+/**
+ <p>A list of tags, in the form of name/value pairs, to apply to an email that you send using <code>SendTemplatedEmail</code>. Tags correspond to characteristics of the email that you define, so that you can publish email sending events.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSESMessageTag *> * _Nullable tags;
+
+/**
+ <p>The template to use when sending this email.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable template;
+
+/**
+ <p>The ARN of the template to use when sending this email.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateArn;
+
+/**
+ <p>A list of replacement values to apply to the template. This parameter is a JSON object, typically consisting of key-value pairs in which the keys correspond to replacement tags in the email template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateData;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSESSendTemplatedEmailResponse : AWSModel
+
+
+/**
+ <p>The unique message identifier returned from the <code>SendTemplatedEmail</code> action. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable messageId;
+
+@end
+
+/**
+ <p>Represents a request to set a receipt rule set as the active receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ */
+@interface AWSSESSetActiveReceiptRuleSetRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule set to make active. Setting this value to null disables all email receiving.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetActiveReceiptRuleSetResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to enable or disable Amazon SES Easy DKIM signing for an identity. For more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, DkimEnabled]
+ */
+@interface AWSSESSetIdentityDkimEnabledRequest : AWSRequest
+
+
+/**
+ <p>Sets whether DKIM signing is enabled for an identity. Set to <code>true</code> to enable DKIM signing for this identity; <code>false</code> to disable it. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dkimEnabled;
+
+/**
+ <p>The identity for which DKIM signing should be enabled or disabled.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityDkimEnabledResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to enable or disable whether Amazon SES forwards you bounce and complaint notifications through email. For information about email feedback forwarding, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-email.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, ForwardingEnabled]
+ */
+@interface AWSSESSetIdentityFeedbackForwardingEnabledRequest : AWSRequest
+
+
+/**
+ <p>Sets whether Amazon SES will forward bounce and complaint notifications as email. <code>true</code> specifies that Amazon SES will forward bounce and complaint notifications as email, in addition to any Amazon SNS topic publishing otherwise specified. <code>false</code> specifies that Amazon SES will publish bounce and complaint notifications only through Amazon SNS. This value can only be set to <code>false</code> when Amazon SNS topics are set for both <code>Bounce</code> and <code>Complaint</code> notification types.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forwardingEnabled;
+
+/**
+ <p>The identity for which to set bounce and complaint notification forwarding. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityFeedbackForwardingEnabledResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to set whether Amazon SES includes the original email headers in the Amazon SNS notifications of a specified type. For information about notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, NotificationType, Enabled]
+ */
+@interface AWSSESSetIdentityHeadersInNotificationsEnabledRequest : AWSRequest
+
+
+/**
+ <p>Sets whether Amazon SES includes the original email headers in Amazon SNS notifications of the specified notification type. A value of <code>true</code> specifies that Amazon SES will include headers in notifications, and a value of <code>false</code> specifies that Amazon SES will not include headers in notifications.</p><p>This value can only be set when <code>NotificationType</code> is already set to use a particular Amazon SNS topic.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The identity for which to enable or disable headers in notifications. Examples: <code>user@example.com</code>, <code>example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ <p>The notification type for which to enable or disable headers in notifications. </p>
+ */
+@property (nonatomic, assign) AWSSESNotificationType notificationType;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityHeadersInNotificationsEnabledResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to enable or disable the Amazon SES custom MAIL FROM domain setup for a verified identity. For information about using a custom MAIL FROM domain, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity]
+ */
+@interface AWSSESSetIdentityMailFromDomainRequest : AWSRequest
+
+
+/**
+ <p>The action that you want Amazon SES to take if it cannot successfully read the required MX record when you send an email. If you choose <code>UseDefaultValue</code>, Amazon SES will use amazonses.com (or a subdomain of that) as the MAIL FROM domain. If you choose <code>RejectMessage</code>, Amazon SES will return a <code>MailFromDomainNotVerified</code> error and not send the email.</p><p>The action specified in <code>BehaviorOnMXFailure</code> is taken when the custom MAIL FROM domain setup is in the <code>Pending</code>, <code>Failed</code>, and <code>TemporaryFailure</code> states.</p>
+ */
+@property (nonatomic, assign) AWSSESBehaviorOnMXFailure behaviorOnMXFailure;
+
+/**
+ <p>The verified identity for which you want to enable or disable the specified custom MAIL FROM domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ <p>The custom MAIL FROM domain that you want the verified identity to use. The MAIL FROM domain must 1) be a subdomain of the verified identity, 2) not be used in a "From" address if the MAIL FROM domain is the destination of email feedback forwarding (for more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/mail-from.html">Amazon SES Developer Guide</a>), and 3) not be used to receive emails. A value of <code>null</code> disables the custom MAIL FROM setting for the identity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable mailFromDomain;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityMailFromDomainResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to specify the Amazon SNS topic to which Amazon SES will publish bounce, complaint, or delivery notifications for emails sent with that identity as the Source. For information about Amazon SES notifications, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/notifications-via-sns.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Identity, NotificationType]
+ */
+@interface AWSSESSetIdentityNotificationTopicRequest : AWSRequest
+
+
+/**
+ <p>The identity (email address or domain) that you want to set the Amazon SNS topic for.</p><important><p>You can only specify a verified identity for this parameter.</p></important><p>You can specify an identity by using its name or by using its Amazon Resource Name (ARN). The following examples are all valid identities: <code>sender@example.com</code>, <code>example.com</code>, <code>arn:aws:ses:us-east-1:123456789012:identity/example.com</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identity;
+
+/**
+ <p>The type of notifications that will be published to the specified Amazon SNS topic.</p>
+ */
+@property (nonatomic, assign) AWSSESNotificationType notificationType;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic. If the parameter is omitted from the request or a null value is passed, <code>SnsTopic</code> is cleared and publishing is disabled.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable snsTopic;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetIdentityNotificationTopicResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Represents a request to set the position of a receipt rule in a receipt rule set. You use receipt rule sets to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, RuleName]
+ */
+@interface AWSSESSetReceiptRulePositionRequest : AWSRequest
+
+
+/**
+ <p>The name of the receipt rule after which to place the specified receipt rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable after;
+
+/**
+ <p>The name of the receipt rule to reposition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleName;
+
+/**
+ <p>The name of the receipt rule set that contains the receipt rule to reposition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESSetReceiptRulePositionResponse : AWSModel
+
+
+@end
+
+/**
+ <p>When included in a receipt rule, this action terminates the evaluation of the receipt rule set and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS).</p><p>For information about setting a stop action in a receipt rule, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-stop.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Scope]
+ */
+@interface AWSSESStopAction : AWSModel
+
+
+/**
+ <p>The scope of the StopAction. The only acceptable value is <code>RuleSet</code>.</p>
+ */
+@property (nonatomic, assign) AWSSESStopScope scope;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the stop action is taken. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable topicArn;
 
 @end
 
 /**
- <p>An object that contains information about an email address that is on the suppression list for your account.</p>
- Required parameters: [EmailAddress, Reason, LastUpdateTime]
- */
-@interface AWSSESSuppressedDestination : AWSModel
-
-
-/**
- <p>An optional value that can contain additional information about the reasons that the address was added to the suppression list for your account.</p>
- */
-@property (nonatomic, strong) AWSSESSuppressedDestinationAttributes * _Nullable attributes;
-
-/**
- <p>The email address that is on the suppression list for your account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailAddress;
-
-/**
- <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable lastUpdateTime;
-
-/**
- <p>The reason that the address was added to the suppression list for your account.</p>
- */
-@property (nonatomic, assign) AWSSESSuppressionListReason reason;
-
-@end
-
-/**
- <p>An object that contains additional attributes that are related an email address that is on the suppression list for your account.</p>
- */
-@interface AWSSESSuppressedDestinationAttributes : AWSModel
-
-
-/**
- <p>A unique identifier that's generated when an email address is added to the suppression list for your account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable feedbackId;
-
-/**
- <p>The unique identifier of the email message that caused the email address to be added to the suppression list for your account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable messageId;
-
-@end
-
-/**
- <p>A summary that describes the suppressed email address.</p>
- Required parameters: [EmailAddress, Reason, LastUpdateTime]
- */
-@interface AWSSESSuppressedDestinationSummary : AWSModel
-
-
-/**
- <p>The email address that's on the suppression list for your account.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable emailAddress;
-
-/**
- <p>The date and time when the suppressed destination was last updated, shown in Unix time format.</p>
- */
-@property (nonatomic, strong) NSDate * _Nullable lastUpdateTime;
-
-/**
- <p>The reason that the address was added to the suppression list for your account.</p>
- */
-@property (nonatomic, assign) AWSSESSuppressionListReason reason;
-
-@end
-
-/**
- <p>An object that contains information about the email address suppression preferences for your account in the current AWS Region.</p>
- */
-@interface AWSSESSuppressionAttributes : AWSModel
-
-
-/**
- <p>A list that contains the reasons that email addresses will be automatically added to the suppression list for your account. This list can contain any or all of the following:</p><ul><li><p><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p></li><li><p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable suppressedReasons;
-
-@end
-
-/**
- <p>An object that contains details about the action of suppression list.</p>
- Required parameters: [SuppressionListImportAction]
- */
-@interface AWSSESSuppressionListDestination : AWSModel
-
-
-/**
- <p>The type of action that you want to perform on the address. Acceptable values:</p><ul><li><p>PUT: add the addresses to the suppression list. If the record already exists, it will override it with the new value.</p></li><li><p>DELETE: remove the addresses from the suppression list.</p></li></ul>
- */
-@property (nonatomic, assign) AWSSESSuppressionListImportAction suppressionListImportAction;
-
-@end
-
-/**
- <p>An object that contains information about the suppression list preferences for your account.</p>
- */
-@interface AWSSESSuppressionOptions : AWSModel
-
-
-/**
- <p>A list that contains the reasons that email addresses are automatically added to the suppression list for your account. This list can contain any or all of the following:</p><ul><li><p><code>COMPLAINT</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a complaint.</p></li><li><p><code>BOUNCE</code> – Amazon SES adds an email address to the suppression list for your account when a message sent to that address results in a hard bounce.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable suppressedReasons;
-
-@end
-
-/**
- <p>An object that defines the tags that are associated with a resource. A <i>tag</i> is a label that you optionally define and associate with a resource. Tags can help you categorize and manage resources in different ways, such as by purpose, owner, environment, or other criteria. A resource can have as many as 50 tags.</p><p>Each tag consists of a required <i>tag key</i> and an associated <i>tag value</i>, both of which you define. A tag key is a general label that acts as a category for a more specific tag value. A tag value acts as a descriptor within a tag key. A tag key can contain as many as 128 characters. A tag value can contain as many as 256 characters. The characters can be Unicode letters, digits, white space, or one of the following symbols: _ . : / = + -. The following additional restrictions apply to tags:</p><ul><li><p>Tag keys and values are case sensitive.</p></li><li><p>For each associated resource, each tag key must be unique and it can have only one value.</p></li><li><p>The <code>aws:</code> prefix is reserved for use by AWS; you can’t use it in any tag keys or values that you define. In addition, you can't edit or remove tag keys or values that use this prefix. Tags that use this prefix don’t count against the limit of 50 tags per resource.</p></li><li><p>You can associate tags with public or shared resources, but the tags are available only for your AWS account, not any other accounts that share the resource. In addition, the tags are available only for resources that are located in the specified AWS Region for your AWS account.</p></li></ul>
- Required parameters: [Key, Value]
- */
-@interface AWSSESTag : AWSModel
-
-
-/**
- <p>One part of a key-value pair that defines a tag. The maximum length of a tag key is 128 characters. The minimum length is 1 character.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable key;
-
-/**
- <p>The optional part of a key-value pair that defines a tag. The maximum length of a tag value is 256 characters. The minimum length is 0 characters. If you don't want a resource to have a specific tag value, don't specify a value for this parameter. If you don't specify a value, Amazon SES sets the value to an empty string.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable value;
-
-@end
-
-/**
- 
- */
-@interface AWSSESTagResourceRequest : AWSRequest
-
-
-/**
- <p>The Amazon Resource Name (ARN) of the resource that you want to add one or more tags to.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable resourceArn;
-
-/**
- <p>A list of the tags that you want to add to the resource. A tag consists of a required tag key (<code>Key</code>) and an associated tag value (<code>Value</code>). The maximum length of a tag key is 128 characters. The maximum length of a tag value is 256 characters.</p>
- */
-@property (nonatomic, strong) NSArray<AWSSESTag *> * _Nullable tags;
-
-@end
-
-/**
- 
- */
-@interface AWSSESTagResourceResponse : AWSModel
-
-
-@end
-
-/**
- <p>An object that defines the email template to use for an email message, and the values to use for any message variables in that template. An <i>email template</i> is a type of message template that contains content that you want to define, save, and reuse in email messages that you send.</p>
+ <p>The content of the email, composed of a subject line, an HTML part, and a text-only part.</p>
+ Required parameters: [TemplateName]
  */
 @interface AWSSESTemplate : AWSModel
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the template.</p>
+ <p>The HTML body of the email.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable templateArn;
+@property (nonatomic, strong) NSString * _Nullable htmlPart;
 
 /**
- <p>An object that defines the values to use for message variables in the template. This object is a set of key-value pairs. Each key defines a message variable in the template. The corresponding value defines the value to use for that variable.</p>
+ <p>The subject line of the email.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable templateData;
+@property (nonatomic, strong) NSString * _Nullable subjectPart;
 
 /**
- <p>The name of the template. You will refer to this name when you send email using the <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations. </p>
+ <p>The name of the template. You will refer to this name when you send email using the <code>SendTemplatedEmail</code> or <code>SendBulkTemplatedEmail</code> operations.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateName;
+
+/**
+ <p>The email body that will be visible to recipients whose email clients do not display HTML.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable textPart;
 
 @end
 
 /**
- <p>&gt;Represents a request to create a preview of the MIME content of an email when provided with a template and a set of replacement data.</p>
- Required parameters: [TemplateName, TemplateData]
+ <p>Contains information about an email template.</p>
  */
-@interface AWSSESTestRenderEmailTemplateRequest : AWSRequest
+@interface AWSSESTemplateMetadata : AWSModel
+
+
+/**
+ <p>The time and date the template was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdTimestamp;
+
+/**
+ <p>The name of the template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSESTestRenderTemplateRequest : AWSRequest
 
 
 /**
@@ -3916,85 +3121,65 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>The following element is returned by the service.</p>
- Required parameters: [RenderedTemplate]
+ 
  */
-@interface AWSSESTestRenderEmailTemplateResponse : AWSModel
+@interface AWSSESTestRenderTemplateResponse : AWSModel
 
 
 /**
- <p>The complete MIME message rendered by applying the data in the <code>TemplateData</code> parameter to the template specified in the TemplateName parameter.</p>
+ <p>The complete MIME message rendered by applying the data in the TemplateData parameter to the template specified in the TemplateName parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable renderedTemplate;
 
 @end
 
 /**
- <p>An object that defines the tracking options for a configuration set. When you use the Amazon SES API v2 to send an email, it contains an invisible image that's used to track when recipients open your email. If your email contains links, those links are changed slightly in order to track when recipients click them.</p><p>These images and links include references to a domain operated by AWS. You can optionally configure the Amazon SES to use a domain that you operate for these images and links.</p>
- Required parameters: [CustomRedirectDomain]
+ <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This domain captures open and click events generated by Amazon SES emails.</p><p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring Custom Domains to Handle Open and Click Tracking</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @interface AWSSESTrackingOptions : AWSModel
 
 
 /**
- <p>The domain that you want to use for tracking open and click events.</p>
+ <p>The custom subdomain that will be used to redirect email recipients to the Amazon SES event tracking domain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customRedirectDomain;
 
 @end
 
 /**
- 
+ <p>Represents a request to enable or disable the email sending capabilities for your entire Amazon SES account.</p>
  */
-@interface AWSSESUntagResourceRequest : AWSRequest
+@interface AWSSESUpdateAccountSendingEnabledRequest : AWSRequest
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the resource that you want to remove one or more tags from.</p>
+ <p>Describes whether email sending is enabled or disabled for your Amazon SES account in the current AWS Region.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable resourceArn;
-
-/**
- <p>The tags (tag keys) that you want to remove from the resource. When you specify a tag key, the action removes both that key and its associated tag value.</p><p>To remove more than one tag from the resource, append the <code>TagKeys</code> parameter and argument for each additional tag to remove, separated by an ampersand. For example: <code>/v2/email/tags?ResourceArn=ResourceArn&amp;TagKeys=Key1&amp;TagKeys=Key2</code></p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 @end
 
 /**
- 
- */
-@interface AWSSESUntagResourceResponse : AWSModel
-
-
-@end
-
-/**
- <p>A request to change the settings for an event destination for a configuration set.</p>
- Required parameters: [ConfigurationSetName, EventDestinationName, EventDestination]
+ <p>Represents a request to update the event destination of a configuration set. Configuration sets enable you to publish email sending events. For information about using configuration sets, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/monitor-sending-activity.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [ConfigurationSetName, EventDestination]
  */
 @interface AWSSESUpdateConfigurationSetEventDestinationRequest : AWSRequest
 
 
 /**
- <p>The name of the configuration set that contains the event destination that you want to modify.</p>
+ <p>The name of the configuration set that contains the event destination that you want to update.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable configurationSetName;
 
 /**
- <p>An object that defines the event destination.</p>
+ <p>The event destination object that you want to apply to the specified configuration set.</p>
  */
-@property (nonatomic, strong) AWSSESEventDestinationDefinition * _Nullable eventDestination;
-
-/**
- <p>The name of the event destination that you want to modify.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable eventDestinationName;
+@property (nonatomic, strong) AWSSESEventDestination * _Nullable eventDestination;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ <p>An empty element returned on a successful request.</p>
  */
 @interface AWSSESUpdateConfigurationSetEventDestinationResponse : AWSModel
 
@@ -4002,8 +3187,73 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
+ <p>Represents a request to modify the reputation metric publishing settings for a configuration set.</p>
+ Required parameters: [ConfigurationSetName, Enabled]
+ */
+@interface AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set that you want to update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+/**
+ <p>Describes whether or not Amazon SES will publish reputation metrics for the configuration set, such as bounce and complaint rates, to Amazon CloudWatch.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Represents a request to enable or disable the email sending capabilities for a specific configuration set.</p>
+ Required parameters: [ConfigurationSetName, Enabled]
+ */
+@interface AWSSESUpdateConfigurationSetSendingEnabledRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set that you want to update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+/**
+ <p>Describes whether email sending is enabled or disabled for the configuration set. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Represents a request to update the tracking options for a configuration set. </p>
+ Required parameters: [ConfigurationSetName, TrackingOptions]
+ */
+@interface AWSSESUpdateConfigurationSetTrackingOptionsRequest : AWSRequest
+
+
+/**
+ <p>The name of the configuration set for which you want to update the custom tracking domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable configurationSetName;
+
+/**
+ <p>A domain that is used to redirect email recipients to an Amazon SES-operated domain. This domain captures open and click events generated by Amazon SES emails.</p><p>For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/configure-custom-open-click-domains.html">Configuring Custom Domains to Handle Open and Click Tracking</a> in the <i>Amazon SES Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSSESTrackingOptions * _Nullable trackingOptions;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESUpdateConfigurationSetTrackingOptionsResponse : AWSModel
+
+
+@end
+
+/**
  <p>Represents a request to update an existing custom verification email template.</p>
- Required parameters: [TemplateName, FromEmailAddress, TemplateSubject, TemplateContent, SuccessRedirectionURL, FailureRedirectionURL]
+ Required parameters: [TemplateName]
  */
 @interface AWSSESUpdateCustomVerificationEmailTemplateRequest : AWSRequest
 
@@ -4024,7 +3274,7 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @property (nonatomic, strong) NSString * _Nullable successRedirectionURL;
 
 /**
- <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-email-verify-address-custom.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
+ <p>The content of the custom verification email. The total size of the email must be less than 10 MB. The message body may contain HTML, with some limitations. For more information, see <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/custom-verification-emails.html#custom-verification-emails-faq">Custom Verification Email Frequently Asked Questions</a> in the <i>Amazon SES Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable templateContent;
 
@@ -4041,97 +3291,161 @@ typedef NS_ENUM(NSInteger, AWSSESWarmupStatus) {
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ <p>Represents a request to update a receipt rule. You use receipt rules to receive email with Amazon SES. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-concepts.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [RuleSetName, Rule]
  */
-@interface AWSSESUpdateCustomVerificationEmailTemplateResponse : AWSModel
+@interface AWSSESUpdateReceiptRuleRequest : AWSRequest
+
+
+/**
+ <p>A data structure that contains the updated receipt rule information.</p>
+ */
+@property (nonatomic, strong) AWSSESReceiptRule * _Nullable rule;
+
+/**
+ <p>The name of the receipt rule set that the receipt rule belongs to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleSetName;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESUpdateReceiptRuleResponse : AWSModel
 
 
 @end
 
 /**
- <p>Represents a request to update a sending authorization policy for an identity. Sending authorization is an Amazon SES feature that enables you to authorize other senders to use your identities. For information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-identity-owner-tasks-management.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [EmailIdentity, PolicyName, Policy]
+ 
  */
-@interface AWSSESUpdateEmailIdentityPolicyRequest : AWSRequest
+@interface AWSSESUpdateTemplateRequest : AWSRequest
 
 
 /**
- <p>The email identity for which you want to update policy.</p>
+ <p>The content of the email, composed of a subject line, an HTML part, and a text-only part.</p>
  */
-@property (nonatomic, strong) NSString * _Nullable emailIdentity;
-
-/**
- <p>The text of the policy in JSON format. The policy cannot exceed 4 KB.</p><p> For information about the syntax of sending authorization policies, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html">Amazon SES Developer Guide</a>.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable policy;
-
-/**
- <p>The name of the policy.</p><p>The policy name cannot exceed 64 characters and can only include alphanumeric characters, dashes, and underscores.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable policyName;
+@property (nonatomic, strong) AWSSESTemplate * _Nullable template;
 
 @end
 
 /**
- <p>An HTTP 200 response if the request succeeds, or an error message if the request fails.</p>
+ 
  */
-@interface AWSSESUpdateEmailIdentityPolicyResponse : AWSModel
+@interface AWSSESUpdateTemplateResponse : AWSModel
 
 
 @end
 
 /**
- <p>Represents a request to update an email template. For more information, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/send-personalized-email-api.html">Amazon SES Developer Guide</a>.</p>
- Required parameters: [TemplateName, TemplateContent]
+ <p>Represents a request to generate the CNAME records needed to set up Easy DKIM with Amazon SES. For more information about setting up Easy DKIM, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Domain]
  */
-@interface AWSSESUpdateEmailTemplateRequest : AWSRequest
+@interface AWSSESVerifyDomainDkimRequest : AWSRequest
 
 
 /**
- <p>The content of the email template, composed of a subject line, an HTML part, and a text-only part.</p>
+ <p>The name of the domain to be verified for Easy DKIM signing.</p>
  */
-@property (nonatomic, strong) AWSSESEmailTemplateContent * _Nullable templateContent;
-
-/**
- <p>The name of the template you want to update.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable templateName;
+@property (nonatomic, strong) NSString * _Nullable domain;
 
 @end
 
 /**
- <p>If the action is successful, the service sends back an HTTP 200 response with an empty HTTP body.</p>
+ <p>Returns CNAME records that you must publish to the DNS server of your domain to set up Easy DKIM with Amazon SES.</p>
+ Required parameters: [DkimTokens]
  */
-@interface AWSSESUpdateEmailTemplateResponse : AWSModel
+@interface AWSSESVerifyDomainDkimResponse : AWSModel
+
+
+/**
+ <p>A set of character strings that represent the domain's identity. If the identity is an email address, the tokens represent the domain of that address.</p><p>Using these tokens, you need to create DNS CNAME records that point to DKIM public keys that are hosted by Amazon SES. Amazon Web Services eventually detects that you've updated your DNS records. This detection process might take up to 72 hours. After successful detection, Amazon SES is able to DKIM-sign email originating from that domain. (This only applies to domain identities, not email address identities.)</p><p>For more information about creating DNS records using DKIM tokens, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/easy-dkim.html">Amazon SES Developer Guide</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable dkimTokens;
+
+@end
+
+/**
+ <p>Represents a request to begin Amazon SES domain verification and to generate the TXT records that you must publish to the DNS server of your domain to complete the verification. For information about domain verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-domains.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [Domain]
+ */
+@interface AWSSESVerifyDomainIdentityRequest : AWSRequest
+
+
+/**
+ <p>The domain to be verified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domain;
+
+@end
+
+/**
+ <p>Returns a TXT record that you must publish to the DNS server of your domain to complete domain verification with Amazon SES.</p>
+ Required parameters: [VerificationToken]
+ */
+@interface AWSSESVerifyDomainIdentityResponse : AWSModel
+
+
+/**
+ <p>A TXT record that you must place in the DNS settings of the domain to complete domain verification with Amazon SES.</p><p>As Amazon SES searches for the TXT record, the domain's verification status is "Pending". When Amazon SES detects the record, the domain's verification status changes to "Success". If Amazon SES is unable to detect the record within 72 hours, the domain's verification status changes to "Failed." In that case, if you still want to verify the domain, you must restart the verification process from the beginning.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable verificationToken;
+
+@end
+
+/**
+ <p>Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [EmailAddress]
+ */
+@interface AWSSESVerifyEmailAddressRequest : AWSRequest
+
+
+/**
+ <p>The email address to be verified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
+
+@end
+
+/**
+ <p>Represents a request to begin email address verification with Amazon SES. For information about email address verification, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/verify-email-addresses.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [EmailAddress]
+ */
+@interface AWSSESVerifyEmailIdentityRequest : AWSRequest
+
+
+/**
+ <p>The email address to be verified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable emailAddress;
+
+@end
+
+/**
+ <p>An empty element returned on a successful request.</p>
+ */
+@interface AWSSESVerifyEmailIdentityResponse : AWSModel
 
 
 @end
 
 /**
- <p>An object that contains information about the amount of email that was delivered to recipients.</p>
+ <p>When included in a receipt rule, this action calls Amazon WorkMail and, optionally, publishes a notification to Amazon Simple Notification Service (Amazon SNS). You will typically not use this action directly because Amazon WorkMail adds the rule automatically during its setup procedure.</p><p>For information using a receipt rule to call Amazon WorkMail, see the <a href="https://docs.aws.amazon.com/ses/latest/DeveloperGuide/receiving-email-action-workmail.html">Amazon SES Developer Guide</a>.</p>
+ Required parameters: [OrganizationArn]
  */
-@interface AWSSESVolumeStatistics : AWSModel
+@interface AWSSESWorkmailAction : AWSModel
 
 
 /**
- <p>The total number of emails that arrived in recipients' inboxes.</p>
+ <p>The ARN of the Amazon WorkMail organization. An example of an Amazon WorkMail organization ARN is <code>arn:aws:workmail:us-west-2:123456789012:organization/m-68755160c4cb4e29a2b2f8fb58f359d7</code>. For information about Amazon WorkMail organizations, see the <a href="https://docs.aws.amazon.com/workmail/latest/adminguide/organizations_overview.html">Amazon WorkMail Administrator Guide</a>.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable inboxRawCount;
+@property (nonatomic, strong) NSString * _Nullable organizationArn;
 
 /**
- <p>An estimate of the percentage of emails sent from the current domain that will arrive in recipients' inboxes.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon SNS topic to notify when the WorkMail action is called. An example of an Amazon SNS topic ARN is <code>arn:aws:sns:us-west-2:123456789012:MyTopic</code>. For more information about Amazon SNS topics, see the <a href="https://docs.aws.amazon.com/sns/latest/dg/CreateTopic.html">Amazon SNS Developer Guide</a>.</p>
  */
-@property (nonatomic, strong) NSNumber * _Nullable projectedInbox;
-
-/**
- <p>An estimate of the percentage of emails sent from the current domain that will arrive in recipients' spam or junk mail folders.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable projectedSpam;
-
-/**
- <p>The total number of emails that arrived in recipients' spam or junk mail folders.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable spamRawCount;
+@property (nonatomic, strong) NSString * _Nullable topicArn;
 
 @end
 

@@ -57,6 +57,54 @@ static id mockNetworking = nil;
 
 }
 
+- (void)testCloneReceiptRuleSet {
+    NSString *key = @"testCloneReceiptRuleSet";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] cloneReceiptRuleSet:[AWSSESCloneReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testCloneReceiptRuleSetCompletionHandler {
+    NSString *key = @"testCloneReceiptRuleSet";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] cloneReceiptRuleSet:[AWSSESCloneReceiptRuleSetRequest new] completionHandler:^(AWSSESCloneReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
 - (void)testCreateConfigurationSet {
     NSString *key = @"testCreateConfigurationSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -153,6 +201,54 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
+- (void)testCreateConfigurationSetTrackingOptions {
+    NSString *key = @"testCreateConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] createConfigurationSetTrackingOptions:[AWSSESCreateConfigurationSetTrackingOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testCreateConfigurationSetTrackingOptionsCompletionHandler {
+    NSString *key = @"testCreateConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] createConfigurationSetTrackingOptions:[AWSSESCreateConfigurationSetTrackingOptionsRequest new] completionHandler:^(AWSSESCreateConfigurationSetTrackingOptionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
 - (void)testCreateCustomVerificationEmailTemplate {
     NSString *key = @"testCreateCustomVerificationEmailTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -187,7 +283,54 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] createCustomVerificationEmailTemplate:[AWSSESCreateCustomVerificationEmailTemplateRequest new] completionHandler:^(AWSSESCreateCustomVerificationEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] createCustomVerificationEmailTemplate:[AWSSESCreateCustomVerificationEmailTemplateRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testCreateReceiptFilter {
+    NSString *key = @"testCreateReceiptFilter";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] createReceiptFilter:[AWSSESCreateReceiptFilterRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testCreateReceiptFilterCompletionHandler {
+    NSString *key = @"testCreateReceiptFilter";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] createReceiptFilter:[AWSSESCreateReceiptFilterRequest new] completionHandler:^(AWSSESCreateReceiptFilterResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -201,8 +344,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateDedicatedIpPool {
-    NSString *key = @"testCreateDedicatedIpPool";
+- (void)testCreateReceiptRule {
+    NSString *key = @"testCreateReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -210,7 +353,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createDedicatedIpPool:[AWSSESCreateDedicatedIpPoolRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] createReceiptRule:[AWSSESCreateReceiptRuleRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -223,8 +366,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateDedicatedIpPoolCompletionHandler {
-    NSString *key = @"testCreateDedicatedIpPool";
+- (void)testCreateReceiptRuleCompletionHandler {
+    NSString *key = @"testCreateReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -235,7 +378,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] createDedicatedIpPool:[AWSSESCreateDedicatedIpPoolRequest new] completionHandler:^(AWSSESCreateDedicatedIpPoolResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] createReceiptRule:[AWSSESCreateReceiptRuleRequest new] completionHandler:^(AWSSESCreateReceiptRuleResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -249,8 +392,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateDeliverabilityTestReport {
-    NSString *key = @"testCreateDeliverabilityTestReport";
+- (void)testCreateReceiptRuleSet {
+    NSString *key = @"testCreateReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -258,7 +401,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createDeliverabilityTestReport:[AWSSESCreateDeliverabilityTestReportRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] createReceiptRuleSet:[AWSSESCreateReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -271,8 +414,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateDeliverabilityTestReportCompletionHandler {
-    NSString *key = @"testCreateDeliverabilityTestReport";
+- (void)testCreateReceiptRuleSetCompletionHandler {
+    NSString *key = @"testCreateReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -283,7 +426,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] createDeliverabilityTestReport:[AWSSESCreateDeliverabilityTestReportRequest new] completionHandler:^(AWSSESCreateDeliverabilityTestReportResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] createReceiptRuleSet:[AWSSESCreateReceiptRuleSetRequest new] completionHandler:^(AWSSESCreateReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -297,8 +440,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateEmailIdentity {
-    NSString *key = @"testCreateEmailIdentity";
+- (void)testCreateTemplate {
+    NSString *key = @"testCreateTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -306,7 +449,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createEmailIdentity:[AWSSESCreateEmailIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] createTemplate:[AWSSESCreateTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -319,8 +462,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testCreateEmailIdentityCompletionHandler {
-    NSString *key = @"testCreateEmailIdentity";
+- (void)testCreateTemplateCompletionHandler {
+    NSString *key = @"testCreateTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -331,151 +474,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] createEmailIdentity:[AWSSESCreateEmailIdentityRequest new] completionHandler:^(AWSSESCreateEmailIdentityResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateEmailIdentityPolicy {
-    NSString *key = @"testCreateEmailIdentityPolicy";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createEmailIdentityPolicy:[AWSSESCreateEmailIdentityPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateEmailIdentityPolicyCompletionHandler {
-    NSString *key = @"testCreateEmailIdentityPolicy";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] createEmailIdentityPolicy:[AWSSESCreateEmailIdentityPolicyRequest new] completionHandler:^(AWSSESCreateEmailIdentityPolicyResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateEmailTemplate {
-    NSString *key = @"testCreateEmailTemplate";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createEmailTemplate:[AWSSESCreateEmailTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateEmailTemplateCompletionHandler {
-    NSString *key = @"testCreateEmailTemplate";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] createEmailTemplate:[AWSSESCreateEmailTemplateRequest new] completionHandler:^(AWSSESCreateEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateImportJob {
-    NSString *key = @"testCreateImportJob";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] createImportJob:[AWSSESCreateImportJobRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testCreateImportJobCompletionHandler {
-    NSString *key = @"testCreateImportJob";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] createImportJob:[AWSSESCreateImportJobRequest new] completionHandler:^(AWSSESCreateImportJobResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] createTemplate:[AWSSESCreateTemplateRequest new] completionHandler:^(AWSSESCreateTemplateResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -585,6 +584,54 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
+- (void)testDeleteConfigurationSetTrackingOptions {
+    NSString *key = @"testDeleteConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] deleteConfigurationSetTrackingOptions:[AWSSESDeleteConfigurationSetTrackingOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testDeleteConfigurationSetTrackingOptionsCompletionHandler {
+    NSString *key = @"testDeleteConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] deleteConfigurationSetTrackingOptions:[AWSSESDeleteConfigurationSetTrackingOptionsRequest new] completionHandler:^(AWSSESDeleteConfigurationSetTrackingOptionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
 - (void)testDeleteCustomVerificationEmailTemplate {
     NSString *key = @"testDeleteCustomVerificationEmailTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -619,7 +666,54 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteCustomVerificationEmailTemplate:[AWSSESDeleteCustomVerificationEmailTemplateRequest new] completionHandler:^(AWSSESDeleteCustomVerificationEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteCustomVerificationEmailTemplate:[AWSSESDeleteCustomVerificationEmailTemplateRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testDeleteIdentity {
+    NSString *key = @"testDeleteIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] deleteIdentity:[AWSSESDeleteIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testDeleteIdentityCompletionHandler {
+    NSString *key = @"testDeleteIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] deleteIdentity:[AWSSESDeleteIdentityRequest new] completionHandler:^(AWSSESDeleteIdentityResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -633,8 +727,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteDedicatedIpPool {
-    NSString *key = @"testDeleteDedicatedIpPool";
+- (void)testDeleteIdentityPolicy {
+    NSString *key = @"testDeleteIdentityPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -642,7 +736,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] deleteDedicatedIpPool:[AWSSESDeleteDedicatedIpPoolRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteIdentityPolicy:[AWSSESDeleteIdentityPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -655,8 +749,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteDedicatedIpPoolCompletionHandler {
-    NSString *key = @"testDeleteDedicatedIpPool";
+- (void)testDeleteIdentityPolicyCompletionHandler {
+    NSString *key = @"testDeleteIdentityPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -667,7 +761,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteDedicatedIpPool:[AWSSESDeleteDedicatedIpPoolRequest new] completionHandler:^(AWSSESDeleteDedicatedIpPoolResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteIdentityPolicy:[AWSSESDeleteIdentityPolicyRequest new] completionHandler:^(AWSSESDeleteIdentityPolicyResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -681,8 +775,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailIdentity {
-    NSString *key = @"testDeleteEmailIdentity";
+- (void)testDeleteReceiptFilter {
+    NSString *key = @"testDeleteReceiptFilter";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -690,7 +784,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] deleteEmailIdentity:[AWSSESDeleteEmailIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteReceiptFilter:[AWSSESDeleteReceiptFilterRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -703,8 +797,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailIdentityCompletionHandler {
-    NSString *key = @"testDeleteEmailIdentity";
+- (void)testDeleteReceiptFilterCompletionHandler {
+    NSString *key = @"testDeleteReceiptFilter";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -715,7 +809,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteEmailIdentity:[AWSSESDeleteEmailIdentityRequest new] completionHandler:^(AWSSESDeleteEmailIdentityResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteReceiptFilter:[AWSSESDeleteReceiptFilterRequest new] completionHandler:^(AWSSESDeleteReceiptFilterResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -729,8 +823,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailIdentityPolicy {
-    NSString *key = @"testDeleteEmailIdentityPolicy";
+- (void)testDeleteReceiptRule {
+    NSString *key = @"testDeleteReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -738,7 +832,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] deleteEmailIdentityPolicy:[AWSSESDeleteEmailIdentityPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteReceiptRule:[AWSSESDeleteReceiptRuleRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -751,8 +845,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailIdentityPolicyCompletionHandler {
-    NSString *key = @"testDeleteEmailIdentityPolicy";
+- (void)testDeleteReceiptRuleCompletionHandler {
+    NSString *key = @"testDeleteReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -763,7 +857,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteEmailIdentityPolicy:[AWSSESDeleteEmailIdentityPolicyRequest new] completionHandler:^(AWSSESDeleteEmailIdentityPolicyResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteReceiptRule:[AWSSESDeleteReceiptRuleRequest new] completionHandler:^(AWSSESDeleteReceiptRuleResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -777,8 +871,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailTemplate {
-    NSString *key = @"testDeleteEmailTemplate";
+- (void)testDeleteReceiptRuleSet {
+    NSString *key = @"testDeleteReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -786,7 +880,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] deleteEmailTemplate:[AWSSESDeleteEmailTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteReceiptRuleSet:[AWSSESDeleteReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -799,8 +893,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteEmailTemplateCompletionHandler {
-    NSString *key = @"testDeleteEmailTemplate";
+- (void)testDeleteReceiptRuleSetCompletionHandler {
+    NSString *key = @"testDeleteReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -811,7 +905,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteEmailTemplate:[AWSSESDeleteEmailTemplateRequest new] completionHandler:^(AWSSESDeleteEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteReceiptRuleSet:[AWSSESDeleteReceiptRuleSetRequest new] completionHandler:^(AWSSESDeleteReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -825,8 +919,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteSuppressedDestination {
-    NSString *key = @"testDeleteSuppressedDestination";
+- (void)testDeleteTemplate {
+    NSString *key = @"testDeleteTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -834,7 +928,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] deleteSuppressedDestination:[AWSSESDeleteSuppressedDestinationRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteTemplate:[AWSSESDeleteTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -847,8 +941,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testDeleteSuppressedDestinationCompletionHandler {
-    NSString *key = @"testDeleteSuppressedDestination";
+- (void)testDeleteTemplateCompletionHandler {
+    NSString *key = @"testDeleteTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -859,7 +953,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] deleteSuppressedDestination:[AWSSESDeleteSuppressedDestinationRequest new] completionHandler:^(AWSSESDeleteSuppressedDestinationResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteTemplate:[AWSSESDeleteTemplateRequest new] completionHandler:^(AWSSESDeleteTemplateResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -873,8 +967,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetAccount {
-    NSString *key = @"testGetAccount";
+- (void)testDeleteVerifiedEmailAddress {
+    NSString *key = @"testDeleteVerifiedEmailAddress";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -882,7 +976,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getAccount:[AWSSESGetAccountRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] deleteVerifiedEmailAddress:[AWSSESDeleteVerifiedEmailAddressRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -895,8 +989,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetAccountCompletionHandler {
-    NSString *key = @"testGetAccount";
+- (void)testDeleteVerifiedEmailAddressCompletionHandler {
+    NSString *key = @"testDeleteVerifiedEmailAddress";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -907,7 +1001,54 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getAccount:[AWSSESGetAccountRequest new] completionHandler:^(AWSSESGetAccountResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] deleteVerifiedEmailAddress:[AWSSESDeleteVerifiedEmailAddressRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testDescribeActiveReceiptRuleSet {
+    NSString *key = @"testDescribeActiveReceiptRuleSet";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] describeActiveReceiptRuleSet:[AWSSESDescribeActiveReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testDescribeActiveReceiptRuleSetCompletionHandler {
+    NSString *key = @"testDescribeActiveReceiptRuleSet";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] describeActiveReceiptRuleSet:[AWSSESDescribeActiveReceiptRuleSetRequest new] completionHandler:^(AWSSESDescribeActiveReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -921,8 +1062,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetBlacklistReports {
-    NSString *key = @"testGetBlacklistReports";
+- (void)testDescribeConfigurationSet {
+    NSString *key = @"testDescribeConfigurationSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -930,7 +1071,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getBlacklistReports:[AWSSESGetBlacklistReportsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] describeConfigurationSet:[AWSSESDescribeConfigurationSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -943,8 +1084,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetBlacklistReportsCompletionHandler {
-    NSString *key = @"testGetBlacklistReports";
+- (void)testDescribeConfigurationSetCompletionHandler {
+    NSString *key = @"testDescribeConfigurationSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -955,7 +1096,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getBlacklistReports:[AWSSESGetBlacklistReportsRequest new] completionHandler:^(AWSSESGetBlacklistReportsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] describeConfigurationSet:[AWSSESDescribeConfigurationSetRequest new] completionHandler:^(AWSSESDescribeConfigurationSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -969,8 +1110,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetConfigurationSet {
-    NSString *key = @"testGetConfigurationSet";
+- (void)testDescribeReceiptRule {
+    NSString *key = @"testDescribeReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -978,7 +1119,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getConfigurationSet:[AWSSESGetConfigurationSetRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] describeReceiptRule:[AWSSESDescribeReceiptRuleRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -991,8 +1132,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetConfigurationSetCompletionHandler {
-    NSString *key = @"testGetConfigurationSet";
+- (void)testDescribeReceiptRuleCompletionHandler {
+    NSString *key = @"testDescribeReceiptRule";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1003,7 +1144,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getConfigurationSet:[AWSSESGetConfigurationSetRequest new] completionHandler:^(AWSSESGetConfigurationSetResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] describeReceiptRule:[AWSSESDescribeReceiptRuleRequest new] completionHandler:^(AWSSESDescribeReceiptRuleResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1017,8 +1158,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetConfigurationSetEventDestinations {
-    NSString *key = @"testGetConfigurationSetEventDestinations";
+- (void)testDescribeReceiptRuleSet {
+    NSString *key = @"testDescribeReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1026,7 +1167,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getConfigurationSetEventDestinations:[AWSSESGetConfigurationSetEventDestinationsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] describeReceiptRuleSet:[AWSSESDescribeReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1039,8 +1180,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetConfigurationSetEventDestinationsCompletionHandler {
-    NSString *key = @"testGetConfigurationSetEventDestinations";
+- (void)testDescribeReceiptRuleSetCompletionHandler {
+    NSString *key = @"testDescribeReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1051,7 +1192,55 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getConfigurationSetEventDestinations:[AWSSESGetConfigurationSetEventDestinationsRequest new] completionHandler:^(AWSSESGetConfigurationSetEventDestinationsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] describeReceiptRuleSet:[AWSSESDescribeReceiptRuleSetRequest new] completionHandler:^(AWSSESDescribeReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testGetAccountSendingEnabled {
+    NSString *key = @"testGetAccountSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] getAccountSendingEnabled:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testGetAccountSendingEnabledCompletionHandler {
+    NSString *key = @"testGetAccountSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] getAccountSendingEnabled:[AWSRequest new] completionHandler:^(AWSSESGetAccountSendingEnabledResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1113,8 +1302,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDedicatedIp {
-    NSString *key = @"testGetDedicatedIp";
+- (void)testGetIdentityDkimAttributes {
+    NSString *key = @"testGetIdentityDkimAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1122,7 +1311,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDedicatedIp:[AWSSESGetDedicatedIpRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityDkimAttributes:[AWSSESGetIdentityDkimAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1135,8 +1324,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDedicatedIpCompletionHandler {
-    NSString *key = @"testGetDedicatedIp";
+- (void)testGetIdentityDkimAttributesCompletionHandler {
+    NSString *key = @"testGetIdentityDkimAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1147,7 +1336,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDedicatedIp:[AWSSESGetDedicatedIpRequest new] completionHandler:^(AWSSESGetDedicatedIpResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getIdentityDkimAttributes:[AWSSESGetIdentityDkimAttributesRequest new] completionHandler:^(AWSSESGetIdentityDkimAttributesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1161,8 +1350,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDedicatedIps {
-    NSString *key = @"testGetDedicatedIps";
+- (void)testGetIdentityMailFromDomainAttributes {
+    NSString *key = @"testGetIdentityMailFromDomainAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1170,7 +1359,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDedicatedIps:[AWSSESGetDedicatedIpsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityMailFromDomainAttributes:[AWSSESGetIdentityMailFromDomainAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1183,8 +1372,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDedicatedIpsCompletionHandler {
-    NSString *key = @"testGetDedicatedIps";
+- (void)testGetIdentityMailFromDomainAttributesCompletionHandler {
+    NSString *key = @"testGetIdentityMailFromDomainAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1195,7 +1384,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDedicatedIps:[AWSSESGetDedicatedIpsRequest new] completionHandler:^(AWSSESGetDedicatedIpsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getIdentityMailFromDomainAttributes:[AWSSESGetIdentityMailFromDomainAttributesRequest new] completionHandler:^(AWSSESGetIdentityMailFromDomainAttributesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1209,8 +1398,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDeliverabilityDashboardOptions {
-    NSString *key = @"testGetDeliverabilityDashboardOptions";
+- (void)testGetIdentityNotificationAttributes {
+    NSString *key = @"testGetIdentityNotificationAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1218,7 +1407,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDeliverabilityDashboardOptions:[AWSSESGetDeliverabilityDashboardOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityNotificationAttributes:[AWSSESGetIdentityNotificationAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1231,8 +1420,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDeliverabilityDashboardOptionsCompletionHandler {
-    NSString *key = @"testGetDeliverabilityDashboardOptions";
+- (void)testGetIdentityNotificationAttributesCompletionHandler {
+    NSString *key = @"testGetIdentityNotificationAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1243,7 +1432,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDeliverabilityDashboardOptions:[AWSSESGetDeliverabilityDashboardOptionsRequest new] completionHandler:^(AWSSESGetDeliverabilityDashboardOptionsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getIdentityNotificationAttributes:[AWSSESGetIdentityNotificationAttributesRequest new] completionHandler:^(AWSSESGetIdentityNotificationAttributesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1257,8 +1446,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDeliverabilityTestReport {
-    NSString *key = @"testGetDeliverabilityTestReport";
+- (void)testGetIdentityPolicies {
+    NSString *key = @"testGetIdentityPolicies";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1266,7 +1455,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDeliverabilityTestReport:[AWSSESGetDeliverabilityTestReportRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityPolicies:[AWSSESGetIdentityPoliciesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1279,8 +1468,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDeliverabilityTestReportCompletionHandler {
-    NSString *key = @"testGetDeliverabilityTestReport";
+- (void)testGetIdentityPoliciesCompletionHandler {
+    NSString *key = @"testGetIdentityPolicies";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1291,7 +1480,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDeliverabilityTestReport:[AWSSESGetDeliverabilityTestReportRequest new] completionHandler:^(AWSSESGetDeliverabilityTestReportResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getIdentityPolicies:[AWSSESGetIdentityPoliciesRequest new] completionHandler:^(AWSSESGetIdentityPoliciesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1305,8 +1494,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDomainDeliverabilityCampaign {
-    NSString *key = @"testGetDomainDeliverabilityCampaign";
+- (void)testGetIdentityVerificationAttributes {
+    NSString *key = @"testGetIdentityVerificationAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1314,7 +1503,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDomainDeliverabilityCampaign:[AWSSESGetDomainDeliverabilityCampaignRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getIdentityVerificationAttributes:[AWSSESGetIdentityVerificationAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1327,8 +1516,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDomainDeliverabilityCampaignCompletionHandler {
-    NSString *key = @"testGetDomainDeliverabilityCampaign";
+- (void)testGetIdentityVerificationAttributesCompletionHandler {
+    NSString *key = @"testGetIdentityVerificationAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1339,7 +1528,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDomainDeliverabilityCampaign:[AWSSESGetDomainDeliverabilityCampaignRequest new] completionHandler:^(AWSSESGetDomainDeliverabilityCampaignResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getIdentityVerificationAttributes:[AWSSESGetIdentityVerificationAttributesRequest new] completionHandler:^(AWSSESGetIdentityVerificationAttributesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1353,8 +1542,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDomainStatisticsReport {
-    NSString *key = @"testGetDomainStatisticsReport";
+- (void)testGetSendQuota {
+    NSString *key = @"testGetSendQuota";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1362,7 +1551,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getDomainStatisticsReport:[AWSSESGetDomainStatisticsReportRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getSendQuota:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1375,8 +1564,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetDomainStatisticsReportCompletionHandler {
-    NSString *key = @"testGetDomainStatisticsReport";
+- (void)testGetSendQuotaCompletionHandler {
+    NSString *key = @"testGetSendQuota";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1387,7 +1576,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getDomainStatisticsReport:[AWSSESGetDomainStatisticsReportRequest new] completionHandler:^(AWSSESGetDomainStatisticsReportResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getSendQuota:[AWSRequest new] completionHandler:^(AWSSESGetSendQuotaResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1401,8 +1590,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetEmailIdentity {
-    NSString *key = @"testGetEmailIdentity";
+- (void)testGetSendStatistics {
+    NSString *key = @"testGetSendStatistics";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1410,7 +1599,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getEmailIdentity:[AWSSESGetEmailIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getSendStatistics:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1423,8 +1612,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetEmailIdentityCompletionHandler {
-    NSString *key = @"testGetEmailIdentity";
+- (void)testGetSendStatisticsCompletionHandler {
+    NSString *key = @"testGetSendStatistics";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1435,7 +1624,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getEmailIdentity:[AWSSESGetEmailIdentityRequest new] completionHandler:^(AWSSESGetEmailIdentityResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getSendStatistics:[AWSRequest new] completionHandler:^(AWSSESGetSendStatisticsResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1449,8 +1638,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetEmailIdentityPolicies {
-    NSString *key = @"testGetEmailIdentityPolicies";
+- (void)testGetTemplate {
+    NSString *key = @"testGetTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1458,7 +1647,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getEmailIdentityPolicies:[AWSSESGetEmailIdentityPoliciesRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] getTemplate:[AWSSESGetTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1471,8 +1660,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testGetEmailIdentityPoliciesCompletionHandler {
-    NSString *key = @"testGetEmailIdentityPolicies";
+- (void)testGetTemplateCompletionHandler {
+    NSString *key = @"testGetTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1483,151 +1672,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] getEmailIdentityPolicies:[AWSSESGetEmailIdentityPoliciesRequest new] completionHandler:^(AWSSESGetEmailIdentityPoliciesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetEmailTemplate {
-    NSString *key = @"testGetEmailTemplate";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getEmailTemplate:[AWSSESGetEmailTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetEmailTemplateCompletionHandler {
-    NSString *key = @"testGetEmailTemplate";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] getEmailTemplate:[AWSSESGetEmailTemplateRequest new] completionHandler:^(AWSSESGetEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetImportJob {
-    NSString *key = @"testGetImportJob";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getImportJob:[AWSSESGetImportJobRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetImportJobCompletionHandler {
-    NSString *key = @"testGetImportJob";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] getImportJob:[AWSSESGetImportJobRequest new] completionHandler:^(AWSSESGetImportJobResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetSuppressedDestination {
-    NSString *key = @"testGetSuppressedDestination";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] getSuppressedDestination:[AWSSESGetSuppressedDestinationRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testGetSuppressedDestinationCompletionHandler {
-    NSString *key = @"testGetSuppressedDestination";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] getSuppressedDestination:[AWSSESGetSuppressedDestinationRequest new] completionHandler:^(AWSSESGetSuppressedDestinationResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] getTemplate:[AWSSESGetTemplateRequest new] completionHandler:^(AWSSESGetTemplateResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1737,8 +1782,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDedicatedIpPools {
-    NSString *key = @"testListDedicatedIpPools";
+- (void)testListIdentities {
+    NSString *key = @"testListIdentities";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1746,7 +1791,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listDedicatedIpPools:[AWSSESListDedicatedIpPoolsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listIdentities:[AWSSESListIdentitiesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1759,8 +1804,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDedicatedIpPoolsCompletionHandler {
-    NSString *key = @"testListDedicatedIpPools";
+- (void)testListIdentitiesCompletionHandler {
+    NSString *key = @"testListIdentities";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1771,7 +1816,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listDedicatedIpPools:[AWSSESListDedicatedIpPoolsRequest new] completionHandler:^(AWSSESListDedicatedIpPoolsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listIdentities:[AWSSESListIdentitiesRequest new] completionHandler:^(AWSSESListIdentitiesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1785,8 +1830,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDeliverabilityTestReports {
-    NSString *key = @"testListDeliverabilityTestReports";
+- (void)testListIdentityPolicies {
+    NSString *key = @"testListIdentityPolicies";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1794,7 +1839,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listDeliverabilityTestReports:[AWSSESListDeliverabilityTestReportsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listIdentityPolicies:[AWSSESListIdentityPoliciesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1807,8 +1852,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDeliverabilityTestReportsCompletionHandler {
-    NSString *key = @"testListDeliverabilityTestReports";
+- (void)testListIdentityPoliciesCompletionHandler {
+    NSString *key = @"testListIdentityPolicies";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1819,7 +1864,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listDeliverabilityTestReports:[AWSSESListDeliverabilityTestReportsRequest new] completionHandler:^(AWSSESListDeliverabilityTestReportsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listIdentityPolicies:[AWSSESListIdentityPoliciesRequest new] completionHandler:^(AWSSESListIdentityPoliciesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1833,8 +1878,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDomainDeliverabilityCampaigns {
-    NSString *key = @"testListDomainDeliverabilityCampaigns";
+- (void)testListReceiptFilters {
+    NSString *key = @"testListReceiptFilters";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1842,7 +1887,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listDomainDeliverabilityCampaigns:[AWSSESListDomainDeliverabilityCampaignsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listReceiptFilters:[AWSSESListReceiptFiltersRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1855,8 +1900,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListDomainDeliverabilityCampaignsCompletionHandler {
-    NSString *key = @"testListDomainDeliverabilityCampaigns";
+- (void)testListReceiptFiltersCompletionHandler {
+    NSString *key = @"testListReceiptFilters";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1867,7 +1912,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listDomainDeliverabilityCampaigns:[AWSSESListDomainDeliverabilityCampaignsRequest new] completionHandler:^(AWSSESListDomainDeliverabilityCampaignsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listReceiptFilters:[AWSSESListReceiptFiltersRequest new] completionHandler:^(AWSSESListReceiptFiltersResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1881,8 +1926,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListEmailIdentities {
-    NSString *key = @"testListEmailIdentities";
+- (void)testListReceiptRuleSets {
+    NSString *key = @"testListReceiptRuleSets";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1890,7 +1935,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listEmailIdentities:[AWSSESListEmailIdentitiesRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listReceiptRuleSets:[AWSSESListReceiptRuleSetsRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1903,8 +1948,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListEmailIdentitiesCompletionHandler {
-    NSString *key = @"testListEmailIdentities";
+- (void)testListReceiptRuleSetsCompletionHandler {
+    NSString *key = @"testListReceiptRuleSets";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1915,7 +1960,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listEmailIdentities:[AWSSESListEmailIdentitiesRequest new] completionHandler:^(AWSSESListEmailIdentitiesResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listReceiptRuleSets:[AWSSESListReceiptRuleSetsRequest new] completionHandler:^(AWSSESListReceiptRuleSetsResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1929,8 +1974,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListEmailTemplates {
-    NSString *key = @"testListEmailTemplates";
+- (void)testListTemplates {
+    NSString *key = @"testListTemplates";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1938,7 +1983,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listEmailTemplates:[AWSSESListEmailTemplatesRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listTemplates:[AWSSESListTemplatesRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1951,8 +1996,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListEmailTemplatesCompletionHandler {
-    NSString *key = @"testListEmailTemplates";
+- (void)testListTemplatesCompletionHandler {
+    NSString *key = @"testListTemplates";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1963,7 +2008,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listEmailTemplates:[AWSSESListEmailTemplatesRequest new] completionHandler:^(AWSSESListEmailTemplatesResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listTemplates:[AWSSESListTemplatesRequest new] completionHandler:^(AWSSESListTemplatesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1977,8 +2022,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListImportJobs {
-    NSString *key = @"testListImportJobs";
+- (void)testListVerifiedEmailAddresses {
+    NSString *key = @"testListVerifiedEmailAddresses";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -1986,7 +2031,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listImportJobs:[AWSSESListImportJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] listVerifiedEmailAddresses:[AWSRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1999,8 +2044,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testListImportJobsCompletionHandler {
-    NSString *key = @"testListImportJobs";
+- (void)testListVerifiedEmailAddressesCompletionHandler {
+    NSString *key = @"testListVerifiedEmailAddresses";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2011,295 +2056,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] listImportJobs:[AWSSESListImportJobsRequest new] completionHandler:^(AWSSESListImportJobsResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testListSuppressedDestinations {
-    NSString *key = @"testListSuppressedDestinations";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listSuppressedDestinations:[AWSSESListSuppressedDestinationsRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testListSuppressedDestinationsCompletionHandler {
-    NSString *key = @"testListSuppressedDestinations";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] listSuppressedDestinations:[AWSSESListSuppressedDestinationsRequest new] completionHandler:^(AWSSESListSuppressedDestinationsResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testListTagsForResource {
-    NSString *key = @"testListTagsForResource";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] listTagsForResource:[AWSSESListTagsForResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testListTagsForResourceCompletionHandler {
-    NSString *key = @"testListTagsForResource";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] listTagsForResource:[AWSSESListTagsForResourceRequest new] completionHandler:^(AWSSESListTagsForResourceResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountDedicatedIpWarmupAttributes {
-    NSString *key = @"testPutAccountDedicatedIpWarmupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putAccountDedicatedIpWarmupAttributes:[AWSSESPutAccountDedicatedIpWarmupAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountDedicatedIpWarmupAttributesCompletionHandler {
-    NSString *key = @"testPutAccountDedicatedIpWarmupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putAccountDedicatedIpWarmupAttributes:[AWSSESPutAccountDedicatedIpWarmupAttributesRequest new] completionHandler:^(AWSSESPutAccountDedicatedIpWarmupAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountDetails {
-    NSString *key = @"testPutAccountDetails";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putAccountDetails:[AWSSESPutAccountDetailsRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountDetailsCompletionHandler {
-    NSString *key = @"testPutAccountDetails";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putAccountDetails:[AWSSESPutAccountDetailsRequest new] completionHandler:^(AWSSESPutAccountDetailsResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountSendingAttributes {
-    NSString *key = @"testPutAccountSendingAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putAccountSendingAttributes:[AWSSESPutAccountSendingAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountSendingAttributesCompletionHandler {
-    NSString *key = @"testPutAccountSendingAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putAccountSendingAttributes:[AWSSESPutAccountSendingAttributesRequest new] completionHandler:^(AWSSESPutAccountSendingAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountSuppressionAttributes {
-    NSString *key = @"testPutAccountSuppressionAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putAccountSuppressionAttributes:[AWSSESPutAccountSuppressionAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutAccountSuppressionAttributesCompletionHandler {
-    NSString *key = @"testPutAccountSuppressionAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putAccountSuppressionAttributes:[AWSSESPutAccountSuppressionAttributesRequest new] completionHandler:^(AWSSESPutAccountSuppressionAttributesResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] listVerifiedEmailAddresses:[AWSRequest new] completionHandler:^(AWSSESListVerifiedEmailAddressesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2361,8 +2118,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetReputationOptions {
-    NSString *key = @"testPutConfigurationSetReputationOptions";
+- (void)testPutIdentityPolicy {
+    NSString *key = @"testPutIdentityPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2370,7 +2127,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putConfigurationSetReputationOptions:[AWSSESPutConfigurationSetReputationOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] putIdentityPolicy:[AWSSESPutIdentityPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -2383,8 +2140,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetReputationOptionsCompletionHandler {
-    NSString *key = @"testPutConfigurationSetReputationOptions";
+- (void)testPutIdentityPolicyCompletionHandler {
+    NSString *key = @"testPutIdentityPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2395,7 +2152,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] putConfigurationSetReputationOptions:[AWSSESPutConfigurationSetReputationOptionsRequest new] completionHandler:^(AWSSESPutConfigurationSetReputationOptionsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] putIdentityPolicy:[AWSSESPutIdentityPolicyRequest new] completionHandler:^(AWSSESPutIdentityPolicyResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2409,8 +2166,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetSendingOptions {
-    NSString *key = @"testPutConfigurationSetSendingOptions";
+- (void)testReorderReceiptRuleSet {
+    NSString *key = @"testReorderReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2418,7 +2175,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putConfigurationSetSendingOptions:[AWSSESPutConfigurationSetSendingOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] reorderReceiptRuleSet:[AWSSESReorderReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -2431,8 +2188,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetSendingOptionsCompletionHandler {
-    NSString *key = @"testPutConfigurationSetSendingOptions";
+- (void)testReorderReceiptRuleSetCompletionHandler {
+    NSString *key = @"testReorderReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2443,7 +2200,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] putConfigurationSetSendingOptions:[AWSSESPutConfigurationSetSendingOptionsRequest new] completionHandler:^(AWSSESPutConfigurationSetSendingOptionsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] reorderReceiptRuleSet:[AWSSESReorderReceiptRuleSetRequest new] completionHandler:^(AWSSESReorderReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2457,8 +2214,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetSuppressionOptions {
-    NSString *key = @"testPutConfigurationSetSuppressionOptions";
+- (void)testSendBounce {
+    NSString *key = @"testSendBounce";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2466,7 +2223,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putConfigurationSetSuppressionOptions:[AWSSESPutConfigurationSetSuppressionOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] sendBounce:[AWSSESSendBounceRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -2479,8 +2236,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetSuppressionOptionsCompletionHandler {
-    NSString *key = @"testPutConfigurationSetSuppressionOptions";
+- (void)testSendBounceCompletionHandler {
+    NSString *key = @"testSendBounce";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2491,7 +2248,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] putConfigurationSetSuppressionOptions:[AWSSESPutConfigurationSetSuppressionOptionsRequest new] completionHandler:^(AWSSESPutConfigurationSetSuppressionOptionsResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] sendBounce:[AWSSESSendBounceRequest new] completionHandler:^(AWSSESSendBounceResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2505,8 +2262,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetTrackingOptions {
-    NSString *key = @"testPutConfigurationSetTrackingOptions";
+- (void)testSendBulkTemplatedEmail {
+    NSString *key = @"testSendBulkTemplatedEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2514,7 +2271,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putConfigurationSetTrackingOptions:[AWSSESPutConfigurationSetTrackingOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] sendBulkTemplatedEmail:[AWSSESSendBulkTemplatedEmailRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -2527,8 +2284,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testPutConfigurationSetTrackingOptionsCompletionHandler {
-    NSString *key = @"testPutConfigurationSetTrackingOptions";
+- (void)testSendBulkTemplatedEmailCompletionHandler {
+    NSString *key = @"testSendBulkTemplatedEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -2539,439 +2296,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] putConfigurationSetTrackingOptions:[AWSSESPutConfigurationSetTrackingOptionsRequest new] completionHandler:^(AWSSESPutConfigurationSetTrackingOptionsResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDedicatedIpInPool {
-    NSString *key = @"testPutDedicatedIpInPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putDedicatedIpInPool:[AWSSESPutDedicatedIpInPoolRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDedicatedIpInPoolCompletionHandler {
-    NSString *key = @"testPutDedicatedIpInPool";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putDedicatedIpInPool:[AWSSESPutDedicatedIpInPoolRequest new] completionHandler:^(AWSSESPutDedicatedIpInPoolResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDedicatedIpWarmupAttributes {
-    NSString *key = @"testPutDedicatedIpWarmupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putDedicatedIpWarmupAttributes:[AWSSESPutDedicatedIpWarmupAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDedicatedIpWarmupAttributesCompletionHandler {
-    NSString *key = @"testPutDedicatedIpWarmupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putDedicatedIpWarmupAttributes:[AWSSESPutDedicatedIpWarmupAttributesRequest new] completionHandler:^(AWSSESPutDedicatedIpWarmupAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDeliverabilityDashboardOption {
-    NSString *key = @"testPutDeliverabilityDashboardOption";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putDeliverabilityDashboardOption:[AWSSESPutDeliverabilityDashboardOptionRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutDeliverabilityDashboardOptionCompletionHandler {
-    NSString *key = @"testPutDeliverabilityDashboardOption";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putDeliverabilityDashboardOption:[AWSSESPutDeliverabilityDashboardOptionRequest new] completionHandler:^(AWSSESPutDeliverabilityDashboardOptionResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityDkimAttributes {
-    NSString *key = @"testPutEmailIdentityDkimAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putEmailIdentityDkimAttributes:[AWSSESPutEmailIdentityDkimAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityDkimAttributesCompletionHandler {
-    NSString *key = @"testPutEmailIdentityDkimAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putEmailIdentityDkimAttributes:[AWSSESPutEmailIdentityDkimAttributesRequest new] completionHandler:^(AWSSESPutEmailIdentityDkimAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityDkimSigningAttributes {
-    NSString *key = @"testPutEmailIdentityDkimSigningAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putEmailIdentityDkimSigningAttributes:[AWSSESPutEmailIdentityDkimSigningAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityDkimSigningAttributesCompletionHandler {
-    NSString *key = @"testPutEmailIdentityDkimSigningAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putEmailIdentityDkimSigningAttributes:[AWSSESPutEmailIdentityDkimSigningAttributesRequest new] completionHandler:^(AWSSESPutEmailIdentityDkimSigningAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityFeedbackAttributes {
-    NSString *key = @"testPutEmailIdentityFeedbackAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putEmailIdentityFeedbackAttributes:[AWSSESPutEmailIdentityFeedbackAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityFeedbackAttributesCompletionHandler {
-    NSString *key = @"testPutEmailIdentityFeedbackAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putEmailIdentityFeedbackAttributes:[AWSSESPutEmailIdentityFeedbackAttributesRequest new] completionHandler:^(AWSSESPutEmailIdentityFeedbackAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityMailFromAttributes {
-    NSString *key = @"testPutEmailIdentityMailFromAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putEmailIdentityMailFromAttributes:[AWSSESPutEmailIdentityMailFromAttributesRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutEmailIdentityMailFromAttributesCompletionHandler {
-    NSString *key = @"testPutEmailIdentityMailFromAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putEmailIdentityMailFromAttributes:[AWSSESPutEmailIdentityMailFromAttributesRequest new] completionHandler:^(AWSSESPutEmailIdentityMailFromAttributesResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutSuppressedDestination {
-    NSString *key = @"testPutSuppressedDestination";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] putSuppressedDestination:[AWSSESPutSuppressedDestinationRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testPutSuppressedDestinationCompletionHandler {
-    NSString *key = @"testPutSuppressedDestination";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] putSuppressedDestination:[AWSSESPutSuppressedDestinationRequest new] completionHandler:^(AWSSESPutSuppressedDestinationResponse* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testSendBulkEmail {
-    NSString *key = @"testSendBulkEmail";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] sendBulkEmail:[AWSSESSendBulkEmailRequest new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSSES removeSESForKey:key];
-}
-
-- (void)testSendBulkEmailCompletionHandler {
-    NSString *key = @"testSendBulkEmail";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSSES registerSESWithConfiguration:configuration forKey:key];
-
-    AWSSES *awsClient = [AWSSES SESForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSSES SESForKey:key] sendBulkEmail:[AWSSESSendBulkEmailRequest new] completionHandler:^(AWSSESSendBulkEmailResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] sendBulkTemplatedEmail:[AWSSESSendBulkTemplatedEmailRequest new] completionHandler:^(AWSSESSendBulkTemplatedEmailResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3081,8 +2406,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testTagResource {
-    NSString *key = @"testTagResource";
+- (void)testSendRawEmail {
+    NSString *key = @"testSendRawEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3090,7 +2415,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] tagResource:[AWSSESTagResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] sendRawEmail:[AWSSESSendRawEmailRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -3103,8 +2428,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testTagResourceCompletionHandler {
-    NSString *key = @"testTagResource";
+- (void)testSendRawEmailCompletionHandler {
+    NSString *key = @"testSendRawEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3115,7 +2440,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] tagResource:[AWSSESTagResourceRequest new] completionHandler:^(AWSSESTagResourceResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] sendRawEmail:[AWSSESSendRawEmailRequest new] completionHandler:^(AWSSESSendRawEmailResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3129,8 +2454,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testTestRenderEmailTemplate {
-    NSString *key = @"testTestRenderEmailTemplate";
+- (void)testSendTemplatedEmail {
+    NSString *key = @"testSendTemplatedEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3138,7 +2463,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] testRenderEmailTemplate:[AWSSESTestRenderEmailTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] sendTemplatedEmail:[AWSSESSendTemplatedEmailRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -3151,8 +2476,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testTestRenderEmailTemplateCompletionHandler {
-    NSString *key = @"testTestRenderEmailTemplate";
+- (void)testSendTemplatedEmailCompletionHandler {
+    NSString *key = @"testSendTemplatedEmail";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3163,7 +2488,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] testRenderEmailTemplate:[AWSSESTestRenderEmailTemplateRequest new] completionHandler:^(AWSSESTestRenderEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] sendTemplatedEmail:[AWSSESSendTemplatedEmailRequest new] completionHandler:^(AWSSESSendTemplatedEmailResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3177,8 +2502,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUntagResource {
-    NSString *key = @"testUntagResource";
+- (void)testSetActiveReceiptRuleSet {
+    NSString *key = @"testSetActiveReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3186,7 +2511,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] untagResource:[AWSSESUntagResourceRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] setActiveReceiptRuleSet:[AWSSESSetActiveReceiptRuleSetRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -3199,8 +2524,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUntagResourceCompletionHandler {
-    NSString *key = @"testUntagResource";
+- (void)testSetActiveReceiptRuleSetCompletionHandler {
+    NSString *key = @"testSetActiveReceiptRuleSet";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3211,11 +2536,394 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] untagResource:[AWSSESUntagResourceRequest new] completionHandler:^(AWSSESUntagResourceResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] setActiveReceiptRuleSet:[AWSSESSetActiveReceiptRuleSetRequest new] completionHandler:^(AWSSESSetActiveReceiptRuleSetResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
         XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityDkimEnabled {
+    NSString *key = @"testSetIdentityDkimEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setIdentityDkimEnabled:[AWSSESSetIdentityDkimEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityDkimEnabledCompletionHandler {
+    NSString *key = @"testSetIdentityDkimEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setIdentityDkimEnabled:[AWSSESSetIdentityDkimEnabledRequest new] completionHandler:^(AWSSESSetIdentityDkimEnabledResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityFeedbackForwardingEnabled {
+    NSString *key = @"testSetIdentityFeedbackForwardingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setIdentityFeedbackForwardingEnabled:[AWSSESSetIdentityFeedbackForwardingEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityFeedbackForwardingEnabledCompletionHandler {
+    NSString *key = @"testSetIdentityFeedbackForwardingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setIdentityFeedbackForwardingEnabled:[AWSSESSetIdentityFeedbackForwardingEnabledRequest new] completionHandler:^(AWSSESSetIdentityFeedbackForwardingEnabledResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityHeadersInNotificationsEnabled {
+    NSString *key = @"testSetIdentityHeadersInNotificationsEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setIdentityHeadersInNotificationsEnabled:[AWSSESSetIdentityHeadersInNotificationsEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityHeadersInNotificationsEnabledCompletionHandler {
+    NSString *key = @"testSetIdentityHeadersInNotificationsEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setIdentityHeadersInNotificationsEnabled:[AWSSESSetIdentityHeadersInNotificationsEnabledRequest new] completionHandler:^(AWSSESSetIdentityHeadersInNotificationsEnabledResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityMailFromDomain {
+    NSString *key = @"testSetIdentityMailFromDomain";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setIdentityMailFromDomain:[AWSSESSetIdentityMailFromDomainRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityMailFromDomainCompletionHandler {
+    NSString *key = @"testSetIdentityMailFromDomain";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setIdentityMailFromDomain:[AWSSESSetIdentityMailFromDomainRequest new] completionHandler:^(AWSSESSetIdentityMailFromDomainResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityNotificationTopic {
+    NSString *key = @"testSetIdentityNotificationTopic";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setIdentityNotificationTopic:[AWSSESSetIdentityNotificationTopicRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetIdentityNotificationTopicCompletionHandler {
+    NSString *key = @"testSetIdentityNotificationTopic";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setIdentityNotificationTopic:[AWSSESSetIdentityNotificationTopicRequest new] completionHandler:^(AWSSESSetIdentityNotificationTopicResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetReceiptRulePosition {
+    NSString *key = @"testSetReceiptRulePosition";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] setReceiptRulePosition:[AWSSESSetReceiptRulePositionRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testSetReceiptRulePositionCompletionHandler {
+    NSString *key = @"testSetReceiptRulePosition";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] setReceiptRulePosition:[AWSSESSetReceiptRulePositionRequest new] completionHandler:^(AWSSESSetReceiptRulePositionResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testTestRenderTemplate {
+    NSString *key = @"testTestRenderTemplate";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] testRenderTemplate:[AWSSESTestRenderTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testTestRenderTemplateCompletionHandler {
+    NSString *key = @"testTestRenderTemplate";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] testRenderTemplate:[AWSSESTestRenderTemplateRequest new] completionHandler:^(AWSSESTestRenderTemplateResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateAccountSendingEnabled {
+    NSString *key = @"testUpdateAccountSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] updateAccountSendingEnabled:[AWSSESUpdateAccountSendingEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateAccountSendingEnabledCompletionHandler {
+    NSString *key = @"testUpdateAccountSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] updateAccountSendingEnabled:[AWSSESUpdateAccountSendingEnabledRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -3273,6 +2981,148 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
+- (void)testUpdateConfigurationSetReputationMetricsEnabled {
+    NSString *key = @"testUpdateConfigurationSetReputationMetricsEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] updateConfigurationSetReputationMetricsEnabled:[AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateConfigurationSetReputationMetricsEnabledCompletionHandler {
+    NSString *key = @"testUpdateConfigurationSetReputationMetricsEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] updateConfigurationSetReputationMetricsEnabled:[AWSSESUpdateConfigurationSetReputationMetricsEnabledRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateConfigurationSetSendingEnabled {
+    NSString *key = @"testUpdateConfigurationSetSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] updateConfigurationSetSendingEnabled:[AWSSESUpdateConfigurationSetSendingEnabledRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateConfigurationSetSendingEnabledCompletionHandler {
+    NSString *key = @"testUpdateConfigurationSetSendingEnabled";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] updateConfigurationSetSendingEnabled:[AWSSESUpdateConfigurationSetSendingEnabledRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateConfigurationSetTrackingOptions {
+    NSString *key = @"testUpdateConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] updateConfigurationSetTrackingOptions:[AWSSESUpdateConfigurationSetTrackingOptionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateConfigurationSetTrackingOptionsCompletionHandler {
+    NSString *key = @"testUpdateConfigurationSetTrackingOptions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] updateConfigurationSetTrackingOptions:[AWSSESUpdateConfigurationSetTrackingOptionsRequest new] completionHandler:^(AWSSESUpdateConfigurationSetTrackingOptionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
 - (void)testUpdateCustomVerificationEmailTemplate {
     NSString *key = @"testUpdateCustomVerificationEmailTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -3307,7 +3157,54 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] updateCustomVerificationEmailTemplate:[AWSSESUpdateCustomVerificationEmailTemplateRequest new] completionHandler:^(AWSSESUpdateCustomVerificationEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] updateCustomVerificationEmailTemplate:[AWSSESUpdateCustomVerificationEmailTemplateRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateReceiptRule {
+    NSString *key = @"testUpdateReceiptRule";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] updateReceiptRule:[AWSSESUpdateReceiptRuleRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testUpdateReceiptRuleCompletionHandler {
+    NSString *key = @"testUpdateReceiptRule";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] updateReceiptRule:[AWSSESUpdateReceiptRuleRequest new] completionHandler:^(AWSSESUpdateReceiptRuleResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3321,8 +3218,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUpdateEmailIdentityPolicy {
-    NSString *key = @"testUpdateEmailIdentityPolicy";
+- (void)testUpdateTemplate {
+    NSString *key = @"testUpdateTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3330,7 +3227,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] updateEmailIdentityPolicy:[AWSSESUpdateEmailIdentityPolicyRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] updateTemplate:[AWSSESUpdateTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -3343,8 +3240,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUpdateEmailIdentityPolicyCompletionHandler {
-    NSString *key = @"testUpdateEmailIdentityPolicy";
+- (void)testUpdateTemplateCompletionHandler {
+    NSString *key = @"testUpdateTemplate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3355,7 +3252,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] updateEmailIdentityPolicy:[AWSSESUpdateEmailIdentityPolicyRequest new] completionHandler:^(AWSSESUpdateEmailIdentityPolicyResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] updateTemplate:[AWSSESUpdateTemplateRequest new] completionHandler:^(AWSSESUpdateTemplateResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3369,8 +3266,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUpdateEmailTemplate {
-    NSString *key = @"testUpdateEmailTemplate";
+- (void)testVerifyDomainDkim {
+    NSString *key = @"testVerifyDomainDkim";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3378,7 +3275,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSSES SESForKey:key] updateEmailTemplate:[AWSSESUpdateEmailTemplateRequest new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSSES SESForKey:key] verifyDomainDkim:[AWSSESVerifyDomainDkimRequest new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -3391,8 +3288,8 @@ static id mockNetworking = nil;
     [AWSSES removeSESForKey:key];
 }
 
-- (void)testUpdateEmailTemplateCompletionHandler {
-    NSString *key = @"testUpdateEmailTemplate";
+- (void)testVerifyDomainDkimCompletionHandler {
+    NSString *key = @"testVerifyDomainDkim";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSSES registerSESWithConfiguration:configuration forKey:key];
 
@@ -3403,7 +3300,150 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSSES SESForKey:key] updateEmailTemplate:[AWSSESUpdateEmailTemplateRequest new] completionHandler:^(AWSSESUpdateEmailTemplateResponse* _Nullable response, NSError * _Nullable error) {
+	[[AWSSES SESForKey:key] verifyDomainDkim:[AWSSESVerifyDomainDkimRequest new] completionHandler:^(AWSSESVerifyDomainDkimResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyDomainIdentity {
+    NSString *key = @"testVerifyDomainIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] verifyDomainIdentity:[AWSSESVerifyDomainIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyDomainIdentityCompletionHandler {
+    NSString *key = @"testVerifyDomainIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] verifyDomainIdentity:[AWSSESVerifyDomainIdentityRequest new] completionHandler:^(AWSSESVerifyDomainIdentityResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyEmailAddress {
+    NSString *key = @"testVerifyEmailAddress";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] verifyEmailAddress:[AWSSESVerifyEmailAddressRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyEmailAddressCompletionHandler {
+    NSString *key = @"testVerifyEmailAddress";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] verifyEmailAddress:[AWSSESVerifyEmailAddressRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyEmailIdentity {
+    NSString *key = @"testVerifyEmailIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSES SESForKey:key] verifyEmailIdentity:[AWSSESVerifyEmailIdentityRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSES removeSESForKey:key];
+}
+
+- (void)testVerifyEmailIdentityCompletionHandler {
+    NSString *key = @"testVerifyEmailIdentity";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSES registerSESWithConfiguration:configuration forKey:key];
+
+    AWSSES *awsClient = [AWSSES SESForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSES SESForKey:key] verifyEmailIdentity:[AWSSESVerifyEmailIdentityRequest new] completionHandler:^(AWSSESVerifyEmailIdentityResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
