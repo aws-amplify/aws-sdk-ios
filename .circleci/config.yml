@@ -605,36 +605,6 @@ jobs:
             git commit -m "Update sample app dependency to ${release_version}"
             git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
 
-  bump_ios_amplifydocs_version:
-    macos:
-      xcode: "11.6.0"
-    steps:
-      - skip_job_unless_required
-      - set_environment_variables
-      - quit_for_nominorversion
-      - checkout
-      - run:
-          name: Set environment variables
-          command: |
-            bumpversion_repo_user=aws-amplify
-            bumpversion_repo_name=docs
-            minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
-            echo ${minorversion}
-            bump_version_message="Update iOS docs to ${release_version}"
-            bump_version_pr_title="Update iOS docs to ${release_version}"
-            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
-            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
-            echo "export minorversion=$minorversion" >> $BASH_ENV
-            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
-            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
-            echo "bump_version_pr_title:$bump_version_pr_title"
-      - bump_version_pre
-      - run:
-          name: Bump docs version
-          command:
-            python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
-      - bump_version_post
-
   release_ios_s3:
     macos:
       xcode: "11.6.0"
@@ -1565,19 +1535,9 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - bump_ios_amplifydocs_version:
-          requires:
-            - release_tag
-            - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
             - add_doc_tag
-            - bump_ios_amplifydocs_version
           filters:
             branches:
               ignore: /.*/
@@ -1587,7 +1547,6 @@ workflows:
           requires:
             - build_carthage
             - add_doc_tag
-            - bump_ios_amplifydocs_version
           filters:
             branches:
               ignore: /.*/
