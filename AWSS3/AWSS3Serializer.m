@@ -79,7 +79,7 @@
     }
 
     AWSDDLogDebug(@"Updating request to use virtual-host style URL");
-    [self updatePathComponentForVirtualHostStyleURL:components pathParts:pathParts];
+    [self updatePathComponentForVirtualHostStyleURL:components byMutatingPathParts:pathParts];
     [self updateHostComponentForVirtualHostStyleURL:components bucketName:bucketName];
 
     NSURL *newURL = [components URL];
@@ -92,18 +92,21 @@
 
 - (NSMutableArray<NSString *> *)normalizedPathPartsFromComponents:(NSURLComponents *)components {
     NSMutableArray<NSString *> *pathParts = [[components.percentEncodedPath componentsSeparatedByString:@"/"] mutableCopy];
-    // remove leading '/' if path exists
-    if (pathParts.count > 0) {
+    // Since we separate the path by "/", any non-empty path with a leading "/" will
+    // include a null first object. E.g., a path of "/foo/bar" would separate into a
+    // pathParts of [null, "foo", "bar"]. It should never happen that we receive a
+    // path without a leading slash, but this will defend against that circumstance.
+    if (pathParts.count > 0 && pathParts[0] == NULL) {
         [pathParts removeObjectAtIndex:0];
     }
     return pathParts;
 }
 
 - (void)updatePathComponentForVirtualHostStyleURL:(NSURLComponents *)components
-                                        pathParts:(NSMutableArray<NSString *> *)pathParts {
+                              byMutatingPathParts:(NSMutableArray<NSString *> *)pathParts {
     [pathParts removeObjectAtIndex:0];
     NSMutableString *path = [[pathParts componentsJoinedByString:@"/"] mutableCopy];
-    // ALl paths must have leading slash
+    // All paths must have leading slash
     [path insertString:@"/" atIndex:0];
     components.percentEncodedPath = path;
 }
@@ -116,7 +119,7 @@
 }
 
 - (BOOL)isGetBucketLocationRequest:(NSMutableURLRequest *)request {
-    return [request.URL.query hasSuffix:@"?location"];
+    return [request.URL.query hasSuffix:@"location"];
 }
 
 @end
