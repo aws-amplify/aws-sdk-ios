@@ -242,6 +242,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download ope
 
 @end
 
+DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download operations.")
 @interface AWSS3TransferManagerUploadRequest : AWSS3PutObjectRequest
 
 @property (nonatomic, assign, readonly) AWSS3TransferManagerRequestState state;
@@ -249,16 +250,19 @@ DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download ope
 
 @end
 
+DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download operations.")
 @interface AWSS3TransferManagerUploadOutput : AWSS3PutObjectOutput
 
 @end
 
+DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download operations.")
 @interface AWSS3TransferManagerDownloadRequest : AWSS3GetObjectRequest
 
 @property (nonatomic, assign, readonly) AWSS3TransferManagerRequestState state;
 
 @end
 
+DEPRECATED_MSG_ATTRIBUTE("Use `AWSS3TransferUtility` for upload and download operations.")
 @interface AWSS3TransferManagerDownloadOutput : AWSS3GetObjectOutput
 
 @end
