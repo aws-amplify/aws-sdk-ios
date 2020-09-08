@@ -55,7 +55,7 @@
 }
 
 - (AWSTask *)serializeRequest:(NSMutableURLRequest *)request headers:(NSDictionary *)headers parameters:(NSDictionary *)parameters {
-    return [[_requestSerializer serializeRequest:request headers:headers parameters:parameters] continueWithBlock:^id _Nullable(AWSTask * _Nonnull t) {
+    return [[_requestSerializer serializeRequest:request headers:headers parameters:parameters] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull t) {
         [self updateRequestToUseVirtualHostURL:request];
         return nil;
     }];
