@@ -426,7 +426,10 @@ static NSString *const AWSServiceNameTranslate = @"translate";
     _regionType = regionType;
     _serviceType = serviceType;
     _regionName = [AWSEndpoint regionNameFromType:regionType];
-    _serviceName = [self serviceNameFromType:serviceType];
+    // set the `serviceName` only if it is not already set
+    if (!_serviceName.length){
+        _serviceName = [self serviceNameFromType:serviceType];
+    }
 }
 
 + (NSString *)regionNameFromType:(AWSRegionType)regionType {
