@@ -56,8 +56,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointPushEventSourceType) {
  The Pinpoint targeting client must intercept this callback in order to report campaign analytics correctly.
  
  @param launchOptions A dictionary indicating the reason the app was launched (if any). The contents of this dictionary
- may be empty in situations where the user launched the app directly. For information about the possible keys in this
- dictionary and how to handle them.
+ may be empty in situations where the user launched the app directly.
  */
 - (BOOL)interceptDidFinishLaunchingWithOptions:(nullable NSDictionary *)launchOptions;
 
