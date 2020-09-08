@@ -502,6 +502,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingLoadBalancerAddress *> * _Nullable loadBalancerAddresses;
 
 /**
+ <p>[Application Load Balancers on Outposts] The ID of the Outpost.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostId;
+
+/**
  <p>The ID of the subnet. You can specify one subnet per Availability Zone.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable subnetId;
@@ -612,6 +617,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
+ <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool (CoIP pool).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
+
+/**
  <p>[Application Load Balancers] The type of IP addresses used by the subnets for your load balancer. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
@@ -632,12 +642,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet.</p>
+ <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingSubnetMapping *> * _Nullable subnetMappings;
 
 /**
- <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p>
+ <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
@@ -1483,7 +1493,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The Availability Zones for the load balancer.</p>
+ <p>The subnets for the load balancer.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAvailabilityZone *> * _Nullable availabilityZones;
 
@@ -1496,6 +1506,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The date and time the load balancer was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createdTime;
+
+/**
+ <p>[Application Load Balancers on Outposts] The ID of the customer-owned address pool.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable customerOwnedIpv4Pool;
 
 /**
  <p>The public DNS name of the load balancer.</p>
@@ -2220,7 +2235,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>Information about the subnet and Availability Zone.</p>
+ <p>Information about the subnets.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAvailabilityZone *> * _Nullable availabilityZones;
 
