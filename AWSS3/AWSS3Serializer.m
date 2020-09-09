@@ -30,14 +30,14 @@
 - (instancetype)initWithJSONDefinition:(NSDictionary *)JSONDefinition
                             actionName:(NSString *)actionName{
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSDDLogError(@"serviceDefinitionJSON is nil.");
             return nil;
         }
         _actionName = actionName;
-        
+
         //get and put bucket policy use json, while rest use xml
         if([[_actionName lowercaseString] isEqualToString:@"putbucketpolicy"]
            || [[_actionName lowercaseString] isEqualToString:@"getbucketpolicy"]){
@@ -46,7 +46,7 @@
             _requestSerializer = [[AWSXMLRequestSerializer alloc]initWithJSONDefinition:JSONDefinition actionName:actionName];
         }
     }
-    
+
     return self;
 }
 
@@ -95,7 +95,8 @@
     // Since we separate the path by "/", any non-empty path with a leading "/" will
     // include a null first object. E.g., a path of "/foo/bar" would separate into a
     // pathParts of ["", "foo", "bar"]. It should never happen that we receive a
-    // path without a leading slash, but this will defend against that circumstance.
+    // path without a leading slash, but this will defend against that circumstance
+    // instead of blindly removing the first path part.
     if (pathParts.count > 0 && [pathParts[0] length] == 0) {
         [pathParts removeObjectAtIndex:0];
     }
@@ -139,16 +140,16 @@
                             actionName:(NSString *)actionName
                            outputClass:(Class)outputClass{
     if (self = [super init]) {
-        
+
         _serviceDefinitionJSON = JSONDefinition;
         if (_serviceDefinitionJSON == nil) {
             AWSDDLogError(@"serviceDefinitionJSON is nil.");
             return nil;
         }
         _actionName = actionName;
-        
+
         _outputClass = outputClass;
-        
+
         //get and put bucket policy use json, while rest use xml
         if([[_actionName lowercaseString] isEqualToString:@"putbucketpolicy"]
            || [[_actionName lowercaseString] isEqualToString:@"getbucketpolicy"]){
@@ -157,7 +158,7 @@
             _responseSerializer = [[AWSXMLResponseSerializer alloc]initWithJSONDefinition:JSONDefinition actionName:actionName outputClass:outputClass];
         }
     }
-    
+
     return self;
 }
 
@@ -179,14 +180,14 @@ static NSDictionary *errorCodeDictionary = nil;
                  currentRequest:(NSURLRequest *)currentRequest
                            data:(id)data
                           error:(NSError *__autoreleasing *)error {
-    
+
     id responseObject =  [_responseSerializer responseObjectForResponse:response
                                           originalRequest:originalRequest
                                            currentRequest:currentRequest
                                                      data:data
                                                     error:error];
-    
-    
+
+
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         NSDictionary *errorInfo = responseObject[@"Error"];
         if (errorInfo[@"Code"] && errorCodeDictionary[errorInfo[@"Code"]]) {
@@ -205,7 +206,7 @@ static NSDictionary *errorCodeDictionary = nil;
             }
         }
     }
-    
+
     if (!*error
         && response.statusCode/100 != 2
         && response.statusCode/100 != 3) {
@@ -213,7 +214,7 @@ static NSDictionary *errorCodeDictionary = nil;
                                      code:AWSS3ErrorUnknown
                                  userInfo:nil];
     }
-    
+
     if (!*error && [responseObject isKindOfClass:[NSDictionary class]]) {
         if (self.outputClass) {
             responseObject = [AWSMTLJSONAdapter modelOfClass:self.outputClass
@@ -221,16 +222,16 @@ static NSDictionary *errorCodeDictionary = nil;
                                                        error:error];
         }
     }
-    
+
     return responseObject;
-    
+
 }
 
 - (BOOL)validateResponse:(NSHTTPURLResponse *)response
              fromRequest:(NSURLRequest *)request
                     data:(id)data
                    error:(NSError *__autoreleasing *)error{
-    
+
     return [_responseSerializer validateResponse:response
                                      fromRequest:request
                                             data:data
