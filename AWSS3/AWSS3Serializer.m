@@ -94,9 +94,9 @@
     NSMutableArray<NSString *> *pathParts = [[components.percentEncodedPath componentsSeparatedByString:@"/"] mutableCopy];
     // Since we separate the path by "/", any non-empty path with a leading "/" will
     // include a null first object. E.g., a path of "/foo/bar" would separate into a
-    // pathParts of [null, "foo", "bar"]. It should never happen that we receive a
+    // pathParts of ["", "foo", "bar"]. It should never happen that we receive a
     // path without a leading slash, but this will defend against that circumstance.
-    if (pathParts.count > 0 && pathParts[0] == NULL) {
+    if (pathParts.count > 0 && [pathParts[0] length] == 0) {
         [pathParts removeObjectAtIndex:0];
     }
     return pathParts;
