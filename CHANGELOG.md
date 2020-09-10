@@ -5,7 +5,33 @@
 ### New features
 
 - **Amazon S3**
-  - The AWSS3 SDK now uses [virtual-host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access) for DNS-compliant bucket names. (See [issue #1535](https://github.com/aws-amplify/aws-sdk-ios/issues/1535), and [PR #2996](https://github.com/aws-amplify/aws-sdk-ios/pull/2996)). This does not affect AWSS3TransferUtility, which already uses virtual-host style addressing in its operations.
+  - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3
+
+    Previously, the SDK constructed URLs for S3 requests with different rules depending on the region (e.g., calls to endpoints in us-east-1 would be made to `s3.amazonaws.com`, while calls to endpoints in some older regions would be constructed as `s3-<region>.amazonaws.com`, while calls to endpoints in newer regions would be constructed as `s3.<region>.amazonaws.com`. With this revision of the SDK, the base URL for **all** S3 operations to supported endpoints will be constructed as: `"s3" + "." + region name + ".amazonaws.com"`. See [PR #3008](https://github.com/aws-amplify/aws-sdk-ios/pull/3008).
+
+    In addition to this, the SDK now uses [virtual-host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access) for DNS-compliant bucket names. (See [issue #1535](https://github.com/aws-amplify/aws-sdk-ios/issues/1535), and [PR #2996](https://github.com/aws-amplify/aws-sdk-ios/pull/2996)).
+
+    Thus, this revision of the SDK will make most requests to endpoint URLs of the form: `<bucket>.s3.<region>.amazonaws.com`.
+
+    **Impact**
+
+    This change should be transparent to most customers. If you used the Amplify CLI to provision their S3 backend, and set up your SDKs with an `awsconfiguration.json` file or `amplifyconfiguration.json` file, you won't need to take any action. If you set up the S3 client manually using an AWSEndpoint initialized with `-[AWSEndpoint initWithRegion:service:useUnsafeURL:]`, you also won't need to take any action.
+
+    - This change may impact customers who manually set up their S3 SDK using URL-based initializers like `-[AWSEndpoint initWithRegion:service:URL:]`.
+    - This change may impact customers who have custom security setups in their app (such as SSL pinning or host validation), since the constructed host names are now different
+    - This change may impact customers who parse access logs in CloudTrail, since accesses will now be recorded using a different URL
+
+    **Limitations**
+
+    The AWS Mobile SDK for iOS automatically uses virtual host style URLs for operations made via the S3 SDK APIs, operations made via TransferUtility, and operations using transfer acceleration via TransferUtility. However, there are a few cases where the SDK will not use virtual host style URLs:
+    - When the client is configured with a custom endpoint, including custom endpoints to specify `dualstack` or FIPS-compliant endpoints
+    - When the specified bucket name is not DNS compliant
+    - When the specified bucket name contains a dot character (`"."`)
+    - When making a [`GetBucketLocation`](https://github.com/aws-amplify/aws-sdk-ios/blob/df5cb0b37d34759104512fd705a1c9e7e62a2517/AWSS3/AWSS3Service.h#L851) API call
+
+    **Resources**
+    - [Virtual host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access)
+    - [Path-style deprecation](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/)
 
 ## 2.16.0
 
