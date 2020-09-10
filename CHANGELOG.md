@@ -7,7 +7,7 @@
 - **Amazon S3**
   - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3
 
-    Previously, the SDK constructed URLs for S3 requests with different rules depending on the region (e.g., calls to endpoints in us-east-1 would be made to `s3.amazonaws.com`, while calls to endpoints in some older regions would be constructed as `s3-<region>.amazonaws.com`, while calls to endpoints in newer regions would be constructed as `s3.<region>.amazonaws.com`. With this revision of the SDK, the base URL for **all** S3 operations to supported endpoints will be constructed as: `"s3" + "." + region name + ".amazonaws.com"`. See [PR #XXXX](https://github.com/aws-amplify/aws-sdk-ios/pull/XXXX).
+    Previously, the SDK constructed URLs for S3 requests with different rules depending on the region (e.g., calls to endpoints in us-east-1 would be made to `s3.amazonaws.com`, while calls to endpoints in some older regions would be constructed as `s3-<region>.amazonaws.com`, while calls to endpoints in newer regions would be constructed as `s3.<region>.amazonaws.com`. With this revision of the SDK, the base URL for **all** S3 operations to supported endpoints will be constructed as: `"s3" + "." + region name + ".amazonaws.com"`. See [PR #3008](https://github.com/aws-amplify/aws-sdk-ios/pull/3008).
 
     In addition to this, the SDK now uses [virtual-host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access) for DNS-compliant bucket names. (See [issue #1535](https://github.com/aws-amplify/aws-sdk-ios/issues/1535), and [PR #2996](https://github.com/aws-amplify/aws-sdk-ios/pull/2996)).
 
