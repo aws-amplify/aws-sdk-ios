@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.15.3";
+NSString *const AWSLambdaSDKVersion = @"2.16.0";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
