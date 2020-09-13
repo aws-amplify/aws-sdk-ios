@@ -12,7 +12,7 @@ Pod::Spec.new do |s|
    s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                       :tag => s.version}
    s.requires_arc = true
-   s.dependency 'AWSAuthCore', '2.15.3'
+   s.dependency 'AWSAuthCore', '2.16.0'
    s.dependency 'FBSDKLoginKit', '6.5'
    s.dependency 'FBSDKCoreKit', '6.5'
 
