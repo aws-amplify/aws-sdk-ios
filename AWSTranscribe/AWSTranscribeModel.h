@@ -1487,6 +1487,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
 /**
+ <p>Set this field to <code>true</code> to enable automatic language identification. Automatic language identification is disabled by default. You receive a <code>BadRequestException</code> error if you enter a value for a <code>LanguageCode</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
+
+/**
  <p>Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
@@ -1495,6 +1500,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The language code for the language used in the input media file.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable languageOptions;
 
 /**
  <p>An object that describes the input media for a transcription job.</p>
@@ -1596,6 +1606,16 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable failureReason;
 
 /**
+ <p>The score that Amazon Transcribe gives for the predominant language that it identified in your collection of source audio files. This score reflects the confidence that the language that Amazon Transcribe identified is the correct language.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifiedLanguageScore;
+
+/**
+ <p>A value that shows if automatic language identification was enabled for a transcription job.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
+
+/**
  <p>Provides information about how a transcription job is executed.</p>
  */
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
@@ -1604,6 +1624,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The language code for the input speech.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable languageOptions;
 
 /**
  <p>An object that describes the input media for the transcription job.</p>
@@ -1677,6 +1702,16 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifiedLanguageScore;
+
+/**
+ <p>Whether automatic language identification was enabled for a transcription job.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
 
 /**
  <p>The language code for the input speech.</p>
