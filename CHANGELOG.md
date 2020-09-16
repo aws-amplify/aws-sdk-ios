@@ -33,6 +33,12 @@
     - [Virtual host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access)
     - [Path-style deprecation](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/)
 
+### Misc. Updates
+- **AWSAuthSDK**
+  - Upgrade Facebook SDK to 6.5.2 ([PR #2990](https://github.com/aws-amplify/aws-sdk-ios/pull/2990))
+- **AWSPinpoint**
+  - Deprecate handler argument in intercept notification ([PR #2910](https://github.com/aws-amplify/aws-sdk-ios/pull/2910))
+
 ## 2.16.0
 
 ### Note for Xcode 12 support
