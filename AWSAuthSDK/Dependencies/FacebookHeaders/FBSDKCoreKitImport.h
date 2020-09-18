@@ -16,40 +16,9 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Foundation/Foundation.h>
+// Importing FBSDKCoreKit is tricky due to build variants.
+// SPM require that it is imported as <FBSDKCoreKit.h> while CocoaPods,
+// Carthage, Buck, and xcodebuild require <FBSDKCoreKit/FBSDKCoreKit.h>
+// This file is used for SPM builds and excluded from other build channels
 
-#ifdef FBSDKCOCOAPODS
-#import <FBSDKCoreKit/FBSDKAccessToken.h>
-#endif
-
-@class FBSDKAccessToken;
-
-NS_ASSUME_NONNULL_BEGIN
-
-/*!
- @abstract Represents the results of the a device login flow.
- @discussion This is used by `FBSDKDeviceLoginManager`.
- */
-NS_SWIFT_NAME(DeviceLoginManagerResult)
-@interface FBSDKDeviceLoginManagerResult : NSObject
-
-/*!
- @abstract There is no public initializer.
- */
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-/*!
- @abstract The token.
- */
-@property (nullable, nonatomic, strong, readonly) FBSDKAccessToken *accessToken;
-
-/*!
- @abstract Indicates if the login was cancelled by the user, or if the device
-  login code has expired.
- */
-@property (nonatomic, assign, readonly, getter=isCancelled) BOOL cancelled;
-
-@end
-
-NS_ASSUME_NONNULL_END
+#import <FBSDKCoreKit.h>
