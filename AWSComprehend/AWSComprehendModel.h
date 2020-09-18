@@ -134,6 +134,45 @@ typedef NS_ENUM(NSInteger, AWSComprehendPartOfSpeechTagType) {
     AWSComprehendPartOfSpeechTagTypeVerb,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntitiesDetectionMaskMode) {
+    AWSComprehendPiiEntitiesDetectionMaskModeUnknown,
+    AWSComprehendPiiEntitiesDetectionMaskModeMask,
+    AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntitiesDetectionMode) {
+    AWSComprehendPiiEntitiesDetectionModeUnknown,
+    AWSComprehendPiiEntitiesDetectionModeOnlyRedaction,
+    AWSComprehendPiiEntitiesDetectionModeOnlyOffsets,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntityType) {
+    AWSComprehendPiiEntityTypeUnknown,
+    AWSComprehendPiiEntityTypeBankAccountNumber,
+    AWSComprehendPiiEntityTypeBankRouting,
+    AWSComprehendPiiEntityTypeCreditDebitNumber,
+    AWSComprehendPiiEntityTypeCreditDebitCvv,
+    AWSComprehendPiiEntityTypeCreditDebitExpiry,
+    AWSComprehendPiiEntityTypePin,
+    AWSComprehendPiiEntityTypeEmail,
+    AWSComprehendPiiEntityTypeAddress,
+    AWSComprehendPiiEntityTypeName,
+    AWSComprehendPiiEntityTypePhone,
+    AWSComprehendPiiEntityTypeSsn,
+    AWSComprehendPiiEntityTypeDateTime,
+    AWSComprehendPiiEntityTypePassportNumber,
+    AWSComprehendPiiEntityTypeDriverId,
+    AWSComprehendPiiEntityTypeUrl,
+    AWSComprehendPiiEntityTypeAge,
+    AWSComprehendPiiEntityTypeUsername,
+    AWSComprehendPiiEntityTypePassword,
+    AWSComprehendPiiEntityTypeAwsAccessKey,
+    AWSComprehendPiiEntityTypeAwsSecretKey,
+    AWSComprehendPiiEntityTypeIpAddress,
+    AWSComprehendPiiEntityTypeMacAddress,
+    AWSComprehendPiiEntityTypeAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendSentimentType) {
     AWSComprehendSentimentTypeUnknown,
     AWSComprehendSentimentTypePositive,
@@ -198,6 +237,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDescribeEntityRecognizerResponse;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobRequest;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobResponse;
+@class AWSComprehendDescribePiiEntitiesDetectionJobRequest;
+@class AWSComprehendDescribePiiEntitiesDetectionJobResponse;
 @class AWSComprehendDescribeSentimentDetectionJobRequest;
 @class AWSComprehendDescribeSentimentDetectionJobResponse;
 @class AWSComprehendDescribeTopicsDetectionJobRequest;
@@ -208,6 +249,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDetectEntitiesResponse;
 @class AWSComprehendDetectKeyPhrasesRequest;
 @class AWSComprehendDetectKeyPhrasesResponse;
+@class AWSComprehendDetectPiiEntitiesRequest;
+@class AWSComprehendDetectPiiEntitiesResponse;
 @class AWSComprehendDetectSentimentRequest;
 @class AWSComprehendDetectSentimentResponse;
 @class AWSComprehendDetectSyntaxRequest;
@@ -257,6 +300,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListEntityRecognizersResponse;
 @class AWSComprehendListKeyPhrasesDetectionJobsRequest;
 @class AWSComprehendListKeyPhrasesDetectionJobsResponse;
+@class AWSComprehendListPiiEntitiesDetectionJobsRequest;
+@class AWSComprehendListPiiEntitiesDetectionJobsResponse;
 @class AWSComprehendListSentimentDetectionJobsRequest;
 @class AWSComprehendListSentimentDetectionJobsResponse;
 @class AWSComprehendListTagsForResourceRequest;
@@ -265,6 +310,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListTopicsDetectionJobsResponse;
 @class AWSComprehendOutputDataConfig;
 @class AWSComprehendPartOfSpeechTag;
+@class AWSComprehendPiiEntitiesDetectionJobFilter;
+@class AWSComprehendPiiEntitiesDetectionJobProperties;
+@class AWSComprehendPiiEntity;
+@class AWSComprehendPiiOutputDataConfig;
+@class AWSComprehendRedactionConfig;
 @class AWSComprehendSentimentDetectionJobFilter;
 @class AWSComprehendSentimentDetectionJobProperties;
 @class AWSComprehendSentimentScore;
@@ -276,6 +326,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStartEntitiesDetectionJobResponse;
 @class AWSComprehendStartKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStartKeyPhrasesDetectionJobResponse;
+@class AWSComprehendStartPiiEntitiesDetectionJobRequest;
+@class AWSComprehendStartPiiEntitiesDetectionJobResponse;
 @class AWSComprehendStartSentimentDetectionJobRequest;
 @class AWSComprehendStartSentimentDetectionJobResponse;
 @class AWSComprehendStartTopicsDetectionJobRequest;
@@ -286,6 +338,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStopEntitiesDetectionJobResponse;
 @class AWSComprehendStopKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStopKeyPhrasesDetectionJobResponse;
+@class AWSComprehendStopPiiEntitiesDetectionJobRequest;
+@class AWSComprehendStopPiiEntitiesDetectionJobResponse;
 @class AWSComprehendStopSentimentDetectionJobRequest;
 @class AWSComprehendStopSentimentDetectionJobResponse;
 @class AWSComprehendStopTrainingDocumentClassifierRequest;
@@ -1135,6 +1189,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendDescribePiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribePiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>Provides information about a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiEntitiesDetectionJobProperties * _Nullable piiEntitiesDetectionJobProperties;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendDescribeSentimentDetectionJobRequest : AWSRequest
 
 
@@ -1274,6 +1354,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendKeyPhrase *> * _Nullable keyPhrases;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectPiiEntitiesRequest : AWSRequest
+
+
+/**
+ <p>The language of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectPiiEntitiesResponse : AWSModel
+
+
+/**
+ <p>A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendPiiEntity *> * _Nullable entities;
 
 @end
 
@@ -2649,6 +2760,47 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendListPiiEntitiesDetectionJobsRequest : AWSRequest
+
+
+/**
+ <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiEntitiesDetectionJobFilter * _Nullable filter;
+
+/**
+ <p>The maximum number of results to return in each page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListPiiEntitiesDetectionJobsResponse : AWSModel
+
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list containing the properties of each job that is returned.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendPiiEntitiesDetectionJobProperties *> * _Nullable piiEntitiesDetectionJobPropertiesList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendListSentimentDetectionJobsRequest : AWSRequest
 
 
@@ -2793,6 +2945,172 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Identifies the part of speech that the token represents.</p>
  */
 @property (nonatomic, assign) AWSComprehendPartOfSpeechTagType tag;
+
+@end
+
+/**
+ <p>Provides information for filtering a list of PII entity detection jobs.</p>
+ */
+@interface AWSComprehendPiiEntitiesDetectionJobFilter : AWSModel
+
+
+/**
+ <p>Filters on the name of the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeAfter;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeBefore;
+
+@end
+
+/**
+ <p>Provides information about a PII entities detection job.</p>
+ */
+@interface AWSComprehendPiiEntitiesDetectionJobProperties : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>The time that the PII entities detection job completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The input properties for a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier assigned to the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The name that you assigned the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The current status of the PII entities detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>The language code of the input documents</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A description of the status of a job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMode mode;
+
+/**
+ <p>The output data configuration that you supplied when you created the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p><p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
+ */
+@property (nonatomic, strong) AWSComprehendRedactionConfig * _Nullable redactionConfig;
+
+/**
+ <p>The time that the PII entities detection job was submitted for processing.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+@end
+
+/**
+ <p>Provides information about a PII entity.</p>
+ */
+@interface AWSComprehendPiiEntity : AWSModel
+
+
+/**
+ <p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable beginOffset;
+
+/**
+ <p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endOffset;
+
+/**
+ <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+/**
+ <p>The entity's type.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntityType types;
+
+@end
+
+/**
+ <p>Provides configuration parameters for the output of PII entity detection jobs.</p>
+ Required parameters: [S3Uri]
+ */
+@interface AWSComprehendPiiOutputDataConfig : AWSModel
+
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p>
+ */
+@interface AWSComprehendRedactionConfig : AWSModel
+
+
+/**
+ <p>A character that replaces each character in the redacted PII entity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable maskCharacter;
+
+/**
+ <p>Specifies whether the PII entity is redacted with the mask character or the entity type.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMaskMode maskMode;
+
+/**
+ <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable piiEntityTypes;
 
 @end
 
@@ -3187,6 +3505,72 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendStartPiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>The input properties for a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier of the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The language of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMode mode;
+
+/**
+ <p>Provides conﬁguration parameters for the output of PII entity detection jobs.</p>
+ */
+@property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p><p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
+ */
+@property (nonatomic, strong) AWSComprehendRedactionConfig * _Nullable redactionConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStartPiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>The identifier generated for the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the job.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendStartSentimentDetectionJobRequest : AWSRequest
 
 
@@ -3404,6 +3788,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopKeyPhrasesDetectionJob</code> operation.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopPiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the PII entities detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopPiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>The identifier of the PII entities detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the PII entities detection job.</p>
  */
 @property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
 
