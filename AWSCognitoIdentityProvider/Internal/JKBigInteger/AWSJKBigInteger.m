@@ -12,6 +12,10 @@
     aws_mp_int m_value;
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithValue:(aws_mp_int *)value {
 
     self = [super init];
