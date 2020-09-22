@@ -17,14 +17,13 @@
 
 #import <UIKit/UIKit.h>
 #import <XCTest/XCTest.h>
+#import <AWSCore/AWSCore.h>
 #import "AWSPinpointContext.h"
 
 #import "AWSPinpointEventRecorderTestBase.h"
 
 static NSString *const AWSKinesisRecorderTestStream = @"AWSSDKForiOSv2Test";
 static NSString *const DEFAULT_SESSION_ID = @"00000000-00000000";
-static NSUInteger const AWSPinpointClientValidEvent = 0;
-static NSUInteger const AWSPinpointClientInvalidEvent = 1;
 static NSString *const TestUpdateSessionJourneyAttributes = @"testUpdateSessionJourneyAttributes";
 static NSString *const TestUpdateSessionCampaignAttributes = @"testUpdateSessionCampaignAttributes";
 static NSString *const TestUpdateSessionOverwriteCampaignAttributesWithJourney = @"testUpdateSessionOverwriteCampaignAttributesWithJourney";
@@ -153,7 +152,9 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     //Tests that session info is not deleted from userdefaults
     XCTAssertNotNil([userDefaults dataForKey:AWSPinpointSessionKey]);
     NSData *sessionData = [userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+    AWSPinpointSession *previousSession = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                          fromData:sessionData
+                                                                                             error:nil];
     NSString *sessionId = previousSession.sessionId;
     
     AWSPinpointEvent *event2 = [[AWSPinpointEvent alloc] initWithEventType:@"TEST"
@@ -270,8 +271,10 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
+    AWSPinpointSession *session = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                  fromData:data
+                                                                                     error:nil];
+
     AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
     
     XCTAssertNil([pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey]);
@@ -329,7 +332,9 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
 
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    AWSPinpointSession *session = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                  fromData:data
+                                                                                     error:nil];
 
     AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
 
@@ -389,8 +394,10 @@ targetingServiceConfiguration:(AWSServiceConfiguration*) targetingServiceConfigu
     [[pinpoint.analyticsClient.eventRecorder removeAllEvents] waitUntilFinished];
     
     NSData *data = [pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
-    
+    AWSPinpointSession *session = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                  fromData:data
+                                                                                     error:nil];
+
     AWSDDLogError(@"Session Object Should be Empty: %@",session.description);
     
     XCTAssertNil([pinpoint.pinpointContext.configuration.userDefaults dataForKey:AWSPinpointSessionKey]);
