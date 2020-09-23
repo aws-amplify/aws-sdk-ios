@@ -67,6 +67,15 @@ function write_munged_podspec {
     > "${dst_file}"
 }
 
+function resolve_version_for_pod {
+  declare -r pod_name=$1
+  if [[ $pod_name = "AWSCognitoIdentityProviderASF" ]] ; then
+    echo "1.1.0"
+  else
+    echo "${new_version}"
+  fi
+}
+
 declare -r old_version="$1"
 if [[ -z $old_version ]] ; then
   echo "Must specify old_version" >&2
@@ -90,7 +99,9 @@ while read -r podspec_file ; do
   podspec_file_names+=("$podspec_file_name")
   pod_name=$( basename "$podspec_file_name" .podspec )
 
-  dst_dir="${COCOAPODS_REPO_DIR}/${pod_name}/${new_version}"
+  resolved_version=$( resolve_version_for_pod "${pod_name}" )
+
+  dst_dir="${COCOAPODS_REPO_DIR}/${pod_name}/${resolved_version}"
   dst_file="${dst_dir}/${podspec_file_name}"
 
   mkdir -p "${dst_dir}"
