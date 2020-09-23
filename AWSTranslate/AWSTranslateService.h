@@ -179,7 +179,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteTerminology service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateDeleteTerminologyRequest
  */
@@ -190,7 +190,7 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteTerminology service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInternalServer`.
  
  @see AWSTranslateDeleteTerminologyRequest
  */
