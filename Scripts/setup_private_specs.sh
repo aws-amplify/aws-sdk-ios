@@ -107,3 +107,9 @@ for podspec_file_name in "${podspec_file_names[@]}" ; do
   echo "pod lib lint --sources=${LOCAL_SPEC_REPO_NAME},trunk ${podspec_file_name}"
 done
 
+echo
+echo "To use the private specs in a local project, add the following lines to your Podfile:"
+echo "source '${LOCAL_SPEC_GIT_ROOT}'"
+echo "source 'https://cdn.cocoapods.org'"
+
+
