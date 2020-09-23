@@ -500,6 +500,74 @@ jobs:
           name: Upload Carthage archive to GitHub release
           command: github-release upload -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} -f aws-sdk-ios-carthage.framework.zip -n aws-sdk-ios-carthage.framework.zip
 
+  lint_cocoapods_palpatim_test:
+    macos:
+      xcode: "11.6.0"
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - run:
+          # Note that this invocation of cocoapods_release requires at least
+          # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
+          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 11.6.0 Xcode
+          # image, but just to be safe, we'll manually update cocoapods-trunk
+          name: Update cocoapods-trunk to support --synchronous flag
+          command: gem update cocoapods-trunk
+      - run:
+          name: Update local spec repo
+          command: ./Scripts/setup_private_specs.sh 2.16.0 2.16.0
+      - run:
+          name: Lint all pods
+          command: |
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAPIGateway.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAppleSignIn.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAuth.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAuthCore.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAuthUI.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSAutoScaling.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCloudWatch.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCognito.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCognitoAuth.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCognitoIdentityProvider.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCognitoIdentityProviderASF.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCognitoSync.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSComprehend.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSConnect.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSConnectParticipant.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSCore.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSDynamoDB.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSEC2.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSElasticLoadBalancing.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSFacebookSignIn.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSGoogleSignIn.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSIoT.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSKMS.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSKinesis.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSKinesisVideo.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSKinesisVideoArchivedMedia.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSKinesisVideoSignaling.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSLambda.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSLex.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSLogs.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSMachineLearning.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSMobileAnalytics.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSMobileClient.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSPinpoint.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSPolly.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSRekognition.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSS3.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSSES.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSSNS.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSSQS.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSSageMakerRuntime.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSSimpleDB.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSTextract.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSTranscribe.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSTranscribeStreaming.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSTranslate.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSUserPoolsSignIn.podspec
+            pod lib lint --sources=aws-sdk-ios-local-specs,trunk --allow-warnings AWSiOSSDKv2.podspec
+
   release_cocoapods:
     macos:
       xcode: "11.6.0"
@@ -1521,6 +1589,16 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      # TODO: REMOVE THIS BEFORE MERGING
+      - build_carthage_palpatim_test:
+          filters:
+            branches:
+              only: palpatim/xcode-12-build-fix
+      - lint_cocoapods_palpatim_test:
+          filters:
+            branches:
+              only: palpatim/xcode-12-build-fix
+      # TODO: END REMOVE
       - build_carthage:
           requires:
             - unittest
