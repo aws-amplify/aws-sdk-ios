@@ -894,6 +894,16 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
+      # TODO: REMOVE THIS BEFORE MERGING
+      - build_carthage_palpatim_test:
+          filters:
+            branches:
+              only: palpatim/xcode-12-build-fix
+      - lint_cocoapods_palpatim_test:
+          filters:
+            branches:
+              only: palpatim/xcode-12-build-fix
+      # TODO: REMOVE THIS BEFORE MERGING
       - unittest:
           requires:
             - build
