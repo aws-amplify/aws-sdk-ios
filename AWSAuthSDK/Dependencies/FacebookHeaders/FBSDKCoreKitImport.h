@@ -23,8 +23,5 @@
 
 // Even though this file is not available from projects using SPM,
 // it is available when building the packages themselves so we need to include this check.
-#if FBSDK_SWIFT_PACKAGE
+
 #import <FBSDKCoreKit.h>
-#else
-#import <FBSDKCoreKit/FBSDKCoreKit.h>
-#endif
