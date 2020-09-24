@@ -3170,6 +3170,15 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"flac"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatFlac);
         }
+        if ([value caseInsensitiveCompare:@"ogg"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatOgg);
+        }
+        if ([value caseInsensitiveCompare:@"amr"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatAmr);
+        }
+        if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatWebm);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3181,6 +3190,12 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"wav";
             case AWSTranscribeMediaFormatFlac:
                 return @"flac";
+            case AWSTranscribeMediaFormatOgg:
+                return @"ogg";
+            case AWSTranscribeMediaFormatAmr:
+                return @"amr";
+            case AWSTranscribeMediaFormatWebm:
+                return @"webm";
             default:
                 return nil;
         }
@@ -3670,6 +3685,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"medicalTranscriptionJobName" : @"MedicalTranscriptionJobName",
              @"outputBucketName" : @"OutputBucketName",
              @"outputEncryptionKMSKeyId" : @"OutputEncryptionKMSKeyId",
+             @"outputKey" : @"OutputKey",
              @"settings" : @"Settings",
              @"specialty" : @"Specialty",
              @"types" : @"Type",
@@ -3885,6 +3901,15 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"flac"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatFlac);
         }
+        if ([value caseInsensitiveCompare:@"ogg"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatOgg);
+        }
+        if ([value caseInsensitiveCompare:@"amr"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatAmr);
+        }
+        if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatWebm);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3896,6 +3921,12 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"wav";
             case AWSTranscribeMediaFormatFlac:
                 return @"flac";
+            case AWSTranscribeMediaFormatOgg:
+                return @"ogg";
+            case AWSTranscribeMediaFormatAmr:
+                return @"amr";
+            case AWSTranscribeMediaFormatWebm:
+                return @"webm";
             default:
                 return nil;
         }
@@ -3964,14 +3995,17 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentRedaction" : @"ContentRedaction",
+             @"identifyLanguage" : @"IdentifyLanguage",
              @"jobExecutionSettings" : @"JobExecutionSettings",
              @"languageCode" : @"LanguageCode",
+             @"languageOptions" : @"LanguageOptions",
              @"media" : @"Media",
              @"mediaFormat" : @"MediaFormat",
              @"mediaSampleRateHertz" : @"MediaSampleRateHertz",
              @"modelSettings" : @"ModelSettings",
              @"outputBucketName" : @"OutputBucketName",
              @"outputEncryptionKMSKeyId" : @"OutputEncryptionKMSKeyId",
+             @"outputKey" : @"OutputKey",
              @"settings" : @"Settings",
              @"transcriptionJobName" : @"TranscriptionJobName",
              };
@@ -4194,6 +4228,15 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"flac"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatFlac);
         }
+        if ([value caseInsensitiveCompare:@"ogg"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatOgg);
+        }
+        if ([value caseInsensitiveCompare:@"amr"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatAmr);
+        }
+        if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatWebm);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4205,6 +4248,12 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"wav";
             case AWSTranscribeMediaFormatFlac:
                 return @"flac";
+            case AWSTranscribeMediaFormatOgg:
+                return @"ogg";
+            case AWSTranscribeMediaFormatAmr:
+                return @"amr";
+            case AWSTranscribeMediaFormatWebm:
+                return @"webm";
             default:
                 return nil;
         }
@@ -4254,8 +4303,11 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"contentRedaction" : @"ContentRedaction",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
+             @"identifiedLanguageScore" : @"IdentifiedLanguageScore",
+             @"identifyLanguage" : @"IdentifyLanguage",
              @"jobExecutionSettings" : @"JobExecutionSettings",
              @"languageCode" : @"LanguageCode",
+             @"languageOptions" : @"LanguageOptions",
              @"media" : @"Media",
              @"mediaFormat" : @"MediaFormat",
              @"mediaSampleRateHertz" : @"MediaSampleRateHertz",
@@ -4501,6 +4553,15 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         if ([value caseInsensitiveCompare:@"flac"] == NSOrderedSame) {
             return @(AWSTranscribeMediaFormatFlac);
         }
+        if ([value caseInsensitiveCompare:@"ogg"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatOgg);
+        }
+        if ([value caseInsensitiveCompare:@"amr"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatAmr);
+        }
+        if ([value caseInsensitiveCompare:@"webm"] == NSOrderedSame) {
+            return @(AWSTranscribeMediaFormatWebm);
+        }
         return @(AWSTranscribeMediaFormatUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4512,6 +4573,12 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
                 return @"wav";
             case AWSTranscribeMediaFormatFlac:
                 return @"flac";
+            case AWSTranscribeMediaFormatOgg:
+                return @"ogg";
+            case AWSTranscribeMediaFormatAmr:
+                return @"amr";
+            case AWSTranscribeMediaFormatWebm:
+                return @"webm";
             default:
                 return nil;
         }
@@ -4579,6 +4646,8 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"contentRedaction" : @"ContentRedaction",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
+             @"identifiedLanguageScore" : @"IdentifiedLanguageScore",
+             @"identifyLanguage" : @"IdentifyLanguage",
              @"languageCode" : @"LanguageCode",
              @"modelSettings" : @"ModelSettings",
              @"outputLocationType" : @"OutputLocationType",
