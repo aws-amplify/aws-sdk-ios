@@ -78,7 +78,6 @@ OBJC_SDK_LIST=$(find $SOURCE_ROOT ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -max
   -not -name "*.xcodeproj" \
   -not -name "*Test*" \
   -not -name "AWSAuthSDK" \
-  -not -name "AWSCognitoIdentityProviderASF" \
   -not -name "AWSMobileClient" \
   | sort
 )

@@ -41,6 +41,12 @@
     - [Virtual host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access)
     - [Path-style deprecation](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/)
 
+### Breaking Changes
+- **Amazon S3**
+  - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3
+- **AWSCognitoIdentityProviderASF**
+  - **Breaking Change** The AWSCognitoIdentityProviderASF SDK no longer ships the `libAWSCognitoIdentityProviderASFBinary.a` static library. The `AWSCognitoIdentityProvider` SDK consumes ASF via the framework. Projects that rely on ASF should remove references to the static library. The AWSCognitoIdentityProviderASF SDK is now versioned the same as the overall SDK.
+
 ### Misc. Updates
 - **AWSPinpoint**
   - The SDK now uses [`NSSecureCoding`](https://developer.apple.com/documentation/foundation/nssecurecoding?language=objc) and version-appropriate methods of `NSKeyedUnarchiver` to encode and decode `AWSPinpointSession` and `AWSPinpointEndpointProfile`. ([PR #3031](https://github.com/aws-amplify/aws-sdk-ios/pull/3031))

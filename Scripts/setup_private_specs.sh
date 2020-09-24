@@ -68,12 +68,7 @@ function write_munged_podspec {
 }
 
 function resolve_version_for_pod {
-  declare -r pod_name=$1
-  if [[ $pod_name = "AWSCognitoIdentityProviderASF" ]] ; then
-    echo "1.1.0"
-  else
-    echo "${new_version}"
-  fi
+  echo "${new_version}"
 }
 
 declare -r old_version="$1"
