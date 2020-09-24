@@ -19,6 +19,12 @@
 // Importing FBSDKCoreKit is tricky due to build variants.
 // SPM require that it is imported as <FBSDKCoreKit.h> while CocoaPods,
 // Carthage, Buck, and xcodebuild require <FBSDKCoreKit/FBSDKCoreKit.h>
-// This file is used for SPM builds and excluded from other build channels
+// This file is not exposed via SPM so non SPM users will use <FBSDKCoreKit/FBSDKCoreKit.h>
 
+// Even though this file is not available from projects using SPM,
+// it is available when building the packages themselves so we need to include this check.
+#if FBSDK_SWIFT_PACKAGE
 #import <FBSDKCoreKit.h>
+#else
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#endif
