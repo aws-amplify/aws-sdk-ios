@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
   s.name         = 'AWSCognitoSync'
-  s.version      = '2.16.0'
+  s.version      = '2.17.0'
   s.summary      = 'Amazon Cognito SDK for iOS'
 
   s.deprecated = true
@@ -16,5 +16,5 @@ Pod::Spec.new do |s|
                      :tag => s.version}
   s.requires_arc = true
   s.library      = 'sqlite3'
-  s.dependency 'AWSCognito', '2.16.0'
+  s.dependency 'AWSCognito', '2.17.0'
 end
