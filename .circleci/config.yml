@@ -468,7 +468,7 @@ jobs:
           name: Build Carthage
           command: |
             # Build Carthage via this script to workaround lipo error due to multiple architectures in same file
-            . ./CircleciScripts/carthage-build.sh --no-skip-current --platform iOS | tee buildout.txt
+            bash ./CircleciScripts/carthage-build.sh --no-skip-current --platform iOS | tee buildout.txt
           no_output_timeout: 100m
       - save_cache:
           key: carthage_build_result-{{ .Revision }}
