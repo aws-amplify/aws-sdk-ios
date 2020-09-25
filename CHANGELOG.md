@@ -2,13 +2,9 @@
 
 ## Unreleased
 
--Features for next release
-
-## 2.17.0
-
 ### Bug fixes
 
-- Fixed build errors in Xcode 12 for customers consuming the app via Carthage or binary frameworks (See [issue #2927](https://github.com/aws-amplify/aws-sdk-ios/issues/2927))
+- Fixed build errors in Xcode 12. (See [Issue #2927](https://github.com/aws-amplify/aws-sdk-ios/issues/2927), [PR #3039](https://github.com/aws-amplify/aws-sdk-ios/pull/3039))
 
 ### New features
 
