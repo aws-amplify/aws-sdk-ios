@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.dependency 'AWSCore', '2.16.0'
-  s.dependency 'AWSCognitoIdentityProviderASF', '1.1.0'
+  s.dependency 'AWSCognitoIdentityProviderASF', '2.16.0'
 
   s.source_files = 'AWSCognitoAuth/**/*.{h,m,c}'
   s.public_header_files = 'AWSCognitoAuth/*.h'
