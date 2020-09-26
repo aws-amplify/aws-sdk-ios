@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
                       :tag => s.version}
    s.requires_arc = true
    s.dependency 'AWSAuthCore', '2.16.0'
+   s.dependency 'AWSCore', '2.16.0'
    s.source_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.{h,m}', 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSGoogleSignIn/*.h'
    s.private_header_files = 'AWSAuthSDK/Dependencies/GoogleHeaders/*.h'
