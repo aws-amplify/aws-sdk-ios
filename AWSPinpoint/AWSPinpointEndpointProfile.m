@@ -42,7 +42,8 @@ NSString *const AWSPinpointOverrideDefaultOptOutKey = @"com.amazonaws.AWSPinpoin
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
-#pragma mark - AWSPinpointEndpointProfile -
+#pragma mark - AWSPinpointEndpointProfile
+
 @implementation AWSPinpointEndpointProfile
 
 @synthesize optOut = _optOutBackingVariable;
@@ -335,20 +336,23 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
     return dictionary;
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _applicationId = [decoder decodeObjectForKey:@"applicationId"];
-        _endpointId = [decoder decodeObjectForKey:@"endpointId"];
-        _channelType = [decoder decodeObjectForKey:@"channelType"];
-        _address = [decoder decodeObjectForKey:@"address"];
-        _location = [decoder decodeObjectForKey:@"location"];
-        _demographic = [decoder decodeObjectForKey:@"demographic"];
-        _attributes = [decoder decodeObjectForKey:@"attributes"];
-        _metrics = [decoder decodeObjectForKey:@"metrics"];
-        _user = [decoder decodeObjectForKey:@"user"];
+        _applicationId = [decoder decodeObjectOfClass:[NSString class] forKey:@"applicationId"];
+        _endpointId = [decoder decodeObjectOfClass:[NSString class] forKey:@"endpointId"];
+        _channelType = [decoder decodeObjectOfClass:[NSString class] forKey:@"channelType"];
+        _address = [decoder decodeObjectOfClass:[NSString class] forKey:@"address"];
+        _optOutBackingVariable = [decoder decodeObjectOfClass:[NSString class] forKey:@"optOut"];
         _effectiveDate = [decoder decodeInt64ForKey:@"effectiveDate"];
-        _optOutBackingVariable = [decoder decodeObjectForKey:@"optOut"];
+        _location = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileLocation class] forKey:@"location"];
+        _demographic = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileDemographic class] forKey:@"demographic"];
+        _attributes = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"attributes"];
+        _metrics = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"metrics"];
+        _user = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileUser class] forKey:@"user"];
     }
     return self;
 }
@@ -434,14 +438,18 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             [self quotedString:self.platformVersion]];
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _model = [decoder decodeObjectForKey:@"model"];
-        _timezone = [decoder decodeObjectForKey:@"timezone"];
-        _locale = [decoder decodeObjectForKey:@"locale"];
-        _appVersion = [decoder decodeObjectForKey:@"appVersion"];
-        _platform = [decoder decodeObjectForKey:@"platform"];
-        _platformVersion = [decoder decodeObjectForKey:@"platformVersion"];
+        _model = [decoder decodeObjectOfClass:[NSString class] forKey:@"model"];
+        _timezone = [decoder decodeObjectOfClass:[NSString class] forKey:@"timezone"];
+        _locale = [decoder decodeObjectOfClass:[NSString class] forKey:@"locale"];
+        _appVersion = [decoder decodeObjectOfClass:[NSString class] forKey:@"appVersion"];
+        _platform = [decoder decodeObjectOfClass:[NSString class] forKey:@"platform"];
+        _platformVersion = [decoder decodeObjectOfClass:[NSString class] forKey:@"platformVersion"];
     }
     return self;
 }
@@ -458,6 +466,7 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 @end
 
 #pragma mark - AWSPinpointEndpointProfileLocation
+
 @implementation AWSPinpointEndpointProfileLocation
 
 - (NSString*) quotedString:(NSString*) input {
@@ -480,14 +489,18 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             [self quotedString:self.country]];
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _latitude = [decoder decodeObjectForKey:@"latitude"];
-        _longitude = [decoder decodeObjectForKey:@"longitude"];
-        _postalCode = [decoder decodeObjectForKey:@"postalCode"];
-        _city = [decoder decodeObjectForKey:@"city"];
-        _region = [decoder decodeObjectForKey:@"region"];
-        _country = [decoder decodeObjectForKey:@"country"];
+        _latitude = [decoder decodeObjectOfClass:[NSNumber class] forKey:@"latitude"];
+        _longitude = [decoder decodeObjectOfClass:[NSNumber class] forKey:@"longitude"];
+        _postalCode = [decoder decodeObjectOfClass:[NSString class] forKey:@"postalCode"];
+        _city = [decoder decodeObjectOfClass:[NSString class] forKey:@"city"];
+        _region = [decoder decodeObjectOfClass:[NSString class] forKey:@"region"];
+        _country = [decoder decodeObjectOfClass:[NSString class] forKey:@"country"];
     }
     return self;
 }
@@ -504,6 +517,7 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 @end
 
 #pragma mark - AWSPinpointEndpointProfileUser
+
 @implementation AWSPinpointEndpointProfileUser
 
 - (NSString*) quotedString:(NSString*) input {
@@ -517,9 +531,13 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
             [self quotedString:self.userId]];
 }
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _userId = [decoder decodeObjectForKey:@"userId"];
+        _userId = [decoder decodeObjectOfClass:[NSString class] forKey:@"userId"];
     }
     return self;
 }

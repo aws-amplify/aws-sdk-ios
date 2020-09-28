@@ -159,22 +159,18 @@ class VersionBumper:
 
     def bump_podspecs(self):
         podspec_pattern1 = {
-            "exclude": "AWSCognitoIdentityProviderASF",
             "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",  # noqa: E501
             "replace": r"\1{version}\2".format(version=self._new_sdk_version),
             "files": [],
         }
 
         podspec_pattern2 = {
-            "exclude": "AWSCognitoIdentityProviderASF",
             "match": r"(s\.version[[:space:]]+=[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",
             "replace": r"\1{version}\2".format(version=self._new_sdk_version),
             "files": [],
         }
 
         for file in glob.glob(os.path.join(root, "*.podspec")):
-            if file.endswith("AWSCognitoIdentityProviderASF.podspec"):
-                continue
             podspec_pattern1["files"].append(file)
             podspec_pattern2["files"].append(file)
 

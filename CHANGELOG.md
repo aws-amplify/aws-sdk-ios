@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### Bug fixes
+
+- Fixed build errors in Xcode 12. (See [Issue #2927](https://github.com/aws-amplify/aws-sdk-ios/issues/2927), [PR #3039](https://github.com/aws-amplify/aws-sdk-ios/pull/3039))
+
 ### New features
 
 - **Amazon S3**
@@ -33,11 +37,21 @@
     - [Virtual host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access)
     - [Path-style deprecation](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/)
 
+### Breaking Changes
+- **Amazon S3**
+  - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3 (See above.)
+- **AWSCognitoIdentityProviderASF**
+  - **Breaking Change** The AWSCognitoIdentityProviderASF SDK no longer ships the `libAWSCognitoIdentityProviderASFBinary.a` static library. The `AWSCognitoIdentityProvider` SDK consumes ASF via the framework. Projects that rely on ASF should remove references to the static library. The AWSCognitoIdentityProviderASF SDK is now versioned the same as the overall SDK.
+
 ### Misc. Updates
+- **AWSPinpoint**
+  - The SDK now uses [`NSSecureCoding`](https://developer.apple.com/documentation/foundation/nssecurecoding?language=objc) and version-appropriate methods of `NSKeyedUnarchiver` to encode and decode `AWSPinpointSession` and `AWSPinpointEndpointProfile`. ([PR #3031](https://github.com/aws-amplify/aws-sdk-ios/pull/3031))
+  - Deprecate handler argument in intercept notification ([PR #2910](https://github.com/aws-amplify/aws-sdk-ios/pull/2910))
 - **AWSAuthSDK**
   - Upgrade Facebook SDK to 6.5.2 ([PR #2990](https://github.com/aws-amplify/aws-sdk-ios/pull/2990))
-- **AWSPinpoint**
-  - Deprecate handler argument in intercept notification ([PR #2910](https://github.com/aws-amplify/aws-sdk-ios/pull/2910))
+- **Project**
+  - Refactored unit tests into separate "AWSAllUnitTests" aggregate target for easier execution
+  - Removed unused "Documentation" aggregate target. Documentation is generated in a pipeline build step and doesn't use an Xcode target.
 
 ## 2.16.0
 

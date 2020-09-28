@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
    s.requires_arc = true
    s.dependency 'AWSCognitoIdentityProvider', '2.16.0'
    s.dependency 'AWSAuthCore', '2.16.0'
+   s.dependency 'AWSCore', '2.16.0'
    s.source_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/**/*.{h,m}'
    s.public_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/*.{h}'
    s.private_header_files = 'AWSAuthSDK/Sources/AWSUserPoolsSignIn/UserPoolsUI/*.{h}'

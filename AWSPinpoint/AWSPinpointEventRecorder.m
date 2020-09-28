@@ -13,6 +13,7 @@
 // permissions and limitations under the License.
 //
 
+#import "AWSNSCodingUtilities.h"
 #import "AWSPinpointEventRecorder.h"
 #import "AWSPinpointEvent.h"
 #import "AWSPinpointTargeting.h"
@@ -180,13 +181,21 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     if (session && session.sessionId && session.sessionId.length >=1) {
         return session;
     }
+
     NSData *sessionData = [self.context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
+
     AWSPinpointSession *previousSession;
     if (sessionData) {
-        previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+        NSError *error;
+        previousSession = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                          fromData:sessionData
+                                                                             error:&error];
+        if (error) {
+            AWSDDLogError(@"Error restoring previous session: %@", error);
+        }
     }
-    if(!previousSession)
-    {
+
+    if (!previousSession) {
         previousSession = [[AWSPinpointSession alloc] initWithSessionId:DEFAULT_SESSION_ID withStartTime:[NSDate date] withStopTime:[NSDate date]];
     }
     return previousSession;
@@ -198,10 +207,17 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
     }
     NSData *sessionData = [self.context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
     if (sessionData) {
-        AWSPinpointSession *previousSession = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+        NSError *error;
+        AWSPinpointSession *previousSession = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                              fromData:sessionData
+                                                                                                 error:&error];
+        if (error || !previousSession) {
+            AWSDDLogError(@"Error restoring previous session: %@", error);
+            return DEFAULT_SESSION_ID;
+        }
+
         sessionId = previousSession.sessionId;
-        if (sessionId && sessionId.length >= 1)
-        {
+        if (sessionId && sessionId.length >= 1) {
             return sessionId;
         }
     }
@@ -228,7 +244,27 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             NSString *sessionId = event.session.sessionId;
             NSString *stopTime = [event.session.stopTime aws_stringValue:AWSDateISO8601DateFormat3];
             NSString *startTime = [event.session.startTime aws_stringValue:AWSDateISO8601DateFormat3];
-            
+
+            NSError *codingError;
+
+            NSData *attributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:event.allAttributes
+                                                                           requiringSecureCoding:YES
+                                                                                           error:&codingError];
+            if (codingError) {
+                AWSDDLogError(@"Error archiving attributesData: %@", codingError);
+                error = codingError;
+                return;
+            }
+
+            NSData *metricsData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:event.allMetrics
+                                                                        requiringSecureCoding:YES
+                                                                                        error:&codingError];
+            if (codingError) {
+                AWSDDLogError(@"Error archiving metricsData: %@", codingError);
+                error = codingError;
+                return;
+            }
+
             BOOL result = [db executeUpdate:
                            @"INSERT INTO Event ("
                            @"id, attributes, eventType, metrics, eventTimestamp, sessionId, sessionStartTime, sessionStopTime, timestamp, dirty, retryCount"
@@ -237,9 +273,9 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                            @")"
                     withParameterDictionary:@{
                                               @"id" : [[NSUUID UUID] UUIDString],
-                                              @"attributes" : [NSKeyedArchiver archivedDataWithRootObject:event.allAttributes],
+                                              @"attributes" : attributesData,
                                               @"eventType" : event.eventType,
-                                              @"metrics" : [NSKeyedArchiver archivedDataWithRootObject:event.allMetrics],
+                                              @"metrics" : metricsData,
                                               @"eventTimestamp" : [AWSPinpointDateUtils isoDateTimeWithTimestamp:event.eventTimestamp],
                                               @"sessionId": sessionId,
                                               @"sessionStartTime": startTime? startTime : @"",
@@ -334,13 +370,24 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
         __block NSError *error = nil;
         
         [databaseQueue inTransaction:^(AWSFMDatabase *db, BOOL *rollback) {
+            NSError *codingError;
+            NSData *attributesData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:attributes
+                                                                           requiringSecureCoding:YES
+                                                                                           error:&codingError];
+            if (codingError) {
+                AWSDDLogError(@"Error archiving attributesData: %@", codingError);
+                error = codingError;
+                *rollback = YES;
+                return;
+            }
+
             BOOL result = [db executeUpdate:
                            @"UPDATE Event "
                            @"SET attributes = :attributes "
                            @"WHERE sessionId = :sessionId "
                            @"AND eventType = :eventType"
                     withParameterDictionary:@{
-                                              @"attributes" : [NSKeyedArchiver archivedDataWithRootObject:attributes],
+                                              @"attributes" : attributesData,
                                               @"eventType" : @"_session.start",
                                               @"sessionId" : sessionId
                                               }
@@ -385,8 +432,24 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             }
             
             if ([rs next]) {
-                NSMutableDictionary *attributes = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"attributes"]];
-                NSMutableDictionary *metrics = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"metrics"]];
+                NSMutableDictionary *attributes = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                                forColumnName:@"attributes"
+                                                                                                        error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring attributes from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
+                NSMutableDictionary *metrics = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                             forColumnName:@"metrics"
+                                                                                                     error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring metrics from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
                 AWSPinpointSession *session = [[AWSPinpointSession alloc] initWithSessionId:[rs stringForColumn:@"sessionId"]
                                                                               withStartTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStartTime"] format:AWSDateISO8601DateFormat3]
                                                                                withStopTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStopTime"] format:AWSDateISO8601DateFormat3]];
@@ -429,10 +492,26 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                 *rollback = YES;
                 return;
             }
-            
+
             while ([rs next]) {
-                NSMutableDictionary *attributes = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"attributes"]];
-                NSMutableDictionary *metrics = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"metrics"]];
+                NSMutableDictionary *attributes = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                                forColumnName:@"attributes"
+                                                                                                        error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring event attributes from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
+                NSMutableDictionary *metrics = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                             forColumnName:@"metrics"
+                                                                                                     error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring event metrics from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
                 AWSPinpointSession *session = [[AWSPinpointSession alloc] initWithSessionId:[rs stringForColumn:@"sessionId"]
                                                                               withStartTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStartTime"] format:AWSDateISO8601DateFormat3]
                                                                                withStopTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStopTime"] format:AWSDateISO8601DateFormat3]];
@@ -478,8 +557,24 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
             }
             
             while ([rs next]) {
-                NSMutableDictionary *attributes = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"attributes"]];
-                NSMutableDictionary *metrics = [NSKeyedUnarchiver unarchiveObjectWithData:[rs dataForColumn:@"metrics"]];
+                NSMutableDictionary *attributes = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                                forColumnName:@"attributes"
+                                                                                                        error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring dirty event attributes from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
+                NSMutableDictionary *metrics = [AWSPinpointEventRecorder getMutableDictionaryFromResultSet:rs
+                                                                                             forColumnName:@"metrics"
+                                                                                                     error:&error];
+                if (error) {
+                    AWSDDLogError(@"Error restoring dirty event metrics from DB: %@", error);
+                    *rollback = YES;
+                    return;
+                }
+
                 AWSPinpointSession *session = [[AWSPinpointSession alloc] initWithSessionId:[rs stringForColumn:@"sessionId"]
                                                                               withStartTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStartTime"] format:AWSDateISO8601DateFormat3]
                                                                                withStopTime:[NSDate aws_dateFromString:[rs stringForColumn:@"sessionStopTime"] format:AWSDateISO8601DateFormat3]];
@@ -616,9 +711,19 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                          @"sessionStartTime": [rs stringForColumn:@"sessionStartTime"],
                                          @"sessionStopTime": [rs stringForColumn:@"sessionStopTime"]
                                          } forKey:[rs stringForColumn:@"id"]];
-            
-            NSData *batchData = [NSKeyedArchiver archivedDataWithRootObject:temporaryEventsWithEventId];
-            if ([batchData length] > self.batchRecordsByteLimit) { // if the batch size exceeds `batchRecordsByteLimit`, stop there.
+
+            NSError *codingError;
+            NSData *batchData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:temporaryEventsWithEventId
+                                                                      requiringSecureCoding:YES
+                                                                                      error:&codingError];
+            if (codingError) {
+                AWSDDLogError(@"Error getting size of batchData: %@", codingError);
+                error = codingError;
+                break;
+            }
+
+            if ([batchData length] > self.batchRecordsByteLimit) {
+                // if the batch size exceeds `batchRecordsByteLimit`, stop there.
                 break;
             }
         }
@@ -867,17 +972,31 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
        endpointProfile:(AWSPinpointEndpointProfile *) profile {
     AWSFMDatabaseQueue *databaseQueue = self.databaseQueue;
     
-    __block NSMutableDictionary *events = [NSMutableDictionary new]; //events to be submitted, and returned back to caller for debugging
-    __block NSDictionary *_temporaryEvents = [temporaryEvents copy]; //aggregate attributes, metrics...
+    // events to be submitted, and returned back to caller for debugging
+    // aggregate attributes, metrics...
+    __block NSMutableDictionary *events = [NSMutableDictionary new];
+
+    __block NSDictionary *_temporaryEvents = [temporaryEvents copy];
+
     for (NSString *eventId in _temporaryEvents) {
         NSMutableDictionary *attributes;
-
         if ([_temporaryEvents[eventId] objectForKey:@"attributes"]) {
-            attributes = [NSKeyedUnarchiver unarchiveObjectWithData:_temporaryEvents[eventId][@"attributes"]];
+            NSError *decodingError;
+            attributes = [AWSNSCodingUtilities versionSafeMutableDictionaryFromData:_temporaryEvents[eventId][@"attributes"]
+                                                                              error:&decodingError];
+            if (decodingError) {
+                AWSDDLogError(@"Error unarchiving attributes for eventId %@: %@", eventId, decodingError);
+            }
         }
+
         NSMutableDictionary *metrics;
         if ([_temporaryEvents[eventId] objectForKey:@"metrics"]) {
-            metrics = [NSKeyedUnarchiver unarchiveObjectWithData:_temporaryEvents[eventId][@"metrics"]];
+            NSError *decodingError;
+            metrics = [AWSNSCodingUtilities versionSafeMutableDictionaryFromData:_temporaryEvents[eventId][@"metrics"]
+                                                                           error:&decodingError];
+            if (decodingError) {
+                AWSDDLogError(@"Error unarchiving metrics for eventId %@: %@", eventId, decodingError);
+            }
         }
         
         AWSPinpointSession *session;
@@ -1147,6 +1266,22 @@ NSString *const FAILURE_REASON = @"NSLocalizedFailureReason";
                                   eventsPayload:parsedEventsDictionary];
     
     return putEventRequest;
+}
+
++ (NSMutableDictionary *)getMutableDictionaryFromResultSet:(AWSFMResultSet *)rs
+                                             forColumnName:(NSString *)columnName
+                                                     error:(NSError *__autoreleasing *)error {
+    NSSet *allowableClasses = [[NSSet alloc] initWithObjects:[NSMutableString class],
+                               [NSDictionary class],
+                               nil];
+    NSDictionary *immutableDict = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClasses:allowableClasses
+                                                                                    fromData:[rs dataForColumn:columnName]
+                                                                                       error:error];
+    if (*error) {
+        return nil;
+    }
+    NSMutableDictionary *mutableDict = [immutableDict mutableCopy];
+    return mutableDict;
 }
 
 @end
