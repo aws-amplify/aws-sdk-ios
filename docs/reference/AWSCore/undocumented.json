@@ -6273,6 +6273,13 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSCore/Utility/AWSNSCodingUtilities.h",
+      "line": 20,
+      "symbol": "AWSNSCodingUtilities",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSSynchronizedMutableDictionary.h",
       "line": 18,
       "symbol": "AWSSynchronizedMutableDictionary",

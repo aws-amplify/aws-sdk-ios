@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.16.0 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.17.0 Docs</a> (47% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -362,6 +362,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSModelUtility.html">AWSModelUtility</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSNSCodingUtilities.html">AWSNSCodingUtilities</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSNetworking.html">AWSNetworking</a>
@@ -6439,7 +6442,7 @@ For most of the users, this class is hidden behind the logging functions like <c
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><fullname>AWS Security Token Service</fullname><p>The AWS Security Token Service (STS) is a web service that enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more detailed information about using this service, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>. </p><p>For information about setting up signatures and authorization through the API, go to <a href="https://docs.aws.amazon.com/general/latest/gr/signing_aws_api_requests.html">Signing AWS API Requests</a> in the <i>AWS General Reference</i>. For general information about the Query API, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/IAM_UsingQueryAPI.html">Making Query Requests</a> in <i>Using IAM</i>. For information about using security tokens with other AWS products, go to <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_aws-services-that-work-with-iam.html">AWS Services That Work with IAM</a> in the <i>IAM User Guide</i>. </p><p>If you&rsquo;re new to AWS and need additional technical information about a specific AWS product, you can find the product&rsquo;s technical documentation at <a href="http://aws.amazon.com/documentation/"><a href="http://aws.amazon.com/documentation/">http://aws.amazon.com/documentation/</a></a>. </p><p><b>Endpoints</b></p><p>By default, AWS Security Token Service (STS) is available as a global service, and all AWS STS requests go to a single endpoint at <code><a href="https://sts.amazonaws.com">https://sts.amazonaws.com</a></code>. Global requests map to the US East (N. Virginia) region. AWS recommends using Regional AWS STS endpoints instead of the global endpoint to reduce latency, build in redundancy, and increase session token validity. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html">Managing AWS STS in an AWS Region</a> in the <i>IAM User Guide</i>.</p><p>Most AWS Regions are enabled for operations in all AWS services by default. Those Regions are automatically activated for use with AWS STS. Some Regions, such as Asia Pacific (Hong Kong), must be manually enabled. To learn more about enabling and disabling AWS Regions, see <a href="https://docs.aws.amazon.com/general/latest/gr/rande-manage.html">Managing AWS Regions</a> in the <i>AWS General Reference</i>. When you enable these AWS Regions, they are automatically activated for use with AWS STS. You cannot activate the STS endpoint for a Region that is disabled. Tokens that are valid in all AWS Regions are longer than tokens that are valid in Regions that are enabled by default. Changing this setting might affect existing systems where you temporarily store tokens. For more information, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#sts-regions-manage-tokens">Managing Global Endpoint Session Tokens</a> in the <i>IAM User Guide</i>.</p><p>After you activate a Region for use with AWS STS, you can direct AWS STS API calls to that Region. AWS STS recommends that you provide both the Region and endpoint when you make calls to a Regional endpoint. You can provide the Region alone for manually enabled Regions, such as Asia Pacific (Hong Kong). In this case, the calls are directed to the STS Regional endpoint. However, if you provide the Region alone for Regions enabled by default, the calls are directed to the global endpoint of <code><a href="https://sts.amazonaws.com">https://sts.amazonaws.com</a></code>.</p><p>To view the list of AWS STS endpoints and whether they are active by default, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp_enable-regions.html#id_credentials_temp_enable-regions_writing_code">Writing Code to Use AWS STS Regions</a> in the <i>IAM User Guide</i>.</p><p><b>Recording API requests</b></p><p>STS supports AWS CloudTrail, which is a service that records AWS calls for your AWS account and delivers log files to an Amazon S3 bucket. By using information collected by CloudTrail, you can determine what requests were successfully made to STS, who made the request, when it was made, and so on.</p><p>If you activate AWS STS endpoints in Regions other than the default global endpoint, then you must also turn on CloudTrail logging in those Regions. This is necessary to record any AWS STS API calls that are made in those Regions. For more information, see <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/aggregating_logs_regions_turn_on_ct.html">Turning On CloudTrail in Additional Regions</a> in the <i>AWS CloudTrail User Guide</i>.</p><p>AWS Security Token Service (STS) is a global service with a single endpoint at <code><a href="https://sts.amazonaws.com">https://sts.amazonaws.com</a></code>. Calls to this endpoint are logged as calls to a global service. However, because this endpoint is physically located in the US East (N. Virginia) Region, your logs list <code>us-east-1</code> as the event Region. CloudTrail does not write these logs to the US East (Ohio) Region unless you choose to include global service logs in that Region. CloudTrail writes calls to all Regional endpoints to their respective Regions. For example, calls to sts.us-east-2.amazonaws.com are published to the US East (Ohio) Region and calls to sts.eu-central-1.amazonaws.com are published to the EU (Frankfurt) Region.</p><p>To learn more about CloudTrail, including how to turn it on and find your log files, see the <a href="https://docs.aws.amazon.com/awscloudtrail/latest/userguide/what_is_cloud_trail_top_level.html">AWS CloudTrail User Guide</a>.</p></p>
+                        <p><fullname>AWS Security Token Service</fullname><p>AWS Security Token Service (STS) enables you to request temporary, limited-privilege credentials for AWS Identity and Access Management (IAM) users or for users that you authenticate (federated users). This guide provides descriptions of the STS API. For more information about using this service, see <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/id_credentials_temp.html">Temporary Security Credentials</a>.</p></p>
 
                         <a href="Classes/AWSSTS.html" class="slightly-smaller">See more</a>
                       </div>
@@ -8494,6 +8497,73 @@ For most of the users, this class is hidden behind the logging functions like <c
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSNSCodingUtilities"></a>
+                    <a name="//apple_ref/objc/Class/AWSNSCodingUtilities" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSNSCodingUtilities">AWSNSCodingUtilities</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Classes/AWSNSCodingUtilities.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSNSCodingUtilities</span><span class="p">:</span> <span class="nc">NSObject</span>
+
+<span class="cp">#pragma mark - Archive
+</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedArchiver
+/// archivedDataWithRootObject:requiringSecureCoding:error:]` to archive data, otherwise uses
+/// `+[NSKeyedArchiver archivedDataWithRootObject:]`
+</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeArchivedDataWithRootObject</span><span class="p">:(</span><span class="n">id</span><span class="p">)</span><span class="nv">obj</span>
+                                     <span class="nf">requiringSecureCoding</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">requireSecureCoding</span>
+                                                     <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="cp">#pragma mark - Unarchive
+</span>
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
+/// unarchivedObjectOfClass:fromData:error:]` to unarchive data, otherwise uses
+/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
+</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClass</span><span class="p">:(</span><span class="n">Class</span><span class="p">)</span><span class="nv">cls</span>
+                                         <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                                            <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
+/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data, otherwise uses
+/// `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
+</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">id</span><span class="p">)</span><span class="nf">versionSafeUnarchivedObjectOfClasses</span><span class="p">:(</span><span class="n">NSSet</span><span class="o">&lt;</span><span class="n">Class</span><span class="o">&gt;</span> <span class="o">*</span><span class="p">)</span><span class="nv">classes</span>
+                                           <span class="nf">fromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                                              <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="c1">/// On iOS 11 and greater, uses `+[NSKeyedUnarchiver
+/// unarchivedObjectOfClasses:fromData:error:]` to unarchive data into a mutable
+/// dictionary that allows NSDictionary and NSMutableString in its allowed class
+/// set, otherwise uses `+[NSKeyedUnarchiver unarchiveObjectWithData:]`
+</span><span class="k">+</span> <span class="p">(</span><span class="n">nullable</span> <span class="n">NSMutableDictionary</span> <span class="o">*</span><span class="p">)</span><span class="nf">versionSafeMutableDictionaryFromData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+                                                                 <span class="nf">error</span><span class="p">:(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">__autoreleasing</span> <span class="o">*</span><span class="p">)</span><span class="nv">error</span><span class="p">;</span>
+
+<span class="k">@end</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSNSCodingUtilities</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSSynchronizedMutableDictionary"></a>
                     <a name="//apple_ref/objc/Class/AWSSynchronizedMutableDictionary" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSSynchronizedMutableDictionary">AWSSynchronizedMutableDictionary</a>
@@ -8589,7 +8659,7 @@ For most of the users, this class is hidden behind the logging functions like <c
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-03)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
