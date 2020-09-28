@@ -4,6 +4,7 @@
 //
 
 import XCTest
+import AWSTestResources
 
 class AWSAuthSDKTestAppUITests: XCTestCase {
     
@@ -15,18 +16,18 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
     static var UserpoolPassword: String?
     
     override class func setUp() {
-        let filePath = Bundle(for: self).path(forResource: "credentials-mc", ofType: "json")
-        var credentialsJson: [AnyHashable : Any]? = nil
-        if let aPath = NSData(contentsOfFile: filePath ?? "") {
-            credentialsJson = try! JSONSerialization.jsonObject(with: aPath as Data, options: .mutableContainers) as? [AnyHashable : Any]
-        }
-        
-        FacebookUsername = credentialsJson?["FacebookUsername"] as? String
-        FacebookPassword = credentialsJson?["FacebookPassword"] as? String
-        GoogleUsername = credentialsJson?["GoogleUsername"] as? String
-        GooglePassword = credentialsJson?["GooglePassword"] as? String
-        UserpoolUsername = credentialsJson?["UserpoolUsername"] as? String
-        UserpoolPassword = credentialsJson?["UserpoolPassword"] as? String
+        FacebookUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "facebook_username")
+        FacebookPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "facebook_password")
+        GoogleUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                   configKey: "google_username")
+        GooglePassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                   configKey: "google_password")
+        UserpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_username")
+        UserpoolPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_password")
     }
 
     override func setUp() {

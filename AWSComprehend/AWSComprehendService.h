@@ -325,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendClassifyDocumentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
 
@@ -337,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request;
 
 /**
- <p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
+ <p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateDocumentClassifier service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -650,6 +650,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribeKeyPhrasesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the properties associated with a PII entities detection job. For example, you can use this operation to get the job status.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePiiEntitiesDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDescribePiiEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribePiiEntitiesDetectionJobRequest
+ @see AWSComprehendDescribePiiEntitiesDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendDescribePiiEntitiesDetectionJobResponse *> *)describePiiEntitiesDetectionJob:(AWSComprehendDescribePiiEntitiesDetectionJobRequest *)request;
+
+/**
+ <p>Gets the properties associated with a PII entities detection job. For example, you can use this operation to get the job status.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribePiiEntitiesDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribePiiEntitiesDetectionJobRequest
+ @see AWSComprehendDescribePiiEntitiesDetectionJobResponse
+ */
+- (void)describePiiEntitiesDetectionJob:(AWSComprehendDescribePiiEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribePiiEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the properties associated with a sentiment detection job. Use this operation to get the status of a detection job.</p>
  
  @param request A container for the necessary parameters to execute the DescribeSentimentDetectionJob service method.
@@ -729,7 +754,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  
  @param request A container for the necessary parameters to execute the DetectEntities service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDetectEntitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDetectEntitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendDetectEntitiesRequest
  @see AWSComprehendDetectEntitiesResponse
@@ -742,7 +767,7 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @param request A container for the necessary parameters to execute the DetectEntities service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorResourceUnavailable`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
  
  @see AWSComprehendDetectEntitiesRequest
  @see AWSComprehendDetectEntitiesResponse
@@ -773,6 +798,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendDetectKeyPhrasesResponse
  */
 - (void)detectKeyPhrases:(AWSComprehendDetectKeyPhrasesRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectKeyPhrasesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Inspects the input text for entities that contain personally identifiable information (PII) and returns information about them.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetectPiiEntities service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDetectPiiEntitiesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectPiiEntitiesRequest
+ @see AWSComprehendDetectPiiEntitiesResponse
+ */
+- (AWSTask<AWSComprehendDetectPiiEntitiesResponse *> *)detectPiiEntities:(AWSComprehendDetectPiiEntitiesRequest *)request;
+
+/**
+ <p>Inspects the input text for entities that contain personally identifiable information (PII) and returns information about them.</p>
+ 
+ @param request A container for the necessary parameters to execute the DetectPiiEntities service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTextSizeLimitExceeded`, `AWSComprehendErrorUnsupportedLanguage`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDetectPiiEntitiesRequest
+ @see AWSComprehendDetectPiiEntitiesResponse
+ */
+- (void)detectPiiEntities:(AWSComprehendDetectPiiEntitiesRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDetectPiiEntitiesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Inspects text and returns an inference of the prevailing sentiment (<code>POSITIVE</code>, <code>NEUTRAL</code>, <code>MIXED</code>, or <code>NEGATIVE</code>). </p>
@@ -1000,6 +1050,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListKeyPhrasesDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPiiEntitiesDetectionJobs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendListPiiEntitiesDetectionJobsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInvalidFilter`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListPiiEntitiesDetectionJobsRequest
+ @see AWSComprehendListPiiEntitiesDetectionJobsResponse
+ */
+- (AWSTask<AWSComprehendListPiiEntitiesDetectionJobsResponse *> *)listPiiEntitiesDetectionJobs:(AWSComprehendListPiiEntitiesDetectionJobsRequest *)request;
+
+/**
+ <p>Gets a list of the PII entity detection jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListPiiEntitiesDetectionJobs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInvalidFilter`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListPiiEntitiesDetectionJobsRequest
+ @see AWSComprehendListPiiEntitiesDetectionJobsResponse
+ */
+- (void)listPiiEntitiesDetectionJobs:(AWSComprehendListPiiEntitiesDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListPiiEntitiesDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets a list of sentiment detection jobs that you have submitted.</p>
  
  @param request A container for the necessary parameters to execute the ListSentimentDetectionJobs service method.
@@ -1175,6 +1250,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStartKeyPhrasesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartPiiEntitiesDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartPiiEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStartPiiEntitiesDetectionJobRequest
+ @see AWSComprehendStartPiiEntitiesDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendStartPiiEntitiesDetectionJobResponse *> *)startPiiEntitiesDetectionJob:(AWSComprehendStartPiiEntitiesDetectionJobRequest *)request;
+
+/**
+ <p>Starts an asynchronous PII entity detection job for a collection of documents.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartPiiEntitiesDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStartPiiEntitiesDetectionJobRequest
+ @see AWSComprehendStartPiiEntitiesDetectionJobResponse
+ */
+- (void)startPiiEntitiesDetectionJob:(AWSComprehendStartPiiEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStartPiiEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>
  
  @param request A container for the necessary parameters to execute the StartSentimentDetectionJob service method.
@@ -1298,6 +1398,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendStopKeyPhrasesDetectionJobResponse
  */
 - (void)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopKeyPhrasesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops a PII entities detection job in progress.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopPiiEntitiesDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStopPiiEntitiesDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopPiiEntitiesDetectionJobRequest
+ @see AWSComprehendStopPiiEntitiesDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendStopPiiEntitiesDetectionJobResponse *> *)stopPiiEntitiesDetectionJob:(AWSComprehendStopPiiEntitiesDetectionJobRequest *)request;
+
+/**
+ <p>Stops a PII entities detection job in progress.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopPiiEntitiesDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopPiiEntitiesDetectionJobRequest
+ @see AWSComprehendStopPiiEntitiesDetectionJobResponse
+ */
+- (void)stopPiiEntitiesDetectionJob:(AWSComprehendStopPiiEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopPiiEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Stops a sentiment detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is be stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>

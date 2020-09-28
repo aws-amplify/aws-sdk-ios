@@ -31,7 +31,7 @@
     
     _sharedKeyMetadata = nil;
     
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
     self.kms = [AWSKMS defaultKMS];
 
     _sharedKeyMetadata = [self createKey];

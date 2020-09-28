@@ -8,84 +8,71 @@
 
 grouped_frameworks = [
     # No dependencies
-    [
-        'AWSCore',
-        'AWSCognitoIdentityProviderASF',
-    ],
-
+    ["AWSCore", "AWSCognitoIdentityProviderASF"],
     [
         # Depends only on AWSCognitoIdentityProviderASF
-        'AWSCognitoAuth',
-
+        "AWSCognitoAuth",
         # Depends on AWSCore and AWSCognitoIdentityProviderASF
-        'AWSCognitoIdentityProvider',
-
+        "AWSCognitoIdentityProvider",
         # Depends only on AWSCore
-        'AWSAuthCore',
-
+        "AWSAuthCore",
         # Service-API packages depend only on AWSCore
-        'AWSAPIGateway',
-        'AWSAutoScaling',
-        'AWSCloudWatch',
-        'AWSCognito',
-        'AWSComprehend',
-        'AWSConnect',
-        'AWSConnectParticipant',
-        'AWSDynamoDB',
-        'AWSEC2',
-        'AWSElasticLoadBalancing',
-        'AWSIoT',
-        'AWSKMS',
-        'AWSKinesis',
-        'AWSKinesisVideo',
-        'AWSKinesisVideoArchivedMedia',
-        'AWSKinesisVideoSignaling',
-        'AWSLambda',
-        'AWSLex',
-        'AWSLogs',
-        'AWSMachineLearning',
-        'AWSMobileAnalytics',
-        'AWSPinpoint',
-        'AWSPolly',
-        'AWSRekognition',
-        'AWSS3',
-        'AWSSES',
-        'AWSSNS',
-        'AWSSQS',
-        'AWSSageMakerRuntime',
-        'AWSSimpleDB',
-        'AWSTextract',
-        'AWSTranscribe',
-        'AWSTranscribeStreaming',
-        'AWSTranslate',
+        "AWSAPIGateway",
+        "AWSAutoScaling",
+        "AWSCloudWatch",
+        "AWSCognito",
+        "AWSComprehend",
+        "AWSConnect",
+        "AWSConnectParticipant",
+        "AWSDynamoDB",
+        "AWSEC2",
+        "AWSElasticLoadBalancing",
+        "AWSIoT",
+        "AWSKMS",
+        "AWSKinesis",
+        "AWSKinesisVideo",
+        "AWSKinesisVideoArchivedMedia",
+        "AWSKinesisVideoSignaling",
+        "AWSLambda",
+        "AWSLex",
+        "AWSLogs",
+        "AWSMachineLearning",
+        "AWSMobileAnalytics",
+        "AWSPinpoint",
+        "AWSPolly",
+        "AWSRekognition",
+        "AWSS3",
+        "AWSSES",
+        "AWSSNS",
+        "AWSSQS",
+        "AWSSageMakerRuntime",
+        "AWSSimpleDB",
+        "AWSTextract",
+        "AWSTranscribe",
+        "AWSTranscribeStreaming",
+        "AWSTranslate",
     ],
-
     [
-        # Depends only on AWSCognito service-api package
-        'AWSCognitoSync',
-
+        # Depends only on AWSCognito service-api framework
+        "AWSCognitoSync",
         # Depends on AWSCore and AWSAuthCore
-        'AWSAuthUI',
-
+        "AWSAuthUI",
         # Depends only on AWSAuthCore (and possibly external Pods, but nothing else
         # built locally)
-        'AWSFacebookSignIn',
-        'AWSGoogleSignIn',
-
+        "AWSAppleSignIn",
+        "AWSFacebookSignIn",
+        "AWSGoogleSignIn",
         # Depends only on AWSAuthCore and AWSCognitoIdentityProvider
-        'AWSMobileClient',
-        'AWSUserPoolsSignIn',
+        "AWSMobileClient",
+        "AWSUserPoolsSignIn",
     ],
-
     [
         # Depends on most previous packages except auth
-        'AWSiOSSDKv2',
-
-        # Depends on AWSAuthCore, AWSFacebookSignIn, AWSGoogleSignIn,
+        "AWSiOSSDKv2",
+        # Depends on AWSAuthCore, AWSAppleSignIn, AWSFacebookSignIn, AWSGoogleSignIn,
         # AWSUserPoolsSignIn and AWSAuthUI
-        'AWSAuth',
+        "AWSAuth",
     ],
-
 ]
 
 # flatten the grouped frameworks

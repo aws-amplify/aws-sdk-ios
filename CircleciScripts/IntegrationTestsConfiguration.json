@@ -9,11 +9,6 @@
     "sdkName": "iphonesimulator"
   },
 
-  "APIGateway": {
-    "test_list": {
-      "AWSAPIGatewayTests": {}
-    }
-  },
   "AWSMobileClient": {
     "projectName": "AWSAuthSDK",
     "projectPath": "AWSAuthSDK/AWSAuthSDK.xcodeproj",
@@ -41,16 +36,6 @@
   "Comprehend": {
     "test_list": {
       "AWSComprehendTests": {}
-    }
-  },
-  "Connect": {
-    "test_list": {
-      "AWSConnectTests": {}
-    }
-  },
-  "ConnectParticipant": {
-    "test_list": {
-      "AWSConnectParticipantTests": {}
     }
   },
   "Core": {
@@ -89,11 +74,6 @@
       }
     }
   },
-  "IoTFreeRTOSOTATests": {
-    "test_list": {
-      "AWSIoTFreeRTOSOTATests": {}
-    }
-  },
   "KMS": {
     "test_list": {
       "AWSKMSTests": {
@@ -123,11 +103,6 @@
   "Lex": {
     "test_list": {
       "AWSLexTests": {}
-    }
-  },
-  "MachineLearning": {
-    "test_list": {
-      "AWSMachineLearningTests": {}
     }
   },
   "MobileAnalytics": {
@@ -257,11 +232,6 @@
   "SQS": {
     "test_list": {
       "AWSSQSTests": {}
-    }
-  },
-  "SageMakerRuntime": {
-    "test_list": {
-      "AWSSageMakerRuntimeTests": {}
     }
   },
   "Textract": {

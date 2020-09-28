@@ -20,18 +20,22 @@
 
 @interface AWSLambdaTests : XCTestCase
 
+@property NSString *echo_function_name;
+@property NSString *echo2_function_name;
+
 @end
 
 @implementation AWSLambdaTests
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"lambda"];
+    self.echo_function_name = testConfig[@"echo_function_name"];
+    self.echo2_function_name = testConfig[@"echo2_function_name"];
 }
 
 - (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
     [super tearDown];
 }
 
@@ -53,7 +57,7 @@
     AWSLambda *lambda = [AWSLambda defaultLambda];
 
     AWSLambdaGetFunctionRequest *getFunctionsRequest = [AWSLambdaGetFunctionRequest new];
-    getFunctionsRequest.functionName = @"echo";
+    getFunctionsRequest.functionName = [self echo_function_name];
 
     [[[lambda getFunction:getFunctionsRequest] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
@@ -110,7 +114,7 @@
 - (void)testInvoke {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"echo";
+    invocationRequest.functionName = [self echo_function_name];
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -142,7 +146,7 @@
     
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"echo";
+    invocationRequest.functionName = [self echo_function_name];
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -172,7 +176,7 @@
     AWSLambda *lambda = [AWSLambda defaultLambda];
 
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"echo-2";
+    invocationRequest.functionName = [self echo2_function_name];
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"firstName" : @"testInvokeFunction2",
                                  @"isError" : @NO};
@@ -196,7 +200,7 @@
 - (void)testInvokeWithVersion {
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"echo";
+    invocationRequest.functionName = [self echo_function_name];
     invocationRequest.qualifier = @"2";
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
@@ -219,10 +223,14 @@
 }
 
 - (void)testInvokeWithVersionAlias {
+    NSString *versionAliasName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"lambda"
+                                                                                        configKey:@"version_alias_name"];
+    NSString *versionAliasAssociatedVersion = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"lambda"
+                                                                                                     configKey:@"version_alias_associated_version"];
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
-    invocationRequest.functionName = @"echo";
-    invocationRequest.qualifier = @"Version2Alias";
+    invocationRequest.functionName = [self echo_function_name];
+    invocationRequest.qualifier = versionAliasName;
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -238,7 +246,7 @@
         XCTAssertNotNil(task.result);
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, versionAliasAssociatedVersion);
         return nil;
     }] waitUntilFinished];
 }

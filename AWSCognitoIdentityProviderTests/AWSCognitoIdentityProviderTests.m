@@ -19,7 +19,7 @@
 #include <libkern/OSAtomic.h>
 
 @interface AWSCognitoIdentityProviderTests : XCTestCase<AWSCognitoIdentityInteractiveAuthenticationDelegate, AWSCognitoIdentityPasswordAuthentication>
-
+@property AWSRegionType region;
 @end
 
 @implementation AWSCognitoIdentityProviderTests
@@ -65,17 +65,9 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 
 #pragma mark test suite setup
 + (AWSTask *) initializeTests {
-    
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
         
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                             credentialsProvider:credentialsProvider];
+        [AWSTestUtility setupSessionCredentialsProvider];
+        AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         [AWSCognitoIdentityProvider registerCognitoIdentityProviderWithConfiguration:configuration forKey:CIP_POOL_KEY];
         AWSCognitoIdentityProvider *cip = [AWSCognitoIdentityProvider CognitoIdentityProviderForKey:CIP_POOL_KEY];
     
@@ -92,8 +84,11 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
         policies.passwordPolicy = passwordPolicy;
         createUserPool.policies = policies;
     
-        return [[[[[[cip createUserPool:createUserPool] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolResponse *> * _Nonnull task) {
+        return [[[[[[cip createUserPool:createUserPool] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolResponse *> * _Nonnull task) {
             //create a client for admin purposes
+            if (task.error) {
+                [NSException raise:@"createUserPool error" format:@"Error: %@", task.error];
+            }
             AWSCognitoIdentityProviderCreateUserPoolResponse *pool = task.result;
             AWSCognitoIdentityProviderCreateUserPoolClientRequest *client = [AWSCognitoIdentityProviderCreateUserPoolClientRequest new];
             poolId = pool.userPool.identifier;
@@ -101,7 +96,10 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             client.clientName = @"Admin";
             client.generateSecret = @NO;
             return [cip createUserPoolClient:client];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"createUserPoolClient error" format:@"Error: %@", task.error];
+            }
             [NSThread sleepForTimeInterval:2];
             //create a user
             AWSCognitoIdentityProviderCreateUserPoolClientResponse *result = task.result;
@@ -111,21 +109,30 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             username = request.username = [[NSUUID UUID] UUIDString];
             password = request.password = [[NSUUID UUID] UUIDString];
             return [cip signUp:request];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderSignUpResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"signUp error" format:@"Error: %@", task.error];
+            }
             //confirm user
             [NSThread sleepForTimeInterval:2];
             AWSCognitoIdentityProviderAdminConfirmSignUpRequest * request = [AWSCognitoIdentityProviderAdminConfirmSignUpRequest new];
             request.username = username;
             request.userPoolId = poolId;
             return [cip adminConfirmSignUp:request];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *>* _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderAdminConfirmSignUpResponse *>* _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"adminConfirmSignUp error" format:@"Error: %@", task.error];
+            }
             //create a client for ios
             AWSCognitoIdentityProviderCreateUserPoolClientRequest *client = [AWSCognitoIdentityProviderCreateUserPoolClientRequest new];
             client.userPoolId = poolId;
             client.clientName = @"iOS";
             client.generateSecret = @YES;
             return [cip createUserPoolClient:client];
-        }] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+        }] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderCreateUserPoolClientResponse *> * _Nonnull task) {
+            if (task.error) {
+                [NSException raise:@"adminConfirmSignUp error" format:@"Error: %@", task.error];
+            }
             AWSCognitoIdentityProviderCreateUserPoolClientResponse *result = task.result;
             clientId = result.userPoolClient.clientId;
             clientSecret = result.userPoolClient.clientSecret;
@@ -154,6 +161,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 - (void)setUp {
     // Put setup code here. This method is called before the invocation of each test method in the class.
     [super setUp];
+    self.region = [AWSTestUtility getRegionFromTestConfiguration];
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         [[[AWSCognitoIdentityProviderTests initializeTests] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -162,7 +170,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             }
             return nil;
         }] waitUntilFinished];
-        AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+        AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:self.region credentialsProvider:nil];
         AWSCognitoIdentityUserPoolConfiguration *iDPConfiguration = [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
                                                                                                                          clientSecret:clientSecret
                                                                                                                                poolId:poolId
@@ -201,8 +209,7 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
 
 
 - (void)testSignInUser {
-    XCTestExpectation *expectation =
-    [self expectationWithDescription:@"testSignInUser"];
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testSignInUser"];
     AWSCognitoIdentityUser* user = [pool getUser];
     XCTAssertEqualObjects(PP_APP_ID, pool.userPoolConfiguration.pinpointAppId);
     [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
@@ -307,7 +314,8 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
     name.name = @"name";
     name.value = @"Joe Test";
     AWSCognitoIdentityUser * user = [pool getUser:username];
-    [[user updateAttributes:@[name]] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> * _Nonnull task) {
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user updateAttributes:@[name] clientMetaData:clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserUpdateAttributesResponse *> * _Nonnull task) {
         if(task.isCancelled || task.error){
             XCTFail(@"Request returned an error %@",task.error);
         }
@@ -367,7 +375,8 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
     XCTestExpectation *expectation =
     [self expectationWithDescription:@"testGetAttributeVerification"];
     AWSCognitoIdentityUser * user = [pool getUser:username];
-    [[user getAttributeVerificationCode:@"phone_number"] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> * _Nonnull task) {
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user getAttributeVerificationCode:@"phone_number" clientMetaData:clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetAttributeVerificationCodeResponse *> * _Nonnull task) {
         if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorInvalidParameter){
             XCTFail(@"Request should have failed with InvalidParameterException (Invalid phone number provided..)");
         }
@@ -380,6 +389,25 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
         }
     }];
 
+}
+
+- (void)testResendConfirmationCode {
+    XCTestExpectation *expectation =
+    [self expectationWithDescription:@"testResendConfirmationCode"];
+    AWSCognitoIdentityUser * user = [pool getUser:username];
+    NSDictionary *clientMetaData = @{@"client":@"metadata"};
+    [[user resendConfirmationCode: clientMetaData] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserResendConfirmationCodeResponse *> * _Nonnull task) {
+        if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorNotAuthorized){
+            XCTFail(@"Request should have failed with AWSCognitoIdentityProviderErrorNotAuthorized (Cannot resend codes. Auto verification not turned on.)");
+        }
+        [expectation fulfill];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
 }
 
 

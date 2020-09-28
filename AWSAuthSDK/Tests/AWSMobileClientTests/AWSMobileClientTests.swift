@@ -8,6 +8,7 @@ import XCTest
 @testable import AWSMobileClient
 import AWSAuthCore
 import AWSCognitoIdentityProvider
+import AWSTestResources
 
 class AWSMobileClientTests: AWSMobileClientTestBase {
     
@@ -29,7 +30,8 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
         signUpUser(username: username)
 
         let verificationCodeSent = expectation(description: "verification code should be sent via email.")
-        AWSMobileClient.default().resendSignUpCode(username: username) { (result, error) in
+        let clientMetaData = ["client": "metadata"]
+        AWSMobileClient.default().resendSignUpCode(username: username, clientMetaData: clientMetaData) { (result, error) in
             if let error = error {
                 XCTFail("Failed due to error: \(error.localizedDescription)")
                 return
@@ -72,9 +74,11 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
     }
     
     func testFederatedSignInDeveloperAuthenticatedIdentities() {
+        let developerProviderName = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "developer_provider_name")
         let getOpendIdRequest = AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput()
         getOpendIdRequest?.identityPoolId = AWSMobileClientTestBase.identityPoolId
-        getOpendIdRequest?.logins = ["login.test.awsmobileclient": "test_users"]
+        getOpendIdRequest?.logins = [developerProviderName: "test_users"]
         var identityId: String?
         var token: String?
         

@@ -26,7 +26,7 @@
 #import "AWSLambdaRequestRetryHandler.h"
 
 static NSString *const AWSInfoLambda = @"Lambda";
-NSString *const AWSLambdaSDKVersion = @"2.13.1";
+NSString *const AWSLambdaSDKVersion = @"2.16.0";
 
 
 @interface AWSLambdaResponseSerializer : AWSJSONResponseSerializer
@@ -44,6 +44,10 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"EC2AccessDeniedException" : @(AWSLambdaErrorEC2AccessDenied),
                             @"EC2ThrottledException" : @(AWSLambdaErrorEC2Throttled),
                             @"EC2UnexpectedException" : @(AWSLambdaErrorEC2Unexpected),
+                            @"EFSIOException" : @(AWSLambdaErrorEFSIO),
+                            @"EFSMountConnectivityException" : @(AWSLambdaErrorEFSMountConnectivity),
+                            @"EFSMountFailureException" : @(AWSLambdaErrorEFSMountFailure),
+                            @"EFSMountTimeoutException" : @(AWSLambdaErrorEFSMountTimeout),
                             @"ENILimitReachedException" : @(AWSLambdaErrorENILimitReached),
                             @"InvalidParameterValueException" : @(AWSLambdaErrorInvalidParameterValue),
                             @"InvalidRequestContentException" : @(AWSLambdaErrorInvalidRequestContent),

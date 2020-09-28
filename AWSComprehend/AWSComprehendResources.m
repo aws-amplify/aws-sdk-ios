@@ -189,7 +189,7 @@
         {\"shape\":\"KmsKeyValidationException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
-      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
+      \"documentation\":\"<p>Creates a new document classifier that you can use to categorize documents. To create a classifier, you provide a set of training documents that labeled with the categories that you want to use. After the classifier is trained you can use it to categorize a set of labeled documents into the categories. For more information, see <a>how-document-classification</a>.</p>\"\
     },\
     \"CreateEndpoint\":{\
       \"name\":\"CreateEndpoint\",\
@@ -396,6 +396,22 @@
       ],\
       \"documentation\":\"<p>Gets the properties associated with a key phrases detection job. Use this operation to get the status of a detection job.</p>\"\
     },\
+    \"DescribePiiEntitiesDetectionJob\":{\
+      \"name\":\"DescribePiiEntitiesDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DescribePiiEntitiesDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"DescribePiiEntitiesDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"JobNotFoundException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets the properties associated with a PII entities detection job. For example, you can use this operation to get the job status.</p>\"\
+    },\
     \"DescribeSentimentDetectionJob\":{\
       \"name\":\"DescribeSentimentDetectionJob\",\
       \"http\":{\
@@ -453,6 +469,7 @@
       \"output\":{\"shape\":\"DetectEntitiesResponse\"},\
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"TextSizeLimitExceededException\"},\
         {\"shape\":\"UnsupportedLanguageException\"},\
         {\"shape\":\"InternalServerException\"}\
@@ -474,6 +491,22 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Detects the key noun phrases found in the text. </p>\"\
+    },\
+    \"DetectPiiEntities\":{\
+      \"name\":\"DetectPiiEntities\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"DetectPiiEntitiesRequest\"},\
+      \"output\":{\"shape\":\"DetectPiiEntitiesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TextSizeLimitExceededException\"},\
+        {\"shape\":\"UnsupportedLanguageException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Inspects the input text for entities that contain personally identifiable information (PII) and returns information about them.</p>\"\
     },\
     \"DetectSentiment\":{\
       \"name\":\"DetectSentiment\",\
@@ -618,6 +651,22 @@
       ],\
       \"documentation\":\"<p>Get a list of key phrase detection jobs that you have submitted.</p>\"\
     },\
+    \"ListPiiEntitiesDetectionJobs\":{\
+      \"name\":\"ListPiiEntitiesDetectionJobs\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"ListPiiEntitiesDetectionJobsRequest\"},\
+      \"output\":{\"shape\":\"ListPiiEntitiesDetectionJobsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"InvalidFilterException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Gets a list of the PII entity detection jobs that you have submitted.</p>\"\
+    },\
     \"ListSentimentDetectionJobs\":{\
       \"name\":\"ListSentimentDetectionJobs\",\
       \"http\":{\
@@ -733,6 +782,22 @@
       ],\
       \"documentation\":\"<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
     },\
+    \"StartPiiEntitiesDetectionJob\":{\
+      \"name\":\"StartPiiEntitiesDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"StartPiiEntitiesDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"StartPiiEntitiesDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"TooManyRequestsException\"},\
+        {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Starts an asynchronous PII entity detection job for a collection of documents.</p>\"\
+    },\
     \"StartSentimentDetectionJob\":{\
       \"name\":\"StartSentimentDetectionJob\",\
       \"http\":{\
@@ -809,6 +874,21 @@
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Stops a key phrases detection job in progress.</p> <p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the <code>STOPPED</code> state.</p> <p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p> <p>When a job is stopped, any documents already processed are written to the output location.</p>\"\
+    },\
+    \"StopPiiEntitiesDetectionJob\":{\
+      \"name\":\"StopPiiEntitiesDetectionJob\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/\"\
+      },\
+      \"input\":{\"shape\":\"StopPiiEntitiesDetectionJobRequest\"},\
+      \"output\":{\"shape\":\"StopPiiEntitiesDetectionJobResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"JobNotFoundException\"},\
+        {\"shape\":\"InternalServerException\"}\
+      ],\
+      \"documentation\":\"<p>Stops a PII entities detection job in progress.</p>\"\
     },\
     \"StopSentimentDetectionJob\":{\
       \"name\":\"StopSentimentDetectionJob\",\
@@ -913,6 +993,34 @@
   },\
   \"shapes\":{\
     \"AnyLengthString\":{\"type\":\"string\"},\
+    \"AttributeNamesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AttributeNamesListItem\"}\
+    },\
+    \"AttributeNamesListItem\":{\
+      \"type\":\"string\",\
+      \"max\":63,\
+      \"min\":1,\
+      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+    },\
+    \"AugmentedManifestsListItem\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"S3Uri\",\
+        \"AttributeNames\"\
+      ],\
+      \"members\":{\
+        \"S3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>The Amazon S3 location of the augmented manifest file.</p>\"\
+        },\
+        \"AttributeNames\":{\
+          \"shape\":\"AttributeNamesList\",\
+          \"documentation\":\"<p>The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.</p> <p>If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.</p> <p>If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>\"\
+    },\
     \"BatchDetectDominantLanguageItemResult\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -932,7 +1040,7 @@
       \"required\":[\"TextList\"],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document should contain at least 20 characters and must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
         }\
       }\
@@ -952,7 +1060,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectEntitiesItemResult\":{\
       \"type\":\"structure\",\
@@ -976,7 +1085,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer than 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1000,7 +1109,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectKeyPhrasesItemResult\":{\
       \"type\":\"structure\",\
@@ -1024,7 +1134,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1048,7 +1158,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectSentimentItemResult\":{\
       \"type\":\"structure\",\
@@ -1076,7 +1187,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1100,7 +1211,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchDetectSyntaxItemResult\":{\
       \"type\":\"structure\",\
@@ -1124,7 +1236,7 @@
       ],\
       \"members\":{\
         \"TextList\":{\
-          \"shape\":\"StringList\",\
+          \"shape\":\"CustomerInputStringList\",\
           \"documentation\":\"<p>A list containing the text of the input documents. The list can contain a maximum of 25 documents. Each document must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1148,7 +1260,8 @@
           \"shape\":\"BatchItemErrorList\",\
           \"documentation\":\"<p>A list containing one object for each document that contained an error. The results are sorted in ascending order by the <code>Index</code> field and match the order of the documents in the input list. If there are no errors in the batch, the <code>ErrorList</code> is empty.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"BatchItemError\":{\
       \"type\":\"structure\",\
@@ -1231,14 +1344,15 @@
         },\
         \"NumberOfTestDocuments\":{\
           \"shape\":\"Integer\",\
-          \"documentation\":\"<p>The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents.</p>\"\
+          \"documentation\":\"<p>The number of documents in the input data that were used to test the classifier. Typically this is 10 to 20 percent of the input documents, up to 10,000 documents.</p>\"\
         },\
         \"EvaluationMetrics\":{\
           \"shape\":\"ClassifierEvaluationMetrics\",\
           \"documentation\":\"<p> Describes the result metrics for the test data associated with an documentation classifier.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Provides information about a document classifier.</p>\"\
+      \"documentation\":\"<p>Provides information about a document classifier.</p>\",\
+      \"sensitive\":true\
     },\
     \"ClassifyDocumentRequest\":{\
       \"type\":\"structure\",\
@@ -1248,7 +1362,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>The document text to be analyzed.</p>\"\
         },\
         \"EndpointArn\":{\
@@ -1268,7 +1382,8 @@
           \"shape\":\"ListOfLabels\",\
           \"documentation\":\"<p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"ClientRequestTokenString\":{\
       \"type\":\"string\",\
@@ -1289,7 +1404,7 @@
     \"ComprehendEndpointArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier-endpoint|entity-recognizer-endpoint)/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"ComprehendEndpointName\":{\
       \"type\":\"string\",\
@@ -1299,7 +1414,7 @@
     \"ComprehendModelArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
-      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:(document-classifier|entity-recognizer)/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"ConcurrentModificationException\":{\
       \"type\":\"structure\",\
@@ -1442,7 +1557,7 @@
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p> The language of the input documents. All documents must be in the same language. Only English (\\\"en\\\") is currently supported. </p>\"\
+          \"documentation\":\"<p> You can specify any of the following languages supported by Amazon Comprehend: English (\\\"en\\\"), Spanish (\\\"es\\\"), French (\\\"fr\\\"), Italian (\\\"it\\\"), German (\\\"de\\\"), or Portuguese (\\\"pt\\\"). All documents must be in the same language.</p>\"\
         },\
         \"VolumeKmsKeyId\":{\
           \"shape\":\"KmsKeyId\",\
@@ -1462,6 +1577,16 @@
           \"documentation\":\"<p>The Amazon Resource Name (ARN) that identifies the entity recognizer.</p>\"\
         }\
       }\
+    },\
+    \"CustomerInputString\":{\
+      \"type\":\"string\",\
+      \"min\":1,\
+      \"sensitive\":true\
+    },\
+    \"CustomerInputStringList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"CustomerInputString\"},\
+      \"sensitive\":true\
     },\
     \"DeleteDocumentClassifierRequest\":{\
       \"type\":\"structure\",\
@@ -1641,6 +1766,22 @@
         }\
       }\
     },\
+    \"DescribePiiEntitiesDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribePiiEntitiesDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PiiEntitiesDetectionJobProperties\":{\"shape\":\"PiiEntitiesDetectionJobProperties\"}\
+      }\
+    },\
     \"DescribeSentimentDetectionJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"JobId\"],\
@@ -1684,7 +1825,7 @@
       \"required\":[\"Text\"],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string should contain at least 20 characters and must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         }\
       }\
@@ -1696,22 +1837,24 @@
           \"shape\":\"ListOfDominantLanguages\",\
           \"documentation\":\"<p>The languages that Amazon Comprehend detected in the input text. For each language, the response returns the RFC 5646 language code and the level of confidence that Amazon Comprehend has in the accuracy of its inference. For more information about RFC 5646, see <a href=\\\"https://tools.ietf.org/html/rfc5646\\\">Tags for Identifying Languages</a> on the <i>IETF Tools</i> web site.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectEntitiesRequest\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"Text\",\
-        \"LanguageCode\"\
-      ],\
+      \"required\":[\"Text\"],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
-          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p>\"\
+          \"documentation\":\"<p>The language of the input documents. You can specify any of the primary languages supported by Amazon Comprehend. All documents must be in the same language.</p> <p>If your request includes the endpoint for a custom entity recognition model, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you specify here.</p>\"\
+        },\
+        \"EndpointArn\":{\
+          \"shape\":\"EntityRecognizerEndpointArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name of an endpoint that is associated with a custom entity recognition model. Provide an endpoint if you want to detect entities by using your own custom model instead of the default model that is used by Amazon Comprehend.</p> <p>If you specify an endpoint, Amazon Comprehend uses the language of your custom model, and it ignores any language code that you provide in your request.</p>\"\
         }\
       }\
     },\
@@ -1720,9 +1863,10 @@
       \"members\":{\
         \"Entities\":{\
           \"shape\":\"ListOfEntities\",\
-          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. For a list of entity types, see <a>how-entities</a>. </p>\"\
+          \"documentation\":\"<p>A collection of entities identified in the input text. For each entity, the response provides the entity text, entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection. </p> <p>If your request uses a custom entity recognition model, Amazon Comprehend detects the entities that the model is trained to recognize. Otherwise, it detects the default entity types. For a list of default entity types, see <a>how-entities</a>.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectKeyPhrasesRequest\":{\
       \"type\":\"structure\",\
@@ -1732,7 +1876,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1748,6 +1892,33 @@
           \"shape\":\"ListOfKeyPhrases\",\
           \"documentation\":\"<p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>\"\
         }\
+      },\
+      \"sensitive\":true\
+    },\
+    \"DetectPiiEntitiesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Text\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"Text\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language of the input documents.</p>\"\
+        }\
+      }\
+    },\
+    \"DetectPiiEntitiesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Entities\":{\
+          \"shape\":\"ListOfPiiEntities\",\
+          \"documentation\":\"<p>A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.</p>\"\
+        }\
       }\
     },\
     \"DetectSentimentRequest\":{\
@@ -1758,7 +1929,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1778,7 +1949,8 @@
           \"shape\":\"SentimentScore\",\
           \"documentation\":\"<p>An object that lists the sentiments, and their corresponding confidence levels.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DetectSyntaxRequest\":{\
       \"type\":\"structure\",\
@@ -1788,7 +1960,7 @@
       ],\
       \"members\":{\
         \"Text\":{\
-          \"shape\":\"String\",\
+          \"shape\":\"CustomerInputString\",\
           \"documentation\":\"<p>A UTF-8 string. Each string must contain fewer that 5,000 bytes of UTF encoded characters.</p>\"\
         },\
         \"LanguageCode\":{\
@@ -1804,7 +1976,8 @@
           \"shape\":\"ListOfSyntaxTokens\",\
           \"documentation\":\"<p>A collection of syntax tokens describing the text. For each token, the response provides the text, the token type, where the text begins and ends, and the level of confidence that Amazon Comprehend has that the token is correct. For a list of token types, see <a>how-syntax</a>.</p>\"\
         }\
-      }\
+      },\
+      \"sensitive\":true\
     },\
     \"DocumentClass\":{\
       \"type\":\"structure\",\
@@ -1833,11 +2006,11 @@
         },\
         \"SubmitTimeBefore\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
         },\
         \"SubmitTimeAfter\":{\
           \"shape\":\"Timestamp\",\
-          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides information for filtering a list of document classification jobs. For more information, see the operation. You can provide only one filter parameter in each request.</p>\"\
@@ -1905,6 +2078,17 @@
       \"max\":256,\
       \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:document-classifier/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
+    \"DocumentClassifierAugmentedManifestsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AugmentedManifestsListItem\"}\
+    },\
+    \"DocumentClassifierDataFormat\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"COMPREHEND_CSV\",\
+        \"AUGMENTED_MANIFEST\"\
+      ]\
+    },\
     \"DocumentClassifierEndpointArn\":{\
       \"type\":\"string\",\
       \"max\":256,\
@@ -1915,7 +2099,7 @@
       \"members\":{\
         \"Status\":{\
           \"shape\":\"ModelStatus\",\
-          \"documentation\":\"<p>Filters the list of classifiers based on status. </p>\"\
+          \"documentation\":\"<p>Filters the list of classifiers based on status.</p>\"\
         },\
         \"SubmitTimeBefore\":{\
           \"shape\":\"Timestamp\",\
@@ -1930,15 +2114,22 @@
     },\
     \"DocumentClassifierInputDataConfig\":{\
       \"type\":\"structure\",\
-      \"required\":[\"S3Uri\"],\
       \"members\":{\
+        \"DataFormat\":{\
+          \"shape\":\"DocumentClassifierDataFormat\",\
+          \"documentation\":\"<p>The format of your training data:</p> <ul> <li> <p> <code>COMPREHEND_CSV</code>: A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the <code>S3Uri</code> parameter in your request.</p> </li> <li> <p> <code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels. </p> <p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p> </li> </ul> <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>\"\
+        },\
         \"S3Uri\":{\
           \"shape\":\"S3Uri\",\
-          \"documentation\":\"<p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>\"\
+          \"documentation\":\"<p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p> <p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>\"\
         },\
         \"LabelDelimiter\":{\
           \"shape\":\"LabelDelimiter\",\
           \"documentation\":\"<p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>\"\
+        },\
+        \"AugmentedManifests\":{\
+          \"shape\":\"DocumentClassifierAugmentedManifestsList\",\
+          \"documentation\":\"<p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The input properties for training a document classifier. </p> <p>For more information on how the input file is formatted, see <a>how-document-classification-training-data</a>. </p>\"\
@@ -2339,6 +2530,17 @@
       \"max\":256,\
       \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
+    \"EntityRecognizerAugmentedManifestsList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"AugmentedManifestsListItem\"}\
+    },\
+    \"EntityRecognizerDataFormat\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"COMPREHEND_CSV\",\
+        \"AUGMENTED_MANIFEST\"\
+      ]\
+    },\
     \"EntityRecognizerDocuments\":{\
       \"type\":\"structure\",\
       \"required\":[\"S3Uri\"],\
@@ -2349,6 +2551,11 @@
         }\
       },\
       \"documentation\":\"<p>Describes the training documents submitted with an entity recognizer.</p>\"\
+    },\
+    \"EntityRecognizerEndpointArn\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"pattern\":\"arn:aws(-[^:]+)?:comprehend:[a-zA-Z0-9-]*:[0-9]{12}:entity-recognizer-endpoint/[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
     },\
     \"EntityRecognizerEntityList\":{\
       \"type\":\"structure\",\
@@ -2399,26 +2606,31 @@
     },\
     \"EntityRecognizerInputDataConfig\":{\
       \"type\":\"structure\",\
-      \"required\":[\
-        \"EntityTypes\",\
-        \"Documents\"\
-      ],\
+      \"required\":[\"EntityTypes\"],\
       \"members\":{\
+        \"DataFormat\":{\
+          \"shape\":\"EntityRecognizerDataFormat\",\
+          \"documentation\":\"<p>The format of your training data:</p> <ul> <li> <p> <code>COMPREHEND_CSV</code>: A CSV file that supplements your training documents. The CSV file contains information about the custom entities that your trained model will detect. The required format of the file depends on whether you are providing annotations or an entity list.</p> <p>If you use this value, you must provide your CSV file by using either the <code>Annotations</code> or <code>EntityList</code> parameters. You must provide your training documents by using the <code>Documents</code> parameter.</p> </li> <li> <p> <code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its labels. Each label annotates a named entity in the training document. </p> <p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p> </li> </ul> <p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>\"\
+        },\
         \"EntityTypes\":{\
           \"shape\":\"EntityTypesList\",\
-          \"documentation\":\"<p>The entity types in the input data for an entity recognizer. A maximum of 12 entity types can be used at one time to train an entity recognizer.</p>\"\
+          \"documentation\":\"<p>The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.</p> <p>A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \\\\n (line break), \\\\\\\\n (escaped line break), \\\\r (carriage return), \\\\\\\\r (escaped carriage return), \\\\t (tab), \\\\\\\\t (escaped tab), space, and , (comma). </p>\"\
         },\
         \"Documents\":{\
           \"shape\":\"EntityRecognizerDocuments\",\
-          \"documentation\":\"<p>S3 location of the documents folder for an entity recognizer</p>\"\
+          \"documentation\":\"<p>The S3 location of the folder that contains the training documents for your custom entity recognizer.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>\"\
         },\
         \"Annotations\":{\
           \"shape\":\"EntityRecognizerAnnotations\",\
-          \"documentation\":\"<p>S3 location of the annotations file for an entity recognizer.</p>\"\
+          \"documentation\":\"<p>The S3 location of the CSV file that annotates your training documents.</p>\"\
         },\
         \"EntityList\":{\
           \"shape\":\"EntityRecognizerEntityList\",\
-          \"documentation\":\"<p>S3 location of the entity list for an entity recognizer.</p>\"\
+          \"documentation\":\"<p>The S3 location of the CSV file that has the entity list for your custom entity recognizer.</p>\"\
+        },\
+        \"AugmentedManifests\":{\
+          \"shape\":\"EntityRecognizerAugmentedManifestsList\",\
+          \"documentation\":\"<p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p> <p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Specifies the format and location of the input data.</p>\"\
@@ -2443,7 +2655,8 @@
           \"documentation\":\"<p>Entity types from the metadata of an entity recognizer.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Detailed information about an entity recognizer.</p>\"\
+      \"documentation\":\"<p>Detailed information about an entity recognizer.</p>\",\
+      \"sensitive\":true\
     },\
     \"EntityRecognizerMetadataEntityTypesList\":{\
       \"type\":\"list\",\
@@ -2546,7 +2759,7 @@
     \"EntityTypeName\":{\
       \"type\":\"string\",\
       \"max\":64,\
-      \"pattern\":\"[_A-Z0-9]+\"\
+      \"pattern\":\"^(?:(?!\\\\\\\\n+|\\\\\\\\t+|\\\\\\\\r+|[\\\\r\\\\t\\\\n\\\\s,]).)+$\"\
     },\
     \"EntityTypesEvaluationMetrics\":{\
       \"type\":\"structure\",\
@@ -2576,10 +2789,10 @@
       \"members\":{\
         \"Type\":{\
           \"shape\":\"EntityTypeName\",\
-          \"documentation\":\"<p>Entity type of an item on an entity type list.</p>\"\
+          \"documentation\":\"<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p> <p>Entity types must not contain the following invalid characters: \\\\n (line break), \\\\\\\\n (escaped line break, \\\\r (carriage return), \\\\\\\\r (escaped carriage return), \\\\t (tab), \\\\\\\\t (escaped tab), space, and , (comma).</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Information about an individual item on a list of entity types.</p>\"\
+      \"documentation\":\"<p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p>\"\
     },\
     \"Float\":{\"type\":\"float\"},\
     \"IamRoleArn\":{\
@@ -3058,9 +3271,47 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"DocumentLabel\"}\
     },\
+    \"ListOfPiiEntities\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PiiEntity\"}\
+    },\
+    \"ListOfPiiEntityTypes\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PiiEntityType\"}\
+    },\
     \"ListOfSyntaxTokens\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"SyntaxToken\"}\
+    },\
+    \"ListPiiEntitiesDetectionJobsRequest\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Filter\":{\
+          \"shape\":\"PiiEntitiesDetectionJobFilter\",\
+          \"documentation\":\"<p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResultsInteger\",\
+          \"documentation\":\"<p>The maximum number of results to return in each page.</p>\"\
+        }\
+      }\
+    },\
+    \"ListPiiEntitiesDetectionJobsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PiiEntitiesDetectionJobPropertiesList\":{\
+          \"shape\":\"PiiEntitiesDetectionJobPropertiesList\",\
+          \"documentation\":\"<p>A list containing the properties of each job that is returned.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Identifies the next page of results to return.</p>\"\
+        }\
+      }\
     },\
     \"ListSentimentDetectionJobsRequest\":{\
       \"type\":\"structure\",\
@@ -3145,6 +3396,12 @@
         }\
       }\
     },\
+    \"MaskCharacter\":{\
+      \"type\":\"string\",\
+      \"max\":1,\
+      \"min\":1,\
+      \"pattern\":\"[!@#$%&*]\"\
+    },\
     \"MaxResultsInteger\":{\
       \"type\":\"integer\",\
       \"max\":500,\
@@ -3219,12 +3476,189 @@
         \"VERB\"\
       ]\
     },\
+    \"PiiEntitiesDetectionJobFilter\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>Filters on the name of the job.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>\"\
+        },\
+        \"SubmitTimeBefore\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>\"\
+        },\
+        \"SubmitTimeAfter\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides information for filtering a list of PII entity detection jobs.</p>\"\
+    },\
+    \"PiiEntitiesDetectionJobProperties\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier assigned to the PII entities detection job.</p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>The name that you assigned the PII entities detection job.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The current status of the PII entities detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>\"\
+        },\
+        \"Message\":{\
+          \"shape\":\"AnyLengthString\",\
+          \"documentation\":\"<p>A description of the status of a job.</p>\"\
+        },\
+        \"SubmitTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time that the PII entities detection job was submitted for processing.</p>\"\
+        },\
+        \"EndTime\":{\
+          \"shape\":\"Timestamp\",\
+          \"documentation\":\"<p>The time that the PII entities detection job completed.</p>\"\
+        },\
+        \"InputDataConfig\":{\
+          \"shape\":\"InputDataConfig\",\
+          \"documentation\":\"<p>The input properties for a PII entities detection job.</p>\"\
+        },\
+        \"OutputDataConfig\":{\
+          \"shape\":\"PiiOutputDataConfig\",\
+          \"documentation\":\"<p>The output data configuration that you supplied when you created the PII entities detection job.</p>\"\
+        },\
+        \"RedactionConfig\":{\
+          \"shape\":\"RedactionConfig\",\
+          \"documentation\":\"<p>Provides configuration parameters for PII entity redaction.</p> <p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language code of the input documents</p>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"PiiEntitiesDetectionMode\",\
+          \"documentation\":\"<p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides information about a PII entities detection job.</p>\"\
+    },\
+    \"PiiEntitiesDetectionJobPropertiesList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PiiEntitiesDetectionJobProperties\"}\
+    },\
+    \"PiiEntitiesDetectionMaskMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"MASK\",\
+        \"REPLACE_WITH_PII_ENTITY_TYPE\"\
+      ]\
+    },\
+    \"PiiEntitiesDetectionMode\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"ONLY_REDACTION\",\
+        \"ONLY_OFFSETS\"\
+      ]\
+    },\
+    \"PiiEntity\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Score\":{\
+          \"shape\":\"Float\",\
+          \"documentation\":\"<p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"PiiEntityType\",\
+          \"documentation\":\"<p>The entity's type.</p>\"\
+        },\
+        \"BeginOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+        },\
+        \"EndOffset\":{\
+          \"shape\":\"Integer\",\
+          \"documentation\":\"<p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides information about a PII entity.</p>\"\
+    },\
+    \"PiiEntityType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"BANK_ACCOUNT_NUMBER\",\
+        \"BANK_ROUTING\",\
+        \"CREDIT_DEBIT_NUMBER\",\
+        \"CREDIT_DEBIT_CVV\",\
+        \"CREDIT_DEBIT_EXPIRY\",\
+        \"PIN\",\
+        \"EMAIL\",\
+        \"ADDRESS\",\
+        \"NAME\",\
+        \"PHONE\",\
+        \"SSN\",\
+        \"DATE_TIME\",\
+        \"PASSPORT_NUMBER\",\
+        \"DRIVER_ID\",\
+        \"URL\",\
+        \"AGE\",\
+        \"USERNAME\",\
+        \"PASSWORD\",\
+        \"AWS_ACCESS_KEY\",\
+        \"AWS_SECRET_KEY\",\
+        \"IP_ADDRESS\",\
+        \"MAC_ADDRESS\",\
+        \"ALL\"\
+      ]\
+    },\
+    \"PiiOutputDataConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"S3Uri\"],\
+      \"members\":{\
+        \"S3Uri\":{\
+          \"shape\":\"S3Uri\",\
+          \"documentation\":\"<p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>\"\
+        },\
+        \"KmsKeyId\":{\
+          \"shape\":\"KmsKeyId\",\
+          \"documentation\":\"<p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides configuration parameters for the output of PII entity detection jobs.</p>\"\
+    },\
+    \"RedactionConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PiiEntityTypes\":{\
+          \"shape\":\"ListOfPiiEntityTypes\",\
+          \"documentation\":\"<p>An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.</p>\"\
+        },\
+        \"MaskMode\":{\
+          \"shape\":\"PiiEntitiesDetectionMaskMode\",\
+          \"documentation\":\"<p>Specifies whether the PII entity is redacted with the mask character or the entity type.</p>\"\
+        },\
+        \"MaskCharacter\":{\
+          \"shape\":\"MaskCharacter\",\
+          \"documentation\":\"<p>A character that replaces each character in the redacted PII entity.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides configuration parameters for PII entity redaction.</p>\"\
+    },\
     \"ResourceInUseException\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The specified name is already in use. Use a different name and try your request again.</p>\",\
+      \"documentation\":\"<p>The specified resource name is already in use. Use a different name and try your request again.</p>\",\
       \"exception\":true\
     },\
     \"ResourceLimitExceededException\":{\
@@ -3232,7 +3666,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The maximum number of recognizers per account has been exceeded. Review the recognizers, perform cleanup, and then try your request again.</p>\",\
+      \"documentation\":\"<p>The maximum number of resources per account has been exceeded. Review the resources, and then try your request again.</p>\",\
       \"exception\":true\
     },\
     \"ResourceNotFoundException\":{\
@@ -3248,7 +3682,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The specified resource is not available. Check to see if the resource is in the <code>TRAINED</code> state and try your request again.</p>\",\
+      \"documentation\":\"<p>The specified resource is not available. Check the resource and try your request again.</p>\",\
       \"exception\":true\
     },\
     \"S3Uri\":{\
@@ -3606,6 +4040,64 @@
         }\
       }\
     },\
+    \"StartPiiEntitiesDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InputDataConfig\",\
+        \"OutputDataConfig\",\
+        \"Mode\",\
+        \"DataAccessRoleArn\",\
+        \"LanguageCode\"\
+      ],\
+      \"members\":{\
+        \"InputDataConfig\":{\
+          \"shape\":\"InputDataConfig\",\
+          \"documentation\":\"<p>The input properties for a PII entities detection job.</p>\"\
+        },\
+        \"OutputDataConfig\":{\
+          \"shape\":\"OutputDataConfig\",\
+          \"documentation\":\"<p>Provides conï¬guration parameters for the output of PII entity detection jobs.</p>\"\
+        },\
+        \"Mode\":{\
+          \"shape\":\"PiiEntitiesDetectionMode\",\
+          \"documentation\":\"<p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>\"\
+        },\
+        \"RedactionConfig\":{\
+          \"shape\":\"RedactionConfig\",\
+          \"documentation\":\"<p>Provides configuration parameters for PII entity redaction.</p> <p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>\"\
+        },\
+        \"DataAccessRoleArn\":{\
+          \"shape\":\"IamRoleArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>\"\
+        },\
+        \"JobName\":{\
+          \"shape\":\"JobName\",\
+          \"documentation\":\"<p>The identifier of the job.</p>\"\
+        },\
+        \"LanguageCode\":{\
+          \"shape\":\"LanguageCode\",\
+          \"documentation\":\"<p>The language of the input documents.</p>\"\
+        },\
+        \"ClientRequestToken\":{\
+          \"shape\":\"ClientRequestTokenString\",\
+          \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"StartPiiEntitiesDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier generated for the job.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The status of the job.</p>\"\
+        }\
+      }\
+    },\
     \"StartSentimentDetectionJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -3788,6 +4280,29 @@
         }\
       }\
     },\
+    \"StopPiiEntitiesDetectionJobRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"JobId\"],\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier of the PII entities detection job to stop.</p>\"\
+        }\
+      }\
+    },\
+    \"StopPiiEntitiesDetectionJobResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"JobId\":{\
+          \"shape\":\"JobId\",\
+          \"documentation\":\"<p>The identifier of the PII entities detection job to stop.</p>\"\
+        },\
+        \"JobStatus\":{\
+          \"shape\":\"JobStatus\",\
+          \"documentation\":\"<p>The status of the PII entities detection job.</p>\"\
+        }\
+      }\
+    },\
     \"StopSentimentDetectionJobRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"JobId\"],\
@@ -3844,10 +4359,6 @@
     \"String\":{\
       \"type\":\"string\",\
       \"min\":1\
-    },\
-    \"StringList\":{\
-      \"type\":\"list\",\
-      \"member\":{\"shape\":\"String\"}\
     },\
     \"SubnetId\":{\
       \"type\":\"string\",\
@@ -4071,7 +4582,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For all custom entity recognition APIs (such as <code>CreateEntityRecognizer</code>), only English is accepted. For most other APIs, such as those for Custom Classification, Amazon Comprehend accepts text in all supported languages. For a list of supported languages, see <a>supported-languages</a>. </p>\",\
+      \"documentation\":\"<p>Amazon Comprehend can't process the language of the input text. For all custom entity recognition APIs (such as <code>CreateEntityRecognizer</code>), only English, Spanish, French, Italian, German, or Portuguese are accepted. For most other APIs, such as those for Custom Classification, Amazon Comprehend accepts text in all supported languages. For a list of supported languages, see <a>supported-languages</a>. </p>\",\
       \"exception\":true\
     },\
     \"UntagResourceRequest\":{\

@@ -22,17 +22,27 @@ FOUNDATION_EXPORT NSString *const AWSTestUtilityCognitoIdentityServiceKey;
 
 @interface AWSTestUtility : NSObject
 
-+ (void)setupCredentialsViaFile;
-+ (void)setupFakeCognitoCredentialsProvider;
-+ (void)setupCognitoCredentialsProvider;
-+ (void)setupSTS;
-+ (void)setupCognitoIdentityService;
-+ (NSDictionary<NSString *, NSString *> *)getCredentialsJsonAsDictionary;
++ (NSDictionary<NSString *, id> *) getTestConfigurationJSON;
++ (NSDictionary<NSString *, NSString *> *) getCredentialsFromTestConfiguration;
++ (NSDictionary<NSString *, id> *) getIntegrationTestConfigurationForPackageId:(NSString *)packageId;
++ (NSString *) getIntegrationTestConfigurationValueForPackageId:(NSString *)packageId configKey:(NSString *)configKey;
++ (AWSRegionType) getRegionFromTestConfiguration;
++ (NSString *) getAccountIdFromTestConfiguration;
 
-- (NSDate *)mockDateSwizzle;
-+ (void)setMockDate:(NSDate *)aMockDate;
-+ (void)setupSwizzling;
-+ (void)revertSwizzling;
-+ (NSString *)getIoTEndPoint:(NSString *) endpointName;
++ (void) setupSessionCredentialsProvider;
++ (void) setupCognitoIdentityService;
++ (AWSServiceConfiguration *) getDefaultServiceConfiguration;
++ (AWSBasicSessionCredentialsProvider *) getDefaultCredentialsProvider;
+
++ (void) setupFakeCognitoCredentialsProvider;
++ (void) setupCognitoCredentialsProviderForDefaultRegion;
++ (void) setupCognitoCredentialsProviderForRegion:(AWSRegionType)region;
+
++ (BOOL) isCognitoSupportedInDefaultRegion;
+
++ (void) setMockDate:(NSDate *)aMockDate;
++ (void) setupSwizzling;
++ (void) revertSwizzling;
++ (NSString *) getIoTEndPoint:(NSString *) endpointName;
 
 @end

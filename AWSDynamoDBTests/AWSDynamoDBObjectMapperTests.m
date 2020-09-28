@@ -318,7 +318,7 @@ static NSString *tableNameKeyOnly = nil;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     tableName = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBObjectMapperTestTable, timeIntervalSinceReferenceDate];
@@ -436,6 +436,9 @@ static NSString *tableNameKeyOnly = nil;
         }
         return [AWSDynamoDBTestUtility waitForTableToBeActive:tableName2];
     }] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            XCTFail(@"Error: %@",task.error);
+        }
         return nil;
     }] waitUntilFinished];
 
@@ -469,6 +472,8 @@ static NSString *tableNameKeyOnly = nil;
         if (task.error) {
             XCTFail(@"Error: %@",task.error);
         }
+        // One final wait to give the new records time to become available
+        sleep(5);
         return nil;
     }] waitUntilFinished];
 
@@ -1021,7 +1026,6 @@ static NSString *tableNameKeyOnly = nil;
 - (void)testIndexQueryAndScan {
     AWSDynamoDBObjectMapper *dynamoDBObjectMapper = [AWSDynamoDBObjectMapper defaultDynamoDBObjectMapper];
     //Create a table with both local and global secondary indexes
-    //Create a table with both local and global secondary indexes
     [self createQueryAndScanTestingTable:dynamoDBObjectMapper];
 
     //Query using gsi index table
@@ -1035,6 +1039,7 @@ static NSString *tableNameKeyOnly = nil;
     queryExpression.rangeKeyConditionExpression = @"TopScore BETWEEN :range1 AND :range2";
     queryExpression.expressionAttributeValues = @{@":range1" : @4000,
                                                   @":range2" : @5000};
+
 #pragma clang diagnostic pop
     [[[dynamoDBObjectMapper query:[TestObjectGameTitleAndTopScore class] expression:queryExpression] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {

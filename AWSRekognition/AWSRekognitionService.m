@@ -25,7 +25,7 @@
 #import "AWSRekognitionResources.h"
 
 static NSString *const AWSInfoRekognition = @"Rekognition";
-NSString *const AWSRekognitionSDKVersion = @"2.13.1";
+NSString *const AWSRekognitionSDKVersion = @"2.16.0";
 
 
 @interface AWSRekognitionResponseSerializer : AWSJSONResponseSerializer
@@ -888,6 +888,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionGetSegmentDetectionResponse *> *)getSegmentDetection:(AWSRekognitionGetSegmentDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"GetSegmentDetection"
+                   outputClass:[AWSRekognitionGetSegmentDetectionResponse class]];
+}
+
+- (void)getSegmentDetection:(AWSRekognitionGetSegmentDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionGetSegmentDetectionResponse *response, NSError *error))completionHandler {
+    [[self getSegmentDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionGetSegmentDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionGetSegmentDetectionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionGetTextDetectionResponse *> *)getTextDetection:(AWSRekognitionGetTextDetectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1223,6 +1246,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionStartProjectVersionResponse *response, NSError *error))completionHandler {
     [[self startProjectVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartProjectVersionResponse *> * _Nonnull task) {
         AWSRekognitionStartProjectVersionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionStartSegmentDetectionResponse *> *)startSegmentDetection:(AWSRekognitionStartSegmentDetectionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"StartSegmentDetection"
+                   outputClass:[AWSRekognitionStartSegmentDetectionResponse class]];
+}
+
+- (void)startSegmentDetection:(AWSRekognitionStartSegmentDetectionRequest *)request
+     completionHandler:(void (^)(AWSRekognitionStartSegmentDetectionResponse *response, NSError *error))completionHandler {
+    [[self startSegmentDetection:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStartSegmentDetectionResponse *> * _Nonnull task) {
+        AWSRekognitionStartSegmentDetectionResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

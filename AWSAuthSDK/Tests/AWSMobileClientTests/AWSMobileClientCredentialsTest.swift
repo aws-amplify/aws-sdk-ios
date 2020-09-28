@@ -187,7 +187,6 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
         let username = "testUser" + UUID().uuidString
         let transferUtility = AWSS3TransferUtility.default()
         let content = "Hello World"
-        let uploadKey = "private/\(username)/file.txt"
         let s3UploadDataCompletionExpectation = expectation(description: "S3 transfer utility uploadData task completed")
         let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
         
@@ -200,68 +199,38 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
                 XCTFail("User state should be signed In")
                 return
             }
-            
-            print("Listener user is signed in.")
-            print("Uploading file to : \(uploadKey)")
-            transferUtility.uploadData(content.data(using: .utf8)!,
-                                       key: uploadKey,
-                                       contentType: "text/plain",
-                                       expression: nil) { (_, error) in
-                                        XCTAssertNil(error, "Upload data should not produce any error.")
-                                        s3UploadDataCompletionExpectation.fulfill()
+
+            AWSMobileClient.default().getIdentityId().continueWith { task in
+                if let error = task.error {
+                    XCTAssertNil(error, "Unexpected error in getIdentityId()")
+                    return nil
+                }
+
+                guard let identityId = task.result else {
+                    XCTFail("task.result unexpectedly nil")
+                    return nil
+                }
+
+                let uploadKey = "private/\(identityId)/file.txt"
+                transferUtility.uploadData(
+                    content.data(using: .utf8)!,
+                    key: uploadKey,
+                    contentType: "text/plain",
+                    expression: nil
+                ) { _, error in
+                    XCTAssertNil(error)
+                    s3UploadDataCompletionExpectation.fulfill()
+                }
+                return nil
             }
+
         }
+
         signUpAndVerifyUser(username: username)
         signIn(username: username)
         wait(for: [signInListenerWasSuccessful, s3UploadDataCompletionExpectation], timeout: 10)
         AWSMobileClient.default().removeUserStateListener(self)
     }
-    
-    /// Test user state are in consistent state when we upload a file from state listener
-    ///
-    /// - Given: An unauthenticated session
-    /// - When:
-    ///    - I invoke signIn
-    ///    - I invoke upload to s3 inside the user state listener for signedIn case
-    /// - Then:
-    ///    - I should be able to upload to S3 without any error
-    ///    - Only state change that happen should be signedIn state
-    ///
-    func testUserStateWhileUploadingInsideStateListener() {
-        let username = "testUser" + UUID().uuidString
-        let transferUtility = AWSS3TransferUtility.default()
-        let uploadKey = "private/\(username)/file.txt"
-        let content = "Hello World"
-        
-        let s3UploadDataCompletionExpectation = expectation(description: "S3 transfer utility uploadData task completed")
-        let signInListenerWasSuccessful = expectation(description: "signIn listener was successful")
-        let noOtherSignInStateReceived = expectation(description: "No other state should be called")
-        noOtherSignInStateReceived.isInverted = true
-        
-        AWSMobileClient.default().addUserStateListener(self) { (userState, info) in
-            
-            defer {
-                signInListenerWasSuccessful.fulfill()
-            }
-            
-            guard userState == .signedIn else {
-                XCTFail("User state should be signed In")
-                return
-            }
-            
-            transferUtility.uploadData(content.data(using: .utf8)!,
-                                       key: uploadKey,
-                                       contentType: "text/plain",
-                                       expression: nil) { (_, _) in
-                                        s3UploadDataCompletionExpectation.fulfill()
-            }
-        }
-        signUpAndVerifyUser(username: username)
-        signIn(username: username)
-        wait(for: [signInListenerWasSuccessful, s3UploadDataCompletionExpectation, noOtherSignInStateReceived], timeout: 10)
-        AWSMobileClient.default().removeUserStateListener(self)
-    }
-
     
     func testMultipleGetCredentials() {
         AWSDDLog.sharedInstance.logLevel = .verbose

@@ -57,6 +57,102 @@ static id mockNetworking = nil;
 
 }
 
+- (void)testCreateLanguageModel {
+    NSString *key = @"testCreateLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] createLanguageModel:[AWSTranscribeCreateLanguageModelRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testCreateLanguageModelCompletionHandler {
+    NSString *key = @"testCreateLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] createLanguageModel:[AWSTranscribeCreateLanguageModelRequest new] completionHandler:^(AWSTranscribeCreateLanguageModelResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testCreateMedicalVocabulary {
+    NSString *key = @"testCreateMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] createMedicalVocabulary:[AWSTranscribeCreateMedicalVocabularyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testCreateMedicalVocabularyCompletionHandler {
+    NSString *key = @"testCreateMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] createMedicalVocabulary:[AWSTranscribeCreateMedicalVocabularyRequest new] completionHandler:^(AWSTranscribeCreateMedicalVocabularyResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
 - (void)testCreateVocabulary {
     NSString *key = @"testCreateVocabulary";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -144,6 +240,147 @@ static id mockNetworking = nil;
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
         XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteLanguageModel {
+    NSString *key = @"testDeleteLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] deleteLanguageModel:[AWSTranscribeDeleteLanguageModelRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteLanguageModelCompletionHandler {
+    NSString *key = @"testDeleteLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] deleteLanguageModel:[AWSTranscribeDeleteLanguageModelRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteMedicalTranscriptionJob {
+    NSString *key = @"testDeleteMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] deleteMedicalTranscriptionJob:[AWSTranscribeDeleteMedicalTranscriptionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteMedicalTranscriptionJobCompletionHandler {
+    NSString *key = @"testDeleteMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] deleteMedicalTranscriptionJob:[AWSTranscribeDeleteMedicalTranscriptionJobRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteMedicalVocabulary {
+    NSString *key = @"testDeleteMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] deleteMedicalVocabulary:[AWSTranscribeDeleteMedicalVocabularyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDeleteMedicalVocabularyCompletionHandler {
+    NSString *key = @"testDeleteMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] deleteMedicalVocabulary:[AWSTranscribeDeleteMedicalVocabularyRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -294,6 +531,150 @@ static id mockNetworking = nil;
     [AWSTranscribe removeTranscribeForKey:key];
 }
 
+- (void)testDescribeLanguageModel {
+    NSString *key = @"testDescribeLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] describeLanguageModel:[AWSTranscribeDescribeLanguageModelRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testDescribeLanguageModelCompletionHandler {
+    NSString *key = @"testDescribeLanguageModel";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] describeLanguageModel:[AWSTranscribeDescribeLanguageModelRequest new] completionHandler:^(AWSTranscribeDescribeLanguageModelResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testGetMedicalTranscriptionJob {
+    NSString *key = @"testGetMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] getMedicalTranscriptionJob:[AWSTranscribeGetMedicalTranscriptionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testGetMedicalTranscriptionJobCompletionHandler {
+    NSString *key = @"testGetMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] getMedicalTranscriptionJob:[AWSTranscribeGetMedicalTranscriptionJobRequest new] completionHandler:^(AWSTranscribeGetMedicalTranscriptionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testGetMedicalVocabulary {
+    NSString *key = @"testGetMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] getMedicalVocabulary:[AWSTranscribeGetMedicalVocabularyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testGetMedicalVocabularyCompletionHandler {
+    NSString *key = @"testGetMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] getMedicalVocabulary:[AWSTranscribeGetMedicalVocabularyRequest new] completionHandler:^(AWSTranscribeGetMedicalVocabularyResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
 - (void)testGetTranscriptionJob {
     NSString *key = @"testGetTranscriptionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -425,6 +806,150 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSTranscribe TranscribeForKey:key] getVocabularyFilter:[AWSTranscribeGetVocabularyFilterRequest new] completionHandler:^(AWSTranscribeGetVocabularyFilterResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListLanguageModels {
+    NSString *key = @"testListLanguageModels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] listLanguageModels:[AWSTranscribeListLanguageModelsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListLanguageModelsCompletionHandler {
+    NSString *key = @"testListLanguageModels";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] listLanguageModels:[AWSTranscribeListLanguageModelsRequest new] completionHandler:^(AWSTranscribeListLanguageModelsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListMedicalTranscriptionJobs {
+    NSString *key = @"testListMedicalTranscriptionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] listMedicalTranscriptionJobs:[AWSTranscribeListMedicalTranscriptionJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListMedicalTranscriptionJobsCompletionHandler {
+    NSString *key = @"testListMedicalTranscriptionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] listMedicalTranscriptionJobs:[AWSTranscribeListMedicalTranscriptionJobsRequest new] completionHandler:^(AWSTranscribeListMedicalTranscriptionJobsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListMedicalVocabularies {
+    NSString *key = @"testListMedicalVocabularies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] listMedicalVocabularies:[AWSTranscribeListMedicalVocabulariesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testListMedicalVocabulariesCompletionHandler {
+    NSString *key = @"testListMedicalVocabularies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] listMedicalVocabularies:[AWSTranscribeListMedicalVocabulariesRequest new] completionHandler:^(AWSTranscribeListMedicalVocabulariesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -582,6 +1107,54 @@ static id mockNetworking = nil;
     [AWSTranscribe removeTranscribeForKey:key];
 }
 
+- (void)testStartMedicalTranscriptionJob {
+    NSString *key = @"testStartMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] startMedicalTranscriptionJob:[AWSTranscribeStartMedicalTranscriptionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testStartMedicalTranscriptionJobCompletionHandler {
+    NSString *key = @"testStartMedicalTranscriptionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] startMedicalTranscriptionJob:[AWSTranscribeStartMedicalTranscriptionJobRequest new] completionHandler:^(AWSTranscribeStartMedicalTranscriptionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
 - (void)testStartTranscriptionJob {
     NSString *key = @"testStartTranscriptionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -617,6 +1190,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSTranscribe TranscribeForKey:key] startTranscriptionJob:[AWSTranscribeStartTranscriptionJobRequest new] completionHandler:^(AWSTranscribeStartTranscriptionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testUpdateMedicalVocabulary {
+    NSString *key = @"testUpdateMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSTranscribe TranscribeForKey:key] updateMedicalVocabulary:[AWSTranscribeUpdateMedicalVocabularyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSTranscribe removeTranscribeForKey:key];
+}
+
+- (void)testUpdateMedicalVocabularyCompletionHandler {
+    NSString *key = @"testUpdateMedicalVocabulary";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSTranscribe registerTranscribeWithConfiguration:configuration forKey:key];
+
+    AWSTranscribe *awsClient = [AWSTranscribe TranscribeForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSTranscribe TranscribeForKey:key] updateMedicalVocabulary:[AWSTranscribeUpdateMedicalVocabularyRequest new] completionHandler:^(AWSTranscribeUpdateMedicalVocabularyResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

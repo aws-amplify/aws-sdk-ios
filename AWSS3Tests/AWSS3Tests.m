@@ -14,6 +14,7 @@
 //
 
 #import <XCTest/XCTest.h>
+#import "AWSService.h"
 #import "AWSS3.h"
 #import "AWSTestUtility.h"
 #import "AWSS3TestHelper.h"
@@ -26,7 +27,7 @@
 
 NSUInteger const AWSS3Test256KB = 1024 * 256;
 NSUInteger const AWSS3TestsTransferManagerMinimumPartSize = 5 * 1024 * 1024;
-NSString *const AWSS3TestBucketNamePrefix = @"s3-integ-test-";
+NSString *AWSS3TestBucketNamePrefix = nil;
 
 static NSURL *tempLargeURL = nil;
 static NSURL *tempSmallURL = nil;
@@ -36,24 +37,25 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-    //[AWSTestUtility setupCrdentialsViaFile];
+    
+    [AWSTestUtility setupSessionCredentialsProvider];
+    AWSS3TestBucketNamePrefix = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                       configKey:@"bucket_name_prefix"];
     
     testBucketsCreated = [NSMutableArray new];
-    
     
     //Create bucketName
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testBucketNameGeneral = [NSString stringWithFormat:@"%@%lld", AWSS3TestBucketNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
 
-    [AWSS3TestHelper createBucketWithName:testBucketNameGeneral andRegion:AWSRegionUSEast1];
+    [AWSS3TestHelper createBucketWithName:testBucketNameGeneral];
     [testBucketsCreated addObject:testBucketNameGeneral];
     
     //Create a large temporary file for uploading & downloading test
     tempLargeURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempLarge",testBucketNameGeneral]]];
     NSError *error = nil;
     if (![[NSFileManager defaultManager] createFileAtPath:tempLargeURL.path contents:nil attributes:nil]) {
-        AWSDDLogError(@"Error: Can not create file with file path:%@",tempLargeURL.path);
+        AWSDDLogError(@"Error: Can not create file with file path:%@", tempLargeURL.path);
     }
     error = nil;
     NSFileHandle *fileHandle = [NSFileHandle fileHandleForWritingToURL:tempLargeURL error:&error];
@@ -77,7 +79,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         [fileHandle closeFile];
         
         if (true) {
-            //Create a smal temporary file for uploading & downloading test
+            //Create a small temporary file for uploading & downloading test
             tempSmallURL = [NSURL fileURLWithPath:[[NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES) objectAtIndex:0] stringByAppendingPathComponent:[NSString stringWithFormat:@"%@-s3tmTestTempSmall",testBucketNameGeneral]]];
             NSError *error = nil;
             if (![[NSFileManager defaultManager] createFileAtPath:tempSmallURL.path contents:nil attributes:nil]) {
@@ -139,8 +141,6 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 -(void)testCreateEmptyFolder {
-    
-    
     AWSS3 *s3 = [AWSS3 defaultS3];
     
     AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
@@ -164,9 +164,8 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         XCTAssertTrue([task.result isKindOfClass:[AWSS3DeleteObjectOutput class]],@"The response object is not a class of [%@], got: %@", NSStringFromClass([AWSS3DeleteObjectOutput class]),[task.result description]);
         return nil;
     }] waitUntilFinished];
-    
-    
 }
+
 - (void)testClockSkewS3 {
     [AWSTestUtility setupSwizzling];
 
@@ -201,21 +200,14 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testCreateDeleteBucket {
-    NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testcreatedeletebucket"];
+    NSString *bucketNameTest2 = [AWSS3TestHelper getTestBucketName];
     [testBucketsCreated addObject:bucketNameTest2];
     
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
 
-    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
-    createBucketReq.ACL = AWSS3BucketCannedACLAuthenticatedRead;
+    AWSS3CreateBucketRequest *createBucketReq = [AWSS3TestHelper getCreateBucketRequest];
     createBucketReq.bucket = bucketNameTest2;
-
-#if AWS_TEST_BJS_INSTEAD
-    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
-    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintCNNorth1;
-    createBucketReq.createBucketConfiguration = createBucketConfiguration;
-#endif
     
     [[[[[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
@@ -248,22 +240,15 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testCreateDeleteBucketWithDefaultEncryption {
-    NSString *bucketNameTest2 = [testBucketNameGeneral stringByAppendingString:@"-testbucket"];
+    NSString *bucketNameTest2 = [AWSS3TestHelper getTestBucketName];
     [testBucketsCreated addObject:bucketNameTest2];
     
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
-    
-    AWSS3CreateBucketRequest *createBucketReq = [AWSS3CreateBucketRequest new];
-    createBucketReq.ACL = AWSS3BucketCannedACLAuthenticatedRead;
+
+    AWSS3CreateBucketRequest *createBucketReq = [AWSS3TestHelper getCreateBucketRequest];
     createBucketReq.bucket = bucketNameTest2;
-    
-#if AWS_TEST_BJS_INSTEAD
-    AWSS3CreateBucketConfiguration *createBucketConfiguration = [AWSS3CreateBucketConfiguration new];
-    createBucketConfiguration.locationConstraint = AWSS3BucketLocationConstraintCNNorth1;
-    createBucketReq.createBucketConfiguration = createBucketConfiguration;
-#endif
-    
+
     [[[[[[[s3 createBucket:createBucketReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
         [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
@@ -310,12 +295,17 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testBucketCustomEndpoint {
+    AWSRegionType region = [AWSTestUtility getRegionFromTestConfiguration];
+
+    id<AWSCredentialsProvider> credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
+
+    NSString *regionName = [AWSEndpoint regionNameFromType:region];
+    NSString *urlString = [NSString stringWithFormat:@"https://s3.dualstack.%@.amazonaws.com", regionName];
+    AWSEndpoint *customEndpoint = [[AWSEndpoint alloc]initWithURLString:urlString];
     
-    id<AWSCredentialsProvider> credentialsProvider = [[[AWSServiceManager defaultServiceManager] defaultServiceConfiguration] credentialsProvider];
-    
-    AWSEndpoint *customEndpoint = [[AWSEndpoint alloc]initWithURLString:@"https://s3.dualstack.us-east-1.amazonaws.com"];
-    
-    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc]initWithRegion:AWSRegionUSEast1 endpoint:customEndpoint credentialsProvider:credentialsProvider];
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc]initWithRegion:region
+                                                                                          endpoint:customEndpoint
+                                                                               credentialsProvider:credentialsProvider];
     
     [AWSS3 registerS3WithConfiguration:serviceConfiguration forKey:@"customendpoint"];
     
@@ -388,12 +378,30 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 
 - (void)testPutBucketWithGrants {
-    NSString *grantBucketName = [testBucketNameGeneral stringByAppendingString:@"-grant"];
-    [testBucketsCreated addObject:grantBucketName];
-    XCTAssertTrue([AWSS3TestHelper createBucketWithName:grantBucketName andRegion:AWSRegionUSEast1]);
-
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
+
+    // S3 listBuckets response is the only way to programmatically get an owner:
+    // https://forums.aws.amazon.com/thread.jspa?threadID=260661
+    __block AWSS3Owner *owner;
+    [[[s3 listBuckets:[AWSRequest new]] continueWithBlock:^id _Nullable(AWSTask<AWSS3ListBucketsOutput *> * _Nonnull t) {
+        if (!t.result || !t.result.owner) {
+            XCTFail(@"ListBuckets owner unexpectedly empty");
+            return nil;
+        }
+        owner = t.result.owner;
+        return nil;
+    }] waitUntilFinished];
+    
+    if (!owner) {
+        XCTFail(@"Could not get owner");
+        return;
+    }
+    
+    NSString *grantBucketName = [AWSS3TestHelper getTestBucketName];
+    [testBucketsCreated addObject:grantBucketName];
+    XCTAssertTrue([AWSS3TestHelper createBucketWithName:grantBucketName
+                                              andRegion:[AWSTestUtility getRegionFromTestConfiguration]]);
 
     AWSS3Grantee *granteeOne = [AWSS3Grantee new];
     granteeOne.identifier = @"154b2f3550127d0439dfe1e89a03a7a4178048cc05c6fdaeb40796841a5cfcef";
@@ -406,13 +414,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
     NSArray *grantsList = [NSArray arrayWithObjects:grantOne, nil];
 
-    AWSS3Owner *s3Owner = [AWSS3Owner new];
-    s3Owner.displayName = @"aws-dr-mobile-test-ios@amazon.com";
-    s3Owner.identifier = @"0d822d37be4e6e24e50d96c88fefa5d3b2e8cd5661a759d6a07596306c41f52d";
-
     AWSS3AccessControlPolicy *accessControlPolicy = [AWSS3AccessControlPolicy new];
     accessControlPolicy.grants = grantsList;
-    accessControlPolicy.owner = s3Owner;
+    accessControlPolicy.owner = owner;
 
     AWSS3PutBucketAclRequest *putBucketAclReq = [AWSS3PutBucketAclRequest new];
     putBucketAclReq.bucket = grantBucketName;
@@ -421,8 +425,6 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 #else
     putBucketAclReq.accessControlPolicy = accessControlPolicy;
 #endif
-    
-    
     
     [[[s3 putBucketAcl:putBucketAclReq] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
@@ -692,7 +694,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
     putObjectRequest.bucket = testBucketNameGeneral;
     putObjectRequest.key = keyName;
-    putObjectRequest.body = [NSURL fileURLWithPath:getObjectFilePath];;
+    putObjectRequest.body = [NSURL fileURLWithPath:getObjectFilePath];
     putObjectRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
     putObjectRequest.contentType = @"video/mpeg";
     
@@ -807,19 +809,37 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 -(void)testGetObjectByFilePathCanceled {
+    NSString * keyName = @"testGetObjectByFilePathCanceled.bin";
     
     AWSS3 *s3 = [AWSS3 defaultS3];
     
+    // Upload test file for subsequent download
+    NSString *localFilePath = tempSmallURL.path;
+    XCTAssertTrue([[NSFileManager defaultManager] fileExistsAtPath:localFilePath]);
+    unsigned long long fileSize = [[[NSFileManager defaultManager] attributesOfItemAtPath:localFilePath error:nil] fileSize];
+
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    putObjectRequest.bucket = testBucketNameGeneral;
+    putObjectRequest.key = keyName;
+    putObjectRequest.body = [NSURL fileURLWithPath:localFilePath];
+    putObjectRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
+    putObjectRequest.contentType = @"video/mpeg";
+
+    [[[s3 putObject:putObjectRequest] continueWithBlock:^id _Nullable(AWSTask<AWSS3PutObjectOutput *> * _Nonnull t) {
+        XCTAssertNil(t.error);
+        return nil;
+    }] waitUntilFinished];
+
+    // Prepare a download request (which will be subsequently cancelled prior to completion)
     AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
-    getObjectRequest.bucket = @"ios-v2-s3-tm-testdata";
-    getObjectRequest.key = @"temp.txt";
+    getObjectRequest.bucket = testBucketNameGeneral;
+    getObjectRequest.key = keyName;
     
     //assign the file path to be written.
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
     NSString *documentsPath = [paths objectAtIndex:0]; //Get the docs directory
     NSString *filePath = [documentsPath stringByAppendingPathComponent:@"s3TestCanceled.txt"];
     getObjectRequest.downloadingFileURL = [NSURL fileURLWithPath:filePath];
-    
     
     AWSTask *getObjTask = [[s3 getObject:getObjectRequest] continueWithBlock:^id(AWSTask *task) {
         //Should return Cancelled Task Error
@@ -835,16 +855,13 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         return nil;
     }];
     
-    
-    //wait few sec then cancel this job
-    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.5]];
+    // wait few sec then cancel this job
+    [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:0.1]];
     [getObjectRequest cancel];
     
-    
     [getObjTask waitUntilFinished];
-
-    
 }
+
 - (void)testPutGetAndDeleteObjectByFilePathWithProgressFeedback {
     NSString *keyName = @"ios-v2-do-not-delete-s3test-put-get-delete-obj";
     NSString *getObjectFilePath = tempSmallURL.path;
@@ -1036,7 +1053,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     rule2.allowedHeaders = @[@"*"];
     [corsRules addObject:rule2];
     
-    AWSS3CORSConfiguration *cors = [AWSS3CORSConfiguration new];;
+    AWSS3CORSConfiguration *cors = [AWSS3CORSConfiguration new];
     cors.CORSRules = corsRules;
     
     AWSS3PutBucketCorsRequest *putBucketCorsReq = [AWSS3PutBucketCorsRequest new];
@@ -1374,6 +1391,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     AWSS3 *s3 = [AWSS3 defaultS3];
     AWSS3GetBucketLocationRequest *getBucketLocationRequest = [AWSS3GetBucketLocationRequest new];
     getBucketLocationRequest.bucket = testBucketNameGeneral;
+    
+    AWSRegionType regionType = [AWSTestUtility getRegionFromTestConfiguration];
+    AWSS3BucketLocationConstraint expectedConstraint = [AWSS3TestHelper getLocationConstraintForRegionType:regionType];
 
     [[[s3 getBucketLocation:getBucketLocationRequest] continueWithBlock:^id(AWSTask *task) {
         if(task.error != nil){
@@ -1381,11 +1401,9 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         }
         
         AWSS3GetBucketLocationOutput *getBucketLocationOutput = task.result;
-#if AWS_TEST_BJS_INSTEAD
-        XCTAssertEqual(getBucketLocationOutput.locationConstraint, AWSS3BucketLocationConstraintCNNorth1);
-#else
-        XCTAssertEqual(getBucketLocationOutput.locationConstraint, AWSS3BucketLocationConstraintBlank);
-#endif
+
+        XCTAssertEqual(getBucketLocationOutput.locationConstraint, expectedConstraint);
+
         return nil;
     }] waitUntilFinished];
 }
@@ -1461,12 +1479,16 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 - (void)testInventorySetupOnBucket {
-    NSString *sourceBucketName = @"ios-v2-do-not-delete-s3test-inventory-source";
-
-    NSString *destinationBucketName = @"ios-v2-do-not-delete-s3test-inventory";
-
     AWSS3 *s3 = [AWSS3 defaultS3];
     XCTAssertNotNil(s3);
+
+    NSString *sourceBucketName = [AWSS3TestHelper getTestBucketName];
+    [AWSS3TestHelper createBucketWithName:sourceBucketName];
+    [testBucketsCreated addObject:sourceBucketName];
+
+    NSString *destinationBucketName = [AWSS3TestHelper getTestBucketName];
+    [AWSS3TestHelper createBucketWithName:destinationBucketName];
+    [testBucketsCreated addObject:destinationBucketName];
 
     AWSS3PutBucketInventoryConfigurationRequest *putBucketInventoryRequest = [AWSS3PutBucketInventoryConfigurationRequest new];
     putBucketInventoryRequest.bucket = sourceBucketName;
@@ -1509,5 +1531,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         return task;
     }] waitUntilFinished];
 }
+
+#pragma mark - Utilities
 
 @end

@@ -21,7 +21,7 @@
 #import "AWSFormTableCell.h"
 #import "AWSTableInputCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSAuthUIHelper.h"
+#import <AWSAuthCore/AWSAuthUIHelper.h>
 #import <AWSAuthCore/AWSSignInManager.h>
 #import <AWSAuthCore/AWSUIConfiguration.h>
 

@@ -15,21 +15,34 @@
 
 import XCTest
 import AWSTranscribe
+import AWSS3
 
 class AWSTranscribeTests: XCTestCase {
+    static let mediaKey = "hello_world.wav"
     
+    static var bucketName: String {
+        AWSTestUtility.getIntegrationTestConfigurationValue(forPackageId: "transcribe", configKey: "bucket_name")
+    }
+    
+    static var regionName: String {
+        let regionType = AWSTestUtility.getRegionFromTestConfiguration()
+        let regionName = AWSEndpoint.regionName(from: regionType)!
+        return regionName
+    }
+
+    static var mediaFileURL: String {
+        "https://\(bucketName).s3.\(regionName).amazonaws.com/\(mediaKey)"
+    }
+
     override class func setUp() {
         super.setUp()
-        // Setup cognito credentials to use for tests.
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
+        try! uploadMedia()
     }
     
-    override func setUp() {
-        super.setUp()
-    }
-    
-    override func tearDown() {
+    override static func tearDown() {
         super.tearDown()
+        try! removeMedia()
     }
     
     func testListTranscriptionJobs() {
@@ -187,24 +200,23 @@ class AWSTranscribeTests: XCTestCase {
     }
     
     func testTranscribeRequests() {
-        
         let transcribeJobName = "hello-world-job" + UUID().uuidString
         let transcribeClient = AWSTranscribe.default()
         
-        let jobRequest = AWSTranscribeStartTranscriptionJobRequest()
-        let media = AWSTranscribeMedia()
+        let jobRequest = AWSTranscribeStartTranscriptionJobRequest()!
+        let media = AWSTranscribeMedia()!
         
-        jobRequest?.languageCode = .enUS
-        jobRequest?.mediaFormat = .mp3
-        jobRequest?.transcriptionJobName = transcribeJobName
+        jobRequest.languageCode = .enUS
+        jobRequest.mediaFormat = .wav
+        jobRequest.transcriptionJobName = transcribeJobName
         
         // Transcribe accepts media files stored in S3
-        media?.mediaFileUri = "https://s3.amazonaws.com/transcribe-ios-sdk-test/hello_world.mp3"
-        
-        jobRequest?.media = media
+        media.mediaFileUri = AWSTranscribeTests.mediaFileURL
+
+        jobRequest.media = media
         
         // kick off transcribe job to transcribe a simple "Hello, world" file stored in above specified location
-        transcribeClient.startTranscriptionJob(jobRequest!).continueWith { (task) -> Any? in
+        transcribeClient.startTranscriptionJob(jobRequest).continueWith { (task) -> Any? in
             if let error = task.error {
                 XCTAssertNil(error, "Expected no error, got \(error)")
                 return nil
@@ -223,13 +235,18 @@ class AWSTranscribeTests: XCTestCase {
         let getTranscribeJobRequest = AWSTranscribeGetTranscriptionJobRequest()
         getTranscribeJobRequest?.transcriptionJobName = transcribeJobName
 
-        var sleepCount = 0
         var success = false
-        while (sleepCount < 10) {
+        let deadline = Date(timeIntervalSinceNow: 180)
+        while Date() < deadline {
             // keep fetching the status of job till its completed successfully and check the status.
             transcribeClient.getTranscriptionJob(getTranscribeJobRequest!).continueWith(block: { (task) -> Any? in
+                if let error = task.error {
+                    XCTAssertNil(error, "Expected no error, got \(error)")
+                    return nil
+                }
+
                 guard let result = task.result else {
-                    XCTAssertTrue(false, "Failed to get status of job.")
+                    XCTFail("Failed to get status of job")
                     return nil
                 }
                 
@@ -239,20 +256,28 @@ class AWSTranscribeTests: XCTestCase {
                     print("Location: \(String(describing: location))")
                     success = true
                 } else if (result.transcriptionJob!.transcriptionJobStatus == .failed) {
-                    XCTAssertTrue(false, "Failed to transcribe.")
+                    XCTFail("Failed to transcribe")
                 }
                 return nil
             }).waitUntilFinished()
             if (success) {
                 break
             }
-            // wait for 200 seconds for the job to finish
-            sleepCount += 1
-            sleep(20)
+
+            sleep(5)
         }
         
         XCTAssertTrue(success, "Failed to do a successful transcribe.")
     }
+
+    func testTranscribeRequestsCompletionHandlerMethods() {
+        let transcribeJobName = "hello-world-job" + UUID().uuidString
+        let expectation = self.expectation(description: "Transcribe functionality verified.")
+        self.startTranscribeJob(name: transcribeJobName, expectation: expectation)
+        wait(for: [expectation], timeout: 120)
+    }
+
+    // MARK: - Utilities
     
     func startTranscribeJob(name transcribeJobName: String, expectation: XCTestExpectation) {
         
@@ -262,11 +287,11 @@ class AWSTranscribeTests: XCTestCase {
         let media = AWSTranscribeMedia()
         
         jobRequest?.languageCode = .enUS
-        jobRequest?.mediaFormat = .mp3
+        jobRequest?.mediaFormat = .wav
         jobRequest?.transcriptionJobName = transcribeJobName
         
         // Transcribe accepts media files stored in S3
-        media?.mediaFileUri = "https://s3.amazonaws.com/transcribe-ios-sdk-test/hello_world.mp3"
+        media?.mediaFileUri = AWSTranscribeTests.mediaFileURL
         jobRequest?.media = media
         
         // completion handler for start transcription job, calls get to verify state gets to completed.
@@ -323,14 +348,73 @@ class AWSTranscribeTests: XCTestCase {
         }
     }
     
-    func testTranscribeRequestsCompletionHandlerMethods() {
+    static func uploadMedia() throws {
+        let request = AWSS3PutObjectRequest()!
+        request.bucket = bucketName
+        request.key = mediaKey
+        let data = try getMediaData()
+        request.body = data
+        request.contentLength = NSNumber(value: data.count)
+
+        var errorFromResult: Error?
+        let semaphore = DispatchSemaphore(value: 0)
+        AWSS3.default().putObject(request) { result, error in
+            defer {
+                semaphore.signal()
+            }
+            if let error = error {
+                errorFromResult = error
+                return
+            }
+            guard result != nil else {
+                errorFromResult = "Result unexpectedly nil"
+                return
+            }
+        }
         
-        let transcribeJobName = "hello-world-job" + UUID().uuidString
-        let expectation = self.expectation(description: "Transcribe functionality verified.")
-        
-        self.startTranscribeJob(name: transcribeJobName, expectation: expectation)
-        
-        wait(for: [expectation], timeout: 210)
+        semaphore.wait()
+        if let error = errorFromResult {
+            throw error
+        }
     }
     
+    static func removeMedia() throws {
+        let request = AWSS3DeleteObjectRequest()!
+        request.bucket = bucketName
+        request.key = mediaKey
+
+        var errorFromResult: Error?
+        let semaphore = DispatchSemaphore(value: 0)
+        AWSS3.default().deleteObject(request) { result, error in
+            defer {
+                semaphore.signal()
+            }
+            if let error = error {
+                errorFromResult = error
+                return
+            }
+            guard result != nil else {
+                errorFromResult = "Result unexpectedly nil"
+                return
+            }
+        }
+        
+        semaphore.wait()
+        if let error = errorFromResult {
+            throw error
+        }
+    }
+
+    static func getMediaData() throws -> Data {
+        let bundle = Bundle(for: self)
+        guard let path = bundle.url(forResource: "hello_world", withExtension: "wav") else {
+            throw "Could not load hello_world.wav"
+        }
+        let data = try Data(contentsOf: path)
+        return data
+    }
+    
+
 }
+
+extension String: Error { }

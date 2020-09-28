@@ -26,7 +26,7 @@
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 - (void)setUp {
@@ -44,60 +44,19 @@
 
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+
     AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
     XCTAssertNotNil(elb);
 
-    AWSElasticLoadBalancingDescribeAccessPointsInput *describeAccessPointsInput = [AWSElasticLoadBalancingDescribeAccessPointsInput new];
-    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
+    AWSElasticLoadBalancingDescribeAccountLimitsInput *input = [AWSElasticLoadBalancingDescribeAccountLimitsInput new];
 
-        if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSElasticLoadBalancingDescribeAccessPointsOutput class]]);
-            AWSElasticLoadBalancingDescribeAccessPointsOutput *describeAccessPointsOutput = task.result;
-            XCTAssertNotNil(describeAccessPointsOutput.loadBalancerDescriptions, @"loadBalancerDescriptions Array should not be nil");
-        }
-
+    [[[elb describeAccountLimits:input] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
         return nil;
     }] waitUntilFinished];
 
     [AWSTestUtility revertSwizzling];
-}
-
-- (void)testDescribeLoadBalancers {
-    AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
-
-    AWSElasticLoadBalancingDescribeAccessPointsInput *describeAccessPointsInput = [AWSElasticLoadBalancingDescribeAccessPointsInput new];
-    [[[elb describeLoadBalancers:describeAccessPointsInput] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
-
-        if (task.result) {
-            XCTAssertTrue([task.result isKindOfClass:[AWSElasticLoadBalancingDescribeAccessPointsOutput class]]);
-            AWSElasticLoadBalancingDescribeAccessPointsOutput *describeAccessPointsOutput = task.result;
-            XCTAssertNotNil(describeAccessPointsOutput.loadBalancerDescriptions, @"loadBalancerDescriptions Array should not be nil");
-        }
-
-        return nil;
-    }] waitUntilFinished];
-}
-
-- (void)testConfigureHealthCheckFailed {
-    AWSElasticLoadBalancing *elb = [AWSElasticLoadBalancing defaultElasticLoadBalancing];
-    
-    AWSElasticLoadBalancingConfigureHealthCheckInput *healthCheckInput = [AWSElasticLoadBalancingConfigureHealthCheckInput new];
-    healthCheckInput.loadBalancerName = @""; //loadBalancerName is empty
-    
-    [[[elb configureHealthCheck:healthCheckInput] continueWithBlock:^id(AWSTask *task) {
-        
-        XCTAssertNotNil(task.error, @"expected Validation Error, but got nil");
-        XCTAssertEqual(task.error.code, 0);
-        XCTAssertTrue([@"ValidationError" isEqualToString:task.error.userInfo[@"Code"]]);
-        XCTAssertTrue([@"1 validation error detected: Value null at 'healthCheck' failed to satisfy constraint: Member must not be null" isEqualToString:task.error.userInfo[@"Message"]]);
-        return nil;
-    }] waitUntilFinished];
 }
 
 @end

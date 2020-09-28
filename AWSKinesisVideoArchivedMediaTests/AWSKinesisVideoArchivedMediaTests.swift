@@ -23,8 +23,7 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
     
     override class func setUp() {
         super.setUp()
-        // Setup cognito credentials to use for tests.
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
     
     override func setUp() {
@@ -77,6 +76,11 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
         createStreamRequest?.mediaType = "video/h264"
         
         kvClient.createStream(createStreamRequest!, completionHandler: {(createResult, error) -> Void in
+            if let error = error {
+                XCTAssertNil(error)
+                return
+            }
+
             guard let _ = createResult else {
                 XCTFail("Failed to create stream.")
                 return
@@ -86,6 +90,11 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
             getDataEndpointRequest?.streamName = streamName
             getDataEndpointRequest?.apiName = AWSKinesisVideoAPIName.getHlsStreamingSessionUrl
             kvClient.getDataEndpoint(getDataEndpointRequest!, completionHandler: { (dataEndpointResult, error) in
+                if let error = error {
+                    XCTAssertNil(error)
+                    return
+                }
+
                 guard let dataEndpointResult = dataEndpointResult else {
                     XCTFail("Failed to get data endpoint.")
                     return
@@ -112,8 +121,9 @@ class AWSKinesisVideoArchivedMediaTests: XCTestCase {
         wait(for: [expectation], timeout: 10)
         
         let streamExpectation = self.expectation(description: "Got the stream")
-        let awsEndpoint = AWSEndpoint(region: .USEast1, service: .KinesisVideoArchivedMedia, url: URL(string: clientDataEndpoint!))
-        let serviceConfig = AWSServiceConfiguration(region: .USEast1, endpoint: awsEndpoint, credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
+        let region = AWSTestUtility.getRegionFromTestConfiguration()
+        let awsEndpoint = AWSEndpoint(region: region, service: .KinesisVideoArchivedMedia, url: URL(string: clientDataEndpoint!))
+        let serviceConfig = AWSServiceConfiguration(region: region, endpoint: awsEndpoint, credentialsProvider: AWSServiceManager.default().defaultServiceConfiguration.credentialsProvider)
         let kvamClientKey = "testGetHlsStreamingSessionUrl"
         AWSKinesisVideoArchivedMedia.register(with: serviceConfig!, forKey: kvamClientKey)
         let kvamClient = AWSKinesisVideoArchivedMedia(forKey: kvamClientKey)

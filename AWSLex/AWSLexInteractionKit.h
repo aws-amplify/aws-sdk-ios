@@ -516,7 +516,7 @@ typedef NS_ENUM(NSInteger, AWSLexSpeechEncoding) {
 /**
  Request record permission to AVAudioSession.
  */
-- (void)requestRecordPermission:(PermissionBlock)response;
+- (void)requestRecordPermission:(void (^)(BOOL granted))response;
 
 /**
  Start observing for AVAudioSessionRouteChangeNotification if not already started.

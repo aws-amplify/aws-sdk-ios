@@ -25,7 +25,7 @@
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupSTS];
+//    [AWSTestUtility setupSTS];
 }
 
 - (void)setUp {
@@ -35,6 +35,9 @@
 - (void)tearDown {
     [super tearDown];
 }
+
+/*
+// Disabling this test which needs static long term credentials
 
 - (void)testGetSessionToken {
     AWSSTS *sts = [AWSSTS STSForKey:AWSTestUtilitySTSKey];
@@ -58,6 +61,7 @@
         return nil;
     }] waitUntilFinished];
 }
+*/
 
 
 @end

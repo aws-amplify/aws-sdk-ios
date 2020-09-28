@@ -20,8 +20,7 @@
 
 @interface AWSCredentialsProviderTests : XCTestCase
 
-@property (nonatomic) NSString *dummyAccessKey;
-@property (nonatomic) NSString *dummySecretKey;
+@property AWSRegionType region;
 
 @end
 
@@ -29,43 +28,7 @@
 
 - (void)setUp {
     [super setUp];
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    _dummyAccessKey = @"dummyAccessKey";
-    _dummySecretKey = @"dummySecretKey";
-
-}
-
-- (void)tearDown {
-    // Put teardown code here. This method is called after the invocation of each test method in the class.
-    [super tearDown];
-}
-
-- (void)testCreateStaticCredentialsProvider {
-    AWSStaticCredentialsProvider *staticProviderOne = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:self.dummyAccessKey
-                                                                                                    secretKey:self.dummySecretKey];
-
-    [[[staticProviderOne credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
-        AWSCredentials *credentials = task.result;
-        XCTAssertEqualObjects(self.dummyAccessKey, credentials.accessKey);
-        XCTAssertEqualObjects(self.dummySecretKey, credentials.secretKey);
-
-        return nil;
-    }] waitUntilFinished];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials" ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *staticProviderTwo = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                    secretKey:credentialsJson[@"secretKey"]];
-
-    [[[staticProviderTwo credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
-        AWSCredentials *credentials = task.result;
-        XCTAssertEqualObjects(credentialsJson[@"accessKey"], credentials.accessKey);
-        XCTAssertEqualObjects(credentialsJson[@"secretKey"], credentials.secretKey);
-
-        return nil;
-    }] waitUntilFinished];
+    self.region = [AWSTestUtility getRegionFromTestConfiguration];
 }
 
 - (void)testCreateWebIdentityCredentialsProvider {
@@ -74,7 +37,7 @@
     NSString *roleSessionName = @"testSession";
     NSString *webIdentityToken = @"OauthToken";
 
-    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:self.region
                                                                                                      providerId:providerId
                                                                                                         roleArn:roleArn
                                                                                                 roleSessionName:roleSessionName

@@ -142,7 +142,7 @@
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p> <p>For details about each event source type, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html\\\">Using AWS Lambda with Amazon DynamoDB</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html\\\">Using AWS Lambda with Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html\\\">Using AWS Lambda with Amazon SQS</a> </p> </li> </ul> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p> <p>For details about each event source type, see the following topics.</p> <ul> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html\\\">Using AWS Lambda with Amazon DynamoDB</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html\\\">Using AWS Lambda with Amazon Kinesis</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html\\\">Using AWS Lambda with Amazon SQS</a> </p> </li> <li> <p> <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html\\\">Using AWS Lambda with Amazon MSK</a> </p> </li> </ul> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. Default -1 (infinite). Minimum 60. Maximum 604800.</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records will be retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
     },\
     \"CreateFunction\":{\
       \"name\":\"CreateFunction\",\
@@ -500,6 +500,10 @@
         {\"shape\":\"EC2UnexpectedException\"},\
         {\"shape\":\"SubnetIPAddressLimitReachedException\"},\
         {\"shape\":\"ENILimitReachedException\"},\
+        {\"shape\":\"EFSMountConnectivityException\"},\
+        {\"shape\":\"EFSMountFailureException\"},\
+        {\"shape\":\"EFSMountTimeoutException\"},\
+        {\"shape\":\"EFSIOException\"},\
         {\"shape\":\"EC2ThrottledException\"},\
         {\"shape\":\"EC2AccessDeniedException\"},\
         {\"shape\":\"InvalidSubnetIDException\"},\
@@ -513,7 +517,7 @@
         {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceNotReadyException\"}\
       ],\
-      \"documentation\":\"<p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html\\\">synchronous invocation</a>, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html\\\">execution log</a> and <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\\\">trace</a>.</p> <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html\\\">Retry Behavior</a>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a>, Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq\\\">dead-letter queue</a>.</p> <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/limits.html\\\">limit errors</a>, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p> <p>For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.</p> <p>This operation requires permission for the <code>lambda:InvokeFunction</code> action.</p>\"\
+      \"documentation\":\"<p>Invokes a Lambda function. You can invoke a function synchronously (and wait for the response), or asynchronously. To invoke a function asynchronously, set <code>InvocationType</code> to <code>Event</code>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-sync.html\\\">synchronous invocation</a>, details about the function response, including errors, are included in the response body and headers. For either invocation type, you can find more information in the <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions.html\\\">execution log</a> and <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-x-ray.html\\\">trace</a>.</p> <p>When an error occurs, your function may be invoked multiple times. Retry behavior varies by error type, client, event source, and invocation type. For example, if you invoke a function asynchronously and it returns an error, Lambda executes the function up to two more times. For more information, see <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/retries-on-errors.html\\\">Retry Behavior</a>.</p> <p>For <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a>, Lambda adds events to a queue before sending them to your function. If your function does not have enough capacity to keep up with the queue, events may be lost. Occasionally, your function may receive the same event multiple times, even if no error occurs. To retain events that were not processed, configure your function with a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq\\\">dead-letter queue</a>.</p> <p>The status code in the API response doesn't reflect function errors. Error codes are reserved for errors that prevent your function from executing, such as permissions errors, <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/limits.html\\\">limit errors</a>, or issues with your function's code and configuration. For example, Lambda returns <code>TooManyRequestsException</code> if executing the function would cause you to exceed a concurrency limit at either the account level (<code>ConcurrentInvocationLimitExceeded</code>) or function level (<code>ReservedFunctionConcurrentInvocationLimitExceeded</code>).</p> <p>For functions with a long timeout, your client might be disconnected during synchronous invocation while it waits for a response. Configure your HTTP client, SDK, firewall, proxy, or operating system to allow for long connections with timeout or keep-alive settings.</p> <p>This operation requires permission for the <a href=\\\"https://docs.aws.amazon.com/IAM/latest/UserGuide/list_awslambda.html\\\">lambda:InvokeFunction</a> action.</p>\"\
     },\
     \"InvokeAsync\":{\
       \"name\":\"InvokeAsync\",\
@@ -755,7 +759,7 @@
         {\"shape\":\"InvalidParameterValueException\"},\
         {\"shape\":\"TooManyRequestsException\"}\
       ],\
-      \"documentation\":\"<p>Configures options for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a> on a function, version, or alias. If a configuration already exists for a function, version, or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without affecting existing settings for other options, use <a>PutFunctionEventInvokeConfig</a>.</p> <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with <a>UpdateFunctionConfiguration</a>.</p> <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations\\\">destination</a>. You can configure separate destinations for successful invocations (on-success) and events that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a dead-letter queue.</p>\"\
+      \"documentation\":\"<p>Configures options for <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html\\\">asynchronous invocation</a> on a function, version, or alias. If a configuration already exists for a function, version, or alias, this operation overwrites it. If you exclude any settings, they are removed. To set one option without affecting existing settings for other options, use <a>UpdateFunctionEventInvokeConfig</a>.</p> <p>By default, Lambda retries an asynchronous invocation twice if the function returns an error. It retains events in a queue for up to six hours. When an event fails all processing attempts or stays in the asynchronous invocation queue for too long, Lambda discards it. To retain discarded events, configure a dead-letter queue with <a>UpdateFunctionConfiguration</a>.</p> <p>To send an invocation record to a queue, topic, function, or event bus, specify a <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-destinations\\\">destination</a>. You can configure separate destinations for successful invocations (on-success) and events that fail all processing attempts (on-failure). You can configure destinations in addition to or instead of a dead-letter queue.</p>\"\
     },\
     \"PutProvisionedConcurrencyConfig\":{\
       \"name\":\"PutProvisionedConcurrencyConfig\",\
@@ -879,7 +883,7 @@
         {\"shape\":\"ResourceConflictException\"},\
         {\"shape\":\"ResourceInUseException\"}\
       ],\
-      \"documentation\":\"<p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age.</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
+      \"documentation\":\"<p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p> <p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p> <ul> <li> <p> <code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p> </li> <li> <p> <code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p> </li> <li> <p> <code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. Default -1 (infinite). Minimum 60. Maximum 604800.</p> </li> <li> <p> <code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. Default -1 (infinite). Minimum 0. Maximum 10000. When infinite, failed records will be retried until the record expires.</p> </li> <li> <p> <code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p> </li> </ul>\"\
     },\
     \"UpdateFunctionCode\":{\
       \"name\":\"UpdateFunctionCode\",\
@@ -1158,7 +1162,7 @@
       \"members\":{\
         \"AdditionalVersionWeights\":{\
           \"shape\":\"AdditionalVersionWeights\",\
-          \"documentation\":\"<p>The name of the second alias, and the percentage of traffic that's routed to it.</p>\"\
+          \"documentation\":\"<p>The second version, and the percentage of traffic that's routed to it.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">traffic-shifting</a> configuration of a Lambda function alias.</p>\"\
@@ -1237,7 +1241,7 @@
         },\
         \"RoutingConfig\":{\
           \"shape\":\"AliasRoutingConfiguration\",\
-          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">routing configuration</a> of the alias.</p>\"\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\\\">routing configuration</a> of the alias.</p>\"\
         }\
       }\
     },\
@@ -1250,7 +1254,7 @@
       \"members\":{\
         \"EventSourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p> </li> </ul>\"\
         },\
         \"FunctionName\":{\
           \"shape\":\"FunctionName\",\
@@ -1258,11 +1262,11 @@
         },\
         \"Enabled\":{\
           \"shape\":\"Enabled\",\
-          \"documentation\":\"<p>Disables the event source mapping to pause polling and invocation.</p>\"\
+          \"documentation\":\"<p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>\"\
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
@@ -1274,7 +1278,7 @@
         },\
         \"StartingPosition\":{\
           \"shape\":\"EventSourcePosition\",\
-          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>\"\
+          \"documentation\":\"<p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>\"\
         },\
         \"StartingPositionTimestamp\":{\
           \"shape\":\"Date\",\
@@ -1286,7 +1290,7 @@
         },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
-          \"documentation\":\"<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>\"\
+          \"documentation\":\"<p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
         },\
         \"BisectBatchOnFunctionError\":{\
           \"shape\":\"BisectBatchOnFunctionError\",\
@@ -1294,7 +1298,11 @@
         },\
         \"MaximumRetryAttempts\":{\
           \"shape\":\"MaximumRetryAttemptsEventSourceMapping\",\
-          \"documentation\":\"<p>(Streams) The maximum number of times to retry when the function returns an error.</p>\"\
+          \"documentation\":\"<p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>\"\
+        },\
+        \"Topics\":{\
+          \"shape\":\"Topics\",\
+          \"documentation\":\"<p> (MSK) The name of the Kafka topic. </p>\"\
         }\
       }\
     },\
@@ -1371,6 +1379,10 @@
         \"Layers\":{\
           \"shape\":\"LayerList\",\
           \"documentation\":\"<p>A list of <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\\\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       }\
     },\
@@ -1564,6 +1576,46 @@
       \"error\":{\"httpStatusCode\":502},\
       \"exception\":true\
     },\
+    \"EFSIOException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>An error occured when reading from or writing to a connected file system.</p>\",\
+      \"error\":{\"httpStatusCode\":410},\
+      \"exception\":true\
+    },\
+    \"EFSMountConnectivityException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function couldn't make a network connection to the configured file system.</p>\",\
+      \"error\":{\"httpStatusCode\":408},\
+      \"exception\":true\
+    },\
+    \"EFSMountFailureException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function couldn't mount the configured file system due to a permission or configuration issue.</p>\",\
+      \"error\":{\"httpStatusCode\":403},\
+      \"exception\":true\
+    },\
+    \"EFSMountTimeoutException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Type\":{\"shape\":\"String\"},\
+        \"Message\":{\"shape\":\"String\"}\
+      },\
+      \"documentation\":\"<p>The function was able to make a network connection to the configured file system, but the mount operation timed out.</p>\",\
+      \"error\":{\"httpStatusCode\":408},\
+      \"exception\":true\
+    },\
     \"ENILimitReachedException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -1675,6 +1727,10 @@
           \"shape\":\"DestinationConfig\",\
           \"documentation\":\"<p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>\"\
         },\
+        \"Topics\":{\
+          \"shape\":\"Topics\",\
+          \"documentation\":\"<p> (MSK) The name of the Kafka topic. </p>\"\
+        },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
           \"documentation\":\"<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>\"\
@@ -1707,6 +1763,34 @@
       \"max\":256,\
       \"min\":0,\
       \"pattern\":\"[a-zA-Z0-9._\\\\-]+\"\
+    },\
+    \"FileSystemArn\":{\
+      \"type\":\"string\",\
+      \"max\":200,\
+      \"pattern\":\"arn:aws[a-zA-Z-]*:elasticfilesystem:[a-z]{2}((-gov)|(-iso(b?)))?-[a-z]+-\\\\d{1}:\\\\d{12}:access-point/fsap-[a-f0-9]{17}\"\
+    },\
+    \"FileSystemConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Arn\",\
+        \"LocalMountPath\"\
+      ],\
+      \"members\":{\
+        \"Arn\":{\
+          \"shape\":\"FileSystemArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>\"\
+        },\
+        \"LocalMountPath\":{\
+          \"shape\":\"LocalMountPath\",\
+          \"documentation\":\"<p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>\"\
+    },\
+    \"FileSystemConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"FileSystemConfig\"},\
+      \"max\":1\
     },\
     \"FunctionArn\":{\
       \"type\":\"string\",\
@@ -1781,7 +1865,7 @@
         },\
         \"Timeout\":{\
           \"shape\":\"Timeout\",\
-          \"documentation\":\"<p>The amount of time that Lambda allows a function to run before stopping it.</p>\"\
+          \"documentation\":\"<p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>\"\
         },\
         \"MemorySize\":{\
           \"shape\":\"MemorySize\",\
@@ -1854,6 +1938,10 @@
         \"LastUpdateStatusReasonCode\":{\
           \"shape\":\"LastUpdateStatusReasonCode\",\
           \"documentation\":\"<p>The reason code for the last update that was performed on the function.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Details about a function's configuration.</p>\"\
@@ -2689,7 +2777,7 @@
       \"members\":{\
         \"EventSourceArn\":{\
           \"shape\":\"Arn\",\
-          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> </ul>\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the event source.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - The ARN of the queue.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p> </li> </ul>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"EventSourceArn\"\
         },\
@@ -2980,6 +3068,11 @@
         }\
       }\
     },\
+    \"LocalMountPath\":{\
+      \"type\":\"string\",\
+      \"max\":160,\
+      \"pattern\":\"^/mnt/[a-zA-Z0-9-_.]+$\"\
+    },\
     \"LogType\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -3025,7 +3118,7 @@
     \"MaximumRecordAgeInSeconds\":{\
       \"type\":\"integer\",\
       \"max\":604800,\
-      \"min\":60\
+      \"min\":-1\
     },\
     \"MaximumRetryAttempts\":{\
       \"type\":\"integer\",\
@@ -3035,7 +3128,7 @@
     \"MaximumRetryAttemptsEventSourceMapping\":{\
       \"type\":\"integer\",\
       \"max\":10000,\
-      \"min\":0\
+      \"min\":-1\
     },\
     \"MemorySize\":{\
       \"type\":\"integer\",\
@@ -3490,7 +3583,7 @@
         \"Type\":{\"shape\":\"String\"},\
         \"Message\":{\"shape\":\"String\"}\
       },\
-      \"documentation\":\"<p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state. </p>\",\
+      \"documentation\":\"<p>The operation conflicts with the resource's availability. For example, you attempted to update an EventSource Mapping in CREATING, or tried to delete a EventSource mapping currently in the UPDATING state.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -3534,6 +3627,7 @@
         \"nodejs10.x\",\
         \"nodejs12.x\",\
         \"java8\",\
+        \"java8.al2\",\
         \"java11\",\
         \"python2.7\",\
         \"python3.6\",\
@@ -3547,7 +3641,8 @@
         \"go1.x\",\
         \"ruby2.5\",\
         \"ruby2.7\",\
-        \"provided\"\
+        \"provided\",\
+        \"provided.al2\"\
       ]\
     },\
     \"S3Bucket\":{\
@@ -3700,6 +3795,18 @@
       \"error\":{\"httpStatusCode\":429},\
       \"exception\":true\
     },\
+    \"Topic\":{\
+      \"type\":\"string\",\
+      \"max\":249,\
+      \"min\":1,\
+      \"pattern\":\"^[^.]([a-zA-Z0-9\\\\-_.]+)\"\
+    },\
+    \"Topics\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"Topic\"},\
+      \"max\":1,\
+      \"min\":1\
+    },\
     \"TracingConfig\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3791,7 +3898,7 @@
         },\
         \"RoutingConfig\":{\
           \"shape\":\"AliasRoutingConfiguration\",\
-          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html\\\">routing configuration</a> of the alias.</p>\"\
+          \"documentation\":\"<p>The <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing\\\">routing configuration</a> of the alias.</p>\"\
         },\
         \"RevisionId\":{\
           \"shape\":\"String\",\
@@ -3815,11 +3922,11 @@
         },\
         \"Enabled\":{\
           \"shape\":\"Enabled\",\
-          \"documentation\":\"<p>Disables the event source mapping to pause polling and invocation.</p>\"\
+          \"documentation\":\"<p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>\"\
         },\
         \"BatchSize\":{\
           \"shape\":\"BatchSize\",\
-          \"documentation\":\"<p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p> </li> </ul>\"\
+          \"documentation\":\"<p>The maximum number of items to retrieve in a single batch.</p> <ul> <li> <p> <b>Amazon Kinesis</b> - Default 100. Max 10,000.</p> </li> <li> <p> <b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p> </li> <li> <p> <b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p> </li> <li> <p> <b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p> </li> </ul>\"\
         },\
         \"MaximumBatchingWindowInSeconds\":{\
           \"shape\":\"MaximumBatchingWindowInSeconds\",\
@@ -3831,7 +3938,7 @@
         },\
         \"MaximumRecordAgeInSeconds\":{\
           \"shape\":\"MaximumRecordAgeInSeconds\",\
-          \"documentation\":\"<p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>\"\
+          \"documentation\":\"<p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>\"\
         },\
         \"BisectBatchOnFunctionError\":{\
           \"shape\":\"BisectBatchOnFunctionError\",\
@@ -3839,7 +3946,7 @@
         },\
         \"MaximumRetryAttempts\":{\
           \"shape\":\"MaximumRetryAttemptsEventSourceMapping\",\
-          \"documentation\":\"<p>(Streams) The maximum number of times to retry when the function returns an error.</p>\"\
+          \"documentation\":\"<p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>\"\
         },\
         \"ParallelizationFactor\":{\
           \"shape\":\"ParallelizationFactor\",\
@@ -3948,6 +4055,10 @@
         \"Layers\":{\
           \"shape\":\"LayerList\",\
           \"documentation\":\"<p>A list of <a href=\\\"https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html\\\">function layers</a> to add to the function's execution environment. Specify each layer by its ARN, including the version.</p>\"\
+        },\
+        \"FileSystemConfigs\":{\
+          \"shape\":\"FileSystemConfigList\",\
+          \"documentation\":\"<p>Connection settings for an Amazon EFS file system.</p>\"\
         }\
       }\
     },\

@@ -262,6 +262,14 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderStatusType) {
     AWSCognitoIdentityProviderStatusTypeDisabled,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderTimeUnitsType) {
+    AWSCognitoIdentityProviderTimeUnitsTypeUnknown,
+    AWSCognitoIdentityProviderTimeUnitsTypeSeconds,
+    AWSCognitoIdentityProviderTimeUnitsTypeMinutes,
+    AWSCognitoIdentityProviderTimeUnitsTypeHours,
+    AWSCognitoIdentityProviderTimeUnitsTypeDays,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderUserImportJobStatusType) {
     AWSCognitoIdentityProviderUserImportJobStatusTypeUnknown,
     AWSCognitoIdentityProviderUserImportJobStatusTypeCreated,
@@ -523,6 +531,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderStringAttributeConstraintsType;
 @class AWSCognitoIdentityProviderTagResourceRequest;
 @class AWSCognitoIdentityProviderTagResourceResponse;
+@class AWSCognitoIdentityProviderTokenValidityUnitsType;
 @class AWSCognitoIdentityProviderUICustomizationType;
 @class AWSCognitoIdentityProviderUntagResourceRequest;
 @class AWSCognitoIdentityProviderUntagResourceResponse;
@@ -772,7 +781,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable temporaryPassword;
 
 /**
- <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (in or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p><p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling .)</p><ul><li><p><b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>"EMAIL"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li><li><p><b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>"SMS"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li></ul>
+ <p>An array of name-value pairs that contain user attributes and attribute values to be set for the user to be created. You can create a user without specifying any attributes other than <code>Username</code>. However, any attributes that you specify as required (when creating a user pool or in the <b>Attributes</b> tab of the console) must be supplied either by you (in your call to <code>AdminCreateUser</code>) or by the user (when he or she signs up in response to your welcome message).</p><p>For custom attributes, you must prepend the <code>custom:</code> prefix to the attribute name.</p><p>To send a message inviting the user to sign up, you must specify the user's email address or phone number. This can be done in your call to AdminCreateUser or in the <b>Users</b> tab of the Amazon Cognito console for managing your user pools.</p><p>In your call to <code>AdminCreateUser</code>, you can set the <code>email_verified</code> attribute to <code>True</code>, and you can set the <code>phone_number_verified</code> attribute to <code>True</code>. (You can also do this by calling <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminUpdateUserAttributes.html">AdminUpdateUserAttributes</a>.)</p><ul><li><p><b>email</b>: The email address of the user to whom the message that contains the code and username will be sent. Required if the <code>email_verified</code> attribute is set to <code>True</code>, or if <code>"EMAIL"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li><li><p><b>phone_number</b>: The phone number of the user to whom the message that contains the code and username will be sent. Required if the <code>phone_number_verified</code> attribute is set to <code>True</code>, or if <code>"SMS"</code> is specified in the <code>DesiredDeliveryMediums</code> parameter.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderAttributeType *> * _Nullable userAttributes;
 
@@ -1031,7 +1040,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a> response instead.</p>
+ <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
@@ -1090,7 +1099,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code>.</p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code>.</p></li><li><p>For <code>ADMIN_NO_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>PASSWORD</code> (required), <code>DEVICE_KEY</code>.</p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code>. To start the authentication flow with password verification, include <code>ChallengeName: SRP_A</code> and <code>SRP_A: (The SRP_A Value)</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
@@ -1382,7 +1391,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
 /**
- <p>The challenge name. For more information, see .</p>
+ <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
@@ -1430,17 +1439,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The name of the challenge. For more information, see .</p>
+ <p>The name of the challenge. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters. For more information, see .</p>
+ <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AdminInitiateAuth.html">AdminInitiateAuth</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -1688,11 +1697,15 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
- Required parameters: [ApplicationId, RoleArn, ExternalId]
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for a user pool.</p><note><p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p></note>
  */
 @interface AWSCognitoIdentityProviderAnalyticsConfigurationType : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of an Amazon Pinpoint project. You can use the Amazon Pinpoint project for Pinpoint integration with the chosen User Pool Client. Amazon Cognito publishes events to the pinpoint project declared by the app ARN.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable applicationArn;
 
 /**
  <p>The application ID for an Amazon Pinpoint application.</p>
@@ -2041,7 +2054,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientMetadata;
 
 /**
- <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see </p>
+ <p>The confirmation code sent by a user's request to retrieve a forgotten password. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_ForgotPassword.html">ForgotPassword</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable confirmationCode;
 
@@ -2229,7 +2242,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable idpIdentifiers;
 
 /**
- <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google, Facebook and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignout <i>optional</i></p></li></ul></li></ul>
+ <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Facebook:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li><li><p>api_version</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignout <i>optional</i></p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
 
@@ -2349,6 +2362,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>The time limit, between 5 minutes and 1 day, after which the access token is no longer valid and cannot be used. This value will be overridden if you have entered a value in TokenValidityUnits.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
+
+/**
  <p>The allowed OAuth flows.</p><p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p><p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
@@ -2364,7 +2382,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
@@ -2394,12 +2412,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSNumber * _Nullable generateSecret;
 
 /**
+ <p>The time limit, between 5 minutes and 1 day, after which the ID token is no longer valid and cannot be used. This value will be overridden if you have entered a value in TokenValidityUnits.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
+
+/**
  <p>A list of allowed logout URLs for the identity providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
 
 /**
- <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
+ <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderPreventUserExistenceErrorTypes preventUserExistenceErrors;
 
@@ -2417,6 +2440,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>A list of provider names for the identity providers that are supported on this client. The following are supported: <code>COGNITO</code>, <code>Facebook</code>, <code>Google</code> and <code>LoginWithAmazon</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
+
+/**
+ <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderTokenValidityUnitsType * _Nullable tokenValidityUnits;
 
 /**
  <p>The user pool ID for the user pool where you want to create a user pool client.</p>
@@ -2487,7 +2515,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p><note><p>Starting February 1, 2020, the value of <code>AccountRecoverySetting</code> will default to <code>verified_email</code> first and <code>verified_phone_number</code> as the second option for newly created user pools if no value is provided.</p></note>
+ <p>Use this setting to define which verified available method a user can use to recover their password when they call <code>ForgotPassword</code>. It allows you to define a preferred method when a user has more than one method available. With this setting, SMS does not qualify for a valid password recovery mechanism if the user also has SMS MFA enabled. In the absence of this setting, Cognito uses the legacy behavior to determine the recovery method where SMS is preferred over email.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAccountRecoverySettingType * _Nullable accountRecoverySetting;
 
@@ -2582,7 +2610,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable usernameAttributes;
 
 /**
- <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see .</p>
+ <p>You can choose to set case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUsernameConfigurationType * _Nullable usernameConfiguration;
 
@@ -3565,7 +3593,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use the use the <a>GetUserResponse$UserMFASettingList</a> response instead.</p>
+ <p><i>This response parameter is no longer supported.</i> It provides information only about SMS MFA configurations. It doesn't provide information about TOTP software token MFA configurations. To look up information about either type of MFA configuration, use UserMFASettingList instead.</p>
  */
 @property (nonatomic, strong) NSArray<AWSCognitoIdentityProviderMFAOptionType *> * _Nullable MFAOptions;
 
@@ -3701,7 +3729,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
 
 /**
- <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google, Facebook and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignOut <i>optional</i></p></li></ul></li></ul>
+ <p>The identity provider details. The following list describes the provider detail keys for each identity provider type.</p><ul><li><p>For Google and Login with Amazon:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For Facebook:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>authorize_scopes</p></li><li><p>api_version</p></li></ul></li><li><p>For Sign in with Apple:</p><ul><li><p>client_id</p></li><li><p>team_id</p></li><li><p>key_id</p></li><li><p>private_key</p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For OIDC providers:</p><ul><li><p>client_id</p></li><li><p>client_secret</p></li><li><p>attributes_request_method</p></li><li><p>oidc_issuer</p></li><li><p>authorize_scopes</p></li><li><p>authorize_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>token_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>attributes_url <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>jwks_uri <i>if not available from discovery URL specified by oidc_issuer key</i></p></li><li><p>authorize_scopes</p></li></ul></li><li><p>For SAML providers:</p><ul><li><p>MetadataFile OR MetadataURL</p></li><li><p>IDPSignOut <i>optional</i></p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable providerDetails;
 
@@ -3740,7 +3768,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderAuthFlowType authFlow;
 
 /**
- <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code></p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code></p></li></ul>
+ <p>The authentication parameters. These are inputs corresponding to the <code>AuthFlow</code> that you are invoking. The required values depend on the value of <code>AuthFlow</code>:</p><ul><li><p>For <code>USER_SRP_AUTH</code>: <code>USERNAME</code> (required), <code>SRP_A</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code>.</p></li><li><p>For <code>REFRESH_TOKEN_AUTH/REFRESH_TOKEN</code>: <code>REFRESH_TOKEN</code> (required), <code>SECRET_HASH</code> (required if the app client is configured with a client secret), <code>DEVICE_KEY</code>.</p></li><li><p>For <code>CUSTOM_AUTH</code>: <code>USERNAME</code> (required), <code>SECRET_HASH</code> (if app client is configured with client secret), <code>DEVICE_KEY</code>. To start the authentication flow with password verification, include <code>ChallengeName: SRP_A</code> and <code>SRP_A: (The SRP_A Value)</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable authParameters;
 
@@ -3783,7 +3811,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -4258,7 +4286,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p><i>This data type is no longer supported.</i> You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.</p><p>To set either type of MFA configuration, use the <a>AdminSetUserMFAPreference</a> or <a>SetUserMFAPreference</a> actions.</p><p>To look up information about either type of MFA configuration, use the <a>AdminGetUserResponse$UserMFASettingList</a> or <a>GetUserResponse$UserMFASettingList</a> responses.</p>
+ <p><i>This data type is no longer supported.</i> You can use it only for SMS MFA configurations. You can't use it for TOTP software token MFA configurations.</p>
  */
 @interface AWSCognitoIdentityProviderMFAOptionType : AWSModel
 
@@ -4617,7 +4645,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsMetadataType * _Nullable analyticsMetadata;
 
 /**
- <p>The challenge name. For more information, see .</p><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
+ <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p><p><code>ADMIN_NO_SRP_AUTH</code> is not a valid value.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
@@ -4660,17 +4688,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderAuthenticationResultType * _Nullable authenticationResult;
 
 /**
- <p>The challenge name. For more information, see .</p>
+ <p>The challenge name. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderChallengeNameType challengeName;
 
 /**
- <p>The challenge parameters. For more information, see .</p>
+ <p>The challenge parameters. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_InitiateAuth.html">InitiateAuth</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable challengeParameters;
 
 /**
- <p>The session which should be passed both ways in challenge-response calls to the service. If the or API call determines that the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
+ <p>The session which should be passed both ways in challenge-response calls to the service. If the caller needs to go through another challenge, they return a session with other challenge parameters. This session should be passed as it is to the next <code>RespondToAuthChallenge</code> API call.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable session;
 
@@ -4762,7 +4790,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderAttributeDataType attributeDataType;
 
 /**
- <note><p>We recommend that you use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can be mutated for new use cases instead of using <code>DeveloperOnlyAttribute</code>.</p></note><p>Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using the API but cannot be updated using the API.</p>
+ <note><p>We recommend that you use <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UserPoolClientType.html#CognitoUserPools-Type-UserPoolClientType-WriteAttributes">WriteAttributes</a> in the user pool client to control how attributes can be mutated for new use cases instead of using <code>DeveloperOnlyAttribute</code>.</p></note><p>Specifies whether the attribute type is developer only. This attribute can only be modified by an administrator. Users will not be able to modify this attribute using their access token. For example, <code>DeveloperOnlyAttribute</code> can be modified using AdminUpdateUserAttributes but cannot be updated using UpdateUserAttributes.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable developerOnlyAttribute;
 
@@ -5244,6 +5272,29 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
+ <p>The data type for TokenValidityUnits that specifics the time measurements for token validity.</p>
+ */
+@interface AWSCognitoIdentityProviderTokenValidityUnitsType : AWSModel
+
+
+/**
+ <p> A time unit in “seconds”, “minutes”, “hours” or “days” for the value in AccessTokenValidity, defaults to hours.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType accessToken;
+
+/**
+ <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in IdTokenValidity, defaults to hours.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType idToken;
+
+/**
+ <p>A time unit in “seconds”, “minutes”, “hours” or “days” for the value in RefreshTokenValidity, defaults to days.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderTimeUnitsType refreshToken;
+
+@end
+
+/**
  <p>A container for the UI customization information for a user pool's built-in app UI.</p>
  */
 @interface AWSCognitoIdentityProviderUICustomizationType : AWSModel
@@ -5402,7 +5453,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The new precedence value for the group. For more information about this parameter, see .</p>
+ <p>The new precedence value for the group. For more information about this parameter, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_CreateGroup.html">CreateGroup</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable precedence;
 
@@ -5563,6 +5614,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>The time limit, after which the access token is no longer valid and cannot be used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
+
+/**
  <p>The allowed OAuth flows.</p><p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p><p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
@@ -5578,7 +5634,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthScopes;
 
 /**
- <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>Cognito User Pools only supports sending events to Amazon Pinpoint projects in the US East (N. Virginia) us-east-1 Region, regardless of the region in which the user pool resides.</p></note>
+ <p>The Amazon Pinpoint analytics configuration for collecting metrics for this user pool.</p><note><p>In regions where Pinpoint is not available, Cognito User Pools only supports sending events to Amazon Pinpoint projects in us-east-1. In regions where Pinpoint is available, Cognito User Pools will support sending events to Amazon Pinpoint projects within that same region. </p></note>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderAnalyticsConfigurationType * _Nullable analyticsConfiguration;
 
@@ -5608,12 +5664,17 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
+ <p>The time limit, after which the ID token is no longer valid and cannot be used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
+
+/**
  <p>A list of allowed logout URLs for the identity providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
 
 /**
- <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
+ <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderPreventUserExistenceErrorTypes preventUserExistenceErrors;
 
@@ -5631,6 +5692,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>A list of provider names for the identity providers that are supported on this client.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
+
+/**
+ <p>The units in which the validity times are represented in. Default for RefreshToken is days, and default for ID and access tokens are hours.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderTokenValidityUnitsType * _Nullable tokenValidityUnits;
 
 /**
  <p>The user pool ID for the user pool where you want to update the user pool client.</p>
@@ -5926,6 +5992,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
+ <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the access token is no longer valid and cannot be used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable accessTokenValidity;
+
+/**
  <p>The allowed OAuth flows.</p><p>Set to <code>code</code> to initiate a code grant flow, which provides an authorization code as the response. This code can be exchanged for access tokens with the token endpoint.</p><p>Set to <code>implicit</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) directly.</p><p>Set to <code>client_credentials</code> to specify that the client should get the access token (and, optionally, ID token, based on scopes) from the token endpoint using a combination of client and client_secret.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable allowedOAuthFlows;
@@ -5981,6 +6052,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable explicitAuthFlows;
 
 /**
+ <p>The time limit, specified by tokenValidityUnits, defaulting to hours, after which the refresh token is no longer valid and cannot be used.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable idTokenValidity;
+
+/**
  <p>The date the user pool client was last modified.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
@@ -5991,7 +6067,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable logoutURLs;
 
 /**
- <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><p>This setting affects the behavior of following APIs:</p><ul><li><p><a>AdminInitiateAuth</a></p></li><li><p><a>AdminRespondToAuthChallenge</a></p></li><li><p><a>InitiateAuth</a></p></li><li><p><a>RespondToAuthChallenge</a></p></li><li><p><a>ForgotPassword</a></p></li><li><p><a>ConfirmForgotPassword</a></p></li><li><p><a>ConfirmSignUp</a></p></li><li><p><a>ResendConfirmationCode</a></p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
+ <p>Use this setting to choose which errors and responses are returned by Cognito APIs during authentication, account confirmation, and password recovery when the user does not exist in the user pool. When set to <code>ENABLED</code> and the user does not exist, authentication returns an error indicating either the username or password was incorrect, and account confirmation and password recovery return a response indicating a code was sent to a simulated destination. When set to <code>LEGACY</code>, those APIs will return a <code>UserNotFoundException</code> exception if the user does not exist in the user pool.</p><p>Valid values include:</p><ul><li><p><code>ENABLED</code> - This prevents user existence-related errors.</p></li><li><p><code>LEGACY</code> - This represents the old behavior of Cognito where user existence related errors are not prevented.</p></li></ul><note><p>After February 15th 2020, the value of <code>PreventUserExistenceErrors</code> will default to <code>ENABLED</code> for newly created user pool clients if no value is provided.</p></note>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderPreventUserExistenceErrorTypes preventUserExistenceErrors;
 
@@ -6009,6 +6085,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>A list of provider names for the identity providers that are supported on this client.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable supportedIdentityProviders;
+
+/**
+ <p>The time units used to specify the token validity times of their respective token.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderTokenValidityUnitsType * _Nullable tokenValidityUnits;
 
 /**
  <p>The user pool ID for the user pool client.</p>
@@ -6225,7 +6306,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable usernameAttributes;
 
 /**
- <p>You can choose to enable case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see .</p>
+ <p>You can choose to enable case sensitivity on the username input for the selected sign-in option. For example, when this is set to <code>False</code>, users will be able to sign in using either "username" or "Username". This configuration is immutable once it has been set. For more information, see <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_UsernameConfigurationType.html">UsernameConfigurationType</a>.</p>
  */
 @property (nonatomic, strong) AWSCognitoIdentityProviderUsernameConfigurationType * _Nullable usernameConfiguration;
 
@@ -6353,7 +6434,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable session;
 
 /**
- <p>The one time password computed using the secret code returned by </p>
+ <p>The one time password computed using the secret code returned by <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_AssociateSoftwareToken.html">AssociateSoftwareToken"</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userCode;
 

@@ -171,6 +171,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
+             @"topics" : @"Topics",
              };
 }
 
@@ -222,6 +223,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
@@ -249,6 +251,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
 }
 
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
+}
+
 + (NSValueTransformer *)runtimeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
         if ([value caseInsensitiveCompare:@"nodejs"] == NSOrderedSame) {
@@ -271,6 +277,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
+        }
+        if ([value caseInsensitiveCompare:@"java8.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8Al2);
         }
         if ([value caseInsensitiveCompare:@"java11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava11);
@@ -314,6 +323,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
+        if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -331,6 +343,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
+            case AWSLambdaRuntimeJava8Al2:
+                return @"java8.al2";
             case AWSLambdaRuntimeJava11:
                 return @"java11";
             case AWSLambdaRuntimePython27:
@@ -359,6 +373,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
+            case AWSLambdaRuntimeProvidedAl2:
+                return @"provided.al2";
             default:
                 return nil;
         }
@@ -532,6 +548,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
+             @"topics" : @"Topics",
              @"UUID" : @"UUID",
              };
 }
@@ -546,6 +563,17 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
+@end
+
+@implementation AWSLambdaFileSystemConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"localMountPath" : @"LocalMountPath",
+             };
 }
 
 @end
@@ -583,6 +611,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionArn" : @"FunctionArn",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
@@ -613,6 +642,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironmentResponse class]];
+}
+
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
 }
 
 + (NSValueTransformer *)lastUpdateStatusJSONTransformer {
@@ -714,6 +747,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
+        if ([value caseInsensitiveCompare:@"java8.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8Al2);
+        }
         if ([value caseInsensitiveCompare:@"java11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava11);
         }
@@ -756,6 +792,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
+        if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -773,6 +812,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
+            case AWSLambdaRuntimeJava8Al2:
+                return @"java8.al2";
             case AWSLambdaRuntimeJava11:
                 return @"java11";
             case AWSLambdaRuntimePython27:
@@ -801,6 +842,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
+            case AWSLambdaRuntimeProvidedAl2:
+                return @"provided.al2";
             default:
                 return nil;
         }
@@ -1520,6 +1563,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
+        if ([value caseInsensitiveCompare:@"java8.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8Al2);
+        }
         if ([value caseInsensitiveCompare:@"java11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava11);
         }
@@ -1562,6 +1608,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
+        if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1579,6 +1628,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
+            case AWSLambdaRuntimeJava8Al2:
+                return @"java8.al2";
             case AWSLambdaRuntimeJava11:
                 return @"java11";
             case AWSLambdaRuntimePython27:
@@ -1607,6 +1658,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
+            case AWSLambdaRuntimeProvidedAl2:
+                return @"provided.al2";
             default:
                 return nil;
         }
@@ -1663,6 +1716,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
         }
+        if ([value caseInsensitiveCompare:@"java8.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8Al2);
+        }
         if ([value caseInsensitiveCompare:@"java11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava11);
         }
@@ -1705,6 +1761,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
+        if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1722,6 +1781,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
+            case AWSLambdaRuntimeJava8Al2:
+                return @"java8.al2";
             case AWSLambdaRuntimeJava11:
                 return @"java11";
             case AWSLambdaRuntimePython27:
@@ -1750,6 +1811,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
+            case AWSLambdaRuntimeProvidedAl2:
+                return @"provided.al2";
             default:
                 return nil;
         }
@@ -2219,6 +2282,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
+             @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
              @"KMSKeyArn" : @"KMSKeyArn",
@@ -2239,6 +2303,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)environmentJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaEnvironment class]];
+}
+
++ (NSValueTransformer *)fileSystemConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
@@ -2263,6 +2331,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         }
         if ([value caseInsensitiveCompare:@"java8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava8);
+        }
+        if ([value caseInsensitiveCompare:@"java8.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeJava8Al2);
         }
         if ([value caseInsensitiveCompare:@"java11"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeJava11);
@@ -2306,6 +2377,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"provided"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeProvided);
         }
+        if ([value caseInsensitiveCompare:@"provided.al2"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimeProvidedAl2);
+        }
         return @(AWSLambdaRuntimeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2323,6 +2397,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"nodejs12.x";
             case AWSLambdaRuntimeJava8:
                 return @"java8";
+            case AWSLambdaRuntimeJava8Al2:
+                return @"java8.al2";
             case AWSLambdaRuntimeJava11:
                 return @"java11";
             case AWSLambdaRuntimePython27:
@@ -2351,6 +2427,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"ruby2.7";
             case AWSLambdaRuntimeProvided:
                 return @"provided";
+            case AWSLambdaRuntimeProvidedAl2:
+                return @"provided.al2";
             default:
                 return nil;
         }

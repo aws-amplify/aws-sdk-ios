@@ -27,6 +27,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorEC2AccessDenied,
     AWSLambdaErrorEC2Throttled,
     AWSLambdaErrorEC2Unexpected,
+    AWSLambdaErrorEFSIO,
+    AWSLambdaErrorEFSMountConnectivity,
+    AWSLambdaErrorEFSMountFailure,
+    AWSLambdaErrorEFSMountTimeout,
     AWSLambdaErrorENILimitReached,
     AWSLambdaErrorInvalidParameterValue,
     AWSLambdaErrorInvalidRequestContent,
@@ -111,6 +115,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs10X,
     AWSLambdaRuntimeNodejs12X,
     AWSLambdaRuntimeJava8,
+    AWSLambdaRuntimeJava8Al2,
     AWSLambdaRuntimeJava11,
     AWSLambdaRuntimePython27,
     AWSLambdaRuntimePython36,
@@ -125,6 +130,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeRuby25,
     AWSLambdaRuntimeRuby27,
     AWSLambdaRuntimeProvided,
+    AWSLambdaRuntimeProvidedAl2,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -189,6 +195,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaEnvironmentError;
 @class AWSLambdaEnvironmentResponse;
 @class AWSLambdaEventSourceMappingConfiguration;
+@class AWSLambdaFileSystemConfig;
 @class AWSLambdaFunctionCode;
 @class AWSLambdaFunctionCodeLocation;
 @class AWSLambdaFunctionConfiguration;
@@ -486,7 +493,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The name of the second alias, and the percentage of traffic that's routed to it.</p>
+ <p>The second version, and the percentage of traffic that's routed to it.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSNumber *> * _Nullable additionalVersionWeights;
 
@@ -532,7 +539,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
+ <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
 
@@ -545,7 +552,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -560,12 +567,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>Disables the event source mapping to pause polling and invocation.</p>
+ <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -580,12 +587,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -595,7 +602,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
- <p>The position in a stream from which to start reading. Required for Amazon Kinesis and Amazon DynamoDB Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+ <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
 
@@ -603,6 +610,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>With <code>StartingPosition</code> set to <code>AT_TIMESTAMP</code>, the time from which to start reading.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable startingPositionTimestamp;
+
+/**
+ <p> (MSK) The name of the Kafka topic. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 @end
 
@@ -631,6 +643,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Environment variables that are accessible from function code during execution.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
@@ -962,9 +979,33 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable stateTransitionReason;
 
 /**
+ <p> (MSK) The name of the Kafka topic. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
+
+/**
  <p>The identifier of the event source mapping.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable UUID;
+
+@end
+
+/**
+ <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+ Required parameters: [Arn, LocalMountPath]
+ */
+@interface AWSLambdaFileSystemConfig : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Amazon EFS access point that provides access to the file system.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The path where the function can access the file system, starting with <code>/mnt/</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localMountPath;
 
 @end
 
@@ -1044,6 +1085,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The function's environment variables.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The function's Amazon Resource Name (ARN).</p>
@@ -1131,7 +1177,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaStateReasonCode stateReasonCode;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it.</p>
+ <p>The amount of time in seconds that Lambda allows a function to run before stopping it.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
@@ -1842,7 +1888,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li></ul>
+ <p>The Amazon Resource Name (ARN) of the event source.</p><ul><li><p><b>Amazon Kinesis</b> - The ARN of the data stream or a stream consumer.</p></li><li><p><b>Amazon DynamoDB Streams</b> - The ARN of the stream.</p></li><li><p><b>Amazon Simple Queue Service</b> - The ARN of the queue.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - The ARN of the cluster.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable eventSourceArn;
 
@@ -2603,7 +2649,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-traffic-shifting-using-aliases.html">routing configuration</a> of the alias.</p>
+ <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
 
@@ -2616,7 +2662,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -2631,7 +2677,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
 /**
- <p>Disables the event source mapping to pause polling and invocation.</p>
+ <p>If true, the event source mapping is active. Set to false to pause polling and invocation.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -2646,12 +2692,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
@@ -2735,6 +2781,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>Environment variables that are accessible from function code during execution.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironment * _Nullable environment;
+
+/**
+ <p>Connection settings for an Amazon EFS file system.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
 /**
  <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>my-function</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:my-function</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:my-function</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>

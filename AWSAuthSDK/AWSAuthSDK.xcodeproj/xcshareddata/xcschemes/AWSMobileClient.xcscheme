@@ -53,16 +53,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "177B8AE521E81B7D0051068F"
-               BuildableName = "AWSAuthSDKTestAppUITests.xctest"
-               BlueprintName = "AWSAuthSDKTestAppUITests"
-               ReferencedContainer = "container:AWSAuthSDK.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "B92BA3C52318859D007C1175"
                BuildableName = "AWSMobileClientUnitTests.xctest"
                BlueprintName = "AWSMobileClientUnitTests"

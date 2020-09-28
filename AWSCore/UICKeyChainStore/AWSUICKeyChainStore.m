@@ -511,7 +511,13 @@ static NSString *_defaultService;
     return [self setData:data forKey:key genericAttribute:nil label:label comment:comment error:error];
 }
 
-- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
+- (BOOL)setData:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error {
+    @synchronized (self) {
+        return [self setDataNoLock: data forKey:key genericAttribute:genericAttribute label:label comment:comment error:error];
+    }
+}
+
+- (BOOL)setDataNoLock:(NSData *)data forKey:(NSString *)key genericAttribute:(id)genericAttribute label:(NSString *)label comment:(NSString *)comment error:(NSError *__autoreleasing *)error
 {
     if (!key) {
         NSError *e = [self.class argumentError:NSLocalizedString(@"the key must not to be nil", nil)];

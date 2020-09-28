@@ -23,7 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The Endpoint profile contains information about the device/user to be target for messaging.
  */
-@interface AWSPinpointEndpointProfile : NSObject
+@interface AWSPinpointEndpointProfile : NSObject<NSSecureCoding>
 
 /**
  The Pinpoint Application ID
@@ -74,6 +74,13 @@ NS_ASSUME_NONNULL_BEGIN
  @returns demographic
  */
 @property (nonatomic, readwrite) AWSPinpointEndpointProfileDemographic *_Nullable demographic;
+
+/**
+ The AWSPinpointEndpointProfileDemographic facet that, if it is set, will overwrite the default demographic
+ for subsequent requests to Pinpoint
+ @returns demographic
+ */
+@property (nonatomic, strong) AWSPinpointEndpointProfileDemographic *_Nullable customDemographic;
 
 /**
  The AWSPinpointEndpointProfileUser facet of the endpoint profile
@@ -163,7 +170,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The Endpoint Demographic contains information about the device to be target for messaging.
  */
-@interface AWSPinpointEndpointProfileDemographic : NSObject
+@interface AWSPinpointEndpointProfileDemographic : NSObject<NSSecureCoding>
 
 /**
  Returns an instance of AWSPinpointEndpointProfileDemographic with default values.
@@ -218,7 +225,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The Endpoint profile contains information about the location of the device/user to be target for messaging.
  */
-@interface AWSPinpointEndpointProfileLocation : NSObject
+@interface AWSPinpointEndpointProfileLocation : NSObject<NSSecureCoding>
 
 /**
  The latitude coordinate of the device
@@ -261,7 +268,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  The Endpoint profile contains information about the user to be target for messaging.
  */
-@interface AWSPinpointEndpointProfileUser : NSObject
+@interface AWSPinpointEndpointProfileUser : NSObject<NSSecureCoding>
 
 /**
  The userId of the endpoint profile.

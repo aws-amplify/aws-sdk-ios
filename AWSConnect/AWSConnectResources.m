@@ -71,6 +71,61 @@
     \"uid\":\"connect-2017-08-08\"\
   },\
   \"operations\":{\
+    \"AssociateRoutingProfileQueues\":{\
+      \"name\":\"AssociateRoutingProfileQueues\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/associate-queues\"\
+      },\
+      \"input\":{\"shape\":\"AssociateRoutingProfileQueuesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Associates a set of queues with a routing profile.</p>\"\
+    },\
+    \"CreateContactFlow\":{\
+      \"name\":\"CreateContactFlow\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/contact-flows/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateContactFlowRequest\"},\
+      \"output\":{\"shape\":\"CreateContactFlowResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidContactFlowException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a contact flow for the specified Amazon Connect instance.</p>\"\
+    },\
+    \"CreateRoutingProfile\":{\
+      \"name\":\"CreateRoutingProfile\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"CreateRoutingProfileRequest\"},\
+      \"output\":{\"shape\":\"CreateRoutingProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Creates a new routing profile.</p>\"\
+    },\
     \"CreateUser\":{\
       \"name\":\"CreateUser\",\
       \"http\":{\
@@ -88,7 +143,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Creates a user account for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Creates a user account for the specified Amazon Connect instance.</p> <p>For information about how to create user accounts using the Amazon Connect console, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html\\\">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"DeleteUser\":{\
       \"name\":\"DeleteUser\",\
@@ -104,7 +159,42 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Deletes a user account from the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Deletes a user account from the specified Amazon Connect instance.</p> <p>For information about what happens to a user's data when their account is deleted, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html\\\">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"DescribeContactFlow\":{\
+      \"name\":\"DescribeContactFlow\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeContactFlowRequest\"},\
+      \"output\":{\"shape\":\"DescribeContactFlowResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ContactFlowNotPublishedException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Describes the specified contact flow.</p>\"\
+    },\
+    \"DescribeRoutingProfile\":{\
+      \"name\":\"DescribeRoutingProfile\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}\"\
+      },\
+      \"input\":{\"shape\":\"DescribeRoutingProfileRequest\"},\
+      \"output\":{\"shape\":\"DescribeRoutingProfileResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Describes the specified routing profile.</p>\"\
     },\
     \"DescribeUser\":{\
       \"name\":\"DescribeUser\",\
@@ -157,6 +247,22 @@
       ],\
       \"documentation\":\"<p>Describes the hierarchy structure of the specified Amazon Connect instance.</p>\"\
     },\
+    \"DisassociateRoutingProfileQueues\":{\
+      \"name\":\"DisassociateRoutingProfileQueues\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/disassociate-queues\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateRoutingProfileQueuesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Disassociates a set of queues from a routing profile.</p>\"\
+    },\
     \"GetContactAttributes\":{\
       \"name\":\"GetContactAttributes\",\
       \"http\":{\
@@ -187,7 +293,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets the real-time metric data from the specified Amazon Connect instance.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-reports.html\\\">Real-time Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Gets the real-time metric data from the specified Amazon Connect instance.</p> <p>For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"GetFederationToken\":{\
       \"name\":\"GetFederationToken\",\
@@ -222,7 +328,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"ResourceNotFoundException\"}\
       ],\
-      \"documentation\":\"<p>Gets historical metric data from the specified Amazon Connect instance.</p> <p>For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics.html\\\">Historical Metrics Reports</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Gets historical metric data from the specified Amazon Connect instance.</p> <p>For a description of each historical metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListContactFlows\":{\
       \"name\":\"ListContactFlows\",\
@@ -239,7 +345,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the contact flows for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides information about the contact flows for the specified Amazon Connect instance.</p> <p>For more information about contact flows, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html\\\">Contact Flows</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListHoursOfOperations\":{\
       \"name\":\"ListHoursOfOperations\",\
@@ -256,7 +362,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the hours of operation for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides information about the hours of operation for the specified Amazon Connect instance.</p> <p>For more information about hours of operation, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/set-hours-operation.html\\\">Set the Hours of Operation for a Queue</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListPhoneNumbers\":{\
       \"name\":\"ListPhoneNumbers\",\
@@ -273,7 +379,24 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the phone numbers for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides information about the phone numbers for the specified Amazon Connect instance. </p> <p>For more information about phone numbers, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/contact-center-phone-number.html\\\">Set Up Phone Numbers for Your Contact Center</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"ListPrompts\":{\
+      \"name\":\"ListPrompts\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/prompts-summary/{InstanceId}\"\
+      },\
+      \"input\":{\"shape\":\"ListPromptsRequest\"},\
+      \"output\":{\"shape\":\"ListPromptsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Provides information about the prompts for the specified Amazon Connect instance.</p>\"\
     },\
     \"ListQueues\":{\
       \"name\":\"ListQueues\",\
@@ -290,7 +413,24 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides information about the queues for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides information about the queues for the specified Amazon Connect instance.</p> <p>For more information about queues, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-queues-standard-and-agent.html\\\">Queues: Standard and Agent</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"ListRoutingProfileQueues\":{\
+      \"name\":\"ListRoutingProfileQueues\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/queues\"\
+      },\
+      \"input\":{\"shape\":\"ListRoutingProfileQueuesRequest\"},\
+      \"output\":{\"shape\":\"ListRoutingProfileQueuesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>List the queues associated with a routing profile.</p>\"\
     },\
     \"ListRoutingProfiles\":{\
       \"name\":\"ListRoutingProfiles\",\
@@ -307,7 +447,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the routing profiles for the specified Amazon Connect instance.</p> <p>For more information about routing profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing.html\\\">Routing Profiles</a> and <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/routing-profiles.html\\\">Create a Routing Profile</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListSecurityProfiles\":{\
       \"name\":\"ListSecurityProfiles\",\
@@ -324,7 +464,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the security profiles for the specified Amazon Connect instance.</p> <p>For more information about security profiles, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/connect-security-profiles.html\\\">Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListTagsForResource\":{\
       \"name\":\"ListTagsForResource\",\
@@ -341,7 +481,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Lists the tags for the specified resource.</p>\"\
+      \"documentation\":\"<p>Lists the tags for the specified resource.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListUserHierarchyGroups\":{\
       \"name\":\"ListUserHierarchyGroups\",\
@@ -358,7 +498,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p> <p>For more information about agent hierarchies, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html\\\">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"ListUsers\":{\
       \"name\":\"ListUsers\",\
@@ -377,6 +517,21 @@
       ],\
       \"documentation\":\"<p>Provides summary information about the users for the specified Amazon Connect instance.</p>\"\
     },\
+    \"ResumeContactRecording\":{\
+      \"name\":\"ResumeContactRecording\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/resume-recording\"\
+      },\
+      \"input\":{\"shape\":\"ResumeContactRecordingRequest\"},\
+      \"output\":{\"shape\":\"ResumeContactRecordingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>When a contact is being recorded, and the recording has been suspended using SuspendContactRecording, this API resumes recording the call.</p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
     \"StartChatContact\":{\
       \"name\":\"StartChatContact\",\
       \"http\":{\
@@ -392,7 +547,23 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"LimitExceededException\"}\
       ],\
-      \"documentation\":\"<p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p> <p>When a new chat contact is successfully created, clients need to subscribe to the participantâs connection for the created chat within 5 minutes. This is achieved by invoking <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p>\"\
+      \"documentation\":\"<p>Initiates a contact flow to start a new chat for the customer. Response of this API provides a token required to obtain credentials from the <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> API in the Amazon Connect Participant Service.</p> <p>When a new chat contact is successfully created, clients need to subscribe to the participantâs connection for the created chat within 5 minutes. This is achieved by invoking <a href=\\\"https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html\\\">CreateParticipantConnection</a> with WEBSOCKET and CONNECTION_CREDENTIALS. </p> <p>A 429 error occurs in two situations:</p> <ul> <li> <p>API rate limit is exceeded. API TPS throttling returns a <code>TooManyRequests</code> exception from the API Gateway.</p> </li> <li> <p>The <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">quota for concurrent active chats</a> is exceeded. Active chat throttling returns a <code>LimitExceededException</code>.</p> </li> </ul> <p>For more information about how chat works, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/chat.html\\\">Chat</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+    },\
+    \"StartContactRecording\":{\
+      \"name\":\"StartContactRecording\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/start-recording\"\
+      },\
+      \"input\":{\"shape\":\"StartContactRecordingRequest\"},\
+      \"output\":{\"shape\":\"StartContactRecordingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>This API starts recording the contact when the agent joins the call. StartContactRecording is a one-time action. For example, if you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend and resume it, such as when collecting sensitive information (for example, a credit card number), use SuspendContactRecording and ResumeContactRecording.</p> <p>You can use this API to override the recording behavior configured in the <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/set-recording-behavior.html\\\">Set recording behavior</a> block.</p> <p>Only voice recordings are supported at this time.</p>\"\
     },\
     \"StartOutboundVoiceContact\":{\
       \"name\":\"StartOutboundVoiceContact\",\
@@ -411,7 +582,7 @@
         {\"shape\":\"DestinationNotAllowedException\"},\
         {\"shape\":\"OutboundContactNotPermittedException\"}\
       ],\
-      \"documentation\":\"<p>Initiates a contact flow to place an outbound call to a customer.</p> <p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p>\"\
+      \"documentation\":\"<p>This API places an outbound call to a contact, and then initiates the contact flow. It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents are not involved in initiating the outbound API (that is, dialing the contact). If the contact flow places an outbound call to a contact, and then puts the contact in queue, that's when the call is routed to the agent, like any other inbound case.</p> <p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note>\"\
     },\
     \"StopContact\":{\
       \"name\":\"StopContact\",\
@@ -430,6 +601,36 @@
       ],\
       \"documentation\":\"<p>Ends the specified contact.</p>\"\
     },\
+    \"StopContactRecording\":{\
+      \"name\":\"StopContactRecording\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/stop-recording\"\
+      },\
+      \"input\":{\"shape\":\"StopContactRecordingRequest\"},\
+      \"output\":{\"shape\":\"StopContactRecordingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>When a contact is being recorded, this API stops recording the call. StopContactRecording is a one-time action. If you use StopContactRecording to stop recording an ongoing call, you can't use StartContactRecording to restart it. For scenarios where the recording has started and you want to suspend it for sensitive information (for example, to collect a credit card number), and then restart it, use SuspendContactRecording and ResumeContactRecording.</p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
+    \"SuspendContactRecording\":{\
+      \"name\":\"SuspendContactRecording\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact/suspend-recording\"\
+      },\
+      \"input\":{\"shape\":\"SuspendContactRecordingRequest\"},\
+      \"output\":{\"shape\":\"SuspendContactRecordingResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>When a contact is being recorded, this API suspends recording the call. For example, you might suspend the call recording while collecting sensitive information, such as a credit card number. Then use ResumeContactRecording to restart recording. </p> <p>The period of time that the recording is suspended is filled with silence in the final recording. </p> <p>Only voice recordings are supported at this time.</p>\"\
+    },\
     \"TagResource\":{\
       \"name\":\"TagResource\",\
       \"http\":{\
@@ -444,7 +645,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>The supported resource type is users.</p>\"\
+      \"documentation\":\"<p>Adds the specified tags to the specified resource.</p> <p>The supported resource type is users.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"UntagResource\":{\
       \"name\":\"UntagResource\",\
@@ -478,6 +679,105 @@
       ],\
       \"documentation\":\"<p>Creates or updates the contact attributes associated with the specified contact.</p> <p>You can add or update attributes for both ongoing and completed contacts. For example, you can update the customer's name or the reason the customer called while the call is active, or add notes about steps that the agent took during the call that are displayed to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or identifying abusive callers.</p> <p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted.</p> <p> <b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>\"\
     },\
+    \"UpdateContactFlowContent\":{\
+      \"name\":\"UpdateContactFlowContent\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/content\"\
+      },\
+      \"input\":{\"shape\":\"UpdateContactFlowContentRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidContactFlowException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the specified contact flow.</p>\"\
+    },\
+    \"UpdateContactFlowName\":{\
+      \"name\":\"UpdateContactFlowName\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/contact-flows/{InstanceId}/{ContactFlowId}/name\"\
+      },\
+      \"input\":{\"shape\":\"UpdateContactFlowNameRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>The name of the contact flow.</p>\"\
+    },\
+    \"UpdateRoutingProfileConcurrency\":{\
+      \"name\":\"UpdateRoutingProfileConcurrency\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/concurrency\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoutingProfileConcurrencyRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the channels that agents can handle in the Contact Control Panel (CCP) for a routing profile.</p>\"\
+    },\
+    \"UpdateRoutingProfileDefaultOutboundQueue\":{\
+      \"name\":\"UpdateRoutingProfileDefaultOutboundQueue\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/default-outbound-queue\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoutingProfileDefaultOutboundQueueRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the default outbound queue of a routing profile.</p>\"\
+    },\
+    \"UpdateRoutingProfileName\":{\
+      \"name\":\"UpdateRoutingProfileName\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/name\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoutingProfileNameRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the name and description of a routing profile. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>\"\
+    },\
+    \"UpdateRoutingProfileQueues\":{\
+      \"name\":\"UpdateRoutingProfileQueues\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/routing-profiles/{InstanceId}/{RoutingProfileId}/queues\"\
+      },\
+      \"input\":{\"shape\":\"UpdateRoutingProfileQueuesRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Updates the properties associated with a set of queues for a routing profile.</p>\"\
+    },\
     \"UpdateUserHierarchy\":{\
       \"name\":\"UpdateUserHierarchy\",\
       \"http\":{\
@@ -508,7 +808,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Updates the identity information for the specified user.</p>\"\
+      \"documentation\":\"<p>Updates the identity information for the specified user.</p> <important> <p>Someone with the ability to invoke <code>UpdateUserIndentityInfo</code> can change the login credentials of other users by changing their email address. This poses a security risk to your organization. They can change the email address of a user to the attacker's email address, and then reset the password through email. We strongly recommend limiting who has the ability to invoke <code>UpdateUserIndentityInfo</code>. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security-profile-best-practices.html\\\">Best Practices for Security Profiles</a> in the <i>Amazon Connect Administrator Guide</i>.</p> </important>\"\
     },\
     \"UpdateUserPhoneConfig\":{\
       \"name\":\"UpdateUserPhoneConfig\",\
@@ -580,6 +880,32 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"AssociateRoutingProfileQueuesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"QueueConfigs\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"QueueConfigs\":{\
+          \"shape\":\"RoutingProfileQueueConfigList\",\
+          \"documentation\":\"<p>The queues to associate with this routing profile.</p>\"\
+        }\
+      }\
+    },\
     \"AttributeName\":{\
       \"type\":\"string\",\
       \"max\":32767,\
@@ -644,11 +970,64 @@
       \"type\":\"string\",\
       \"enum\":[\"LT\"]\
     },\
+    \"Concurrency\":{\
+      \"type\":\"integer\",\
+      \"max\":5,\
+      \"min\":1\
+    },\
+    \"ContactFlow\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow.</p>\"\
+        },\
+        \"Id\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ContactFlowName\",\
+          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"ContactFlowType\",\
+          \"documentation\":\"<p>The type of the contact flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ContactFlowDescription\",\
+          \"documentation\":\"<p>The description of the contact flow.</p>\"\
+        },\
+        \"Content\":{\
+          \"shape\":\"ContactFlowContent\",\
+          \"documentation\":\"<p>The content of the contact flow.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>One or more tags.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about a contact flow.</p>\"\
+    },\
+    \"ContactFlowContent\":{\"type\":\"string\"},\
+    \"ContactFlowDescription\":{\"type\":\"string\"},\
     \"ContactFlowId\":{\
       \"type\":\"string\",\
       \"max\":500\
     },\
-    \"ContactFlowName\":{\"type\":\"string\"},\
+    \"ContactFlowName\":{\
+      \"type\":\"string\",\
+      \"min\":1\
+    },\
+    \"ContactFlowNotPublishedException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Message\":{\"shape\":\"Message\"}\
+      },\
+      \"documentation\":\"<p>The contact flow has not been published.</p>\",\
+      \"error\":{\"httpStatusCode\":404},\
+      \"exception\":true\
+    },\
     \"ContactFlowSummary\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -710,6 +1089,111 @@
       \"documentation\":\"<p>The contact with the specified ID is not active or does not exist.</p>\",\
       \"error\":{\"httpStatusCode\":410},\
       \"exception\":true\
+    },\
+    \"CreateContactFlowRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\",\
+        \"Type\",\
+        \"Content\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ContactFlowName\",\
+          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"ContactFlowType\",\
+          \"documentation\":\"<p>The type of the contact flow. For descriptions of the available types, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types\\\">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ContactFlowDescription\",\
+          \"documentation\":\"<p>The description of the contact flow. </p>\"\
+        },\
+        \"Content\":{\
+          \"shape\":\"ContactFlowContent\",\
+          \"documentation\":\"<p>The content of the contact flow. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>One or more tags.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateContactFlowResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\"\
+        },\
+        \"ContactFlowArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the contact flow.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateRoutingProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"Name\",\
+        \"Description\",\
+        \"DefaultOutboundQueueId\",\
+        \"MediaConcurrencies\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"RoutingProfileName\",\
+          \"documentation\":\"<p>The name of the routing profile. Must not be more than 127 characters.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"RoutingProfileDescription\",\
+          \"documentation\":\"<p>Description of the routing profile. Must not be more than 250 characters.</p>\"\
+        },\
+        \"DefaultOutboundQueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The default outbound queue for the routing profile.</p>\"\
+        },\
+        \"QueueConfigs\":{\
+          \"shape\":\"RoutingProfileQueueConfigList\",\
+          \"documentation\":\"<p>The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.</p>\"\
+        },\
+        \"MediaConcurrencies\":{\
+          \"shape\":\"MediaConcurrencies\",\
+          \"documentation\":\"<p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>One or more tags.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateRoutingProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RoutingProfileArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the routing profile.</p>\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\"\
+        }\
+      }\
     },\
     \"CreateUserRequest\":{\
       \"type\":\"structure\",\
@@ -812,7 +1296,7 @@
           \"documentation\":\"<p>The unit for the metric.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains information about a real-time metric.</p>\"\
+      \"documentation\":\"<p>Contains information about a real-time metric. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"CurrentMetricData\":{\
       \"type\":\"structure\",\
@@ -874,6 +1358,11 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"CurrentMetric\"}\
     },\
+    \"Delay\":{\
+      \"type\":\"integer\",\
+      \"max\":9999,\
+      \"min\":0\
+    },\
     \"DeleteUserRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -892,6 +1381,66 @@
           \"documentation\":\"<p>The identifier of the user.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"UserId\"\
+        }\
+      }\
+    },\
+    \"DescribeContactFlowRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactFlowId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactFlowId\"\
+        }\
+      }\
+    },\
+    \"DescribeContactFlowResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactFlow\":{\
+          \"shape\":\"ContactFlow\",\
+          \"documentation\":\"<p>Information about the contact flow.</p>\"\
+        }\
+      }\
+    },\
+    \"DescribeRoutingProfileRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        }\
+      }\
+    },\
+    \"DescribeRoutingProfileResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"RoutingProfile\":{\
+          \"shape\":\"RoutingProfile\",\
+          \"documentation\":\"<p>The routing profile.</p>\"\
         }\
       }\
     },\
@@ -1003,6 +1552,32 @@
       \"documentation\":\"<p>Contains information about the dimensions for a set of metrics.</p>\"\
     },\
     \"DirectoryUserId\":{\"type\":\"string\"},\
+    \"DisassociateRoutingProfileQueuesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"QueueReferences\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"QueueReferences\":{\
+          \"shape\":\"RoutingProfileQueueReferenceList\",\
+          \"documentation\":\"<p>The queues to disassociate from this routing profile.</p>\"\
+        }\
+      }\
+    },\
     \"DisplayName\":{\
       \"type\":\"string\",\
       \"max\":256,\
@@ -1078,15 +1653,15 @@
         },\
         \"Filters\":{\
           \"shape\":\"Filters\",\
-          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>\"\
+          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
-          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. The only supported channel is <code>VOICE</code>.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>\"\
+          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>\"\
         },\
         \"CurrentMetrics\":{\
           \"shape\":\"CurrentMetrics\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available:</p> <dl> <dt>AGENTS_AFTER_CONTACT_WORK</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_ERROR</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_NON_PRODUCTIVE</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_ON_CALL</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_ON_CONTACT</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_ONLINE</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>AGENTS_STAFFED</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>CONTACTS_IN_QUEUE</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>CONTACTS_SCHEDULED</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>OLDEST_CONTACT_AGE</dt> <dd> <p>Unit: SECONDS</p> </dd> <dt>SLOTS_ACTIVE</dt> <dd> <p>Unit: COUNT</p> </dd> <dt>SLOTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name and unit for each metric. The following metrics are available. For a description of all the metrics, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html\\\">Real-time Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>AGENTS_AFTER_CONTACT_WORK</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#aftercallwork-real-time\\\">ACW</a> </p> </dd> <dt>AGENTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#available-real-time\\\">Available</a> </p> </dd> <dt>AGENTS_ERROR</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#error-real-time\\\">Error</a> </p> </dd> <dt>AGENTS_NON_PRODUCTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#non-productive-time-real-time\\\">NPT (Non-Productive Time)</a> </p> </dd> <dt>AGENTS_ON_CALL</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ON_CONTACT</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#on-call-real-time\\\">On contact</a> </p> </dd> <dt>AGENTS_ONLINE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#online-real-time\\\">Online</a> </p> </dd> <dt>AGENTS_STAFFED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#staffed-real-time\\\">Staffed</a> </p> </dd> <dt>CONTACTS_IN_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#in-queue-real-time\\\">In queue</a> </p> </dd> <dt>CONTACTS_SCHEDULED</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#scheduled-real-time\\\">Scheduled</a> </p> </dd> <dt>OLDEST_CONTACT_AGE</dt> <dd> <p>Unit: SECONDS</p> <p>When you use groupings, Unit says SECONDS but the Value is returned in MILLISECONDS. For example, if you get a response like this:</p> <p> <code>{ \\\"Metric\\\": { \\\"Name\\\": \\\"OLDEST_CONTACT_AGE\\\", \\\"Unit\\\": \\\"SECONDS\\\" }, \\\"Value\\\": 24113.0 </code>}</p> <p>The actual OLDEST_CONTACT_AGE is 24 seconds.</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#oldest-real-time\\\">Oldest</a> </p> </dd> <dt>SLOTS_ACTIVE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#active-real-time\\\">Active</a> </p> </dd> <dt>SLOTS_AVAILABLE</dt> <dd> <p>Unit: COUNT</p> <p>Name in real-time metrics report: <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/real-time-metrics-definitions.html#availability-real-time\\\">Availability</a> </p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -1163,7 +1738,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"Filters\",\
-          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>\"\
+          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
@@ -1171,7 +1746,7 @@
         },\
         \"HistoricalMetrics\":{\
           \"shape\":\"HistoricalMetrics\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available:</p> <dl> <dt>ABANDON_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>API_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CALLBACK_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>HANDLE_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> </dd> <dt>QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>QUEUED_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: Only \\\"Less than\\\" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>ABANDON_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>API_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CALLBACK_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>HANDLE_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> </dd> <dt>QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>QUEUED_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: Only \\\"Less than\\\" comparisons are supported, with the following service level thresholds: 15, 20, 25, 30, 45, 60, 90, 120, 180, 240, 300, 600</p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -1352,7 +1927,7 @@
           \"documentation\":\"<p>The unit for the metric.</p>\"\
         }\
       },\
-      \"documentation\":\"<p>Contains information about a historical metric.</p>\"\
+      \"documentation\":\"<p>Contains information about a historical metric. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
     \"HistoricalMetricData\":{\
       \"type\":\"structure\",\
@@ -1465,6 +2040,18 @@
       },\
       \"documentation\":\"<p>Request processing failed due to an error or failure with the service.</p>\",\
       \"error\":{\"httpStatusCode\":500},\
+      \"exception\":true\
+    },\
+    \"InvalidContactFlowException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"problems\":{\
+          \"shape\":\"Problems\",\
+          \"documentation\":\"<p>The problems with the contact flow. Please fix before trying again.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>The contact flow is not valid.</p>\",\
+      \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
     \"InvalidParameterException\":{\
@@ -1632,6 +2219,44 @@
         }\
       }\
     },\
+    \"ListPromptsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult1000\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListPromptsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PromptSummaryList\":{\
+          \"shape\":\"PromptSummaryList\",\
+          \"documentation\":\"<p>Information about the prompts.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListQueuesRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -1672,6 +2297,53 @@
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
           \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListRoutingProfileQueuesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximimum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListRoutingProfileQueuesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        },\
+        \"RoutingProfileQueueConfigSummaryList\":{\
+          \"shape\":\"RoutingProfileQueueConfigSummaryList\",\
+          \"documentation\":\"<p>Information about the routing profiles.</p>\"\
         }\
       }\
     },\
@@ -1857,6 +2529,28 @@
       \"type\":\"integer\",\
       \"max\":1000,\
       \"min\":1\
+    },\
+    \"MediaConcurrencies\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"MediaConcurrency\"}\
+    },\
+    \"MediaConcurrency\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Channel\",\
+        \"Concurrency\"\
+      ],\
+      \"members\":{\
+        \"Channel\":{\
+          \"shape\":\"Channel\",\
+          \"documentation\":\"<p>The channels that agents can handle in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"Concurrency\":{\
+          \"shape\":\"Concurrency\",\
+          \"documentation\":\"<p>The number of contacts an agent can have on a channel simultaneously.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.</p>\"\
     },\
     \"Message\":{\"type\":\"string\"},\
     \"NextToken\":{\"type\":\"string\"},\
@@ -2195,6 +2889,64 @@
         \"DESK_PHONE\"\
       ]\
     },\
+    \"Priority\":{\
+      \"type\":\"integer\",\
+      \"max\":99,\
+      \"min\":1\
+    },\
+    \"ProblemDetail\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"message\":{\
+          \"shape\":\"ProblemMessageString\",\
+          \"documentation\":\"<p>The problem detail's message.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about a problem detail.</p>\"\
+    },\
+    \"ProblemMessageString\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
+    },\
+    \"Problems\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"ProblemDetail\"},\
+      \"max\":50,\
+      \"min\":1\
+    },\
+    \"PromptId\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
+    },\
+    \"PromptName\":{\
+      \"type\":\"string\",\
+      \"max\":256,\
+      \"min\":1\
+    },\
+    \"PromptSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"Id\":{\
+          \"shape\":\"PromptId\",\
+          \"documentation\":\"<p>The identifier of the prompt.</p>\"\
+        },\
+        \"Arn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the prompt.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"PromptName\",\
+          \"documentation\":\"<p>The name of the prompt.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about the prompt.</p>\"\
+    },\
+    \"PromptSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"PromptSummary\"}\
+    },\
     \"QueueId\":{\"type\":\"string\"},\
     \"QueueName\":{\
       \"type\":\"string\",\
@@ -2271,11 +3023,176 @@
       \"error\":{\"httpStatusCode\":404},\
       \"exception\":true\
     },\
+    \"ResumeContactRecordingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"InitialContactId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InitialContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        }\
+      }\
+    },\
+    \"ResumeContactRecordingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
+    \"RoutingProfile\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"RoutingProfileName\",\
+          \"documentation\":\"<p>The name of the routing profile.</p>\"\
+        },\
+        \"RoutingProfileArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the routing profile.</p>\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"RoutingProfileDescription\",\
+          \"documentation\":\"<p>The description of the routing profile.</p>\"\
+        },\
+        \"MediaConcurrencies\":{\
+          \"shape\":\"MediaConcurrencies\",\
+          \"documentation\":\"<p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>\"\
+        },\
+        \"DefaultOutboundQueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The identifier of the default outbound queue for this routing profile.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagMap\",\
+          \"documentation\":\"<p>One or more tags.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about a routing profile.</p>\"\
+    },\
+    \"RoutingProfileDescription\":{\
+      \"type\":\"string\",\
+      \"max\":250,\
+      \"min\":1\
+    },\
     \"RoutingProfileId\":{\"type\":\"string\"},\
     \"RoutingProfileName\":{\
       \"type\":\"string\",\
-      \"max\":100,\
+      \"max\":127,\
       \"min\":1\
+    },\
+    \"RoutingProfileQueueConfig\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"QueueReference\",\
+        \"Priority\",\
+        \"Delay\"\
+      ],\
+      \"members\":{\
+        \"QueueReference\":{\
+          \"shape\":\"RoutingProfileQueueReference\",\
+          \"documentation\":\"<p>Contains information about a queue resource.</p>\"\
+        },\
+        \"Priority\":{\
+          \"shape\":\"Priority\",\
+          \"documentation\":\"<p>The order in which contacts are to be handled for the queue. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\\\">Queues: priority and delay</a>.</p>\",\
+          \"box\":true\
+        },\
+        \"Delay\":{\
+          \"shape\":\"Delay\",\
+          \"documentation\":\"<p>The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\\\">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\",\
+          \"box\":true\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about the queue and channel for which priority and delay can be set.</p>\"\
+    },\
+    \"RoutingProfileQueueConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileQueueConfig\"},\
+      \"max\":10,\
+      \"min\":1\
+    },\
+    \"RoutingProfileQueueConfigSummary\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"QueueId\",\
+        \"QueueArn\",\
+        \"QueueName\",\
+        \"Priority\",\
+        \"Delay\",\
+        \"Channel\"\
+      ],\
+      \"members\":{\
+        \"QueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The identifier of the queue.</p>\"\
+        },\
+        \"QueueArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the queue.</p>\"\
+        },\
+        \"QueueName\":{\
+          \"shape\":\"QueueName\",\
+          \"documentation\":\"<p>The name of the queue.</p>\"\
+        },\
+        \"Priority\":{\
+          \"shape\":\"Priority\",\
+          \"documentation\":\"<p>The order in which contacts are to be handled for the queue. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\\\">Queues: priority and delay</a>.</p>\"\
+        },\
+        \"Delay\":{\
+          \"shape\":\"Delay\",\
+          \"documentation\":\"<p>The delay, in seconds, that a contact should be in the queue before they are routed to an available agent. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html\\\">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+        },\
+        \"Channel\":{\
+          \"shape\":\"Channel\",\
+          \"documentation\":\"<p>The channels this queue supports.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains summary information about a routing profile queue.</p>\"\
+    },\
+    \"RoutingProfileQueueConfigSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileQueueConfigSummary\"}\
+    },\
+    \"RoutingProfileQueueReference\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"QueueId\",\
+        \"Channel\"\
+      ],\
+      \"members\":{\
+        \"QueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The identifier of the queue.</p>\"\
+        },\
+        \"Channel\":{\
+          \"shape\":\"Channel\",\
+          \"documentation\":\"<p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains the channel and queue identifier for a routing profile.</p>\"\
+    },\
+    \"RoutingProfileQueueReferenceList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"RoutingProfileQueueReference\"}\
     },\
     \"RoutingProfileSummary\":{\
       \"type\":\"structure\",\
@@ -2347,7 +3264,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow for the chat.</p>\"\
+          \"documentation\":\"<p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
@@ -2385,6 +3302,38 @@
         }\
       }\
     },\
+    \"StartContactRecordingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"InitialContactId\",\
+        \"VoiceRecordingConfiguration\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InitialContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        },\
+        \"VoiceRecordingConfiguration\":{\
+          \"shape\":\"VoiceRecordingConfiguration\",\
+          \"documentation\":\"<p>Who is being recorded.</p>\"\
+        }\
+      }\
+    },\
+    \"StartContactRecordingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"StartOutboundVoiceContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2399,7 +3348,7 @@
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
-          \"documentation\":\"<p>The identifier of the contact flow for the outbound call.</p>\"\
+          \"documentation\":\"<p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
@@ -2441,6 +3390,33 @@
         \"AVG\"\
       ]\
     },\
+    \"StopContactRecordingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"InitialContactId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InitialContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        }\
+      }\
+    },\
+    \"StopContactRecordingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"StopContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -2463,6 +3439,33 @@
       \"members\":{\
       }\
     },\
+    \"SuspendContactRecordingRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactId\",\
+        \"InitialContactId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact.</p>\"\
+        },\
+        \"InitialContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>\"\
+        }\
+      }\
+    },\
+    \"SuspendContactRecordingResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      }\
+    },\
     \"TagKey\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -2472,14 +3475,14 @@
     \"TagKeyList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"TagKey\"},\
-      \"max\":50,\
+      \"max\":200,\
       \"min\":1\
     },\
     \"TagMap\":{\
       \"type\":\"map\",\
       \"key\":{\"shape\":\"TagKey\"},\
       \"value\":{\"shape\":\"TagValue\"},\
-      \"max\":50,\
+      \"max\":200,\
       \"min\":1\
     },\
     \"TagResourceRequest\":{\
@@ -2584,6 +3587,168 @@
     \"UpdateContactAttributesResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
+      }\
+    },\
+    \"UpdateContactFlowContentRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactFlowId\",\
+        \"Content\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactFlowId\"\
+        },\
+        \"Content\":{\
+          \"shape\":\"ContactFlowContent\",\
+          \"documentation\":\"<p>The content of the contact flow.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateContactFlowNameRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactFlowId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"ContactFlowId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"ContactFlowName\",\
+          \"documentation\":\"<p>The name of the contact flow.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"ContactFlowDescription\",\
+          \"documentation\":\"<p>The description of the contact flow.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRoutingProfileConcurrencyRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"MediaConcurrencies\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"MediaConcurrencies\":{\
+          \"shape\":\"MediaConcurrencies\",\
+          \"documentation\":\"<p>The channels agents can handle in the Contact Control Panel (CCP).</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRoutingProfileDefaultOutboundQueueRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"DefaultOutboundQueueId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"DefaultOutboundQueueId\":{\
+          \"shape\":\"QueueId\",\
+          \"documentation\":\"<p>The identifier for the default outbound queue.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRoutingProfileNameRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"RoutingProfileName\",\
+          \"documentation\":\"<p>The name of the routing profile. Must not be more than 127 characters.</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"RoutingProfileDescription\",\
+          \"documentation\":\"<p>The description of the routing profile. Must not be more than 250 characters.</p>\"\
+        }\
+      }\
+    },\
+    \"UpdateRoutingProfileQueuesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"RoutingProfileId\",\
+        \"QueueConfigs\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"RoutingProfileId\":{\
+          \"shape\":\"RoutingProfileId\",\
+          \"documentation\":\"<p>The identifier of the routing profile.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"RoutingProfileId\"\
+        },\
+        \"QueueConfigs\":{\
+          \"shape\":\"RoutingProfileQueueConfigList\",\
+          \"documentation\":\"<p>The queues to be updated for this routing profile.</p>\"\
+        }\
       }\
     },\
     \"UpdateUserHierarchyRequest\":{\
@@ -2835,9 +4000,27 @@
       \"member\":{\"shape\":\"UserSummary\"}\
     },\
     \"Value\":{\"type\":\"double\"},\
+    \"VoiceRecordingConfiguration\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"VoiceRecordingTrack\":{\
+          \"shape\":\"VoiceRecordingTrack\",\
+          \"documentation\":\"<p>Identifies which track is being recorded.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains information about the recording configuration settings.</p>\"\
+    },\
+    \"VoiceRecordingTrack\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"FROM_AGENT\",\
+        \"TO_AGENT\",\
+        \"ALL\"\
+      ]\
+    },\
     \"timestamp\":{\"type\":\"timestamp\"}\
   },\
-  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact routing. You can also resolve customer issues more efficiently by putting customers in touch with the right agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create and limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Limits</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
+  \"documentation\":\"<p>Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale.</p> <p>Amazon Connect provides rich metrics and real-time reporting that allow you to optimize contact routing. You can also resolve customer issues more efficiently by putting customers in touch with the right agents.</p> <p>There are limits to the number of Amazon Connect resources that you can create and limits to the number of requests that you can make per second. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <p>To connect programmatically to an AWS service, you use an endpoint. For a list of Amazon Connect endpoints, see <a href=\\\"https://docs.aws.amazon.com/general/latest/gr/connect_region.html\\\">Amazon Connect Endpoints</a>.</p>\"\
 }\
 ";
 }

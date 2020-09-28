@@ -23,6 +23,9 @@ static NSString *testS3PresignedURLEUCentralKey = @"testS3PresignedURLEUCentral"
 static NSString *testS3EUCentralKey = @"testS3EUCentral";
 static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCentralStatic";
 
+static NSString *testObjectKey = @"AWSS3PreSignedURLBuilderTests-test-object.bin";
+static long unsigned testObjectSize = 10000;
+
 @interface AWSS3TestCredentialsProvider : NSObject <AWSCredentialsProvider>
 
 @property (nonatomic, strong) AWSCredentials *internalCredentials;
@@ -47,33 +50,30 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 @implementation AWSS3PreSignedURLBuilderTests {
     
-    NSArray *bucketNameArray;
+    AWSRegionType region;
 
+}
+
++ (void)setUp {
+    [AWSTestUtility setupSessionCredentialsProvider];
+    [AWSS3PreSignedURLBuilderTests setUpTestObjects];
+}
+
++ (NSArray *)bucketNameArray {
+    NSString *basicBucket = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                   configKey:@"bucket_name_basic"];
+    NSString *periodsBucket = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                     configKey:@"bucket_name_with_periods"];
+    return @[basicBucket, periodsBucket];
+}
+
++ (void)tearDown {
+    [AWSS3PreSignedURLBuilderTests tearDownTestObjects];
 }
 
 - (void)setUp {
     [super setUp];
-    bucketNameArray = @[@"ios-v2-s3-tm-testdata", @"ios-v2-s3.periods", @"ios-v2-s3-eu-central", @"ios-v2-s3-eu-c.periods"];
-
-    // Put setup code here. This method is called before the invocation of each test method in the class.
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    id<AWSCredentialsProvider> credentialProvider = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration.credentialsProvider;
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
-                                                                         credentialsProvider:credentialProvider];
-    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration forKey:testS3PresignedURLEUCentralKey];
-    [AWSS3 registerS3WithConfiguration:configuration forKey:testS3EUCentralKey];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *staticCredentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                            secretKey:credentialsJson[@"secretKey"]];
-    AWSServiceConfiguration *staticConfig = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionEUCentral1
-                                                                        credentialsProvider:staticCredentialsProvider];
-    [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:staticConfig forKey:testS3PresignedURLEUCentralStaticKey];
+    region = [AWSTestUtility getRegionFromTestConfiguration];
 }
 
 - (void)tearDown {
@@ -85,7 +85,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:@"accessKey"
                                                                                                       secretKey:@"secretKey"];
     NSString *key = @"testLocalTestingConfiguration";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                                  serviceType:AWSServiceS3
                                                                          credentialsProvider:credentialsProvider
                                                                          localTestingEnabled:YES];
@@ -100,13 +100,13 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     
     
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
+    getPreSignedURLRequest.bucket = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                           configKey:@"bucket_name_basic"];
     getPreSignedURLRequest.key = @"temp2.txt";
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
     [[[customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-        
         NSURL *presignedURL = task.result;
         XCTAssertNotNil(presignedURL);
         XCTAssertEqualObjects(presignedURL.host, @"localhost", @"Should be localhost");
@@ -118,29 +118,22 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 }
 
 - (void)testCustomServiceConfiguration {
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                      secretKey:credentialsJson[@"secretKey"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
                                                                          credentialsProvider:credentialsProvider];
 
     [AWSS3PreSignedURLBuilder registerS3PreSignedURLBuilderWithConfiguration:configuration
                                                                       forKey:@"testCustomServiceConfiguration"];
     AWSS3PreSignedURLBuilder *customPreSignedURLBuilder = [AWSS3PreSignedURLBuilder S3PreSignedURLBuilderForKey:@"testCustomServiceConfiguration"];
 
-
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
-    getPreSignedURLRequest.key = @"temp2.txt";
+    getPreSignedURLRequest.bucket = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                           configKey:@"bucket_name_basic"];
+    getPreSignedURLRequest.key = testObjectKey;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
     [[[customPreSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
-
         NSURL *presignedURL = task.result;
 
         XCTAssertNotNil(presignedURL);
@@ -157,10 +150,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                  XCTFail(@"response status Code is :%ld", (long)((NSHTTPURLResponse *)response).statusCode);
                                                  NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                              }
-
-                                             XCTAssertEqual(65961003, [data length],
-                                                            @"received object is different from sent object. expect file size:%lu, got:%lu", (unsigned long)65961003, (unsigned long)[data length]);
-
+                                             XCTAssertEqual(testObjectSize, [data length]);
                                              dispatch_semaphore_signal(semaphore);
                                          }] resume];
 
@@ -173,7 +163,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 -(void)testObjectWithGreedyKey {
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
         AWSS3 *s3 = nil;
@@ -433,7 +423,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSData *testObjectData = [[NSData alloc] initWithBytesNoCopy:largeData length:AWSS3PreSignedURLTest256KB];
 
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
         AWSS3 *s3 = nil;
@@ -600,13 +590,13 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 - (void)testGetObject {
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         @autoreleasepool {
 
             AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
             getPreSignedURLRequest.bucket = myBucketName;
-            getPreSignedURLRequest.key = @"temp2.txt";
+            getPreSignedURLRequest.key = testObjectKey;
             getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
             getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
@@ -660,7 +650,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                          NSString *responseContentTypeStr = [((NSHTTPURLResponse *)response) allHeaderFields][@"Content-Type"];
                                                          XCTAssertEqualObjects(@"application/x-bittorrent", responseContentTypeStr);
                                                      } else {
-                                                         XCTAssertEqual(65961003, [data length],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(unsigned long)[data length]);
+                                                         XCTAssertEqual(testObjectSize, [data length]);
                                                      }
 
                                                      dispatch_semaphore_signal(semaphore);
@@ -685,7 +675,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
     //create a currentDate
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
+    getPreSignedURLRequest.bucket = [[AWSS3PreSignedURLBuilderTests bucketNameArray] firstObject];
     getPreSignedURLRequest.key = keyName;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodPUT;
     getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
@@ -743,7 +733,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
     NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
 
-    NSString *bucketName = @"ios-v2-s3-tm-testdata";
+    NSString *bucketName = [[AWSS3PreSignedURLBuilderTests bucketNameArray] firstObject];
     NSString *keyName = @"ios-presignedURL-testMetaData";
 
     NSString *userDefinedHeader = @"x-amz-meta-userdefined-key";
@@ -848,7 +838,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 - (void)testPutObject2 {
     NSString *testContentType = @"application/x-authorware-bin";
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
         NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
@@ -1060,7 +1050,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     NSString *testString1 = [NSString stringWithFormat:@"test string1: %@",[[NSUUID UUID] UUIDString]];
     NSData *testObjectData = [testString1 dataUsingEncoding:NSUTF8StringEncoding];
 
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         AWSS3PreSignedURLBuilder *preSignedURLBuilder = nil;
         AWSS3 *s3 = nil;
@@ -1179,11 +1169,11 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 - (void)testHEADObject {
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
         getPreSignedURLRequest.bucket = myBucketName;
-        getPreSignedURLRequest.key = @"temp2.txt";
+        getPreSignedURLRequest.key = testObjectKey;
         getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodHEAD;
         getPreSignedURLRequest.expires = [NSDate dateWithTimeIntervalSinceNow:3600];
 
@@ -1201,7 +1191,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                 break;
         }
         XCTAssertNotNil(preSignedURLBuilder);
-
 
         [[[preSignedURLBuilder getPreSignedURL:getPreSignedURLRequest] continueWithBlock:^id(AWSTask *task) {
 
@@ -1229,7 +1218,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
                                                      NSLog(@"response data is:%@",[[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding]);
                                                  }
 
-                                                 XCTAssertEqual(65961003, [[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)65961003,(long)[[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
+                                                 XCTAssertEqual(testObjectSize, [[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue],@"received object is different from sent object. expect file size:%lu, got:%lu",(unsigned long)testObjectSize,(long)[[[((NSHTTPURLResponse *)response) allHeaderFields] objectForKey:@"Content-Length"] integerValue]);
 
                                                  if ([data length] != 0) {
                                                      //expected the got 0 size returnData, but got something else.
@@ -1251,7 +1240,7 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
 
 - (void)testDeleteObjectFromBucket {
     int32_t count = 0;
-    for (NSString *myBucketName in bucketNameArray) {
+    for (NSString *myBucketName in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
 
         NSString *keyName = @"ios-test-to-be-deleted";
 
@@ -1379,8 +1368,8 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     //create a currentDate
 
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
-    getPreSignedURLRequest.bucket = @"ios-v2-s3-tm-testdata";
-    getPreSignedURLRequest.key = @"temp2.txt";
+    getPreSignedURLRequest.bucket = [[AWSS3PreSignedURLBuilderTests bucketNameArray] firstObject];
+    getPreSignedURLRequest.key = testObjectKey;
     getPreSignedURLRequest.HTTPMethod = AWSHTTPMethodGET;
     getPreSignedURLRequest.expires = [NSDate date];
 
@@ -1405,10 +1394,6 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     
     //wait a few seconds until presigned URL expired
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:10]];
-    
-    //NSLog(@"(GET)presigned URL is: %@",presignedURL.absoluteString);
-    
-    
     
     NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:presignedURL];
     request.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
@@ -1478,6 +1463,58 @@ static NSString *testS3PresignedURLEUCentralStaticKey = @"testS3PresignedURLEUCe
     AWSTask *resultSeven = [preSignedURLBuilder getPreSignedURL:getPreSignedURLRequestSeven];
     XCTAssertEqual(AWSS3PresignedURLErrorInvalidRequestParameters, resultSeven.error.code);
     
+}
+
+#pragma mark - Utilities
+
++ (void)setUpTestObjects {
+    void *buf = malloc(testObjectSize);
+    if (buf == NULL) {
+        @throw [NSException exceptionWithName:@"AWSS3Error"
+                                       reason:@"Could not create test data"
+                                     userInfo:nil];
+    }
+    arc4random_buf(buf, testObjectSize);
+    NSData *data = [NSData dataWithBytesNoCopy:buf length:testObjectSize freeWhenDone:YES];
+
+    for (NSString *bucket in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
+        AWSS3PutObjectRequest *request = [AWSS3PutObjectRequest new];
+        request.bucket = bucket;
+        request.key = testObjectKey;
+        request.body = data;
+        request.contentLength = @(testObjectSize);
+        AWSS3 *s3 = [AWSS3 defaultS3];
+
+        [[[s3 putObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3PutObjectOutput *> * _Nonnull task) {
+            if (task.error) {
+                @throw [NSException exceptionWithName:@"AWSS3Error"
+                                               reason:@"Could not upload test file"
+                                             userInfo:@{
+                                                 @"underlyingError": task.error
+                                             }];
+            }
+            return nil;
+        }] waitUntilFinished];
+    }
+}
+
++ (void)tearDownTestObjects {
+    for (NSString *bucket in [AWSS3PreSignedURLBuilderTests bucketNameArray]) {
+        AWSS3DeleteObjectRequest *request = [AWSS3DeleteObjectRequest new];
+        request.bucket = bucket;
+        request.key = testObjectKey;
+        AWSS3 *s3 = [AWSS3 defaultS3];
+        [[[s3 deleteObject:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3DeleteObjectOutput *> * _Nonnull task) {
+            if (task.error) {
+                @throw [NSException exceptionWithName:@"AWSS3Error"
+                                               reason:@"Could not delete test file"
+                                             userInfo:@{
+                                                 @"underlyingError": task.error
+                                             }];
+            }
+            return nil;
+        }] waitUntilFinished];
+    }
 }
 
 @end

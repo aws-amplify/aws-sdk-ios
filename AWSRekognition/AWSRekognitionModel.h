@@ -190,6 +190,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionReason) {
     AWSRekognitionReasonLowFaceQuality,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionSegmentType) {
+    AWSRekognitionSegmentTypeUnknown,
+    AWSRekognitionSegmentTypeTechnicalCue,
+    AWSRekognitionSegmentTypeShot,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionStreamProcessorStatus) {
     AWSRekognitionStreamProcessorStatusUnknown,
     AWSRekognitionStreamProcessorStatusStopped,
@@ -197,6 +203,13 @@ typedef NS_ENUM(NSInteger, AWSRekognitionStreamProcessorStatus) {
     AWSRekognitionStreamProcessorStatusRunning,
     AWSRekognitionStreamProcessorStatusFailed,
     AWSRekognitionStreamProcessorStatusStopping,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionTechnicalCueType) {
+    AWSRekognitionTechnicalCueTypeUnknown,
+    AWSRekognitionTechnicalCueTypeColorBars,
+    AWSRekognitionTechnicalCueTypeEndCredits,
+    AWSRekognitionTechnicalCueTypeBlackFrames,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionTextTypes) {
@@ -214,6 +227,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 @class AWSRekognitionAgeRange;
 @class AWSRekognitionAsset;
+@class AWSRekognitionAudioMetadata;
 @class AWSRekognitionBeard;
 @class AWSRekognitionBoundingBox;
 @class AWSRekognitionCelebrity;
@@ -290,6 +304,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionGetLabelDetectionResponse;
 @class AWSRekognitionGetPersonTrackingRequest;
 @class AWSRekognitionGetPersonTrackingResponse;
+@class AWSRekognitionGetSegmentDetectionRequest;
+@class AWSRekognitionGetSegmentDetectionResponse;
 @class AWSRekognitionGetTextDetectionRequest;
 @class AWSRekognitionGetTextDetectionResponse;
 @class AWSRekognitionGroundTruthManifest;
@@ -333,6 +349,9 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionSearchFacesByImageResponse;
 @class AWSRekognitionSearchFacesRequest;
 @class AWSRekognitionSearchFacesResponse;
+@class AWSRekognitionSegmentDetection;
+@class AWSRekognitionSegmentTypeInfo;
+@class AWSRekognitionShotSegment;
 @class AWSRekognitionSmile;
 @class AWSRekognitionStartCelebrityRecognitionRequest;
 @class AWSRekognitionStartCelebrityRecognitionResponse;
@@ -348,8 +367,13 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStartPersonTrackingResponse;
 @class AWSRekognitionStartProjectVersionRequest;
 @class AWSRekognitionStartProjectVersionResponse;
+@class AWSRekognitionStartSegmentDetectionFilters;
+@class AWSRekognitionStartSegmentDetectionRequest;
+@class AWSRekognitionStartSegmentDetectionResponse;
+@class AWSRekognitionStartShotDetectionFilter;
 @class AWSRekognitionStartStreamProcessorRequest;
 @class AWSRekognitionStartStreamProcessorResponse;
+@class AWSRekognitionStartTechnicalCueDetectionFilter;
 @class AWSRekognitionStartTextDetectionFilters;
 @class AWSRekognitionStartTextDetectionRequest;
 @class AWSRekognitionStartTextDetectionResponse;
@@ -363,6 +387,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStreamProcessorSettings;
 @class AWSRekognitionSummary;
 @class AWSRekognitionSunglasses;
+@class AWSRekognitionTechnicalCueSegment;
 @class AWSRekognitionTestingData;
 @class AWSRekognitionTestingDataResult;
 @class AWSRekognitionTextDetection;
@@ -401,6 +426,34 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The S3 bucket that contains the Ground Truth manifest file.</p>
  */
 @property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable groundTruthManifest;
+
+@end
+
+/**
+ <p>Metadata information about an audio stream. An array of <code>AudioMetadata</code> objects for the audio streams found in a stored video is returned by <a>GetSegmentDetection</a>. </p>
+ */
+@interface AWSRekognitionAudioMetadata : AWSModel
+
+
+/**
+ <p>The audio codec used to encode or decode the audio stream. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codec;
+
+/**
+ <p>The duration of the audio stream in milliseconds.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationMillis;
+
+/**
+ <p>The number of audio channels in the segement.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable numberOfChannels;
+
+/**
+ <p>The sample rate for the audio stream.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sampleRate;
 
 @end
 
@@ -1057,7 +1110,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
 /**
- <p>A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned.</p>
+ <p>A list of model version names that you want to describe. You can add up to 10 model version names to the list. If you don't specify a value, all model descriptions are returned. A version name is part of a model (ProjectVersion) ARN. For example, <code>my-model.2020-01-21T09.10.15</code> is the version name in the following ARN. <code>arn:aws:rekognition:us-east-1:123456789012:project/getting-started/version/<i>my-model.2020-01-21T09.10.15</i>/1234567890123</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable versionNames;
 
@@ -2135,11 +2188,77 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 /**
  
  */
+@interface AWSRekognitionGetSegmentDetectionRequest : AWSRequest
+
+
+/**
+ <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartSegmentDetection</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>Maximum number of results to return per paginated call. The largest value you can specify is 1000.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionGetSegmentDetectionResponse : AWSModel
+
+
+/**
+ <p>An array of objects. There can be multiple audio streams. Each <code>AudioMetadata</code> object contains metadata for a single audio stream. Audio information in an <code>AudioMetadata</code> objects includes the audio codec, the number of audio channels, the duration of the audio stream, and the sample rate. Audio metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAudioMetadata *> * _Nullable audioMetadata;
+
+/**
+ <p>Current status of the segment detection job.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
+
+/**
+ <p>If the previous response was incomplete (because there are more labels to retrieve), Amazon Rekognition Video returns a pagination token in the response. You can use this pagination token to retrieve the next set of text.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>An array of segments detected in a video.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionSegmentDetection *> * _Nullable segments;
+
+/**
+ <p>An array containing the segment types requested in the call to <code>StartSegmentDetection</code>. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionSegmentTypeInfo *> * _Nullable selectedSegmentTypes;
+
+/**
+ <p>If the job fails, <code>StatusMessage</code> provides a descriptive error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>Currently, Amazon Rekognition Video returns a single object in the <code>VideoMetadata</code> array. The object contains information about the video stream in the input file that Amazon Rekognition Video chose to analyze. The <code>VideoMetadata</code> object includes the video codec, video format and other information. Video metadata is returned in each page of information returned by <code>GetSegmentDetection</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionVideoMetadata *> * _Nullable videoMetadata;
+
+@end
+
+/**
+ 
+ */
 @interface AWSRekognitionGetTextDetectionRequest : AWSRequest
 
 
 /**
- <p>Job identifier for the label detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
+ <p>Job identifier for the text detection operation for which you want results returned. You get the job identifer from an initial call to <code>StartTextDetection</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -2242,7 +2361,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionHumanLoopDataAttributes * _Nullable dataAttributes;
 
 /**
- <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+ <p>The Amazon Resource Name (ARN) of the flow definition. You can create a flow definition by using the Amazon Sagemaker <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/API_CreateFlowDefinition.html">CreateFlowDefinition</a> Operation. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable flowDefinitionArn;
 
@@ -3089,6 +3208,95 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>A technical cue or shot detection segment detected in a video. An array of <code>SegmentDetection</code> objects containing all segments detected in a stored video is returned by <a>GetSegmentDetection</a>. </p>
+ */
+@interface AWSRekognitionSegmentDetection : AWSModel
+
+
+/**
+ <p>The duration of the detected segment in milliseconds. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationMillis;
+
+/**
+ <p>The duration of the timecode for the detected segment in SMPTE format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable durationSMPTE;
+
+/**
+ <p>The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. <code>EndTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endTimecodeSMPTE;
+
+/**
+ <p>The end time of the detected segment, in milliseconds, from the start of the video.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endTimestampMillis;
+
+/**
+ <p>If the segment is a shot detection, contains information about the shot detection.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionShotSegment * _Nullable shotSegment;
+
+/**
+ <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates). </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable startTimecodeSMPTE;
+
+/**
+ <p>The start time of the detected segment in milliseconds from the start of the video.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startTimestampMillis;
+
+/**
+ <p>If the segment is a technical cue, contains information about the technical cue.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionTechnicalCueSegment * _Nullable technicalCueSegment;
+
+/**
+ <p>The type of the segment. Valid values are <code>TECHNICAL_CUE</code> and <code>SHOT</code>.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionSegmentType types;
+
+@end
+
+/**
+ <p>Information about the type of a segment requested in a call to <a>StartSegmentDetection</a>. An array of <code>SegmentTypeInfo</code> objects is returned by the response from <a>GetSegmentDetection</a>.</p>
+ */
+@interface AWSRekognitionSegmentTypeInfo : AWSModel
+
+
+/**
+ <p>The version of the model used to detect segments.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelVersion;
+
+/**
+ <p>The type of a segment (technical cue or shot detection).</p>
+ */
+@property (nonatomic, assign) AWSRekognitionSegmentType types;
+
+@end
+
+/**
+ <p>Information about a shot detection segment detected in a video. For more information, see <a>SegmentDetection</a>.</p>
+ */
+@interface AWSRekognitionShotSegment : AWSModel
+
+
+/**
+ <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>An Identifier for a shot detection segment detected in a video </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable index;
+
+@end
+
+/**
  <p>Indicates whether or not the face is smiling, and the confidence level in the determination.</p>
  */
 @interface AWSRekognitionSmile : AWSModel
@@ -3409,6 +3617,88 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p>Filters applied to the technical cue or shot detection segments. For more information, see <a>StartSegmentDetection</a>. </p>
+ */
+@interface AWSRekognitionStartSegmentDetectionFilters : AWSModel
+
+
+/**
+ <p>Filters that are specific to shot detections.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionStartShotDetectionFilter * _Nullable shotFilter;
+
+/**
+ <p>Filters that are specific to technical cues.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionStartTechnicalCueDetectionFilter * _Nullable technicalCueFilter;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartSegmentDetectionRequest : AWSRequest
+
+
+/**
+ <p>Idempotent token used to identify the start request. If you use the same token with multiple <code>StartSegmentDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidently started more than once. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>Filters for technical cue or shot detection.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionStartSegmentDetectionFilters * _Nullable filters;
+
+/**
+ <p>An identifier you specify that's returned in the completion notification that's published to your Amazon Simple Notification Service topic. For example, you can use <code>JobTag</code> to group related jobs and identify them in the completion notification.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTag;
+
+/**
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>An array of segment types to detect in the video. Valid values are TECHNICAL_CUE and SHOT.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable segmentTypes;
+
+/**
+ <p>Video file stored in an Amazon S3 bucket. Amazon Rekognition video start operations such as <a>StartLabelDetection</a> use <code>Video</code> to specify a video for analysis. The supported file formats are .mp4, .mov and .avi.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionStartSegmentDetectionResponse : AWSModel
+
+
+/**
+ <p>Unique identifier for the segment detection job. The <code>JobId</code> is returned from <code>StartSegmentDetection</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ <p>Filters for the shot detection segments returned by <code>GetSegmentDetection</code>. For more information, see <a>StartSegmentDetectionFilters</a>.</p>
+ */
+@interface AWSRekognitionStartShotDetectionFilter : AWSModel
+
+
+/**
+ <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinSegmentConfidence</code>, the <code>GetSegmentDetection</code> returns segments with confidence values greater than or equal to 50 percent.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minSegmentConfidence;
+
+@end
+
+/**
  
  */
 @interface AWSRekognitionStartStreamProcessorRequest : AWSRequest
@@ -3426,6 +3716,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @interface AWSRekognitionStartStreamProcessorResponse : AWSModel
 
+
+@end
+
+/**
+ <p>Filters for the technical segments returned by <a>GetSegmentDetection</a>. For more information, see <a>StartSegmentDetectionFilters</a>.</p>
+ */
+@interface AWSRekognitionStartTechnicalCueDetectionFilter : AWSModel
+
+
+/**
+ <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinSegmentConfidence</code>, <code>GetSegmentDetection</code> returns segments with confidence values greater than or equal to 50 percent.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minSegmentConfidence;
 
 @end
 
@@ -3625,6 +3928,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Boolean value that indicates whether the face is wearing sunglasses or not.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable value;
+
+@end
+
+/**
+ <p>Information about a technical cue segment. For more information, see <a>SegmentDetection</a>.</p>
+ */
+@interface AWSRekognitionTechnicalCueSegment : AWSModel
+
+
+/**
+ <p>The confidence that Amazon Rekognition Video has in the accuracy of the detected segment.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The type of the technical cue.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionTechnicalCueType types;
 
 @end
 

@@ -164,6 +164,30 @@ static id mockNetworking = nil;
 
 }
 
+-(void)testRegisterIoTDataManagerWithConfigurationUserNamePasswordWithMQTTConfiguration {
+    NSString *key = @"testRegisterIoTDataManagerWithMQTTConfigurationUserNamePassword";
+    AWSCognitoCredentialsProvider *credentialsProvider =
+    [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSWest2
+                                               identityPoolId:@"TESTCognitoPoolID"];
+    AWSServiceConfiguration *configuration =
+    [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSWest2
+                                           endpoint:[[AWSEndpoint alloc] initWithURLString:@"TESTENDPOINT.iot.amazonaws.com"]
+                                credentialsProvider:credentialsProvider];
+    
+    AWSIoTMQTTConfiguration *mqttConfig = [[AWSIoTMQTTConfiguration alloc] init];
+    mqttConfig.username = @"testUserName";
+    mqttConfig.password = @"testPassword";
+    
+    [AWSIoTDataManager registerIoTDataManagerWithConfiguration:configuration
+                                         withMQTTConfiguration:mqttConfig
+                                                        forKey:key];
+    AWSIoTDataManager *dm = [AWSIoTDataManager IoTDataManagerForKey:@"testRegisterIoTDataManagerWithMQTTConfigurationUserNamePassword"];
+    XCTAssertNotNil(dm);
+    XCTAssertEqual(dm.configuration.regionType, AWSRegionUSWest2);
+    XCTAssertEqual(dm.mqttConfiguration.username, @"testUserName");
+    XCTAssertEqual(dm.mqttConfiguration.password, @"testPassword");
+}
+
 - (void)testDeleteThingShadow {
     NSString *key = @"testDeleteThingShadow";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];

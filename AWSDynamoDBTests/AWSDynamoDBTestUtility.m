@@ -62,6 +62,7 @@
         return [self waitForTableToBeActive:tableName];
     }] continueWithBlock:^id(AWSTask *task) {
         if (task.error) {
+            AWSDDLogError(@"Error creating table: %@", task.error);
             succeeded = NO;
         } else {
             succeeded = YES;

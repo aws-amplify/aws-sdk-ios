@@ -23,129 +23,67 @@
 
 @implementation AWSClockSkewTests
 
-static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
-
-+ (void)setUp {
-    [super setUp];
-    [AWSTestUtility setupCognitoIdentityService];
-}
-
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    if (![AWSSTS STSForKey:AWSClockSkewTestsSTSKey]) {
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                             credentialsProvider:credentialsProvider];
-        [AWSSTS registerSTSWithConfiguration:configuration
-                                      forKey:AWSClockSkewTestsSTSKey];
-    }
-
     [AWSTestUtility setupSwizzling];
 }
 
 - (void)tearDown {
     [super tearDown];
-
     [AWSTestUtility revertSwizzling];
 }
 
-// ERS Test
-/*
-#if !AWS_TEST_BJS_INSTEAD
--(void)testClockSkewERS {
-    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
-    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+- (void)testClockSkewSTS {
+    NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
 
-    AWSMobileAnalyticsERS *ers = [AWSMobileAnalyticsERS defaultMobileAnalyticsERS];
-    XCTAssertNotNil(ers);
+    // Have to override the STS service region to handle non-USEast1 regions
+    AWSRegionType region = [AWSTestUtility getRegionFromTestConfiguration];
+    NSString *regionName = [AWSEndpoint regionNameFromType:region];
+    NSString *regionalizedEndpointURL = [NSString stringWithFormat:@"https://sts.%@.amazonaws.com", regionName];
+    AWSEndpoint *regionalizedEndpoint = [[AWSEndpoint alloc] initWithURLString:regionalizedEndpointURL];
 
-    AWSMobileAnalyticsERSPutEventsInput *putEventInput = [AWSMobileAnalyticsERSPutEventsInput new];
+    AWSBasicSessionCredentialsProvider *credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
 
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:region
+                                                                                    endpoint:regionalizedEndpoint
+                                                                         credentialsProvider:credentialsProvider];
 
-    AWSMobileAnalyticsERSEvent *eventOne = [AWSMobileAnalyticsERSEvent new];
-
-    eventOne.attributes = @{};
-    eventOne.version = @"v2.0";
-    eventOne.eventType = @"_session.start";
-    eventOne.timestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
-
-    AWSMobileAnalyticsERSSession *serviceSession = [AWSMobileAnalyticsERSSession new];
-    serviceSession.identifier = @"SMZSP1G8-21c9ac01-20140604-171714026";
-    serviceSession.startTimestamp = [[NSDate date] aws_stringValue:AWSDateISO8601DateFormat3];
-
-    eventOne.session = serviceSession;
-
-    putEventInput.events = @[eventOne];
-
-    NSDictionary *clientContext = @{@"client": @{@"app_package_name": @"MT3T3XMSMZSP1G8",
-                                                 @"app_version_name":@"v1.2",
-                                                 @"app_version_code":@"3",
-                                                 @"app_title":[NSNull null],
-                                                 @"client_id":@"0a877e9d-c7c0-4269-b138-cb3f21c9ac01"
-                                                 },
-                                    @"env" : @{@"model": @"iPhone Simulator",
-                                               @"make":@"Apple",
-                                               @"platform":@"IOS",
-                                               @"platform_version":@"4.3.1",
-                                               @"locale":@"en-US"},
-                                    @"custom" : @{},
-                                    };
-    NSString *clientContextJsonString = [[NSString alloc] initWithData: [NSJSONSerialization dataWithJSONObject:clientContext options:0 error:nil] encoding:NSUTF8StringEncoding];
-
-    putEventInput.clientContext = clientContextJsonString;
-
-    [[[ers putEvents:putEventInput] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNil(task.error, @"The request failed. error: [%@]", task.error);
-
-        return nil;
-
-    }] waitUntilFinished ];
-
-
-}
-#endif
-*/
-//STS Test
--(void)testClockSkewSTS
-{
-    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
-    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
+    [AWSSTS registerSTSWithConfiguration:configuration
+                                  forKey:AWSClockSkewTestsSTSKey];
 
     AWSSTS *sts = [AWSSTS STSForKey:AWSClockSkewTestsSTSKey];
     XCTAssertNotNil(sts);
 
-    AWSSTSGetSessionTokenRequest *getSessionTokenRequest = [AWSSTSGetSessionTokenRequest new];
-    getSessionTokenRequest.durationSeconds = @900;
+    XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
+    [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
 
-    [[[sts getSessionToken:getSessionTokenRequest] continueWithBlock:^id(AWSTask *task) {
+    NSDictionary *packageConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId:@"sts"];
+    NSString *testRoleArn = packageConfig[@"testRoleArn"];
+    
+    AWSSTSAssumeRoleRequest *assumeRoleRequest = [AWSSTSAssumeRoleRequest new];
+    assumeRoleRequest.durationSeconds = @900;
+    assumeRoleRequest.roleArn = testRoleArn;
+    assumeRoleRequest.roleSessionName = @"testClockSkewSTS";
+
+    [[[sts assumeRole:assumeRoleRequest] continueWithBlock:^id _Nullable(AWSTask<AWSSTSAssumeRoleResponse *> * _Nonnull task) {
         if (task.error) {
             XCTFail(@"Error: [%@]", task.error);
         }
-
         if (task.result) {
-            AWSSTSGetSessionTokenResponse *getSessionTokenResponse = task.result;
+            AWSSTSAssumeRoleResponse *getSessionTokenResponse = task.result;
             XCTAssertTrue([getSessionTokenResponse.credentials.accessKeyId length] > 0);
             XCTAssertTrue([getSessionTokenResponse.credentials.secretAccessKey length] > 0);
             XCTAssertTrue([getSessionTokenResponse.credentials.sessionToken length] > 0);
             XCTAssertTrue([getSessionTokenResponse.credentials.expiration isKindOfClass:[NSDate class]]);
         }
-
         return nil;
     }] waitUntilFinished];
-
 }
 
 //Cognito Identity Service Test
 #if !AWS_TEST_BJS_INSTEAD
 -(void)testClockSkewCognitoIdentityService {
+    [AWSTestUtility setupCognitoIdentityService];
     XCTAssertFalse([NSDate aws_getRuntimeClockSkew], @"current RunTimeClockSkew is not zero!");
     [AWSTestUtility setMockDate:[NSDate dateWithTimeIntervalSince1970:3600]];
 
@@ -165,7 +103,6 @@ static NSString *AWSClockSkewTestsSTSKey = @"AWSClockSkewTestsSTSKey";
         
         return nil;
     }] waitUntilFinished];
-    
 }
 #endif
 

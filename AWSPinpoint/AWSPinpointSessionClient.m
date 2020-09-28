@@ -13,6 +13,7 @@
 // permissions and limitations under the License.
 //
 
+#import "AWSNSCodingUtilities.h"
 #import "AWSPinpointSessionClient.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointAnalyticsClient.h"
@@ -100,7 +101,17 @@ NSObject *sessionLock;
     if (self = [super init]) {
         _context = context;
         NSData *sessionData = [context.configuration.userDefaults dataForKey:AWSPinpointSessionKey];
-        _session = [NSKeyedUnarchiver unarchiveObjectWithData:sessionData];
+
+        if (sessionData) {
+            NSError *decodeError;
+            _session = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                       fromData:sessionData
+                                                                          error:&decodeError];
+            if (decodeError) {
+                AWSDDLogError(@"Error decoding session: %@", decodeError);
+            }
+        }
+
         sessionLock = [NSObject new];
         
         //Only add observers if auto session recording is enabled
@@ -133,7 +144,16 @@ NSObject *sessionLock;
         @synchronized (sessionLock) {
             sessionCopy = [_session copy];
         }
-        NSData *sessionData = [NSKeyedArchiver archivedDataWithRootObject:sessionCopy];
+
+        NSError *codingError;
+        NSData *sessionData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:sessionCopy
+                                                                    requiringSecureCoding:YES
+                                                                                    error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving sessionData: %@", codingError);
+            return;
+        }
+
         [self.context.configuration.userDefaults setObject:sessionData forKey:AWSPinpointSessionKey];
         [self.context.configuration.userDefaults synchronize];
     }
@@ -289,11 +309,11 @@ NSObject *sessionLock;
         _session = nil;
     }
 
-    return [self.context.analyticsClient recordEvent:stopEvent];
-
     //Remove global event source attributes
     AWSDDLogVerbose(@"Removed global event source attributes");
     [self.context.analyticsClient removeAllGlobalEventSourceAttributes];
+
+    return [self.context.analyticsClient recordEvent:stopEvent];
 }
 
 - (void) endCurrentSessionWithBlock:(AWSPinpointTimeoutBlock) block {
@@ -377,13 +397,18 @@ NSObject *sessionLock;
 @end
 
 #pragma mark - AWSPinpointSession -
+
 @implementation AWSPinpointSession
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
-        _sessionId = [decoder decodeObjectForKey:@"sessionId"];
-        _startTime = [decoder decodeObjectForKey:@"startTime"];
-        _stopTime = [decoder decodeObjectForKey:@"stopTime"];
+        _sessionId = [decoder decodeObjectOfClass:[NSString class] forKey:@"sessionId"];
+        _startTime = [decoder decodeObjectOfClass:[NSDate class] forKey:@"startTime"];
+        _stopTime = [decoder decodeObjectOfClass:[NSDate class] forKey:@"stopTime"];
     }
     return self;
 }

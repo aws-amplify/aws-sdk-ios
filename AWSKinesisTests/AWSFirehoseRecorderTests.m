@@ -30,7 +30,7 @@ NSString *const AWSFirehoseRecorderTestStream = @"test-permanent-firehose";
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 + (void)tearDown {
@@ -224,11 +224,12 @@ NSString *const AWSFirehoseRecorderTestStream = @"test-permanent-firehose";
 
 - (void)testAll {
     AWSFirehoseRecorder *firehoseRecorder = [AWSFirehoseRecorder defaultFirehoseRecorder];
-    
+    NSString *streamName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"firehose"
+                                                                                   configKey:@"firehose_stream_name"];
     NSMutableArray *tasks = [NSMutableArray new];
     for (int32_t i = 0; i < 1234; i++) {
         [tasks addObject:[firehoseRecorder saveRecord:[[NSString stringWithFormat:@"TestString-%02d\n", i] dataUsingEncoding:NSUTF8StringEncoding]
-                                           streamName:AWSFirehoseRecorderTestStream]];
+                                           streamName:streamName]];
     }
     
     [[[[AWSTask taskForCompletionOfAllTasks:tasks] continueWithSuccessBlock:^id(AWSTask *task) {

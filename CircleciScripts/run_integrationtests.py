@@ -1,37 +1,69 @@
 import demjson
 import sys
-from subprocess import Popen, PIPE
-import subprocess
+from subprocess import Popen, TimeoutExpired
 import xml.etree.ElementTree as ET
-import os
 from datetime import datetime
-from functions import runcommand
-#from sets import Set
-def getfailedcases(withBundle = True):   
+
+
+# TODO: Remove this in favor of functions.run_command, as part of a larger refactor of this script
+def runcommand(
+    command,
+    timeout=0,
+    pipein=None,
+    pipeout=None,
+    logcommandline=True,
+    workingdirectory=None,
+):
+    if logcommandline:
+        print("running command: ", command, "......")
+    process = Popen(
+        command, shell=True, stdin=pipein, stdout=pipeout, cwd=workingdirectory
+    )
+    wait_times = 0
+    while True:
+        try:
+            process.communicate(timeout=10)
+        except TimeoutExpired:
+            # tell circleci I am still alive, don't kill me
+            if wait_times % 30 == 0:
+                print(str(datetime.now()) + ": I am still alive")
+            # if time costed exceed timeout, quit
+            if timeout > 0 and wait_times > timeout * 6:
+                print(str(datetime.now()) + ": time out")
+                return 1
+            wait_times += 1
+
+            continue
+        break
+    exit_code = process.wait()
+    return exit_code
+
+
+def getfailedcases(withBundle = True):
     xmlfile='build/reports/junit.xml'
-    tree = ET.parse(xmlfile) 
-    root = tree.getroot() 
+    tree = ET.parse(xmlfile)
+    root = tree.getroot()
     testbundle = root.get('name')
     testbundle = testbundle[0:len(testbundle) - 7]
 
     failedtests = set()
 
-    #TODO  we can filter with condtion 
-    for testsuite in root.findall(".//testsuite"):  
-        for testcase in testsuite.findall('.//testcase[failure]'): 
+    #TODO  we can filter with condtion
+    for testsuite in root.findall(".//testsuite"):
+        for testcase in testsuite.findall('.//testcase[failure]'):
             suitename = testsuite.get('name')
             casename = testcase.get('name')
-            if withBundle: 
+            if withBundle:
                 failedtests.add(testbundle + '/' + suitename + '/' + casename)
             else:
                 failedtests.add(suitename + '/' + casename)
 
-    return failedtests 
- #run test   
+    return failedtests
+ #run test
 def runtest(otherargments, projectPath, schemeName, projectName, destination, derivedDataPath, timeout = 0):
     runcommand("rm raw.log")
     runcommand("rm xcpretty.log")
-    testcommand = "xcodebuild   test-without-building  -project {0} -scheme {1} -sdk iphonesimulator -destination '{2}'  -derivedDataPath  {3}/{4}".format(projectPath,schemeName, destination, derivedDataPath, projectName) 
+    testcommand = "xcodebuild   test-without-building  -project {0} -scheme {1} -sdk iphonesimulator -destination '{2}'  -derivedDataPath  {3}/{4}".format(projectPath,schemeName, destination, derivedDataPath, projectName)
     testcommand +=" " +  otherargments;
     rawoutput = open('raw.log','w')
     exit_code = runcommand(testcommand,timeout, pipeout = rawoutput)
@@ -39,12 +71,12 @@ def runtest(otherargments, projectPath, schemeName, projectName, destination, de
     print("Formatting test result .......")
     xcprettycommand = "cat raw.log | xcpretty -r junit  | tee xcpretty.log"
     runcommand(xcprettycommand)
-    return exit_code    
+    return exit_code
 
 ##########################  main function ###############################
-# a command will like 
+# a command will like
 
-if (len(sys.argv) < 3 or sys.argv[1] == '-h' or sys.argv[1] == '-h') : 
+if (len(sys.argv) < 3 or sys.argv[1] == '-h' or sys.argv[1] == '-h') :
     print("Usage: \r\n {0} <integrationTestsConfiguration json file path> <test result location> <group name>".format(sys.argv[0])) ;
     exit(1)
 
@@ -64,7 +96,7 @@ projectName = runningConfigure['projectName']
 projectPath = runningConfigure['projectPath']
 schemeName = runningConfigure['schemeName']
 sdkName = runningConfigure['sdkName']
- 
+
 
 print("group name:", group_name)
 testgroup = testConfigure[group_name]
@@ -84,10 +116,10 @@ testresult = 0
 for testname in testlist:
 
     print("-------------------------------", testname , "-------------------------------");
-    
+
     test = testlist[testname]
     testarguments = ' -only-testing:' + testname
-    #create skipping tests parameters 
+    #create skipping tests parameters
     skipingtests = ""
     if 'excludetests' in test:
         for skipingtest in test['excludetests']:
@@ -117,7 +149,7 @@ for testname in testlist:
                     testarguments += ' -only-testing:' + failed
                 retrytimes += 1
                 exit_code = runtest(testarguments,projectPath, schemeName, projectName, destination, derivedDataPath);
-                print("retry exit code:", exit_code)                
+                print("retry exit code:", exit_code)
                 if(exit_code != 0 ):
                     faileds = getfailedcases()
 
@@ -128,24 +160,24 @@ for testname in testlist:
         runcommand('mv raw.log {0}/{1}/raw.log'.format(test_result_folder,testname))
         runcommand('mv xcpretty.log {0}/{1}/xcpretty.log'.format(test_result_folder,testname))
         runcommand('cp build/reports/junit.xml {0}/{1}/junit.xml'.format(test_result_folder,testname))
-        ignorefailure = False ; 
+        ignorefailure = False ;
         if exit_code == 65 :
-            failedtests = getfailedcases(False) 
-            print("failedtests:", failedtests)              
+            failedtests = getfailedcases(False)
+            print("failedtests:", failedtests)
             if 'ignoreFailures' in test and failedtests :
-                ignoreFailures = set(test['ignoreFailures'])       
+                ignoreFailures = set(test['ignoreFailures'])
                 if failedtests.issubset(ignoreFailures):
                     print("There are failed testcases that can be ignored")
-                    ignorefailure = True; 
+                    ignorefailure = True;
                 else :
-                    print("Failed testcases that cannot be ignored: ", failedtests - ignoreFailures )     
-        if not ignorefailure: 
+                    print("Failed testcases that cannot be ignored: ", failedtests - ignoreFailures )
+        if not ignorefailure:
             print("There are faillures in the test")
             testresult = 1
-            
+
     else:
         print("Test succeed")
- 
+
 print("testresult:", testresult)
-runcommand('echo "export testresult={0}" >> $BASH_ENV'.format(testresult))  
+runcommand('echo "export testresult={0}" >> $BASH_ENV'.format(testresult))
 
