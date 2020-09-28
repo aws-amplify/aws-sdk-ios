@@ -87,6 +87,9 @@ typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
     AWSTranscribeMediaFormatMp4,
     AWSTranscribeMediaFormatWav,
     AWSTranscribeMediaFormatFlac,
+    AWSTranscribeMediaFormatOgg,
+    AWSTranscribeMediaFormatAmr,
+    AWSTranscribeMediaFormatWebm,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeModelStatus) {
@@ -1446,6 +1449,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
 
 /**
+ <p>You can specify a location in an Amazon S3 bucket to store the output of your medical transcription job.</p><p>If you don't specify an output key, Amazon Transcribe Medical stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".</p><p>You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json".</p><p>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code> parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outputKey;
+
+/**
  <p>Optional settings for the medical transcription job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeMedicalTranscriptionSetting * _Nullable settings;
@@ -1487,6 +1495,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeContentRedaction * _Nullable contentRedaction;
 
 /**
+ <p>Set this field to <code>true</code> to enable automatic language identification. Automatic language identification is disabled by default. You receive a <code>BadRequestException</code> error if you enter a value for a <code>LanguageCode</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
+
+/**
  <p>Provides information about how a transcription job is executed. Use this field to indicate that the job can be queued for deferred execution if the concurrency limit is reached and there are no slots available to immediately run the job.</p>
  */
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
@@ -1495,6 +1508,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The language code for the language used in the input media file.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>An object containing a list of languages that might be present in your collection of audio files. Automatic language identification chooses a language that best matches the source audio from that list.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable languageOptions;
 
 /**
  <p>An object that describes the input media for a transcription job.</p>
@@ -1525,6 +1543,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The Amazon Resource Name (ARN) of the AWS Key Management Service (KMS) key used to encrypt the output of the transcription job. The user calling the <code>StartTranscriptionJob</code> operation must have permission to use the specified KMS key.</p><p>You can use either of the following to identify a KMS key in the current account:</p><ul><li><p>KMS Key ID: "1234abcd-12ab-34cd-56ef-1234567890ab"</p></li><li><p>KMS Key Alias: "alias/ExampleAlias"</p></li></ul><p>You can use either of the following to identify a KMS key in the current account or another account:</p><ul><li><p>Amazon Resource Name (ARN) of a KMS Key: "arn:aws:kms:region:account ID:key/1234abcd-12ab-34cd-56ef-1234567890ab"</p></li><li><p>ARN of a KMS Key Alias: "arn:aws:kms:region:account ID:alias/ExampleAlias"</p></li></ul><p>If you don't specify an encryption key, the output of the transcription job is encrypted with the default Amazon S3 key (SSE-S3). </p><p>If you specify a KMS key to encrypt your output, you must also specify an output location in the <code>OutputBucketName</code> parameter.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outputEncryptionKMSKeyId;
+
+/**
+ <p>You can specify a location in an Amazon S3 bucket to store the output of your transcription job.</p><p>If you don't specify an output key, Amazon Transcribe stores the output of your transcription job in the Amazon S3 bucket you specified. By default, the object key is "your-transcription-job-name.json".</p><p>You can use output keys to specify the Amazon S3 prefix and file name of the transcription output. For example, specifying the Amazon S3 prefix, "folder1/folder2/", as an output key would lead to the output being stored as "folder1/folder2/your-transcription-job-name.json". If you specify "my-other-job-name.json" as the output key, the object key is changed to "my-other-job-name.json". You can use an output key to change both the prefix and the file name, for example "folder/my-other-job-name.json".</p><p>If you specify an output key, you must also specify an S3 bucket in the <code>OutputBucketName</code> parameter.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outputKey;
 
 /**
  <p>A <code>Settings</code> object that provides optional settings for a transcription job.</p>
@@ -1596,6 +1619,16 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSString * _Nullable failureReason;
 
 /**
+ <p>A value between zero and one that Amazon Transcribe assigned to the language that it identified in the source audio. Larger values indicate that Amazon Transcribe has higher confidence in the language it identified.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifiedLanguageScore;
+
+/**
+ <p>A value that shows if automatic language identification was enabled for a transcription job.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
+
+/**
  <p>Provides information about how a transcription job is executed.</p>
  */
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
@@ -1604,6 +1637,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>The language code for the input speech.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
+
+/**
+ <p>An object that shows the optional array of languages inputted for transcription jobs with automatic language identification enabled.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable languageOptions;
 
 /**
  <p>An object that describes the input media for the transcription job.</p>
@@ -1677,6 +1715,16 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>If the <code>TranscriptionJobStatus</code> field is <code>FAILED</code>, a description of the error.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable failureReason;
+
+/**
+ <p>A value between zero and one that Amazon Transcribe assigned to the language it identified in the source audio. A higher score indicates that Amazon Transcribe is more confident in the language it identified.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifiedLanguageScore;
+
+/**
+ <p>Whether automatic language identification was enabled for a transcription job.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifyLanguage;
 
 /**
  <p>The language code for the input speech.</p>

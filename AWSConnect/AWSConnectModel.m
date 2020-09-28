@@ -18,6 +18,22 @@
 
 NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
+@implementation AWSConnectAssociateRoutingProfileQueuesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueConfigs" : @"QueueConfigs",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
++ (NSValueTransformer *)queueConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileQueueConfig class]];
+}
+
+@end
+
 @implementation AWSConnectChatMessage
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -25,6 +41,78 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"content" : @"Content",
              @"contentType" : @"ContentType",
              };
+}
+
+@end
+
+@implementation AWSConnectContactFlow
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"content" : @"Content",
+             @"detail" : @"Description",
+             @"identifier" : @"Id",
+             @"name" : @"Name",
+             @"tags" : @"Tags",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CONTACT_FLOW"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeContactFlow);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_QUEUE"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerQueue);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_HOLD"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerHold);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_HOLD"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentHold);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"OUTBOUND_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeOutboundWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_TRANSFER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentTransfer);
+        }
+        if ([value caseInsensitiveCompare:@"QUEUE_TRANSFER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeQueueTransfer);
+        }
+        return @(AWSConnectContactFlowTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectContactFlowTypeContactFlow:
+                return @"CONTACT_FLOW";
+            case AWSConnectContactFlowTypeCustomerQueue:
+                return @"CUSTOMER_QUEUE";
+            case AWSConnectContactFlowTypeCustomerHold:
+                return @"CUSTOMER_HOLD";
+            case AWSConnectContactFlowTypeCustomerWhisper:
+                return @"CUSTOMER_WHISPER";
+            case AWSConnectContactFlowTypeAgentHold:
+                return @"AGENT_HOLD";
+            case AWSConnectContactFlowTypeAgentWhisper:
+                return @"AGENT_WHISPER";
+            case AWSConnectContactFlowTypeOutboundWhisper:
+                return @"OUTBOUND_WHISPER";
+            case AWSConnectContactFlowTypeAgentTransfer:
+                return @"AGENT_TRANSFER";
+            case AWSConnectContactFlowTypeQueueTransfer:
+                return @"QUEUE_TRANSFER";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -94,6 +182,123 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectCreateContactFlowRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"content" : @"Content",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"tags" : @"Tags",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"CONTACT_FLOW"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeContactFlow);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_QUEUE"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerQueue);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_HOLD"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerHold);
+        }
+        if ([value caseInsensitiveCompare:@"CUSTOMER_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeCustomerWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_HOLD"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentHold);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"OUTBOUND_WHISPER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeOutboundWhisper);
+        }
+        if ([value caseInsensitiveCompare:@"AGENT_TRANSFER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeAgentTransfer);
+        }
+        if ([value caseInsensitiveCompare:@"QUEUE_TRANSFER"] == NSOrderedSame) {
+            return @(AWSConnectContactFlowTypeQueueTransfer);
+        }
+        return @(AWSConnectContactFlowTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectContactFlowTypeContactFlow:
+                return @"CONTACT_FLOW";
+            case AWSConnectContactFlowTypeCustomerQueue:
+                return @"CUSTOMER_QUEUE";
+            case AWSConnectContactFlowTypeCustomerHold:
+                return @"CUSTOMER_HOLD";
+            case AWSConnectContactFlowTypeCustomerWhisper:
+                return @"CUSTOMER_WHISPER";
+            case AWSConnectContactFlowTypeAgentHold:
+                return @"AGENT_HOLD";
+            case AWSConnectContactFlowTypeAgentWhisper:
+                return @"AGENT_WHISPER";
+            case AWSConnectContactFlowTypeOutboundWhisper:
+                return @"OUTBOUND_WHISPER";
+            case AWSConnectContactFlowTypeAgentTransfer:
+                return @"AGENT_TRANSFER";
+            case AWSConnectContactFlowTypeQueueTransfer:
+                return @"QUEUE_TRANSFER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectCreateContactFlowResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowArn" : @"ContactFlowArn",
+             @"contactFlowId" : @"ContactFlowId",
+             };
+}
+
+@end
+
+@implementation AWSConnectCreateRoutingProfileRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"mediaConcurrencies" : @"MediaConcurrencies",
+             @"name" : @"Name",
+             @"queueConfigs" : @"QueueConfigs",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)mediaConcurrenciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectMediaConcurrency class]];
+}
+
++ (NSValueTransformer *)queueConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileQueueConfig class]];
+}
+
+@end
+
+@implementation AWSConnectCreateRoutingProfileResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"routingProfileArn" : @"RoutingProfileArn",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
 }
 
 @end
@@ -323,6 +528,56 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDescribeContactFlowRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowId" : @"ContactFlowId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeContactFlowResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlow" : @"ContactFlow",
+             };
+}
+
++ (NSValueTransformer *)contactFlowJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectContactFlow class]];
+}
+
+@end
+
+@implementation AWSConnectDescribeRoutingProfileRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeRoutingProfileResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"routingProfile" : @"RoutingProfile",
+             };
+}
+
++ (NSValueTransformer *)routingProfileJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectRoutingProfile class]];
+}
+
+@end
+
 @implementation AWSConnectDescribeUserHierarchyGroupRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -429,6 +684,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)queueJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQueueReference class]];
+}
+
+@end
+
+@implementation AWSConnectDisassociateRoutingProfileQueuesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueReferences" : @"QueueReferences",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
++ (NSValueTransformer *)queueReferencesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileQueueReference class]];
 }
 
 @end
@@ -1037,6 +1308,33 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListPromptsRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSConnectListPromptsResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"promptSummaryList" : @"PromptSummaryList",
+             };
+}
+
++ (NSValueTransformer *)promptSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectPromptSummary class]];
+}
+
+@end
+
 @implementation AWSConnectListQueuesRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -1061,6 +1359,34 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)queueSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQueueSummary class]];
+}
+
+@end
+
+@implementation AWSConnectListRoutingProfileQueuesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectListRoutingProfileQueuesResponse
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"routingProfileQueueConfigSummaryList" : @"RoutingProfileQueueConfigSummaryList",
+             };
+}
+
++ (NSValueTransformer *)routingProfileQueueConfigSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileQueueConfigSummary class]];
 }
 
 @end
@@ -1189,6 +1515,38 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)userSummaryListJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectUserSummary class]];
+}
+
+@end
+
+@implementation AWSConnectMediaConcurrency
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channel" : @"Channel",
+             @"concurrency" : @"Concurrency",
+             };
+}
+
++ (NSValueTransformer *)channelJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSConnectChannelVoice);
+        }
+        if ([value caseInsensitiveCompare:@"CHAT"] == NSOrderedSame) {
+            return @(AWSConnectChannelChat);
+        }
+        return @(AWSConnectChannelUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectChannelVoice:
+                return @"VOICE";
+            case AWSConnectChannelChat:
+                return @"CHAT";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -2434,6 +2792,28 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectProblemDetail
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"message" : @"message",
+             };
+}
+
+@end
+
+@implementation AWSConnectPromptSummary
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             @"name" : @"Name",
+             };
+}
+
+@end
+
 @implementation AWSConnectQueueReference
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2471,6 +2851,127 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"STANDARD";
             case AWSConnectQueueTypeAgent:
                 return @"AGENT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectResumeContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectResumeContactRecordingResponse
+
+@end
+
+@implementation AWSConnectRoutingProfile
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"mediaConcurrencies" : @"MediaConcurrencies",
+             @"name" : @"Name",
+             @"routingProfileArn" : @"RoutingProfileArn",
+             @"routingProfileId" : @"RoutingProfileId",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)mediaConcurrenciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectMediaConcurrency class]];
+}
+
+@end
+
+@implementation AWSConnectRoutingProfileQueueConfig
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"delay" : @"Delay",
+             @"priority" : @"Priority",
+             @"queueReference" : @"QueueReference",
+             };
+}
+
++ (NSValueTransformer *)queueReferenceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectRoutingProfileQueueReference class]];
+}
+
+@end
+
+@implementation AWSConnectRoutingProfileQueueConfigSummary
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channel" : @"Channel",
+             @"delay" : @"Delay",
+             @"priority" : @"Priority",
+             @"queueArn" : @"QueueArn",
+             @"queueId" : @"QueueId",
+             @"queueName" : @"QueueName",
+             };
+}
+
++ (NSValueTransformer *)channelJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSConnectChannelVoice);
+        }
+        if ([value caseInsensitiveCompare:@"CHAT"] == NSOrderedSame) {
+            return @(AWSConnectChannelChat);
+        }
+        return @(AWSConnectChannelUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectChannelVoice:
+                return @"VOICE";
+            case AWSConnectChannelChat:
+                return @"CHAT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectRoutingProfileQueueReference
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"channel" : @"Channel",
+             @"queueId" : @"QueueId",
+             };
+}
+
++ (NSValueTransformer *)channelJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSConnectChannelVoice);
+        }
+        if ([value caseInsensitiveCompare:@"CHAT"] == NSOrderedSame) {
+            return @(AWSConnectChannelChat);
+        }
+        return @(AWSConnectChannelUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectChannelVoice:
+                return @"VOICE";
+            case AWSConnectChannelChat:
+                return @"CHAT";
             default:
                 return nil;
         }
@@ -2538,6 +3039,27 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStartContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             @"voiceRecordingConfiguration" : @"VoiceRecordingConfiguration",
+             };
+}
+
++ (NSValueTransformer *)voiceRecordingConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectVoiceRecordingConfiguration class]];
+}
+
+@end
+
+@implementation AWSConnectStartContactRecordingResponse
+
+@end
+
 @implementation AWSConnectStartOutboundVoiceContactRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2564,6 +3086,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectStopContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectStopContactRecordingResponse
+
+@end
+
 @implementation AWSConnectStopContactRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2576,6 +3114,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 @end
 
 @implementation AWSConnectStopContactResponse
+
+@end
+
+@implementation AWSConnectSuspendContactRecordingRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactId" : @"ContactId",
+             @"initialContactId" : @"InitialContactId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectSuspendContactRecordingResponse
 
 @end
 
@@ -2641,6 +3195,88 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 @end
 
 @implementation AWSConnectUpdateContactAttributesResponse
+
+@end
+
+@implementation AWSConnectUpdateContactFlowContentRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowId" : @"ContactFlowId",
+             @"content" : @"Content",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateContactFlowNameRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowId" : @"ContactFlowId",
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateRoutingProfileConcurrencyRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"mediaConcurrencies" : @"MediaConcurrencies",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
++ (NSValueTransformer *)mediaConcurrenciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectMediaConcurrency class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultOutboundQueueId" : @"DefaultOutboundQueueId",
+             @"instanceId" : @"InstanceId",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateRoutingProfileNameRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateRoutingProfileQueuesRequest
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueConfigs" : @"QueueConfigs",
+             @"routingProfileId" : @"RoutingProfileId",
+             };
+}
+
++ (NSValueTransformer *)queueConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectRoutingProfileQueueConfig class]];
+}
 
 @end
 
@@ -2793,6 +3429,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"identifier" : @"Id",
              @"username" : @"Username",
              };
+}
+
+@end
+
+@implementation AWSConnectVoiceRecordingConfiguration
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"voiceRecordingTrack" : @"VoiceRecordingTrack",
+             };
+}
+
++ (NSValueTransformer *)voiceRecordingTrackJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FROM_AGENT"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackFromAgent);
+        }
+        if ([value caseInsensitiveCompare:@"TO_AGENT"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackToAgent);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSConnectVoiceRecordingTrackAll);
+        }
+        return @(AWSConnectVoiceRecordingTrackUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectVoiceRecordingTrackFromAgent:
+                return @"FROM_AGENT";
+            case AWSConnectVoiceRecordingTrackToAgent:
+                return @"TO_AGENT";
+            case AWSConnectVoiceRecordingTrackAll:
+                return @"ALL";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
