@@ -2466,49 +2466,49 @@
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 245,
+      "line": 246,
       "symbol": "AWSS3TransferManagerUploadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 247,
+      "line": 248,
       "symbol": "AWSS3TransferManagerUploadRequest.state",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 248,
+      "line": 249,
       "symbol": "AWSS3TransferManagerUploadRequest.body",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 252,
+      "line": 254,
       "symbol": "AWSS3TransferManagerUploadOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 256,
+      "line": 259,
       "symbol": "AWSS3TransferManagerDownloadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 258,
+      "line": 261,
       "symbol": "AWSS3TransferManagerDownloadRequest.state",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSS3/AWSS3TransferManager.h",
-      "line": 262,
+      "line": 266,
       "symbol": "AWSS3TransferManagerDownloadOutput",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
