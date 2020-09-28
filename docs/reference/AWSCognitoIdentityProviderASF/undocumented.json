@@ -1,0 +1,33 @@
+{
+  "warnings": [
+    {
+      "file": "/Users/distiller/project/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h",
+      "line": 28,
+      "symbol": "AWSCognitoIdentityProviderASFVersionNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h",
+      "line": 39,
+      "symbol": "AWSCognitoIdentityProviderASFVersionString",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h",
+      "line": 41,
+      "symbol": "AWSCognitoIdentityProviderASF",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCognitoIdentityProviderASF/AWSCognitoIdentityProviderASF.h",
+      "line": 43,
+      "symbol": "AWSCognitoIdentityProviderASF.+userContextData:username:deviceId:userPoolClientId:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    }
+  ],
+  "source_directory": "/Users/distiller/project"
+}
