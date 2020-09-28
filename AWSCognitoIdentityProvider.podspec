@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AWSCognitoIdentityProvider'
-  s.version      = '2.16.0'
+  s.version      = '2.17.0'
   s.summary      = 'Amazon Cognito Identity Provider SDK for iOS (Beta)'
 
   s.description  = 'Amazon Cognito Identity Provider enables sign up and authentication of your end users'
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
   s.frameworks   = 'Security', 'UIKit'
 
-  s.dependency 'AWSCore', '2.16.0'
+  s.dependency 'AWSCore', '2.17.0'
   s.dependency 'AWSCognitoIdentityProviderASF', '2.16.0'
 
   s.source_files = 'AWSCognitoIdentityProvider/**/*.{h,m,c}'
