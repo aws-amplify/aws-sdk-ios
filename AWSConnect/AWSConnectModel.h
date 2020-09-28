@@ -23,10 +23,12 @@ FOUNDATION_EXPORT NSString *const AWSConnectErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorUnknown,
+    AWSConnectErrorContactFlowNotPublished,
     AWSConnectErrorContactNotFound,
     AWSConnectErrorDestinationNotAllowed,
     AWSConnectErrorDuplicateResource,
     AWSConnectErrorInternalService,
+    AWSConnectErrorInvalidContactFlow,
     AWSConnectErrorInvalidParameter,
     AWSConnectErrorInvalidRequest,
     AWSConnectErrorLimitExceeded,
@@ -385,8 +387,21 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitPercent,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
+    AWSConnectVoiceRecordingTrackUnknown,
+    AWSConnectVoiceRecordingTrackFromAgent,
+    AWSConnectVoiceRecordingTrackToAgent,
+    AWSConnectVoiceRecordingTrackAll,
+};
+
+@class AWSConnectAssociateRoutingProfileQueuesRequest;
 @class AWSConnectChatMessage;
+@class AWSConnectContactFlow;
 @class AWSConnectContactFlowSummary;
+@class AWSConnectCreateContactFlowRequest;
+@class AWSConnectCreateContactFlowResponse;
+@class AWSConnectCreateRoutingProfileRequest;
+@class AWSConnectCreateRoutingProfileResponse;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
 @class AWSConnectCredentials;
@@ -394,6 +409,10 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
 @class AWSConnectDeleteUserRequest;
+@class AWSConnectDescribeContactFlowRequest;
+@class AWSConnectDescribeContactFlowResponse;
+@class AWSConnectDescribeRoutingProfileRequest;
+@class AWSConnectDescribeRoutingProfileResponse;
 @class AWSConnectDescribeUserHierarchyGroupRequest;
 @class AWSConnectDescribeUserHierarchyGroupResponse;
 @class AWSConnectDescribeUserHierarchyStructureRequest;
@@ -401,6 +420,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectDescribeUserRequest;
 @class AWSConnectDescribeUserResponse;
 @class AWSConnectDimensions;
+@class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectFilters;
 @class AWSConnectGetContactAttributesRequest;
 @class AWSConnectGetContactAttributesResponse;
@@ -425,8 +445,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectListHoursOfOperationsResponse;
 @class AWSConnectListPhoneNumbersRequest;
 @class AWSConnectListPhoneNumbersResponse;
+@class AWSConnectListPromptsRequest;
+@class AWSConnectListPromptsResponse;
 @class AWSConnectListQueuesRequest;
 @class AWSConnectListQueuesResponse;
+@class AWSConnectListRoutingProfileQueuesRequest;
+@class AWSConnectListRoutingProfileQueuesResponse;
 @class AWSConnectListRoutingProfilesRequest;
 @class AWSConnectListRoutingProfilesResponse;
 @class AWSConnectListSecurityProfilesRequest;
@@ -437,23 +461,44 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
+@class AWSConnectMediaConcurrency;
 @class AWSConnectParticipantDetails;
 @class AWSConnectPhoneNumberSummary;
+@class AWSConnectProblemDetail;
+@class AWSConnectPromptSummary;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
+@class AWSConnectResumeContactRecordingRequest;
+@class AWSConnectResumeContactRecordingResponse;
+@class AWSConnectRoutingProfile;
+@class AWSConnectRoutingProfileQueueConfig;
+@class AWSConnectRoutingProfileQueueConfigSummary;
+@class AWSConnectRoutingProfileQueueReference;
 @class AWSConnectRoutingProfileSummary;
 @class AWSConnectSecurityProfileSummary;
 @class AWSConnectStartChatContactRequest;
 @class AWSConnectStartChatContactResponse;
+@class AWSConnectStartContactRecordingRequest;
+@class AWSConnectStartContactRecordingResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
+@class AWSConnectStopContactRecordingRequest;
+@class AWSConnectStopContactRecordingResponse;
 @class AWSConnectStopContactRequest;
 @class AWSConnectStopContactResponse;
+@class AWSConnectSuspendContactRecordingRequest;
+@class AWSConnectSuspendContactRecordingResponse;
 @class AWSConnectTagResourceRequest;
 @class AWSConnectThreshold;
 @class AWSConnectUntagResourceRequest;
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
+@class AWSConnectUpdateContactFlowContentRequest;
+@class AWSConnectUpdateContactFlowNameRequest;
+@class AWSConnectUpdateRoutingProfileConcurrencyRequest;
+@class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
+@class AWSConnectUpdateRoutingProfileNameRequest;
+@class AWSConnectUpdateRoutingProfileQueuesRequest;
 @class AWSConnectUpdateUserHierarchyRequest;
 @class AWSConnectUpdateUserIdentityInfoRequest;
 @class AWSConnectUpdateUserPhoneConfigRequest;
@@ -463,6 +508,30 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @class AWSConnectUserIdentityInfo;
 @class AWSConnectUserPhoneConfig;
 @class AWSConnectUserSummary;
+@class AWSConnectVoiceRecordingConfiguration;
+
+/**
+ 
+ */
+@interface AWSConnectAssociateRoutingProfileQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The queues to associate with this routing profile.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
 
 /**
  <p>A chat message.</p>
@@ -480,6 +549,49 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The type of the content. Supported types are text/plain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ <p>Contains information about a contact flow.</p>
+ */
+@interface AWSConnectContactFlow : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The content of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The description of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSConnectContactFlowType types;
 
 @end
 
@@ -508,6 +620,123 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The name of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateContactFlowRequest : AWSRequest
+
+
+/**
+ <p>The content of the contact flow. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The description of the contact flow. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The type of the contact flow. For descriptions of the available types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/create-contact-flow.html#contact-flow-types">Choose a Contact Flow Type</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, assign) AWSConnectContactFlowType types;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateContactFlowResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowArn;
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateRoutingProfileRequest : AWSRequest
+
+
+/**
+ <p>The default outbound queue for the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultOutboundQueueId;
+
+/**
+ <p>Description of the routing profile. Must not be more than 250 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectMediaConcurrency *> * _Nullable mediaConcurrencies;
+
+/**
+ <p>The name of the routing profile. Must not be more than 127 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateRoutingProfileResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileArn;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 @end
 
@@ -690,6 +919,68 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectDescribeContactFlowRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeContactFlowResponse : AWSModel
+
+
+/**
+ <p>Information about the contact flow.</p>
+ */
+@property (nonatomic, strong) AWSConnectContactFlow * _Nullable contactFlow;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeRoutingProfileRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeRoutingProfileResponse : AWSModel
+
+
+/**
+ <p>The routing profile.</p>
+ */
+@property (nonatomic, strong) AWSConnectRoutingProfile * _Nullable routingProfile;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeUserHierarchyGroupRequest : AWSRequest
 
 
@@ -794,6 +1085,29 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectDisassociateRoutingProfileQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The queues to disassociate from this routing profile.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueReference *> * _Nullable queueReferences;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
  <p>Contains the filter to apply when retrieving metrics.</p>
  */
 @interface AWSConnectFilters : AWSModel
@@ -854,12 +1168,12 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
 /**
- <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. The only supported channel is <code>VOICE</code>.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
+ <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
@@ -941,7 +1255,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. The only supported channel is <code>VOICE</code>.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
@@ -1368,6 +1682,47 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectListPromptsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListPromptsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the prompts.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectPromptSummary *> * _Nullable promptSummaryList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListQueuesRequest : AWSRequest
 
 
@@ -1408,6 +1763,52 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>Information about the queues.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectQueueSummary *> * _Nullable queueSummaryList;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListRoutingProfileQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListRoutingProfileQueuesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the routing profiles.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfigSummary *> * _Nullable routingProfileQueueConfigSummaryList;
 
 @end
 
@@ -1602,6 +2003,25 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ <p>Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.</p>
+ Required parameters: [Channel, Concurrency]
+ */
+@interface AWSConnectMediaConcurrency : AWSModel
+
+
+/**
+ <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, assign) AWSConnectChannel channel;
+
+/**
+ <p>The number of contacts an agent can have on a channel simultaneously.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable concurrency;
+
+@end
+
+/**
  <p>The customer's details.</p>
  Required parameters: [DisplayName]
  */
@@ -1649,6 +2069,42 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @end
 
 /**
+ <p>Information about a problem detail.</p>
+ */
+@interface AWSConnectProblemDetail : AWSModel
+
+
+/**
+ <p>The problem detail's message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Contains information about the prompt.</p>
+ */
+@interface AWSConnectPromptSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the prompt.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
  <p>Contains information about a queue resource for which metrics are returned.</p>
  */
 @interface AWSConnectQueueReference : AWSModel
@@ -1691,6 +2147,167 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The type of queue.</p>
  */
 @property (nonatomic, assign) AWSConnectQueueType queueType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectResumeContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectResumeContactRecordingResponse : AWSModel
+
+
+@end
+
+/**
+ <p>Contains information about a routing profile.</p>
+ */
+@interface AWSConnectRoutingProfile : AWSModel
+
+
+/**
+ <p>The identifier of the default outbound queue for this routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultOutboundQueueId;
+
+/**
+ <p>The description of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectMediaConcurrency *> * _Nullable mediaConcurrencies;
+
+/**
+ <p>The name of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileArn;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains information about the queue and channel for which priority and delay can be set.</p>
+ Required parameters: [QueueReference, Priority, Delay]
+ */
+@interface AWSConnectRoutingProfileQueueConfig : AWSModel
+
+
+/**
+ <p>The delay, in seconds, a contact should be in the queue before they are routed to an available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable delay;
+
+/**
+ <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable priority;
+
+/**
+ <p>Contains information about a queue resource.</p>
+ */
+@property (nonatomic, strong) AWSConnectRoutingProfileQueueReference * _Nullable queueReference;
+
+@end
+
+/**
+ <p>Contains summary information about a routing profile queue.</p>
+ Required parameters: [QueueId, QueueArn, QueueName, Priority, Delay, Channel]
+ */
+@interface AWSConnectRoutingProfileQueueConfigSummary : AWSModel
+
+
+/**
+ <p>The channels this queue supports.</p>
+ */
+@property (nonatomic, assign) AWSConnectChannel channel;
+
+/**
+ <p>The delay, in seconds, that a contact should be in the queue before they are routed to an available agent. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable delay;
+
+/**
+ <p>The order in which contacts are to be handled for the queue. For more information, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-routing-profiles-priority.html">Queues: priority and delay</a>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable priority;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueArn;
+
+/**
+ <p>The identifier of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueName;
+
+@end
+
+/**
+ <p>Contains the channel and queue identifier for a routing profile.</p>
+ Required parameters: [QueueId, Channel]
+ */
+@interface AWSConnectRoutingProfileQueueReference : AWSModel
+
+
+/**
+ <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
+ */
+@property (nonatomic, assign) AWSConnectChannel channel;
+
+/**
+ <p>The identifier of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
 
 @end
 
@@ -1757,7 +2374,7 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 @property (nonatomic, strong) NSString * _Nullable clientToken;
 
 /**
- <p>The identifier of the contact flow for the outbound call. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p><p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></p>
+ <p>The identifier of the contact flow for initiating the chat. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p><p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
@@ -1798,6 +2415,42 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The token used by the chat participant to call <a href="https://docs.aws.amazon.com/connect-participant/latest/APIReference/API_CreateParticipantConnection.html">CreateParticipantConnection</a>. The participant token is valid for the lifetime of a chat participant.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable participantToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Who is being recorded.</p>
+ */
+@property (nonatomic, strong) AWSConnectVoiceRecordingConfiguration * _Nullable voiceRecordingConfiguration;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartContactRecordingResponse : AWSModel
+
 
 @end
 
@@ -1860,6 +2513,37 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
 /**
  
  */
+@interface AWSConnectStopContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStopContactRecordingResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStopContactRequest : AWSRequest
 
 
@@ -1879,6 +2563,37 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  
  */
 @interface AWSConnectStopContactResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSuspendContactRecordingRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+/**
+ <p>The identifier of the contact. This is the identifier of the contact associated with the first interaction with the contact center.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable initialContactId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectSuspendContactRecordingResponse : AWSModel
 
 
 @end
@@ -1965,6 +2680,154 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  */
 @interface AWSConnectUpdateContactAttributesResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowContentRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The content of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable content;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateContactFlowNameRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The description of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRoutingProfileConcurrencyRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The channels agents can handle in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectMediaConcurrency *> * _Nullable mediaConcurrencies;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the default outbound queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable defaultOutboundQueueId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRoutingProfileNameRequest : AWSRequest
+
+
+/**
+ <p>The description of the routing profile. Must not be more than 250 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the routing profile. Must not be more than 127 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateRoutingProfileQueuesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The queues to be updated for this routing profile.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
+
+/**
+ <p>The identifier of the routing profile.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable routingProfileId;
 
 @end
 
@@ -2213,6 +3076,19 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
  <p>The Amazon Connect user name of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable username;
+
+@end
+
+/**
+ <p>Contains information about the recording configuration settings.</p>
+ */
+@interface AWSConnectVoiceRecordingConfiguration : AWSModel
+
+
+/**
+ <p>Identifies which track is being recorded.</p>
+ */
+@property (nonatomic, assign) AWSConnectVoiceRecordingTrack voiceRecordingTrack;
 
 @end
 
