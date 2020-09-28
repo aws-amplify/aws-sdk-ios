@@ -681,20 +681,12 @@ jobs:
             python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
 
   bump_sdk_version:
-    docker:
-      - image: circleci/android:api-27-alpha
-    environment:
-      JVM_OPTS: -Xmx1024m
+    macos:
+      xcode: "12.0.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
       - checkout
-      - run:
-          name: Install python3-pip
-          command: |
-            echo "${newsdkversion}"
-            sudo apt-get update
-            sudo apt-get -y install python3-pip
       - run:
           name: Install JSON parser
           command: sudo pip3 install demjson
