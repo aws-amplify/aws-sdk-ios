@@ -346,35 +346,95 @@
                           serviceHostName:@"sdb.us-west-2.amazonaws.com"];
 }
 
+- (void)testGlobalS3Endpoint {
+    NSURL *url = [NSURL URLWithString:@"https://s3.amazonaws.com"];
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
+                                                        service:AWSServiceS3
+                                                            URL:url];
+    [self verifyServiceEndpointWith:endpoint
+                         regionType:AWSRegionUSEast1
+                            service:AWSServiceS3
+                         regionName:@"us-east-1"
+                        serviceName:@"s3"
+                         serviceURL:url
+                    serviceHostName:@"s3.amazonaws.com"
+                       useUnsafeURL:NO];
+}
+
+- (void)testRegionBasedURLConstructorUSEast1S3Endpoint {
+    NSURL *url = [NSURL URLWithString:@"https://s3.us-east-1.amazonaws.com"];
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSEast1
+                                                        service:AWSServiceS3
+                                                            URL:url];
+    [self verifyServiceEndpointWith:endpoint
+                         regionType:AWSRegionUSEast1
+                            service:AWSServiceS3
+                         regionName:@"us-east-1"
+                        serviceName:@"s3"
+                         serviceURL:url
+                    serviceHostName:@"s3.us-east-1.amazonaws.com"
+                       useUnsafeURL:NO];
+}
+
+- (void)testRegionBasedURLConstructorUSWest2S3Endpoint {
+    NSURL *url = [NSURL URLWithString:@"https://s3.us-west-2.amazonaws.com"];
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:AWSRegionUSWest2
+                                                        service:AWSServiceS3
+                                                            URL:url];
+    [self verifyServiceEndpointWith:endpoint
+                         regionType:AWSRegionUSWest2
+                            service:AWSServiceS3
+                         regionName:@"us-west-2"
+                        serviceName:@"s3"
+                         serviceURL:url
+                    serviceHostName:@"s3.us-west-2.amazonaws.com"
+                       useUnsafeURL:NO];
+}
+
+- (void)testCustomEndpoint {
+    NSString *urlString = @"https://my-custom-endpoint-for-an-unspecified-service.example.com/";
+    NSURL *expectedURL = [NSURL URLWithString:urlString];
+    AWSEndpoint *customEndpoint = [[AWSEndpoint alloc]initWithURLString:urlString];
+    [self verifyServiceEndpointWith:customEndpoint
+                         regionType:AWSRegionUnknown
+                            service:AWSServiceUnknown
+                         regionName:NULL
+                        serviceName:NULL
+                         serviceURL:expectedURL
+                    serviceHostName:@"my-custom-endpoint-for-an-unspecified-service.example.com"
+                       useUnsafeURL:NO];
+}
+
 - (void)testEndpointForS3 {
+
     [self verifyServiceEndpointWithRegion:AWSRegionUSEast1
                                   service:AWSServiceS3
                                regionName:@"us-east-1"
                               serviceName:@"s3"
-                               serviceURL:[NSURL URLWithString:@"https://s3.amazonaws.com"]
-                          serviceHostName:@"s3.amazonaws.com"];
+                               serviceURL:[NSURL URLWithString:@"https://s3.us-east-1.amazonaws.com"]
+                          serviceHostName:@"s3.us-east-1.amazonaws.com"];
+
+    [self verifyServiceEndpointWithRegion:AWSRegionUSWest2
+                                  service:AWSServiceS3
+                               regionName:@"us-west-2"
+                              serviceName:@"s3"
+                               serviceURL:[NSURL URLWithString:@"https://s3.us-west-2.amazonaws.com"]
+                          serviceHostName:@"s3.us-west-2.amazonaws.com"];
     
     [self verifyServiceEndpointWithRegion:AWSRegionUSWest2
                                   service:AWSServiceS3
                                regionName:@"us-west-2"
                               serviceName:@"s3"
-                               serviceURL:[NSURL URLWithString:@"https://s3-us-west-2.amazonaws.com"]
-                          serviceHostName:@"s3-us-west-2.amazonaws.com"];
-    
-    [self verifyServiceEndpointWithRegion:AWSRegionUSWest2
-                                  service:AWSServiceS3
-                               regionName:@"us-west-2"
-                              serviceName:@"s3"
-                               serviceURL:[NSURL URLWithString:@"http://s3-us-west-2.amazonaws.com"]
-                          serviceHostName:@"s3-us-west-2.amazonaws.com"
+                               serviceURL:[NSURL URLWithString:@"http://s3.us-west-2.amazonaws.com"]
+                          serviceHostName:@"s3.us-west-2.amazonaws.com"
                              useUnsafeURL:YES];
     
     [self verifyServiceEndpointWithRegion:AWSRegionUSGovWest1
                                   service:AWSServiceS3
                                regionName:@"us-gov-west-1"
                               serviceName:@"s3"
-                               serviceURL:[NSURL URLWithString:@"https://s3-us-gov-west-1.amazonaws.com"]
-                          serviceHostName:@"s3-us-gov-west-1.amazonaws.com"];
+                               serviceURL:[NSURL URLWithString:@"https://s3.us-gov-west-1.amazonaws.com"]
+                          serviceHostName:@"s3.us-gov-west-1.amazonaws.com"];
 }
 
 - (void)testEndpointForTargeting {

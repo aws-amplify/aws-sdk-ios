@@ -969,6 +969,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testDescribePiiEntitiesDetectionJob {
+    NSString *key = @"testDescribePiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] describePiiEntitiesDetectionJob:[AWSComprehendDescribePiiEntitiesDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testDescribePiiEntitiesDetectionJobCompletionHandler {
+    NSString *key = @"testDescribePiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] describePiiEntitiesDetectionJob:[AWSComprehendDescribePiiEntitiesDetectionJobRequest new] completionHandler:^(AWSComprehendDescribePiiEntitiesDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testDescribeSentimentDetectionJob {
     NSString *key = @"testDescribeSentimentDetectionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1196,6 +1244,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSComprehend ComprehendForKey:key] detectKeyPhrases:[AWSComprehendDetectKeyPhrasesRequest new] completionHandler:^(AWSComprehendDetectKeyPhrasesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testDetectPiiEntities {
+    NSString *key = @"testDetectPiiEntities";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] detectPiiEntities:[AWSComprehendDetectPiiEntitiesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testDetectPiiEntitiesCompletionHandler {
+    NSString *key = @"testDetectPiiEntities";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] detectPiiEntities:[AWSComprehendDetectPiiEntitiesRequest new] completionHandler:^(AWSComprehendDetectPiiEntitiesResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1641,6 +1737,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testListPiiEntitiesDetectionJobs {
+    NSString *key = @"testListPiiEntitiesDetectionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] listPiiEntitiesDetectionJobs:[AWSComprehendListPiiEntitiesDetectionJobsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testListPiiEntitiesDetectionJobsCompletionHandler {
+    NSString *key = @"testListPiiEntitiesDetectionJobs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] listPiiEntitiesDetectionJobs:[AWSComprehendListPiiEntitiesDetectionJobsRequest new] completionHandler:^(AWSComprehendListPiiEntitiesDetectionJobsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testListSentimentDetectionJobs {
     NSString *key = @"testListSentimentDetectionJobs";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1977,6 +2121,54 @@ static id mockNetworking = nil;
     [AWSComprehend removeComprehendForKey:key];
 }
 
+- (void)testStartPiiEntitiesDetectionJob {
+    NSString *key = @"testStartPiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] startPiiEntitiesDetectionJob:[AWSComprehendStartPiiEntitiesDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStartPiiEntitiesDetectionJobCompletionHandler {
+    NSString *key = @"testStartPiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] startPiiEntitiesDetectionJob:[AWSComprehendStartPiiEntitiesDetectionJobRequest new] completionHandler:^(AWSComprehendStartPiiEntitiesDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
 - (void)testStartSentimentDetectionJob {
     NSString *key = @"testStartSentimentDetectionJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -2204,6 +2396,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSComprehend ComprehendForKey:key] stopKeyPhrasesDetectionJob:[AWSComprehendStopKeyPhrasesDetectionJobRequest new] completionHandler:^(AWSComprehendStopKeyPhrasesDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStopPiiEntitiesDetectionJob {
+    NSString *key = @"testStopPiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSComprehend ComprehendForKey:key] stopPiiEntitiesDetectionJob:[AWSComprehendStopPiiEntitiesDetectionJobRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSComprehend removeComprehendForKey:key];
+}
+
+- (void)testStopPiiEntitiesDetectionJobCompletionHandler {
+    NSString *key = @"testStopPiiEntitiesDetectionJob";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSComprehend registerComprehendWithConfiguration:configuration forKey:key];
+
+    AWSComprehend *awsClient = [AWSComprehend ComprehendForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSComprehend ComprehendForKey:key] stopPiiEntitiesDetectionJob:[AWSComprehendStopPiiEntitiesDetectionJobRequest new] completionHandler:^(AWSComprehendStopPiiEntitiesDetectionJobResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

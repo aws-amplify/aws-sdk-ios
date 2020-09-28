@@ -273,7 +273,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable receiptHandle;
 
 /**
- <p>The new value for the message's visibility timeout (in seconds). Values values: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
+ <p>The new value for the message's visibility timeout (in seconds). Values range: <code>0</code> to <code>43200</code>. Maximum: 12 hours.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable visibilityTimeout;
 
@@ -492,7 +492,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>Maximum number of results to include in the response.</p>
+ <p>Maximum number of results to include in the response. Value range is 1 to 1000. You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -516,7 +516,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>Pagination token to include in the next request.</p>
+ <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -560,7 +560,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>Maximum number of results to include in the response.</p>
+ <p>Maximum number of results to include in the response. Value range is 1 to 1000. You must set <code>MaxResults</code> to receive a value for <code>NextToken</code> in the response.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -583,7 +583,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 
 
 /**
- <p>Pagination token to include in the next request.</p>
+ <p>Pagination token to include in the next request. Token value is <code>null</code> if there are no additional results to request, or if you did not set <code>MaxResults</code> in the request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -621,7 +621,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable MD5OfMessageAttributes;
 
 /**
- <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
@@ -655,7 +655,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSData * _Nullable binaryValue;
 
 /**
- <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p><p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p><p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataType;
 
@@ -689,7 +689,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSData * _Nullable binaryValue;
 
 /**
- <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p><p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ <p>Amazon SQS supports the following logical data types: <code>String</code>, <code>Number</code>, and <code>Binary</code>. For the <code>Number</code> data type, you must use <code>StringValue</code>.</p><p>You can also append custom labels. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dataType;
 
@@ -832,7 +832,7 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
@@ -929,12 +929,12 @@ typedef NS_ENUM(NSInteger, AWSSQSQueueAttributeName) {
 @property (nonatomic, strong) NSNumber * _Nullable delaySeconds;
 
 /**
- <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-attributes.html">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
+ <p>Each message attribute consists of a <code>Name</code>, <code>Type</code>, and <code>Value</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-message-metadata.html#sqs-message-attributes">Amazon SQS Message Attributes</a> in the <i>Amazon Simple Queue Service Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSSQSMessageAttributeValue *> * _Nullable messageAttributes;
 
 /**
- <p>The message to send. The maximum string size is 256 KB.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important>
+ <p>The message to send. The minimum size is one character. The maximum size is 256 KB.</p><important><p>A message can include only XML, JSON, and unformatted text. The following Unicode characters are allowed:</p><p><code>#x9</code> | <code>#xA</code> | <code>#xD</code> | <code>#x20</code> to <code>#xD7FF</code> | <code>#xE000</code> to <code>#xFFFD</code> | <code>#x10000</code> to <code>#x10FFFF</code></p><p>Any characters not included in this list will be rejected. For more information, see the <a href="http://www.w3.org/TR/REC-xml/#charsets">W3C specification for characters</a>.</p></important>
  */
 @property (nonatomic, strong) NSString * _Nullable messageBody;
 

@@ -22,7 +22,7 @@
 #import <AVFoundation/AVFoundation.h>
 
 NSString *const AWSInfoInteractionKit = @"LexInteractionKit";
-NSString *const AWSInteractionKitSDKVersion = @"2.16.0";
+NSString *const AWSInteractionKitSDKVersion = @"2.17.0";
 NSString *const AWSInternalLexInteractionKit = @"LexInteractionKitClient";
 NSString *const AWSLexInteractionKitUserAgent = @"interactionkit";
 NSString *const AWSLexInteractionKitErrorDomain = @"com.amazonaws.AWSLexInteractionKitErrorDomain";

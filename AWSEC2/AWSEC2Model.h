@@ -707,6 +707,13 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeT3A_large,
     AWSEC2InstanceTypeT3A_xlarge,
     AWSEC2InstanceTypeT3A_2xlarge,
+    AWSEC2InstanceTypeT4G_nano,
+    AWSEC2InstanceTypeT4G_micro,
+    AWSEC2InstanceTypeT4G_small,
+    AWSEC2InstanceTypeT4G_medium,
+    AWSEC2InstanceTypeT4G_large,
+    AWSEC2InstanceTypeT4G_xlarge,
+    AWSEC2InstanceTypeT4G_2xlarge,
     AWSEC2InstanceTypeM1_small,
     AWSEC2InstanceTypeM1_medium,
     AWSEC2InstanceTypeM1_large,
@@ -1634,12 +1641,14 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayAttachmentResourceType) {
     AWSEC2TransitGatewayAttachmentResourceTypeVPC,
     AWSEC2TransitGatewayAttachmentResourceTypeVpn,
     AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway,
+    AWSEC2TransitGatewayAttachmentResourceTypePeering,
     AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayAttachmentState) {
     AWSEC2TransitGatewayAttachmentStateUnknown,
     AWSEC2TransitGatewayAttachmentStateInitiating,
+    AWSEC2TransitGatewayAttachmentStateInitiatingRequest,
     AWSEC2TransitGatewayAttachmentStatePendingAcceptance,
     AWSEC2TransitGatewayAttachmentStateRollingBack,
     AWSEC2TransitGatewayAttachmentStatePending,
@@ -1734,6 +1743,7 @@ typedef NS_ENUM(NSInteger, AWSEC2UnlimitedSupportedInstanceFamily) {
     AWSEC2UnlimitedSupportedInstanceFamilyT2,
     AWSEC2UnlimitedSupportedInstanceFamilyT3,
     AWSEC2UnlimitedSupportedInstanceFamilyT3a,
+    AWSEC2UnlimitedSupportedInstanceFamilyT4g,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode) {
@@ -15858,7 +15868,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code>).</p></li><li><p><code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p></li><li><p><code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>).</p></li><li><p><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code>).</p></li><li><p><code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -15960,7 +15970,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p></li><li><p><code>local-owner-id</code> - The ID of your AWS account.</p></li><li><p><code>remote-owner-id</code> - The ID of the AWS account in the remote Region that owns the transit gateway.</p></li><li><p><code>state</code> - The state of the peering attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>transit-gateway-attachment-id</code> - The ID of the transit gateway attachment.</p></li><li><p><code>local-owner-id</code> - The ID of your AWS account.</p></li><li><p><code>remote-owner-id</code> - The ID of the AWS account in the remote Region that owns the transit gateway.</p></li><li><p><code>state</code> - The state of the peering attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -16011,7 +16021,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>default-association-route-table</code> - Indicates whether this is the default association route table for the transit gateway (<code>true</code> | <code>false</code>).</p></li><li><p><code>default-propagation-route-table</code> - Indicates whether this is the default propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p></li><li><p><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>default-association-route-table</code> - Indicates whether this is the default association route table for the transit gateway (<code>true</code> | <code>false</code>).</p></li><li><p><code>default-propagation-route-table</code> - Indicates whether this is the default propagation route table for the transit gateway (<code>true</code> | <code>false</code>).</p></li><li><p><code>state</code> - The state of the route table (<code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>pending</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-route-table-id</code> - The ID of the transit gateway route table.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -16062,7 +16072,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>vpc-id</code> - The ID of the VPC.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -16113,7 +16123,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p></li><li><p><code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p></li><li><p><code>options.association-default-route-table-id</code> - The ID of the default association route table.</p></li><li><p><code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically associated with the default association route table (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li><li><p><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>options.propagation-default-route-table-id</code> - The ID of the default propagation route table.</p></li><li><p><code>options.amazon-side-asn</code> - The private ASN for the Amazon side of a BGP session.</p></li><li><p><code>options.association-default-route-table-id</code> - The ID of the default association route table.</p></li><li><p><code>options.auto-accept-shared-attachments</code> - Indicates whether there is automatic acceptance of attachment requests (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.default-route-table-association</code> - Indicates whether resource attachments are automatically associated with the default association route table (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.default-route-table-propagation</code> - Indicates whether resource attachments automatically propagate routes to the default propagation route table (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.dns-support</code> - Indicates whether DNS support is enabled (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>options.vpn-ecmp-support</code> - Indicates whether Equal Cost Multipath Protocol support is enabled (<code>enable</code> | <code>disable</code>).</p></li><li><p><code>owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li><li><p><code>state</code> - The state of the transit gateway (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>modifying</code> | <code>pending</code>).</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -18918,7 +18928,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the attachment (<code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>).</p></li><li><p><code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p></li><li><p><code>type</code> - The type of route (<code>active</code> | <code>blackhole</code>).</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code> - The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p></li><li><p><code>transit-gateway-route-destination-cidr-block</code> - The CIDR range.</p></li><li><p><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20351,7 +20361,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.resource-id</code> - The ID of the resource for the attachment.</p></li><li><p><code>attachment.resource-type</code> - The type of resource for the attachment (<code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>).</p></li><li><p><code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p></li><li><p><code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.resource-id</code> - The ID of the resource for the attachment.</p></li><li><p><code>attachment.resource-type</code> - The type of resource for the attachment. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>attachment.transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>is-blackhole</code> - Whether traffic matching the route is blocked (<code>true</code> | <code>false</code>).</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>prefix-list-owner-id</code> - The ID of the owner of the prefix list.</p></li><li><p><code>state</code> - The state of the prefix list reference (<code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20402,7 +20412,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20453,7 +20463,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type (<code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -24762,7 +24772,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
- <p>The ID of the AWS account ID that owns the local gateway.</p>
+ <p>The AWS account ID that owns the local gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
@@ -24790,6 +24800,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableArn;
+
+/**
  <p>The ID of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
@@ -24798,6 +24813,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the virtual interface group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
+
+/**
+ <p>The AWS account ID that owns the local gateway route.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The state of the route.</p>
@@ -24823,6 +24843,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayId;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the local gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableArn;
+
+/**
  <p>The ID of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
@@ -24831,6 +24856,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Amazon Resource Name (ARN) of the Outpost.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
+
+/**
+ <p>The AWS account ID that owns the local gateway route table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The state of the local gateway route table.</p>
@@ -24856,6 +24886,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayId;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the local gateway route table for the virtual interface group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableArn;
+
+/**
  <p>The ID of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
@@ -24869,6 +24904,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the virtual interface group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceGroupId;
+
+/**
+ <p>The AWS account ID that owns the local gateway virtual interface group association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The state of the association.</p>
@@ -24894,6 +24934,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayId;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the local gateway route table for the association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableArn;
+
+/**
  <p>The ID of the local gateway route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableId;
@@ -24902,6 +24947,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the association.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable localGatewayRouteTableVpcAssociationId;
+
+/**
+ <p>The AWS account ID that owns the local gateway route table for the association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The state of the association.</p>
@@ -32259,7 +32309,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-type</code> - The attachment resource type (<code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>tgw-peering</code>).</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p></li><li><p><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-type</code> - The attachment resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p></li><li><p><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -34568,7 +34618,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -34616,12 +34666,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceOwnerId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
 /**
- <p>The attachment state.</p>
+ <p>The attachment state. Note that the <code>initiating</code> state has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentState state;
 
@@ -35002,7 +35052,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2PeeringTgwInfo * _Nullable requesterTgwInfo;
 
 /**
- <p>The state of the transit gateway peering attachment.</p>
+ <p>The state of the transit gateway peering attachment. Note that the <code>initiating</code> state has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentState state;
 
@@ -35035,7 +35085,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -35096,7 +35146,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -35205,7 +35255,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated. </p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -35271,7 +35321,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The resource type.</p>
+ <p>The resource type. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -35299,7 +35349,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
- <p>The type of resource.</p>
+ <p>The type of resource. Note that the <code>tgw-peering</code> resource type has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
 
@@ -35332,7 +35382,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2TransitGatewayVpcAttachmentOptions * _Nullable options;
 
 /**
- <p>The state of the VPC attachment.</p>
+ <p>The state of the VPC attachment. Note that the <code>initiating</code> state has been deprecated.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentState state;
 

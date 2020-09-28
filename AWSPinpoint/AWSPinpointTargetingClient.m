@@ -13,6 +13,7 @@
  permissions and limitations under the License.
  */
 
+#import "AWSNSCodingUtilities.h"
 #import "AWSPinpointTargetingClient.h"
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointDateUtils.h"
@@ -76,7 +77,15 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     if (!self.endpointProfile) {
         if ([self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey] != nil) {
             NSData *endpointProfileData = [self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey];
-            localEndpointProfile = [NSKeyedUnarchiver unarchiveObjectWithData:endpointProfileData];
+
+            NSError *decodingError;
+            localEndpointProfile = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
+                                                                                   fromData:endpointProfileData
+                                                                                      error:&decodingError];
+            if (decodingError) {
+                AWSDDLogError(@"Error decoding local endpoint profile: %@", decodingError);
+            }
+
             if ([localEndpointProfile.applicationId isEqualToString:self.context.configuration.appId]) {
                 // This is to verify that same appId is being used. Anyone can modify the plist and test with a different app id
                 [localEndpointProfile removeAllMetrics];
@@ -149,10 +158,18 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
     self.endpointProfile = endpointProfile;
     @synchronized (self.endpointProfile) {
-        NSData *endpointProfileData = [NSKeyedArchiver archivedDataWithRootObject:endpointProfile];
+        NSError *codingError;
+        NSData *endpointProfileData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:endpointProfile
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving endpointProfileData. Updating service but not persisting locally: %@", codingError);
+        }
+
         [self.context.configuration.userDefaults setObject:endpointProfileData forKey:AWSPinpointEndpointProfileKey];
         [self.context.configuration.userDefaults synchronize];
     }
+
     return [[self.context.targetingService updateEndpoint:[self updateEndpointRequestForEndpoint:self.endpointProfile]] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             AWSDDLogError(@"Unable to successfully update endpoint. Error Message:%@", task.error);

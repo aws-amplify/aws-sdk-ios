@@ -41,6 +41,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendErrorType) {
     AWSComprehendErrorUnsupportedLanguage,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierDataFormat) {
+    AWSComprehendDocumentClassifierDataFormatUnknown,
+    AWSComprehendDocumentClassifierDataFormatComprehendCsv,
+    AWSComprehendDocumentClassifierDataFormatAugmentedManifest,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierMode) {
     AWSComprehendDocumentClassifierModeUnknown,
     AWSComprehendDocumentClassifierModeMultiClass,
@@ -54,6 +60,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendEndpointStatus) {
     AWSComprehendEndpointStatusFailed,
     AWSComprehendEndpointStatusInService,
     AWSComprehendEndpointStatusUpdating,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendEntityRecognizerDataFormat) {
+    AWSComprehendEntityRecognizerDataFormatUnknown,
+    AWSComprehendEntityRecognizerDataFormatComprehendCsv,
+    AWSComprehendEntityRecognizerDataFormatAugmentedManifest,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendEntityType) {
@@ -134,6 +146,45 @@ typedef NS_ENUM(NSInteger, AWSComprehendPartOfSpeechTagType) {
     AWSComprehendPartOfSpeechTagTypeVerb,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntitiesDetectionMaskMode) {
+    AWSComprehendPiiEntitiesDetectionMaskModeUnknown,
+    AWSComprehendPiiEntitiesDetectionMaskModeMask,
+    AWSComprehendPiiEntitiesDetectionMaskModeReplaceWithPiiEntityType,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntitiesDetectionMode) {
+    AWSComprehendPiiEntitiesDetectionModeUnknown,
+    AWSComprehendPiiEntitiesDetectionModeOnlyRedaction,
+    AWSComprehendPiiEntitiesDetectionModeOnlyOffsets,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendPiiEntityType) {
+    AWSComprehendPiiEntityTypeUnknown,
+    AWSComprehendPiiEntityTypeBankAccountNumber,
+    AWSComprehendPiiEntityTypeBankRouting,
+    AWSComprehendPiiEntityTypeCreditDebitNumber,
+    AWSComprehendPiiEntityTypeCreditDebitCvv,
+    AWSComprehendPiiEntityTypeCreditDebitExpiry,
+    AWSComprehendPiiEntityTypePin,
+    AWSComprehendPiiEntityTypeEmail,
+    AWSComprehendPiiEntityTypeAddress,
+    AWSComprehendPiiEntityTypeName,
+    AWSComprehendPiiEntityTypePhone,
+    AWSComprehendPiiEntityTypeSsn,
+    AWSComprehendPiiEntityTypeDateTime,
+    AWSComprehendPiiEntityTypePassportNumber,
+    AWSComprehendPiiEntityTypeDriverId,
+    AWSComprehendPiiEntityTypeUrl,
+    AWSComprehendPiiEntityTypeAge,
+    AWSComprehendPiiEntityTypeUsername,
+    AWSComprehendPiiEntityTypePassword,
+    AWSComprehendPiiEntityTypeAwsAccessKey,
+    AWSComprehendPiiEntityTypeAwsSecretKey,
+    AWSComprehendPiiEntityTypeIpAddress,
+    AWSComprehendPiiEntityTypeMacAddress,
+    AWSComprehendPiiEntityTypeAll,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendSentimentType) {
     AWSComprehendSentimentTypeUnknown,
     AWSComprehendSentimentTypePositive,
@@ -152,6 +203,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
     AWSComprehendSyntaxLanguageCodePt,
 };
 
+@class AWSComprehendAugmentedManifestsListItem;
 @class AWSComprehendBatchDetectDominantLanguageItemResult;
 @class AWSComprehendBatchDetectDominantLanguageRequest;
 @class AWSComprehendBatchDetectDominantLanguageResponse;
@@ -198,6 +250,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDescribeEntityRecognizerResponse;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobRequest;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobResponse;
+@class AWSComprehendDescribePiiEntitiesDetectionJobRequest;
+@class AWSComprehendDescribePiiEntitiesDetectionJobResponse;
 @class AWSComprehendDescribeSentimentDetectionJobRequest;
 @class AWSComprehendDescribeSentimentDetectionJobResponse;
 @class AWSComprehendDescribeTopicsDetectionJobRequest;
@@ -208,6 +262,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDetectEntitiesResponse;
 @class AWSComprehendDetectKeyPhrasesRequest;
 @class AWSComprehendDetectKeyPhrasesResponse;
+@class AWSComprehendDetectPiiEntitiesRequest;
+@class AWSComprehendDetectPiiEntitiesResponse;
 @class AWSComprehendDetectSentimentRequest;
 @class AWSComprehendDetectSentimentResponse;
 @class AWSComprehendDetectSyntaxRequest;
@@ -257,6 +313,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListEntityRecognizersResponse;
 @class AWSComprehendListKeyPhrasesDetectionJobsRequest;
 @class AWSComprehendListKeyPhrasesDetectionJobsResponse;
+@class AWSComprehendListPiiEntitiesDetectionJobsRequest;
+@class AWSComprehendListPiiEntitiesDetectionJobsResponse;
 @class AWSComprehendListSentimentDetectionJobsRequest;
 @class AWSComprehendListSentimentDetectionJobsResponse;
 @class AWSComprehendListTagsForResourceRequest;
@@ -265,6 +323,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListTopicsDetectionJobsResponse;
 @class AWSComprehendOutputDataConfig;
 @class AWSComprehendPartOfSpeechTag;
+@class AWSComprehendPiiEntitiesDetectionJobFilter;
+@class AWSComprehendPiiEntitiesDetectionJobProperties;
+@class AWSComprehendPiiEntity;
+@class AWSComprehendPiiOutputDataConfig;
+@class AWSComprehendRedactionConfig;
 @class AWSComprehendSentimentDetectionJobFilter;
 @class AWSComprehendSentimentDetectionJobProperties;
 @class AWSComprehendSentimentScore;
@@ -276,6 +339,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStartEntitiesDetectionJobResponse;
 @class AWSComprehendStartKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStartKeyPhrasesDetectionJobResponse;
+@class AWSComprehendStartPiiEntitiesDetectionJobRequest;
+@class AWSComprehendStartPiiEntitiesDetectionJobResponse;
 @class AWSComprehendStartSentimentDetectionJobRequest;
 @class AWSComprehendStartSentimentDetectionJobResponse;
 @class AWSComprehendStartTopicsDetectionJobRequest;
@@ -286,6 +351,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStopEntitiesDetectionJobResponse;
 @class AWSComprehendStopKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStopKeyPhrasesDetectionJobResponse;
+@class AWSComprehendStopPiiEntitiesDetectionJobRequest;
+@class AWSComprehendStopPiiEntitiesDetectionJobResponse;
 @class AWSComprehendStopSentimentDetectionJobRequest;
 @class AWSComprehendStopSentimentDetectionJobResponse;
 @class AWSComprehendStopTrainingDocumentClassifierRequest;
@@ -303,6 +370,25 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendUpdateEndpointRequest;
 @class AWSComprehendUpdateEndpointResponse;
 @class AWSComprehendVpcConfig;
+
+/**
+ <p>An augmented manifest file that provides training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p>
+ Required parameters: [S3Uri, AttributeNames]
+ */
+@interface AWSComprehendAugmentedManifestsListItem : AWSModel
+
+
+/**
+ <p>The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.</p><p>If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.</p><p>If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
+
+/**
+ <p>The Amazon S3 location of the augmented manifest file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
 
 /**
  <p>The result of calling the operation. The operation returns one object for each document that is successfully processed by the operation.</p>
@@ -1135,6 +1221,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendDescribePiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier that Amazon Comprehend generated for the job. The operation returns this identifier in its response.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribePiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>Provides information about a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiEntitiesDetectionJobProperties * _Nullable piiEntitiesDetectionJobProperties;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendDescribeSentimentDetectionJobRequest : AWSRequest
 
 
@@ -1274,6 +1386,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>A collection of key phrases that Amazon Comprehend identified in the input text. For each key phrase, the response provides the text of the key phrase, where the key phrase begins and ends, and the level of confidence that Amazon Comprehend has in the accuracy of the detection. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendKeyPhrase *> * _Nullable keyPhrases;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectPiiEntitiesRequest : AWSRequest
+
+
+/**
+ <p>The language of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A UTF-8 text string. Each string must contain fewer that 5,000 bytes of UTF-8 encoded characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDetectPiiEntitiesResponse : AWSModel
+
+
+/**
+ <p>A collection of PII entities identified in the input text. For each entity, the response provides the entity type, where the entity text begins and ends, and the level of confidence that Amazon Comprehend has in the detection.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendPiiEntity *> * _Nullable entities;
 
 @end
 
@@ -1465,7 +1608,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>Filters the list of classifiers based on status. </p>
+ <p>Filters the list of classifiers based on status.</p>
  */
 @property (nonatomic, assign) AWSComprehendModelStatus status;
 
@@ -1483,10 +1626,19 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>The input properties for training a document classifier. </p><p>For more information on how the input file is formatted, see <a>how-document-classification-training-data</a>. </p>
- Required parameters: [S3Uri]
  */
 @interface AWSComprehendDocumentClassifierInputDataConfig : AWSModel
 
+
+/**
+ <p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p><p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendAugmentedManifestsListItem *> * _Nullable augmentedManifests;
+
+/**
+ <p>The format of your training data:</p><ul><li><p><code>COMPREHEND_CSV</code>: A two-column CSV file, where labels are provided in the first column, and documents are provided in the second. If you use this value, you must provide the <code>S3Uri</code> parameter in your request.</p></li><li><p><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its associated labels. </p><p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p></li></ul><p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentClassifierDataFormat dataFormat;
 
 /**
  <p>Indicates the delimiter used to separate each label for training a multi-label classifier. The default delimiter between labels is a pipe (|). You can use a different character as a delimiter (if it's an allowed character) by specifying it under Delimiter for labels. If the training documents use a delimiter other than the default or the delimiter you specify, the labels on that line will be combined to make a single unique label, such as LABELLABELLABEL.</p>
@@ -1494,7 +1646,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSString * _Nullable labelDelimiter;
 
 /**
- <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p>
+ <p>The Amazon S3 URI for the input data. The S3 bucket must be in the same region as the API endpoint that you are calling. The URI can point to a single input file or it can provide the prefix for a collection of input files.</p><p>For example, if you use the URI <code>S3://bucketName/prefix</code>, if the prefix is a single file, Amazon Comprehend uses that file as input. If more than one file begins with the prefix, Amazon Comprehend uses all of them as input.</p><p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
 
@@ -2028,28 +2180,38 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>Specifies the format and location of the input data.</p>
- Required parameters: [EntityTypes, Documents]
+ Required parameters: [EntityTypes]
  */
 @interface AWSComprehendEntityRecognizerInputDataConfig : AWSModel
 
 
 /**
- <p>S3 location of the annotations file for an entity recognizer.</p>
+ <p>The S3 location of the CSV file that annotates your training documents.</p>
  */
 @property (nonatomic, strong) AWSComprehendEntityRecognizerAnnotations * _Nullable annotations;
 
 /**
- <p>S3 location of the documents folder for an entity recognizer</p>
+ <p>A list of augmented manifest files that provide training data for your custom model. An augmented manifest file is a labeled dataset that is produced by Amazon SageMaker Ground Truth.</p><p>This parameter is required if you set <code>DataFormat</code> to <code>AUGMENTED_MANIFEST</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendAugmentedManifestsListItem *> * _Nullable augmentedManifests;
+
+/**
+ <p>The format of your training data:</p><ul><li><p><code>COMPREHEND_CSV</code>: A CSV file that supplements your training documents. The CSV file contains information about the custom entities that your trained model will detect. The required format of the file depends on whether you are providing annotations or an entity list.</p><p>If you use this value, you must provide your CSV file by using either the <code>Annotations</code> or <code>EntityList</code> parameters. You must provide your training documents by using the <code>Documents</code> parameter.</p></li><li><p><code>AUGMENTED_MANIFEST</code>: A labeled dataset that is produced by Amazon SageMaker Ground Truth. This file is in JSON lines format. Each line is a complete JSON object that contains a training document and its labels. Each label annotates a named entity in the training document. </p><p>If you use this value, you must provide the <code>AugmentedManifests</code> parameter in your request.</p></li></ul><p>If you don't specify a value, Amazon Comprehend uses <code>COMPREHEND_CSV</code> as the default.</p>
+ */
+@property (nonatomic, assign) AWSComprehendEntityRecognizerDataFormat dataFormat;
+
+/**
+ <p>The S3 location of the folder that contains the training documents for your custom entity recognizer.</p><p>This parameter is required if you set <code>DataFormat</code> to <code>COMPREHEND_CSV</code>.</p>
  */
 @property (nonatomic, strong) AWSComprehendEntityRecognizerDocuments * _Nullable documents;
 
 /**
- <p>S3 location of the entity list for an entity recognizer.</p>
+ <p>The S3 location of the CSV file that has the entity list for your custom entity recognizer.</p>
  */
 @property (nonatomic, strong) AWSComprehendEntityRecognizerEntityList * _Nullable entityList;
 
 /**
- <p>The entity types in the input data for an entity recognizer. A maximum of 25 entity types can be used at one time to train an entity recognizer.</p>
+ <p>The entity types in the labeled training data that Amazon Comprehend uses to train the custom entity recognizer. Any entity types that you don't specify are ignored.</p><p>A maximum of 25 entity types can be used at one time to train an entity recognizer. Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break), \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma). </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendEntityTypesListItem *> * _Nullable entityTypes;
 
@@ -2203,14 +2365,14 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>Information about an individual item on a list of entity types.</p>
+ <p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p>
  Required parameters: [Type]
  */
 @interface AWSComprehendEntityTypesListItem : AWSModel
 
 
 /**
- <p>Entity type of an item on an entity type list.</p>
+ <p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p><p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
 
@@ -2649,6 +2811,47 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendListPiiEntitiesDetectionJobsRequest : AWSRequest
+
+
+/**
+ <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiEntitiesDetectionJobFilter * _Nullable filter;
+
+/**
+ <p>The maximum number of results to return in each page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListPiiEntitiesDetectionJobsResponse : AWSModel
+
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list containing the properties of each job that is returned.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendPiiEntitiesDetectionJobProperties *> * _Nullable piiEntitiesDetectionJobPropertiesList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendListSentimentDetectionJobsRequest : AWSRequest
 
 
@@ -2793,6 +2996,172 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Identifies the part of speech that the token represents.</p>
  */
 @property (nonatomic, assign) AWSComprehendPartOfSpeechTagType tag;
+
+@end
+
+/**
+ <p>Provides information for filtering a list of PII entity detection jobs.</p>
+ */
+@interface AWSComprehendPiiEntitiesDetectionJobFilter : AWSModel
+
+
+/**
+ <p>Filters on the name of the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeAfter;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeBefore;
+
+@end
+
+/**
+ <p>Provides information about a PII entities detection job.</p>
+ */
+@interface AWSComprehendPiiEntitiesDetectionJobProperties : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) that gives Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>The time that the PII entities detection job completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The input properties for a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier assigned to the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The name that you assigned the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The current status of the PII entities detection job. If the status is <code>FAILED</code>, the <code>Message</code> field shows the reason for the failure.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>The language code of the input documents</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A description of the status of a job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMode mode;
+
+/**
+ <p>The output data configuration that you supplied when you created the PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendPiiOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p><p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
+ */
+@property (nonatomic, strong) AWSComprehendRedactionConfig * _Nullable redactionConfig;
+
+/**
+ <p>The time that the PII entities detection job was submitted for processing.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+@end
+
+/**
+ <p>Provides information about a PII entity.</p>
+ */
+@interface AWSComprehendPiiEntity : AWSModel
+
+
+/**
+ <p>A character offset in the input text that shows where the PII entity begins (the first character is at position 0). The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable beginOffset;
+
+/**
+ <p>A character offset in the input text that shows where the PII entity ends. The offset returns the position of each UTF-8 code point in the string. A <i>code point</i> is the abstract character from a particular graphical representation. For example, a multi-byte UTF-8 character maps to a single code point.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endOffset;
+
+/**
+ <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
+
+/**
+ <p>The entity's type.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntityType types;
+
+@end
+
+/**
+ <p>Provides configuration parameters for the output of PII entity detection jobs.</p>
+ Required parameters: [S3Uri]
+ */
+@interface AWSComprehendPiiOutputDataConfig : AWSModel
+
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt the output results from an analysis job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
+ <p>When you use the <code>PiiOutputDataConfig</code> object with asynchronous operations, you specify the Amazon S3 location where you want to write the output data. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+@end
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p>
+ */
+@interface AWSComprehendRedactionConfig : AWSModel
+
+
+/**
+ <p>A character that replaces each character in the redacted PII entity.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable maskCharacter;
+
+/**
+ <p>Specifies whether the PII entity is redacted with the mask character or the entity type.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMaskMode maskMode;
+
+/**
+ <p>An array of the types of PII entities that Amazon Comprehend detects in the input text for your request.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable piiEntityTypes;
 
 @end
 
@@ -3187,6 +3556,72 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendStartPiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>The input properties for a PII entities detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier of the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The language of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>Specifies whether the output provides the locations (offsets) of PII entities or a file in which PII entities are redacted.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntitiesDetectionMode mode;
+
+/**
+ <p>Provides conﬁguration parameters for the output of PII entity detection jobs.</p>
+ */
+@property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>Provides configuration parameters for PII entity redaction.</p><p>This parameter is required if you set the <code>Mode</code> parameter to <code>ONLY_REDACTION</code>. In that case, you must provide a <code>RedactionConfig</code> definition that includes the <code>PiiEntityTypes</code> parameter.</p>
+ */
+@property (nonatomic, strong) AWSComprehendRedactionConfig * _Nullable redactionConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStartPiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>The identifier generated for the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the job.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendStartSentimentDetectionJobRequest : AWSRequest
 
 
@@ -3404,6 +3839,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopKeyPhrasesDetectionJob</code> operation.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopPiiEntitiesDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the PII entities detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopPiiEntitiesDetectionJobResponse : AWSModel
+
+
+/**
+ <p>The identifier of the PII entities detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the PII entities detection job.</p>
  */
 @property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
 
