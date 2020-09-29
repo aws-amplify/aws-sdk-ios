@@ -9109,7 +9109,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)modifyVpnConnection:(AWSEC2ModifyVpnConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyVpnConnectionResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modifies the connection options for your Site-to-Site VPN VPN connection.</p><p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
+ <p>Modifies the connection options for your Site-to-Site VPN connection.</p><p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpnConnectionOptions service method.
 
@@ -9121,7 +9121,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2ModifyVpnConnectionOptionsResult *> *)modifyVpnConnectionOptions:(AWSEC2ModifyVpnConnectionOptionsRequest *)request;
 
 /**
- <p>Modifies the connection options for your Site-to-Site VPN VPN connection.</p><p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
+ <p>Modifies the connection options for your Site-to-Site VPN connection.</p><p>When you modify the VPN connection options, the VPN endpoint IP addresses on the AWS side do not change, and the tunnel options do not change. Your VPN connection will be temporarily unavailable for a brief period while the VPN connection is updated.</p>
  
  @param request A container for the necessary parameters to execute the ModifyVpnConnectionOptions service method.
  @param completionHandler The completion handler to call when the load request is complete.

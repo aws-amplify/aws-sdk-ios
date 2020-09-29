@@ -6703,7 +6703,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p><ul><li><p>To add a route for Internet access, enter <code>0.0.0.0/0</code></p></li><li><p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p></li><li><p>To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range</p></li></ul><p>Route address ranges cannot overlap with the CIDR range specified for client allocation.</p>
+ <p>The IPv4 address range, in CIDR notation, of the route destination. For example:</p><ul><li><p>To add a route for Internet access, enter <code>0.0.0.0/0</code></p></li><li><p>To add a route for a peered VPC, enter the peered VPC's IPv4 CIDR range</p></li><li><p>To add a route for an on-premises network, enter the AWS Site-to-Site VPN connection's IPv4 CIDR range</p></li><li><p>To add a route for the local network, enter the client CIDR range</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationCidrBlock;
 
@@ -6713,7 +6713,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.</p>
+ <p>The ID of the subnet through which you want to route traffic. The specified subnet must be an existing target network of the Client VPN endpoint.</p><p>Alternatively, if you're adding a route for the local network, specify <code>local</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetVpcSubnetId;
 
@@ -27017,7 +27017,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable remoteIpv6NetworkCidr;
 
 /**
- <p>The ID of the Site-to-Site VPN VPN connection. </p>
+ <p>The ID of the Site-to-Site VPN connection. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpnConnectionId;
 
