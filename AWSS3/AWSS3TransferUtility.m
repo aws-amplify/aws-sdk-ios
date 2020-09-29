@@ -474,11 +474,30 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         
         //Recover the state from the previous time this was instantiated
         [self recover:completionHandler];
+
+        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(applicationDidBecomeActive) name:UIApplicationDidBecomeActiveNotification object:nil];
     }
+
     return self;
 }
 
 #pragma mark - recovery methods
+
+- (void) applicationDidBecomeActive{
+    if (@available(iOS 9.0, *)) {
+        [_session getAllTasksWithCompletionHandler:^(NSArray<__kindof NSURLSessionTask *> * _Nonnull tasks) {
+            [self resumeRunningTasksForSessionTask:tasks];
+        }];
+    }else{
+
+        [_session getTasksWithCompletionHandler:^(NSArray<NSURLSessionDataTask *> * _Nonnull dataTasks, NSArray<NSURLSessionUploadTask *> * _Nonnull uploadTasks, NSArray<NSURLSessionDownloadTask *> * _Nonnull downloadTasks) {
+
+            [self resumeRunningTasksForSessionTask:dataTasks];
+            [self resumeRunningTasksForSessionTask:uploadTasks];
+            [self resumeRunningTasksForSessionTask:downloadTasks];
+        }];
+    }
+}
 
 - (void) recover: (void (^)(NSError *_Nullable error)) completionHandler {
    
@@ -2437,6 +2456,15 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
 }
 
 #pragma mark - Helper methods
+
+- (void) resumeRunningTasksForSessionTask: (NSArray<NSURLSessionTask *> *)tasks{
+
+    [tasks enumerateObjectsUsingBlock:^(NSURLSessionTask * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if (obj.state == NSURLSessionTaskStateRunning){
+            [obj resume];
+        }
+    }];
+}
 
 - (void) cleanupForMultiPartUploadTask: (AWSS3TransferUtilityMultiPartUploadTask *) task  {
     
