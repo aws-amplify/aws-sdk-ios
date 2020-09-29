@@ -2,7 +2,11 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon Connect
+  - Amazon EC2
 
 ## 2.17.0
 
