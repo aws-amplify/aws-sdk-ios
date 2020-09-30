@@ -40,6 +40,7 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"BadRequestException" : @(AWSPinpointTargetingErrorBadRequest),
+                            @"ConflictException" : @(AWSPinpointTargetingErrorConflict),
                             @"ForbiddenException" : @(AWSPinpointTargetingErrorForbidden),
                             @"InternalServerErrorException" : @(AWSPinpointTargetingErrorInternalServerError),
                             @"MethodNotAllowedException" : @(AWSPinpointTargetingErrorMethodNotAllowed),

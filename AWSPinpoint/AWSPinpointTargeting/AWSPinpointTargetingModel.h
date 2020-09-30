@@ -24,6 +24,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointTargetingErrorDomain;
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingErrorType) {
     AWSPinpointTargetingErrorUnknown,
     AWSPinpointTargetingErrorBadRequest,
+    AWSPinpointTargetingErrorConflict,
     AWSPinpointTargetingErrorForbidden,
     AWSPinpointTargetingErrorInternalServerError,
     AWSPinpointTargetingErrorMethodNotAllowed,
@@ -53,6 +54,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingCampaignStatus) {
     AWSPinpointTargetingCampaignStatusCompleted,
     AWSPinpointTargetingCampaignStatusPaused,
     AWSPinpointTargetingCampaignStatusDeleted,
+    AWSPinpointTargetingCampaignStatusInvalid,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingChannelType) {
@@ -352,7 +354,9 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @class AWSPinpointTargetingEvent;
 @class AWSPinpointTargetingEventCondition;
 @class AWSPinpointTargetingEventDimensions;
+@class AWSPinpointTargetingEventFilter;
 @class AWSPinpointTargetingEventItemResponse;
+@class AWSPinpointTargetingEventStartCondition;
 @class AWSPinpointTargetingEventStream;
 @class AWSPinpointTargetingEventsBatch;
 @class AWSPinpointTargetingEventsRequest;
@@ -1728,12 +1732,12 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable lastModifiedDate;
 
 /**
- <p>The default sending limits for campaigns and journeys in the application.</p>
+ <p>The default sending limits for campaigns in the application.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignLimits * _Nullable limits;
 
 /**
- <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
+ <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
 
@@ -2108,7 +2112,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
- <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns and journeys in the application can send.</p>
+ <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns in the application can send.</p>
  */
 @interface AWSPinpointTargetingCampaignLimits : AWSModel
 
@@ -2124,7 +2128,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumDuration;
 
 /**
- <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns and journeys can send each second. The minimum value is 50. The maximum value is 20,000.</p>
+ <p>The maximum number of messages that a campaign can send each second. For an application, this value specifies the default limit for the number of messages that campaigns can send each second. The minimum value is 50. The maximum value is 20,000.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messagesPerSecond;
 
@@ -2405,7 +2409,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
- <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+ <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p><note><p>To create yes/no split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 @interface AWSPinpointTargetingConditionalSplitActivity : AWSModel
 
@@ -2885,7 +2889,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 
 
 /**
- <p>The destination to send the custom message to. This value can be one of the following:</p><ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the custom message.</p></li><li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
+ <p>The destination to send the campaign or treatment to. This value can be one of the following:</p><ul><li><p>The name or Amazon Resource Name (ARN) of an AWS Lambda function to invoke to handle delivery of the campaign or treatment.</p></li><li><p>The URL for a web application or service that supports HTTPS and can receive the message. The URL has to be a full URL, including the HTTPS protocol.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable deliveryUri;
 
@@ -4523,6 +4527,25 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
+ <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
+ Required parameters: [FilterType, Dimensions]
+ */
+@interface AWSPinpointTargetingEventFilter : AWSModel
+
+
+/**
+ <p>The dimensions for the event filter to use for the campaign or the journey activity.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventDimensions * _Nullable dimensions;
+
+/**
+ <p>The type of event that causes the campaign to be sent or the journey activity to be performed. Valid values are: SYSTEM, sends the campaign or performs the activity when a system event occurs; and, ENDPOINT, sends the campaign or performs the activity when an endpoint event (<linklinkend="apps-application-id-events">Events resource</link>) occurs.</p>
+ */
+@property (nonatomic, assign) AWSPinpointTargetingFilterType filterType;
+
+@end
+
+/**
  <p>Provides the status code and message that result from processing an event.</p>
  */
 @interface AWSPinpointTargetingEventItemResponse : AWSModel
@@ -4537,6 +4560,24 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The status code that's returned in the response as a result of processing the event. Possible values are: 202, for events that were accepted; and, 400, for events that weren't valid.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable statusCode;
+
+@end
+
+/**
+ <p>Specifies the settings for an event that causes a journey activity to start.</p>
+ */
+@interface AWSPinpointTargetingEventStartCondition : AWSModel
+
+
+/**
+ <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventFilter * _Nullable eventFilter;
+
+/**
+ 
+ */
+@property (nonatomic, strong) NSString * _Nullable segmentId;
 
 @end
 
@@ -6814,7 +6855,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable lastEvaluatedTime;
 
 /**
- <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
+ <p>A JSON object that contains the results of the query. For information about the structure and contents of the results, see the <a href="https://docs.aws.amazon.com//pinpoint/latest/developerguide/analytics-standard-metrics.html">Amazon Pinpoint Developer Guide</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable metrics;
 
@@ -6952,7 +6993,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;
 
 /**
- <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
+ <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable senderId;
 
@@ -7318,7 +7359,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 
 
 /**
- <p>A map of key-value pairs, where each key is an address and each value is an AddressConfiguration object. An address can be a push notification token, a phone number, or an email address. You can use an AddressConfiguration object to tailor the message for an address by specifying settings such as content overrides and message variables.</p>
+ <p>A map of key-value pairs, where each key is an address and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object. An address can be a push notification token, a phone number, or an email address. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-addressconfiguration">AddressConfiguration</a> object to tailor the message for an address by specifying settings such as content overrides and message variables.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingAddressConfiguration *> * _Nullable addresses;
 
@@ -7328,7 +7369,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable context;
 
 /**
- <p>A map of key-value pairs, where each key is an endpoint ID and each value is an EndpointSendConfiguration object. You can use an EndpointSendConfiguration object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.</p>
+ <p>A map of key-value pairs, where each key is an endpoint ID and each value is an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for an endpoint by specifying settings such as content overrides and message variables.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingEndpointSendConfiguration *> * _Nullable endpoints;
 
@@ -7450,7 +7491,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @end
 
 /**
- <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
+ <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p><note><p>To create multivariate split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note>
  */
 @interface AWSPinpointTargetingMultiConditionalSplitActivity : AWSModel
 
@@ -8232,7 +8273,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable keyword;
 
 /**
- <p>The URL of an image or video to display in the SMS message.</p>
+ <p>This field is reserved for future use.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable mediaUrl;
 
@@ -8799,7 +8840,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable traceId;
 
 /**
- <p>A map that associates user IDs with EndpointSendConfiguration objects. You can use an EndpointSendConfiguration object to tailor the message for a user by specifying settings such as content overrides and message variables.</p>
+ <p>A map that associates user IDs with <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> objects. You can use an <a href="https://docs.aws.amazon.com/pinpoint/latest/apireference/apps-application-id-messages.html#apps-application-id-messages-model-endpointsendconfiguration">EndpointSendConfiguration</a> object to tailor the message for a user by specifying settings such as content overrides and message variables.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSPinpointTargetingEndpointSendConfiguration *> * _Nullable users;
 
@@ -8982,6 +9023,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The custom description of the condition.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>Specifies the settings for an event that causes a journey activity to start.</p>
+ */
+@property (nonatomic, strong) AWSPinpointTargetingEventStartCondition * _Nullable eventStartCondition;
 
 /**
  <p>The segment that's associated with the first activity in the journey. This segment determines which users are participants in the journey.</p>
@@ -10414,12 +10460,17 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSNumber * _Nullable cloudWatchMetricsEnabled;
 
 /**
- <p>The default sending limits for campaigns and journeys in the application. To override these limits and define custom limits for a specific campaign or journey, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <linklinkend="apps-application-id-journeys-journey-id">Journey</link> resource, respectively.</p>
+ 
+ */
+@property (nonatomic, strong) NSNumber * _Nullable eventTaggingEnabled;
+
+/**
+ <p>The default sending limits for campaigns in the application. To override these limits and define custom limits for a specific campaign or journey, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <linklinkend="apps-application-id-journeys-journey-id">Journey</link> resource, respectively.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingCampaignLimits * _Nullable limits;
 
 /**
- <p>The default quiet time for campaigns and journeys in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p><p>To override the default quiet time settings for a specific campaign or journey, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <linklinkend="apps-application-id-journeys-journey-id">Journey</link> resource to define a custom quiet time for the campaign or journey.</p>
+ <p>The default quiet time for campaigns in the application. Quiet time is a specific time range when messages aren't sent to endpoints, if all the following conditions are met:</p><ul><li><p>The EndpointDemographic.Timezone property of the endpoint is set to a valid value.</p></li><li><p>The current time in the endpoint's time zone is later than or equal to the time specified by the QuietTime.Start property for the application (or a campaign or journey that has custom quiet time settings).</p></li><li><p>The current time in the endpoint's time zone is earlier than or equal to the time specified by the QuietTime.End property for the application (or a campaign or journey that has custom quiet time settings).</p></li></ul><p>If any of the preceding conditions isn't met, the endpoint will receive messages from a campaign or journey, even if quiet time is enabled.</p><p>To override the default quiet time settings for a specific campaign or journey, use the <linklinkend="apps-application-id-campaigns-campaign-id">Campaign</link> resource or the <linklinkend="apps-application-id-journeys-journey-id">Journey</link> resource to define a custom quiet time for the campaign or journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingQuietTime * _Nullable quietTime;
 
