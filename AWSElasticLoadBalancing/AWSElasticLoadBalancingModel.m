@@ -279,6 +279,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"port" : @"Port",
              @"protocols" : @"Protocol",
              @"sslPolicy" : @"SslPolicy",
+             @"tags" : @"Tags",
              };
 }
 
@@ -329,6 +330,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end
@@ -458,6 +463,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"conditions" : @"Conditions",
              @"listenerArn" : @"ListenerArn",
              @"priority" : @"Priority",
+             @"tags" : @"Tags",
              };
 }
 
@@ -467,6 +473,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 + (NSValueTransformer *)conditionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingRuleCondition class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 @end
@@ -500,6 +510,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"name" : @"Name",
              @"port" : @"Port",
              @"protocols" : @"Protocol",
+             @"tags" : @"Tags",
              @"targetType" : @"TargetType",
              @"unhealthyThresholdCount" : @"UnhealthyThresholdCount",
              @"vpcId" : @"VpcId",
@@ -590,6 +601,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSElasticLoadBalancingTag class]];
 }
 
 + (NSValueTransformer *)targetTypeJSONTransformer {

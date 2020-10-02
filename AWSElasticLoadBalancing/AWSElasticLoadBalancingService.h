@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)addListenerCertificates:(AWSElasticLoadBalancingAddListenerCertificatesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingAddListenerCertificatesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, and your target groups.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
+ <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
  
  @param request A container for the necessary parameters to execute the AddTags service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingAddTagsOutput *> *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request;
 
 /**
- <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, and your target groups.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
+ <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
  
  @param request A container for the necessary parameters to execute the AddTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -229,7 +229,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateListener service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateListenerOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateListenerInput
  @see AWSElasticLoadBalancingCreateListenerOutput
@@ -242,7 +242,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the CreateListener service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateListener`, `AWSElasticLoadBalancingErrorTooManyListeners`, `AWSElasticLoadBalancingErrorTooManyCertificates`, `AWSElasticLoadBalancingErrorLoadBalancerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorSSLPolicyNotFound`, `AWSElasticLoadBalancingErrorCertificateNotFound`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorALPNPolicyNotSupported`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateListenerInput
  @see AWSElasticLoadBalancingCreateListenerOutput
@@ -279,7 +279,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateRule service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateRuleOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorPriorityInUse`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorTooManyRules`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateRuleOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorPriorityInUse`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorTooManyRules`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateRuleInput
  @see AWSElasticLoadBalancingCreateRuleOutput
@@ -292,7 +292,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the CreateRule service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorPriorityInUse`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorTooManyRules`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorPriorityInUse`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorTooManyRules`, `AWSElasticLoadBalancingErrorTargetGroupAssociationLimit`, `AWSElasticLoadBalancingErrorIncompatibleProtocols`, `AWSElasticLoadBalancingErrorListenerNotFound`, `AWSElasticLoadBalancingErrorTargetGroupNotFound`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId`, `AWSElasticLoadBalancingErrorTooManyTargets`, `AWSElasticLoadBalancingErrorUnsupportedProtocol`, `AWSElasticLoadBalancingErrorTooManyActions`, `AWSElasticLoadBalancingErrorInvalidLoadBalancerAction`, `AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateRuleInput
  @see AWSElasticLoadBalancingCreateRuleOutput
@@ -304,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  
  @param request A container for the necessary parameters to execute the CreateTargetGroup service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateTargetGroupOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTargetGroupName`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSElasticLoadBalancingCreateTargetGroupOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTargetGroupName`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateTargetGroupInput
  @see AWSElasticLoadBalancingCreateTargetGroupOutput
@@ -317,7 +317,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
  @param request A container for the necessary parameters to execute the CreateTargetGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTargetGroupName`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSElasticLoadBalancingErrorDomain` domain and the following error code: `AWSElasticLoadBalancingErrorDuplicateTargetGroupName`, `AWSElasticLoadBalancingErrorTooManyTargetGroups`, `AWSElasticLoadBalancingErrorInvalidConfigurationRequest`, `AWSElasticLoadBalancingErrorTooManyTags`.
  
  @see AWSElasticLoadBalancingCreateTargetGroupInput
  @see AWSElasticLoadBalancingCreateTargetGroupOutput
@@ -625,7 +625,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)describeSSLPolicies:(AWSElasticLoadBalancingDescribeSSLPoliciesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingDescribeSSLPoliciesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, and target groups.</p>
+ <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
 
@@ -637,7 +637,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingDescribeTagsOutput *> *)describeTags:(AWSElasticLoadBalancingDescribeTagsInput *)request;
 
 /**
- <p>Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, and target groups.</p>
+ <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
  
  @param request A container for the necessary parameters to execute the DescribeTags service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -900,7 +900,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)removeListenerCertificates:(AWSElasticLoadBalancingRemoveListenerCertificatesInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingRemoveListenerCertificatesOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified tags from the specified Elastic Load Balancing resource.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
+ <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemoveTags service method.
 
@@ -912,7 +912,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingRemoveTagsOutput *> *)removeTags:(AWSElasticLoadBalancingRemoveTagsInput *)request;
 
 /**
- <p>Removes the specified tags from the specified Elastic Load Balancing resource.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
+ <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemoveTags service method.
  @param completionHandler The completion handler to call when the load request is complete.

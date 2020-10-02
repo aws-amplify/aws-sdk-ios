@@ -595,6 +595,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  */
 @property (nonatomic, strong) NSString * _Nullable sslPolicy;
 
+/**
+ <p>The tags to assign to the listener.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
+
 @end
 
 /**
@@ -652,7 +657,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
 /**
- <p>One or more tags to assign to the load balancer.</p>
+ <p>The tags to assign to the load balancer.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
@@ -701,6 +706,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The rule priority. A listener can't have multiple rules with the same priority.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable priority;
+
+/**
+ <p>The tags to assign to the rule.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
 @end
 
@@ -777,6 +787,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
+
+/**
+ <p>The tags to assign to the target group.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
 /**
  <p>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</p><ul><li><p><code>instance</code> - Targets are specified by instance ID. This is the default value.</p></li><li><p><code>ip</code> - Targets are specified by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.</p></li><li><p><code>lambda</code> - The target groups contains a single Lambda function.</p></li></ul>
