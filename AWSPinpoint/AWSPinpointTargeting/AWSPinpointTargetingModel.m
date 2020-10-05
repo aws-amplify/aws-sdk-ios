@@ -1068,6 +1068,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingCampaignStatusDeleted);
         }
+        if ([value caseInsensitiveCompare:@"INVALID"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingCampaignStatusInvalid);
+        }
         return @(AWSPinpointTargetingCampaignStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1083,6 +1086,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"PAUSED";
             case AWSPinpointTargetingCampaignStatusDeleted:
                 return @"DELETED";
+            case AWSPinpointTargetingCampaignStatusInvalid:
+                return @"INVALID";
             default:
                 return nil;
         }
@@ -2960,6 +2965,42 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEventFilter
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensions" : @"Dimensions",
+             @"filterType" : @"FilterType",
+             };
+}
+
++ (NSValueTransformer *)dimensionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventDimensions class]];
+}
+
++ (NSValueTransformer *)filterTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingFilterTypeSystem);
+        }
+        if ([value caseInsensitiveCompare:@"ENDPOINT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingFilterTypeEndpoint);
+        }
+        return @(AWSPinpointTargetingFilterTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingFilterTypeSystem:
+                return @"SYSTEM";
+            case AWSPinpointTargetingFilterTypeEndpoint:
+                return @"ENDPOINT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingEventItemResponse
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -2967,6 +3008,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"message" : @"Message",
              @"statusCode" : @"StatusCode",
              };
+}
+
+@end
+
+@implementation AWSPinpointTargetingEventStartCondition
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"eventFilter" : @"EventFilter",
+             @"segmentId" : @"SegmentId",
+             };
+}
+
++ (NSValueTransformer *)eventFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventFilter class]];
 }
 
 @end
@@ -6698,8 +6754,13 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"eventStartCondition" : @"EventStartCondition",
              @"segmentStartCondition" : @"SegmentStartCondition",
              };
+}
+
++ (NSValueTransformer *)eventStartConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventStartCondition class]];
 }
 
 + (NSValueTransformer *)segmentStartConditionJSONTransformer {
@@ -7780,6 +7841,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"campaignHook" : @"CampaignHook",
              @"cloudWatchMetricsEnabled" : @"CloudWatchMetricsEnabled",
+             @"eventTaggingEnabled" : @"EventTaggingEnabled",
              @"limits" : @"Limits",
              @"quietTime" : @"QuietTime",
              };
