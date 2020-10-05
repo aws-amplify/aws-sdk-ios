@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSElasticLoadBalancing
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -15,6 +7,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - Amazon Connect
   - Amazon EC2
+  - Amazon Elastic Load Balancing
+  - Amazon Pinpoint
 
 ## 2.17.0
 
