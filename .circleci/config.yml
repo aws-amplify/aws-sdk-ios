@@ -265,7 +265,9 @@ jobs:
       - pre_start_simulator
       - run:
           name: Build SDK
-          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+          command: |
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTestsHost -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
       - run :
           name: Run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
@@ -311,6 +313,7 @@ jobs:
       - run:
           name: Build SDK
           command: |
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTestsHost -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
             xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
             xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
       - save_cache:
