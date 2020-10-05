@@ -267,7 +267,7 @@ jobs:
           name: Build SDK
           command: |
             xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTestsHost -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
       - run :
           name: Run unit tests
           command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
