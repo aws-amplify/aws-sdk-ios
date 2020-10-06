@@ -294,7 +294,8 @@ jobs:
           scheme: << parameters.scheme >>
       - run:
           name: Unit test << parameters.scheme >>
-          command: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" | tee "artifacts/test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+          command: |
+            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -only-testing:"<< parameters.scheme >>UnitTests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
       - store_test_results:
           path: build/reports
       - upload_artifacts
