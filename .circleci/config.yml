@@ -814,80 +814,80 @@ workflows:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSAPIGatewayUnitTests
-          name: unit_test_AWSAPIGatewayUnitTests
+          scheme: AWSAPIGateway
+          name: unit_test_AWSAPIGateway
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSAutoScalingUnitTests
-          name: unit_test_AWSAutoScalingUnitTests
+          scheme: AWSAutoScaling
+          name: unit_test_AWSAutoScaling
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCloudWatchUnitTests
-          name: unit_test_AWSCloudWatchUnitTests
+          scheme: AWSCloudWatch
+          name: unit_test_AWSCloudWatch
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCognitoAuthUnitTests
-          name: unit_test_AWSCognitoAuthUnitTests
+          scheme: AWSCognitoAuth
+          name: unit_test_AWSCognitoAuth
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCognitoIdentityProviderUnitTests
-          name: unit_test_AWSCognitoIdentityProviderUnitTests
+          scheme: AWSCognitoIdentityProvider
+          name: unit_test_AWSCognitoIdentityProvider
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCognitoUnitTests
-          name: unit_test_AWSCognitoUnitTests
+          scheme: AWSCognito
+          name: unit_test_AWSCognito
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSComprehendUnitTests
-          name: unit_test_AWSComprehendUnitTests
+          scheme: AWSComprehend
+          name: unit_test_AWSComprehend
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSConnectUnitTests
-          name: unit_test_AWSConnectUnitTests
+          scheme: AWSConnect
+          name: unit_test_AWSConnect
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSConnectParticipantUnitTests
-          name: unit_test_AWSConnectParticipantUnitTests
+          scheme: AWSConnectParticipant
+          name: unit_test_AWSConnectParticipant
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCoreUnitTests
-          name: unit_test_AWSCoreUnitTests
+          scheme: AWSCore
+          name: unit_test_AWSCore
           requires:
             - build
           filters:
@@ -910,208 +910,208 @@ workflows:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSDynamoDBUnitTests
-          name: unit_test_AWSDynamoDBUnitTests
+          scheme: AWSDynamoDB
+          name: unit_test_AWSDynamoDB
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSEC2UnitTests
-          name: unit_test_AWSEC2UnitTests
+          scheme: AWSEC2
+          name: unit_test_AWSEC2
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSElasticLoadBalancingUnitTests
-          name: unit_test_AWSElasticLoadBalancingUnitTests
+          scheme: AWSElasticLoadBalancing
+          name: unit_test_AWSElasticLoadBalancing
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSIoTUnitTests
-          name: unit_test_AWSIoTUnitTests
+          scheme: AWSIoT
+          name: unit_test_AWSIoT
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSKMSUnitTests
-          name: unit_test_AWSKMSUnitTests
+          scheme: AWSKMS
+          name: unit_test_AWSKMS
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSKinesisUnitTests
-          name: unit_test_AWSKinesisUnitTests
+          scheme: AWSKinesis
+          name: unit_test_AWSKinesis
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSKinesisVideoUnitTests
-          name: unit_test_AWSKinesisVideoUnitTests
+          scheme: AWSKinesisVideo
+          name: unit_test_AWSKinesisVideo
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSKinesisVideoArchivedMediaUnitTests
-          name: unit_test_AWSKinesisVideoArchivedMediaUnitTests
+          scheme: AWSKinesisVideoArchivedMedia
+          name: unit_test_AWSKinesisVideoArchivedMedia
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSKinesisVideoSignalingUnitTests
-          name: unit_test_AWSKinesisVideoSignalingUnitTests
+          scheme: AWSKinesisVideoSignaling
+          name: unit_test_AWSKinesisVideoSignaling
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSLambdaUnitTests
-          name: unit_test_AWSLambdaUnitTests
+          scheme: AWSLambda
+          name: unit_test_AWSLambda
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSLexUnitTests
-          name: unit_test_AWSLexUnitTests
+          scheme: AWSLex
+          name: unit_test_AWSLex
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSLogsUnitTests
-          name: unit_test_AWSLogsUnitTests
+          scheme: AWSLogs
+          name: unit_test_AWSLogs
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSMachineLearningUnitTests
-          name: unit_test_AWSMachineLearningUnitTests
+          scheme: AWSMachineLearning
+          name: unit_test_AWSMachineLearning
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSMobileAnalyticsUnitTests
-          name: unit_test_AWSMobileAnalyticsUnitTests
+          scheme: AWSMobileAnalytics
+          name: unit_test_AWSMobileAnalytics
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSPinpointUnitTests
-          name: unit_test_AWSPinpointUnitTests
+          scheme: AWSPinpoint
+          name: unit_test_AWSPinpoint
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSPollyUnitTests
-          name: unit_test_AWSPollyUnitTests
+          scheme: AWSPolly
+          name: unit_test_AWSPolly
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSRekognitionUnitTests
-          name: unit_test_AWSRekognitionUnitTests
+          scheme: AWSRekognition
+          name: unit_test_AWSRekognition
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSS3UnitTests
-          name: unit_test_AWSS3UnitTests
+          scheme: AWSS3
+          name: unit_test_AWSS3
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSSESUnitTests
-          name: unit_test_AWSSESUnitTests
+          scheme: AWSSES
+          name: unit_test_AWSSES
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSSNSUnitTests
-          name: unit_test_AWSSNSUnitTests
+          scheme: AWSSNS
+          name: unit_test_AWSSNS
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSSQSUnitTests
-          name: unit_test_AWSSQSUnitTests
+          scheme: AWSSQS
+          name: unit_test_AWSSQS
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSSageMakerRuntimeUnitTests
-          name: unit_test_AWSSageMakerRuntimeUnitTests
+          scheme: AWSSageMakerRuntime
+          name: unit_test_AWSSageMakerRuntime
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSSimpleDBUnitTests
-          name: unit_test_AWSSimpleDBUnitTests
+          scheme: AWSSimpleDB
+          name: unit_test_AWSSimpleDB
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSTranscribeUnitTests
-          name: unit_test_AWSTranscribeUnitTests
+          scheme: AWSTranscribe
+          name: unit_test_AWSTranscribe
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSTranscribeStreamingUnitTests
-          name: unit_test_AWSTranscribeStreamingUnitTests
+          scheme: AWSTranscribeStreaming
+          name: unit_test_AWSTranscribeStreaming
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSTranslateUnitTests
-          name: unit_test_AWSTranslateUnitTests
+          scheme: AWSTranslate
+          name: unit_test_AWSTranslate
           requires:
             - build
           filters:
