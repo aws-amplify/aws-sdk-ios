@@ -238,6 +238,26 @@ commands:
                 circleci step halt
               fi
 
+  build_for_testing:
+    parameters:
+      scheme:
+        type: string
+    steps:
+      - run:
+          name: Build << parameters.scheme >> for testing
+          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
+
+  make_artifacts_directory:
+    steps:
+      - run:
+          name: Make artifacts directory
+          command: mkdir -p "artifacts"
+
+  upload_artifacts:
+    steps:
+      - store_artifacts:
+          path: artifacts
+
 jobs:
   build:
     macos:
@@ -253,29 +273,29 @@ jobs:
             xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
 
-  unittest:
+  unit_test:
     macos:
       xcode: "12.0.0"
+    parameters:
+      scheme:
+        type: string
+    description: << parameters.scheme >> unit test
     steps:
-      - set_environment_variables
-      - override_test_job
       - skip_job_unless_required
       - checkout
-      - skip_test_job
+      - set_environment_variables
       - pre_start_simulator
+      - make_artifacts_directory
+      - build_for_testing:
+          scheme: AWSAllTestsHost
+      - build_for_testing:
+          scheme: << parameters.scheme >>
       - run:
-          name: Build SDK
-          command: |
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTestsHost -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
-      - run :
-          name: Run unit tests
-          command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
-      - run:
-          name : Check unit test result
-          command : bash CircleciScripts/check_test_result.sh "test_result"
-      - store_artifacts:
-          path: test_result
+          name: Unit test << parameters.scheme >>
+          command: xcodebuild test -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" | tee "artifacts/test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+      - store_test_results:
+          path: build/reports
+      - upload_artifacts
 
   pre_integrationtest:
     macos:
@@ -790,12 +810,311 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
-      - unittest:
+      - unit_test:
+          scheme: AWSAPIGatewayUnitTests
+          name: unit_test_AWSAPIGatewayUnitTests
           requires:
             - build
           filters:
             branches:
               ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSAutoScalingUnitTests
+          name: unit_test_AWSAutoScalingUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCloudWatchUnitTests
+          name: unit_test_AWSCloudWatchUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCognitoAuthUnitTests
+          name: unit_test_AWSCognitoAuthUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCognitoIdentityProviderUnitTests
+          name: unit_test_AWSCognitoIdentityProviderUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCognitoUnitTests
+          name: unit_test_AWSCognitoUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSComprehendUnitTests
+          name: unit_test_AWSComprehendUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSConnectUnitTests
+          name: unit_test_AWSConnectUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSConnectParticipantUnitTests
+          name: unit_test_AWSConnectParticipantUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCoreUnitTests
+          name: unit_test_AWSCoreUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCoreConfigurationTest
+          name: unit_test_AWSCoreConfigurationTest
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSCoreServiceConfigurationTest
+          name: unit_test_AWSCoreServiceConfigurationTest
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSDynamoDBUnitTests
+          name: unit_test_AWSDynamoDBUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSEC2UnitTests
+          name: unit_test_AWSEC2UnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSElasticLoadBalancingUnitTests
+          name: unit_test_AWSElasticLoadBalancingUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSIoTUnitTests
+          name: unit_test_AWSIoTUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSKMSUnitTests
+          name: unit_test_AWSKMSUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSKinesisUnitTests
+          name: unit_test_AWSKinesisUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSKinesisVideoUnitTests
+          name: unit_test_AWSKinesisVideoUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSKinesisVideoArchivedMediaUnitTests
+          name: unit_test_AWSKinesisVideoArchivedMediaUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSKinesisVideoSignalingUnitTests
+          name: unit_test_AWSKinesisVideoSignalingUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSLambdaUnitTests
+          name: unit_test_AWSLambdaUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSLexUnitTests
+          name: unit_test_AWSLexUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSLogsUnitTests
+          name: unit_test_AWSLogsUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSMachineLearningUnitTests
+          name: unit_test_AWSMachineLearningUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSMobileAnalyticsUnitTests
+          name: unit_test_AWSMobileAnalyticsUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSPinpointUnitTests
+          name: unit_test_AWSPinpointUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSPollyUnitTests
+          name: unit_test_AWSPollyUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSRekognitionUnitTests
+          name: unit_test_AWSRekognitionUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSS3UnitTests
+          name: unit_test_AWSS3UnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSSESUnitTests
+          name: unit_test_AWSSESUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSSNSUnitTests
+          name: unit_test_AWSSNSUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSSQSUnitTests
+          name: unit_test_AWSSQSUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSSageMakerRuntimeUnitTests
+          name: unit_test_AWSSageMakerRuntimeUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSSimpleDBUnitTests
+          name: unit_test_AWSSimpleDBUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSTranscribeUnitTests
+          name: unit_test_AWSTranscribeUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSTranscribeStreamingUnitTests
+          name: unit_test_AWSTranscribeStreamingUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      - unit_test:
+          scheme: AWSTranslateUnitTests
+          name: unit_test_AWSTranslateUnitTests
+          requires:
+            - build
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
       - create_pullrequest_for_modelupdate:
           filters:
             branches:
@@ -1143,7 +1462,6 @@ workflows:
       - merge_to_main:
           requires:
             - build
-            - unittest
             - post_integrationtest
           filters:
             branches:
@@ -1152,7 +1470,6 @@ workflows:
       - prepare_release_sdk:
           requires:
             - build
-            - unittest
             - post_integrationtest
           filters:
             branches:
@@ -1162,14 +1479,6 @@ workflows:
   release_sdk:
     jobs:
       - build:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - unittest:
-          requires:
-            - build
           filters:
             branches:
               ignore: /.*/
@@ -1487,7 +1796,6 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - build_carthage:
           requires:
-            - unittest
             - post_integrationtest
           filters:
             branches:
@@ -1497,7 +1805,6 @@ workflows:
       - release_ios_s3:
           requires:
             - build_carthage
-            - unittest
             - post_integrationtest
           filters:
             branches:
@@ -1506,7 +1813,6 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_tag:
           requires:
-            - unittest
             - post_integrationtest
           filters:
             branches:
