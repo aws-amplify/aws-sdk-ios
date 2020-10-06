@@ -267,11 +267,13 @@ jobs:
       - checkout
       - set_environment_variables
       - pre_start_simulator
+      - make_artifacts_directory
       - run:
           name: Build sdk
           command: |
-            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
-            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-AWSiOSSDKv2.log" | xcpretty
+            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-AWSAuthSDK.log" | xcpretty
+      - upload_artifacts
 
   unit_test:
     macos:
