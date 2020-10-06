@@ -38770,6 +38770,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localBgpAsn" : @"LocalBgpAsn",
              @"localGatewayId" : @"LocalGatewayId",
              @"localGatewayVirtualInterfaceId" : @"LocalGatewayVirtualInterfaceId",
+             @"ownerId" : @"OwnerId",
              @"peerAddress" : @"PeerAddress",
              @"peerBgpAsn" : @"PeerBgpAsn",
              @"tags" : @"Tags",
@@ -38790,6 +38791,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayId" : @"LocalGatewayId",
              @"localGatewayVirtualInterfaceGroupId" : @"LocalGatewayVirtualInterfaceGroupId",
              @"localGatewayVirtualInterfaceIds" : @"LocalGatewayVirtualInterfaceIds",
+             @"ownerId" : @"OwnerId",
              @"tags" : @"Tags",
              };
 }

@@ -24997,6 +24997,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceId;
 
 /**
+ <p>The AWS account ID that owns the local gateway virtual interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
  <p>The peer address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable peerAddress;
@@ -25038,6 +25043,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IDs of the virtual interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localGatewayVirtualInterfaceIds;
+
+/**
+ <p>The AWS account ID that owns the local gateway virtual interface group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The tags assigned to the virtual interface group.</p>
