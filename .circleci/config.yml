@@ -146,7 +146,7 @@ commands:
           command: |
             bash CircleciScripts/pre_start_simulator.sh
 
-  skip_test_job:
+  skip_test_job_by_commit_message:
     description: >-
       Check if the test job can be skipped
     steps:
@@ -347,11 +347,11 @@ jobs:
     description: Run integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
-      - skip_test_job
       - restore_cache:
           keys:
             - v1-source-{{ .Revision }}
       - checkout
+      - skip_test_job_by_commit_message
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
