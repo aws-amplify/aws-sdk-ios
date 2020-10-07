@@ -317,10 +317,10 @@ jobs:
             equal: [ << parameters.project >>, "AWSAuthSDK/AWSAuthSDK.xcodeproj" ]
           steps:
             - restore_cache:
-                key: build-result-AWSAuthSDKTestApp-{{ .Revision }}
+                key: v1-testing-derived-data-AWSAuthSDKTestApp-{{ .Revision }}
 
       - restore_cache:
-          key: build-result-AWSAllTestsHost-{{ .Revision }}
+          key: v1-testing-derived-data-AWSAllTestsHost-{{ .Revision }}
 
       # After this step, the cache key
       # 'v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}'
