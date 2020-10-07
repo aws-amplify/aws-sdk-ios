@@ -245,7 +245,7 @@ commands:
     steps:
       - run:
           name: Build << parameters.scheme >> for testing
-          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
+          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
 
   make_artifacts_directory:
     steps:
@@ -275,6 +275,23 @@ jobs:
             xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-AWSAuthSDK.log" | xcpretty
       - upload_artifacts
 
+  build_aws_all_tests_host:
+    macos:
+      xcode: "12.0.0"
+    steps:
+      - skip_job_unless_required
+      - checkout
+      - set_environment_variables
+      - pre_start_simulator
+      - make_artifacts_directory
+      - build_for_testing:
+          scheme: AWSAllTestsHost
+      - upload_artifacts
+      - save_cache:
+          key: all_tests_host_build_result-{{ .Revision }}
+          paths:
+            - build_result
+
   unit_test:
     macos:
       xcode: "12.0.0"
@@ -288,14 +305,14 @@ jobs:
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
-      - build_for_testing:
-          scheme: AWSAllTestsHost
+      - restore_cache:
+          key: all_tests_host_build_result-{{ .Revision }}
       - build_for_testing:
           scheme: << parameters.scheme >>
       - run:
           name: Unit test << parameters.scheme >>
           command: |
-            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
       - store_test_results:
           path: build/reports
       - upload_artifacts
@@ -333,11 +350,12 @@ jobs:
           name: Generate testconfiguration.json
           command: bash Scripts/generate-test-config.sh -p ios -v
       - pre_start_simulator
+      - restore_cache:
+          key: all_tests_host_build_result-{{ .Revision }}
       - run:
           name: Build SDK
           command: |
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTestsHost -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result
             xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
       - save_cache:
           key: build_result-{{ .Revision }}
@@ -813,11 +831,16 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
+      - build_aws_all_tests_host:
+          filters:
+            branches:
+              ignore: bump_sdk_version
       - unit_test:
           scheme: AWSAPIGateway
           name: unit_test_AWSAPIGateway
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -826,6 +849,7 @@ workflows:
           name: unit_test_AWSAutoScaling
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -834,6 +858,7 @@ workflows:
           name: unit_test_AWSCloudWatch
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -842,6 +867,7 @@ workflows:
           name: unit_test_AWSCognitoAuth
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -850,6 +876,7 @@ workflows:
           name: unit_test_AWSCognitoIdentityProvider
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -858,6 +885,7 @@ workflows:
           name: unit_test_AWSCognito
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -866,6 +894,7 @@ workflows:
           name: unit_test_AWSComprehend
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -874,6 +903,7 @@ workflows:
           name: unit_test_AWSConnect
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -882,6 +912,7 @@ workflows:
           name: unit_test_AWSConnectParticipant
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -890,6 +921,7 @@ workflows:
           name: unit_test_AWSCore
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -898,6 +930,7 @@ workflows:
           name: unit_test_AWSDynamoDB
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -906,6 +939,7 @@ workflows:
           name: unit_test_AWSEC2
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -914,6 +948,7 @@ workflows:
           name: unit_test_AWSElasticLoadBalancing
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -922,6 +957,7 @@ workflows:
           name: unit_test_AWSIoT
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -930,6 +966,7 @@ workflows:
           name: unit_test_AWSKMS
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -938,6 +975,7 @@ workflows:
           name: unit_test_AWSKinesis
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -946,6 +984,7 @@ workflows:
           name: unit_test_AWSKinesisVideo
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -954,6 +993,7 @@ workflows:
           name: unit_test_AWSKinesisVideoArchivedMedia
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -962,6 +1002,7 @@ workflows:
           name: unit_test_AWSKinesisVideoSignaling
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -970,6 +1011,7 @@ workflows:
           name: unit_test_AWSLambda
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -978,6 +1020,7 @@ workflows:
           name: unit_test_AWSLex
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -986,6 +1029,7 @@ workflows:
           name: unit_test_AWSLogs
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -994,6 +1038,7 @@ workflows:
           name: unit_test_AWSMachineLearning
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1002,6 +1047,7 @@ workflows:
           name: unit_test_AWSMobileAnalytics
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1010,6 +1056,7 @@ workflows:
           name: unit_test_AWSPinpoint
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1018,6 +1065,7 @@ workflows:
           name: unit_test_AWSPolly
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1026,6 +1074,7 @@ workflows:
           name: unit_test_AWSRekognition
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1034,6 +1083,7 @@ workflows:
           name: unit_test_AWSS3
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1042,6 +1092,7 @@ workflows:
           name: unit_test_AWSSES
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1050,6 +1101,7 @@ workflows:
           name: unit_test_AWSSNS
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1058,6 +1110,7 @@ workflows:
           name: unit_test_AWSSQS
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1066,6 +1119,7 @@ workflows:
           name: unit_test_AWSSageMakerRuntime
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1074,6 +1128,7 @@ workflows:
           name: unit_test_AWSSimpleDB
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1082,6 +1137,7 @@ workflows:
           name: unit_test_AWSTranscribe
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1090,6 +1146,7 @@ workflows:
           name: unit_test_AWSTranscribeStreaming
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
@@ -1098,6 +1155,7 @@ workflows:
           name: unit_test_AWSTranslate
           requires:
             - build
+            - build_aws_all_tests_host
           filters:
             branches:
               ignore: bump_sdk_version
