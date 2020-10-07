@@ -894,22 +894,6 @@ workflows:
             branches:
               ignore: bump_sdk_version
       - unit_test:
-          scheme: AWSCoreConfigurationTest
-          name: unit_test_AWSCoreConfigurationTest
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: bump_sdk_version
-      - unit_test:
-          scheme: AWSCoreServiceConfigurationTest
-          name: unit_test_AWSCoreServiceConfigurationTest
-          requires:
-            - build
-          filters:
-            branches:
-              ignore: bump_sdk_version
-      - unit_test:
           scheme: AWSDynamoDB
           name: unit_test_AWSDynamoDB
           requires:
