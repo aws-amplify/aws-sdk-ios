@@ -1087,7 +1087,7 @@ workflows:
       - unit_test:
           project: AWSAuthSDK/AWSAuthSDK.xcodeproj
           scheme: AWSMobileClient
-          name: unit_test_AWSAPIGateway
+          name: unit_test_AWSMobileClient
           requires:
             - build
             - build_test_host_apps
@@ -1213,7 +1213,7 @@ workflows:
             branches:
               only:
                 # REMOVE BEFORE MERGING
-                - palpatim/parallelize-unit-tests
+                # - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1226,7 +1226,7 @@ workflows:
             branches:
               only:
                 # REMOVE BEFORE MERGING
-                - palpatim/parallelize-unit-tests
+                # - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1239,7 +1239,7 @@ workflows:
             branches:
               only:
                 # REMOVE BEFORE MERGING
-                - palpatim/parallelize-unit-tests
+                # - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1252,7 +1252,7 @@ workflows:
             branches:
               only:
                 # REMOVE BEFORE MERGING
-                - palpatim/parallelize-unit-tests
+                # - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
