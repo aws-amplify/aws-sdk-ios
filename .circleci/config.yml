@@ -243,9 +243,19 @@ commands:
       scheme:
         type: string
     steps:
+      # This will restore cached values for dynamically generated resources
+      # like testconfiguration.json, but it will be overwritten in the 'build'
+      # step with fresh values
+      - restore_cache:
+          keys:
+            - v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}
       - run:
           name: Build << parameters.scheme >> for testing
-          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
+          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
+      - save_cache:
+          key: v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}
+          paths:
+            - testing_derived_data
 
   make_artifacts_directory:
     steps:
@@ -266,16 +276,15 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Git GC
           command: git gc
       - save_cache:
-          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          key: v1-source-{{ .Revision }}
           paths:
             - ".git"
-
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -293,7 +302,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - pre_start_simulator
@@ -301,10 +310,6 @@ jobs:
       - build_for_testing:
           scheme: AWSAllTestsHost
       - upload_artifacts
-      - save_cache:
-          key: all_tests_host_build_result-{{ .Revision }}
-          paths:
-            - build_result
 
   unit_test:
     macos:
@@ -317,19 +322,23 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
       - restore_cache:
-          key: all_tests_host_build_result-{{ .Revision }}
+          key: build-result-AWSAllTestsHost-{{ .Revision }}
+      # After this step, the cache key
+      # 'v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}'
+      # will include derived data for both
+      # the specified scheme AND AWSAllTestsHost
       - build_for_testing:
           scheme: << parameters.scheme >>
       - run:
           name: Unit test << parameters.scheme >>
           command: |
-            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
       - store_test_results:
           path: build/reports
       - upload_artifacts
@@ -363,7 +372,7 @@ jobs:
             fi
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -371,16 +380,16 @@ jobs:
           command: bash Scripts/generate-test-config.sh -p ios -v
       - pre_start_simulator
       - restore_cache:
-          key: all_tests_host_build_result-{{ .Revision }}
+          key: all_tests_host_testing_derived_data-{{ .Revision }}
       - run:
           name: Build SDK
           command: |
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result
-            xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
+            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data
+            xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data/AWSAuthSDK
       - save_cache:
-          key: build_result-{{ .Revision }}
+          key: testing_derived_data-{{ .Revision }}
           paths:
-            - build_result
+            - testing_derived_data
 
   post_integrationtest:
     macos:
@@ -470,12 +479,12 @@ jobs:
       - early_return_for_forked_prs
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - skip_test_job
       - pre_start_simulator
       - restore_cache:
-          key: build_result-{{ .Revision }}
+          key: testing_derived_data-{{ .Revision }}
       - run:
           name: Install JSON parser
           command: pip3 install demjson
@@ -483,7 +492,7 @@ jobs:
           name: Run integration tests
           command: |
             mkdir integration_test_result
-            python3 CircleciScripts/run_integrationtests.py CircleciScripts/IntegrationTestsConfiguration.json "integration_test_result" "<< parameters.groupname >>" "${destination}" "./build_result"
+            python3 CircleciScripts/run_integrationtests.py CircleciScripts/IntegrationTestsConfiguration.json "integration_test_result" "<< parameters.groupname >>" "${destination}" "./testing_derived_data"
       - run:
           name : Check integration test result
           command : |
@@ -509,7 +518,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - update_brew
       - run:
@@ -529,7 +538,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - pre_start_simulator
       - update_brew
@@ -555,7 +564,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - pre_start_simulator
       - update_brew
@@ -583,7 +592,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           # Note that this invocation of cocoapods_release requires at least
@@ -604,7 +613,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Install jazzy
@@ -637,7 +646,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Add documentation tags to gh-pages
@@ -656,7 +665,7 @@ jobs:
       - quit_for_nominorversion
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Checkout repository for bump version
@@ -702,7 +711,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - update_brew
       - set_environment_variables
@@ -748,7 +757,7 @@ jobs:
       - set_environment_variables
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Install JSON parser
@@ -808,7 +817,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -846,7 +855,7 @@ jobs:
       - skip_job_unless_required
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -864,7 +873,7 @@ jobs:
       - set_environment_variables
       - restore_cache:
           keys:
-            - source-v1-{{ .Branch }}-{{ .Revision }}
+            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Create pull request
@@ -1228,6 +1237,8 @@ workflows:
           filters:
             branches:
               only:
+                # REMOVE BEFORE MERGING
+                - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1239,6 +1250,8 @@ workflows:
           filters:
             branches:
               only:
+                # REMOVE BEFORE MERGING
+                - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1250,6 +1263,8 @@ workflows:
           filters:
             branches:
               only:
+                # REMOVE BEFORE MERGING
+                - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
@@ -1261,6 +1276,8 @@ workflows:
           filters:
             branches:
               only:
+                # REMOVE BEFORE MERGING
+                - palpatim/parallelize-unit-tests
                 - main
                 - develop
 
