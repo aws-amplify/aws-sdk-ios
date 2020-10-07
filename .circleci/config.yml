@@ -1243,7 +1243,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Cognito
+          scheme: AWSCognito
           name: integ_test_AWSCognito
           requires:
             - unit_test_AWSCognito
@@ -1254,7 +1254,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Comprehend
+          scheme: AWSComprehend
           name: integ_test_AWSComprehend
           requires:
             - unit_test_AWSComprehend
@@ -1265,7 +1265,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Core
+          scheme: AWSCore
           name: integ_test_AWSCore
           requires:
             - unit_test_AWSCore
@@ -1276,7 +1276,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: DynamoDB
+          scheme: AWSDynamoDB
           name: integ_test_AWSDynamoDB
           requires:
             - unit_test_AWSDynamoDB
@@ -1287,7 +1287,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: EC2
+          scheme: AWSEC2
           name: integ_test_AWSEC2
           requires:
             - unit_test_AWSEC2
@@ -1298,7 +1298,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: ElasticLoadBalancing
+          scheme: AWSElasticLoadBalancing
           name: integ_test_AWSElasticLoadBalancing
           requires:
             - unit_test_AWSElasticLoadBalancing
@@ -1309,7 +1309,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: IoT
+          scheme: AWSIoT
           name: integ_test_AWSIoT
           requires:
             - unit_test_AWSIoT
@@ -1320,7 +1320,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: KMS
+          scheme: AWSKMS
           name: integ_test_AWSKMS
           requires:
             - unit_test_AWSKMS
@@ -1331,7 +1331,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Kinesis
+          scheme: AWSKinesis
           name: integ_test_AWSKinesis
           requires:
             - unit_test_AWSKinesis
@@ -1342,7 +1342,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: KinesisVideoSignaling
+          scheme: AWSKinesisVideoSignaling
           name: integ_test_AWSKinesisVideoSignaling
           requires:
             - unit_test_AWSKinesisVideoSignaling
@@ -1353,7 +1353,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Lambda
+          scheme: AWSLambda
           name: integ_test_AWSLambda
           requires:
             - unit_test_AWSLambda
@@ -1364,7 +1364,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Lex
+          scheme: AWSLex
           name: integ_test_AWSLex
           requires:
             - unit_test_AWSLex
@@ -1375,7 +1375,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: MobileAnalytics
+          scheme: AWSMobileAnalytics
           name: integ_test_AWSMobileAnalytics
           requires:
             - unit_test_AWSMobileAnalytics
@@ -1386,7 +1386,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Pinpoint
+          scheme: AWSPinpoint
           name: integ_test_AWSPinpoint
           requires:
             - unit_test_AWSPinpoint
@@ -1397,7 +1397,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Polly
+          scheme: AWSPolly
           name: integ_test_AWSPolly
           requires:
             - unit_test_AWSPolly
@@ -1408,7 +1408,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Rekognition
+          scheme: AWSRekognition
           name: integ_test_AWSRekognition
           requires:
             - unit_test_AWSRekognition
@@ -1419,7 +1419,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: S3
+          scheme: AWSS3
           name: integ_test_AWSS3
           requires:
             - unit_test_AWSS3
@@ -1430,7 +1430,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: SES
+          scheme: AWSSES
           name: integ_test_AWSSES
           requires:
             - unit_test_AWSSES
@@ -1441,7 +1441,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: SNS
+          scheme: AWSSNS
           name: integ_test_AWSSNS
           requires:
             - unit_test_AWSSNS
@@ -1452,7 +1452,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: SQS
+          scheme: AWSSQS
           name: integ_test_AWSSQS
           requires:
             - unit_test_AWSSQS
@@ -1463,7 +1463,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Textract
+          scheme: AWSTextract
           name: integ_test_AWSTextract
           requires:
             - unit_test_AWSTextract
@@ -1474,7 +1474,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Transcribe
+          scheme: AWSTranscribe
           name: integ_test_AWSTranscribe
           requires:
             - unit_test_AWSTranscribe
@@ -1485,7 +1485,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: TranscribeStreaming
+          scheme: AWSTranscribeStreaming
           name: integ_test_AWSTranscribeStreaming
           requires:
             - unit_test_AWSTranscribeStreaming
@@ -1496,7 +1496,7 @@ workflows:
                 - develop
 
       - integ_test:
-          scheme: Translate
+          scheme: AWSTranslate
           name: integ_test_AWSTranslate
           requires:
             - unit_test_AWSTranslate
