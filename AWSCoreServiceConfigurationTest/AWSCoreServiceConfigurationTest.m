@@ -26,7 +26,6 @@
 @implementation AWSCoreServiceConfigurationTest
 
 - (void)testInMemoryServiceConfiguration {
-    XCTFail("Testing pipeline failure. Revert me before merge.");
     NSDictionary<NSString *, id> *configDictionary = @{
                                                        @"CredentialsProvider": @{
                                                                @"CognitoIdentity": @{
