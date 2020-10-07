@@ -1420,13 +1420,13 @@ class AWSIoTDataManagerTests: XCTestCase {
                 }
 
             case .connectionRefused:
-                print("Connection Refused")
+                XCTFail("Connection Refused")
 
             case .connectionError:
-                print("Connection Error")
+                XCTFail("Connection Error")
 
             case .protocolError:
-                print("Protocol Error")
+                XCTFail("Protocol Error")
 
             default:
                 print("Unknown state: \(status.rawValue)")
