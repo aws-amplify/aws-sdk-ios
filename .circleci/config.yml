@@ -281,7 +281,7 @@ jobs:
     parameters:
       scheme:
         type: string
-    description: << parameters.scheme >> unit test
+    description: Run non-integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
       - checkout
@@ -295,7 +295,7 @@ jobs:
       - run:
           name: Unit test << parameters.scheme >>
           command: |
-            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -only-testing:"<< parameters.scheme >>UnitTests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+            xcodebuild test-without-building -project AWSiOSSDKv2.xcodeproj -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
       - store_test_results:
           path: build/reports
       - upload_artifacts
