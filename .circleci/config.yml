@@ -197,31 +197,6 @@ commands:
                circleci step halt
             fi
 
-  override_test_job:
-    description: >-
-      Skip the test job if previously tested, or if the environment variable OVERRIDE_TEST is TRUE
-    steps:
-      - run:
-          name: Skip test if the commit is already tested
-          command: |
-            echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
-            skipflag=$(echo "${SKIPTESTEDCHANGE}" | tr '[:upper:]' '[:lower:]')
-            if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ]
-            then
-              echo "Skipping test as the change ${CIRCLE_SHA1} has already been tested"
-              circleci step halt
-            fi
-      - run:
-          name: Skip test if OVERRIDE_TEST flag is set
-          command: |
-              echo "override_test_variable_name=$override_test_variable_name"
-              override_test_value=$(eval "echo $"${override_test_variable_name}"")
-              override_test_value=$(echo "${override_test_value}" | tr '[:upper:]' '[:lower:]')
-              if [ "${override_test_value}" == "true" ]; then
-                echo "project environment variable OVERRIDE_TEST is set with TRUE, skip all tests"
-                circleci step halt
-              fi
-
   skip_job_unless_required:
     description: >-
       Skip job unless required
@@ -351,25 +326,6 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - override_test_job
-      - run:
-          name: Get override test variable name
-          command: |
-            echo "override_test_variable_name=$override_test_variable_name"
-      - run:
-          name: Reset OVERRIDE_TEST environment variable
-          command: |
-            override_test_value=$(eval "echo $"${override_test_variable_name}"")
-            if ! [ -z "$override_test_value" ]
-            then
-               echo "reset ${override_test_variable_name} value"
-              parameters='{"name":"'${override_test_variable_name}'","value":"FALSE"}'
-              curl -X POST \
-                -H "Content-type: application/json" \
-                -H "Accept: application/json" \
-                -d "$parameters" \
-                "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
-            fi
       - restore_cache:
           keys:
             - v1-source-{{ .Revision }}
@@ -395,9 +351,7 @@ jobs:
     macos:
       xcode: "12.0.0"
     steps:
-      #TODO need check why multiple key does not work here
       - skip_job_unless_required
-      - override_test_job
       - restore_cache:
           key: test_result-{{ .Revision }}-AWSMobileClient
       - restore_cache:
@@ -454,15 +408,6 @@ jobs:
           key: test_result-{{ .Revision }}-Translate
       - store_artifacts:
           path: integration_test_result
-      - run:
-          name: set environment variables
-          command: |
-            parameters='{"name":"TESTED_COMMITID","value":"'${CIRCLE_SHA1}'"}'
-            curl -X POST \
-              -H "Content-type: application/json" \
-              -H "Accept: application/json" \
-              -d "$parameters" \
-              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
 
   integrationtest:
     description: Run integration tests
@@ -474,7 +419,6 @@ jobs:
       xcode: "12.0.0"
     steps:
       - set_environment_variables
-      - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
       - restore_cache:
