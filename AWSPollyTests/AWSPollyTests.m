@@ -68,8 +68,8 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 
 - (void)setUp {
     [super setUp];
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
-    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
 
     [AWSTestUtility setupSessionCredentialsProvider];
     AWSServiceConfiguration *config = [AWSTestUtility getDefaultServiceConfiguration];
