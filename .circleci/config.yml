@@ -333,7 +333,17 @@ jobs:
       - run:
           name: Unit test << parameters.scheme >>
           command: |
-            xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -skip-testing:"<< parameters.scheme >>Tests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+            xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:"<< parameters.scheme >>UnitTests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+
+      # Run additional configuration unit tests for AWSCore
+      - when:
+          condition:
+            equal: [ << parameters.scheme >>, "AWSCore" ]
+          steps:
+            - run:
+                name: Test additional AWSCore unit test targets
+                command: |
+                  xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:AWSCoreServiceConfigurationTest -only-testing:AWSCoreConfigurationTest | tee "artifacts/unit-test-AWSCore-additional-config-tests.log" | xcpretty --simple --color --report junit
 
       - store_test_results:
           path: build/reports
