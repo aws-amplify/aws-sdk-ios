@@ -199,6 +199,21 @@
 		B9AC6319234F00FA00A713A5 /* AWSAuthUIHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */; };
 		B9AC631A234F00FA00A713A5 /* AWSAuthUIHelper.h in Headers */ = {isa = PBXBuildFile; fileRef = B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B9E2F6CD231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */; };
+		D8FAC273251D1A87005F9FC6 /* FBSDKCoreKitImport.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC202251D1A87005F9FC6 /* FBSDKCoreKitImport.h */; };
+		D8FAC275251D1B98005F9FC6 /* FBSDKAppLink.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC274251D1B98005F9FC6 /* FBSDKAppLink.h */; };
+		D8FAC277251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC276251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h */; };
+		D8FAC279251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC278251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h */; };
+		D8FAC27D251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC27A251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h */; };
+		D8FAC27E251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC27B251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h */; };
+		D8FAC27F251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC27C251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h */; };
+		D8FAC281251D1D15005F9FC6 /* FBSDKDeviceViewControllerBase.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC280251D1D15005F9FC6 /* FBSDKDeviceViewControllerBase.h */; };
+		D8FAC283251D1D29005F9FC6 /* FBSDKDeviceButton.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC282251D1D29005F9FC6 /* FBSDKDeviceButton.h */; };
+		D8FAC285251D1D31005F9FC6 /* FBSDKDeviceLoginCodeInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC284251D1D31005F9FC6 /* FBSDKDeviceLoginCodeInfo.h */; };
+		D8FAC287251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC286251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h */; };
+		D8FAC289251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC288251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h */; };
+		D8FAC28B251D1D78005F9FC6 /* FBSDKMeasurementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */; };
+		D8FAC28D251D1D8F005F9FC6 /* FBSDKURL.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */; };
+		D8FAC28F251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */; };
 		FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		FA5B0F11246A475500B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
 		FA5B0F12246A477D00B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
@@ -1364,6 +1379,21 @@
 		B9AC6317234F00F900A713A5 /* AWSAuthUIHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAuthUIHelper.m; sourceTree = "<group>"; };
 		B9AC6318234F00FA00A713A5 /* AWSAuthUIHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSAuthUIHelper.h; sourceTree = "<group>"; };
 		B9E2F6CC231EEE63009EAA48 /* AWSMobileClientInitializerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientInitializerTests.swift; sourceTree = "<group>"; };
+		D8FAC202251D1A87005F9FC6 /* FBSDKCoreKitImport.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKCoreKitImport.h; sourceTree = "<group>"; };
+		D8FAC274251D1B98005F9FC6 /* FBSDKAppLink.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLink.h; sourceTree = "<group>"; };
+		D8FAC276251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkNavigation.h; sourceTree = "<group>"; };
+		D8FAC278251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkResolving.h; sourceTree = "<group>"; };
+		D8FAC27A251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkTarget.h; sourceTree = "<group>"; };
+		D8FAC27B251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkReturnToRefererController.h; sourceTree = "<group>"; };
+		D8FAC27C251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkReturnToRefererView.h; sourceTree = "<group>"; };
+		D8FAC280251D1D15005F9FC6 /* FBSDKDeviceViewControllerBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKDeviceViewControllerBase.h; sourceTree = "<group>"; };
+		D8FAC282251D1D29005F9FC6 /* FBSDKDeviceButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKDeviceButton.h; sourceTree = "<group>"; };
+		D8FAC284251D1D31005F9FC6 /* FBSDKDeviceLoginCodeInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKDeviceLoginCodeInfo.h; sourceTree = "<group>"; };
+		D8FAC286251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKDeviceLoginManager.h; sourceTree = "<group>"; };
+		D8FAC288251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKDeviceLoginManagerResult.h; sourceTree = "<group>"; };
+		D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKMeasurementEvent.h; sourceTree = "<group>"; };
+		D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKURL.h; sourceTree = "<group>"; };
+		D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKWebViewAppLinkResolver.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1683,12 +1713,24 @@
 				17B5A0E61F31A6B000857676 /* FBSDKAccessToken.h */,
 				17B5A0E71F31A6B000857676 /* FBSDKAppEvents.h */,
 				17B5A0E81F31A6B000857676 /* FBSDKApplicationDelegate.h */,
+				D8FAC274251D1B98005F9FC6 /* FBSDKAppLink.h */,
+				D8FAC276251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h */,
 				17B5A0E91F31A6B000857676 /* FBSDKAppLinkResolver.h */,
+				D8FAC278251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h */,
+				D8FAC27B251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h */,
+				D8FAC27C251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h */,
+				D8FAC27A251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h */,
 				17B5A0EA1F31A6B000857676 /* FBSDKAppLinkUtility.h */,
 				17B5A0EB1F31A6B000857676 /* FBSDKButton.h */,
 				17B5A0EC1F31A6B000857676 /* FBSDKConstants.h */,
 				17B5A0ED1F31A6B000857676 /* FBSDKCopying.h */,
 				17B5A0EE1F31A6B000857676 /* FBSDKCoreKit.h */,
+				D8FAC202251D1A87005F9FC6 /* FBSDKCoreKitImport.h */,
+				D8FAC282251D1D29005F9FC6 /* FBSDKDeviceButton.h */,
+				D8FAC284251D1D31005F9FC6 /* FBSDKDeviceLoginCodeInfo.h */,
+				D8FAC286251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h */,
+				D8FAC288251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h */,
+				D8FAC280251D1D15005F9FC6 /* FBSDKDeviceViewControllerBase.h */,
 				17B5A0EF1F31A6B000857676 /* FBSDKGraphErrorRecoveryProcessor.h */,
 				17B5A0F01F31A6B000857676 /* FBSDKGraphRequest.h */,
 				17B5A0F11F31A6B000857676 /* FBSDKGraphRequestConnection.h */,
@@ -1700,13 +1742,16 @@
 				17B5A0F71F31A6B000857676 /* FBSDKLoginManagerLoginResult.h */,
 				17B5A0F81F31A6B000857676 /* FBSDKLoginTooltipView.h */,
 				17B5A0F91F31A6B000857676 /* FBSDKMacros.h */,
+				D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */,
 				17B5A0FA1F31A6B000857676 /* FBSDKMutableCopying.h */,
 				17B5A0FB1F31A6B000857676 /* FBSDKProfile.h */,
 				17B5A0FC1F31A6B000857676 /* FBSDKProfilePictureView.h */,
 				17B5A0FD1F31A6B000857676 /* FBSDKSettings.h */,
 				17B5A0FE1F31A6B000857676 /* FBSDKTestUsersManager.h */,
 				17B5A0FF1F31A6B000857676 /* FBSDKTooltipView.h */,
+				D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */,
 				17B5A1001F31A6B000857676 /* FBSDKUtility.h */,
+				D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */,
 			);
 			path = FacebookHeaders;
 			sourceTree = "<group>";
@@ -2009,34 +2054,49 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8FAC27E251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h in Headers */,
 				1763755E1F328D310086588B /* FBSDKProfilePictureView.h in Headers */,
 				176375551F328D310086588B /* FBSDKLoginButton.h in Headers */,
+				D8FAC273251D1A87005F9FC6 /* FBSDKCoreKitImport.h in Headers */,
+				D8FAC277251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h in Headers */,
 				1763755B1F328D310086588B /* FBSDKMacros.h in Headers */,
+				D8FAC279251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h in Headers */,
 				176375611F328D310086588B /* FBSDKTooltipView.h in Headers */,
 				1763755F1F328D310086588B /* FBSDKSettings.h in Headers */,
 				1763754A1F328D310086588B /* FBSDKApplicationDelegate.h in Headers */,
+				D8FAC285251D1D31005F9FC6 /* FBSDKDeviceLoginCodeInfo.h in Headers */,
 				176375641F328D3A0086588B /* AWSFacebookSignInProvider.h in Headers */,
 				176375521F328D310086588B /* FBSDKGraphRequest.h in Headers */,
 				1763754D1F328D310086588B /* FBSDKButton.h in Headers */,
 				1763755D1F328D310086588B /* FBSDKProfile.h in Headers */,
 				176375651F328D3A0086588B /* AWSFacebookSignIn.h in Headers */,
+				D8FAC27D251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h in Headers */,
 				176375501F328D310086588B /* FBSDKCoreKit.h in Headers */,
 				1763755A1F328D310086588B /* FBSDKLoginTooltipView.h in Headers */,
 				176375531F328D310086588B /* FBSDKGraphRequestConnection.h in Headers */,
+				D8FAC28B251D1D78005F9FC6 /* FBSDKMeasurementEvent.h in Headers */,
 				176375601F328D310086588B /* FBSDKTestUsersManager.h in Headers */,
 				176375591F328D310086588B /* FBSDKLoginManagerLoginResult.h in Headers */,
+				D8FAC287251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h in Headers */,
 				176375491F328D310086588B /* FBSDKAppEvents.h in Headers */,
+				D8FAC289251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h in Headers */,
 				1763754F1F328D310086588B /* FBSDKCopying.h in Headers */,
 				1763755C1F328D310086588B /* FBSDKMutableCopying.h in Headers */,
+				D8FAC28F251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h in Headers */,
 				176375621F328D310086588B /* FBSDKUtility.h in Headers */,
 				176375581F328D310086588B /* FBSDKLoginManager.h in Headers */,
 				1763754B1F328D310086588B /* FBSDKAppLinkResolver.h in Headers */,
 				176375541F328D310086588B /* FBSDKGraphRequestDataAttachment.h in Headers */,
 				176375561F328D310086588B /* FBSDKLoginConstants.h in Headers */,
+				D8FAC28D251D1D8F005F9FC6 /* FBSDKURL.h in Headers */,
+				D8FAC281251D1D15005F9FC6 /* FBSDKDeviceViewControllerBase.h in Headers */,
+				D8FAC27F251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h in Headers */,
 				176375631F328D3A0086588B /* AWSFacebookSignInButton.h in Headers */,
+				D8FAC283251D1D29005F9FC6 /* FBSDKDeviceButton.h in Headers */,
 				176375571F328D310086588B /* FBSDKLoginKit.h in Headers */,
 				1763754E1F328D310086588B /* FBSDKConstants.h in Headers */,
 				1763754C1F328D310086588B /* FBSDKAppLinkUtility.h in Headers */,
+				D8FAC275251D1B98005F9FC6 /* FBSDKAppLink.h in Headers */,
 				176375481F328D310086588B /* FBSDKAccessToken.h in Headers */,
 				176375511F328D310086588B /* FBSDKGraphErrorRecoveryProcessor.h in Headers */,
 			);
