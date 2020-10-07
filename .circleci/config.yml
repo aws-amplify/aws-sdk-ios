@@ -264,7 +264,18 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
+      - run:
+          name: Git GC
+          command: git gc
+      - save_cache:
+          key: source-v1-{{ .Branch }}-{{ .Revision }}
+          paths:
+            - ".git"
+
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -280,6 +291,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - set_environment_variables
       - pre_start_simulator
@@ -301,6 +315,9 @@ jobs:
     description: Run non-integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - set_environment_variables
       - pre_start_simulator
@@ -344,6 +361,9 @@ jobs:
                 -d "$parameters" \
                 "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
             fi
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -448,6 +468,9 @@ jobs:
       - override_test_job
       - skip_job_unless_required
       - early_return_for_forked_prs
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - skip_test_job
       - pre_start_simulator
@@ -484,6 +507,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - update_brew
       - run:
@@ -501,6 +527,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - pre_start_simulator
       - update_brew
@@ -524,6 +553,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - pre_start_simulator
       - update_brew
@@ -549,6 +581,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           # Note that this invocation of cocoapods_release requires at least
@@ -567,6 +602,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           name: Install jazzy
@@ -597,6 +635,9 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           name: Add documentation tags to gh-pages
@@ -613,6 +654,9 @@ jobs:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           name: Checkout repository for bump version
@@ -656,6 +700,9 @@ jobs:
       TERM: xterm-256color
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - update_brew
       - set_environment_variables
@@ -699,6 +746,9 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           name: Install JSON parser
@@ -756,6 +806,9 @@ jobs:
       JVM_OPTS: -Xmx1024m
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -791,6 +844,9 @@ jobs:
       JVM_OPTS: -Xmx1024m
     steps:
       - skip_job_unless_required
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -806,6 +862,9 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
+      - restore_cache:
+          keys:
+            - source-v1-{{ .Branch }}-{{ .Revision }}
       - checkout
       - run:
           name: Create pull request
