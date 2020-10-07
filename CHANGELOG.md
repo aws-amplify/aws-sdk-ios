@@ -215,7 +215,7 @@
 ## 2.13.4
 ### New features
 - **Integration tests**
-    - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](LINK TBD). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
+    - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](https://github.com/aws-amplify/amplify-ci-support). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
 
 - **AWSMobileClient**
     - Added api to fetch userSub for the loggedin user. [PR #2599](https://github.com/aws-amplify/aws-sdk-ios/pull/2599)

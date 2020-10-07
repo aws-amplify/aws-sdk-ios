@@ -4,12 +4,12 @@
 
 ##################################################
 # CANONICAL SOURCE OF THIS FILE IS
-#   https://github.com/aws-amplify/amplify-ci-support/blob/master/src/integ_test_resources/common/scripts/generate-test-config.sh
+#   https://github.com/aws-amplify/amplify-ci-support/blob/main/src/integ_test_resources/common/scripts/generate-test-config.sh
 #
 # As of this writing (06-May-2020), we manually copy this file into the CI
 # support directories for the projects that use it:
-# - https://github.com/aws-amplify/aws-sdk-ios/tree/master/Scripts/generate-test-config.sh
-# - https://github.com/aws-amplify/aws-sdk-android/tree/master/build-support/generate-test-config.sh
+# - https://github.com/aws-amplify/aws-sdk-ios/tree/main/Scripts/generate-test-config.sh
+# - https://github.com/aws-amplify/aws-sdk-android/tree/main/build-support/generate-test-config.sh
 #
 # From there, this script will be invoked by the CircleCI build process during
 # test setup, or it may be invoked manually for local integration test runs
@@ -120,7 +120,7 @@ OPTIONS:
         'AWS_SECRET_ACCESS_KEY', and 'AWS_SESSION_TOKEN'.
 
     -b <branch>
-        The branch of the ci-support repo to check out. Defaults to 'master'.
+        The branch of the ci-support repo to check out. Defaults to 'main'.
 
     -p <android|ios>
         Generate configuration file for platform="<val>"
@@ -145,7 +145,7 @@ EOF
 # PARSE ARGUMENTS
 
 assume_role=""
-branch="master"
+branch="main"
 platform=""
 region=${AWS_DEFAULT_REGION}
 
