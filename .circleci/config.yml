@@ -1217,8 +1217,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSAutoScaling
@@ -1228,8 +1228,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSCloudWatch
@@ -1239,8 +1239,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSCognito
@@ -1250,8 +1250,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSComprehend
@@ -1261,8 +1261,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSCore
@@ -1272,8 +1272,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSDynamoDB
@@ -1283,8 +1283,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSEC2
@@ -1294,8 +1294,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSElasticLoadBalancing
@@ -1305,8 +1305,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSIoT
@@ -1316,8 +1316,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSKMS
@@ -1327,8 +1327,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSKinesis
@@ -1338,8 +1338,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSKinesisVideoSignaling
@@ -1349,8 +1349,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSLambda
@@ -1360,8 +1360,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSLex
@@ -1371,8 +1371,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSMobileAnalytics
@@ -1382,8 +1382,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSPinpoint
@@ -1393,8 +1393,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSPolly
@@ -1404,8 +1404,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSRekognition
@@ -1415,8 +1415,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSS3
@@ -1426,8 +1426,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSSES
@@ -1437,8 +1437,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSSNS
@@ -1448,8 +1448,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSSQS
@@ -1459,8 +1459,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSTextract
@@ -1470,8 +1470,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSTranscribe
@@ -1481,8 +1481,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSTranscribeStreaming
@@ -1492,8 +1492,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
       - integ_test:
           scheme: AWSTranslate
@@ -1503,8 +1503,8 @@ workflows:
           filters:
             branches:
               only:
-                - palpatim/parallelize-unit-tests
                 - develop
+                - main
 
 
       - merge_to_main:
