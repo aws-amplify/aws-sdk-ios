@@ -763,6 +763,7 @@ jobs:
 
 all_integ_test_requires: &all_integ_test_requires
   requires:
+    - build
     - integ_test_AWSMobileClient
     - integ_test_AWSAutoScaling
     - integ_test_AWSCloudWatch
@@ -1500,8 +1501,6 @@ workflows:
 
       - merge_to_main:
           <<: *all_integ_test_requires
-          requires:
-            - build
           filters:
             branches:
               only:
@@ -1509,8 +1508,6 @@ workflows:
 
       - prepare_release_sdk:
           <<: *all_integ_test_requires
-          requires:
-            - build
           filters:
             branches:
               only:
