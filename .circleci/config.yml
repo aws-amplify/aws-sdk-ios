@@ -702,9 +702,6 @@ jobs:
       JVM_OPTS: -Xmx1024m
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -740,9 +737,6 @@ jobs:
       JVM_OPTS: -Xmx1024m
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
       - checkout
       - set_environment_variables
       - run:
@@ -758,9 +752,6 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
       - checkout
       - run:
           name: Create pull request
