@@ -20,7 +20,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
             XCTAssertNotNil(error, "should get error which mentions there is no verified email or phone.")
             forgotPasswordExpection.fulfill()
         }
-        wait(for: [forgotPasswordExpection], timeout: 5)
+        wait(for: [forgotPasswordExpection], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func testForgotPasswordWithValidClientMetaData() {
@@ -32,7 +32,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
             XCTAssertNotNil(error, "should get error which mentions there is no verified email or phone.")
             forgotPasswordExpection.fulfill()
         }
-        wait(for: [forgotPasswordExpection], timeout: 5)
+        wait(for: [forgotPasswordExpection], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     
@@ -46,7 +46,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
             XCTAssertNil(error)
             changePasswordExpectation.fulfill()
         }
-        wait(for: [changePasswordExpectation], timeout: 5)
+        wait(for: [changePasswordExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func testChangePasswordFailCase() {
@@ -63,7 +63,7 @@ class AWSMobileClientPasswordTests: AWSMobileClientTestBase {
             }
             changePasswordExpectation.fulfill()
         }
-        wait(for: [changePasswordExpectation], timeout: 5)
+        wait(for: [changePasswordExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func testPasswordResetChallenge() {
