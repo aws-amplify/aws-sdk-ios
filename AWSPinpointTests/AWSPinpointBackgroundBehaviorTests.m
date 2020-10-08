@@ -53,7 +53,7 @@ static id _mockNSBundle;
 
 - (void)setUp {
     [super setUp];
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
 }
 
 - (void)tearDown {
@@ -145,8 +145,8 @@ static id _mockNSBundle;
 }
 
 - (void)testHandlesIncomingEventsWhileMovingToBackground {
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
-    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
     
     // Record session start/stop events for foreground/background notifications
     __block AWSPinpoint *pinpoint = [AWSPinpointBackgroundBehaviorTests makeTestPinpointEnablingAutoSessionRecording:YES];

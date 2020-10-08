@@ -1828,6 +1828,8 @@ class AWSS3TransferUtilityTests: XCTestCase {
     }
     
     func testMultiPartUploadTransferAcceleration() {
+        continueAfterFailure = false
+
         //Create a large temp file;
         let filePath = NSTemporaryDirectory() + "testMultiPartUploadTransferAcceleration.tmp"
         var testData = "Test1234"
@@ -1836,6 +1838,7 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
         let fileURL = URL(fileURLWithPath: filePath)
         FileManager.default.createFile(atPath: filePath, contents: testData.data(using: .utf8), attributes: nil)
+
         var calculatedHash:(String) = ""
         if let digestData = sha256(url: fileURL) {
             calculatedHash = digestData.map { String(format: "%02hhx", $0) }.joined()
@@ -1843,33 +1846,36 @@ class AWSS3TransferUtilityTests: XCTestCase {
         
         let transferUtility = AWSS3TransferUtility.s3TransferUtility(forKey: "transfer-acceleration")
         XCTAssertNotNil(transferUtility)
-        let expectation = self.expectation(description: "The completion handler called.")
+
+        let completionHandlerInvoked = expectation(description: "The completion handler was invoked")
         
         //Create Completion Handler
-        let uploadCompletionHandler = { (task: AWSS3TransferUtilityMultiPartUploadTask, error: Error?) -> Void in
+        let uploadCompletionHandler: AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock = { task, error in
             XCTAssertNil(error)
             XCTAssertEqual(task.status, AWSS3TransferUtilityTransferStatusType.completed)
             self.verifyContent(tu: transferUtility!,
                                bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
                                key: "testMultiPartUploadTransferAcceleration.txt",
                                hash: calculatedHash)
-            expectation.fulfill()
+            completionHandlerInvoked.fulfill()
         }
         
         let expression = AWSS3TransferUtilityMultiPartUploadExpression()
         expression.progressBlock = { _, _ in }
         
-       
-        transferUtility?.uploadUsingMultiPart(fileURL:fileURL, bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
-                                   key: "testMultiPartUploadTransferAcceleration.txt",
-                                   contentType: "text/plain",
-                                   expression: expression,
-                                   completionHandler: uploadCompletionHandler)
-            .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
-                XCTAssertNil(task.error)
-                XCTAssertNotNil(task.result)
-                return nil
-            }.waitUntilFinished()
+        transferUtility?.uploadUsingMultiPart(
+            fileURL:fileURL,
+            bucket: AWSS3TransferUtilityTests.transferAccelerationBucket,
+            key: "testMultiPartUploadTransferAcceleration.txt",
+            contentType: "text/plain",
+            expression: expression,
+            completionHandler: uploadCompletionHandler
+        )
+        .continueWith { (task: AWSTask<AWSS3TransferUtilityMultiPartUploadTask>) -> Any? in
+            XCTAssertNil(task.error)
+            XCTAssertNotNil(task.result)
+            return nil
+        }.waitUntilFinished()
         
         waitForExpectations(timeout: 120) { (error) in
             XCTAssertNil(error)
