@@ -2986,7 +2986,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2RevokeClientVpnIngressRequest;
 @class AWSEC2RevokeClientVpnIngressResult;
 @class AWSEC2RevokeSecurityGroupEgressRequest;
+@class AWSEC2RevokeSecurityGroupEgressResult;
 @class AWSEC2RevokeSecurityGroupIngressRequest;
+@class AWSEC2RevokeSecurityGroupIngressResult;
 @class AWSEC2Route;
 @class AWSEC2RouteTable;
 @class AWSEC2RouteTableAssociation;
@@ -24997,6 +24999,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable localGatewayVirtualInterfaceId;
 
 /**
+ <p>The AWS account ID that owns the local gateway virtual interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
  <p>The peer address.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable peerAddress;
@@ -25038,6 +25045,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IDs of the virtual interfaces.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable localGatewayVirtualInterfaceIds;
+
+/**
+ <p>The AWS account ID that owns the local gateway virtual interface group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
 
 /**
  <p>The tags assigned to the virtual interface group.</p>
@@ -31161,6 +31173,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2RevokeSecurityGroupEgressResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+/**
+ <p>The outbound rules that were unknown to the service. In some cases, <code>unknownIpPermissionSet</code> might be in a different format from the request parameter. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable unknownIpPermissions;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2RevokeSecurityGroupIngressRequest : AWSRequest
 
 
@@ -31213,6 +31243,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use <code>-1</code> to specify all ICMP codes for the ICMP type.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2RevokeSecurityGroupIngressResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+/**
+ <p>The inbound rules that were unknown to the service. In some cases, <code>unknownIpPermissionSet</code> might be in a different format from the request parameter. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable unknownIpPermissions;
 
 @end
 
