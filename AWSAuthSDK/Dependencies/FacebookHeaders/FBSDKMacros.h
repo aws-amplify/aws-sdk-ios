@@ -16,37 +16,24 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TargetConditionals.h"
-
-#if !TARGET_OS_TV
-
 #import <Foundation/Foundation.h>
 
-NS_ASSUME_NONNULL_BEGIN
-
-/**
- Represent a referral code used in the referral process
-*/
-NS_SWIFT_NAME(ReferralCode)
-@interface FBSDKReferralCode : NSObject
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
-
-/**
- The string value of the referral code
-*/
-@property NSString *value;
-
-/**
- Initializes a new instance if the referral code is valid. Otherwise returns nil.
- A code is valid if it is non-empty and contains only alphanumeric characters.
- @param string the raw string referral code
-*/
-+ (instancetype)initWithString:(NSString *)string;
-
-@end
-
-NS_ASSUME_NONNULL_END
-
+#ifdef __cplusplus
+#define FBSDK_EXTERN extern "C" __attribute__((visibility ("default")))
+#else
+#define FBSDK_EXTERN extern __attribute__((visibility ("default")))
 #endif
+
+#define FBSDK_STATIC_INLINE static inline
+
+#define FBSDK_NO_DESIGNATED_INITIALIZER() \
+@throw [NSException exceptionWithName:NSInvalidArgumentException \
+                               reason:[NSString stringWithFormat:@"unrecognized selector sent to instance %p", self] \
+                             userInfo:nil]
+
+#define FBSDK_NOT_DESIGNATED_INITIALIZER(DESIGNATED_INITIALIZER) \
+@throw [NSException exceptionWithName:NSInvalidArgumentException \
+                               reason:[NSString stringWithFormat:@"Please use the designated initializer [%p %@]", \
+                                       self, \
+                                       NSStringFromSelector(@selector(DESIGNATED_INITIALIZER))] \
+                             userInfo:nil]

@@ -2,10 +2,6 @@
 
 ## Unreleased
 
--Features for next release
-
-## 2.17.1
-
 ### Misc. Updates
 
 - Model updates for the following services
