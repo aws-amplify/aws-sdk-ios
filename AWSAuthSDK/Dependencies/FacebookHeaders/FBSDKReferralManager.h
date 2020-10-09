@@ -16,19 +16,45 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-
-#import "FBSDKCoreKitImport.h"
-#import "FBSDKDeviceLoginCodeInfo.h"
-#import "FBSDKDeviceLoginManager.h"
-#import "FBSDKDeviceLoginManagerResult.h"
-#import "FBSDKLoginConstants.h"
+#import "TargetConditionals.h"
 
 #if !TARGET_OS_TV
- #import "FBSDKLoginButton.h"
- #import "FBSDKLoginManager.h"
- #import "FBSDKLoginManagerLoginResult.h"
- #import "FBSDKLoginTooltipView.h"
- #import "FBSDKReferralManager.h"
- #import "FBSDKReferralManagerResult.h"
+
+#import <UIKit/UIKit.h>
+
+NS_ASSUME_NONNULL_BEGIN
+
+@class FBSDKReferralManagerResult;
+
+/**
+  Describes the call back to the FBSDKReferralManager
+ @param result the result of the referral
+ @param error the referral error, if any.
+ */
+typedef void (^FBSDKReferralManagerResultBlock)(FBSDKReferralManagerResult *_Nullable result,
+                                                NSError *_Nullable error)
+NS_SWIFT_NAME(ReferralManagerResultBlock);
+
+/**
+ `FBSDKReferralManager` provides methods for starting the referral process.
+*/
+NS_SWIFT_NAME(ReferralManager)
+@interface FBSDKReferralManager : NSObject
+
+/**
+ Initialize a new instance with the provided view controller
+ @param viewController the view controller to present from. If nil, the topmost  view controller will be automatically determined as best as possible.
+ */
+- (instancetype)initWithViewController:(nullable UIViewController *)viewController;
+
+/**
+ Open the referral dialog.
+ @param handler the callback.
+ */
+-(void)startReferralWithCompletionHandler:(nullable FBSDKReferralManagerResultBlock)handler;
+
+@end
+
+NS_ASSUME_NONNULL_END
+
 #endif
