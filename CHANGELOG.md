@@ -9,6 +9,8 @@
   - Amazon EC2
   - Amazon Elastic Load Balancing
   - Amazon Pinpoint
+- **AWSAuthSDK**
+  - Upgrade Facebook SDK to 7.1.1 ([PR #3043](https://github.com/aws-amplify/aws-sdk-ios/pull/3043))
 
 ## 2.17.0
 
