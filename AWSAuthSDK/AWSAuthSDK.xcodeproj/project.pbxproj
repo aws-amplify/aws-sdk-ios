@@ -80,7 +80,6 @@
 		176375581F328D310086588B /* FBSDKLoginManager.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0F61F31A6B000857676 /* FBSDKLoginManager.h */; };
 		176375591F328D310086588B /* FBSDKLoginManagerLoginResult.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0F71F31A6B000857676 /* FBSDKLoginManagerLoginResult.h */; };
 		1763755A1F328D310086588B /* FBSDKLoginTooltipView.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0F81F31A6B000857676 /* FBSDKLoginTooltipView.h */; };
-		1763755B1F328D310086588B /* FBSDKMacros.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0F91F31A6B000857676 /* FBSDKMacros.h */; };
 		1763755C1F328D310086588B /* FBSDKMutableCopying.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0FA1F31A6B000857676 /* FBSDKMutableCopying.h */; };
 		1763755D1F328D310086588B /* FBSDKProfile.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0FB1F31A6B000857676 /* FBSDKProfile.h */; };
 		1763755E1F328D310086588B /* FBSDKProfilePictureView.h in Headers */ = {isa = PBXBuildFile; fileRef = 17B5A0FC1F31A6B000857676 /* FBSDKProfilePictureView.h */; };
@@ -1280,7 +1279,6 @@
 		17B5A0F61F31A6B000857676 /* FBSDKLoginManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKLoginManager.h; sourceTree = "<group>"; };
 		17B5A0F71F31A6B000857676 /* FBSDKLoginManagerLoginResult.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKLoginManagerLoginResult.h; sourceTree = "<group>"; };
 		17B5A0F81F31A6B000857676 /* FBSDKLoginTooltipView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKLoginTooltipView.h; sourceTree = "<group>"; };
-		17B5A0F91F31A6B000857676 /* FBSDKMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKMacros.h; sourceTree = "<group>"; };
 		17B5A0FA1F31A6B000857676 /* FBSDKMutableCopying.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKMutableCopying.h; sourceTree = "<group>"; };
 		17B5A0FB1F31A6B000857676 /* FBSDKProfile.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKProfile.h; sourceTree = "<group>"; };
 		17B5A0FC1F31A6B000857676 /* FBSDKProfilePictureView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKProfilePictureView.h; sourceTree = "<group>"; };
@@ -1741,7 +1739,6 @@
 				17B5A0F61F31A6B000857676 /* FBSDKLoginManager.h */,
 				17B5A0F71F31A6B000857676 /* FBSDKLoginManagerLoginResult.h */,
 				17B5A0F81F31A6B000857676 /* FBSDKLoginTooltipView.h */,
-				17B5A0F91F31A6B000857676 /* FBSDKMacros.h */,
 				D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */,
 				17B5A0FA1F31A6B000857676 /* FBSDKMutableCopying.h */,
 				17B5A0FB1F31A6B000857676 /* FBSDKProfile.h */,
@@ -2059,7 +2056,6 @@
 				176375551F328D310086588B /* FBSDKLoginButton.h in Headers */,
 				D8FAC273251D1A87005F9FC6 /* FBSDKCoreKitImport.h in Headers */,
 				D8FAC277251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h in Headers */,
-				1763755B1F328D310086588B /* FBSDKMacros.h in Headers */,
 				D8FAC279251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h in Headers */,
 				176375611F328D310086588B /* FBSDKTooltipView.h in Headers */,
 				1763755F1F328D310086588B /* FBSDKSettings.h in Headers */,
