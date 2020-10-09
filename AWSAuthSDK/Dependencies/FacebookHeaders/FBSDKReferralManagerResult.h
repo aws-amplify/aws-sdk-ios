@@ -16,19 +16,44 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <UIKit/UIKit.h>
-
-#import "FBSDKCoreKitImport.h"
-#import "FBSDKDeviceLoginCodeInfo.h"
-#import "FBSDKDeviceLoginManager.h"
-#import "FBSDKDeviceLoginManagerResult.h"
-#import "FBSDKLoginConstants.h"
+#import "TargetConditionals.h"
 
 #if !TARGET_OS_TV
- #import "FBSDKLoginButton.h"
- #import "FBSDKLoginManager.h"
- #import "FBSDKLoginManagerLoginResult.h"
- #import "FBSDKLoginTooltipView.h"
- #import "FBSDKReferralManager.h"
- #import "FBSDKReferralManagerResult.h"
+
+#import <Foundation/Foundation.h>
+
+#import "FBSDKReferralCode.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+/**
+  Describes the result of a referral request.
+ */
+NS_SWIFT_NAME(ReferralManagerResult)
+@interface FBSDKReferralManagerResult : NSObject
+
+- (instancetype)init NS_UNAVAILABLE;
++ (instancetype)new NS_UNAVAILABLE;
+
+/**
+  whether the referral was cancelled by the user.
+ */
+@property (readonly, nonatomic) BOOL isCancelled;
+
+/**
+  An array of referral codes for each referral made by the user
+ */
+@property (copy, nonatomic) NSArray<FBSDKReferralCode *> *referralCodes;
+
+/** Initializes a new instance.
+ @param referralCodes the referral codes
+ @param isCancelled whether the referral was cancelled by the user
+ */
+- (instancetype)initWithReferralCodes:(nullable NSArray<FBSDKReferralCode *> *)referralCodes
+                  isCancelled:(BOOL)isCancelled
+NS_DESIGNATED_INITIALIZER;
+@end
+
+NS_ASSUME_NONNULL_END
+
 #endif
