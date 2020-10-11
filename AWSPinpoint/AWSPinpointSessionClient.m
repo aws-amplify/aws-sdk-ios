@@ -168,6 +168,7 @@ NSObject *sessionLock;
 
 - (void)applicationDidEnterForeground:(NSNotification*)notification {
     [self.bgTimer invalidate];
+    [self endCurrentBackgroundTask];
     [self resumeSession];
 }
 
@@ -325,8 +326,7 @@ NSObject *sessionLock;
             if (block) {
                 block(task);
             }
-            [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-            self.bgTask = UIBackgroundTaskInvalid;
+            [self endCurrentBackgroundTask];
             return nil;
         }];
     });
@@ -362,14 +362,20 @@ NSObject *sessionLock;
     return [self.context.analyticsClient recordEvent:resumeEvent];
 }
 
+- (void)endCurrentBackgroundTask {
+    if (self.bgTask != UIBackgroundTaskInvalid) {
+        [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
+        self.bgTask = UIBackgroundTaskInvalid;
+    }
+}
+
 - (void)waitForSessionTimeoutWithCompletionBlock:(AWSPinpointTimeoutBlock) block {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         if (self.context.configuration.sessionTimeout > 0) {
             self.bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithName:AWSPinpointSessionBackgroundTask expirationHandler:^{
                 // If background task expires before timeout then stop the session and submit events.
                 [self endCurrentSessionWithBlock:block];
-                [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-                self.bgTask = UIBackgroundTaskInvalid;
+                [self endCurrentBackgroundTask];
             }];
 
             dispatch_async(dispatch_get_main_queue(), ^(){
@@ -386,8 +392,7 @@ NSObject *sessionLock;
                 if (block) {
                     block(task);
                 }
-                [[UIApplication sharedApplication] endBackgroundTask:self.bgTask];
-                self.bgTask = UIBackgroundTaskInvalid;
+                [self endCurrentBackgroundTask];
                 return nil;
             }];
         }
@@ -500,7 +505,7 @@ NSObject *sessionLock;
     [dateFormatter setDateFormat:AWSPinpointSessionIDTimeFormat];
     NSString *timestamp_time = [dateFormatter stringFromDate:tDate];
     
-    //Session ID as String, formmatted as <AppKey> - <UniqueID> - <Day> - <Time>
+    //Session ID as String, formatted as <AppKey> - <UniqueID> - <Day> - <Time>
     return [NSString stringWithFormat:@"%@%c%@%c%@%c%@", appKey, AWSPinpointSessionIDDelimiter, uniqID, AWSPinpointSessionIDDelimiter, timestamp_day, AWSPinpointSessionIDDelimiter, timestamp_time];
 };
 
