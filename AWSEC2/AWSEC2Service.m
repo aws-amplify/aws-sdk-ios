@@ -9438,44 +9438,46 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request {
+- (AWSTask<AWSEC2RevokeSecurityGroupEgressResult *> *)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RevokeSecurityGroupEgress"
-                   outputClass:nil];
+                   outputClass:[AWSEC2RevokeSecurityGroupEgressResult class]];
 }
 
 - (void)revokeSecurityGroupEgress:(AWSEC2RevokeSecurityGroupEgressRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self revokeSecurityGroupEgress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2RevokeSecurityGroupEgressResult *response, NSError *error))completionHandler {
+    [[self revokeSecurityGroupEgress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RevokeSecurityGroupEgressResult *> * _Nonnull task) {
+        AWSEC2RevokeSecurityGroupEgressResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
     }];
 }
 
-- (AWSTask *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request {
+- (AWSTask<AWSEC2RevokeSecurityGroupIngressResult *> *)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"RevokeSecurityGroupIngress"
-                   outputClass:nil];
+                   outputClass:[AWSEC2RevokeSecurityGroupIngressResult class]];
 }
 
 - (void)revokeSecurityGroupIngress:(AWSEC2RevokeSecurityGroupIngressRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self revokeSecurityGroupIngress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2RevokeSecurityGroupIngressResult *response, NSError *error))completionHandler {
+    [[self revokeSecurityGroupIngress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RevokeSecurityGroupIngressResult *> * _Nonnull task) {
+        AWSEC2RevokeSecurityGroupIngressResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
