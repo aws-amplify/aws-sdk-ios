@@ -3,15 +3,16 @@
 ## Unreleased
 
 ### Misc. Updates
-
+- **AWSAuthSDK**
+  - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
 - Model updates for the following services
   - Amazon Connect
   - Amazon DynamoDB
   - Amazon EC2
   - Amazon Elastic Load Balancing
   - Amazon Pinpoint
-- **AWSAuthSDK**
-  - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
+  - Amazon Rekognition
+  - Amazon Simple Notification Service (SNS)
 
 ## 2.17.0
 
