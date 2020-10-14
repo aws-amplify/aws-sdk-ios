@@ -3139,6 +3139,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusActive);
         }
+        if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusRegionDisabled);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3152,6 +3155,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DELETING";
             case AWSDynamoDBReplicaStatusActive:
                 return @"ACTIVE";
+            case AWSDynamoDBReplicaStatusRegionDisabled:
+                return @"REGION_DISABLED";
             default:
                 return nil;
         }
@@ -3188,6 +3193,7 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
              @"KMSMasterKeyId" : @"KMSMasterKeyId",
              @"provisionedThroughputOverride" : @"ProvisionedThroughputOverride",
              @"regionName" : @"RegionName",
+             @"replicaInaccessibleDateTime" : @"ReplicaInaccessibleDateTime",
              @"replicaStatus" : @"ReplicaStatus",
              @"replicaStatusDescription" : @"ReplicaStatusDescription",
              @"replicaStatusPercentProgress" : @"ReplicaStatusPercentProgress",
@@ -3200,6 +3206,14 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)provisionedThroughputOverrideJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBProvisionedThroughputOverride class]];
+}
+
++ (NSValueTransformer *)replicaInaccessibleDateTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 + (NSValueTransformer *)replicaStatusJSONTransformer {
@@ -3219,6 +3233,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusActive);
         }
+        if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusRegionDisabled);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3232,6 +3249,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DELETING";
             case AWSDynamoDBReplicaStatusActive:
                 return @"ACTIVE";
+            case AWSDynamoDBReplicaStatusRegionDisabled:
+                return @"REGION_DISABLED";
             default:
                 return nil;
         }
@@ -3455,6 +3474,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusActive);
         }
+        if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusRegionDisabled);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3468,6 +3490,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"DELETING";
             case AWSDynamoDBReplicaStatusActive:
                 return @"ACTIVE";
+            case AWSDynamoDBReplicaStatusRegionDisabled:
+                return @"REGION_DISABLED";
             default:
                 return nil;
         }
