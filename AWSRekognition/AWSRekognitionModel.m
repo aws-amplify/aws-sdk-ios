@@ -2741,6 +2741,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"billableTrainingTimeInSeconds" : @"BillableTrainingTimeInSeconds",
              @"creationTimestamp" : @"CreationTimestamp",
              @"evaluationResult" : @"EvaluationResult",
+             @"manifestSummary" : @"ManifestSummary",
              @"minInferenceUnits" : @"MinInferenceUnits",
              @"outputConfig" : @"OutputConfig",
              @"projectVersionArn" : @"ProjectVersionArn",
@@ -2762,6 +2763,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)evaluationResultJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionEvaluationResult class]];
+}
+
++ (NSValueTransformer *)manifestSummaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionGroundTruthManifest class]];
 }
 
 + (NSValueTransformer *)outputConfigJSONTransformer {
@@ -3834,6 +3839,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"input" : @"Input",
              @"output" : @"Output",
+             @"validation" : @"Validation",
              };
 }
 
@@ -3843,6 +3849,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)outputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTestingData class]];
+}
+
++ (NSValueTransformer *)validationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionValidationData class]];
 }
 
 @end
@@ -3922,6 +3932,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"input" : @"Input",
              @"output" : @"Output",
+             @"validation" : @"Validation",
              };
 }
 
@@ -3931,6 +3942,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)outputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionTrainingData class]];
+}
+
++ (NSValueTransformer *)validationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionValidationData class]];
 }
 
 @end
@@ -3946,6 +3961,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)faceDetailJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionFaceDetail class]];
+}
+
+@end
+
+@implementation AWSRekognitionValidationData
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"assets" : @"Assets",
+             };
+}
+
++ (NSValueTransformer *)assetsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionAsset class]];
 }
 
 @end
