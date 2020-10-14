@@ -1,13 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSRekognition
----AWSSNS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -19,6 +9,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Amazon EC2
   - Amazon Elastic Load Balancing
   - Amazon Pinpoint
+  - Amazon Rekognition
+  - Amazon Simple Notification Service (SNS)
 
 ## 2.17.0
 
