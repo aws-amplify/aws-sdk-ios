@@ -6,6 +6,7 @@
 
 - Model updates for the following services
   - Amazon Connect
+  - Amazon DynamoDB
   - Amazon EC2
   - Amazon Elastic Load Balancing
   - Amazon Pinpoint
