@@ -291,6 +291,7 @@ NSString *endpointString;
     __block NSUInteger topic2Count = 0;
 
     XCTestExpectation *statusIsConnected = [self expectationWithDescription:@"status is 'connected'"];
+    statusIsConnected.assertForOverFulfill = false;
     void (^updateConnectionStatus)(AWSIoTMQTTStatus status) = ^(AWSIoTMQTTStatus status) {
         if (status == AWSIoTMQTTStatusConnected) {
             connected = YES;

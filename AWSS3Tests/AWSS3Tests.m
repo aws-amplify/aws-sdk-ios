@@ -102,8 +102,8 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 - (void)setUp {
     [super setUp];
     
-    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
-    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];//xcode console logger
+//    [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelVerbose;
+//    [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];//xcode console logger
     
     AWSDDLogVerbose(@"verbose logging");
     

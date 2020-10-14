@@ -118,7 +118,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
             signInWasSuccessfulExpectation.fulfill()
         }
-        wait(for: [signInWasSuccessfulExpectation], timeout: 10)
+        wait(for: [signInWasSuccessfulExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
         XCTAssertNotNil(AWSMobileClient.default().userpoolOpsHelper.currentConfirmSignInHandlerCallback,
                         "Current confirmsign callback should not be nil")
         XCTAssertNil(AWSMobileClient.default().userpoolOpsHelper.currentSignInHandlerCallback,
@@ -183,7 +183,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
             
         }
-        wait(for: [firstSignInExpectation, secondSignInExpectation], timeout: 10)
+        wait(for: [firstSignInExpectation, secondSignInExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     /// Test whether the state of AWSMobileClient is current after signIn
@@ -215,7 +215,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             XCTAssertTrue(AWSMobileClient.default().isSignedIn, "AWSMobileClient isSignedIn should be true after signIn")
             firstSignInExpectation.fulfill()
         }
-        wait(for: [firstSignInExpectation], timeout: 10)
+        wait(for: [firstSignInExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     /// Test if invalidating refresh token displays signOut message and the user is able to signIn after that.
@@ -242,7 +242,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchExpectation], timeout: 20)
+        wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
         invalidateSession(username: username)
         
         let signOutExpectation = expectation(description: "signout was called")
@@ -266,7 +266,11 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
         
-        wait(for: [signOutExpectation, tokenFetchExpectation2], timeout: 35, enforceOrder: true)
+        wait(
+            for: [signOutExpectation, tokenFetchExpectation2],
+            timeout: AWSMobileClientTestBase.networkRequestTimeout,
+            enforceOrder: true
+        )
         AWSMobileClient.default().removeUserStateListener(self)
     }
 
@@ -295,7 +299,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchExpectation], timeout: 20)
+        wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
 
         // Setup a listener to call releaseSignInWait whenever you get signedOutUserPoolsTokenInvalid
         AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
@@ -318,7 +322,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        wait(for: [tokenFetchFailExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
         AWSMobileClient.default().removeUserStateListener(self)
     }
 
@@ -347,7 +351,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchExpectation], timeout: 20)
+        wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
 
         // Setup a listener to call releaseSignInWait whenever you get signedOutUserPoolsTokenInvalid
         AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
@@ -375,7 +379,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
 
-        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        wait(for: [tokenFetchFailExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
         AWSMobileClient.default().removeUserStateListener(self)
     }
 
@@ -404,7 +408,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchExpectation], timeout: 20)
+        wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
 
         // Setup a listener to call signOut whenever you get signedOutUserPoolsTokenInvalid
         AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
@@ -427,7 +431,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchFailExpectation], timeout: 20)
+        wait(for: [tokenFetchFailExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
         AWSMobileClient.default().removeUserStateListener(self)
     }
 
@@ -451,6 +455,6 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
                 return
             }
         }
-        wait(for: [tokenFetchExpectation], timeout: 20)
+        wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
 }

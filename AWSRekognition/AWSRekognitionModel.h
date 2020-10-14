@@ -395,6 +395,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionTrainingData;
 @class AWSRekognitionTrainingDataResult;
 @class AWSRekognitionUnindexedFace;
+@class AWSRekognitionValidationData;
 @class AWSRekognitionVideo;
 @class AWSRekognitionVideoMetadata;
 
@@ -417,13 +418,13 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Assets are the images that you use to train and evaluate a model version. Assets are referenced by Sagemaker GroundTruth manifest files. </p>
+ <p>Assets are the images that you use to train and evaluate a model version. Assets can also contain validation information that you use to debug a failed model training. </p>
  */
 @interface AWSRekognitionAsset : AWSModel
 
 
 /**
- <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+ <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file. </p>
  */
 @property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable groundTruthManifest;
 
@@ -446,7 +447,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable durationMillis;
 
 /**
- <p>The number of audio channels in the segement.</p>
+ <p>The number of audio channels in the segment.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfChannels;
 
@@ -2230,7 +2231,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>An array of segments detected in a video.</p>
+ <p>An array of segments detected in a video. The array is sorted by the segment types (TECHNICAL_CUE or SHOT) specified in the <code>SegmentTypes</code> input parameter of <code>StartSegmentDetection</code>. Within each segment type the array is sorted by timestamp values.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionSegmentDetection *> * _Nullable segments;
 
@@ -2313,7 +2314,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+ <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file. </p>
  */
 @interface AWSRekognitionGroundTruthManifest : AWSModel
 
@@ -2589,12 +2590,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, assign) AWSRekognitionLandmarkType types;
 
 /**
- <p>The x-coordinate from the top left of the landmark expressed as the ratio of the width of the image. For example, if the image is 700 x 200 and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
+ <p>The x-coordinate of the landmark expressed as a ratio of the width of the image. The x-coordinate is measured from the left-side of the image. For example, if the image is 700 pixels wide and the x-coordinate of the landmark is at 350 pixels, this value is 0.5. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable X;
 
 /**
- <p>The y-coordinate from the top left of the landmark expressed as the ratio of the height of the image. For example, if the image is 700 x 200 and the y-coordinate of the landmark is at 100 pixels, this value is 0.5.</p>
+ <p>The y-coordinate of the landmark expressed as a ratio of the height of the image. The y-coordinate is measured from the top of the image. For example, if the image height is 200 pixels and the y-coordinate of the landmark is at 50 pixels, this value is 0.25.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable Y;
 
@@ -2982,6 +2983,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) AWSRekognitionEvaluationResult * _Nullable evaluationResult;
 
 /**
+ <p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionGroundTruthManifest * _Nullable manifestSummary;
+
+/**
  <p>The minimum number of inference units used by the model. For more information, see <a>StartProjectVersion</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minInferenceUnits;
@@ -3007,12 +3013,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>The manifest file that represents the testing results.</p>
+ <p>Contains information about the testing results.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTestingDataResult * _Nullable testingDataResult;
 
 /**
- <p>The manifest file that represents the training results.</p>
+ <p>Contains information about the training results.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTrainingDataResult * _Nullable trainingDataResult;
 
@@ -3043,7 +3049,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 15 celebrities in an image.</p>
+ <p>Details about each celebrity found in the image. Amazon Rekognition can detect a maximum of 64 celebrities in an image.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionCelebrity *> * _Nullable celebrityFaces;
 
@@ -3229,7 +3235,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable endTimecodeSMPTE;
 
 /**
- <p>The end time of the detected segment, in milliseconds, from the start of the video.</p>
+ <p>The end time of the detected segment, in milliseconds, from the start of the video. This value is rounded down.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable endTimestampMillis;
 
@@ -3244,7 +3250,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable startTimecodeSMPTE;
 
 /**
- <p>The start time of the detected segment in milliseconds from the start of the video.</p>
+ <p>The start time of the detected segment in milliseconds from the start of the video. This value is rounded down. For example, if the actual timestamp is 100.6667 milliseconds, Amazon Rekognition Video returns a value of 100 millis.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTimestampMillis;
 
@@ -3290,7 +3296,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
 /**
- <p>An Identifier for a shot detection segment detected in a video </p>
+ <p>An Identifier for a shot detection segment detected in a video. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable index;
 
@@ -3968,7 +3974,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>A Sagemaker Groundtruth format manifest file representing the dataset used for testing.</p>
+ <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 @interface AWSRekognitionTestingDataResult : AWSModel
 
@@ -3982,6 +3988,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The subset of the dataset that was actually tested. Some images (assets) might not be tested due to file formatting and other issues. </p>
  */
 @property (nonatomic, strong) AWSRekognitionTestingData * _Nullable output;
+
+/**
+ <p>The location of the data validation manifest. The data validation manifest is created for the test dataset during model training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionValidationData * _Nullable validation;
 
 @end
 
@@ -4055,7 +4066,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>A Sagemaker Groundtruth format manifest file that represents the dataset used for training.</p>
+ <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
  */
 @interface AWSRekognitionTrainingDataResult : AWSModel
 
@@ -4069,6 +4080,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The images (assets) that were actually trained by Amazon Rekognition Custom Labels. </p>
  */
 @property (nonatomic, strong) AWSRekognitionTrainingData * _Nullable output;
+
+/**
+ <p>The location of the data validation manifest. The data validation manifest is created for the training dataset during model training.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionValidationData * _Nullable validation;
 
 @end
 
@@ -4087,6 +4103,19 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>An array of reasons that specify why a face wasn't indexed. </p><ul><li><p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.</p></li><li><p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p></li><li><p>LOW_BRIGHTNESS - The image is too dark.</p></li><li><p>LOW_SHARPNESS - The image is too blurry.</p></li><li><p>LOW_CONFIDENCE - The face was detected with a low confidence.</p></li><li><p>SMALL_BOUNDING_BOX - The bounding box around the face is too small.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable reasons;
+
+@end
+
+/**
+ <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p><p>The validation data includes error information for individual JSON lines in the dataset. For more information, see Debugging a Failed Model Training in the Amazon Rekognition Custom Labels Developer Guide. </p><p>You get the <code>ValidationData</code> object for the training dataset (<a>TrainingDataResult</a>) and the test dataset (<a>TestingDataResult</a>) by calling <a>DescribeProjectVersions</a>. </p><p>The assets array contains a single <a>Asset</a> object. The <a>GroundTruthManifest</a> field of the Asset object contains the S3 bucket location of the validation data. </p>
+ */
+@interface AWSRekognitionValidationData : AWSModel
+
+
+/**
+ <p>The assets that comprise the validation data. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionAsset *> * _Nullable assets;
 
 @end
 

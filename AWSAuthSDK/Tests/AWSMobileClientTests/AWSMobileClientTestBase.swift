@@ -11,6 +11,7 @@ import AWSCognitoIdentityProvider
 import AWSTestResources
 
 class AWSMobileClientTestBase: XCTestCase {
+    static let networkRequestTimeout: TimeInterval = 60.0
     
     static var cognitoIdentity: AWSCognitoIdentity!
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
@@ -103,7 +104,7 @@ class AWSMobileClientTestBase: XCTestCase {
             XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
             signInWasSuccessful.fulfill()
         }
-        wait(for: [signInWasSuccessful], timeout: 10)
+        wait(for: [signInWasSuccessful], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
@@ -123,7 +124,7 @@ class AWSMobileClientTestBase: XCTestCase {
                                                     
                                                     signInConfirmWasSuccessful.fulfill()
         }
-        wait(for: [signInConfirmWasSuccessful], timeout: 5)
+        wait(for: [signInConfirmWasSuccessful], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func signUpUser(username: String,
@@ -175,7 +176,7 @@ class AWSMobileClientTestBase: XCTestCase {
                 signUpExpectation.fulfill()
         }
         
-        wait(for: [signUpExpectation], timeout: 5)
+        wait(for: [signUpExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
     
     func adminVerifyUser(username: String) {

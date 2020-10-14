@@ -33,8 +33,8 @@ FOUNDATION_EXPORT double    const AWSValueForceSubmissionWaitTime;
 @implementation AWSAnalyticsTests
 + (void)setUp {
     [super setUp];
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
-    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
 
     AWSDDLogDebug(@"sleeping for %f seconds before AWSAnalyticsTests starts.", AWSValueForceSubmissionWaitTime);
     [[NSRunLoop currentRunLoop] runUntilDate:[NSDate dateWithTimeIntervalSinceNow:AWSValueForceSubmissionWaitTime]];

@@ -38770,6 +38770,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localBgpAsn" : @"LocalBgpAsn",
              @"localGatewayId" : @"LocalGatewayId",
              @"localGatewayVirtualInterfaceId" : @"LocalGatewayVirtualInterfaceId",
+             @"ownerId" : @"OwnerId",
              @"peerAddress" : @"PeerAddress",
              @"peerBgpAsn" : @"PeerBgpAsn",
              @"tags" : @"Tags",
@@ -38790,6 +38791,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"localGatewayId" : @"LocalGatewayId",
              @"localGatewayVirtualInterfaceGroupId" : @"LocalGatewayVirtualInterfaceGroupId",
              @"localGatewayVirtualInterfaceIds" : @"LocalGatewayVirtualInterfaceIds",
+             @"ownerId" : @"OwnerId",
              @"tags" : @"Tags",
              };
 }
@@ -55179,6 +55181,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2RevokeSecurityGroupEgressResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             @"unknownIpPermissions" : @"UnknownIpPermissions",
+             };
+}
+
++ (NSValueTransformer *)unknownIpPermissionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
+@end
+
 @implementation AWSEC2RevokeSecurityGroupIngressRequest
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -55197,6 +55214,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 }
 
 + (NSValueTransformer *)ipPermissionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
+@end
+
+@implementation AWSEC2RevokeSecurityGroupIngressResult
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             @"unknownIpPermissions" : @"UnknownIpPermissions",
+             };
+}
+
++ (NSValueTransformer *)unknownIpPermissionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
 }
 

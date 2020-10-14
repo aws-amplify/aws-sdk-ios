@@ -64,7 +64,7 @@ int const AWSPinpointClientBatchRecordByteLimitDefault = 512 * 1024;
                                                                                      configKey:@"app_id"];
 
     [self initializePinpointIAD:pinpointAppId];
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
 }
 
 - (void) initializePinpointIAD:(NSString *) pinpointAppId {
