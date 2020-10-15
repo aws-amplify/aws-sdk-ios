@@ -5,11 +5,31 @@
 ### New Features
 - The following models now support `NSSecureCoding`:
   - AWS Auto Scaling
+  - Amazon CloudWatch Logs
   - Amazon Cognito Identity
   - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
   - Amazon Connect Participant Service
+  - Amazon DynamoDB
+  - AWS IoT
+  - Amazon Kinesis Firehose
+  - Amazon Kinesis Streams
+  - Amazon Kinesis Video Signaling
+  - AWS Key Management Service (KMS)
+  - AWS Lambda
+  - Amazon Lex
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SageMaker
+  - Amazon Security Token Service (STS)
+  - Amazon Simple DB
+  - Amazon Simple Email Service (SES)
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Simple Queue Service (SQS)
+  - Amazon Transcribe
+  - Amazon Translate
 
 ### Misc. Updates
 - **AWSAuthSDK**
