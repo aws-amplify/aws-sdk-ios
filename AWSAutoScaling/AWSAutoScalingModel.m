@@ -20,6 +20,10 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 
 @implementation AWSAutoScalingActivitiesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activities" : @"Activities",
@@ -34,6 +38,10 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 @end
 
 @implementation AWSAutoScalingActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -141,6 +149,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingActivityType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activity" : @"Activity",
@@ -155,6 +167,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAdjustmentType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"adjustmentType" : @"AdjustmentType",
@@ -164,6 +180,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingAlarm
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -176,6 +196,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAttachInstancesQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -187,9 +211,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAttachLoadBalancerTargetGroupsResultType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingAttachLoadBalancerTargetGroupsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -202,9 +234,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAttachLoadBalancersResultType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingAttachLoadBalancersType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -216,6 +256,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingAutoScalingGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -284,6 +328,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAutoScalingGroupNamesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupNames" : @"AutoScalingGroupNames",
@@ -295,6 +343,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingAutoScalingGroupsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -310,6 +362,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingAutoScalingInstanceDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -334,6 +390,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingAutoScalingInstancesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingInstances" : @"AutoScalingInstances",
@@ -349,6 +409,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingBatchDeleteScheduledActionAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"failedScheduledActions" : @"FailedScheduledActions",
@@ -363,6 +427,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingBatchDeleteScheduledActionType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -373,6 +441,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingBatchPutScheduledUpdateGroupActionAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -388,6 +460,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingBatchPutScheduledUpdateGroupActionType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -402,6 +478,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingBlockDeviceMapping
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -420,6 +500,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingCancelInstanceRefreshAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceRefreshId" : @"InstanceRefreshId",
@@ -429,6 +513,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingCancelInstanceRefreshType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -440,9 +528,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingCompleteLifecycleActionAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingCompleteLifecycleActionType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -457,6 +553,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingCreateAutoScalingGroupType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -505,6 +605,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingCreateLaunchConfigurationType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"associatePublicIpAddress" : @"AssociatePublicIpAddress",
@@ -545,6 +649,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingCreateOrUpdateTagsType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"tags" : @"Tags",
@@ -558,6 +666,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingCustomizedMetricSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -613,6 +725,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDeleteAutoScalingGroupType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -624,9 +740,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDeleteLifecycleHookAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingDeleteLifecycleHookType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -639,6 +763,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDeleteNotificationConfigurationType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -649,6 +777,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDeletePolicyType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -661,6 +793,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDeleteScheduledActionType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -671,6 +807,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDeleteTagsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -686,6 +826,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeAccountLimitsAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxNumberOfAutoScalingGroups" : @"MaxNumberOfAutoScalingGroups",
@@ -698,6 +842,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeAdjustmentTypesAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -713,6 +861,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeAutoScalingInstancesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceIds" : @"InstanceIds",
@@ -725,6 +877,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeAutoScalingNotificationTypesAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingNotificationTypes" : @"AutoScalingNotificationTypes",
@@ -734,6 +890,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeInstanceRefreshesAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -750,6 +910,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeInstanceRefreshesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -763,6 +927,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeLifecycleHookTypesAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"lifecycleHookTypes" : @"LifecycleHookTypes",
@@ -772,6 +940,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeLifecycleHooksAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -787,6 +959,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeLifecycleHooksType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -797,6 +973,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeLoadBalancerTargetGroupsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -809,6 +989,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeLoadBalancerTargetGroupsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -825,6 +1009,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeLoadBalancersRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -836,6 +1024,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeLoadBalancersResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -851,6 +1043,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeMetricCollectionTypesAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -871,6 +1067,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeNotificationConfigurationsAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -886,6 +1086,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeNotificationConfigurationsType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupNames" : @"AutoScalingGroupNames",
@@ -897,6 +1101,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribePoliciesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -912,6 +1120,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeScalingActivitiesType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activityIds" : @"ActivityIds",
@@ -924,6 +1136,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDescribeScheduledActionsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -956,6 +1172,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeTagsType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"filters" : @"Filters",
@@ -972,6 +1192,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDescribeTerminationPolicyTypesAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"terminationPolicyTypes" : @"TerminationPolicyTypes",
@@ -981,6 +1205,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingDetachInstancesAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -996,6 +1224,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDetachInstancesQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1008,9 +1240,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDetachLoadBalancerTargetGroupsResultType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingDetachLoadBalancerTargetGroupsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1023,9 +1263,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDetachLoadBalancersResultType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingDetachLoadBalancersType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1038,6 +1286,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingDisableMetricsCollectionQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1048,6 +1300,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingEbs
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1064,6 +1320,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingEnableMetricsCollectionQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1076,6 +1336,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingEnabledMetric
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"granularity" : @"Granularity",
@@ -1086,6 +1350,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingEnterStandbyAnswer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1101,6 +1369,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingEnterStandbyQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1112,6 +1384,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingExecutePolicyType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1127,6 +1403,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingExitStandbyAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activities" : @"Activities",
@@ -1141,6 +1421,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingExitStandbyQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1151,6 +1435,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingFailedScheduledUpdateGroupActionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1164,6 +1452,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingFilter
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -1174,6 +1466,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingInstance
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1273,6 +1569,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingInstanceMetadataOptions
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"httpEndpoint" : @"HttpEndpoint",
@@ -1327,6 +1627,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingInstanceMonitoring
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"enabled" : @"Enabled",
@@ -1336,6 +1640,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingInstanceRefresh
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1411,6 +1719,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingInstancesDistribution
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"onDemandAllocationStrategy" : @"OnDemandAllocationStrategy",
@@ -1425,6 +1737,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLaunchConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1475,6 +1791,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingLaunchConfigurationNameType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"launchConfigurationName" : @"LaunchConfigurationName",
@@ -1484,6 +1804,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLaunchConfigurationNamesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1496,6 +1820,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLaunchConfigurationsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1511,6 +1839,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLaunchTemplate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1531,6 +1863,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingLaunchTemplateOverrides
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceType" : @"InstanceType",
@@ -1541,6 +1877,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLaunchTemplateSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1553,6 +1893,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLifecycleHook
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1572,6 +1916,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingLifecycleHookSpecification
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"defaultResult" : @"DefaultResult",
@@ -1588,6 +1936,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingLoadBalancerState
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerName" : @"LoadBalancerName",
@@ -1598,6 +1950,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingLoadBalancerTargetGroupState
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1610,6 +1966,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingMetricCollectionType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"metric" : @"Metric",
@@ -1619,6 +1979,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingMetricDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1631,6 +1995,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingMetricGranularityType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"granularity" : @"Granularity",
@@ -1640,6 +2008,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingMixedInstancesPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1660,6 +2032,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingNotificationConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1671,6 +2047,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingPoliciesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1687,6 +2067,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingPolicyARNType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"alarms" : @"Alarms",
@@ -1701,6 +2085,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingPredefinedMetricSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1744,6 +2132,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingProcessType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"processName" : @"ProcessName",
@@ -1753,6 +2145,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingProcessesType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1768,9 +2164,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingPutLifecycleHookAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingPutLifecycleHookType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1789,6 +2193,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingPutNotificationConfigurationType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1800,6 +2208,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingPutScalingPolicyType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1830,6 +2242,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingPutScheduledUpdateGroupActionType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1873,9 +2289,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingRecordLifecycleActionHeartbeatAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingRecordLifecycleActionHeartbeatType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1890,6 +2314,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingRefreshPreferences
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceWarmup" : @"InstanceWarmup",
@@ -1900,6 +2328,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingScalingPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1937,6 +2369,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingScalingProcessQuery
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -1947,6 +2383,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingScheduledActionsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1962,6 +2402,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingScheduledUpdateGroupAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2006,6 +2450,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingScheduledUpdateGroupActionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"desiredCapacity" : @"DesiredCapacity",
@@ -2038,6 +2486,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingSetDesiredCapacityType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
@@ -2049,6 +2501,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingSetInstanceHealthQuery
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2062,9 +2518,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingSetInstanceProtectionAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSAutoScalingSetInstanceProtectionQuery
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2078,6 +2542,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingStartInstanceRefreshAnswer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceRefreshId" : @"InstanceRefreshId",
@@ -2087,6 +2555,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingStartInstanceRefreshType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2120,6 +2592,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingStepAdjustment
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"metricIntervalLowerBound" : @"MetricIntervalLowerBound",
@@ -2132,6 +2608,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingSuspendedProcess
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"processName" : @"ProcessName",
@@ -2142,6 +2622,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingTag
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2157,6 +2641,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingTagDescription
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -2170,6 +2658,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingTagsType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2185,6 +2677,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingTargetTrackingConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2207,6 +2703,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSAutoScalingTerminateInstanceInAutoScalingGroupType
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceId" : @"InstanceId",
@@ -2217,6 +2717,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSAutoScalingUpdateAutoScalingGroupType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
