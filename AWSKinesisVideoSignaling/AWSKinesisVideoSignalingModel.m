@@ -20,6 +20,10 @@ NSString *const AWSKinesisVideoSignalingErrorDomain = @"com.amazonaws.AWSKinesis
 
 @implementation AWSKinesisVideoSignalingGetIceServerConfigRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelARN" : @"ChannelARN",
@@ -49,6 +53,10 @@ NSString *const AWSKinesisVideoSignalingErrorDomain = @"com.amazonaws.AWSKinesis
 
 @implementation AWSKinesisVideoSignalingGetIceServerConfigResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"iceServerList" : @"IceServerList",
@@ -63,6 +71,10 @@ NSString *const AWSKinesisVideoSignalingErrorDomain = @"com.amazonaws.AWSKinesis
 
 @implementation AWSKinesisVideoSignalingIceServer
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"password" : @"Password",
@@ -76,6 +88,10 @@ NSString *const AWSKinesisVideoSignalingErrorDomain = @"com.amazonaws.AWSKinesis
 
 @implementation AWSKinesisVideoSignalingSendAlexaOfferToMasterRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelARN" : @"ChannelARN",
@@ -87,6 +103,10 @@ NSString *const AWSKinesisVideoSignalingErrorDomain = @"com.amazonaws.AWSKinesis
 @end
 
 @implementation AWSKinesisVideoSignalingSendAlexaOfferToMasterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
