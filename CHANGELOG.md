@@ -1,15 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSCognitoIdentity
----AWSCognitoIdentityProvider
----AWSComprehend
----AWSConnect
----AWSConnectParticipant
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -17,10 +5,16 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### New Features
 - The following models now support `NSSecureCoding`:
   - AWS Auto Scaling
+  - Amazon Cognito Identity
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Connect
+  - Amazon Connect Participant Service
 
 ### Misc. Updates
 - **AWSAuthSDK**
   - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
+
 - Model updates for the following services
   - Amazon Connect
   - Amazon DynamoDB
