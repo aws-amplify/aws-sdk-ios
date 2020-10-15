@@ -88,28 +88,17 @@ extension AWSMobileClient: AWSIdentityProviderManager {
         } else if federationProvider == .userPools {
             
             let userPoolsTokenTask: AWSTaskCompletionSource<NSDictionary> = AWSTaskCompletionSource.init()
-            self.getTokens { (tokens, error) in
-                if let tokens = tokens {
-                    dict[self.userPoolClient!.identityProviderName] = tokens.idToken!.tokenString!
-                    userPoolsTokenTask.set(result: dict as NSDictionary)
-                } else if let error = error {
-                    userPoolsTokenTask.set(error: error)
-                }
+            self.getTokens { [weak self] (tokens, error) in
+                self?.setLoginMapTaskUsing(tokens: tokens, error: error, to: userPoolsTokenTask)
             }
-            
             return userPoolsTokenTask.task
         } else if federationProvider == .oidcFederation {
             dict.addEntries(from: self.cachedLoginsMap)
         } else if federationProvider == .hostedUI {
             if !federationDisabled {
                 let hostedUITokenTask: AWSTaskCompletionSource<NSDictionary> = AWSTaskCompletionSource.init()
-                self.getTokens { (tokens, error) in
-                    if let tokens = tokens {
-                        dict[self.userPoolClient!.identityProviderName] = tokens.idToken!.tokenString!
-                        hostedUITokenTask.set(result: dict as NSDictionary)
-                    } else if let error = error {
-                        hostedUITokenTask.set(error: error)
-                    }
+                self.getTokens { [weak self] (tokens, error) in
+                    self?.setLoginMapTaskUsing(tokens: tokens, error: error, to: hostedUITokenTask)
                 }
                 return hostedUITokenTask.task
             }
@@ -117,6 +106,23 @@ extension AWSMobileClient: AWSIdentityProviderManager {
         }
         let task = AWSTask.init(result: dict as NSDictionary)
         return task
+    }
+    
+    func setLoginMapTaskUsing(tokens: Tokens?, error: Error?, to task: AWSTaskCompletionSource<NSDictionary>) {
+        if let tokens = tokens {
+            if let idToken = tokens.idToken, let tokenString = idToken.tokenString {
+                let providerName = self.userPoolClient!.identityProviderName as NSString
+                let dict = NSDictionary(object: tokenString, forKey: providerName)
+                task.set(result: dict)
+            } else {
+                let errorString = "Could not read the id token for the token response"
+                let error = AWSMobileClientError.idTokenNotIssued(message: errorString)
+                task.set(error: error)
+            }
+        } else if let error = error {
+            task.set(error: error)
+        }
+        
     }
 }
 
