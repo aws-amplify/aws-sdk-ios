@@ -57,54 +57,6 @@ static id mockNetworking = nil;
 
 }
 
-- (void)testAddListenerCertificates {
-    NSString *key = @"testAddListenerCertificates";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] addListenerCertificates:[AWSElasticLoadBalancingAddListenerCertificatesInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testAddListenerCertificatesCompletionHandler {
-    NSString *key = @"testAddListenerCertificates";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] addListenerCertificates:[AWSElasticLoadBalancingAddListenerCertificatesInput new] completionHandler:^(AWSElasticLoadBalancingAddListenerCertificatesOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
 - (void)testAddTags {
     NSString *key = @"testAddTags";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -153,8 +105,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateListener {
-    NSString *key = @"testCreateListener";
+- (void)testApplySecurityGroupsToLoadBalancer {
+    NSString *key = @"testApplySecurityGroupsToLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -162,7 +114,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createListener:[AWSElasticLoadBalancingCreateListenerInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] applySecurityGroupsToLoadBalancer:[AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -175,8 +127,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateListenerCompletionHandler {
-    NSString *key = @"testCreateListener";
+- (void)testApplySecurityGroupsToLoadBalancerCompletionHandler {
+    NSString *key = @"testApplySecurityGroupsToLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -187,7 +139,199 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createListener:[AWSElasticLoadBalancingCreateListenerInput new] completionHandler:^(AWSElasticLoadBalancingCreateListenerOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] applySecurityGroupsToLoadBalancer:[AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput new] completionHandler:^(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testAttachLoadBalancerToSubnets {
+    NSString *key = @"testAttachLoadBalancerToSubnets";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] attachLoadBalancerToSubnets:[AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testAttachLoadBalancerToSubnetsCompletionHandler {
+    NSString *key = @"testAttachLoadBalancerToSubnets";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] attachLoadBalancerToSubnets:[AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput new] completionHandler:^(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testConfigureHealthCheck {
+    NSString *key = @"testConfigureHealthCheck";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] configureHealthCheck:[AWSElasticLoadBalancingConfigureHealthCheckInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testConfigureHealthCheckCompletionHandler {
+    NSString *key = @"testConfigureHealthCheck";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] configureHealthCheck:[AWSElasticLoadBalancingConfigureHealthCheckInput new] completionHandler:^(AWSElasticLoadBalancingConfigureHealthCheckOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testCreateAppCookieStickinessPolicy {
+    NSString *key = @"testCreateAppCookieStickinessPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createAppCookieStickinessPolicy:[AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testCreateAppCookieStickinessPolicyCompletionHandler {
+    NSString *key = @"testCreateAppCookieStickinessPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createAppCookieStickinessPolicy:[AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput new] completionHandler:^(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testCreateLBCookieStickinessPolicy {
+    NSString *key = @"testCreateLBCookieStickinessPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLBCookieStickinessPolicy:[AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testCreateLBCookieStickinessPolicyCompletionHandler {
+    NSString *key = @"testCreateLBCookieStickinessPolicy";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLBCookieStickinessPolicy:[AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput new] completionHandler:^(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -210,7 +354,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancer:[AWSElasticLoadBalancingCreateLoadBalancerInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancer:[AWSElasticLoadBalancingCreateAccessPointInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -235,7 +379,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancer:[AWSElasticLoadBalancingCreateLoadBalancerInput new] completionHandler:^(AWSElasticLoadBalancingCreateLoadBalancerOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancer:[AWSElasticLoadBalancingCreateAccessPointInput new] completionHandler:^(AWSElasticLoadBalancingCreateAccessPointOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -249,8 +393,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateRule {
-    NSString *key = @"testCreateRule";
+- (void)testCreateLoadBalancerListeners {
+    NSString *key = @"testCreateLoadBalancerListeners";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -258,7 +402,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createRule:[AWSElasticLoadBalancingCreateRuleInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancerListeners:[AWSElasticLoadBalancingCreateLoadBalancerListenerInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -271,8 +415,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateRuleCompletionHandler {
-    NSString *key = @"testCreateRule";
+- (void)testCreateLoadBalancerListenersCompletionHandler {
+    NSString *key = @"testCreateLoadBalancerListeners";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -283,7 +427,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createRule:[AWSElasticLoadBalancingCreateRuleInput new] completionHandler:^(AWSElasticLoadBalancingCreateRuleOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancerListeners:[AWSElasticLoadBalancingCreateLoadBalancerListenerInput new] completionHandler:^(AWSElasticLoadBalancingCreateLoadBalancerListenerOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -297,8 +441,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateTargetGroup {
-    NSString *key = @"testCreateTargetGroup";
+- (void)testCreateLoadBalancerPolicy {
+    NSString *key = @"testCreateLoadBalancerPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -306,7 +450,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createTargetGroup:[AWSElasticLoadBalancingCreateTargetGroupInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancerPolicy:[AWSElasticLoadBalancingCreateLoadBalancerPolicyInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -319,8 +463,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testCreateTargetGroupCompletionHandler {
-    NSString *key = @"testCreateTargetGroup";
+- (void)testCreateLoadBalancerPolicyCompletionHandler {
+    NSString *key = @"testCreateLoadBalancerPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -331,55 +475,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createTargetGroup:[AWSElasticLoadBalancingCreateTargetGroupInput new] completionHandler:^(AWSElasticLoadBalancingCreateTargetGroupOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDeleteListener {
-    NSString *key = @"testDeleteListener";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteListener:[AWSElasticLoadBalancingDeleteListenerInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDeleteListenerCompletionHandler {
-    NSString *key = @"testDeleteListener";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteListener:[AWSElasticLoadBalancingDeleteListenerInput new] completionHandler:^(AWSElasticLoadBalancingDeleteListenerOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] createLoadBalancerPolicy:[AWSElasticLoadBalancingCreateLoadBalancerPolicyInput new] completionHandler:^(AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -402,7 +498,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancer:[AWSElasticLoadBalancingDeleteLoadBalancerInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancer:[AWSElasticLoadBalancingDeleteAccessPointInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -427,7 +523,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancer:[AWSElasticLoadBalancingDeleteLoadBalancerInput new] completionHandler:^(AWSElasticLoadBalancingDeleteLoadBalancerOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancer:[AWSElasticLoadBalancingDeleteAccessPointInput new] completionHandler:^(AWSElasticLoadBalancingDeleteAccessPointOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -441,8 +537,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeleteRule {
-    NSString *key = @"testDeleteRule";
+- (void)testDeleteLoadBalancerListeners {
+    NSString *key = @"testDeleteLoadBalancerListeners";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -450,7 +546,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteRule:[AWSElasticLoadBalancingDeleteRuleInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancerListeners:[AWSElasticLoadBalancingDeleteLoadBalancerListenerInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -463,8 +559,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeleteRuleCompletionHandler {
-    NSString *key = @"testDeleteRule";
+- (void)testDeleteLoadBalancerListenersCompletionHandler {
+    NSString *key = @"testDeleteLoadBalancerListeners";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -475,7 +571,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteRule:[AWSElasticLoadBalancingDeleteRuleInput new] completionHandler:^(AWSElasticLoadBalancingDeleteRuleOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancerListeners:[AWSElasticLoadBalancingDeleteLoadBalancerListenerInput new] completionHandler:^(AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -489,8 +585,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeleteTargetGroup {
-    NSString *key = @"testDeleteTargetGroup";
+- (void)testDeleteLoadBalancerPolicy {
+    NSString *key = @"testDeleteLoadBalancerPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -498,7 +594,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteTargetGroup:[AWSElasticLoadBalancingDeleteTargetGroupInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancerPolicy:[AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -511,8 +607,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeleteTargetGroupCompletionHandler {
-    NSString *key = @"testDeleteTargetGroup";
+- (void)testDeleteLoadBalancerPolicyCompletionHandler {
+    NSString *key = @"testDeleteLoadBalancerPolicy";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -523,7 +619,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteTargetGroup:[AWSElasticLoadBalancingDeleteTargetGroupInput new] completionHandler:^(AWSElasticLoadBalancingDeleteTargetGroupOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deleteLoadBalancerPolicy:[AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput new] completionHandler:^(AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -537,8 +633,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeregisterTargets {
-    NSString *key = @"testDeregisterTargets";
+- (void)testDeregisterInstancesFromLoadBalancer {
+    NSString *key = @"testDeregisterInstancesFromLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -546,7 +642,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deregisterTargets:[AWSElasticLoadBalancingDeregisterTargetsInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deregisterInstancesFromLoadBalancer:[AWSElasticLoadBalancingDeregisterEndPointsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -559,8 +655,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDeregisterTargetsCompletionHandler {
-    NSString *key = @"testDeregisterTargets";
+- (void)testDeregisterInstancesFromLoadBalancerCompletionHandler {
+    NSString *key = @"testDeregisterInstancesFromLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -571,7 +667,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deregisterTargets:[AWSElasticLoadBalancingDeregisterTargetsInput new] completionHandler:^(AWSElasticLoadBalancingDeregisterTargetsOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] deregisterInstancesFromLoadBalancer:[AWSElasticLoadBalancingDeregisterEndPointsInput new] completionHandler:^(AWSElasticLoadBalancingDeregisterEndPointsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -633,8 +729,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeListenerCertificates {
-    NSString *key = @"testDescribeListenerCertificates";
+- (void)testDescribeInstanceHealth {
+    NSString *key = @"testDescribeInstanceHealth";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -642,7 +738,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeListenerCertificates:[AWSElasticLoadBalancingDescribeListenerCertificatesInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeInstanceHealth:[AWSElasticLoadBalancingDescribeEndPointStateInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -655,8 +751,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeListenerCertificatesCompletionHandler {
-    NSString *key = @"testDescribeListenerCertificates";
+- (void)testDescribeInstanceHealthCompletionHandler {
+    NSString *key = @"testDescribeInstanceHealth";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -667,55 +763,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeListenerCertificates:[AWSElasticLoadBalancingDescribeListenerCertificatesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeListenerCertificatesOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeListeners {
-    NSString *key = @"testDescribeListeners";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeListeners:[AWSElasticLoadBalancingDescribeListenersInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeListenersCompletionHandler {
-    NSString *key = @"testDescribeListeners";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeListeners:[AWSElasticLoadBalancingDescribeListenersInput new] completionHandler:^(AWSElasticLoadBalancingDescribeListenersOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeInstanceHealth:[AWSElasticLoadBalancingDescribeEndPointStateInput new] completionHandler:^(AWSElasticLoadBalancingDescribeEndPointStateOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -777,6 +825,102 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
+- (void)testDescribeLoadBalancerPolicies {
+    NSString *key = @"testDescribeLoadBalancerPolicies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancerPolicies:[AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testDescribeLoadBalancerPoliciesCompletionHandler {
+    NSString *key = @"testDescribeLoadBalancerPolicies";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancerPolicies:[AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testDescribeLoadBalancerPolicyTypes {
+    NSString *key = @"testDescribeLoadBalancerPolicyTypes";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancerPolicyTypes:[AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
+- (void)testDescribeLoadBalancerPolicyTypesCompletionHandler {
+    NSString *key = @"testDescribeLoadBalancerPolicyTypes";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
+
+    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancerPolicyTypes:[AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
+}
+
 - (void)testDescribeLoadBalancers {
     NSString *key = @"testDescribeLoadBalancers";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -786,7 +930,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancers:[AWSElasticLoadBalancingDescribeLoadBalancersInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancers:[AWSElasticLoadBalancingDescribeAccessPointsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -811,103 +955,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancers:[AWSElasticLoadBalancingDescribeLoadBalancersInput new] completionHandler:^(AWSElasticLoadBalancingDescribeLoadBalancersOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeRules {
-    NSString *key = @"testDescribeRules";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeRules:[AWSElasticLoadBalancingDescribeRulesInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeRulesCompletionHandler {
-    NSString *key = @"testDescribeRules";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeRules:[AWSElasticLoadBalancingDescribeRulesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeRulesOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeSSLPolicies {
-    NSString *key = @"testDescribeSSLPolicies";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeSSLPolicies:[AWSElasticLoadBalancingDescribeSSLPoliciesInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testDescribeSSLPoliciesCompletionHandler {
-    NSString *key = @"testDescribeSSLPolicies";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeSSLPolicies:[AWSElasticLoadBalancingDescribeSSLPoliciesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeSSLPoliciesOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeLoadBalancers:[AWSElasticLoadBalancingDescribeAccessPointsInput new] completionHandler:^(AWSElasticLoadBalancingDescribeAccessPointsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -969,8 +1017,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetGroupAttributes {
-    NSString *key = @"testDescribeTargetGroupAttributes";
+- (void)testDetachLoadBalancerFromSubnets {
+    NSString *key = @"testDetachLoadBalancerFromSubnets";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -978,7 +1026,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetGroupAttributes:[AWSElasticLoadBalancingDescribeTargetGroupAttributesInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] detachLoadBalancerFromSubnets:[AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -991,8 +1039,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetGroupAttributesCompletionHandler {
-    NSString *key = @"testDescribeTargetGroupAttributes";
+- (void)testDetachLoadBalancerFromSubnetsCompletionHandler {
+    NSString *key = @"testDetachLoadBalancerFromSubnets";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1003,7 +1051,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetGroupAttributes:[AWSElasticLoadBalancingDescribeTargetGroupAttributesInput new] completionHandler:^(AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] detachLoadBalancerFromSubnets:[AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput new] completionHandler:^(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1017,8 +1065,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetGroups {
-    NSString *key = @"testDescribeTargetGroups";
+- (void)testDisableAvailabilityZonesForLoadBalancer {
+    NSString *key = @"testDisableAvailabilityZonesForLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1026,7 +1074,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetGroups:[AWSElasticLoadBalancingDescribeTargetGroupsInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] disableAvailabilityZonesForLoadBalancer:[AWSElasticLoadBalancingRemoveAvailabilityZonesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1039,8 +1087,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetGroupsCompletionHandler {
-    NSString *key = @"testDescribeTargetGroups";
+- (void)testDisableAvailabilityZonesForLoadBalancerCompletionHandler {
+    NSString *key = @"testDisableAvailabilityZonesForLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1051,7 +1099,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetGroups:[AWSElasticLoadBalancingDescribeTargetGroupsInput new] completionHandler:^(AWSElasticLoadBalancingDescribeTargetGroupsOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] disableAvailabilityZonesForLoadBalancer:[AWSElasticLoadBalancingRemoveAvailabilityZonesInput new] completionHandler:^(AWSElasticLoadBalancingRemoveAvailabilityZonesOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1065,8 +1113,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetHealth {
-    NSString *key = @"testDescribeTargetHealth";
+- (void)testEnableAvailabilityZonesForLoadBalancer {
+    NSString *key = @"testEnableAvailabilityZonesForLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1074,7 +1122,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetHealth:[AWSElasticLoadBalancingDescribeTargetHealthInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] enableAvailabilityZonesForLoadBalancer:[AWSElasticLoadBalancingAddAvailabilityZonesInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1087,8 +1135,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testDescribeTargetHealthCompletionHandler {
-    NSString *key = @"testDescribeTargetHealth";
+- (void)testEnableAvailabilityZonesForLoadBalancerCompletionHandler {
+    NSString *key = @"testEnableAvailabilityZonesForLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1099,55 +1147,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] describeTargetHealth:[AWSElasticLoadBalancingDescribeTargetHealthInput new] completionHandler:^(AWSElasticLoadBalancingDescribeTargetHealthOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyListener {
-    NSString *key = @"testModifyListener";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyListener:[AWSElasticLoadBalancingModifyListenerInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyListenerCompletionHandler {
-    NSString *key = @"testModifyListener";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyListener:[AWSElasticLoadBalancingModifyListenerInput new] completionHandler:^(AWSElasticLoadBalancingModifyListenerOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] enableAvailabilityZonesForLoadBalancer:[AWSElasticLoadBalancingAddAvailabilityZonesInput new] completionHandler:^(AWSElasticLoadBalancingAddAvailabilityZonesOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1209,8 +1209,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testModifyRule {
-    NSString *key = @"testModifyRule";
+- (void)testRegisterInstancesWithLoadBalancer {
+    NSString *key = @"testRegisterInstancesWithLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1218,7 +1218,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyRule:[AWSElasticLoadBalancingModifyRuleInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] registerInstancesWithLoadBalancer:[AWSElasticLoadBalancingRegisterEndPointsInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1231,8 +1231,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testModifyRuleCompletionHandler {
-    NSString *key = @"testModifyRule";
+- (void)testRegisterInstancesWithLoadBalancerCompletionHandler {
+    NSString *key = @"testRegisterInstancesWithLoadBalancer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1243,199 +1243,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyRule:[AWSElasticLoadBalancingModifyRuleInput new] completionHandler:^(AWSElasticLoadBalancingModifyRuleOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyTargetGroup {
-    NSString *key = @"testModifyTargetGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyTargetGroup:[AWSElasticLoadBalancingModifyTargetGroupInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyTargetGroupCompletionHandler {
-    NSString *key = @"testModifyTargetGroup";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyTargetGroup:[AWSElasticLoadBalancingModifyTargetGroupInput new] completionHandler:^(AWSElasticLoadBalancingModifyTargetGroupOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyTargetGroupAttributes {
-    NSString *key = @"testModifyTargetGroupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyTargetGroupAttributes:[AWSElasticLoadBalancingModifyTargetGroupAttributesInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testModifyTargetGroupAttributesCompletionHandler {
-    NSString *key = @"testModifyTargetGroupAttributes";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] modifyTargetGroupAttributes:[AWSElasticLoadBalancingModifyTargetGroupAttributesInput new] completionHandler:^(AWSElasticLoadBalancingModifyTargetGroupAttributesOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testRegisterTargets {
-    NSString *key = @"testRegisterTargets";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] registerTargets:[AWSElasticLoadBalancingRegisterTargetsInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testRegisterTargetsCompletionHandler {
-    NSString *key = @"testRegisterTargets";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] registerTargets:[AWSElasticLoadBalancingRegisterTargetsInput new] completionHandler:^(AWSElasticLoadBalancingRegisterTargetsOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testRemoveListenerCertificates {
-    NSString *key = @"testRemoveListenerCertificates";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] removeListenerCertificates:[AWSElasticLoadBalancingRemoveListenerCertificatesInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testRemoveListenerCertificatesCompletionHandler {
-    NSString *key = @"testRemoveListenerCertificates";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] removeListenerCertificates:[AWSElasticLoadBalancingRemoveListenerCertificatesInput new] completionHandler:^(AWSElasticLoadBalancingRemoveListenerCertificatesOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] registerInstancesWithLoadBalancer:[AWSElasticLoadBalancingRegisterEndPointsInput new] completionHandler:^(AWSElasticLoadBalancingRegisterEndPointsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1497,8 +1305,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetIpAddressType {
-    NSString *key = @"testSetIpAddressType";
+- (void)testSetLoadBalancerListenerSSLCertificate {
+    NSString *key = @"testSetLoadBalancerListenerSSLCertificate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1506,7 +1314,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setIpAddressType:[AWSElasticLoadBalancingSetIpAddressTypeInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerListenerSSLCertificate:[AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1519,8 +1327,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetIpAddressTypeCompletionHandler {
-    NSString *key = @"testSetIpAddressType";
+- (void)testSetLoadBalancerListenerSSLCertificateCompletionHandler {
+    NSString *key = @"testSetLoadBalancerListenerSSLCertificate";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1531,7 +1339,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setIpAddressType:[AWSElasticLoadBalancingSetIpAddressTypeInput new] completionHandler:^(AWSElasticLoadBalancingSetIpAddressTypeOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerListenerSSLCertificate:[AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput new] completionHandler:^(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1545,8 +1353,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetRulePriorities {
-    NSString *key = @"testSetRulePriorities";
+- (void)testSetLoadBalancerPoliciesForBackendServer {
+    NSString *key = @"testSetLoadBalancerPoliciesForBackendServer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1554,7 +1362,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setRulePriorities:[AWSElasticLoadBalancingSetRulePrioritiesInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerPoliciesForBackendServer:[AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1567,8 +1375,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetRulePrioritiesCompletionHandler {
-    NSString *key = @"testSetRulePriorities";
+- (void)testSetLoadBalancerPoliciesForBackendServerCompletionHandler {
+    NSString *key = @"testSetLoadBalancerPoliciesForBackendServer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1579,7 +1387,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setRulePriorities:[AWSElasticLoadBalancingSetRulePrioritiesInput new] completionHandler:^(AWSElasticLoadBalancingSetRulePrioritiesOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerPoliciesForBackendServer:[AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput new] completionHandler:^(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1593,8 +1401,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetSecurityGroups {
-    NSString *key = @"testSetSecurityGroups";
+- (void)testSetLoadBalancerPoliciesOfListener {
+    NSString *key = @"testSetLoadBalancerPoliciesOfListener";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1602,7 +1410,7 @@ static id mockNetworking = nil;
     XCTAssertNotNil(awsClient);
     XCTAssertNotNil(mockNetworking);
     [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setSecurityGroups:[AWSElasticLoadBalancingSetSecurityGroupsInput new]] continueWithBlock:^id(AWSTask *task) {
+    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerPoliciesOfListener:[AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput new]] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
         XCTAssertEqual(8848, task.error.code);
@@ -1615,8 +1423,8 @@ static id mockNetworking = nil;
     [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
 }
 
-- (void)testSetSecurityGroupsCompletionHandler {
-    NSString *key = @"testSetSecurityGroups";
+- (void)testSetLoadBalancerPoliciesOfListenerCompletionHandler {
+    NSString *key = @"testSetLoadBalancerPoliciesOfListener";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
     [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
 
@@ -1627,55 +1435,7 @@ static id mockNetworking = nil;
 
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setSecurityGroups:[AWSElasticLoadBalancingSetSecurityGroupsInput new] completionHandler:^(AWSElasticLoadBalancingSetSecurityGroupsOutput* _Nullable response, NSError * _Nullable error) {
-        XCTAssertNotNil(error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
-        XCTAssertEqual(8848, error.code);
-        XCTAssertNil(response);
-        dispatch_semaphore_signal(semaphore);
-    }];
-	
- 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testSetSubnets {
-    NSString *key = @"testSetSubnets";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-    [[[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setSubnets:[AWSElasticLoadBalancingSetSubnetsInput new]] continueWithBlock:^id(AWSTask *task) {
-        XCTAssertNotNil(task.error);
-        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
-        XCTAssertEqual(8848, task.error.code);
-        XCTAssertNil(task.result);
-        return nil;
-    }] waitUntilFinished];
-
-    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
-
-    [AWSElasticLoadBalancing removeElasticLoadBalancingForKey:key];
-}
-
-- (void)testSetSubnetsCompletionHandler {
-    NSString *key = @"testSetSubnets";
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
-    [AWSElasticLoadBalancing registerElasticLoadBalancingWithConfiguration:configuration forKey:key];
-
-    AWSElasticLoadBalancing *awsClient = [AWSElasticLoadBalancing ElasticLoadBalancingForKey:key];
-    XCTAssertNotNil(awsClient);
-    XCTAssertNotNil(mockNetworking);
-    [awsClient setValue:mockNetworking forKey:@"networking"];
-
-    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
-
-	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setSubnets:[AWSElasticLoadBalancingSetSubnetsInput new] completionHandler:^(AWSElasticLoadBalancingSetSubnetsOutput* _Nullable response, NSError * _Nullable error) {
+	[[AWSElasticLoadBalancing ElasticLoadBalancingForKey:key] setLoadBalancerPoliciesOfListener:[AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput new] completionHandler:^(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
