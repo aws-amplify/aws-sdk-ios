@@ -1,3 +1,15 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSCognitoIdentity
+---AWSCognitoIdentityProvider
+---AWSComprehend
+---AWSConnect
+---AWSConnectParticipant
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
