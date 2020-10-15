@@ -119,7 +119,8 @@
         {\"shape\":\"ClientLimitExceededException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"AccessDeniedException\"},\
-        {\"shape\":\"VersionMismatchException\"}\
+        {\"shape\":\"VersionMismatchException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
       ],\
       \"documentation\":\"<p>Deletes a specified signaling channel. <code>DeleteSignalingChannel</code> is an asynchronous operation. If you don't specify the channel's current version, the most recent version is deleted.</p>\"\
     },\
@@ -136,7 +137,8 @@
         {\"shape\":\"InvalidArgumentException\"},\
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"NotAuthorizedException\"},\
-        {\"shape\":\"VersionMismatchException\"}\
+        {\"shape\":\"VersionMismatchException\"},\
+        {\"shape\":\"ResourceInUseException\"}\
       ],\
       \"documentation\":\"<p>Deletes a Kinesis video stream and the data contained in the stream. </p> <p>This method marks the stream for deletion, and makes the data in the stream inaccessible immediately.</p> <p> </p> <p> To ensure that you have the latest version of the stream before deleting it, you can specify the stream version. Kinesis Video Streams assigns a version to each stream. When you update a stream, Kinesis Video Streams assigns a new version number. To get the latest stream version, use the <code>DescribeStream</code> API. </p> <p>This operation requires permission for the <code>KinesisVideo:DeleteStream</code> action.</p>\"\
     },\
@@ -154,7 +156,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Returns the most current information about the signaling channel. You must specify either the name or the ARN of the channel that you want to describe.</p>\"\
+      \"documentation\":\"<p>Returns the most current information about the signaling channel. You must specify either the name or the Amazon Resource Name (ARN) of the channel that you want to describe.</p>\"\
     },\
     \"DescribeStream\":{\
       \"name\":\"DescribeStream\",\
@@ -203,7 +205,7 @@
         {\"shape\":\"ResourceInUseException\"},\
         {\"shape\":\"AccessDeniedException\"}\
       ],\
-      \"documentation\":\"<p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, specifying <code>WSS</code> as the protocol, results in this API producing a secure websocket endpoint, and specifying <code>HTTPS</code> as the protocol, results in this API generating an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>\"\
+      \"documentation\":\"<p>Provides an endpoint for the specified signaling channel to send and receive messages. This API uses the <code>SingleMasterChannelEndpointConfiguration</code> input parameter, which consists of the <code>Protocols</code> and <code>Role</code> properties.</p> <p> <code>Protocols</code> is used to determine the communication mechanism. For example, if you specify <code>WSS</code> as the protocol, this API produces a secure websocket endpoint. If you specify <code>HTTPS</code> as the protocol, this API generates an HTTPS endpoint. </p> <p> <code>Role</code> determines the messaging permissions. A <code>MASTER</code> role results in this API generating an endpoint that a client can use to communicate with any of the viewers on the channel. A <code>VIEWER</code> role results in this API generating an endpoint that a client can use to communicate only with a <code>MASTER</code>. </p>\"\
     },\
     \"ListSignalingChannels\":{\
       \"name\":\"ListSignalingChannels\",\
@@ -369,7 +371,7 @@
         {\"shape\":\"AccessDeniedException\"},\
         {\"shape\":\"VersionMismatchException\"}\
       ],\
-      \"documentation\":\"<p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p> <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), then it only applies to new messages sent via this channel after it's been updated. Existing messages are still expire as per the previous <code>MessageTtlSeconds</code> value.</p>\"\
+      \"documentation\":\"<p>Updates the existing signaling channel. This is an asynchronous operation and takes time to complete. </p> <p>If the <code>MessageTtlSeconds</code> value is updated (either increased or reduced), it only applies to new messages sent via this channel after it's been updated. Existing messages are still expired as per the previous <code>MessageTtlSeconds</code> value.</p>\"\
     },\
     \"UpdateStream\":{\
       \"name\":\"UpdateStream\",\
@@ -399,7 +401,8 @@
         \"LIST_FRAGMENTS\",\
         \"GET_MEDIA_FOR_FRAGMENT_LIST\",\
         \"GET_HLS_STREAMING_SESSION_URL\",\
-        \"GET_DASH_STREAMING_SESSION_URL\"\
+        \"GET_DASH_STREAMING_SESSION_URL\",\
+        \"GET_CLIP\"\
       ]\
     },\
     \"AccessDeniedException\":{\
@@ -438,7 +441,7 @@
         },\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel.</p>\"\
         },\
         \"ChannelType\":{\
           \"shape\":\"ChannelType\",\
@@ -524,7 +527,7 @@
       \"members\":{\
         \"ChannelName\":{\
           \"shape\":\"ChannelName\",\
-          \"documentation\":\"<p>A name for the signaling channel that you are creating. It must be unique for each account and region.</p>\"\
+          \"documentation\":\"<p>A name for the signaling channel that you are creating. It must be unique for each AWS account and AWS Region.</p>\"\
         },\
         \"ChannelType\":{\
           \"shape\":\"ChannelType\",\
@@ -536,7 +539,7 @@
         },\
         \"Tags\":{\
           \"shape\":\"TagOnCreateList\",\
-          \"documentation\":\"<p>A set of tags (key/value pairs) that you want to associate with this channel.</p>\"\
+          \"documentation\":\"<p>A set of tags (key-value pairs) that you want to associate with this channel.</p>\"\
         }\
       }\
     },\
@@ -545,7 +548,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the created channel.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the created channel.</p>\"\
         }\
       }\
     },\
@@ -603,11 +606,11 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel that you want to delete.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel that you want to delete.</p>\"\
         },\
         \"CurrentVersion\":{\
           \"shape\":\"Version\",\
-          \"documentation\":\"<p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> APIs.</p>\"\
+          \"documentation\":\"<p>The current version of the signaling channel that you want to delete. You can obtain the current version by invoking the <code>DescribeSignalingChannel</code> or <code>ListSignalingChannels</code> API operations.</p>\"\
         }\
       }\
     },\
@@ -728,7 +731,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signalling channel for which you want to get an endpoint.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signalling channel for which you want to get an endpoint.</p>\"\
         },\
         \"SingleMasterChannelEndpointConfiguration\":{\
           \"shape\":\"SingleMasterChannelEndpointConfiguration\",\
@@ -775,7 +778,8 @@
     \"KmsKeyId\":{\
       \"type\":\"string\",\
       \"max\":2048,\
-      \"min\":1\
+      \"min\":1,\
+      \"pattern\":\".+\"\
     },\
     \"ListOfProtocols\":{\
       \"type\":\"list\",\
@@ -854,11 +858,11 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>\"\
+          \"documentation\":\"<p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next batch of tags. </p>\"\
         },\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel for which you want to list tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel for which you want to list tags.</p>\"\
         }\
       }\
     },\
@@ -867,7 +871,7 @@
       \"members\":{\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>If you specify this parameter and the result of a ListTagsForResource call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>\"\
+          \"documentation\":\"<p>If you specify this parameter and the result of a <code>ListTagsForResource</code> call is truncated, the response includes a token that you can use in the next request to fetch the next set of tags. </p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"ResourceTags\",\
@@ -961,7 +965,7 @@
       \"members\":{\
         \"Message\":{\"shape\":\"ErrorMessage\"}\
       },\
-      \"documentation\":\"<p>The stream is currently not available for this operation.</p>\",\
+      \"documentation\":\"<p>The signaling channel is currently not available for this operation.</p>\",\
       \"error\":{\"httpStatusCode\":400},\
       \"exception\":true\
     },\
@@ -1131,7 +1135,7 @@
       \"members\":{\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel to which you want to add tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel to which you want to add tags.</p>\"\
         },\
         \"Tags\":{\
           \"shape\":\"TagList\",\
@@ -1192,7 +1196,7 @@
       \"members\":{\
         \"ResourceARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel from which you want to remove tags.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel from which you want to remove tags.</p>\"\
         },\
         \"TagKeyList\":{\
           \"shape\":\"TagKeyList\",\
@@ -1279,7 +1283,7 @@
       \"members\":{\
         \"ChannelARN\":{\
           \"shape\":\"ResourceARN\",\
-          \"documentation\":\"<p>The ARN of the signaling channel that you want to update.</p>\"\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the signaling channel that you want to update.</p>\"\
         },\
         \"CurrentVersion\":{\
           \"shape\":\"Version\",\
