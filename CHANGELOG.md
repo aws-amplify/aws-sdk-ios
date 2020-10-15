@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+### New Features
+- The following models now support `NSSecureCoding`:
+  - AWS Auto Scaling
+
 ### Misc. Updates
 - **AWSAuthSDK**
   - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
