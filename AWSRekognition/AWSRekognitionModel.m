@@ -412,6 +412,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionCoversBodyPart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionCreateCollectionRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1232,6 +1247,53 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionDetectProtectiveEquipmentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"image" : @"Image",
+             @"summarizationAttributes" : @"SummarizationAttributes",
+             };
+}
+
++ (NSValueTransformer *)imageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionImage class]];
+}
+
++ (NSValueTransformer *)summarizationAttributesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionProtectiveEquipmentSummarizationAttributes class]];
+}
+
+@end
+
+@implementation AWSRekognitionDetectProtectiveEquipmentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"persons" : @"Persons",
+             @"protectiveEquipmentModelVersion" : @"ProtectiveEquipmentModelVersion",
+             @"summary" : @"Summary",
+             };
+}
+
++ (NSValueTransformer *)personsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionProtectiveEquipmentPerson class]];
+}
+
++ (NSValueTransformer *)summaryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionProtectiveEquipmentSummary class]];
+}
+
+@end
+
 @implementation AWSRekognitionDetectTextFilters
 
 + (BOOL)supportsSecureCoding {
@@ -1376,6 +1438,57 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"UNKNOWN";
             case AWSRekognitionEmotionNameFear:
                 return @"FEAR";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionEquipmentDetection
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"boundingBox" : @"BoundingBox",
+             @"confidence" : @"Confidence",
+             @"coversBodyPart" : @"CoversBodyPart",
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
++ (NSValueTransformer *)coversBodyPartJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionCoversBodyPart class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FACE_COVER"] == NSOrderedSame) {
+            return @(AWSRekognitionProtectiveEquipmentTypeFaceCover);
+        }
+        if ([value caseInsensitiveCompare:@"HAND_COVER"] == NSOrderedSame) {
+            return @(AWSRekognitionProtectiveEquipmentTypeHandCover);
+        }
+        if ([value caseInsensitiveCompare:@"HEAD_COVER"] == NSOrderedSame) {
+            return @(AWSRekognitionProtectiveEquipmentTypeHeadCover);
+        }
+        return @(AWSRekognitionProtectiveEquipmentTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionProtectiveEquipmentTypeFaceCover:
+                return @"FACE_COVER";
+            case AWSRekognitionProtectiveEquipmentTypeHandCover:
+                return @"HAND_COVER";
+            case AWSRekognitionProtectiveEquipmentTypeHeadCover:
+                return @"HEAD_COVER";
             default:
                 return nil;
         }
@@ -3307,6 +3420,113 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
+@end
+
+@implementation AWSRekognitionProtectiveEquipmentBodyPart
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"equipmentDetections" : @"EquipmentDetections",
+             @"name" : @"Name",
+             };
+}
+
++ (NSValueTransformer *)equipmentDetectionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionEquipmentDetection class]];
+}
+
++ (NSValueTransformer *)nameJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FACE"] == NSOrderedSame) {
+            return @(AWSRekognitionBodyPartFace);
+        }
+        if ([value caseInsensitiveCompare:@"HEAD"] == NSOrderedSame) {
+            return @(AWSRekognitionBodyPartHead);
+        }
+        if ([value caseInsensitiveCompare:@"LEFT_HAND"] == NSOrderedSame) {
+            return @(AWSRekognitionBodyPartLeftHand);
+        }
+        if ([value caseInsensitiveCompare:@"RIGHT_HAND"] == NSOrderedSame) {
+            return @(AWSRekognitionBodyPartRightHand);
+        }
+        return @(AWSRekognitionBodyPartUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionBodyPartFace:
+                return @"FACE";
+            case AWSRekognitionBodyPartHead:
+                return @"HEAD";
+            case AWSRekognitionBodyPartLeftHand:
+                return @"LEFT_HAND";
+            case AWSRekognitionBodyPartRightHand:
+                return @"RIGHT_HAND";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSRekognitionProtectiveEquipmentPerson
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"bodyParts" : @"BodyParts",
+             @"boundingBox" : @"BoundingBox",
+             @"confidence" : @"Confidence",
+             @"identifier" : @"Id",
+             };
+}
+
++ (NSValueTransformer *)bodyPartsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionProtectiveEquipmentBodyPart class]];
+}
+
++ (NSValueTransformer *)boundingBoxJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
+@end
+
+@implementation AWSRekognitionProtectiveEquipmentSummarizationAttributes
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"minConfidence" : @"MinConfidence",
+             @"requiredEquipmentTypes" : @"RequiredEquipmentTypes",
+             };
+}
+
+@end
+
+@implementation AWSRekognitionProtectiveEquipmentSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"personsIndeterminate" : @"PersonsIndeterminate",
+             @"personsWithRequiredEquipment" : @"PersonsWithRequiredEquipment",
+             @"personsWithoutRequiredEquipment" : @"PersonsWithoutRequiredEquipment",
+             };
 }
 
 @end

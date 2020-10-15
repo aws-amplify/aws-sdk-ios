@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionErrorType) {
     AWSRekognitionErrorResourceInUse,
     AWSRekognitionErrorResourceNotFound,
     AWSRekognitionErrorResourceNotReady,
+    AWSRekognitionErrorServiceQuotaExceeded,
     AWSRekognitionErrorThrottling,
     AWSRekognitionErrorVideoTooLarge,
 };
@@ -46,6 +47,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionAttribute) {
     AWSRekognitionAttributeUnknown,
     AWSRekognitionAttributeDefault,
     AWSRekognitionAttributeAll,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionBodyPart) {
+    AWSRekognitionBodyPartUnknown,
+    AWSRekognitionBodyPartFace,
+    AWSRekognitionBodyPartHead,
+    AWSRekognitionBodyPartLeftHand,
+    AWSRekognitionBodyPartRightHand,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionCelebrityRecognitionSortBy) {
@@ -170,6 +179,13 @@ typedef NS_ENUM(NSInteger, AWSRekognitionProjectVersionStatus) {
     AWSRekognitionProjectVersionStatusDeleting,
 };
 
+typedef NS_ENUM(NSInteger, AWSRekognitionProtectiveEquipmentType) {
+    AWSRekognitionProtectiveEquipmentTypeUnknown,
+    AWSRekognitionProtectiveEquipmentTypeFaceCover,
+    AWSRekognitionProtectiveEquipmentTypeHandCover,
+    AWSRekognitionProtectiveEquipmentTypeHeadCover,
+};
+
 typedef NS_ENUM(NSInteger, AWSRekognitionQualityFilter) {
     AWSRekognitionQualityFilterUnknown,
     AWSRekognitionQualityFilterNone,
@@ -239,6 +255,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionComparedFace;
 @class AWSRekognitionComparedSourceImageFace;
 @class AWSRekognitionContentModerationDetection;
+@class AWSRekognitionCoversBodyPart;
 @class AWSRekognitionCreateCollectionRequest;
 @class AWSRekognitionCreateCollectionResponse;
 @class AWSRekognitionCreateProjectRequest;
@@ -274,11 +291,14 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionDetectLabelsResponse;
 @class AWSRekognitionDetectModerationLabelsRequest;
 @class AWSRekognitionDetectModerationLabelsResponse;
+@class AWSRekognitionDetectProtectiveEquipmentRequest;
+@class AWSRekognitionDetectProtectiveEquipmentResponse;
 @class AWSRekognitionDetectTextFilters;
 @class AWSRekognitionDetectTextRequest;
 @class AWSRekognitionDetectTextResponse;
 @class AWSRekognitionDetectionFilter;
 @class AWSRekognitionEmotion;
+@class AWSRekognitionEquipmentDetection;
 @class AWSRekognitionEvaluationResult;
 @class AWSRekognitionEyeOpen;
 @class AWSRekognitionEyeglasses;
@@ -341,6 +361,10 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionPose;
 @class AWSRekognitionProjectDescription;
 @class AWSRekognitionProjectVersionDescription;
+@class AWSRekognitionProtectiveEquipmentBodyPart;
+@class AWSRekognitionProtectiveEquipmentPerson;
+@class AWSRekognitionProtectiveEquipmentSummarizationAttributes;
+@class AWSRekognitionProtectiveEquipmentSummary;
 @class AWSRekognitionRecognizeCelebritiesRequest;
 @class AWSRekognitionRecognizeCelebritiesResponse;
 @class AWSRekognitionRegionOfInterest;
@@ -477,7 +501,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Identifies the bounding box around the label, face, or text. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
+ <p>Identifies the bounding box around the label, face, text or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
  */
 @interface AWSRekognitionBoundingBox : AWSModel
 
@@ -738,6 +762,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
+
+@end
+
+/**
+ <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more information, see <a>DetectProtectiveEquipment</a>.</p>
+ */
+@interface AWSRekognitionCoversBodyPart : AWSModel
+
+
+/**
+ <p>The confidence that Amazon Rekognition has in the value of <code>Value</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>True if the PPE covers the corresponding body part, otherwise false.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable value;
 
 @end
 
@@ -1412,6 +1454,47 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSRekognitionDetectProtectiveEquipmentRequest : AWSRequest
+
+
+/**
+ <p>The image in which you want to detect PPE on detected persons. The image can be passed as image bytes or you can reference an image stored in an Amazon S3 bucket. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionImage * _Nullable image;
+
+/**
+ <p>An array of PPE types that you want to summarize.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionProtectiveEquipmentSummarizationAttributes * _Nullable summarizationAttributes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionDetectProtectiveEquipmentResponse : AWSModel
+
+
+/**
+ <p>An array of persons detected in the image (including persons not wearing PPE).</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionProtectiveEquipmentPerson *> * _Nullable persons;
+
+/**
+ <p>The version number of the PPE detection model used to detect PPE in the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protectiveEquipmentModelVersion;
+
+/**
+ <p>Summary information for the types of PPE specified in the <code>SummarizationAttributes</code> input parameter.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionProtectiveEquipmentSummary * _Nullable summary;
+
+@end
+
+/**
  <p>A set of optional parameters that you can use to set the criteria that the text must meet to be included in your response. <code>WordFilter</code> looks at a word’s height, width, and minimum confidence. <code>RegionOfInterest</code> lets you set a specific region of the image to look for text in. </p>
  */
 @interface AWSRekognitionDetectTextFilters : AWSModel
@@ -1503,6 +1586,34 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Type of emotion detected.</p>
  */
 @property (nonatomic, assign) AWSRekognitionEmotionName types;
+
+@end
+
+/**
+ <p>Information about an item of Personal Protective Equipment (PPE) detected by <a>DetectProtectiveEquipment</a>. For more information, see <a>DetectProtectiveEquipment</a>.</p>
+ */
+@interface AWSRekognitionEquipmentDetection : AWSModel
+
+
+/**
+ <p>A bounding box surrounding the item of detected PPE.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>The confidence that Amazon Rekognition has that the bounding box (<code>BoundingBox</code>) contains an item of PPE.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Information about the body part covered by the detected PPE.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionCoversBodyPart * _Nullable coversBodyPart;
+
+/**
+ <p>The type of detected PPE.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionProtectiveEquipmentType types;
 
 @end
 
@@ -3026,6 +3137,99 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The Unix date and time that training of the model ended.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable trainingEndTimestamp;
+
+@end
+
+/**
+ <p>Information about a body part detected by <a>DetectProtectiveEquipment</a> that contains PPE. An array of <code>ProtectiveEquipmentBodyPart</code> objects is returned for each person detected by <code>DetectProtectiveEquipment</code>. </p>
+ */
+@interface AWSRekognitionProtectiveEquipmentBodyPart : AWSModel
+
+
+/**
+ <p>The confidence that Amazon Rekognition has in the detection accuracy of the detected body part. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>An array of Personal Protective Equipment items detected around a body part.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionEquipmentDetection *> * _Nullable equipmentDetections;
+
+/**
+ <p>The detected body part.</p>
+ */
+@property (nonatomic, assign) AWSRekognitionBodyPart name;
+
+@end
+
+/**
+ <p>A person detected by a call to <a>DetectProtectiveEquipment</a>. The API returns all persons detected in the input image in an array of <code>ProtectiveEquipmentPerson</code> objects.</p>
+ */
+@interface AWSRekognitionProtectiveEquipmentPerson : AWSModel
+
+
+/**
+ <p>An array of body parts detected on a person's body (including body parts without PPE). </p>
+ */
+@property (nonatomic, strong) NSArray<AWSRekognitionProtectiveEquipmentBodyPart *> * _Nullable bodyParts;
+
+/**
+ <p>A bounding box around the detected person.</p>
+ */
+@property (nonatomic, strong) AWSRekognitionBoundingBox * _Nullable boundingBox;
+
+/**
+ <p>The confidence that Amazon Rekognition has that the bounding box contains a person.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The identifier for the detected person. The identifier is only unique for a single call to <code>DetectProtectiveEquipment</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable identifier;
+
+@end
+
+/**
+ <p>Specifies summary attributes to return from a call to <a>DetectProtectiveEquipment</a>. You can specify which types of PPE to summarize. You can also specify a minimum confidence value for detections. Summary information is returned in the <code>Summary</code> (<a>ProtectiveEquipmentSummary</a>) field of the response from <code>DetectProtectiveEquipment</code>. The summary includes which persons in an image were detected wearing the requested types of person protective equipment (PPE), which persons were detected as not wearing PPE, and the persons in which a determination could not be made. For more information, see <a>ProtectiveEquipmentSummary</a>.</p>
+ Required parameters: [MinConfidence, RequiredEquipmentTypes]
+ */
+@interface AWSRekognitionProtectiveEquipmentSummarizationAttributes : AWSModel
+
+
+/**
+ <p>The minimum confidence level for which you want summary information. The confidence level applies to person detection, body part detection, equipment detection, and body part coverage. Amazon Rekognition doesn't return summary information with a confidence than this specified value. There isn't a default value.</p><p>Specify a <code>MinConfidence</code> value that is between 50-100% as <code>DetectProtectiveEquipment</code> returns predictions only where the detection confidence is between 50% - 100%. If you specify a value that is less than 50%, the results are the same specifying a value of 50%.</p><p></p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minConfidence;
+
+/**
+ <p>An array of personal protective equipment types for which you want summary information. If a person is detected wearing a required requipment type, the person's ID is added to the <code>PersonsWithRequiredEquipment</code> array field returned in <a>ProtectiveEquipmentSummary</a> by <code>DetectProtectiveEquipment</code>. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable requiredEquipmentTypes;
+
+@end
+
+/**
+ <p>Summary information for required items of personal protective equipment (PPE) detected on persons by a call to <a>DetectProtectiveEquipment</a>. You specify the required type of PPE in the <code>SummarizationAttributes</code> (<a>ProtectiveEquipmentSummarizationAttributes</a>) input parameter. The summary includes which persons were detected wearing the required personal protective equipment (<code>PersonsWithRequiredEquipment</code>), which persons were detected as not wearing the required PPE (<code>PersonsWithoutRequiredEquipment</code>), and the persons in which a determination could not be made (<code>PersonsIndeterminate</code>).</p><p>To get a total for each category, use the size of the field array. For example, to find out how many people were detected as wearing the specified PPE, use the size of the <code>PersonsWithRequiredEquipment</code> array. If you want to find out more about a person, such as the location (<a>BoundingBox</a>) of the person on the image, use the person ID in each array element. Each person ID matches the ID field of a <a>ProtectiveEquipmentPerson</a> object returned in the <code>Persons</code> array by <code>DetectProtectiveEquipment</code>.</p>
+ */
+@interface AWSRekognitionProtectiveEquipmentSummary : AWSModel
+
+
+/**
+ <p>An array of IDs for persons where it was not possible to determine if they are wearing personal protective equipment. </p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable personsIndeterminate;
+
+/**
+ <p>An array of IDs for persons who are wearing detected personal protective equipment. </p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable personsWithRequiredEquipment;
+
+/**
+ <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment. </p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable personsWithoutRequiredEquipment;
 
 @end
 
