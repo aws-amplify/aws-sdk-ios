@@ -1,3 +1,32 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSDynamoDB
+---AWSEC2
+---AWSElasticLoadBalancing
+---AWSSES
+---AWSFirehose
+---AWSIoTData
+---AWSKinesisVideoSignaling
+---AWSKinesisVideo
+---AWSKMS
+---AWSLambda
+---AWSLogs
+---AWSPinpointTargeting
+---AWSPolly
+---AWSRekognition
+---AWSLex
+---AWSSageMakerRuntime
+---AWSSimpleDB
+---AWSSNS
+---AWSSQS
+---AWSSTS
+---AWSTranscribe
+---AWSTranslate
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
