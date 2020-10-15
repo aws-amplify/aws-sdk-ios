@@ -20,6 +20,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexButton
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"text" : @"text",
@@ -30,6 +34,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexDeleteSessionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -43,6 +51,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexDeleteSessionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -55,6 +67,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexDialogAction
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -165,6 +181,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexGenericAttachment
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attachmentLinkUrl" : @"attachmentLinkUrl",
@@ -183,6 +203,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexGetSessionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -195,6 +219,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexGetSessionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -217,6 +245,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexIntentConfidence
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"score" : @"score",
@@ -226,6 +258,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexIntentSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -331,6 +367,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostContentRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accept" : @"accept",
@@ -347,6 +387,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexPostContentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -444,6 +488,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPostTextRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"botAlias" : @"botAlias",
@@ -458,6 +506,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexPostTextResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -569,6 +621,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexPredictedIntent
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"intentName" : @"intentName",
@@ -584,6 +640,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexPutSessionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -608,6 +668,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexPutSessionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -700,6 +764,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 
 @implementation AWSLexResponseCard
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentType" : @"contentType",
@@ -731,6 +799,10 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
 @end
 
 @implementation AWSLexSentimentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
