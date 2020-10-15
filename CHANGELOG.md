@@ -1,32 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSDynamoDB
----AWSEC2
----AWSElasticLoadBalancing
----AWSSES
----AWSFirehose
----AWSIoTData
----AWSKinesisVideoSignaling
----AWSKinesisVideo
----AWSKMS
----AWSLambda
----AWSLogs
----AWSPinpointTargeting
----AWSPolly
----AWSRekognition
----AWSLex
----AWSSageMakerRuntime
----AWSSimpleDB
----AWSSNS
----AWSSQS
----AWSSTS
----AWSTranscribe
----AWSTranslate
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -34,11 +5,31 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### New Features
 - The following models now support `NSSecureCoding`:
   - AWS Auto Scaling
+  - Amazon CloudWatch Logs
   - Amazon Cognito Identity
   - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
   - Amazon Connect Participant Service
+  - Amazon DynamoDB
+  - AWS IoT
+  - Amazon Kinesis Firehose
+  - Amazon Kinesis Streams
+  - Amazon Kinesis Video Signaling
+  - AWS Key Management Service (KMS)
+  - AWS Lambda
+  - Amazon Lex
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SageMaker
+  - Amazon Security Token Service (STS)
+  - Amazon Simple DB
+  - Amazon Simple Email Service (SES)
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Simple Queue Service (SQS)
+  - Amazon Transcribe
+  - Amazon Translate
 
 ### Misc. Updates
 - **AWSAuthSDK**
