@@ -3,7 +3,7 @@
 ## Unreleased
 
 ### New Features
-- The following models now support `NSSecureCoding`:
+- The following models now support `NSSecureCoding` ([PR# 3127](https://github.com/aws-amplify/aws-sdk-ios/pull/3127)):
   - AWS Auto Scaling
   - Amazon CloudWatch Logs
   - Amazon Cognito Identity
@@ -31,10 +31,13 @@
   - Amazon Transcribe
   - Amazon Translate
 
+### Bug fixes
+  - 
+  
 ### Misc. Updates
 - **AWSAuthSDK**
   - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
-
+- Support Xcode 12.0.1 for Carthage build ([PR #3085](https://github.com/aws-amplify/aws-sdk-ios/pull/3085))
 - Model updates for the following services
   - Amazon Connect
   - Amazon DynamoDB
