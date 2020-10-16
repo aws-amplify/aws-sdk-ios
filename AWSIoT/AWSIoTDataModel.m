@@ -20,10 +20,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataDeleteThingShadowRequest
 
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"shadowName" : @"shadowName",
@@ -35,10 +31,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataDeleteThingShadowResponse
 
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
@@ -48,10 +40,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataGetThingShadowRequest
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -64,10 +52,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataGetThingShadowResponse
 
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
@@ -77,10 +61,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataListNamedShadowsForThingRequest
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -94,10 +74,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataListNamedShadowsForThingResponse
 
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -109,10 +85,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataPublishRequest
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -126,10 +98,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataUpdateThingShadowRequest
 
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
-
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
@@ -141,10 +109,6 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataUpdateThingShadowResponse
-
-+ (BOOL)supportsSecureCoding {
-    return YES;
-}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

@@ -6,18 +6,17 @@
 - The following models now support `NSSecureCoding`:
   - AWS Auto Scaling
   - Amazon CloudWatch Logs
+  - Amazon CloudWatch Monitoring
   - Amazon Cognito Identity
   - Amazon Cognito Identity Provider
   - Amazon Comprehend
   - Amazon Connect
   - Amazon Connect Participant Service
   - Amazon DynamoDB
-  - AWS IoT
   - Amazon Kinesis Firehose
   - Amazon Kinesis Streams
   - Amazon Kinesis Video Signaling
   - AWS Key Management Service (KMS)
-  - AWS Lambda
   - Amazon Lex
   - Amazon Pinpoint
   - Amazon Polly
@@ -28,6 +27,7 @@
   - Amazon Simple Email Service (SES)
   - Amazon Simple Notification Service (SNS)
   - Amazon Simple Queue Service (SQS)
+  - Amazon Textract
   - Amazon Transcribe
   - Amazon Translate
 
@@ -43,6 +43,15 @@
   - Amazon Pinpoint
   - Amazon Rekognition
   - Amazon Simple Notification Service (SNS)
+  - Amazon Textract
+
+### Deprecation removal warning
+
+AWS Mobile SDK for iOS will remove these deprecated clients in December 2020:
+
+- `AWSCognito` (Amazon Cognito Sync) - Use [`Amplify DataStore`](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios) for data synchronization.
+- `AWSMobileAnalytics` - Use [`Amplify Analytics`](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios) for analytics.
+- `AWSS3TransferManager` - Use [`Amplify Storage`](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios) for uploads and downloads with Amazon S3.
 
 ## 2.17.0
 
