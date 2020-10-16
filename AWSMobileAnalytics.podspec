@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AWSMobileAnalytics'
-  s.version      = '2.17.0'
+  s.version      = '2.18.0'
   s.summary      = 'Amazon Web Services SDK for iOS.'
 
   s.deprecated = true
@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.source       = { :git => 'https://github.com/aws/aws-sdk-ios.git',
                      :tag => s.version}
   s.requires_arc = true
-  s.dependency 'AWSCore', '2.17.0'
+  s.dependency 'AWSCore', '2.18.0'
   s.source_files = 'AWSMobileAnalytics/*.{h,m}', 'AWSMobileAnalytics/**/*.{h,m}'
   s.private_header_files = 'AWSMobileAnalytics/Internal/*.h'
 

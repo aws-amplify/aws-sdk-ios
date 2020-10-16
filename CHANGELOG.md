@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.18.0
+
 ### New Features
 - The following models now support `NSSecureCoding` ([PR# 3127](https://github.com/aws-amplify/aws-sdk-ios/pull/3127)):
   - AWS Auto Scaling
