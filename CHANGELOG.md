@@ -27,6 +27,7 @@
   - Amazon Simple Email Service (SES)
   - Amazon Simple Notification Service (SNS)
   - Amazon Simple Queue Service (SQS)
+  - Amazon Textract
   - Amazon Transcribe
   - Amazon Translate
 
