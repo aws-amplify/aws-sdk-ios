@@ -167,8 +167,14 @@ NSObject *sessionLock;
 }
 
 - (void)applicationDidEnterForeground:(NSNotification*)notification {
+    // If the timer hasn't fired yet we can safely end the
+    // background task as no work has been done yet and the scheduled
+    // operation will be removed from its run loop.
+    // A nonrepeating timer fires once and then invalidates itself.
+    if ([self.bgTimer isValid]) {
+        [self endCurrentBackgroundTask];
+    }
     [self.bgTimer invalidate];
-    [self endCurrentBackgroundTask];
     [self resumeSession];
 }
 
@@ -247,29 +253,29 @@ NSObject *sessionLock;
         }
     }
 }
-
+ 
 - (AWSTask*)resumeSession {
     @synchronized(sessionLock) {
         if (!self.context.analyticsClient) {
             AWSDDLogError(@"Pinpoint Analytics is disabled.");
             return nil;
         }
-        if (_session) {
-            if ([_session stopTime]) {
-                UTCTimeMillis now = [AWSPinpointDateUtils utcTimeMillisNow];
-                if (now - [AWSPinpointDateUtils utcTimeMillisFromDate:[_session stopTime]] < self.context.configuration.sessionTimeout){
-                    return [self resumeCurrentSession];
-                } else {
-                    AWSDDLogVerbose(@"Session has expired. Starting a fresh one...");
-                    [self endCurrentSession];
-                    return [self startNewSession];
-                }
+        if (!_session) {
+            return [self startNewSession];
+        }
+
+        if ([_session stopTime]) {
+            UTCTimeMillis now = [AWSPinpointDateUtils utcTimeMillisNow];
+            if (now - [AWSPinpointDateUtils utcTimeMillisFromDate:[_session stopTime]] < self.context.configuration.sessionTimeout){
+                return [self resumeCurrentSession];
             } else {
-                AWSDDLogVerbose(@"Session Resume Failed: Session is already running.");
-                return nil;
+                AWSDDLogVerbose(@"Session has expired. Starting a fresh one...");
+                [self endCurrentSession];
+                return [self startNewSession];
             }
         } else {
-            return [self startNewSession];
+            AWSDDLogVerbose(@"Session Resume Failed: Session is already running.");
+            return nil;
         }
     }
 }
