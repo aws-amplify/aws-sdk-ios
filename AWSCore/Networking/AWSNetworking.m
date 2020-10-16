@@ -267,12 +267,50 @@ NSString *const AWSNetworkingErrorDomain = @"com.amazonaws.AWSNetworkingErrorDom
 
 @implementation AWSRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)encodingBehaviorsByPropertyKey {
+    NSMutableDictionary *encodingBehaviors = [[super encodingBehaviorsByPropertyKey] mutableCopy];
+
+    encodingBehaviors[@"downloadingFileURL"] = @(AWSMTLModelEncodingBehaviorUnconditional);
+    encodingBehaviors[@"shouldWriteDirectly"] = @(AWSMTLModelEncodingBehaviorUnconditional);
+
+    encodingBehaviors[@"downloadProgress"] = @(AWSMTLModelEncodingBehaviorExcluded);
+    encodingBehaviors[@"internalRequest"] = @(AWSMTLModelEncodingBehaviorExcluded);
+    encodingBehaviors[@"uploadProgress"] = @(AWSMTLModelEncodingBehaviorExcluded);
+
+    return encodingBehaviors;
+}
+
 - (instancetype)init {
     if (self = [super init]) {
         _internalRequest = [AWSNetworkingRequest new];
     }
 
     return self;
+}
+
+// This may be a bug in our version of Mantle--despite declaring these properties as "excluded",
+// Mantle attempts to decode them from an archive, and fails when it cannot find the field name.
+- (nullable id)decodeDownloadProgressWithCoder:(NSCoder *)coder
+                                  modelVersion:(NSUInteger)modelVersion {
+    return NULL;
+}
+
+// This may be a bug in our version of Mantle--despite declaring these properties as "excluded",
+// Mantle attempts to decode them from an archive, and fails when it cannot find the field name.
+- (nullable id)decodeInternalRequestWithCoder:(NSCoder *)coder
+                                 modelVersion:(NSUInteger)modelVersion {
+    return NULL;
+}
+
+// This may be a bug in our version of Mantle--despite declaring these properties as "excluded",
+// Mantle attempts to decode them from an archive, and fails when it cannot find the field name.
+- (nullable id)decodeUploadProgressWithCoder:(NSCoder *)coder
+                                modelVersion:(NSUInteger)modelVersion {
+    return NULL;
 }
 
 - (void)setUploadProgress:(AWSNetworkingUploadProgressBlock)uploadProgress {

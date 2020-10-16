@@ -15,7 +15,7 @@
 
 #import "AWSMantle.h"
 
-@interface AWSModel : AWSMTLModel <AWSMTLJSONSerializing>
+@interface AWSModel : AWSMTLModel <AWSMTLJSONSerializing, NSSecureCoding>
 
 @end
 
