@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, AWSTextractErrorType) {
     AWSTextractErrorAccessDenied,
     AWSTextractErrorBadDocument,
     AWSTextractErrorDocumentTooLarge,
+    AWSTextractErrorHumanLoopQuotaExceeded,
     AWSTextractErrorIdempotentParameterMismatch,
     AWSTextractErrorInternalServer,
     AWSTextractErrorInvalidJobId,
@@ -46,6 +47,12 @@ typedef NS_ENUM(NSInteger, AWSTextractBlockType) {
     AWSTextractBlockTypeTable,
     AWSTextractBlockTypeCell,
     AWSTextractBlockTypeSelectionElement,
+};
+
+typedef NS_ENUM(NSInteger, AWSTextractContentClassifier) {
+    AWSTextractContentClassifierUnknown,
+    AWSTextractContentClassifierFreeOfPersonallyIdentifiableInformation,
+    AWSTextractContentClassifierFreeOfAdultContent,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractEntityType) {
@@ -72,6 +79,7 @@ typedef NS_ENUM(NSInteger, AWSTextractRelationshipType) {
     AWSTextractRelationshipTypeUnknown,
     AWSTextractRelationshipTypeValue,
     AWSTextractRelationshipTypeChild,
+    AWSTextractRelationshipTypeComplexFeatures,
 };
 
 typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
@@ -94,7 +102,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @class AWSTextractGetDocumentAnalysisResponse;
 @class AWSTextractGetDocumentTextDetectionRequest;
 @class AWSTextractGetDocumentTextDetectionResponse;
+@class AWSTextractHumanLoopActivationOutput;
+@class AWSTextractHumanLoopConfig;
+@class AWSTextractHumanLoopDataAttributes;
 @class AWSTextractNotificationChannel;
+@class AWSTextractOutputConfig;
 @class AWSTextractPoint;
 @class AWSTextractRelationship;
 @class AWSTextractS3Object;
@@ -111,14 +123,19 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPG or PNG format.</p><p>If you are using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>
+ <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
  */
 @property (nonatomic, strong) AWSTextractDocument * _Nullable document;
 
 /**
- <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables detected in the input document. Add FORMS to return detected fields and the associated text. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>.</p>
+ <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
+
+/**
+ <p>Sets the configuration for the human in the loop workflow for analyzing documents.</p>
+ */
+@property (nonatomic, strong) AWSTextractHumanLoopConfig * _Nullable humanLoopConfig;
 
 @end
 
@@ -129,7 +146,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The text that's detected and analyzed by <code>AnalyzeDocument</code>.</p>
+ <p>The version of the model used to analyze the document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeDocumentModelVersion;
+
+/**
+ <p>The items that are detected and analyzed by <code>AnalyzeDocument</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
 
@@ -138,16 +160,21 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
  */
 @property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
 
+/**
+ <p>Shows the results of the human in the loop evaluation.</p>
+ */
+@property (nonatomic, strong) AWSTextractHumanLoopActivationOutput * _Nullable humanLoopActivationOutput;
+
 @end
 
 /**
- <p>A <code>Block</code> represents items that are recognized in a document within a group of pixels close to each other. The information returned in a <code>Block</code> depends on the type of operation. In document-text detection (for example <a>DetectDocumentText</a>), you get information about the detected words and lines of text. In text analysis (for example <a>AnalyzeDocument</a>), you can also get information about the fields, tables and selection elements that are detected in the document.</p><p>An array of <code>Block</code> objects is returned by both synchronous and asynchronous operations. In synchronous operations, such as <a>DetectDocumentText</a>, the array of <code>Block</code> objects is the entire set of results. In asynchronous operations, such as <a>GetDocumentAnalysis</a>, the array is returned over one or more responses.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
+ <p>A <code>Block</code> represents items that are recognized in a document within a group of pixels close to each other. The information returned in a <code>Block</code> object depends on the type of operation. In text detection for documents (for example <a>DetectDocumentText</a>), you get information about the detected words and lines of text. In text analysis (for example <a>AnalyzeDocument</a>), you can also get information about the fields, tables, and selection elements that are detected in the document.</p><p>An array of <code>Block</code> objects is returned by both synchronous and asynchronous operations. In synchronous operations, such as <a>DetectDocumentText</a>, the array of <code>Block</code> objects is the entire set of results. In asynchronous operations, such as <a>GetDocumentAnalysis</a>, the array is returned over one or more responses.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
  */
 @interface AWSTextractBlock : AWSModel
 
 
 /**
- <p>The type of text that's recognized in a block. In text-detection operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE Block objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that's detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child Block objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE Block objects for a field that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY Block object or a VALUE Block object. </p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces that's detected on a document page.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that's detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is any grid-based information with 2 or more rows or columns with a cell span of 1 row and 1 column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selectable element such as a radio button or checkbox that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul>
+ <p>The type of text item that's recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that's detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that's detected on a document page. A word is one or more ISO basic Latin script characters that aren't separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that's detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that's detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul>
  */
 @property (nonatomic, assign) AWSTextractBlockType blockType;
 
@@ -157,12 +184,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable columnIndex;
 
 /**
- <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
+ <p>The number of columns that a table cell spans. Currently this value is always 1, even if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable columnSpan;
 
 /**
- <p>The confidence that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
+ <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable confidence;
 
@@ -182,12 +209,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The page in which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multi-page documents that are in PDF format. A scanned image (JPG/PNG), even if it contains multiple document pages, is always considered to be a single-page document and the value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> as every input document is considered to be a single-page document.</p>
+ <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don't return <code>Page</code> because every input document is considered to be a single-page document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable page;
 
 /**
- <p>A list of child blocks of the current block. For example a LINE object has child blocks for each WORD block that's part of the line of text. There aren't Relationship objects in the list for relationships that don't exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul>
+ <p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that's part of the line of text. There aren't Relationship objects in the list for relationships that don't exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSTextractRelationship *> * _Nullable relationships;
 
@@ -197,12 +224,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable rowIndex;
 
 /**
- <p>The number of rows that a table spans. <code>RowSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+ <p>The number of rows that a table cell spans. Currently this value is always 1, even if the number of rows spanned is greater than 1. <code>RowSpan</code> isn't returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable rowSpan;
 
 /**
- <p>The selection status of a selectable element such as a radio button or checkbox. </p>
+ <p>The selection status of a selection element, such as an option button or check box. </p>
  */
 @property (nonatomic, assign) AWSTextractSelectionStatus selectionStatus;
 
@@ -214,7 +241,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @end
 
 /**
- <p>The bounding box around the recognized text, key, value, table or table cell on a document page. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall document page size. For example, if the input image is 700 x 200 pixels, and the top-left coordinate of the bounding box is 350 x 50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall document page dimension. For example, if the document page size is 700 x 200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
+ <p>The bounding box around the detected page, text, key-value pair, table, table cell, or selection element on a document page. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates that represent the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall document page size. For example, if the input image is 700 x 200 pixels, and the top-left coordinate of the bounding box is 350 x 50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall document page dimension. For example, if the document page size is 700 x 200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p>
  */
 @interface AWSTextractBoundingBox : AWSModel
 
@@ -248,7 +275,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPG or PNG format.</p><p>If you are using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>
+ <p>The input document as base64-encoded bytes or an Amazon S3 object. If you use the AWS CLI to call Amazon Textract operations, you can't pass image bytes. The document must be an image in JPEG or PNG format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes that are passed using the <code>Bytes</code> field. </p>
  */
 @property (nonatomic, strong) AWSTextractDocument * _Nullable document;
 
@@ -261,12 +288,17 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>An array of Block objects containing the text detected in the document.</p>
+ <p>An array of <code>Block</code> objects that contain the text that's detected in the document.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
 
 /**
- <p>Metadata about the document. Contains the number of pages that are detected in the document.</p>
+ <p/>
+ */
+@property (nonatomic, strong) NSString * _Nullable detectDocumentTextModelVersion;
+
+/**
+ <p>Metadata about the document. It contains the number of pages that are detected in the document.</p>
  */
 @property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
 
@@ -279,19 +311,19 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>A blob of base-64 encoded documents bytes. The maximum size of a document that's provided in a blob of bytes is 5 MB. The document bytes must be in PNG or JPG format.</p><p>If you are using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>
+ <p>A blob of base64-encoded document bytes. The maximum size of a document that's provided in a blob of bytes is 5 MB. The document bytes must be in PNG or JPEG format.</p><p>If you're using an AWS SDK to call Amazon Textract, you might not need to base64-encode image bytes passed using the <code>Bytes</code> field. </p>
  */
 @property (nonatomic, strong) NSData * _Nullable bytes;
 
 /**
- <p>Identifies an S3 object as the document source. The maximum size of a document stored in an S3 bucket is 5 MB.</p>
+ <p>Identifies an S3 object as the document source. The maximum size of a document that's stored in an S3 bucket is 5 MB.</p>
  */
 @property (nonatomic, strong) AWSTextractS3Object * _Nullable s3Object;
 
 @end
 
 /**
- <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous operations such as <a>StartDocumentTextDetection</a>.</p><p>The input document can be an image file in JPG or PNG format. It can also be a file in PDF format.</p>
+ <p>The Amazon S3 bucket that contains the document to be processed. It's used by asynchronous operations such as <a>StartDocumentTextDetection</a>.</p><p>The input document can be an image file in JPEG or PNG format. It can also be a file in PDF format.</p>
  */
 @interface AWSTextractDocumentLocation : AWSModel
 
@@ -310,25 +342,25 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The number of pages detected in the document.</p>
+ <p>The number of pages that are detected in the document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable pages;
 
 @end
 
 /**
- <p>Information about where a recognized text, key, value, table, or table cell is located on a document page.</p>
+ <p>Information about where the following items are located on a document page: detected page, text, key-value pairs, tables, table cells, and selection elements.</p>
  */
 @interface AWSTextractGeometry : AWSModel
 
 
 /**
- <p>An axis-aligned coarse representation of the location of the recognized text on the document page.</p>
+ <p>An axis-aligned coarse representation of the location of the recognized item on the document page.</p>
  */
 @property (nonatomic, strong) AWSTextractBoundingBox * _Nullable boundingBox;
 
 /**
- <p>Within the bounding box, a fine-grained polygon around the recognized text.</p>
+ <p>Within the bounding box, a fine-grained polygon around the recognized item.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractPoint *> * _Nullable polygon;
 
@@ -341,7 +373,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from <code>StartDocumentAnalysis</code>.</p>
+ <p>A unique identifier for the text-detection job. The <code>JobId</code> is returned from <code>StartDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -364,7 +396,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The results of the text analysis operation.</p>
+ <p/>
+ */
+@property (nonatomic, strong) NSString * _Nullable analyzeDocumentModelVersion;
+
+/**
+ <p>The results of the text-analysis operation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
 
@@ -384,12 +421,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The current status of an asynchronous document analysis operation.</p>
+ <p>Returns if the detection job could not be completed. Contains explanation for what error occured.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>A list of warnings that occurred during the document analysis operation.</p>
+ <p>A list of warnings that occurred during the document-analysis operation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractWarning *> * _Nullable warnings;
 
@@ -402,7 +439,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartDocumentTextDetection</code>.</p>
+ <p>A unique identifier for the text detection job. The <code>JobId</code> is returned from <code>StartDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -430,6 +467,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSArray<AWSTextractBlock *> * _Nullable blocks;
 
 /**
+ <p/>
+ */
+@property (nonatomic, strong) NSString * _Nullable detectDocumentTextModelVersion;
+
+/**
  <p>Information about a document that Amazon Textract processed. <code>DocumentMetadata</code> is returned in every page of paginated responses from an Amazon Textract video operation.</p>
  */
 @property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
@@ -445,14 +487,74 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The current status of an asynchronous document text-detection operation. </p>
+ <p>Returns if the detection job could not be completed. Contains explanation for what error occured. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusMessage;
 
 /**
- <p>A list of warnings that occurred during the document text-detection operation.</p>
+ <p>A list of warnings that occurred during the text-detection operation for the document.</p>
  */
 @property (nonatomic, strong) NSArray<AWSTextractWarning *> * _Nullable warnings;
+
+@end
+
+/**
+ <p>Shows the results of the human in the loop evaluation. If there is no HumanLoopArn, the input did not trigger human review.</p>
+ */
+@interface AWSTextractHumanLoopActivationOutput : AWSModel
+
+
+/**
+ <p>Shows the result of condition evaluations, including those conditions which activated a human review.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopActivationConditionsEvaluationResults;
+
+/**
+ <p>Shows if and why human review was needed.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable humanLoopActivationReasons;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the HumanLoop created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopArn;
+
+@end
+
+/**
+ <p>Sets up the human review workflow the document will be sent to if one of the conditions is met. You can also set certain attributes of the image before review. </p>
+ Required parameters: [HumanLoopName, FlowDefinitionArn]
+ */
+@interface AWSTextractHumanLoopConfig : AWSModel
+
+
+/**
+ <p>Sets attributes of the input data.</p>
+ */
+@property (nonatomic, strong) AWSTextractHumanLoopDataAttributes * _Nullable dataAttributes;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the flow definition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable flowDefinitionArn;
+
+/**
+ <p>The name of the human workflow used for this image. This should be kept unique within a region.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable humanLoopName;
+
+@end
+
+/**
+ <p>Allows you to set attributes of the image. Currently, you can declare an image as free of personally identifiable information and adult content. </p>
+ */
+@interface AWSTextractHumanLoopDataAttributes : AWSModel
+
+
+/**
+ <p>Sets whether the input image is free of personally identifiable information or adult content.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable contentClassifiers;
 
 @end
 
@@ -476,7 +578,26 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @end
 
 /**
- <p>The X and Y coordinates of a point on a document page. The X and Y values returned are ratios of the overall document page size. For example, if the input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the document page.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Textract Developer Guide. </p>
+ <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p>
+ Required parameters: [S3Bucket]
+ */
+@interface AWSTextractOutputConfig : AWSModel
+
+
+/**
+ <p>The name of the bucket your output will go to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The prefix of the object key that the output will be saved to. When not enabled, the prefix will be “textract_output".</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+@end
+
+/**
+ <p>The X and Y coordinates of a point on a document page. The X and Y values that are returned are ratios of the overall document page size. For example, if the input document is 700 x 200 and the operation returns X=0.5 and Y=0.25, then the point is at the (350,50) pixel coordinate on the document page.</p><p>An array of <code>Point</code> objects, <code>Polygon</code>, is returned by <a>DetectDocumentText</a>. <code>Polygon</code> represents a fine-grained polygon around detected text. For more information, see Geometry in the Amazon Textract Developer Guide. </p>
  */
 @interface AWSTextractPoint : AWSModel
 
@@ -505,7 +626,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable ids;
 
 /**
- <p>The type of relationship that the blocks in the IDs array have with the current block. The relationship can be <code>VALUE</code> or <code>CHILD</code>.</p>
+ <p>The type of relationship that the blocks in the IDs array have with the current block. The relationship can be <code>VALUE</code> or <code>CHILD</code>. A relationship of type VALUE is a list that contains the ID of the VALUE block that's associated with the KEY of a key-value pair. A relationship of type CHILD is a list of IDs that identify WORD blocks in the case of lines Cell blocks in the case of Tables, and WORD blocks in the case of Selection Elements.</p>
  */
 @property (nonatomic, assign) AWSTextractRelationshipType types;
 
@@ -523,7 +644,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSString * _Nullable bucket;
 
 /**
- <p>The file name of the input document. It must be an image file (.JPG or .PNG format). Asynchronous operations also support PDF files.</p>
+ <p>The file name of the input document. Synchronous operations can use image files that are in JPEG or PNG format. Asynchronous operations also support PDF format files.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -541,7 +662,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The idempotent token that you use to identify the start request. If you use the same token with multiple <code>StartDocumentAnalysis</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. </p>
+ <p>The idempotent token that you use to identify the start request. If you use the same token with multiple <code>StartDocumentAnalysis</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
@@ -551,12 +672,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) AWSTextractDocumentLocation * _Nullable documentLocation;
 
 /**
- <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected fields and the associated text. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All selectable elements (<code>SELECTION_ELEMENT</code>) that are detected are returned, whatever the value of <code>FeatureTypes</code>. </p>
+ <p>A list of the types of analysis to perform. Add TABLES to the list to return information about the tables that are detected in the input document. Add FORMS to return detected form data. To perform both types of analysis, add TABLES and FORMS to <code>FeatureTypes</code>. All lines and words detected in the document are included in the response (including text that isn't related to the value of <code>FeatureTypes</code>). </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
 
 /**
- <p>An identifier you specify that's included in the completion notification that's published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document, such as a tax form or a receipt, that the completion notification corresponds to.</p>
+ <p>An identifier that you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -564,6 +685,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
  <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
  */
 @property (nonatomic, strong) AWSTextractNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
 
 @end
 
@@ -574,7 +700,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The identifier for the document text detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentAnalysis</code>.</p>
+ <p>The identifier for the document text detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentAnalysis</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -587,7 +713,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. </p>
+ <p>The idempotent token that's used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
@@ -597,7 +723,7 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) AWSTextractDocumentLocation * _Nullable documentLocation;
 
 /**
- <p>An identifier you specify that's included in the completion notification that's published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document, such as a tax form or a receipt, that the completion notification corresponds to.</p>
+ <p>An identifier that you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
@@ -605,6 +731,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
  <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
  */
 @property (nonatomic, strong) AWSTextractNotificationChannel * _Nullable notificationChannel;
+
+/**
+ <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
+ */
+@property (nonatomic, strong) AWSTextractOutputConfig * _Nullable outputConfig;
 
 @end
 
@@ -615,14 +746,14 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 
 
 /**
- <p>The identifier for the document text-detection job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentTextDetection</code>.</p>
+ <p>The identifier of the text detection job for the document. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetDocumentTextDetection</code>. A <code>JobId</code> value is only valid for 7 days.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 @end
 
 /**
- <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document-text detection (<a>StartDocumentTextDetection</a>). </p>
+ <p>A warning about an issue that occurred during asynchronous text analysis (<a>StartDocumentAnalysis</a>) or asynchronous document text detection (<a>StartDocumentTextDetection</a>). </p>
  */
 @interface AWSTextractWarning : AWSModel
 
