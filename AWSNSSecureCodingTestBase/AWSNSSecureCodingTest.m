@@ -44,4 +44,8 @@
     XCTAssertEqualObjects(originalInstanceData, decodedInstanceData);
 }
 
+- (void)validateClassDoesNotSupportSecureCoding:(Class)cls {
+    XCTAssertFalse([cls supportsSecureCoding]);
+}
+
 @end
