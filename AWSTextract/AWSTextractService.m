@@ -14,7 +14,6 @@
 //
 
 #import "AWSTextractService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -43,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"AccessDeniedException" : @(AWSTextractErrorAccessDenied),
                             @"BadDocumentException" : @(AWSTextractErrorBadDocument),
                             @"DocumentTooLargeException" : @(AWSTextractErrorDocumentTooLarge),
+                            @"HumanLoopQuotaExceededException" : @(AWSTextractErrorHumanLoopQuotaExceeded),
                             @"IdempotentParameterMismatchException" : @(AWSTextractErrorIdempotentParameterMismatch),
                             @"InternalServerError" : @(AWSTextractErrorInternalServer),
                             @"InvalidJobIdException" : @(AWSTextractErrorInvalidJobId),

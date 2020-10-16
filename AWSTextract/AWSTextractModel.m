@@ -20,10 +20,15 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractAnalyzeDocumentRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"document" : @"Document",
              @"featureTypes" : @"FeatureTypes",
+             @"humanLoopConfig" : @"HumanLoopConfig",
              };
 }
 
@@ -31,14 +36,24 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocument class]];
 }
 
++ (NSValueTransformer *)humanLoopConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractHumanLoopConfig class]];
+}
+
 @end
 
 @implementation AWSTextractAnalyzeDocumentResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyzeDocumentModelVersion" : @"AnalyzeDocumentModelVersion",
              @"blocks" : @"Blocks",
              @"documentMetadata" : @"DocumentMetadata",
+             @"humanLoopActivationOutput" : @"HumanLoopActivationOutput",
              };
 }
 
@@ -50,9 +65,17 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocumentMetadata class]];
 }
 
++ (NSValueTransformer *)humanLoopActivationOutputJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractHumanLoopActivationOutput class]];
+}
+
 @end
 
 @implementation AWSTextractBlock
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -151,6 +174,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractBoundingBox
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"height" : @"Height",
@@ -163,6 +190,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractDetectDocumentTextRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -178,9 +209,14 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractDetectDocumentTextResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blocks" : @"Blocks",
+             @"detectDocumentTextModelVersion" : @"DetectDocumentTextModelVersion",
              @"documentMetadata" : @"DocumentMetadata",
              };
 }
@@ -197,6 +233,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractDocument
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bytes" : @"Bytes",
@@ -212,6 +252,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractDocumentLocation
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"s3Object" : @"S3Object",
@@ -226,6 +270,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractDocumentMetadata
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"pages" : @"Pages",
@@ -235,6 +283,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractGeometry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -255,6 +307,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractGetDocumentAnalysisRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobId" : @"JobId",
@@ -267,8 +323,13 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractGetDocumentAnalysisResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"analyzeDocumentModelVersion" : @"AnalyzeDocumentModelVersion",
              @"blocks" : @"Blocks",
              @"documentMetadata" : @"DocumentMetadata",
              @"jobStatus" : @"JobStatus",
@@ -325,6 +386,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractGetDocumentTextDetectionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"jobId" : @"JobId",
@@ -337,9 +402,14 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractGetDocumentTextDetectionResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blocks" : @"Blocks",
+             @"detectDocumentTextModelVersion" : @"DetectDocumentTextModelVersion",
              @"documentMetadata" : @"DocumentMetadata",
              @"jobStatus" : @"JobStatus",
              @"nextToken" : @"NextToken",
@@ -393,7 +463,61 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractHumanLoopActivationOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"humanLoopActivationConditionsEvaluationResults" : @"HumanLoopActivationConditionsEvaluationResults",
+             @"humanLoopActivationReasons" : @"HumanLoopActivationReasons",
+             @"humanLoopArn" : @"HumanLoopArn",
+             };
+}
+
+@end
+
+@implementation AWSTextractHumanLoopConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dataAttributes" : @"DataAttributes",
+             @"flowDefinitionArn" : @"FlowDefinitionArn",
+             @"humanLoopName" : @"HumanLoopName",
+             };
+}
+
++ (NSValueTransformer *)dataAttributesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractHumanLoopDataAttributes class]];
+}
+
+@end
+
+@implementation AWSTextractHumanLoopDataAttributes
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contentClassifiers" : @"ContentClassifiers",
+             };
+}
+
+@end
+
 @implementation AWSTextractNotificationChannel
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -404,7 +528,26 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractOutputConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"s3Bucket" : @"S3Bucket",
+             @"s3Prefix" : @"S3Prefix",
+             };
+}
+
+@end
+
 @implementation AWSTextractPoint
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -416,6 +559,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractRelationship
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -432,6 +579,9 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
         if ([value caseInsensitiveCompare:@"CHILD"] == NSOrderedSame) {
             return @(AWSTextractRelationshipTypeChild);
         }
+        if ([value caseInsensitiveCompare:@"COMPLEX_FEATURES"] == NSOrderedSame) {
+            return @(AWSTextractRelationshipTypeComplexFeatures);
+        }
         return @(AWSTextractRelationshipTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -439,6 +589,8 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"VALUE";
             case AWSTextractRelationshipTypeChild:
                 return @"CHILD";
+            case AWSTextractRelationshipTypeComplexFeatures:
+                return @"COMPLEX_FEATURES";
             default:
                 return nil;
         }
@@ -448,6 +600,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractS3Object
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -461,6 +617,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractStartDocumentAnalysisRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
@@ -468,6 +628,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"featureTypes" : @"FeatureTypes",
              @"jobTag" : @"JobTag",
              @"notificationChannel" : @"NotificationChannel",
+             @"outputConfig" : @"OutputConfig",
              };
 }
 
@@ -479,9 +640,17 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractNotificationChannel class]];
 }
 
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
 @end
 
 @implementation AWSTextractStartDocumentAnalysisResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -493,12 +662,17 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @implementation AWSTextractStartDocumentTextDetectionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
              @"documentLocation" : @"DocumentLocation",
              @"jobTag" : @"JobTag",
              @"notificationChannel" : @"NotificationChannel",
+             @"outputConfig" : @"OutputConfig",
              };
 }
 
@@ -510,9 +684,17 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractNotificationChannel class]];
 }
 
++ (NSValueTransformer *)outputConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractOutputConfig class]];
+}
+
 @end
 
 @implementation AWSTextractStartDocumentTextDetectionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -523,6 +705,10 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 @end
 
 @implementation AWSTextractWarning
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
