@@ -6,6 +6,7 @@
 - The following models now support `NSSecureCoding`:
   - AWS Auto Scaling
   - Amazon CloudWatch Logs
+  - Amazon CloudWatch Monitoring
   - Amazon Cognito Identity
   - Amazon Cognito Identity Provider
   - Amazon Comprehend
