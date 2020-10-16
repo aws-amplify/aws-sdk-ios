@@ -43,6 +43,7 @@
   - Amazon Pinpoint
   - Amazon Rekognition
   - Amazon Simple Notification Service (SNS)
+  - Amazon Textract
 
 ### Deprecation removal warning
 
