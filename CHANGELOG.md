@@ -31,9 +31,6 @@
   - Amazon Transcribe
   - Amazon Translate
 
-### Bug fixes
-  - 
-  
 ### Misc. Updates
 - **AWSAuthSDK**
   - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
