@@ -320,12 +320,26 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
     
-    AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
+    AWSS3TransferUtility *s3TransferUtility;
+    dispatch_semaphore_t semaphoreCreate = dispatch_semaphore_create(0);
+    __block NSError *errorSaved = nil;
+    void (^completionHandlerWrapper)(NSError *error) = ^(NSError *error) {
+        errorSaved = error;
+        dispatch_semaphore_signal(semaphoreCreate);
+    };
+    s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
                                                                                        identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
-                                                                                completionHandler: completionHandler];
-    [_serviceClients setObject:s3TransferUtility
-                        forKey:key];
+                                                                                completionHandler: completionHandlerWrapper];
+
+    dispatch_semaphore_wait(semaphoreCreate, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    if (!errorSaved && s3TransferUtility) {
+        [_serviceClients setObject:s3TransferUtility
+                            forKey:key];
+    }
+    if (completionHandler) {
+        completionHandler(errorSaved);
+    }
 }
 
 + (instancetype)S3TransferUtilityForKey:(NSString *)key {
