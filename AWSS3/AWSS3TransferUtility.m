@@ -320,12 +320,19 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
     
-    AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
-                                                                     transferUtilityConfiguration:transferUtilityConfiguration
-                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
-                                                                                completionHandler: completionHandler];
-    [_serviceClients setObject:s3TransferUtility
-                        forKey:key];
+    __block AWSS3TransferUtility *s3TransferUtility;
+    void (^completionHandlerWrapper)(NSError *error) = ^(NSError *error) {
+        if (!error && s3TransferUtility) {
+            [_serviceClients setObject:s3TransferUtility
+                                forKey:key];
+        }
+        completionHandler(error);
+    };
+
+    s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
+                                               transferUtilityConfiguration:transferUtilityConfiguration
+                                                                 identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
+                                                          completionHandler:completionHandlerWrapper];
 }
 
 + (instancetype)S3TransferUtilityForKey:(NSString *)key {
