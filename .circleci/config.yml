@@ -232,16 +232,25 @@ commands:
       - store_artifacts:
           path: artifacts
 
+  checkout_with_cache:
+    # Workaround for https://discuss.circleci.com/t/checkout-fails-on-git-tags-when-git-directory-is-already-present/22437/5
+    steps:
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Revision }}
+      - run: |
+          if [ -n "$CIRCLE_TAG" ] ; then
+            git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+          fi
+      - checkout
+
 jobs:
   build:
     macos:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           name: Git GC
           command: git gc
@@ -264,10 +273,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -291,10 +297,7 @@ jobs:
     description: Run non-integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - set_environment_variables
       - pre_start_simulator
       - make_artifacts_directory
@@ -347,10 +350,7 @@ jobs:
     description: Run integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - skip_test_job_by_commit_message
       - set_environment_variables
       - pre_start_simulator
@@ -403,10 +403,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - update_brew
       - run:
           name: Install github-release
@@ -423,10 +420,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - pre_start_simulator
       - update_brew
       - run:
@@ -449,10 +443,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - pre_start_simulator
       - update_brew
       - run:
@@ -477,10 +468,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           # Note that this invocation of cocoapods_release requires at least
           # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
@@ -498,10 +486,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           name: Install jazzy
           command: |
@@ -531,10 +516,7 @@ jobs:
       xcode: "12.0.0"
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           name: Add documentation tags to gh-pages
           command: |
@@ -550,10 +532,7 @@ jobs:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           name: Checkout repository for bump version
           command: |
@@ -596,10 +575,7 @@ jobs:
       TERM: xterm-256color
     steps:
       - skip_job_unless_required
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - update_brew
       - set_environment_variables
       - configure_aws
@@ -642,10 +618,7 @@ jobs:
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - restore_cache:
-          keys:
-            - v1-source-{{ .Revision }}
-      - checkout
+      - checkout_with_cache
       - run:
           name: Install JSON parser
           command: sudo pip3 install demjson
