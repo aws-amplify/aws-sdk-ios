@@ -238,10 +238,12 @@ commands:
       - restore_cache:
           keys:
             - v1-source-{{ .Revision }}
-      - run: |
-          if [ -n "$CIRCLE_TAG" ] ; then
-            git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
-          fi
+      - run: 
+          name: Fetch tag from origin if present
+          command: |
+            if [ -n "$CIRCLE_TAG" ] ; then
+              git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+            fi
       - checkout
 
 jobs:
