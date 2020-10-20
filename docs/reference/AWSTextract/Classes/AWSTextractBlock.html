@@ -17,7 +17,7 @@
     <a title="AWSTextractBlock Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTextract 2.17.0 Docs</a> (65% documented)</p>
+        <p><a href="../index.html">AWSTextract 2.18.0 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -86,7 +86,19 @@
                 <a href="../Classes/AWSTextractGetDocumentTextDetectionResponse.html">AWSTextractGetDocumentTextDetectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopActivationOutput.html">AWSTextractHumanLoopActivationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopConfig.html">AWSTextractHumanLoopConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopDataAttributes.html">AWSTextractHumanLoopDataAttributes</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTextractPoint.html">AWSTextractPoint</a>
@@ -141,6 +153,9 @@
                 <a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSTextractContentClassifier.html">AWSTextractContentClassifier</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSTextractEntityType.html">AWSTextractEntityType</a>
               </li>
               <li class="nav-group-task">
@@ -178,7 +193,7 @@
 
                 </div>
               </div>
-            <p>A <code>Block</code> represents items that are recognized in a document within a group of pixels close to each other. The information returned in a <code>Block</code> depends on the type of operation. In document-text detection (for example <a>DetectDocumentText</a>), you get information about the detected words and lines of text. In text analysis (for example <a>AnalyzeDocument</a>), you can also get information about the fields, tables and selection elements that are detected in the document.</p><p>An array of <code>Block</code> objects is returned by both synchronous and asynchronous operations. In synchronous operations, such as <a>DetectDocumentText</a>, the array of <code>Block</code> objects is the entire set of results. In asynchronous operations, such as <a>GetDocumentAnalysis</a>, the array is returned over one or more responses.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
+            <p>A <code>Block</code> represents items that are recognized in a document within a group of pixels close to each other. The information returned in a <code>Block</code> object depends on the type of operation. In text detection for documents (for example <a>DetectDocumentText</a>), you get information about the detected words and lines of text. In text analysis (for example <a>AnalyzeDocument</a>), you can also get information about the fields, tables, and selection elements that are detected in the document.</p><p>An array of <code>Block</code> objects is returned by both synchronous and asynchronous operations. In synchronous operations, such as <a>DetectDocumentText</a>, the array of <code>Block</code> objects is the entire set of results. In asynchronous operations, such as <a>GetDocumentAnalysis</a>, the array is returned over one or more responses.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works.html">How Amazon Textract Works</a>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -197,7 +212,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The type of text that&rsquo;s recognized in a block. In text-detection operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE Block objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that&rsquo;s detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child Block objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE Block objects for a field that&rsquo;s detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY Block object or a VALUE Block object. </p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces that&rsquo;s detected on a document page.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that&rsquo;s detected on a document page.</p></li><li><p><i>TABLE</i> - A table that&rsquo;s detected on a document page. A table is any grid-based information with 2 or more rows or columns with a cell span of 1 row and 1 column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selectable element such as a radio button or checkbox that&rsquo;s detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul></p>
+                        <p><p>The type of text item that&rsquo;s recognized. In operations for text detection, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of the LINE <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>WORD</i> - A word detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li></ul><p>In text analysis operations, the following types are returned:</p><ul><li><p><i>PAGE</i> - Contains a list of child <code>Block</code> objects that are detected on a document page.</p></li><li><p><i>KEY_VALUE_SET</i> - Stores the KEY and VALUE <code>Block</code> objects for linked text that&rsquo;s detected on a document page. Use the <code>EntityType</code> field to determine if a KEY_VALUE_SET object is a KEY <code>Block</code> object or a VALUE <code>Block</code> object. </p></li><li><p><i>WORD</i> - A word that&rsquo;s detected on a document page. A word is one or more ISO basic Latin script characters that aren&rsquo;t separated by spaces.</p></li><li><p><i>LINE</i> - A string of tab-delimited, contiguous words that are detected on a document page.</p></li><li><p><i>TABLE</i> - A table that&rsquo;s detected on a document page. A table is grid-based information with two or more rows or columns, with a cell span of one row and one column each. </p></li><li><p><i>CELL</i> - A cell within a detected table. The cell is the parent of the block that contains the text in the cell.</p></li><li><p><i>SELECTION_ELEMENT</i> - A selection element such as an option button (radio button) or a check box that&rsquo;s detected on a document page. Use the value of <code>SelectionStatus</code> to determine the status of the selection element.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -261,7 +276,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of columns that a table cell spans. <code>ColumnSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
+                        <p>The number of columns that a table cell spans. Currently this value is always 1, even if the number of columns spanned is greater than 1. <code>ColumnSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>. </p>
 
                       </div>
                       <div class="declaration">
@@ -293,7 +308,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The confidence that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
+                        <p>The confidence score that Amazon Textract has in the accuracy of the recognized text and the accuracy of the geometry points around the recognized text.</p>
 
                       </div>
                       <div class="declaration">
@@ -421,7 +436,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The page in which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multi-page documents that are in PDF format. A scanned image (JPG/PNG), even if it contains multiple document pages, is always considered to be a single-page document and the value of <code>Page</code> is always 1. Synchronous operations don&rsquo;t return <code>Page</code> as every input document is considered to be a single-page document.</p>
+                        <p>The page on which a block was detected. <code>Page</code> is returned by asynchronous operations. Page values greater than 1 are only returned for multipage documents that are in PDF format. A scanned image (JPEG/PNG), even if it contains multiple document pages, is considered to be a single-page document. The value of <code>Page</code> is always 1. Synchronous operations don&rsquo;t return <code>Page</code> because every input document is considered to be a single-page document.</p>
 
                       </div>
                       <div class="declaration">
@@ -453,7 +468,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>A list of child blocks of the current block. For example a LINE object has child blocks for each WORD block that&rsquo;s part of the line of text. There aren&rsquo;t Relationship objects in the list for relationships that don&rsquo;t exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul></p>
+                        <p><p>A list of child blocks of the current block. For example, a LINE object has child blocks for each WORD block that&rsquo;s part of the line of text. There aren&rsquo;t Relationship objects in the list for relationships that don&rsquo;t exist, such as when the current block has no child blocks. The list size can be the following:</p><ul><li><p>0 - The block has no child blocks.</p></li><li><p>1 - The block has child blocks.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -517,7 +532,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of rows that a table spans. <code>RowSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
+                        <p>The number of rows that a table cell spans. Currently this value is always 1, even if the number of rows spanned is greater than 1. <code>RowSpan</code> isn&rsquo;t returned by <code>DetectDocumentText</code> and <code>GetDocumentTextDetection</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -549,7 +564,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The selection status of a selectable element such as a radio button or checkbox. </p>
+                        <p>The selection status of a selection element, such as an option button or check box. </p>
 
                       </div>
                       <div class="declaration">
@@ -605,7 +620,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

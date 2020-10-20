@@ -17,7 +17,7 @@
     <a title="AWSTextractStartDocumentTextDetectionRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTextract 2.17.0 Docs</a> (65% documented)</p>
+        <p><a href="../index.html">AWSTextract 2.18.0 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -86,7 +86,19 @@
                 <a href="../Classes/AWSTextractGetDocumentTextDetectionResponse.html">AWSTextractGetDocumentTextDetectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopActivationOutput.html">AWSTextractHumanLoopActivationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopConfig.html">AWSTextractHumanLoopConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractHumanLoopDataAttributes.html">AWSTextractHumanLoopDataAttributes</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTextractPoint.html">AWSTextractPoint</a>
@@ -139,6 +151,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/AWSTextractBlockType.html">AWSTextractBlockType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractContentClassifier.html">AWSTextractContentClassifier</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTextractEntityType.html">AWSTextractEntityType</a>
@@ -196,7 +211,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The idempotent token that&rsquo;s used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. </p>
+                        <p>The idempotent token that&rsquo;s used to identify the start request. If you use the same token with multiple <code>StartDocumentTextDetection</code> requests, the same <code>JobId</code> is returned. Use <code>ClientRequestToken</code> to prevent the same job from being accidentally started more than once. For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/api-async.html">Calling Amazon Textract Asynchronous Operations</a>.</p>
 
                       </div>
                       <div class="declaration">
@@ -260,7 +275,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An identifier you specify that&rsquo;s included in the completion notification that&rsquo;s published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document, such as a tax form or a receipt, that the completion notification corresponds to.</p>
+                        <p>An identifier that you specify that&rsquo;s included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
 
                       </div>
                       <div class="declaration">
@@ -311,12 +326,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTextractStartDocumentTextDetectionRequest(py)outputConfig"></a>
+                    <a name="//apple_ref/objc/Property/outputConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTextractStartDocumentTextDetectionRequest(py)outputConfig">outputConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will save the results internally to be accessed with the GetDocumentTextDetection operation.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">outputConfig</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">outputConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

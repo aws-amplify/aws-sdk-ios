@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSTextract 2.17.0 Docs</a> (65% documented)</p>
+        <p><a href="index.html">AWSTextract 2.18.0 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -86,7 +86,19 @@
                 <a href="Classes/AWSTextractGetDocumentTextDetectionResponse.html">AWSTextractGetDocumentTextDetectionResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSTextractHumanLoopActivationOutput.html">AWSTextractHumanLoopActivationOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTextractHumanLoopConfig.html">AWSTextractHumanLoopConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTextractHumanLoopDataAttributes.html">AWSTextractHumanLoopDataAttributes</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSTextractNotificationChannel.html">AWSTextractNotificationChannel</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSTextractOutputConfig.html">AWSTextractOutputConfig</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSTextractPoint.html">AWSTextractPoint</a>
@@ -139,6 +151,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Enums/AWSTextractBlockType.html">AWSTextractBlockType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSTextractContentClassifier.html">AWSTextractContentClassifier</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSTextractEntityType.html">AWSTextractEntityType</a>
@@ -198,6 +213,7 @@
     <span class="n">AWSTextractErrorAccessDenied</span><span class="p">,</span>
     <span class="n">AWSTextractErrorBadDocument</span><span class="p">,</span>
     <span class="n">AWSTextractErrorDocumentTooLarge</span><span class="p">,</span>
+    <span class="n">AWSTextractErrorHumanLoopQuotaExceeded</span><span class="p">,</span>
     <span class="n">AWSTextractErrorIdempotentParameterMismatch</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInternalServer</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInvalidJobId</span><span class="p">,</span>
@@ -255,6 +271,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractBlockType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSTextractContentClassifier"></a>
+                    <a name="//apple_ref/objc/Enum/AWSTextractContentClassifier" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTextractContentClassifier">AWSTextractContentClassifier</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSTextractContentClassifier.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTextractContentClassifier</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTextractContentClassifierUnknown</span><span class="p">,</span>
+    <span class="n">AWSTextractContentClassifierFreeOfPersonallyIdentifiableInformation</span><span class="p">,</span>
+    <span class="n">AWSTextractContentClassifierFreeOfAdultContent</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractContentClassifier</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -399,6 +452,7 @@
     <span class="n">AWSTextractRelationshipTypeUnknown</span><span class="p">,</span>
     <span class="n">AWSTextractRelationshipTypeValue</span><span class="p">,</span>
     <span class="n">AWSTextractRelationshipTypeChild</span><span class="p">,</span>
+    <span class="n">AWSTextractRelationshipTypeComplexFeatures</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -453,7 +507,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

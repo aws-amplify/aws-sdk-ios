@@ -66,321 +66,370 @@
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 29,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorIdempotentParameterMismatch",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorHumanLoopQuotaExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 30,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorInternalServer",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorIdempotentParameterMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 31,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidJobId",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 32,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidParameter",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidJobId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 33,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidS3Object",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidParameter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 34,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorLimitExceeded",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorInvalidS3Object",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 35,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorProvisionedThroughputExceeded",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 36,
-      "symbol": "AWSTextractErrorType.AWSTextractErrorThrottling",
+      "symbol": "AWSTextractErrorType.AWSTextractErrorProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 37,
+      "symbol": "AWSTextractErrorType.AWSTextractErrorThrottling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 38,
       "symbol": "AWSTextractErrorType.AWSTextractErrorUnsupportedDocument",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 40,
+      "line": 41,
       "symbol": "AWSTextractBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 40,
+      "line": 41,
       "symbol": "AWSTextractBlockType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 41,
+      "line": 42,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 42,
+      "line": 43,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeKeyValueSet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 43,
+      "line": 44,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypePage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 44,
+      "line": 45,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeLine",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 45,
+      "line": 46,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeWord",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 46,
+      "line": 47,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeTable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 47,
+      "line": 48,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeCell",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 48,
+      "line": 49,
       "symbol": "AWSTextractBlockType.AWSTextractBlockTypeSelectionElement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 51,
-      "symbol": "AWSTextractEntityType",
+      "line": 52,
+      "symbol": "AWSTextractContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 51,
-      "symbol": "AWSTextractEntityType",
+      "line": 52,
+      "symbol": "AWSTextractContentClassifier",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 52,
-      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 53,
-      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeKey",
+      "symbol": "AWSTextractContentClassifier.AWSTextractContentClassifierUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 54,
-      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeValue",
+      "symbol": "AWSTextractContentClassifier.AWSTextractContentClassifierFreeOfPersonallyIdentifiableInformation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 57,
-      "symbol": "AWSTextractFeatureType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 57,
-      "symbol": "AWSTextractFeatureType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 55,
+      "symbol": "AWSTextractContentClassifier.AWSTextractContentClassifierFreeOfAdultContent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 58,
-      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTextractEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 58,
+      "symbol": "AWSTextractEntityType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 59,
-      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeTables",
+      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 60,
-      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeForms",
+      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeKey",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 63,
-      "symbol": "AWSTextractJobStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 63,
-      "symbol": "AWSTextractJobStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 61,
+      "symbol": "AWSTextractEntityType.AWSTextractEntityTypeValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 64,
-      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTextractFeatureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 64,
+      "symbol": "AWSTextractFeatureType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 65,
-      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusInProgress",
+      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 66,
-      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusSucceeded",
+      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeTables",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 67,
-      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusFailed",
+      "symbol": "AWSTextractFeatureType.AWSTextractFeatureTypeForms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 68,
-      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusPartialSuccess",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 71,
-      "symbol": "AWSTextractRelationshipType",
+      "line": 70,
+      "symbol": "AWSTextractJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 71,
-      "symbol": "AWSTextractRelationshipType",
+      "line": 70,
+      "symbol": "AWSTextractJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 71,
+      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 72,
-      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeUnknown",
+      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 73,
-      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeValue",
+      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusSucceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 74,
-      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeChild",
+      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 77,
-      "symbol": "AWSTextractSelectionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
-      "line": 77,
-      "symbol": "AWSTextractSelectionStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 75,
+      "symbol": "AWSTextractJobStatus.AWSTextractJobStatusPartialSuccess",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 78,
-      "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSTextractRelationshipType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 78,
+      "symbol": "AWSTextractRelationshipType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 79,
-      "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusSelected",
+      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
       "line": 80,
+      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 81,
+      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeChild",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 82,
+      "symbol": "AWSTextractRelationshipType.AWSTextractRelationshipTypeComplexFeatures",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 85,
+      "symbol": "AWSTextractSelectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 85,
+      "symbol": "AWSTextractSelectionStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 86,
+      "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 87,
+      "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusSelected",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSTextract/AWSTextractModel.h",
+      "line": 88,
       "symbol": "AWSTextractSelectionStatus.AWSTextractSelectionStatusNotSelected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
