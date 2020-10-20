@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an Dictionary of all attributes contained within this AWSPinpointEndpointProfile
  @returns an Dictionary of all attributes, where the attribute keys are the keys and the attribute values are the values
  */
-- (NSDictionary*) allAttributes;
+- (NSDictionary *)allAttributes;
 
 /**
  Adds a metric to this AWSPinpointEndpointProfile with the specified key. Only 40 attributes/metrics
@@ -157,13 +157,13 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an Dictionary of all metrics contained within this AWSPinpointEndpointProfile
  @returns an Dictionary of all metrics, where the metric keys are the keys and the metric values are the values
  */
-- (NSDictionary*) allMetrics;
+- (NSDictionary *)allMetrics;
 
 /**
  Returns an Dictionary representation of this object.
  @returns an Dictionary representation of this AWSPinpointEndpointProfile object.
  */
-- (NSDictionary *) toDictionary;
+- (NSDictionary *)toDictionary;
 
 @end
 
@@ -276,7 +276,23 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSString *_Nullable userId;
 
+/**
+ Returns an Dictionary of all user attributes contained within this AWSPinpointEndpointProfile
+ @returns an Dictionary of all user attributes, where the attribute keys are the keys and the attribute values are the values
+ */
+- (NSDictionary *) allUserAttributes;
+
+/**
+Adds an userAttribute to this AWSPinpointEndpointProfileUser with the specified key. Only 40 attributes/metrics
+are allowed to be added to an AWSPinpointEndpointProfileUser. If 40 attributes already exist on this AWSPinpointEndpointProfileUser, the call is ignored.
+@param theValue The value of the userAttribute. The value will be truncated if it exceeds 200 characters.
+@param theKey The key of the userAttribute. The key will be truncated if it exceeds 50 characters.
+*/
+- (void)addUserAttribute:(NSArray *)theValue
+                  forKey:(NSString *)theKey;
+
+- (void)setUserAttributes:(NSDictionary<NSString*,NSArray*> *)userAttributes;
+
 @end
 
 NS_ASSUME_NONNULL_END
-

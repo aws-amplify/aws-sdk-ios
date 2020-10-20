@@ -151,8 +151,12 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     return [self executeUpdate:endpointProfile];
 }
 
-- (AWSTask *)updateEndpointProfile {
+- (AWSTask *)extracted {
     return [self executeUpdate:[self currentEndpointProfile]];
+}
+
+- (AWSTask *)updateEndpointProfile {
+    return [self extracted];
 }
 
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
@@ -289,6 +293,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSPinpointTargetingEndpointUser*) userModelForUser:(AWSPinpointEndpointProfileUser *) user {
     AWSPinpointTargetingEndpointUser *userModel = [AWSPinpointTargetingEndpointUser new];
     userModel.userId = user.userId;
+    userModel.userAttributes = user.allUserAttributes;
     return userModel;
 }
 
