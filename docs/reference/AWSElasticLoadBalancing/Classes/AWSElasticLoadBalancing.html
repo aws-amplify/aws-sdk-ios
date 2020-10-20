@@ -17,7 +17,7 @@
     <a title="AWSElasticLoadBalancing Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSElasticLoadBalancing 2.17.0 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSElasticLoadBalancing 2.18.0 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSElasticLoadBalancing.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -967,7 +967,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, and your target groups.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
+                        <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingAddTagsInput</p>
@@ -1031,7 +1031,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, and your target groups.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
+                        <p>Adds the specified tags to the specified Elastic Load Balancing resource. You can tag your Application Load Balancers, Network Load Balancers, target groups, listeners, and rules.</p><p>Each tag consists of a key and an optional value. If a resource already has a tag with the same key, <code>AddTags</code> updates its value.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>. To remove tags from your resources, use <a>RemoveTags</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingAddTagsInput</p>
@@ -1155,7 +1155,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateListenerOutput.html">AWSElasticLoadBalancingCreateListenerOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateListener</code>, <code>AWSElasticLoadBalancingErrorTooManyListeners</code>, <code>AWSElasticLoadBalancingErrorTooManyCertificates</code>, <code>AWSElasticLoadBalancingErrorLoadBalancerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorSSLPolicyNotFound</code>, <code>AWSElasticLoadBalancingErrorCertificateNotFound</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorALPNPolicyNotSupported</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateListenerOutput.html">AWSElasticLoadBalancingCreateListenerOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateListener</code>, <code>AWSElasticLoadBalancingErrorTooManyListeners</code>, <code>AWSElasticLoadBalancingErrorTooManyCertificates</code>, <code>AWSElasticLoadBalancingErrorLoadBalancerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorSSLPolicyNotFound</code>, <code>AWSElasticLoadBalancingErrorCertificateNotFound</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorALPNPolicyNotSupported</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -1229,7 +1229,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateListener</code>, <code>AWSElasticLoadBalancingErrorTooManyListeners</code>, <code>AWSElasticLoadBalancingErrorTooManyCertificates</code>, <code>AWSElasticLoadBalancingErrorLoadBalancerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorSSLPolicyNotFound</code>, <code>AWSElasticLoadBalancingErrorCertificateNotFound</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorALPNPolicyNotSupported</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateListener</code>, <code>AWSElasticLoadBalancingErrorTooManyListeners</code>, <code>AWSElasticLoadBalancingErrorTooManyCertificates</code>, <code>AWSElasticLoadBalancingErrorLoadBalancerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorSSLPolicyNotFound</code>, <code>AWSElasticLoadBalancingErrorCertificateNotFound</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorALPNPolicyNotSupported</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1442,7 +1442,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateRuleOutput.html">AWSElasticLoadBalancingCreateRuleOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorPriorityInUse</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorTooManyRules</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorListenerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateRuleOutput.html">AWSElasticLoadBalancingCreateRuleOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorPriorityInUse</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorTooManyRules</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorListenerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -1514,7 +1514,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorPriorityInUse</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorTooManyRules</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorListenerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorPriorityInUse</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorTooManyRules</code>, <code>AWSElasticLoadBalancingErrorTargetGroupAssociationLimit</code>, <code>AWSElasticLoadBalancingErrorIncompatibleProtocols</code>, <code>AWSElasticLoadBalancingErrorListenerNotFound</code>, <code>AWSElasticLoadBalancingErrorTargetGroupNotFound</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId</code>, <code>AWSElasticLoadBalancingErrorTooManyTargets</code>, <code>AWSElasticLoadBalancingErrorUnsupportedProtocol</code>, <code>AWSElasticLoadBalancingErrorTooManyActions</code>, <code>AWSElasticLoadBalancingErrorInvalidLoadBalancerAction</code>, <code>AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1584,7 +1584,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateTargetGroupOutput.html">AWSElasticLoadBalancingCreateTargetGroupOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateTargetGroupName</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSElasticLoadBalancingCreateTargetGroupOutput.html">AWSElasticLoadBalancingCreateTargetGroupOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateTargetGroupName</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -1658,7 +1658,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateTargetGroupName</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSElasticLoadBalancingErrorDomain">AWSElasticLoadBalancingErrorDomain</a></code> domain and the following error code: <code>AWSElasticLoadBalancingErrorDuplicateTargetGroupName</code>, <code>AWSElasticLoadBalancingErrorTooManyTargetGroups</code>, <code>AWSElasticLoadBalancingErrorInvalidConfigurationRequest</code>, <code>AWSElasticLoadBalancingErrorTooManyTags</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -3414,7 +3414,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, and target groups.</p>
+                        <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingDescribeTagsInput</p>
@@ -3478,7 +3478,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Describes the tags for the specified resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, and target groups.</p>
+                        <p>Describes the tags for the specified Elastic Load Balancing resources. You can describe the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingDescribeTagsInput</p>
@@ -5004,7 +5004,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the specified tags from the specified Elastic Load Balancing resource.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
+                        <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingRemoveTagsInput</p>
@@ -5068,7 +5068,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the specified tags from the specified Elastic Load Balancing resource.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
+                        <p>Removes the specified tags from the specified Elastic Load Balancing resources. You can remove the tags for one or more Application Load Balancers, Network Load Balancers, target groups, listeners, or rules.</p><p>To list the current tags for your resources, use <a>DescribeTags</a>.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSElasticLoadBalancingRemoveTagsInput</p>
@@ -5710,7 +5710,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
