@@ -320,10 +320,16 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _serviceClients = [AWSSynchronizedMutableDictionary new];
     });
     
-    [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
-                           transferUtilityConfiguration:transferUtilityConfiguration
-                                             identifier:key
-                                      completionHandler:completionHandler];
+    AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
+                                                                     transferUtilityConfiguration:transferUtilityConfiguration
+                                                                                       identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
+                                                                                     recoverState:NO
+                                                                                completionHandler:completionHandler];
+    if (s3TransferUtility) {
+        [_serviceClients setObject:s3TransferUtility
+                            forKey:key];
+        [s3TransferUtility recover:completionHandler];
+    }
 }
 
 + (instancetype)S3TransferUtilityForKey:(NSString *)key {
@@ -387,6 +393,17 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
          transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
                            identifier:(NSString *)identifier
+                    completionHandler:(void (^)(NSError *_Nullable error)) completionHandler {
+    return [self initWithConfiguration:serviceConfiguration
+          transferUtilityConfiguration:transferUtilityConfiguration identifier:identifier
+                          recoverState:YES
+                     completionHandler:completionHandler];
+}
+
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
+         transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                           identifier:(NSString *)identifier
+                         recoverState:(BOOL)recoverState
                     completionHandler: (void (^)(NSError *_Nullable error)) completionHandler{
     if (self = [super init]) {
         
@@ -414,7 +431,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         }
         
         if (identifier) {
-            _sessionIdentifier = [NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, identifier];
+            _sessionIdentifier = identifier;
         }
         else {
             _sessionIdentifier = AWSS3TransferUtilityDefaultIdentifier;
@@ -470,16 +487,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         //Instantiate the Database Helper
         self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:_cacheDirectoryPath];
 
-        //Prior to starting an async task, register the service client so that users calling AWSS3TransferUtility.register
-        //synchronously or asynchronously can get a hold of an instance of AWSS3TransferUtility.
-        //For more info, see: https://github.com/aws-amplify/aws-sdk-ios/issues/2962
-        if (identifier.length) {
-            [_serviceClients setObject:self
-                                forKey:identifier];
+        if (recoverState) {
+            //Recover the state from the previous time this was instantiated
+            [self recover:completionHandler];
         }
-
-        //Recover the state from the previous time this was instantiated
-        [self recover:completionHandler];
     }
     return self;
 }
