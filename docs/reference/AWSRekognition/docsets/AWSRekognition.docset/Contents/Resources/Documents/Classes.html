@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.17.0 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.18.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -84,6 +84,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionContentModerationDetection.html">AWSRekognitionContentModerationDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionCoversBodyPart.html">AWSRekognitionCoversBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a>
@@ -191,6 +194,12 @@
                 <a href="Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionDetectTextFilters.html">AWSRekognitionDetectTextFilters</a>
               </li>
               <li class="nav-group-task">
@@ -204,6 +213,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionEquipmentDetection.html">AWSRekognitionEquipmentDetection</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionEvaluationResult.html">AWSRekognitionEvaluationResult</a>
@@ -392,6 +404,18 @@
                 <a href="Classes/AWSRekognitionProjectVersionDescription.html">AWSRekognitionProjectVersionDescription</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionProtectiveEquipmentBodyPart.html">AWSRekognitionProtectiveEquipmentBodyPart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionProtectiveEquipmentPerson.html">AWSRekognitionProtectiveEquipmentPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionProtectiveEquipmentSummarizationAttributes.html">AWSRekognitionProtectiveEquipmentSummarizationAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionProtectiveEquipmentSummary.html">AWSRekognitionProtectiveEquipmentSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -557,6 +581,9 @@
                 <a href="Classes/AWSRekognitionUnindexedFace.html">AWSRekognitionUnindexedFace</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionValidationData.html">AWSRekognitionValidationData</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a>
               </li>
               <li class="nav-group-task">
@@ -586,6 +613,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionAttribute.html">AWSRekognitionAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionBodyPart.html">AWSRekognitionBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionCelebrityRecognitionSortBy.html">AWSRekognitionCelebrityRecognitionSortBy</a>
@@ -628,6 +658,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionProjectVersionStatus.html">AWSRekognitionProjectVersionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionProtectiveEquipmentType.html">AWSRekognitionProtectiveEquipmentType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionQualityFilter.html">AWSRekognitionQualityFilter</a>
@@ -710,7 +743,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Assets are the images that you use to train and evaluate a model version. Assets are referenced by Sagemaker GroundTruth manifest files. </p>
+                        <p>Assets are the images that you use to train and evaluate a model version. Assets can also contain validation information that you use to debug a failed model training. </p>
 
                         <a href="Classes/AWSRekognitionAsset.html" class="slightly-smaller">See more</a>
                       </div>
@@ -809,7 +842,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Identifies the bounding box around the label, face, or text. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note></p>
+                        <p><p>Identifies the bounding box around the label, face, text or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note></p>
 
                         <a href="Classes/AWSRekognitionBoundingBox.html" class="slightly-smaller">See more</a>
                       </div>
@@ -1118,6 +1151,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionContentModerationDetection</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionCoversBodyPart"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionCoversBodyPart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionCoversBodyPart">AWSRekognitionCoversBodyPart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about an item of Personal Protective Equipment covering a corresponding body part. For more information, see <a>DetectProtectiveEquipment</a>.</p>
+
+                        <a href="Classes/AWSRekognitionCoversBodyPart.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionCoversBodyPart</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionCoversBodyPart</span></code></pre>
 
                         </div>
                       </div>
@@ -2247,6 +2313,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognitionDetectProtectiveEquipmentRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionDetectProtectiveEquipmentRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionDetectProtectiveEquipmentRequest">AWSRekognitionDetectProtectiveEquipmentRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionDetectProtectiveEquipmentRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionDetectProtectiveEquipmentRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionDetectProtectiveEquipmentResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionDetectProtectiveEquipmentResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionDetectProtectiveEquipmentResponse">AWSRekognitionDetectProtectiveEquipmentResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionDetectProtectiveEquipmentResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionDetectProtectiveEquipmentResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognitionDetectTextFilters"></a>
                     <a name="//apple_ref/objc/Class/AWSRekognitionDetectTextFilters" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognitionDetectTextFilters">AWSRekognitionDetectTextFilters</a>
@@ -2401,6 +2531,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionEmotion</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionEquipmentDetection"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionEquipmentDetection" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionEquipmentDetection">AWSRekognitionEquipmentDetection</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about an item of Personal Protective Equipment (PPE) detected by <a>DetectProtectiveEquipment</a>. For more information, see <a>DetectProtectiveEquipment</a>.</p>
+
+                        <a href="Classes/AWSRekognitionEquipmentDetection.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionEquipmentDetection</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionEquipmentDetection</span></code></pre>
 
                         </div>
                       </div>
@@ -3359,7 +3522,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The S3 bucket that contains the Ground Truth manifest file.</p>
+                        <p>The S3 bucket that contains an Amazon Sagemaker Ground Truth format manifest file. </p>
 
                         <a href="Classes/AWSRekognitionGroundTruthManifest.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4425,6 +4588,140 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionProjectVersionDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionProtectiveEquipmentBodyPart"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionProtectiveEquipmentBodyPart" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionProtectiveEquipmentBodyPart">AWSRekognitionProtectiveEquipmentBodyPart</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Information about a body part detected by <a>DetectProtectiveEquipment</a> that contains PPE. An array of <code>ProtectiveEquipmentBodyPart</code> objects is returned for each person detected by <code>DetectProtectiveEquipment</code>. </p>
+
+                        <a href="Classes/AWSRekognitionProtectiveEquipmentBodyPart.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionProtectiveEquipmentBodyPart</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionProtectiveEquipmentBodyPart</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionProtectiveEquipmentPerson"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionProtectiveEquipmentPerson" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionProtectiveEquipmentPerson">AWSRekognitionProtectiveEquipmentPerson</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A person detected by a call to <a>DetectProtectiveEquipment</a>. The API returns all persons detected in the input image in an array of <code>ProtectiveEquipmentPerson</code> objects.</p>
+
+                        <a href="Classes/AWSRekognitionProtectiveEquipmentPerson.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionProtectiveEquipmentPerson</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionProtectiveEquipmentPerson</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionProtectiveEquipmentSummarizationAttributes"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionProtectiveEquipmentSummarizationAttributes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionProtectiveEquipmentSummarizationAttributes">AWSRekognitionProtectiveEquipmentSummarizationAttributes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies summary attributes to return from a call to <a>DetectProtectiveEquipment</a>. You can specify which types of PPE to summarize. You can also specify a minimum confidence value for detections. Summary information is returned in the <code>Summary</code> (<a>ProtectiveEquipmentSummary</a>) field of the response from <code>DetectProtectiveEquipment</code>. The summary includes which persons in an image were detected wearing the requested types of person protective equipment (PPE), which persons were detected as not wearing PPE, and the persons in which a determination could not be made. For more information, see <a>ProtectiveEquipmentSummary</a>.</p>
+
+<p>Required parameters: [MinConfidence, RequiredEquipmentTypes]</p>
+
+                        <a href="Classes/AWSRekognitionProtectiveEquipmentSummarizationAttributes.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionProtectiveEquipmentSummarizationAttributes</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionProtectiveEquipmentSummarizationAttributes</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionProtectiveEquipmentSummary"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionProtectiveEquipmentSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionProtectiveEquipmentSummary">AWSRekognitionProtectiveEquipmentSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Summary information for required items of personal protective equipment (PPE) detected on persons by a call to <a>DetectProtectiveEquipment</a>. You specify the required type of PPE in the <code>SummarizationAttributes</code> (<a>ProtectiveEquipmentSummarizationAttributes</a>) input parameter. The summary includes which persons were detected wearing the required personal protective equipment (<code>PersonsWithRequiredEquipment</code>), which persons were detected as not wearing the required PPE (<code>PersonsWithoutRequiredEquipment</code>), and the persons in which a determination could not be made (<code>PersonsIndeterminate</code>).</p><p>To get a total for each category, use the size of the field array. For example, to find out how many people were detected as wearing the specified PPE, use the size of the <code>PersonsWithRequiredEquipment</code> array. If you want to find out more about a person, such as the location (<a>BoundingBox</a>) of the person on the image, use the person ID in each array element. Each person ID matches the ID field of a <a>ProtectiveEquipmentPerson</a> object returned in the <code>Persons</code> array by <code>DetectProtectiveEquipment</code>.</p>
+
+                        <a href="Classes/AWSRekognitionProtectiveEquipmentSummary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionProtectiveEquipmentSummary</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionProtectiveEquipmentSummary</span></code></pre>
 
                         </div>
                       </div>
@@ -5996,7 +6293,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Sagemaker Groundtruth format manifest file representing the dataset used for testing.</p>
+                        <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
 
                         <a href="Classes/AWSRekognitionTestingDataResult.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6128,7 +6425,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A Sagemaker Groundtruth format manifest file that represents the dataset used for training.</p>
+                        <p>Sagemaker Groundtruth format manifest files for the input, output and validation datasets that are used and created during testing.</p>
 
                         <a href="Classes/AWSRekognitionTrainingDataResult.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6175,6 +6472,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionUnindexedFace</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionValidationData"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionValidationData" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionValidationData">AWSRekognitionValidationData</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Contains the Amazon S3 bucket location of the validation data for a model training job. </p><p>The validation data includes error information for individual JSON lines in the dataset. For more information, see Debugging a Failed Model Training in the Amazon Rekognition Custom Labels Developer Guide. </p><p>You get the <code>ValidationData</code> object for the training dataset (<a>TrainingDataResult</a>) and the test dataset (<a>TestingDataResult</a>) by calling <a>DescribeProjectVersions</a>. </p><p>The assets array contains a single <a>Asset</a> object. The <a>GroundTruthManifest</a> field of the Asset object contains the S3 bucket location of the validation data. </p>
+
+                        <a href="Classes/AWSRekognitionValidationData.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionValidationData</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionValidationData</span></code></pre>
 
                         </div>
                       </div>
@@ -6324,7 +6654,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

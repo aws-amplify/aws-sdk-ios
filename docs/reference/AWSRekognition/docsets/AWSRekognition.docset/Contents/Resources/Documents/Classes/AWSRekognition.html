@@ -17,7 +17,7 @@
     <a title="AWSRekognition Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.17.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.18.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -84,6 +84,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionContentModerationDetection.html">AWSRekognitionContentModerationDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCoversBodyPart.html">AWSRekognitionCoversBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a>
@@ -191,6 +194,12 @@
                 <a href="../Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionDetectTextFilters.html">AWSRekognitionDetectTextFilters</a>
               </li>
               <li class="nav-group-task">
@@ -204,6 +213,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEquipmentDetection.html">AWSRekognitionEquipmentDetection</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionEvaluationResult.html">AWSRekognitionEvaluationResult</a>
@@ -392,6 +404,18 @@
                 <a href="../Classes/AWSRekognitionProjectVersionDescription.html">AWSRekognitionProjectVersionDescription</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentBodyPart.html">AWSRekognitionProtectiveEquipmentBodyPart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentPerson.html">AWSRekognitionProtectiveEquipmentPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentSummarizationAttributes.html">AWSRekognitionProtectiveEquipmentSummarizationAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentSummary.html">AWSRekognitionProtectiveEquipmentSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -557,6 +581,9 @@
                 <a href="../Classes/AWSRekognitionUnindexedFace.html">AWSRekognitionUnindexedFace</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionValidationData.html">AWSRekognitionValidationData</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a>
               </li>
               <li class="nav-group-task">
@@ -586,6 +613,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionAttribute.html">AWSRekognitionAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionBodyPart.html">AWSRekognitionBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionCelebrityRecognitionSortBy.html">AWSRekognitionCelebrityRecognitionSortBy</a>
@@ -628,6 +658,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionProjectVersionStatus.html">AWSRekognitionProjectVersionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionProtectiveEquipmentType.html">AWSRekognitionProtectiveEquipmentType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionQualityFilter.html">AWSRekognitionQualityFilter</a>
@@ -1049,7 +1082,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Compares a face in the <i>source</i> input image with each of the 100 largest faces detected in the <i>target</i> input image. </p><note><p> If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. </p></note><p>You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn&rsquo;t supported. The image must be formatted as a PNG or JPEG file. </p><p>In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. </p><note><p>By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the <code>SimilarityThreshold</code> parameter.</p></note><p><code>CompareFaces</code> also returns an array of faces that don&rsquo;t match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.</p><p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>. </p><note><p>To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call <a>DescribeCollection</a>. </p></note><p>If the image doesn&rsquo;t contain Exif metadata, <code>CompareFaces</code> returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.</p><p>If no faces are detected in the source or target images, <code>CompareFaces</code> returns an <code>InvalidParameterException</code> error. </p><note><p> This is a stateless API operation. That is, data returned by this operation doesn&rsquo;t persist.</p></note><p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>
+                        <p>Compares a face in the <i>source</i> input image with each of the 100 largest faces detected in the <i>target</i> input image. </p><note><p> If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. </p></note><p>You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn&rsquo;t supported. The image must be formatted as a PNG or JPEG file. </p><p>In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. </p><note><p>By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the <code>SimilarityThreshold</code> parameter.</p></note><p><code>CompareFaces</code> also returns an array of faces that don&rsquo;t match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.</p><p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>. </p><p>If the image doesn&rsquo;t contain Exif metadata, <code>CompareFaces</code> returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.</p><p>If no faces are detected in the source or target images, <code>CompareFaces</code> returns an <code>InvalidParameterException</code> error. </p><note><p> This is a stateless API operation. That is, data returned by this operation doesn&rsquo;t persist.</p></note><p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionCompareFacesRequest</p>
@@ -1113,7 +1146,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Compares a face in the <i>source</i> input image with each of the 100 largest faces detected in the <i>target</i> input image. </p><note><p> If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. </p></note><p>You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn&rsquo;t supported. The image must be formatted as a PNG or JPEG file. </p><p>In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. </p><note><p>By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the <code>SimilarityThreshold</code> parameter.</p></note><p><code>CompareFaces</code> also returns an array of faces that don&rsquo;t match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.</p><p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>. </p><note><p>To use quality filtering, you need a collection associated with version 3 of the face model or higher. To get the version of the face model associated with a collection, call <a>DescribeCollection</a>. </p></note><p>If the image doesn&rsquo;t contain Exif metadata, <code>CompareFaces</code> returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.</p><p>If no faces are detected in the source or target images, <code>CompareFaces</code> returns an <code>InvalidParameterException</code> error. </p><note><p> This is a stateless API operation. That is, data returned by this operation doesn&rsquo;t persist.</p></note><p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>
+                        <p>Compares a face in the <i>source</i> input image with each of the 100 largest faces detected in the <i>target</i> input image. </p><note><p> If the source image contains multiple faces, the service detects the largest face and compares it with each face detected in the target image. </p></note><p>You pass the input and target images either as base64-encoded image bytes or as references to images in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes isn&rsquo;t supported. The image must be formatted as a PNG or JPEG file. </p><p>In response, the operation returns an array of face matches ordered by similarity score in descending order. For each face match, the response provides a bounding box of the face, facial landmarks, pose details (pitch, role, and yaw), quality (brightness and sharpness), and confidence value (indicating the level of confidence that the bounding box contains a face). The response also provides a similarity score, which indicates how closely the faces match. </p><note><p>By default, only faces with a similarity score of greater than or equal to 80% are returned in the response. You can change this value by specifying the <code>SimilarityThreshold</code> parameter.</p></note><p><code>CompareFaces</code> also returns an array of faces that don&rsquo;t match the source image. For each face, it returns a bounding box, confidence value, landmarks, pose details, and quality. The response also returns information about the face in the source image, including the bounding box of the face and confidence value.</p><p>The <code>QualityFilter</code> input parameter allows you to filter out detected faces that don’t meet a required quality bar. The quality bar is based on a variety of common use cases. Use <code>QualityFilter</code> to set the quality bar by specifying <code>LOW</code>, <code>MEDIUM</code>, or <code>HIGH</code>. If you do not want to filter detected faces, specify <code>NONE</code>. The default value is <code>NONE</code>. </p><p>If the image doesn&rsquo;t contain Exif metadata, <code>CompareFaces</code> returns orientation information for the source and target images. Use these values to display the images with the correct image orientation.</p><p>If no faces are detected in the source or target images, <code>CompareFaces</code> returns an <code>InvalidParameterException</code> error. </p><note><p> This is a stateless API operation. That is, data returned by this operation doesn&rsquo;t persist.</p></note><p>For an example, see Comparing Faces in Images in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:CompareFaces</code> action.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionCompareFacesRequest</p>
@@ -3607,6 +3640,151 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)detectProtectiveEquipment:"></a>
+                    <a name="//apple_ref/objc/Method/-detectProtectiveEquipment:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)detectProtectiveEquipment:">-detectProtectiveEquipment:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the following types of PPE.</p><ul><li><p>Face cover</p></li><li><p>Hand cover</p></li><li><p>Head cover</p></li></ul><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. The image must be either a PNG or JPG formatted file. </p><p><code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected in an image.</p><p>For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand). For each body part, an array of detected items of PPE is returned, including an indicator of whether or not the PPE covers the body part. The API returns the confidence it has in each detection (person, PPE, body part and body part coverage). It also returns a bounding box (<a>BoundingBox</a>) for each detected person and each detected item of PPE. </p><p>You can optionally request a summary of detected PPE items with the <code>SummarizationAttributes</code> input parameter. The summary provides the following information. </p><ul><li><p>The persons detected as wearing all of the types of PPE that you specify.</p></li><li><p>The persons detected as not wearing all of the types PPE that you specify.</p></li><li><p>The persons detected where PPE adornment could not be determined. </p></li></ul><p>This is a stateless API operation. That is, the operation does not persist any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionDetectProtectiveEquipmentRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionDetectProtectiveEquipmentResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">detectProtectiveEquipment</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectProtectiveEquipment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetectProtectiveEquipment service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognition(im)detectProtectiveEquipment:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-detectProtectiveEquipment:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognition(im)detectProtectiveEquipment:completionHandler:">-detectProtectiveEquipment:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Detects Personal Protective Equipment (PPE) worn by people detected in an image. Amazon Rekognition can detect the following types of PPE.</p><ul><li><p>Face cover</p></li><li><p>Hand cover</p></li><li><p>Head cover</p></li></ul><p>You pass the input image as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. The image must be either a PNG or JPG formatted file. </p><p><code>DetectProtectiveEquipment</code> detects PPE worn by up to 15 persons detected in an image.</p><p>For each person detected in the image the API returns an array of body parts (face, head, left-hand, right-hand). For each body part, an array of detected items of PPE is returned, including an indicator of whether or not the PPE covers the body part. The API returns the confidence it has in each detection (person, PPE, body part and body part coverage). It also returns a bounding box (<a>BoundingBox</a>) for each detected person and each detected item of PPE. </p><p>You can optionally request a summary of detected PPE items with the <code>SummarizationAttributes</code> input parameter. The summary provides the following information. </p><ul><li><p>The persons detected as wearing all of the types of PPE that you specify.</p></li><li><p>The persons detected as not wearing all of the types PPE that you specify.</p></li><li><p>The persons detected where PPE adornment could not be determined. </p></li></ul><p>This is a stateless API operation. That is, the operation does not persist any data.</p><p>This operation requires permissions to perform the <code>rekognition:DetectProtectiveEquipment</code> action. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionDetectProtectiveEquipmentRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSRekognitionDetectProtectiveEquipmentResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">detectProtectiveEquipment</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+            <span class="nf">completionHandler</span><span class="p">:</span>
+                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                    <span class="n"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">detectProtectiveEquipment</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DetectProtectiveEquipment service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSRekognition(im)detectText:"></a>
                     <a name="//apple_ref/objc/Method/-detectText:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSRekognition(im)detectText:">-detectText:<wbr></a>
@@ -5089,7 +5267,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSRekognitionIndexFacesResponse.html">AWSRekognitionIndexFacesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSRekognitionIndexFacesResponse.html">AWSRekognitionIndexFacesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>, <code>AWSRekognitionErrorServiceQuotaExceeded</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -5161,7 +5339,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSRekognitionErrorDomain">AWSRekognitionErrorDomain</a></code> domain and the following error code: <code>AWSRekognitionErrorInvalidS3Object</code>, <code>AWSRekognitionErrorInvalidParameter</code>, <code>AWSRekognitionErrorImageTooLarge</code>, <code>AWSRekognitionErrorAccessDenied</code>, <code>AWSRekognitionErrorInternalServer</code>, <code>AWSRekognitionErrorThrottling</code>, <code>AWSRekognitionErrorProvisionedThroughputExceeded</code>, <code>AWSRekognitionErrorResourceNotFound</code>, <code>AWSRekognitionErrorInvalidImageFormat</code>, <code>AWSRekognitionErrorServiceQuotaExceeded</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -5610,7 +5788,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide. </p><p><code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn&rsquo;t return celebrities whose faces aren&rsquo;t among the largest 100 faces in the image.</p><p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity&rsquo;s face on the image.</p><p>Amazon Rekognition doesn&rsquo;t retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don&rsquo;t store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p><p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>
+                        <p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide. </p><p><code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn&rsquo;t return celebrities whose faces aren&rsquo;t among the largest 64 faces in the image.</p><p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity&rsquo;s face on the image.</p><p>Amazon Rekognition doesn&rsquo;t retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don&rsquo;t store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p><p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionRecognizeCelebritiesRequest</p>
@@ -5675,7 +5853,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide. </p><p><code>RecognizeCelebrities</code> returns the 100 largest faces in the image. It lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn&rsquo;t return celebrities whose faces aren&rsquo;t among the largest 100 faces in the image.</p><p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity&rsquo;s face on the image.</p><p>Amazon Rekognition doesn&rsquo;t retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don&rsquo;t store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p><p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>
+                        <p>Returns an array of celebrities recognized in the input image. For more information, see Recognizing Celebrities in the Amazon Rekognition Developer Guide. </p><p><code>RecognizeCelebrities</code> returns the 64 largest faces in the image. It lists recognized celebrities in the <code>CelebrityFaces</code> array and unrecognized faces in the <code>UnrecognizedFaces</code> array. <code>RecognizeCelebrities</code> doesn&rsquo;t return celebrities whose faces aren&rsquo;t among the largest 64 faces in the image.</p><p>For each celebrity recognized, <code>RecognizeCelebrities</code> returns a <code>Celebrity</code> object. The <code>Celebrity</code> object contains the celebrity name, ID, URL links to additional information, match confidence, and a <code>ComparedFace</code> object that you can use to locate the celebrity&rsquo;s face on the image.</p><p>Amazon Rekognition doesn&rsquo;t retain information about which images a celebrity has been recognized in. Your application must store this information and use the <code>Celebrity</code> ID property as a unique identifier for the celebrity. If you don&rsquo;t store the celebrity name or additional information URLs returned by <code>RecognizeCelebrities</code>, you will need the ID to identify the celebrity in a call to the <a>GetCelebrityInfo</a> operation.</p><p>You pass the input image either as base64-encoded image bytes or as a reference to an image in an Amazon S3 bucket. If you use the AWS CLI to call Amazon Rekognition operations, passing image bytes is not supported. The image must be either a PNG or JPEG formatted file. </p><p>For an example, see Recognizing Celebrities in an Image in the Amazon Rekognition Developer Guide.</p><p>This operation requires permissions to perform the <code>rekognition:RecognizeCelebrities</code> operation.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSRekognitionRecognizeCelebritiesRequest</p>
@@ -7757,7 +7935,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSRekognitionErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSRekognition 2.17.0 Docs</a> (79% documented)</p>
+        <p><a href="../index.html">AWSRekognition 2.18.0 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -84,6 +84,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionContentModerationDetection.html">AWSRekognitionContentModerationDetection</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionCoversBodyPart.html">AWSRekognitionCoversBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionCreateCollectionRequest.html">AWSRekognitionCreateCollectionRequest</a>
@@ -191,6 +194,12 @@
                 <a href="../Classes/AWSRekognitionDetectModerationLabelsResponse.html">AWSRekognitionDetectModerationLabelsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectProtectiveEquipmentRequest.html">AWSRekognitionDetectProtectiveEquipmentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionDetectProtectiveEquipmentResponse.html">AWSRekognitionDetectProtectiveEquipmentResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionDetectTextFilters.html">AWSRekognitionDetectTextFilters</a>
               </li>
               <li class="nav-group-task">
@@ -204,6 +213,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionEmotion.html">AWSRekognitionEmotion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionEquipmentDetection.html">AWSRekognitionEquipmentDetection</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionEvaluationResult.html">AWSRekognitionEvaluationResult</a>
@@ -392,6 +404,18 @@
                 <a href="../Classes/AWSRekognitionProjectVersionDescription.html">AWSRekognitionProjectVersionDescription</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentBodyPart.html">AWSRekognitionProtectiveEquipmentBodyPart</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentPerson.html">AWSRekognitionProtectiveEquipmentPerson</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentSummarizationAttributes.html">AWSRekognitionProtectiveEquipmentSummarizationAttributes</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionProtectiveEquipmentSummary.html">AWSRekognitionProtectiveEquipmentSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionRecognizeCelebritiesRequest.html">AWSRekognitionRecognizeCelebritiesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -557,6 +581,9 @@
                 <a href="../Classes/AWSRekognitionUnindexedFace.html">AWSRekognitionUnindexedFace</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSRekognitionValidationData.html">AWSRekognitionValidationData</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSRekognitionVideo.html">AWSRekognitionVideo</a>
               </li>
               <li class="nav-group-task">
@@ -586,6 +613,9 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionAttribute.html">AWSRekognitionAttribute</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionBodyPart.html">AWSRekognitionBodyPart</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionCelebrityRecognitionSortBy.html">AWSRekognitionCelebrityRecognitionSortBy</a>
@@ -628,6 +658,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionProjectVersionStatus.html">AWSRekognitionProjectVersionStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSRekognitionProtectiveEquipmentType.html">AWSRekognitionProtectiveEquipmentType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSRekognitionQualityFilter.html">AWSRekognitionQualityFilter</a>
@@ -678,6 +711,7 @@
     <span class="n">AWSRekognitionErrorResourceInUse</span><span class="p">,</span>
     <span class="n">AWSRekognitionErrorResourceNotFound</span><span class="p">,</span>
     <span class="n">AWSRekognitionErrorResourceNotReady</span><span class="p">,</span>
+    <span class="n">AWSRekognitionErrorServiceQuotaExceeded</span><span class="p">,</span>
     <span class="n">AWSRekognitionErrorThrottling</span><span class="p">,</span>
     <span class="n">AWSRekognitionErrorVideoTooLarge</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
@@ -1210,6 +1244,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSRekognitionErrorType@AWSRekognitionErrorServiceQuotaExceeded"></a>
+                    <a name="//apple_ref/objc/Case/AWSRekognitionErrorServiceQuotaExceeded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSRekognitionErrorType@AWSRekognitionErrorServiceQuotaExceeded">AWSRekognitionErrorServiceQuotaExceeded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSRekognitionErrorServiceQuotaExceeded</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceQuotaExceeded</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSRekognitionErrorType@AWSRekognitionErrorThrottling"></a>
                     <a name="//apple_ref/objc/Case/AWSRekognitionErrorThrottling" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSRekognitionErrorType@AWSRekognitionErrorThrottling">AWSRekognitionErrorThrottling</a>
@@ -1232,7 +1298,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
 
                         </div>
                       </div>
@@ -1264,7 +1330,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">videoTooLarge</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">videoTooLarge</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
 
                         </div>
                       </div>
@@ -1276,7 +1342,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
