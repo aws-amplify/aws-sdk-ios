@@ -255,1168 +255,1182 @@
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 27,
-      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorForbidden",
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 28,
-      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorInternalServerError",
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorForbidden",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 29,
-      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorMethodNotAllowed",
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorInternalServerError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 30,
-      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorNotFound",
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorMethodNotAllowed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 31,
-      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorPayloadTooLarge",
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 32,
+      "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorPayloadTooLarge",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 33,
       "symbol": "AWSPinpointTargetingErrorType.AWSPinpointTargetingErrorTooManyRequests",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 35,
+      "line": 36,
       "symbol": "AWSPinpointTargetingAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 35,
+      "line": 36,
       "symbol": "AWSPinpointTargetingAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 36,
+      "line": 37,
       "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 37,
+      "line": 38,
       "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionOpenApp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 38,
+      "line": 39,
       "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionDeepLink",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 39,
+      "line": 40,
       "symbol": "AWSPinpointTargetingAction.AWSPinpointTargetingActionUrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 42,
+      "line": 43,
       "symbol": "AWSPinpointTargetingAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 42,
+      "line": 43,
       "symbol": "AWSPinpointTargetingAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 43,
+      "line": 44,
       "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 44,
+      "line": 45,
       "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeInclusive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 45,
+      "line": 46,
       "symbol": "AWSPinpointTargetingAttributeType.AWSPinpointTargetingAttributeTypeExclusive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 48,
+      "line": 49,
       "symbol": "AWSPinpointTargetingCampaignStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 48,
+      "line": 49,
       "symbol": "AWSPinpointTargetingCampaignStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 49,
+      "line": 50,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 50,
+      "line": 51,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusScheduled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 51,
+      "line": 52,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusExecuting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 52,
+      "line": 53,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusPendingNextRun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 53,
+      "line": 54,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 54,
+      "line": 55,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusPaused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 55,
+      "line": 56,
       "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 58,
-      "symbol": "AWSPinpointTargetingChannelType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 58,
-      "symbol": "AWSPinpointTargetingChannelType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 59,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeUnknown",
+      "line": 57,
+      "symbol": "AWSPinpointTargetingCampaignStatus.AWSPinpointTargetingCampaignStatusInvalid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 60,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypePush",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSPinpointTargetingChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 60,
+      "symbol": "AWSPinpointTargetingChannelType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 61,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeGcm",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 62,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApns",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypePush",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 63,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsSandbox",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeGcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 64,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoip",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 65,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoipSandbox",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 66,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeAdm",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 67,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeSms",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeApnsVoipSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 68,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeVoice",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeAdm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 69,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeEmail",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeSms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 70,
-      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeBaidu",
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeVoice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
       "line": 71,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeEmail",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 72,
+      "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeBaidu",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
+      "line": 73,
       "symbol": "AWSPinpointTargetingChannelType.AWSPinpointTargetingChannelTypeCustom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 74,
+      "line": 76,
       "symbol": "AWSPinpointTargetingDeliveryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 74,
+      "line": 76,
       "symbol": "AWSPinpointTargetingDeliveryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 75,
+      "line": 77,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 76,
+      "line": 78,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 77,
+      "line": 79,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusThrottled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 78,
+      "line": 80,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusTemporaryFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 79,
+      "line": 81,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusPermanentFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 80,
+      "line": 82,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusUnknownFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 81,
+      "line": 83,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusOptOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 82,
+      "line": 84,
       "symbol": "AWSPinpointTargetingDeliveryStatus.AWSPinpointTargetingDeliveryStatusDuplicate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 85,
+      "line": 87,
       "symbol": "AWSPinpointTargetingDimensionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 85,
+      "line": 87,
       "symbol": "AWSPinpointTargetingDimensionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 86,
+      "line": 88,
       "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 87,
+      "line": 89,
       "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeInclusive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 88,
+      "line": 90,
       "symbol": "AWSPinpointTargetingDimensionType.AWSPinpointTargetingDimensionTypeExclusive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 91,
+      "line": 93,
       "symbol": "AWSPinpointTargetingDuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 91,
+      "line": 93,
       "symbol": "AWSPinpointTargetingDuration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 92,
+      "line": 94,
       "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 93,
+      "line": 95,
       "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationHr24",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 94,
+      "line": 96,
       "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay7",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 95,
+      "line": 97,
       "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay14",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 96,
+      "line": 98,
       "symbol": "AWSPinpointTargetingDuration.AWSPinpointTargetingDurationDay30",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 99,
+      "line": 101,
       "symbol": "AWSPinpointTargetingFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 99,
+      "line": 101,
       "symbol": "AWSPinpointTargetingFilterType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 100,
+      "line": 102,
       "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 101,
+      "line": 103,
       "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 102,
+      "line": 104,
       "symbol": "AWSPinpointTargetingFilterType.AWSPinpointTargetingFilterTypeEndpoint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 105,
+      "line": 107,
       "symbol": "AWSPinpointTargetingFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 105,
+      "line": 107,
       "symbol": "AWSPinpointTargetingFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 106,
+      "line": 108,
       "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 107,
+      "line": 109,
       "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatCsv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 108,
+      "line": 110,
       "symbol": "AWSPinpointTargetingFormat.AWSPinpointTargetingFormatJson",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 111,
+      "line": 113,
       "symbol": "AWSPinpointTargetingFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 111,
+      "line": 113,
       "symbol": "AWSPinpointTargetingFrequency",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 112,
+      "line": 114,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 113,
+      "line": 115,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyOnce",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 114,
+      "line": 116,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyHourly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 115,
+      "line": 117,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyDaily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 116,
+      "line": 118,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyWeekly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 117,
+      "line": 119,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyMonthly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 118,
+      "line": 120,
       "symbol": "AWSPinpointTargetingFrequency.AWSPinpointTargetingFrequencyEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 121,
+      "line": 123,
       "symbol": "AWSPinpointTargetingInclude",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 121,
+      "line": 123,
       "symbol": "AWSPinpointTargetingInclude",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 122,
+      "line": 124,
       "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 123,
+      "line": 125,
       "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 124,
+      "line": 126,
       "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeAny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 125,
+      "line": 127,
       "symbol": "AWSPinpointTargetingInclude.AWSPinpointTargetingIncludeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 128,
+      "line": 130,
       "symbol": "AWSPinpointTargetingJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 128,
+      "line": 130,
       "symbol": "AWSPinpointTargetingJobStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 129,
+      "line": 131,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 130,
+      "line": 132,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCreated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 131,
+      "line": 133,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusPreparingForInitialization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 132,
+      "line": 134,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusInitializing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 133,
+      "line": 135,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusProcessing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 134,
+      "line": 136,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusPendingJob",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 135,
+      "line": 137,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCompleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 136,
+      "line": 138,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 137,
+      "line": 139,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusFailing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 138,
+      "line": 140,
       "symbol": "AWSPinpointTargetingJobStatus.AWSPinpointTargetingJobStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 141,
+      "line": 143,
       "symbol": "AWSPinpointTargetingMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 141,
+      "line": 143,
       "symbol": "AWSPinpointTargetingMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 142,
+      "line": 144,
       "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 143,
+      "line": 145,
       "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypeTransactional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 144,
+      "line": 146,
       "symbol": "AWSPinpointTargetingMessageType.AWSPinpointTargetingMessageTypePromotional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 147,
+      "line": 149,
       "symbol": "AWSPinpointTargetingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 147,
+      "line": 149,
       "symbol": "AWSPinpointTargetingMode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 148,
+      "line": 150,
       "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 149,
+      "line": 151,
       "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeDelivery",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 150,
+      "line": 152,
       "symbol": "AWSPinpointTargetingMode.AWSPinpointTargetingModeFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 153,
+      "line": 155,
       "symbol": "AWSPinpointTargetingOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 153,
+      "line": 155,
       "symbol": "AWSPinpointTargetingOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 154,
+      "line": 156,
       "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 155,
+      "line": 157,
       "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 156,
+      "line": 158,
       "symbol": "AWSPinpointTargetingOperator.AWSPinpointTargetingOperatorAny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 159,
+      "line": 161,
       "symbol": "AWSPinpointTargetingRecencyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 159,
+      "line": 161,
       "symbol": "AWSPinpointTargetingRecencyType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 160,
+      "line": 162,
       "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 161,
+      "line": 163,
       "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 162,
+      "line": 164,
       "symbol": "AWSPinpointTargetingRecencyType.AWSPinpointTargetingRecencyTypeInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 165,
+      "line": 167,
       "symbol": "AWSPinpointTargetingSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 165,
+      "line": 167,
       "symbol": "AWSPinpointTargetingSegmentType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 166,
+      "line": 168,
       "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 167,
+      "line": 169,
       "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeDimensional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 168,
+      "line": 170,
       "symbol": "AWSPinpointTargetingSegmentType.AWSPinpointTargetingSegmentTypeImport",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 171,
+      "line": 173,
       "symbol": "AWSPinpointTargetingSourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 171,
+      "line": 173,
       "symbol": "AWSPinpointTargetingSourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 172,
+      "line": 174,
       "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 173,
+      "line": 175,
       "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 174,
+      "line": 176,
       "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeAny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 175,
+      "line": 177,
       "symbol": "AWSPinpointTargetingSourceType.AWSPinpointTargetingSourceTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 178,
+      "line": 180,
       "symbol": "AWSPinpointTargetingState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 178,
+      "line": 180,
       "symbol": "AWSPinpointTargetingState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 179,
+      "line": 181,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 180,
+      "line": 182,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateDraft",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 181,
+      "line": 183,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 182,
+      "line": 184,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 183,
+      "line": 185,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 184,
+      "line": 186,
       "symbol": "AWSPinpointTargetingState.AWSPinpointTargetingStateClosed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 187,
+      "line": 189,
       "symbol": "AWSPinpointTargetingTemplateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 187,
+      "line": 189,
       "symbol": "AWSPinpointTargetingTemplateType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 188,
+      "line": 190,
       "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 189,
+      "line": 191,
       "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 190,
+      "line": 192,
       "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeSms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 191,
+      "line": 193,
       "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypeVoice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 192,
+      "line": 194,
       "symbol": "AWSPinpointTargetingTemplateType.AWSPinpointTargetingTemplateTypePush",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 195,
+      "line": 197,
       "symbol": "AWSPinpointTargetingTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 195,
+      "line": 197,
       "symbol": "AWSPinpointTargetingTypes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 196,
+      "line": 198,
       "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 197,
+      "line": 199,
       "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 198,
+      "line": 200,
       "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesAny",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 199,
+      "line": 201,
       "symbol": "AWSPinpointTargetingTypes.AWSPinpointTargetingTypesNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 202,
+      "line": 204,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 202,
+      "line": 204,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 203,
+      "line": 205,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 204,
+      "line": 206,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementPush",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 205,
+      "line": 207,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementGcm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 206,
+      "line": 208,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementApns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 207,
+      "line": 209,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementApnsSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 208,
+      "line": 210,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementApnsVoip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 209,
+      "line": 211,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementApnsVoipSandbox",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 210,
+      "line": 212,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementAdm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 211,
+      "line": 213,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementSms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 212,
+      "line": 214,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementVoice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 213,
+      "line": 215,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementEmail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 214,
+      "line": 216,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementBaidu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSPinpoint/AWSPinpointTargeting/AWSPinpointTargetingModel.h",
-      "line": 215,
+      "line": 217,
       "symbol": "AWSPinpointTargeting__EndpointTypesElement.AWSPinpointTargeting__EndpointTypesElementCustom",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

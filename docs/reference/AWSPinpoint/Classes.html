@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSPinpoint 2.17.0 Docs</a> (91% documented)</p>
+        <p><a href="index.html">AWSPinpoint 2.18.0 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -497,7 +497,13 @@
                 <a href="Classes/AWSPinpointTargetingEventDimensions.html">AWSPinpointTargetingEventDimensions</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingEventFilter.html">AWSPinpointTargetingEventFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSPinpointTargetingEventItemResponse.html">AWSPinpointTargetingEventItemResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSPinpointTargetingEventStartCondition.html">AWSPinpointTargetingEventStartCondition</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSPinpointTargetingEventStream.html">AWSPinpointTargetingEventStream</a>
@@ -3290,7 +3296,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns and journeys in the application can send.</p>
+                        <p>For a campaign, specifies limits on the messages that the campaign can send. For an application, specifies the default limits for messages that campaigns in the application can send.</p>
 
                         <a href="Classes/AWSPinpointTargetingCampaignLimits.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3560,7 +3566,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p>
+                        <p><p>Specifies the settings for a yes/no split activity in a journey. This type of activity sends participants down one of two paths in a journey, based on conditions that you specify.</p><note><p>To create yes/no split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note></p>
 
                         <a href="Classes/AWSPinpointTargetingConditionalSplitActivity.html" class="slightly-smaller">See more</a>
                       </div>
@@ -6672,6 +6678,41 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingEventFilter"></a>
+                    <a name="//apple_ref/objc/Class/AWSPinpointTargetingEventFilter" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingEventFilter">AWSPinpointTargetingEventFilter</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies the settings for an event that causes a campaign to be sent or a journey activity to be performed.</p>
+
+<p>Required parameters: [FilterType, Dimensions]</p>
+
+                        <a href="Classes/AWSPinpointTargetingEventFilter.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSPinpointTargetingEventFilter</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSPinpointTargetingEventFilter</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargetingEventItemResponse"></a>
                     <a name="//apple_ref/objc/Class/AWSPinpointTargetingEventItemResponse" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargetingEventItemResponse">AWSPinpointTargetingEventItemResponse</a>
@@ -6696,6 +6737,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSPinpointTargetingEventItemResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingEventStartCondition"></a>
+                    <a name="//apple_ref/objc/Class/AWSPinpointTargetingEventStartCondition" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingEventStartCondition">AWSPinpointTargetingEventStartCondition</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies the settings for an event that causes a journey activity to start.</p>
+
+                        <a href="Classes/AWSPinpointTargetingEventStartCondition.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSPinpointTargetingEventStartCondition</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSPinpointTargetingEventStartCondition</span></code></pre>
 
                         </div>
                       </div>
@@ -11159,7 +11233,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p>
+                        <p><p>Specifies the settings for a multivariate split activity in a journey. This type of activity sends participants down one of as many as five paths (including a default <i>Else</i> path) in a journey, based on conditions that you specify.</p><note><p>To create multivariate split activities that send participants down different paths based on push notification events (such as Open or Received events), your mobile app has to specify the User ID and Endpoint ID values. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/developerguide/integrate.html">Integrating Amazon Pinpoint with your application</a> in the <i>Amazon Pinpoint Developer Guide</i>.</p></note></p>
 
                         <a href="Classes/AWSPinpointTargetingMultiConditionalSplitActivity.html" class="slightly-smaller">See more</a>
                       </div>
@@ -15425,7 +15499,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.17.0 Docs</a> (91% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.18.0 Docs</a> (91% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -497,7 +497,13 @@
                 <a href="../Classes/AWSPinpointTargetingEventDimensions.html">AWSPinpointTargetingEventDimensions</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingEventFilter.html">AWSPinpointTargetingEventFilter</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingEventItemResponse.html">AWSPinpointTargetingEventItemResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSPinpointTargetingEventStartCondition.html">AWSPinpointTargetingEventStartCondition</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSPinpointTargetingEventStream.html">AWSPinpointTargetingEventStream</a>
@@ -1446,6 +1452,7 @@
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSPinpointTargetingErrorType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSPinpointTargetingErrorUnknown</span><span class="p">,</span>
     <span class="n">AWSPinpointTargetingErrorBadRequest</span><span class="p">,</span>
+    <span class="n">AWSPinpointTargetingErrorConflict</span><span class="p">,</span>
     <span class="n">AWSPinpointTargetingErrorForbidden</span><span class="p">,</span>
     <span class="n">AWSPinpointTargetingErrorInternalServerError</span><span class="p">,</span>
     <span class="n">AWSPinpointTargetingErrorMethodNotAllowed</span><span class="p">,</span>
@@ -1534,6 +1541,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSPinpointTargetingErrorType@AWSPinpointTargetingErrorConflict"></a>
+                    <a name="//apple_ref/objc/Case/AWSPinpointTargetingErrorConflict" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSPinpointTargetingErrorType@AWSPinpointTargetingErrorConflict">AWSPinpointTargetingErrorConflict</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSPinpointTargetingErrorConflict</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">conflict</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSPinpointTargetingErrorType@AWSPinpointTargetingErrorForbidden"></a>
                     <a name="//apple_ref/objc/Case/AWSPinpointTargetingErrorForbidden" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSPinpointTargetingErrorType@AWSPinpointTargetingErrorForbidden">AWSPinpointTargetingErrorForbidden</a>
@@ -1556,7 +1595,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">forbidden</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">forbidden</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -1588,7 +1627,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalServerError</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalServerError</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -1620,7 +1659,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">methodNotAllowed</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">methodNotAllowed</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
 
                         </div>
                       </div>
@@ -1652,7 +1691,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notFound</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notFound</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -1684,7 +1723,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">payloadTooLarge</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">payloadTooLarge</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -1716,7 +1755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tooManyRequests</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -1728,7 +1767,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-09-28)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-10-20)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.5</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
