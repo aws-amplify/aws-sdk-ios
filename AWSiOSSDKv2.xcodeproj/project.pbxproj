@@ -1257,6 +1257,7 @@
 		FA09EEA522D63786007EA360 /* AWSTranscribeStreamingClientDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = FA09EEA322D63786007EA360 /* AWSTranscribeStreamingClientDelegate.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FA09EEA822D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA09EEA722D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift */; };
 		FA0A61CD22FE3B2400B051BE /* AWSURLSessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */; };
+		FA0B6FD525410C720018E077 /* AWSLambdaNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA0B6FD425410C720018E077 /* AWSLambdaNSSecureCodingTests.m */; };
 		FA0F6212251A8A5900519DDC /* AWSConnect.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B5DD450422C9B17C003871AE /* AWSConnect.framework */; };
 		FA0F6213251A8A5900519DDC /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FA0F6214251A8A6500519DDC /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
@@ -3949,6 +3950,7 @@
 		FA09EEA722D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSSRWebSocketDelegateAdaptorTests.swift; sourceTree = "<group>"; };
 		FA09EEAB22D65666007EA360 /* AWSTranscribeStreamingUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSTranscribeStreamingUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSURLSessionManagerTests.m; sourceTree = "<group>"; };
+		FA0B6FD425410C720018E077 /* AWSLambdaNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA1C553E2538EA9E00DBC24C /* AWSAutoScalingNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSAutoScalingNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA1C569C2539E64500DBC24C /* AWSCloudWatchNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSCloudWatchNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSNSSecureCodingTestBase.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -6653,6 +6655,7 @@
 			isa = PBXGroup;
 			children = (
 				CE56052C1C6BCE0B00B4E00B /* AWSGeneralLambdaTests.m */,
+				FA0B6FD425410C720018E077 /* AWSLambdaNSSecureCodingTests.m */,
 				CE5604761C6BC93C00B4E00B /* Info.plist */,
 			);
 			path = AWSLambdaUnitTests;
@@ -12840,6 +12843,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5604EF1C6BCA9D00B4E00B /* AWSTestUtility.m in Sources */,
+				FA0B6FD525410C720018E077 /* AWSLambdaNSSecureCodingTests.m in Sources */,
 				CE56052D1C6BCE0B00B4E00B /* AWSGeneralLambdaTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

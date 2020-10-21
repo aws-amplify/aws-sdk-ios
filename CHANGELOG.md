@@ -5,6 +5,9 @@
 ### New Features
 - The following models now support `NSSecureCoding`
   - Amazon EC2 ([PR #3150](https://github.com/aws-amplify/aws-sdk-ios/pull/3150))
+  - Amazon Lambda ([PR #3154](https://github.com/aws-amplify/aws-sdk-ios/pull/3154)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
+    - `AWSLambdaInvocationRequest`
+    - `AWSLambdaInvocationResponse`
   - Amazon S3 ([PR #3145](https://github.com/aws-amplify/aws-sdk-ios/pull/3145)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
     - `AWSS3GetObjectOutput`
     - `AWSS3GetObjectTorrentOutput`
