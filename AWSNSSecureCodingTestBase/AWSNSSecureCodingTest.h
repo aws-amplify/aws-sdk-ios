@@ -32,4 +32,11 @@
 /// @param cls The AWSModel subclass to test
 - (void)validateSecureCodingForClass:(Class)cls API_AVAILABLE(ios(11));
 
+/// Validates that subclasses of `AWSModel` does not support NSSecureCoding. This
+/// is useful for classes that include properties that do not specify a type, such
+/// as `payload` or `body` properties of type `id`.
+///
+/// @param cls The AWSModel subclass to test
+- (void)validateClassDoesNotSupportSecureCoding:(Class)cls;
+
 @end
