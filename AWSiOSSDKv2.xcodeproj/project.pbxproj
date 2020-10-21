@@ -1371,6 +1371,7 @@
 		FA1C5B492539EA8D00DBC24C /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
 		FA1C5B4A2539EA9700DBC24C /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
 		FA2800EE22C9C1E1000B41F4 /* AWSStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */; };
+		FA37083C2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA37083B2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m */; };
 		FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF0F2346847A0006050D /* MQTTSessionTests.m */; };
 		FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF122346880D0006050D /* TestMQTTSessionDelegate.m */; };
 		FA3EFBC424634C3400CA23B9 /* AWSStaticCredentialsTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA3EFBC324634C3400CA23B9 /* AWSStaticCredentialsTests.m */; };
@@ -3958,6 +3959,7 @@
 		FA1C5A392539E8FB00DBC24C /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Platforms/iPhoneOS.platform/Developer/Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
 		FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSStringValue.m; sourceTree = "<group>"; };
 		FA2800EF22C9C1E5000B41F4 /* AWSStringValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSStringValue.h; sourceTree = "<group>"; };
+		FA37083B2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2NSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA39AF0F2346847A0006050D /* MQTTSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionTests.m; sourceTree = "<group>"; };
 		FA39AF112346880D0006050D /* TestMQTTSessionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMQTTSessionDelegate.h; sourceTree = "<group>"; };
 		FA39AF122346880D0006050D /* TestMQTTSessionDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestMQTTSessionDelegate.m; sourceTree = "<group>"; };
@@ -6598,6 +6600,7 @@
 		CE5604371C6BC8FF00B4E00B /* AWSEC2UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA37083B2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m */,
 				CE5605381C6BCE3C00B4E00B /* AWSGeneralEC2Tests.m */,
 				CE56043A1C6BC8FF00B4E00B /* Info.plist */,
 			);
@@ -12785,6 +12788,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5604EB1C6BCA9800B4E00B /* AWSTestUtility.m in Sources */,
+				FA37083C2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m in Sources */,
 				CE5605391C6BCE3C00B4E00B /* AWSGeneralEC2Tests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
