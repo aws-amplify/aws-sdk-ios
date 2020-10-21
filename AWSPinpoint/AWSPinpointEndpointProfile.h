@@ -291,8 +291,6 @@ are allowed to be added to an AWSPinpointEndpointProfileUser. If 40 attributes a
 - (void)addUserAttribute:(NSArray *)theValue
                   forKey:(NSString *)theKey;
 
-- (void)setUserAttributes:(NSDictionary<NSString*,NSArray*> *)userAttributes;
-
 @end
 
 NS_ASSUME_NONNULL_END

@@ -581,10 +581,6 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
     }
 }
 
-- (void)setUserAttributes:(NSDictionary<NSString*,NSArray*> *)userAttributes {
-    self.userAttributes = userAttributes;
-}
-
 - (NSDictionary *)allUserAttributes {
     @synchronized(self) {
         return [NSDictionary dictionaryWithDictionary:self.userAttributes];
