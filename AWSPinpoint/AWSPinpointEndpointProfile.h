@@ -277,14 +277,14 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong) NSString *_Nullable userId;
 
 /**
- Returns an Dictionary of all user attributes contained within this AWSPinpointEndpointProfile
- @returns an Dictionary of all user attributes, where the attribute keys are the keys and the attribute values are the values
+ Returns an Dictionary of all user attributes contained within this AWSPinpointEndpointProfileUser
+ @returns an Dictionary of all user attributes, where the user attribute keys are the keys and the user attribute values are the values
  */
 - (NSDictionary *)allUserAttributes;
 
 /**
 Adds an user attribute to this AWSPinpointEndpointProfileUser with the specified key. Only 40 attributes
-are allowed to be added to an AWSPinpointEndpointProfileUser. If 40 attributes already exist on this AWSPinpointEndpointProfileUser, the call is ignored.
+are allowed to be added to an AWSPinpointEndpointProfileUser. If 40 user attributes already exist on this AWSPinpointEndpointProfileUser, the call is ignored.
 @param theValue The value of the user attribute. The value will be truncated if it exceeds 200 characters.
 @param theKey The key of the user attribute. The key will be truncated if it exceeds 50 characters.
 */
