@@ -151,12 +151,8 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     return [self executeUpdate:endpointProfile];
 }
 
-- (AWSTask *)extracted {
-    return [self executeUpdate:[self currentEndpointProfile]];
-}
-
 - (AWSTask *)updateEndpointProfile {
-    return [self extracted];
+    return [self executeUpdate:[self currentEndpointProfile]];
 }
 
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
