@@ -534,11 +534,11 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
     return self;
 }
 
-- (NSString*) quotedString:(NSString*) input {
+- (NSString *)quotedString:(NSString*) input {
     return [NSString stringWithFormat:@"\"%@\"", input];
 }
 
-- (NSString*) description {
+- (NSString *)description {
     return [NSString stringWithFormat:
             @"{"
             "\"UserId\" : %@}",
@@ -598,7 +598,13 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
     }
 }
 
-+ (NSArray*) processUserAttributeValues:(NSArray*) values {
+- (NSArray *)userAttributeForKey:(NSString *)theKey {
+    @synchronized(self) {
+        return [self.userAttributes objectForKey:theKey];
+    }
+}
+
++ (NSArray *)processUserAttributeValues:(NSArray*) values {
     NSMutableArray *trimmedValues = [NSMutableArray arrayWithCapacity:MAX_ENDPOINT_ATTRIBUTE_VALUES];
     int valuesCount = 0;
     for (NSString *val in values) {
@@ -611,7 +617,7 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
     return trimmedValues;
 }
 
-+ (NSString*) trimKey:(NSString*)theKey
++ (NSString *)trimKey:(NSString*)theKey
               forType:(NSString*)theType {
     NSString* trimmedKey = [AWSPinpointStringUtils clipString:theKey
                                                    toMaxChars:MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH
@@ -623,7 +629,7 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
     return trimmedKey;
 }
 
-+ (NSString*) trimValue:(NSString*)theValue {
++ (NSString *)trimValue:(NSString*)theValue {
     NSString* trimmedValue = [AWSPinpointStringUtils clipString:theValue
                                                      toMaxChars:MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH
                                               andAppendEllipses:NO];
