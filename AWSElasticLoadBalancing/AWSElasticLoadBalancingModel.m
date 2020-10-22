@@ -20,6 +20,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingAction
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"authenticateCognitoConfig" : @"AuthenticateCognitoConfig",
@@ -93,6 +97,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingAddListenerCertificatesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificates" : @"Certificates",
@@ -108,6 +116,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingAddListenerCertificatesOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificates" : @"Certificates",
@@ -121,6 +133,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingAddTagsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -137,9 +153,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingAddTagsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingAuthenticateCognitoActionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -183,6 +207,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingAuthenticateOidcActionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -231,6 +259,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingAvailabilityZone
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerAddresses" : @"LoadBalancerAddresses",
@@ -248,6 +280,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCertificate
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"certificateArn" : @"CertificateArn",
@@ -259,6 +295,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCipher
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -269,6 +309,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingCreateListenerInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -340,6 +384,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCreateListenerOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listeners" : @"Listeners",
@@ -353,6 +401,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingCreateLoadBalancerInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -443,6 +495,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCreateLoadBalancerOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancers" : @"LoadBalancers",
@@ -456,6 +512,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingCreateRuleInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -483,6 +543,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCreateRuleOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"rules" : @"Rules",
@@ -496,6 +560,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingCreateTargetGroupInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -637,6 +705,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingCreateTargetGroupOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroups" : @"TargetGroups",
@@ -651,6 +723,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeleteListenerInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listenerArn" : @"ListenerArn",
@@ -661,9 +737,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeleteListenerOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingDeleteLoadBalancerInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -675,9 +759,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeleteLoadBalancerOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingDeleteRuleInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -689,9 +781,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeleteRuleOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingDeleteTargetGroupInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -703,9 +803,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeleteTargetGroupOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingDeregisterTargetsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -722,9 +830,17 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDeregisterTargetsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingDescribeAccountLimitsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -736,6 +852,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeAccountLimitsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -752,6 +872,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeListenerCertificatesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listenerArn" : @"ListenerArn",
@@ -763,6 +887,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeListenerCertificatesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -779,6 +907,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeListenersInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listenerArns" : @"ListenerArns",
@@ -791,6 +923,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeListenersOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -807,6 +943,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeLoadBalancerAttributesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerArn" : @"LoadBalancerArn",
@@ -816,6 +956,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeLoadBalancerAttributesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -831,6 +975,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeLoadBalancersInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerArns" : @"LoadBalancerArns",
@@ -843,6 +991,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeLoadBalancersOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -859,6 +1011,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeRulesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listenerArn" : @"ListenerArn",
@@ -871,6 +1027,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeRulesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -887,6 +1047,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeSSLPoliciesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"marker" : @"Marker",
@@ -898,6 +1062,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeSSLPoliciesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -914,6 +1082,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeTagsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceArns" : @"ResourceArns",
@@ -923,6 +1095,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeTagsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -938,6 +1114,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeTargetGroupAttributesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroupArn" : @"TargetGroupArn",
@@ -947,6 +1127,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -962,6 +1146,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeTargetGroupsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerArn" : @"LoadBalancerArn",
@@ -975,6 +1163,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingDescribeTargetGroupsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -991,6 +1183,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeTargetHealthInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroupArn" : @"TargetGroupArn",
@@ -1006,6 +1202,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingDescribeTargetHealthOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetHealthDescriptions" : @"TargetHealthDescriptions",
@@ -1020,6 +1220,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingFixedResponseActionConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentType" : @"ContentType",
@@ -1031,6 +1235,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingForwardActionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1051,6 +1259,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingHostHeaderConditionConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"values" : @"Values",
@@ -1060,6 +1272,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingHttpHeaderConditionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1072,6 +1288,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 
 @implementation AWSElasticLoadBalancingHttpRequestMethodConditionConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"values" : @"Values",
@@ -1081,6 +1301,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingLimit
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1092,6 +1316,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingListener
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1158,6 +1386,10 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
 @end
 
 @implementation AWSElasticLoadBalancingLoadBalancer
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1260,6 +1492,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingLoadBalancerAddress
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allocationId" : @"AllocationId",
@@ -1272,6 +1508,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingLoadBalancerAttribute
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -1282,6 +1522,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingLoadBalancerState
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1325,6 +1569,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingMatcher
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"httpCode" : @"HttpCode",
@@ -1334,6 +1582,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingModifyListenerInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1400,6 +1652,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingModifyListenerOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"listeners" : @"Listeners",
@@ -1413,6 +1669,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingModifyLoadBalancerAttributesInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1429,6 +1689,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingModifyLoadBalancerAttributesOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"Attributes",
@@ -1442,6 +1706,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingModifyRuleInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1463,6 +1731,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingModifyRuleOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"rules" : @"Rules",
@@ -1476,6 +1748,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingModifyTargetGroupAttributesInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1492,6 +1768,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingModifyTargetGroupAttributesOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributes" : @"Attributes",
@@ -1505,6 +1785,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingModifyTargetGroupInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1570,6 +1854,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingModifyTargetGroupOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroups" : @"TargetGroups",
@@ -1584,6 +1872,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingPathPatternConditionConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"values" : @"Values",
@@ -1593,6 +1885,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingQueryStringConditionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1608,6 +1904,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingQueryStringKeyValuePair
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -1618,6 +1918,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingRedirectActionConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1655,6 +1959,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingRegisterTargetsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroupArn" : @"TargetGroupArn",
@@ -1670,9 +1978,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingRegisterTargetsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingRemoveListenerCertificatesInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1689,9 +2005,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingRemoveListenerCertificatesOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingRemoveTagsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1704,9 +2028,17 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingRemoveTagsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSElasticLoadBalancingRule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1729,6 +2061,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingRuleCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1771,6 +2107,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingRulePriorityPair
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"priority" : @"Priority",
@@ -1781,6 +2121,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingSetIpAddressTypeInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1814,6 +2158,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSetIpAddressTypeOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ipAddressType" : @"IpAddressType",
@@ -1845,6 +2193,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSetRulePrioritiesInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"rulePriorities" : @"RulePriorities",
@@ -1858,6 +2210,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingSetRulePrioritiesOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1873,6 +2229,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSetSecurityGroupsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"loadBalancerArn" : @"LoadBalancerArn",
@@ -1884,6 +2244,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSetSecurityGroupsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"securityGroupIds" : @"SecurityGroupIds",
@@ -1893,6 +2257,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingSetSubnetsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1910,6 +2278,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSetSubnetsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZones" : @"AvailabilityZones",
@@ -1924,6 +2296,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSourceIpConditionConfig
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"values" : @"Values",
@@ -1933,6 +2309,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingSslPolicy
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1950,6 +2330,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingSubnetMapping
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allocationId" : @"AllocationId",
@@ -1962,6 +2346,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingTag
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -1972,6 +2360,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingTagDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1988,6 +2380,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingTargetDescription
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
@@ -1999,6 +2395,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingTargetGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2137,6 +2537,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingTargetGroupAttribute
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -2147,6 +2551,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingTargetGroupStickinessConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2159,6 +2567,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @implementation AWSElasticLoadBalancingTargetGroupTuple
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"targetGroupArn" : @"TargetGroupArn",
@@ -2169,6 +2581,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingTargetHealth
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2293,6 +2709,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 @end
 
 @implementation AWSElasticLoadBalancingTargetHealthDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
