@@ -1577,6 +1577,8 @@
 		FAF13AB02167C6AA008115D1 /* AWSGZIPTestHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */; };
 		FAF2C31623464ABA006C5C3E /* TestDecoderDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C31523464ABA006C5C3E /* TestDecoderDelegate.m */; };
 		FAF2C31923464B44006C5C3E /* TestDataWriter.m in Sources */ = {isa = PBXBuildFile; fileRef = FAF2C31823464B44006C5C3E /* TestDataWriter.m */; };
+		FAFAF8C72540FAE70074FAB3 /* AWSIoTDataNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFAF8C52540FAE60074FAB3 /* AWSIoTDataNSSecureCodingTests.m */; };
+		FAFAF8C82540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAFAF8C62540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m */; };
 		FAFE10B9234D3D3E00BD2DCA /* AtomicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF32234CEC060006050D /* AtomicValue.swift */; };
 		FAFE10BA234D3D3E00BD2DCA /* IoTTesTHelpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF1C234B95330006050D /* IoTTesTHelpers.swift */; };
 		FAFE10BB234D3D3E00BD2DCA /* StreamTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF182347E3EF0006050D /* StreamTests.swift */; };
@@ -4080,6 +4082,8 @@
 		FAF2C31523464ABA006C5C3E /* TestDecoderDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDecoderDelegate.m; sourceTree = "<group>"; };
 		FAF2C31723464B44006C5C3E /* TestDataWriter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestDataWriter.h; sourceTree = "<group>"; };
 		FAF2C31823464B44006C5C3E /* TestDataWriter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TestDataWriter.m; sourceTree = "<group>"; };
+		FAFAF8C52540FAE60074FAB3 /* AWSIoTDataNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTDataNSSecureCodingTests.m; sourceTree = "<group>"; };
+		FAFAF8C62540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSIoTNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FAFE10AF234D3CF200BD2DCA /* AWSIoTFreeRTOSOTATests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSIoTFreeRTOSOTATests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAFE10B3234D3CF200BD2DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FAFE10C1234D3DCE00BD2DCA /* AWSIoTFreeRTOSOTATests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSIoTFreeRTOSOTATests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -6621,7 +6625,9 @@
 			children = (
 				CE5605321C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m */,
 				CE5605331C6BCE2700B4E00B /* AWSGeneralIoTTests.m */,
+				FAFAF8C52540FAE60074FAB3 /* AWSIoTDataNSSecureCodingTests.m */,
 				CE56053D1C6BD02800B4E00B /* AWSIoTDataUnitTests.m */,
+				FAFAF8C62540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m */,
 				CE56053E1C6BD02800B4E00B /* AWSIoTUnitTests.m */,
 				FA92428F2344F44D003F546D /* MQTTDecoderTests.m */,
 				FA39AF0F2346847A0006050D /* MQTTSessionTests.m */,
@@ -12812,6 +12818,8 @@
 				CE5605351C6BCE2700B4E00B /* AWSGeneralIoTTests.m in Sources */,
 				FA9242902344F44D003F546D /* MQTTDecoderTests.m in Sources */,
 				FA924293234502C5003F546D /* MQTTDecoderTestHelpers.m in Sources */,
+				FAFAF8C72540FAE70074FAB3 /* AWSIoTDataNSSecureCodingTests.m in Sources */,
+				FAFAF8C82540FAE70074FAB3 /* AWSIoTNSSecureCodingTests.m in Sources */,
 				FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */,
 				CE5604ED1C6BCA9A00B4E00B /* AWSTestUtility.m in Sources */,
 				CE5605341C6BCE2700B4E00B /* AWSGeneralIoTDataTests.m in Sources */,
