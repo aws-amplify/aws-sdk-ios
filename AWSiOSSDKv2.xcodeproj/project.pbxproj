@@ -1554,6 +1554,7 @@
 		FAC3E7022208B0D60037813E /* AWSFMDB+AWSHelpers.m in Sources */ = {isa = PBXBuildFile; fileRef = FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */; };
 		FAC8B03B2468913A00412BD9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FAC8B03E2468931F00412BD9 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		FAD1A7BC2541D39C00F03E01 /* AWSElasticLoadBalancingNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD1A7BB2541D39B00F03E01 /* AWSElasticLoadBalancingNSSecureCodingTests.m */; };
 		FAD9DD23245CD135003F84D0 /* AWSTestResources.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD21245CD135003F84D0 /* AWSTestResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAD9DD2B245CD193003F84D0 /* AWSTestConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = FAD9DD29245CD193003F84D0 /* AWSTestConfiguration.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		FAD9DD2C245CD193003F84D0 /* AWSTestConfiguration.m in Sources */ = {isa = PBXBuildFile; fileRef = FAD9DD2A245CD193003F84D0 /* AWSTestConfiguration.m */; };
@@ -4065,6 +4066,7 @@
 		FABD9ED722D6AD2700BD4441 /* AWSTranscribeStreamingTranscriptResultStream+Helpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSTranscribeStreamingTranscriptResultStream+Helpers.m"; sourceTree = "<group>"; };
 		FAC3E6FF2208AE460037813E /* AWSFMDB+AWSHelpers.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSFMDB+AWSHelpers.h"; sourceTree = "<group>"; };
 		FAC3E7012208B0D60037813E /* AWSFMDB+AWSHelpers.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSFMDB+AWSHelpers.m"; sourceTree = "<group>"; };
+		FAD1A7BB2541D39B00F03E01 /* AWSElasticLoadBalancingNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSElasticLoadBalancingNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSTestResources.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAD9DD21245CD135003F84D0 /* AWSTestResources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTestResources.h; sourceTree = "<group>"; };
 		FAD9DD22245CD135003F84D0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -6610,6 +6612,7 @@
 		CE5604461C6BC90C00B4E00B /* AWSElasticLoadBalancingUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				FAD1A7BB2541D39B00F03E01 /* AWSElasticLoadBalancingNSSecureCodingTests.m */,
 				CE5605361C6BCE3100B4E00B /* AWSGeneralElasticLoadBalancingTests.m */,
 				CE5604491C6BC90C00B4E00B /* Info.plist */,
 			);
@@ -12797,6 +12800,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAD1A7BC2541D39C00F03E01 /* AWSElasticLoadBalancingNSSecureCodingTests.m in Sources */,
 				CE5605371C6BCE3100B4E00B /* AWSGeneralElasticLoadBalancingTests.m in Sources */,
 				CE5604EC1C6BCA9900B4E00B /* AWSTestUtility.m in Sources */,
 			);
