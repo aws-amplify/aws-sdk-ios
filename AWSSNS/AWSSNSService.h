@@ -297,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
 
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSCreateTopicResponse *> *)createTopic:(AWSSNSCreateTopicInput *)request;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 100,000 topics. For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
  @param completionHandler The completion handler to call when the load request is complete.
