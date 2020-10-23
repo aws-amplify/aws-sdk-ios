@@ -20,6 +20,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningAddTagsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceId" : @"ResourceId",
@@ -67,6 +71,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningAddTagsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceId" : @"ResourceId",
@@ -108,6 +116,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningBatchPrediction
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -202,6 +214,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateBatchPredictionInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchPredictionDataSourceId" : @"BatchPredictionDataSourceId",
@@ -216,6 +232,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateBatchPredictionOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchPredictionId" : @"BatchPredictionId",
@@ -225,6 +245,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateDataSourceFromRDSInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -244,6 +268,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateDataSourceFromRDSOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -253,6 +281,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateDataSourceFromRedshiftInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -272,6 +304,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateDataSourceFromRedshiftOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -281,6 +317,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateDataSourceFromS3Input
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -299,6 +339,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateDataSourceFromS3Output
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -308,6 +352,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateEvaluationInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -322,6 +370,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateEvaluationOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"evaluationId" : @"EvaluationId",
@@ -331,6 +383,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateMLModelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -374,6 +430,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateMLModelOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"MLModelId" : @"MLModelId",
@@ -384,6 +444,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningCreateRealtimeEndpointInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"MLModelId" : @"MLModelId",
@@ -393,6 +457,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningCreateRealtimeEndpointOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -408,6 +476,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDataSource
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -512,6 +584,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteBatchPredictionInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchPredictionId" : @"BatchPredictionId",
@@ -521,6 +597,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteBatchPredictionOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -532,6 +612,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteDataSourceInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -541,6 +625,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteDataSourceOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -552,6 +640,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteEvaluationInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"evaluationId" : @"EvaluationId",
@@ -561,6 +653,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteEvaluationOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -572,6 +668,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteMLModelInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"MLModelId" : @"MLModelId",
@@ -581,6 +681,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteMLModelOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -592,6 +696,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteRealtimeEndpointInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"MLModelId" : @"MLModelId",
@@ -601,6 +709,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteRealtimeEndpointOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -616,6 +728,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDeleteTagsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -660,6 +776,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDeleteTagsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceId" : @"ResourceId",
@@ -701,6 +821,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeBatchPredictionsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -794,6 +918,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDescribeBatchPredictionsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -808,6 +936,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeDataSourcesInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -891,6 +1023,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDescribeDataSourcesOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -905,6 +1041,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeEvaluationsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -998,6 +1138,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDescribeEvaluationsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -1012,6 +1156,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeMLModelsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1115,6 +1263,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningDescribeMLModelsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -1129,6 +1281,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeTagsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1171,6 +1327,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningDescribeTagsOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1218,6 +1378,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningEvaluation
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1314,6 +1478,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningGetBatchPredictionInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchPredictionId" : @"BatchPredictionId",
@@ -1323,6 +1491,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningGetBatchPredictionOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1418,6 +1590,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningGetDataSourceInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -1428,6 +1604,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningGetDataSourceOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1534,6 +1714,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningGetEvaluationInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"evaluationId" : @"EvaluationId",
@@ -1543,6 +1727,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningGetEvaluationOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1640,6 +1828,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningGetMLModelInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"MLModelId" : @"MLModelId",
@@ -1650,6 +1842,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningGetMLModelOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1786,6 +1982,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningMLModel
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1937,6 +2137,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningPerformanceMetrics
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"properties" : @"Properties",
@@ -1946,6 +2150,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningPredictInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1958,6 +2166,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningPredictOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1973,6 +2185,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningPrediction
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"details" : @"details",
@@ -1985,6 +2201,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningRDSDataSpec
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2014,6 +2234,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningRDSDatabase
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"databaseName" : @"DatabaseName",
@@ -2025,6 +2249,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningRDSDatabaseCredentials
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"password" : @"Password",
@@ -2035,6 +2263,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningRDSMetadata
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2054,6 +2286,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningRealtimeEndpointInfo
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2107,6 +2343,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningRedshiftDataSpec
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataRearrangement" : @"DataRearrangement",
@@ -2131,6 +2371,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningRedshiftDatabase
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clusterIdentifier" : @"ClusterIdentifier",
@@ -2142,6 +2386,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningRedshiftDatabaseCredentials
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"password" : @"Password",
@@ -2152,6 +2400,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningRedshiftMetadata
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2169,6 +2421,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningS3DataSpec
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataLocationS3" : @"DataLocationS3",
@@ -2182,6 +2438,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningTag
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -2192,6 +2452,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningUpdateBatchPredictionInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2204,6 +2468,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningUpdateBatchPredictionOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchPredictionId" : @"BatchPredictionId",
@@ -2213,6 +2481,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningUpdateDataSourceInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2225,6 +2497,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningUpdateDataSourceOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataSourceId" : @"DataSourceId",
@@ -2234,6 +2510,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningUpdateEvaluationInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2246,6 +2526,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 
 @implementation AWSMachineLearningUpdateEvaluationOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"evaluationId" : @"EvaluationId",
@@ -2255,6 +2539,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningUpdateMLModelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2267,6 +2555,10 @@ NSString *const AWSMachineLearningErrorDomain = @"com.amazonaws.AWSMachineLearni
 @end
 
 @implementation AWSMachineLearningUpdateMLModelOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

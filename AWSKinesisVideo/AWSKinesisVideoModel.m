@@ -20,6 +20,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoChannelInfo
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelARN" : @"ChannelARN",
@@ -95,6 +99,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoChannelNameCondition
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"ComparisonOperator",
@@ -121,6 +129,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoCreateSignalingChannelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -159,6 +171,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateSignalingChannelOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelARN" : @"ChannelARN",
@@ -168,6 +184,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoCreateStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -184,6 +204,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoCreateStreamOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamARN" : @"StreamARN",
@@ -193,6 +217,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoDeleteSignalingChannelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -205,9 +233,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteSignalingChannelOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoDeleteStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -220,9 +256,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDeleteStreamOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoDescribeSignalingChannelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -234,6 +278,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoDescribeSignalingChannelOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -249,6 +297,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoDescribeStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamARN" : @"StreamARN",
@@ -259,6 +311,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoDescribeStreamOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -273,6 +329,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoGetDataEndpointInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -327,6 +387,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetDataEndpointOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"dataEndpoint" : @"DataEndpoint",
@@ -336,6 +400,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoGetSignalingChannelEndpointInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -352,6 +420,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoGetSignalingChannelEndpointOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"resourceEndpointList" : @"ResourceEndpointList",
@@ -365,6 +437,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoListSignalingChannelsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -382,6 +458,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListSignalingChannelsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelInfoList" : @"ChannelInfoList",
@@ -396,6 +476,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoListStreamsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -413,6 +497,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListStreamsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -428,6 +516,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForResourceInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -439,6 +531,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForResourceOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -449,6 +545,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoListTagsForStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -462,6 +562,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoListTagsForStreamOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -472,6 +576,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoResourceEndpointListItem
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -505,6 +613,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoSingleMasterChannelEndpointConfiguration
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"protocols" : @"Protocols",
@@ -537,6 +649,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoSingleMasterConfiguration
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageTtlSeconds" : @"MessageTtlSeconds",
@@ -546,6 +662,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoStreamInfo
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -604,6 +724,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoStreamNameCondition
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"ComparisonOperator",
@@ -631,6 +755,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTag
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -641,6 +769,10 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoTagResourceInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -657,9 +789,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagResourceOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoTagStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -673,9 +813,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoTagStreamOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoUntagResourceInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -688,9 +836,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagResourceOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoUntagStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -704,9 +860,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUntagStreamOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoUpdateDataRetentionInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -743,9 +907,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateDataRetentionOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoUpdateSignalingChannelInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -763,9 +935,17 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 
 @implementation AWSKinesisVideoUpdateSignalingChannelOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisVideoUpdateStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -780,5 +960,9 @@ NSString *const AWSKinesisVideoErrorDomain = @"com.amazonaws.AWSKinesisVideoErro
 @end
 
 @implementation AWSKinesisVideoUpdateStreamOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 @end
