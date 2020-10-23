@@ -20,6 +20,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 
 @implementation AWSTranscribeStreamingAlternative
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"items" : @"Items",
@@ -35,6 +39,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 
 @implementation AWSTranscribeStreamingAudioEvent
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"audioChunk" : @"AudioChunk",
@@ -44,6 +52,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 @end
 
 @implementation AWSTranscribeStreamingAudioStream
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -58,6 +70,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 @end
 
 @implementation AWSTranscribeStreamingItem
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -93,6 +109,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 
 @implementation AWSTranscribeStreamingResult
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"alternatives" : @"Alternatives",
@@ -110,6 +130,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 @end
 
 @implementation AWSTranscribeStreamingStartStreamTranscriptionRequest
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -181,6 +205,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 @end
 
 @implementation AWSTranscribeStreamingStartStreamTranscriptionResponse
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -254,6 +282,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 
 @implementation AWSTranscribeStreamingTranscript
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"results" : @"Results",
@@ -268,6 +300,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 
 @implementation AWSTranscribeStreamingTranscriptEvent
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"transcript" : @"Transcript",
@@ -281,6 +317,10 @@ NSString *const AWSTranscribeStreamingErrorDomain = @"com.amazonaws.AWSTranscrib
 @end
 
 @implementation AWSTranscribeStreamingTranscriptResultStream
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
