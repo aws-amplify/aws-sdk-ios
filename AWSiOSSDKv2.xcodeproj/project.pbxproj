@@ -1563,6 +1563,8 @@
 		FADA6B0022D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m in Sources */ = {isa = PBXBuildFile; fileRef = FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */; };
 		FADAB0A3246B0FAD00CE2D11 /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
 		FADAEAE9250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADAEAE8250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m */; };
+		FADB8F16254311CD006E9EC7 /* AWSKinesisVideoArchivedMediaNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB8F15254311CD006E9EC7 /* AWSKinesisVideoArchivedMediaNSSecureCodingTests.m */; };
+		FADB927325433193006E9EC7 /* AWSKinesisVideoNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FADB927225433192006E9EC7 /* AWSKinesisVideoNSSecureCodingTests.m */; };
 		FADC9890251AA0FC00089CBE /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE9DE9BD1C6A7C2D0060793F /* AWSS3.framework */; };
 		FAE19B6F23341A5100560F1D /* AWSCoreTests.m in Sources */ = {isa = PBXBuildFile; fileRef = CE0D417B1C6A66E5006B91B5 /* AWSCoreTests.m */; };
 		FAE19B7123341DA900560F1D /* ec2-input.json in Resources */ = {isa = PBXBuildFile; fileRef = CEB8EF3F1C6A69AB0098B15B /* ec2-input.json */; };
@@ -4079,6 +4081,8 @@
 		FADA6AFD22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSSRWebSocketDelegateAdaptor.h; sourceTree = "<group>"; };
 		FADA6AFE22D5573F00A7599A /* AWSSRWebSocketDelegateAdaptor.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSSRWebSocketDelegateAdaptor.m; sourceTree = "<group>"; };
 		FADAEAE8250BDDF5009CABD4 /* AWSPinpointNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointNSSecureCodingTests.m; sourceTree = "<group>"; };
+		FADB8F15254311CD006E9EC7 /* AWSKinesisVideoArchivedMediaNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoArchivedMediaNSSecureCodingTests.m; sourceTree = "<group>"; };
+		FADB927225433192006E9EC7 /* AWSKinesisVideoNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisVideoNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FAEE86AB2167AAA900738F8E /* AWSGZIPEncodingKinesisTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPEncodingKinesisTests.m; sourceTree = "<group>"; };
 		FAF13AAE2167C6AA008115D1 /* AWSGZIPTestHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSGZIPTestHelper.h; sourceTree = "<group>"; };
 		FAF13AAF2167C6AA008115D1 /* AWSGZIPTestHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGZIPTestHelper.m; sourceTree = "<group>"; };
@@ -5328,6 +5332,7 @@
 			isa = PBXGroup;
 			children = (
 				177855BE20F9AA4C00D083BB /* AWSGeneralKinesisVideoTests.m */,
+				FADB927225433192006E9EC7 /* AWSKinesisVideoNSSecureCodingTests.m */,
 				1778559020F9A8C600D083BB /* Info.plist */,
 			);
 			path = AWSKinesisVideoUnitTests;
@@ -5337,6 +5342,7 @@
 			isa = PBXGroup;
 			children = (
 				177855C020F9AA6800D083BB /* AWSGeneralKinesisVideoArchivedMediaTests.m */,
+				FADB8F15254311CD006E9EC7 /* AWSKinesisVideoArchivedMediaNSSecureCodingTests.m */,
 				1778559F20F9A8DB00D083BB /* Info.plist */,
 			);
 			path = AWSKinesisVideoArchivedMediaUnitTests;
@@ -6045,14 +6051,14 @@
 				CE9DE6941C6A79470060793F /* AWSKinesisTests */,
 				CE5604641C6BC92E00B4E00B /* AWSKinesisUnitTests */,
 				1778554420F9A72800D083BB /* AWSKinesisVideo */,
+				177855DA20F9B3D100D083BB /* AWSKinesisVideoTests */,
+				1778558D20F9A8C600D083BB /* AWSKinesisVideoUnitTests */,
 				1778556920F9A7CE00D083BB /* AWSKinesisVideoArchivedMedia */,
 				1778557620F9A7CE00D083BB /* AWSKinesisVideoArchivedMediaTests */,
 				1778559C20F9A8DB00D083BB /* AWSKinesisVideoArchivedMediaUnitTests */,
 				211166F72399C24900902FC1 /* AWSKinesisVideoSignaling */,
 				211167042399C24900902FC1 /* AWSKinesisVideoSignalingTests */,
 				211167292399C83600902FC1 /* AWSKinesisVideoSignalingUnitTests */,
-				177855DA20F9B3D100D083BB /* AWSKinesisVideoTests */,
-				1778558D20F9A8C600D083BB /* AWSKinesisVideoUnitTests */,
 				E4E1DA1F1E5F4E690080F769 /* AWSKMS */,
 				E4E1DA501E5F5BBD0080F769 /* AWSKMSTests */,
 				E4E1DA2B1E5F4EBC0080F769 /* AWSKMSUnitTests */,
@@ -12187,6 +12193,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177855C520F9AA7F00D083BB /* AWSTestUtility.m in Sources */,
+				FADB927325433193006E9EC7 /* AWSKinesisVideoNSSecureCodingTests.m in Sources */,
 				177855BF20F9AA4C00D083BB /* AWSGeneralKinesisVideoTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -12195,6 +12202,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FADB8F16254311CD006E9EC7 /* AWSKinesisVideoArchivedMediaNSSecureCodingTests.m in Sources */,
 				177855C320F9AA7E00D083BB /* AWSTestUtility.m in Sources */,
 				177855C120F9AA6800D083BB /* AWSGeneralKinesisVideoArchivedMediaTests.m in Sources */,
 			);
