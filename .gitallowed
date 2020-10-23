@@ -6,3 +6,5 @@ CocoaLumberjack/blob/master
 aws-sdk-java-v2
 send-alexa-offer-to-master
 KMS master key ID
+AWSDDContextFilterLogFormatter
+Mantle
