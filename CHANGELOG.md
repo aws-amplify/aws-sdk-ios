@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSSNS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -35,6 +27,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - Amazon EC2
   - AWS IoT
   - Amazon S3
+  - Amazon Simple Notification Service (SNS)
 
 ## 2.18.0
 
