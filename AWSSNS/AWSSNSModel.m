@@ -676,6 +676,8 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 	return @{
              @"message" : @"Message",
              @"messageAttributes" : @"MessageAttributes",
+             @"messageDeduplicationId" : @"MessageDeduplicationId",
+             @"messageGroupId" : @"MessageGroupId",
              @"messageStructure" : @"MessageStructure",
              @"phoneNumber" : @"PhoneNumber",
              @"subject" : @"Subject",
@@ -703,6 +705,7 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageId" : @"MessageId",
+             @"sequenceNumber" : @"SequenceNumber",
              };
 }
 
