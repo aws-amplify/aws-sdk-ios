@@ -25,6 +25,7 @@
     - `AWSS3PutObjectRequest`
     - `AWSS3RecordsEvent`
     - `AWSS3UploadPartRequest`
+  - Amazon Transcribe Streaming ([PR #3164](https://github.com/aws-amplify/aws-sdk-ios/pull/3164))
 
 ### Misc. Updates
 - Model updates for the following services

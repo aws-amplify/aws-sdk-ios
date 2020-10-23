@@ -1373,6 +1373,7 @@
 		FA1C5B4A2539EA9700DBC24C /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
 		FA2800EE22C9C1E1000B41F4 /* AWSStringValue.m in Sources */ = {isa = PBXBuildFile; fileRef = FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */; };
 		FA28E8C52543837B0064E20B /* AWSKinesisNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28E8C42543837B0064E20B /* AWSKinesisNSSecureCodingTests.m */; };
+		FA28EC72254386A30064E20B /* AWSTranscribeNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA28EC71254386A30064E20B /* AWSTranscribeNSSecureCodingTests.m */; };
 		FA37083C2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA37083B2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m */; };
 		FA39AF102346847A0006050D /* MQTTSessionTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF0F2346847A0006050D /* MQTTSessionTests.m */; };
 		FA39AF132346880D0006050D /* TestMQTTSessionDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FA39AF122346880D0006050D /* TestMQTTSessionDelegate.m */; };
@@ -3969,6 +3970,7 @@
 		FA2800ED22C9C1E1000B41F4 /* AWSStringValue.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSStringValue.m; sourceTree = "<group>"; };
 		FA2800EF22C9C1E5000B41F4 /* AWSStringValue.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSStringValue.h; sourceTree = "<group>"; };
 		FA28E8C42543837B0064E20B /* AWSKinesisNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSKinesisNSSecureCodingTests.m; sourceTree = "<group>"; };
+		FA28EC71254386A30064E20B /* AWSTranscribeNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTranscribeNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA37083B2540C8180070FFDC /* AWSEC2NSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSEC2NSSecureCodingTests.m; sourceTree = "<group>"; };
 		FA39AF0F2346847A0006050D /* MQTTSessionTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MQTTSessionTests.m; sourceTree = "<group>"; };
 		FA39AF112346880D0006050D /* TestMQTTSessionDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TestMQTTSessionDelegate.h; sourceTree = "<group>"; };
@@ -7796,6 +7798,7 @@
 				FAB1E00C23103BEB0097396E /* Common */,
 				FA968B682302138900AC6007 /* AWSSRWebSocketDelegateAdaptorDidCloseTests.swift */,
 				FA968B64230211CD00AC6007 /* AWSSRWebSocketDelegateAdaptorDidFailWithErrorTests.swift */,
+				FA28EC71254386A30064E20B /* AWSTranscribeNSSecureCodingTests.m */,
 				FA968B66230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift */,
 				FA09EEA722D63BF5007EA360 /* AWSSRWebSocketDelegateAdaptorTests.swift */,
 				FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */,
@@ -13524,6 +13527,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA28EC72254386A30064E20B /* AWSTranscribeNSSecureCodingTests.m in Sources */,
 				FA53333A22D4D54800BD88AF /* AWSTestUtility.m in Sources */,
 				FA968B67230212D400AC6007 /* AWSSRWebSocketDelegateAdaptorDidOpenTests.swift in Sources */,
 				FA968B632302115E00AC6007 /* TranscribeStreamingTestHelpers.swift in Sources */,
