@@ -1527,6 +1527,7 @@
 		FA99CF32216C144F0086F9A7 /* AWSKinesisSerializer.m in Sources */ = {isa = PBXBuildFile; fileRef = FA99CF31216C144F0086F9A7 /* AWSKinesisSerializer.m */; };
 		FAAB43DE23D279EF00F7BCBB /* test-identity-password-is-abc123.p12 in Resources */ = {isa = PBXBuildFile; fileRef = FAAB43DA23D275D000F7BCBB /* test-identity-password-is-abc123.p12 */; };
 		FAAB43E023D27A0B00F7BCBB /* AWSIoTManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAB43DB23D276E500F7BCBB /* AWSIoTManagerTests.m */; };
+		FAAEE6FA25436B82002AE9FA /* AWSMachineLearningNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAAEE6F925436B82002AE9FA /* AWSMachineLearningNSSecureCodingTests.m */; };
 		FAB1E00923102F320097396E /* AWSTranscribeStreamingClientTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */; };
 		FAB1E00B23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
 		FAB1E00D23103C090097396E /* MockTranscribeStreamingClientDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */; };
@@ -4045,6 +4046,7 @@
 		FA9E3E1A2199ED2600C65B0A /* AWSCognitoIdentityProvider+TestUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityProvider+TestUtils.h"; sourceTree = "<group>"; };
 		FAAB43DA23D275D000F7BCBB /* test-identity-password-is-abc123.p12 */ = {isa = PBXFileReference; lastKnownFileType = file; path = "test-identity-password-is-abc123.p12"; sourceTree = "<group>"; };
 		FAAB43DB23D276E500F7BCBB /* AWSIoTManagerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTManagerTests.m; sourceTree = "<group>"; };
+		FAAEE6F925436B82002AE9FA /* AWSMachineLearningNSSecureCodingTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSMachineLearningNSSecureCodingTests.m; sourceTree = "<group>"; };
 		FAB1E00823102F320097396E /* AWSTranscribeStreamingClientTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientTests.swift; sourceTree = "<group>"; };
 		FAB1E00A23103BC20097396E /* MockTranscribeStreamingClientDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockTranscribeStreamingClientDelegate.swift; sourceTree = "<group>"; };
 		FAB5D6BA253A34C9002ECF1D /* AWSConnectParticipantNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSConnectParticipantNSSecureCodingTests.m; sourceTree = "<group>"; };
@@ -6674,6 +6676,7 @@
 			isa = PBXGroup;
 			children = (
 				CE56052A1C6BCDFF00B4E00B /* AWSGeneralMachineLearningTests.m */,
+				FAAEE6F925436B82002AE9FA /* AWSMachineLearningNSSecureCodingTests.m */,
 				CE5604851C6BC94D00B4E00B /* Info.plist */,
 			);
 			path = AWSMachineLearningUnitTests;
@@ -12866,6 +12869,7 @@
 			files = (
 				CE56052B1C6BCDFF00B4E00B /* AWSGeneralMachineLearningTests.m in Sources */,
 				CE5604F01C6BCA9E00B4E00B /* AWSTestUtility.m in Sources */,
+				FAAEE6FA25436B82002AE9FA /* AWSMachineLearningNSSecureCodingTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
