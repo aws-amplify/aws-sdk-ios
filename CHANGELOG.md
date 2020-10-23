@@ -12,6 +12,7 @@
     - `AWSIoTDataPublishRequest`
     - `AWSIoTDataUpdateThingShadowRequest`
     - `AWSIoTDataUpdateThingShadowResponse`
+  - Amazon Kinesis Data Streams ([PR #3163](https://github.com/aws-amplify/aws-sdk-ios/pull/3163))
   - Amazon Kinesis Video Streams ([PR #3161](https://github.com/aws-amplify/aws-sdk-ios/pull/3161))
   - Amazon Kinesis Video Streams Archived Media ([PR #3161](https://github.com/aws-amplify/aws-sdk-ios/pull/3161))
   - Amazon Lambda ([PR #3154](https://github.com/aws-amplify/aws-sdk-ios/pull/3154)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
@@ -46,7 +47,6 @@
   - Amazon Connect Participant Service
   - Amazon DynamoDB
   - Amazon Kinesis Firehose
-  - Amazon Kinesis Streams
   - Amazon Kinesis Video Signaling
   - AWS Key Management Service (KMS)
   - Amazon Lex
