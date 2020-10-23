@@ -27,6 +27,7 @@
   - Amazon EC2
   - AWS IoT
   - Amazon S3
+  - Amazon Simple Notification Service (SNS)
 
 ## 2.18.0
 
