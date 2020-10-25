@@ -36,25 +36,25 @@ public struct SessionToken {
                 return nil
             }
             let claims = tokenSplit[1]
+                .replacingOccurrences(of: "-", with: "+")
+                .replacingOccurrences(of: "_", with: "/")
             
             let paddedLength = claims.count + (4 - (claims.count % 4)) % 4
             //JWT is not padded with =, pad it if necessary
-            var updatedClaims = claims.padding(toLength: paddedLength, withPad: "=", startingAt: 0)
-            updatedClaims = updatedClaims.replacingOccurrences(of: "_", with: "/")
-            updatedClaims = updatedClaims.replacingOccurrences(of: "-", with: "+")
+            let updatedClaims = claims.padding(toLength: paddedLength, withPad: "=", startingAt: 0)
+            let encodedData = Data(base64Encoded: updatedClaims, options: .ignoreUnknownCharacters)
 
-            let claimsData = Data.init(base64Encoded: updatedClaims, options: .ignoreUnknownCharacters)
-            
-            guard claimsData != nil else {
+            guard let claimsData = encodedData else {
                 print("Cannot get claims in `Data` form. Token is not valid base64 encoded string.")
                 return nil
             }
-            let jsonObject = try? JSONSerialization.jsonObject(with: claimsData!, options: [])
-            guard jsonObject != nil else {
+            
+            let jsonObject = try? JSONSerialization.jsonObject(with: claimsData, options: [])
+            guard let convertedDictionary = jsonObject as? [String: AnyObject] else {
                 print("Cannot get claims in `Data` form. Token is not valid JSON string.")
                 return nil
             }
-            return jsonObject as? [String: AnyObject]
+            return convertedDictionary
         }
     }
     
