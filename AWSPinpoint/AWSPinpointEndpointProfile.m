@@ -530,11 +530,16 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 }
 
 - (NSString *)description {
+    if (!self.userAttributes) {
+        self.userAttributes = [NSMutableDictionary dictionary];
+    }
+    
+    NSError *error;
     NSData *userAttributesData = [NSJSONSerialization dataWithJSONObject:self.userAttributes
                                                                  options:0
-                                                                   error:nil];
+                                                                   error:&error];
     NSString *userAttributesString = [[NSString alloc] initWithData:userAttributesData
-                                                       encoding:NSUTF8StringEncoding];
+                                                           encoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:
             @"{"
             "\"UserId\" : %@,"
