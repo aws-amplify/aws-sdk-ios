@@ -40,7 +40,6 @@ NSString *const AWSPinpointOverrideDefaultOptOutKey = @"com.amazonaws.AWSPinpoin
 
 @interface AWSPinpointEndpointProfileUser()
 @property (nonatomic, readwrite) NSDictionary<NSString*,NSArray*> *userAttributes;
-@property (atomic, readonly) int currentNumOfUserAttributes;
 
 @end
 
@@ -526,23 +525,22 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 
 @implementation AWSPinpointEndpointProfileUser
 
-- (instancetype) init {
-    if (self = [super init]) {
-        _userId = @"";
-        _userAttributes = [NSMutableDictionary dictionary];
-    }
-    return self;
-}
-
 - (NSString *)quotedString:(NSString*) input {
     return [NSString stringWithFormat:@"\"%@\"", input];
 }
 
 - (NSString *)description {
+    NSData *userAttributesData = [NSJSONSerialization dataWithJSONObject:self.userAttributes
+                                                                 options:0
+                                                                   error:nil];
+    NSString *userAttributesString = [[NSString alloc] initWithData:userAttributesData
+                                                       encoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:
             @"{"
-            "\"UserId\" : %@}",
-            [self quotedString:self.userId]];
+            "\"UserId\" : %@,"
+            "\"Attributes\":%@}",
+            [self quotedString:self.userId],
+            userAttributesString];
 }
 
 + (BOOL)supportsSecureCoding {
@@ -552,56 +550,42 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
         _userId = [decoder decodeObjectOfClass:[NSString class] forKey:@"userId"];
-        _userAttributes = [NSMutableDictionary dictionary];
+        _userAttributes = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"userAttributes"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:_userId forKey:@"userId"];
+    [encoder encodeObject:_userAttributes forKey:@"userAttributes"];
 }
 
 - (void)addUserAttribute:(NSArray *)theValue
                   forKey:(NSString *)theKey {
-    if (!theKey) return;
-    @synchronized(self) {
-        if (theKey != nil && theValue != nil && ![self hasUserAttributeForKey:theKey]) {
-            if (self.currentNumOfUserAttributes < MAX_NUM_OF_METRICS_AND_ATTRIBUTES) {
-                [self.userAttributes setValue:[AWSPinpointEndpointProfileUser processUserAttributeValues:theValue]
-                                       forKey:[AWSPinpointEndpointProfileUser trimKey:theKey
-                                                                              forType:@"userAttribute"]];
-            } else {
-                AWSDDLogWarn(@"Max number of userAttributes/metrics reached, dropping attribute with key: %@", theKey);
-            }
-        } else if ([self hasUserAttributeForKey:theKey]) {
-            [self.userAttributes setValue:[AWSPinpointEndpointProfileUser processUserAttributeValues:theValue]
-                                   forKey:[AWSPinpointEndpointProfileUser trimKey:theKey
-                                                                          forType:@"userAttribute"]];
-        }
+    if (!theKey) {
+        AWSDDLogWarn(@"The key of user attribute you tried to add is empty.");
+        return;
     }
+    
+    if (!self.userAttributes) {
+        self.userAttributes = [NSMutableDictionary dictionary];
+    }
+    
+    [self.userAttributes setValue:[AWSPinpointEndpointProfileUser processUserAttributeValues:theValue]
+                           forKey:[AWSPinpointEndpointProfileUser trimKey:theKey
+                                                                  forType:@"userAttribute"]];
 }
 
 - (NSDictionary *)allUserAttributes {
-    @synchronized(self) {
-        return [NSDictionary dictionaryWithDictionary:self.userAttributes];
-    }
+    return [NSDictionary dictionaryWithDictionary:self.userAttributes];
 }
 
 - (BOOL)hasUserAttributeForKey:(NSString *)theKey {
-    if(!theKey) return NO;
-    @synchronized(self) {
-        if([self.userAttributes objectForKey:theKey]) {
-            return YES;
-        } else {
-            return NO;
-        }
-    }
+    return [self.userAttributes objectForKey:theKey] != nil;
 }
 
 - (NSArray *)userAttributeForKey:(NSString *)theKey {
-    @synchronized(self) {
-        return [self.userAttributes objectForKey:theKey];
-    }
+    return [self.userAttributes objectForKey:theKey];
 }
 
 + (NSArray *)processUserAttributeValues:(NSArray*) values {
