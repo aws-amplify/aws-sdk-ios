@@ -104,7 +104,7 @@ NS_ASSUME_NONNULL_BEGIN
 /**
  Adds an attribute to this AWSPinpointEndpointProfile with the specified key. Only 40 attributes/metrics
  are allowed to be added to an AWSPinpointEndpointProfile. If 40 attributes/metrics already exist on this AWSPinpointEndpointProfile, the call is ignored.
- @param theValue The value of the attribute. The value will be truncated if it exceeds 200 characters.
+ @param theValue The value of the attribute. The value will be truncated if it exceeds 100 characters.
  @param theKey The key of the attribute. The key will be truncated if it exceeds 50 characters.
  */
 - (void)addAttribute:(NSArray *)theValue
@@ -128,7 +128,7 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an Dictionary of all attributes contained within this AWSPinpointEndpointProfile
  @returns an Dictionary of all attributes, where the attribute keys are the keys and the attribute values are the values
  */
-- (NSDictionary*) allAttributes;
+- (NSDictionary *)allAttributes;
 
 /**
  Adds a metric to this AWSPinpointEndpointProfile with the specified key. Only 40 attributes/metrics
@@ -157,13 +157,13 @@ NS_ASSUME_NONNULL_BEGIN
  Returns an Dictionary of all metrics contained within this AWSPinpointEndpointProfile
  @returns an Dictionary of all metrics, where the metric keys are the keys and the metric values are the values
  */
-- (NSDictionary*) allMetrics;
+- (NSDictionary *)allMetrics;
 
 /**
  Returns an Dictionary representation of this object.
  @returns an Dictionary representation of this AWSPinpointEndpointProfile object.
  */
-- (NSDictionary *) toDictionary;
+- (NSDictionary *)toDictionary;
 
 @end
 
@@ -276,7 +276,34 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property (nonatomic, strong) NSString *_Nullable userId;
 
+/**
+ Returns an NSDictionary of all user attributes contained within this AWSPinpointEndpointProfileUser
+ @returns an NSDictionary of all user attributes, where the user attribute keys are the keys and the user attribute values are the values
+ */
+- (NSDictionary *)allUserAttributes;
+
+/**
+Adds an user attribute to this AWSPinpointEndpointProfileUser with the specified key.
+@param theValue The value of the user attribute. The value will be truncated if it exceeds 100 characters.
+@param theKey The key of the user attribute. The key will be truncated if it exceeds 50 characters.
+ */
+- (void)addUserAttribute:(NSArray *)theValue
+                  forKey:(NSString *)theKey;
+
+/**
+ Returns the value of the user attribute with the specified key.
+ @param theKey The key of the user attribute to return
+ @returns The user attribute with the specified key, or null if user attribute does not exist
+ */
+- (NSArray *)userAttributeForKey:(NSString *)theKey;
+
+/**
+ Determines if this AWSPinpointEndpointProfileUser contains a specific user attribute
+ @param theKey The key of the user attribute
+ @returns YES if this AWSPinpointEndpointProfileUser has an user attribute with the specified key, NO otherwise
+ */
+- (BOOL)hasUserAttributeForKey:(NSString *)theKey;
+
 @end
 
 NS_ASSUME_NONNULL_END
-

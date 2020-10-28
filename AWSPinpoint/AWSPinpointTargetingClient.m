@@ -113,7 +113,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     [localEndpointProfile setEndpointOptOut:applicationLevelOptOut];
 
     [self addMetricsAndAttributesToEndpointProfile:localEndpointProfile];
-    
+
     return localEndpointProfile;
 }
 
@@ -190,7 +190,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (void)addAttribute:(NSArray *)theValue
-                    forKey:(NSString *)theKey {
+              forKey:(NSString *)theKey {
     if (theValue == nil) {
         @throw [NSException exceptionWithName:AWSPinpointTargetingClientErrorDomain
                                        reason:@"Nil value provided to addGlobalAttribute"
@@ -227,7 +227,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (void)addMetric:(NSNumber *)theValue
-                 forKey:(NSString *)theKey {
+           forKey:(NSString *)theKey {
     if (theValue == nil) {
         @throw [NSException exceptionWithName:AWSPinpointTargetingClientErrorDomain
                                        reason:@"Nil value provided to addGlobalMetric"
@@ -289,6 +289,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSPinpointTargetingEndpointUser*) userModelForUser:(AWSPinpointEndpointProfileUser *) user {
     AWSPinpointTargetingEndpointUser *userModel = [AWSPinpointTargetingEndpointUser new];
     userModel.userId = user.userId;
+    userModel.userAttributes = user.allUserAttributes;
     return userModel;
 }
 

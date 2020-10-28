@@ -38,6 +38,11 @@ NSString *const AWSPinpointOverrideDefaultOptOutKey = @"com.amazonaws.AWSPinpoin
 
 @end
 
+@interface AWSPinpointEndpointProfileUser()
+@property (nonatomic, readwrite) NSDictionary<NSString*,NSArray*> *userAttributes;
+
+@end
+
 @interface AWSPinpointConfiguration()
 @property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
@@ -520,15 +525,27 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 
 @implementation AWSPinpointEndpointProfileUser
 
-- (NSString*) quotedString:(NSString*) input {
+- (NSString *)quotedString:(NSString*) input {
     return [NSString stringWithFormat:@"\"%@\"", input];
 }
 
-- (NSString*) description {
+- (NSString *)description {
+    if (!self.userAttributes) {
+        self.userAttributes = [NSMutableDictionary dictionary];
+    }
+    
+    NSError *error;
+    NSData *userAttributesData = [NSJSONSerialization dataWithJSONObject:self.userAttributes
+                                                                 options:0
+                                                                   error:&error];
+    NSString *userAttributesString = [[NSString alloc] initWithData:userAttributesData
+                                                           encoding:NSUTF8StringEncoding];
     return [NSString stringWithFormat:
             @"{"
-            "\"UserId\" : %@}",
-            [self quotedString:self.userId]];
+            "\"UserId\" : %@,"
+            "\"Attributes\":%@}",
+            [self quotedString:self.userId],
+            userAttributesString];
 }
 
 + (BOOL)supportsSecureCoding {
@@ -538,12 +555,78 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 - (id)initWithCoder:(NSCoder *)decoder {
     if (self = [super init]) {
         _userId = [decoder decodeObjectOfClass:[NSString class] forKey:@"userId"];
+        _userAttributes = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"userAttributes"];
     }
     return self;
 }
 
 - (void)encodeWithCoder:(NSCoder *)encoder {
     [encoder encodeObject:_userId forKey:@"userId"];
+    [encoder encodeObject:_userAttributes forKey:@"userAttributes"];
+}
+
+- (void)addUserAttribute:(NSArray *)theValue
+                  forKey:(NSString *)theKey {
+    if (!theKey.length) {
+        AWSDDLogWarn(@"The key of user attribute you tried to add is empty.");
+        return;
+    }
+    
+    if (!self.userAttributes) {
+        self.userAttributes = [NSMutableDictionary dictionary];
+    }
+    
+    [self.userAttributes setValue:[AWSPinpointEndpointProfileUser processUserAttributeValues:theValue]
+                           forKey:[AWSPinpointEndpointProfileUser trimKey:theKey
+                                                                  forType:@"userAttribute"]];
+}
+
+- (NSDictionary *)allUserAttributes {
+    return [NSDictionary dictionaryWithDictionary:self.userAttributes];
+}
+
+- (BOOL)hasUserAttributeForKey:(NSString *)theKey {
+    return [self.userAttributes objectForKey:theKey] != nil;
+}
+
+- (NSArray *)userAttributeForKey:(NSString *)theKey {
+    return [self.userAttributes objectForKey:theKey];
+}
+
++ (NSArray *)processUserAttributeValues:(NSArray*) values {
+    NSMutableArray *trimmedValues = [NSMutableArray arrayWithCapacity:MAX_ENDPOINT_ATTRIBUTE_VALUES];
+    int valuesCount = 0;
+    for (NSString *val in values) {
+        [trimmedValues addObject:[AWSPinpointEndpointProfileUser trimValue:val]];
+        if (++valuesCount >= MAX_ENDPOINT_ATTRIBUTE_VALUES) {
+            AWSDDLogWarn(@"Only %d attributes values are allowed, attribute values has been reduced to %d values.", MAX_ENDPOINT_ATTRIBUTE_VALUES, MAX_ENDPOINT_ATTRIBUTE_VALUES);
+            break;
+        }
+    }
+    return trimmedValues;
+}
+
++ (NSString *)trimKey:(NSString*)theKey
+              forType:(NSString*)theType {
+    NSString* trimmedKey = [AWSPinpointStringUtils clipString:theKey
+                                                   toMaxChars:MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH
+                                            andAppendEllipses:NO];
+    if(trimmedKey.length < theKey.length) {
+        AWSDDLogWarn(@"The %@ key has been trimmed to a length of %0d characters", theType, MAX_ENDPOINT_ATTRIBUTE_METRIC_KEY_LENGTH);
+    }
+
+    return trimmedKey;
+}
+
++ (NSString *)trimValue:(NSString*)theValue {
+    NSString* trimmedValue = [AWSPinpointStringUtils clipString:theValue
+                                                     toMaxChars:MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH
+                                              andAppendEllipses:NO];
+    if(trimmedValue.length < theValue.length) {
+        AWSDDLogWarn( @"The attribute value has been trimmed to a length of %0d characters", MAX_ENDPOINT_ATTRIBUTE_VALUE_LENGTH);
+    }
+
+    return trimmedValue;
 }
 
 @end
