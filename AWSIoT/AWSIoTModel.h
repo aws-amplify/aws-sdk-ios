@@ -1457,6 +1457,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
+
+/**
  <p>A list of thing group ARNs that define the targets of the job.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targets;
@@ -3226,6 +3231,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
+
+/**
  <p>Configuration information for pre-signed S3 URLs.</p>
  */
 @property (nonatomic, strong) AWSIoTPresignedUrlConfig * _Nullable presignedUrlConfig;
@@ -4402,6 +4412,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
 /**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
+
+/**
  <p>The name of the thing whose job execution will be deleted.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable thingName;
@@ -4423,6 +4438,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the job to be deleted.</p><p>After a job deletion is completed, you may reuse this jobId when you create a new job. However, this is not recommended, and you must ensure that your devices are not using the jobId to refer to the deleted job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
 
 @end
 
@@ -7301,6 +7321,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
 /**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
+
+/**
  <p>Configuration for pre-signed S3 URLs.</p>
  */
 @property (nonatomic, strong) AWSIoTPresignedUrlConfig * _Nullable presignedUrlConfig;
@@ -8416,6 +8441,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
+
+/**
  <p>The token to retrieve the next set of results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
@@ -8460,6 +8490,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The maximum number of results to return per request.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
 
 /**
  <p>The token to retrieve the next set of results.</p>
@@ -13129,6 +13164,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the job to be updated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable namespaceId;
 
 /**
  <p>Configuration information for pre-signed S3 URLs.</p>

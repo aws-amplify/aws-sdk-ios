@@ -437,6 +437,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"comment" : @"comment",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"targets" : @"targets",
              };
 }
@@ -2443,6 +2444,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"documentSource" : @"documentSource",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"tags" : @"tags",
              @"targetSelection" : @"targetSelection",
@@ -3551,6 +3553,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"executionNumber" : @"executionNumber",
              @"force" : @"force",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"thingName" : @"thingName",
              };
 }
@@ -3567,6 +3570,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 	return @{
              @"force" : @"force",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              };
 }
 
@@ -6755,6 +6759,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"jobId" : @"jobId",
              @"jobProcessDetails" : @"jobProcessDetails",
              @"lastUpdatedAt" : @"lastUpdatedAt",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"reasonCode" : @"reasonCode",
              @"status" : @"status",
@@ -8151,6 +8156,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
+             @"namespaceId" : @"namespaceId",
              @"nextToken" : @"nextToken",
              @"status" : @"status",
              @"thingName" : @"thingName",
@@ -8238,6 +8244,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"maxResults" : @"maxResults",
+             @"namespaceId" : @"namespaceId",
              @"nextToken" : @"nextToken",
              @"status" : @"status",
              @"targetSelection" : @"targetSelection",
@@ -13189,6 +13196,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"detail" : @"description",
              @"jobExecutionsRolloutConfig" : @"jobExecutionsRolloutConfig",
              @"jobId" : @"jobId",
+             @"namespaceId" : @"namespaceId",
              @"presignedUrlConfig" : @"presignedUrlConfig",
              @"timeoutConfig" : @"timeoutConfig",
              };
