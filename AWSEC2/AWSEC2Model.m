@@ -773,6 +773,38 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2AssociateEnclaveCertificateIamRoleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"CertificateArn",
+             @"dryRun" : @"DryRun",
+             @"roleArn" : @"RoleArn",
+             };
+}
+
+@end
+
+@implementation AWSEC2AssociateEnclaveCertificateIamRoleResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateS3BucketName" : @"CertificateS3BucketName",
+             @"certificateS3ObjectKey" : @"CertificateS3ObjectKey",
+             @"encryptionKmsKeyId" : @"EncryptionKmsKeyId",
+             };
+}
+
+@end
+
 @implementation AWSEC2AssociateIamInstanceProfileRequest
 
 + (BOOL)supportsSecureCoding {
@@ -988,6 +1020,23 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)ipv6CidrBlockAssociationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2VpcIpv6CidrBlockAssociation class]];
+}
+
+@end
+
+@implementation AWSEC2AssociatedRole
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associatedRoleArn" : @"AssociatedRoleArn",
+             @"certificateS3BucketName" : @"CertificateS3BucketName",
+             @"certificateS3ObjectKey" : @"CertificateS3ObjectKey",
+             @"encryptionKmsKeyId" : @"EncryptionKmsKeyId",
+             };
 }
 
 @end
@@ -13831,6 +13880,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enaSupport"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnaSupport);
         }
+        if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameEnclaveOptions);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -13862,6 +13914,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameEnaSupport:
                 return @"enaSupport";
+            case AWSEC2InstanceAttributeNameEnclaveOptions:
+                return @"enclaveOptions";
             default:
                 return nil;
         }
@@ -19589,6 +19643,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DisassociateEnclaveCertificateIamRoleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"CertificateArn",
+             @"dryRun" : @"DryRun",
+             @"roleArn" : @"RoleArn",
+             };
+}
+
+@end
+
+@implementation AWSEC2DisassociateEnclaveCertificateIamRoleResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
+}
+
+@end
+
 @implementation AWSEC2DisassociateIamInstanceProfileRequest
 
 + (BOOL)supportsSecureCoding {
@@ -20737,6 +20821,34 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"returned" : @"Return",
+             };
+}
+
+@end
+
+@implementation AWSEC2EnclaveOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSEC2EnclaveOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
              };
 }
 
@@ -25389,6 +25501,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"certificateArn" : @"CertificateArn",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2GetAssociatedEnclaveCertificateIamRolesResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associatedRoles" : @"AssociatedRoles",
+             };
+}
+
++ (NSValueTransformer *)associatedRolesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AssociatedRole class]];
+}
+
+@end
+
 @implementation AWSEC2GetAssociatedIpv6PoolCidrsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -29683,6 +29828,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"elasticGpuAssociations" : @"ElasticGpuAssociations",
              @"elasticInferenceAcceleratorAssociations" : @"ElasticInferenceAcceleratorAssociations",
              @"enaSupport" : @"EnaSupport",
+             @"enclaveOptions" : @"EnclaveOptions",
              @"hibernationOptions" : @"HibernationOptions",
              @"hypervisor" : @"Hypervisor",
              @"iamInstanceProfile" : @"IamInstanceProfile",
@@ -29766,6 +29912,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)elasticInferenceAcceleratorAssociationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ElasticInferenceAcceleratorAssociation class]];
+}
+
++ (NSValueTransformer *)enclaveOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2EnclaveOptions class]];
 }
 
 + (NSValueTransformer *)hibernationOptionsJSONTransformer {
@@ -31694,6 +31844,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"disableApiTermination" : @"DisableApiTermination",
              @"ebsOptimized" : @"EbsOptimized",
              @"enaSupport" : @"EnaSupport",
+             @"enclaveOptions" : @"EnclaveOptions",
              @"groups" : @"Groups",
              @"instanceId" : @"InstanceId",
              @"instanceInitiatedShutdownBehavior" : @"InstanceInitiatedShutdownBehavior",
@@ -31722,6 +31873,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)enaSupportJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AttributeBooleanValue class]];
+}
+
++ (NSValueTransformer *)enclaveOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2EnclaveOptions class]];
 }
 
 + (NSValueTransformer *)groupsJSONTransformer {
@@ -38976,6 +39131,34 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2LaunchTemplateEnclaveOptions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
+@implementation AWSEC2LaunchTemplateEnclaveOptionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"enabled" : @"Enabled",
+             };
+}
+
+@end
+
 @implementation AWSEC2LaunchTemplateHibernationOptions
 
 + (BOOL)supportsSecureCoding {
@@ -43043,6 +43226,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enaSupport"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnaSupport);
         }
+        if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameEnclaveOptions);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -43074,6 +43260,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameEnaSupport:
                 return @"enaSupport";
+            case AWSEC2InstanceAttributeNameEnclaveOptions:
+                return @"enclaveOptions";
             default:
                 return nil;
         }
@@ -47394,6 +47582,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ebsOptimized" : @"EbsOptimized",
              @"elasticGpuSpecifications" : @"ElasticGpuSpecifications",
              @"elasticInferenceAccelerators" : @"ElasticInferenceAccelerators",
+             @"enclaveOptions" : @"EnclaveOptions",
              @"hibernationOptions" : @"HibernationOptions",
              @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
@@ -47437,6 +47626,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)elasticInferenceAcceleratorsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateElasticInferenceAccelerator class]];
+}
+
++ (NSValueTransformer *)enclaveOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateEnclaveOptionsRequest class]];
 }
 
 + (NSValueTransformer *)hibernationOptionsJSONTransformer {
@@ -57383,6 +57576,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"enaSupport"] == NSOrderedSame) {
             return @(AWSEC2InstanceAttributeNameEnaSupport);
         }
+        if ([value caseInsensitiveCompare:@"enclaveOptions"] == NSOrderedSame) {
+            return @(AWSEC2InstanceAttributeNameEnclaveOptions);
+        }
         return @(AWSEC2InstanceAttributeNameUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -57414,6 +57610,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"sriovNetSupport";
             case AWSEC2InstanceAttributeNameEnaSupport:
                 return @"enaSupport";
+            case AWSEC2InstanceAttributeNameEnclaveOptions:
+                return @"enclaveOptions";
             default:
                 return nil;
         }
@@ -57547,6 +57745,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ebsOptimized" : @"EbsOptimized",
              @"elasticGpuSpecifications" : @"ElasticGpuSpecifications",
              @"elasticInferenceAccelerators" : @"ElasticInferenceAccelerators",
+             @"enclaveOptions" : @"EnclaveOptions",
              @"hibernationOptions" : @"HibernationOptions",
              @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
@@ -57590,6 +57789,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)elasticInferenceAcceleratorsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse class]];
+}
+
++ (NSValueTransformer *)enclaveOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2LaunchTemplateEnclaveOptions class]];
 }
 
 + (NSValueTransformer *)hibernationOptionsJSONTransformer {
@@ -59843,6 +60046,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ebsOptimized" : @"EbsOptimized",
              @"elasticGpuSpecification" : @"ElasticGpuSpecification",
              @"elasticInferenceAccelerators" : @"ElasticInferenceAccelerators",
+             @"enclaveOptions" : @"EnclaveOptions",
              @"hibernationOptions" : @"HibernationOptions",
              @"iamInstanceProfile" : @"IamInstanceProfile",
              @"imageId" : @"ImageId",
@@ -59893,6 +60097,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)elasticInferenceAcceleratorsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2ElasticInferenceAccelerator class]];
+}
+
++ (NSValueTransformer *)enclaveOptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2EnclaveOptionsRequest class]];
 }
 
 + (NSValueTransformer *)hibernationOptionsJSONTransformer {

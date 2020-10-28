@@ -635,6 +635,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameEBSOptimized,
     AWSEC2InstanceAttributeNameSriovNetSupport,
     AWSEC2InstanceAttributeNameEnaSupport,
+    AWSEC2InstanceAttributeNameEnclaveOptions,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceHealthStatus) {
@@ -1939,6 +1940,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateClientVpnTargetNetworkRequest;
 @class AWSEC2AssociateClientVpnTargetNetworkResult;
 @class AWSEC2AssociateDhcpOptionsRequest;
+@class AWSEC2AssociateEnclaveCertificateIamRoleRequest;
+@class AWSEC2AssociateEnclaveCertificateIamRoleResult;
 @class AWSEC2AssociateIamInstanceProfileRequest;
 @class AWSEC2AssociateIamInstanceProfileResult;
 @class AWSEC2AssociateRouteTableRequest;
@@ -1951,6 +1954,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateTransitGatewayRouteTableResult;
 @class AWSEC2AssociateVpcCidrBlockRequest;
 @class AWSEC2AssociateVpcCidrBlockResult;
+@class AWSEC2AssociatedRole;
 @class AWSEC2AssociatedTargetNetwork;
 @class AWSEC2AssociationStatus;
 @class AWSEC2AttachClassicLinkVpcRequest;
@@ -2509,6 +2513,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateAddressRequest;
 @class AWSEC2DisassociateClientVpnTargetNetworkRequest;
 @class AWSEC2DisassociateClientVpnTargetNetworkResult;
+@class AWSEC2DisassociateEnclaveCertificateIamRoleRequest;
+@class AWSEC2DisassociateEnclaveCertificateIamRoleResult;
 @class AWSEC2DisassociateIamInstanceProfileRequest;
 @class AWSEC2DisassociateIamInstanceProfileResult;
 @class AWSEC2DisassociateRouteTableRequest;
@@ -2556,6 +2562,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnableVpcClassicLinkDnsSupportResult;
 @class AWSEC2EnableVpcClassicLinkRequest;
 @class AWSEC2EnableVpcClassicLinkResult;
+@class AWSEC2EnclaveOptions;
+@class AWSEC2EnclaveOptionsRequest;
 @class AWSEC2EventInformation;
 @class AWSEC2ExportClientVpnClientCertificateRevocationListRequest;
 @class AWSEC2ExportClientVpnClientCertificateRevocationListResult;
@@ -2589,6 +2597,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2FpgaImageAttribute;
 @class AWSEC2FpgaImageState;
 @class AWSEC2FpgaInfo;
+@class AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest;
+@class AWSEC2GetAssociatedEnclaveCertificateIamRolesResult;
 @class AWSEC2GetAssociatedIpv6PoolCidrsRequest;
 @class AWSEC2GetAssociatedIpv6PoolCidrsResult;
 @class AWSEC2GetCapacityReservationUsageRequest;
@@ -2734,6 +2744,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LaunchTemplateEbsBlockDeviceRequest;
 @class AWSEC2LaunchTemplateElasticInferenceAccelerator;
 @class AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse;
+@class AWSEC2LaunchTemplateEnclaveOptions;
+@class AWSEC2LaunchTemplateEnclaveOptionsRequest;
 @class AWSEC2LaunchTemplateHibernationOptions;
 @class AWSEC2LaunchTemplateHibernationOptionsRequest;
 @class AWSEC2LaunchTemplateIamInstanceProfileSpecification;
@@ -3958,6 +3970,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2AssociateEnclaveCertificateIamRoleRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the ACM certificate with which to associate the IAM role.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ARN of the IAM role to associate with the ACM certificate. You can associate up to 16 IAM roles with an ACM certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateEnclaveCertificateIamRoleResult : AWSModel
+
+
+/**
+ <p>The name of the Amazon S3 bucket to which the certificate was uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateS3BucketName;
+
+/**
+ <p>The Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored. The object key is formatted as follows: <code>certificate_arn</code>/<code>role_arn</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateS3ObjectKey;
+
+/**
+ <p>The ID of the AWS Key Management Service (KMS) key used to encrypt the private key of the certificate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encryptionKmsKeyId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2AssociateIamInstanceProfileRequest : AWSRequest
 
 
@@ -4203,6 +4261,34 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcId;
+
+@end
+
+/**
+ <p>Information about the associated IAM roles.</p>
+ */
+@interface AWSEC2AssociatedRole : AWSModel
+
+
+/**
+ <p>The ARN of the associated IAM role.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associatedRoleArn;
+
+/**
+ <p>The name of the Amazon S3 bucket in which the Amazon S3 object is stored.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateS3BucketName;
+
+/**
+ <p>The key of the Amazon S3 object ey where the certificate, certificate chain, and encrypted private key bundle is stored. The object key is formated as follows: <code>certificate_arn</code>/<code>role_arn</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateS3ObjectKey;
+
+/**
+ <p>The ID of the KMS key used to encrypt the private key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encryptionKmsKeyId;
 
 @end
 
@@ -17553,6 +17639,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisassociateEnclaveCertificateIamRoleRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the ACM certificate from which to disassociate the IAM role.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ARN of the IAM role to disassociate.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateEnclaveCertificateIamRoleResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisassociateIamInstanceProfileRequest : AWSRequest
 
 
@@ -18542,6 +18664,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ */
+@interface AWSEC2EnclaveOptions : AWSModel
+
+
+/**
+ <p>If this parameter is set to <code>true</code>, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2EnclaveOptionsRequest : AWSModel
+
+
+/**
+ <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 @end
 
@@ -19572,6 +19720,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The total memory of all FPGA accelerators for the instance type.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable totalFpgaMemoryInMiB;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest : AWSRequest
+
+
+/**
+ <p>The ARN of the ACM certificate for which to view the associated IAM roles, encryption keys, and Amazon S3 object information.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2GetAssociatedEnclaveCertificateIamRolesResult : AWSModel
+
+
+/**
+ <p>Information about the associated IAM roles.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AssociatedRole *> * _Nullable associatedRoles;
 
 @end
 
@@ -22118,6 +22297,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable enaSupport;
 
 /**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ */
+@property (nonatomic, strong) AWSEC2EnclaveOptions * _Nullable enclaveOptions;
+
+/**
  <p>Indicates whether the instance is enabled for hibernation.</p>
  */
 @property (nonatomic, strong) AWSEC2HibernationOptions * _Nullable hibernationOptions;
@@ -22324,6 +22508,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether enhanced networking with ENA is enabled.</p>
  */
 @property (nonatomic, strong) AWSEC2AttributeBooleanValue * _Nullable enaSupport;
+
+/**
+ <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>; otherwise, set it to <code>false</code>.</p>
+ */
+@property (nonatomic, strong) AWSEC2EnclaveOptions * _Nullable enclaveOptions;
 
 /**
  <p>The security groups associated with the instance.</p>
@@ -24004,6 +24193,32 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p> The type of elastic inference accelerator. The possible values are eia1.medium, eia1.large, and eia1.xlarge. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
+
+@end
+
+/**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ */
+@interface AWSEC2LaunchTemplateEnclaveOptions : AWSModel
+
+
+/**
+ <p>If this parameter is set to <code>true</code>, the instance is enabled for AWS Nitro Enclaves; otherwise, it is not enabled for AWS Nitro Enclaves.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+@end
+
+/**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2LaunchTemplateEnclaveOptionsRequest : AWSModel
+
+
+/**
+ <p>To enable the instance for AWS Nitro Enclaves, set this parameter to <code>true</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 @end
 
@@ -29949,6 +30164,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance. For more information about AWS Nitro Enclaves requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html#nitro-enclave-reqs"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateEnclaveOptionsRequest * _Nullable enclaveOptions;
+
+/**
  <p>Indicates whether an instance is enabled for hibernation. This parameter is valid only if the instance meets the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html#hibernating-prerequisites">hibernation prerequisites</a>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateHibernationOptionsRequest * _Nullable hibernationOptions;
@@ -30915,6 +31135,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse *> * _Nullable elasticInferenceAccelerators;
 
 /**
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves.</p>
+ */
+@property (nonatomic, strong) AWSEC2LaunchTemplateEnclaveOptions * _Nullable enclaveOptions;
+
+/**
  <p>Indicates whether an instance is configured for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate Your Instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateHibernationOptions * _Nullable hibernationOptions;
@@ -31534,7 +31759,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
- <p>Indicates whether an instance is enabled for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance. For more information about AWS Nitro Enclaves requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html#nitro-enclave-reqs"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) AWSEC2EnclaveOptionsRequest * _Nullable enclaveOptions;
+
+/**
+ <p>Indicates whether an instance is enabled for hibernation. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Hibernate.html">Hibernate your instance</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can't enable hibernation and AWS Nitro Enclaves on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2HibernationOptionsRequest * _Nullable hibernationOptions;
 
