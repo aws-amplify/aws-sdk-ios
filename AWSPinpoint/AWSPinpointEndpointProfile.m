@@ -567,7 +567,7 @@ NSString *const AWSPinpointDefaultEndpointDemographicUnknown = @"Unknown";
 
 - (void)addUserAttribute:(NSArray *)theValue
                   forKey:(NSString *)theKey {
-    if (!theKey) {
+    if (!theKey.length) {
         AWSDDLogWarn(@"The key of user attribute you tried to add is empty.");
         return;
     }
