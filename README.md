@@ -282,7 +282,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 ## Working with AWSTask
 
-The SDK returns `AWSTask` objects when operating on asynchronous operations to avoid blocking the UI thread, .
+The SDK returns `AWSTask` objects when operating on asynchronous operations to avoid blocking the UI thread.
 
 The AWSTask class is a renamed version of BFTask from the Bolts framework. For complete documentation on Bolts, see the [Bolts-iOS repo](https://github.com/BoltsFramework/Bolts-ObjC)
 
