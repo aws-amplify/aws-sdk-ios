@@ -18,7 +18,6 @@ src/aws-ios-sdk-*.zip
 ######################
 xcuserdata
 *.xccheckout
-xcsettings
 
 # Other IDEs
 .idea
