@@ -522,6 +522,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateDhcpOptions:(AWSEC2AssociateDhcpOptionsRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When the IAM role is associated with the ACM certificate, places the certificate, certificate chain, and encrypted private key in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate is encrypted with an AWS-managed KMS key that has an attached attestation-based key policy.</p><p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS key, you must grant it permission to call <code>kms:Decrypt</code> on AWS KMS key returned by the command. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateEnclaveCertificateIamRole service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateEnclaveCertificateIamRoleResult`.
+ 
+ @see AWSEC2AssociateEnclaveCertificateIamRoleRequest
+ @see AWSEC2AssociateEnclaveCertificateIamRoleResult
+ */
+- (AWSTask<AWSEC2AssociateEnclaveCertificateIamRoleResult *> *)associateEnclaveCertificateIamRole:(AWSEC2AssociateEnclaveCertificateIamRoleRequest *)request;
+
+/**
+ <p>Associates an AWS Identity and Access Management (IAM) role with an AWS Certificate Manager (ACM) certificate. This enables the certificate to be used by the ACM for Nitro Enclaves application inside an enclave. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html">AWS Certificate Manager for Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>When the IAM role is associated with the ACM certificate, places the certificate, certificate chain, and encrypted private key in an Amazon S3 bucket that only the associated IAM role can access. The private key of the certificate is encrypted with an AWS-managed KMS key that has an attached attestation-based key policy.</p><p>To enable the IAM role to access the Amazon S3 object, you must grant it permission to call <code>s3:GetObject</code> on the Amazon S3 bucket returned by the command. To enable the IAM role to access the AWS KMS key, you must grant it permission to call <code>kms:Decrypt</code> on AWS KMS key returned by the command. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave-refapp.html#add-policy"> Grant the role permission to access the certificate and encryption key</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateEnclaveCertificateIamRole service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateEnclaveCertificateIamRoleRequest
+ @see AWSEC2AssociateEnclaveCertificateIamRoleResult
+ */
+- (void)associateEnclaveCertificateIamRole:(AWSEC2AssociateEnclaveCertificateIamRoleRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateEnclaveCertificateIamRoleResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Associates an IAM instance profile with a running or stopped instance. You cannot associate more than one IAM instance profile with an instance.</p>
  
  @param request A container for the necessary parameters to execute the AssociateIamInstanceProfile service method.
@@ -7070,6 +7095,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateClientVpnTargetNetwork:(AWSEC2DisassociateClientVpnTargetNetworkRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateClientVpnTargetNetworkResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the AWS Key Management Service (KMS) key used to encrypt the private key. This effectively revokes the role's permission to use the certificate. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateEnclaveCertificateIamRole service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateEnclaveCertificateIamRoleResult`.
+ 
+ @see AWSEC2DisassociateEnclaveCertificateIamRoleRequest
+ @see AWSEC2DisassociateEnclaveCertificateIamRoleResult
+ */
+- (AWSTask<AWSEC2DisassociateEnclaveCertificateIamRoleResult *> *)disassociateEnclaveCertificateIamRole:(AWSEC2DisassociateEnclaveCertificateIamRoleRequest *)request;
+
+/**
+ <p>Disassociates an IAM role from an AWS Certificate Manager (ACM) certificate. Disassociating an IAM role from an ACM certificate removes the Amazon S3 object that contains the certificate, certificate chain, and encrypted private key from the Amazon S3 bucket. It also revokes the IAM role's permission to use the AWS Key Management Service (KMS) key used to encrypt the private key. This effectively revokes the role's permission to use the certificate. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateEnclaveCertificateIamRole service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateEnclaveCertificateIamRoleRequest
+ @see AWSEC2DisassociateEnclaveCertificateIamRoleResult
+ */
+- (void)disassociateEnclaveCertificateIamRole:(AWSEC2DisassociateEnclaveCertificateIamRoleRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateEnclaveCertificateIamRoleResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disassociates an IAM instance profile from a running or stopped instance.</p><p>Use <a>DescribeIamInstanceProfileAssociations</a> to get the association ID.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateIamInstanceProfile service method.
@@ -7484,6 +7534,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ExportTransitGatewayRoutesResult
  */
 - (void)exportTransitGatewayRoutes:(AWSEC2ExportTransitGatewayRoutesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ExportTransitGatewayRoutesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) key that's used to encrypt the private key.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAssociatedEnclaveCertificateIamRoles service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2GetAssociatedEnclaveCertificateIamRolesResult`.
+ 
+ @see AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest
+ @see AWSEC2GetAssociatedEnclaveCertificateIamRolesResult
+ */
+- (AWSTask<AWSEC2GetAssociatedEnclaveCertificateIamRolesResult *> *)getAssociatedEnclaveCertificateIamRoles:(AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest *)request;
+
+/**
+ <p>Returns the IAM roles that are associated with the specified AWS Certificate Manager (ACM) certificate. It also returns the name of the Amazon S3 bucket and the Amazon S3 object key where the certificate, certificate chain, and encrypted private key bundle are stored, and the ARN of the AWS Key Management Service (KMS) key that's used to encrypt the private key.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAssociatedEnclaveCertificateIamRoles service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest
+ @see AWSEC2GetAssociatedEnclaveCertificateIamRolesResult
+ */
+- (void)getAssociatedEnclaveCertificateIamRoles:(AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2GetAssociatedEnclaveCertificateIamRolesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about the IPv6 CIDR block associations for a specified IPv6 address pool.</p>

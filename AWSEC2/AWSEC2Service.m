@@ -592,6 +592,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2AssociateEnclaveCertificateIamRoleResult *> *)associateEnclaveCertificateIamRole:(AWSEC2AssociateEnclaveCertificateIamRoleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateEnclaveCertificateIamRole"
+                   outputClass:[AWSEC2AssociateEnclaveCertificateIamRoleResult class]];
+}
+
+- (void)associateEnclaveCertificateIamRole:(AWSEC2AssociateEnclaveCertificateIamRoleRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateEnclaveCertificateIamRoleResult *response, NSError *error))completionHandler {
+    [[self associateEnclaveCertificateIamRole:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateEnclaveCertificateIamRoleResult *> * _Nonnull task) {
+        AWSEC2AssociateEnclaveCertificateIamRoleResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AssociateIamInstanceProfileResult *> *)associateIamInstanceProfile:(AWSEC2AssociateIamInstanceProfileRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6676,6 +6699,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisassociateEnclaveCertificateIamRoleResult *> *)disassociateEnclaveCertificateIamRole:(AWSEC2DisassociateEnclaveCertificateIamRoleRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateEnclaveCertificateIamRole"
+                   outputClass:[AWSEC2DisassociateEnclaveCertificateIamRoleResult class]];
+}
+
+- (void)disassociateEnclaveCertificateIamRole:(AWSEC2DisassociateEnclaveCertificateIamRoleRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateEnclaveCertificateIamRoleResult *response, NSError *error))completionHandler {
+    [[self disassociateEnclaveCertificateIamRole:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateEnclaveCertificateIamRoleResult *> * _Nonnull task) {
+        AWSEC2DisassociateEnclaveCertificateIamRoleResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DisassociateIamInstanceProfileResult *> *)disassociateIamInstanceProfile:(AWSEC2DisassociateIamInstanceProfileRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -7054,6 +7100,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ExportTransitGatewayRoutesResult *response, NSError *error))completionHandler {
     [[self exportTransitGatewayRoutes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ExportTransitGatewayRoutesResult *> * _Nonnull task) {
         AWSEC2ExportTransitGatewayRoutesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetAssociatedEnclaveCertificateIamRolesResult *> *)getAssociatedEnclaveCertificateIamRoles:(AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetAssociatedEnclaveCertificateIamRoles"
+                   outputClass:[AWSEC2GetAssociatedEnclaveCertificateIamRolesResult class]];
+}
+
+- (void)getAssociatedEnclaveCertificateIamRoles:(AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest *)request
+     completionHandler:(void (^)(AWSEC2GetAssociatedEnclaveCertificateIamRolesResult *response, NSError *error))completionHandler {
+    [[self getAssociatedEnclaveCertificateIamRoles:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetAssociatedEnclaveCertificateIamRolesResult *> * _Nonnull task) {
+        AWSEC2GetAssociatedEnclaveCertificateIamRolesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
