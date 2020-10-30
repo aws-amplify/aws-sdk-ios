@@ -523,13 +523,18 @@ final public class AWSMobileClient: _AWSMobileClient {
                     }
                     
                     self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
-                    self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
-                    completionHandler(.signedIn, nil)
                     if self.pendingGetTokensCompletion != nil {
                         self.tokenFetchLock.leave()
                     }
                     self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
                     self.pendingGetTokensCompletion = nil
+
+                    // Invoke credentials inorder to refresh the id token before returning signedin
+                    self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
+                        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
+                        completionHandler(.signedIn, nil)
+                        return nil
+                    }
                 }
             }
             
@@ -543,10 +548,16 @@ final public class AWSMobileClient: _AWSMobileClient {
                             if let session = task.result {
                                 self.performUserPoolSuccessfulSignInTasks(session: session)
                                 let tokenString = session.idToken!.tokenString
-                                self.mobileClientStatusChanged(userState: .signedIn,
-                                                               additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
-                                                                                self.TokenKey:tokenString])
-                                completionHandler(.signedIn, nil)
+
+                                // Invoke credentials inorder to refresh the id token before returning signedin
+                                self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
+                                    self.mobileClientStatusChanged(userState: .signedIn,
+                                                                   additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                                    self.TokenKey:tokenString])
+                                    completionHandler(.signedIn, nil)
+                                    return nil
+                                }
+                                
                             } else {
                                 completionHandler(nil, task.error)
                             }

@@ -235,10 +235,15 @@ extension AWSMobileClient {
                     self.federationProvider = .userPools
                     self.performUserPoolSuccessfulSignInTasks(session: result)
                     let tokenString = result.idToken!.tokenString
-                    self.mobileClientStatusChanged(userState: .signedIn,
-                                                   additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
-                                                                    self.TokenKey:tokenString])
-                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+                    
+                    // Invoke credentials inorder to refresh the id token before returning signedin
+                    self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
+                        self.mobileClientStatusChanged(userState: .signedIn,
+                                                       additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                        self.TokenKey:tokenString])
+                        self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+                        return nil
+                    }
                 }
                 return nil
             }
@@ -263,9 +268,14 @@ extension AWSMobileClient {
             // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
             defer {
                 if error == nil {
-                    self.mobileClientStatusChanged(userState: .signedIn,
-                                                   additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
-                    completionHandler(UserState.signedIn, nil)
+                    // Invoke credentials inorder to refresh the id token before returning signedin
+                    self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
+                        self.mobileClientStatusChanged(userState: .signedIn,
+                                                       additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
+                        completionHandler(UserState.signedIn, nil)
+                        return nil
+                    }
+                    
                 } else {
                     completionHandler(nil, error)
                 }
