@@ -432,6 +432,7 @@
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
 		2171EB6A254C721E00FAB22F /* AWSTimestampSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */; };
 		2171EBE0254C725C00FAB22F /* AWSTimestampSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2171ECCE254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
 		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -3064,6 +3065,7 @@
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
 		2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTimestampSerialization.h; sourceTree = "<group>"; };
 		2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTimestampSerialization.m; sourceTree = "<group>"; };
+		2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSURLRequestSerilizationTests.m; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
@@ -5793,6 +5795,14 @@
 			path = AWSKinesisVideoSignalingUnitTests;
 			sourceTree = "<group>";
 		};
+		2171ECCC254C76E800FAB22F /* Serialization */ = {
+			isa = PBXGroup;
+			children = (
+				2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */,
+			);
+			path = Serialization;
+			sourceTree = "<group>";
+		};
 		9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */ = {
 			isa = PBXGroup;
 			children = (
@@ -6572,6 +6582,7 @@
 				FA0A61CA22FE0E3300B051BE /* AWSURLSessionManagerTests.m */,
 				CE5603D61C6BC74500B4E00B /* Info.plist */,
 				FAE19B7023341D4600560F1D /* Resources */,
+				2171ECCC254C76E800FAB22F /* Serialization */,
 				FA7A5707230911470093A523 /* SigV4Tests */,
 			);
 			path = AWSCoreUnitTests;
@@ -12767,6 +12778,7 @@
 				FA40A91221FA2F2A0050F4B2 /* AWSDateFormatterTests.m in Sources */,
 				FA7A44C1230487A400F55D7A /* SigV4TestUtilities.swift in Sources */,
 				FA5A22672539F42400ED165C /* AWSSTSNSSecureCodingTests.m in Sources */,
+				2171ECCE254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m in Sources */,
 				FA7A44C92305DE0E00F55D7A /* SigV4TestCase.swift in Sources */,
 				FA7A57062308BEB10093A523 /* SigV4TestCases.swift in Sources */,
 				CE5603E41C6BC82E00B4E00B /* AWSTestUtility.m in Sources */,

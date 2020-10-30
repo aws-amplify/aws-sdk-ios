@@ -330,7 +330,10 @@
             }
 
             //if it is queryString type, construct queryString
-            if ([memberRules[@"location"] isEqualToString:@"querystring"]) {
+            if ([memberRules[@"location"] isEqualToString:@"querystring"] &&
+                [rulesType isEqualToString:@"list"]) {
+                [queryStringDictionary setObject:value forKey:memberRules[@"locationName"]];
+            } else if ([memberRules[@"location"] isEqualToString:@"querystring"]) {
                 [queryStringDictionary setObject:valueStr forKey:memberRules[@"locationName"]];
             }
 
@@ -391,14 +394,29 @@
         NSArray *myKeys = [queryStringDictionary allKeys];
         NSArray *sortedKeys = [myKeys sortedArrayUsingSelector:@selector(caseInsensitiveCompare:)];
         NSString *queryString = @"";
+        NSMutableArray *keyValuesToAppend = [@[] mutableCopy];
         for (NSString *key in sortedKeys) {
-            if ([queryString length] == 0 && uriSchemaContainsQuestionMark == NO) {
-                queryString = [NSString stringWithFormat:@"?%@=%@",[key aws_stringWithURLEncoding],[queryStringDictionary[key] aws_stringWithURLEncoding]];
+            if ([queryStringDictionary[key] isKindOfClass:[NSArray class]]) {
+                NSArray *listOfValues = (NSArray*)queryStringDictionary[key];
+                for (NSString *singleValue in listOfValues) {
+                    NSString *keyVal = [NSString stringWithFormat:@"%@=%@", [key aws_stringWithURLEncoding], [singleValue aws_stringWithURLEncoding]];
+                    [keyValuesToAppend addObject:keyVal];
+                }
             } else {
-                NSString *appendString = [NSString stringWithFormat:@"&%@=%@",[key aws_stringWithURLEncoding],[queryStringDictionary[key] aws_stringWithURLEncoding]];
+                NSString *keyVal = [NSString stringWithFormat:@"%@=%@", [key aws_stringWithURLEncoding], [queryStringDictionary[key] aws_stringWithURLEncoding]];
+                [keyValuesToAppend addObject:keyVal];
+            }
+        }
+        
+        for (NSString *keyValue in keyValuesToAppend) {
+            if ([queryString length] == 0 && uriSchemaContainsQuestionMark == NO) {
+                queryString = [NSString stringWithFormat:@"?%@", keyValue];
+            } else {
+                NSString *appendString = [NSString stringWithFormat:@"&%@", keyValue];
                 queryString = [queryString stringByAppendingString:appendString];
             }
         }
+        
         rawURI = [rawURI stringByAppendingString:queryString];
     }
 
