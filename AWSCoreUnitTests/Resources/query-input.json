@@ -283,20 +283,33 @@
       "InputShape": {
         "type": "structure",
         "members": {
-          "TimeArg": {
-            "shape": "TimestampType"
+          "TimeMember": {
+            "shape": "Timestamp"
           },
-          "TimeArg2": {
-            "shape": "TimestampType2"
+          "StructMember": {
+            "shape": "TimeContainer"
           }
         }
       },
-      "TimestampType": {
+      "Timestamp": {
         "type": "timestamp"
       },
-      "TimestampType2": {
-        "type": "timestamp",
-        "timestampFormat": "unixTimestamp"
+      "TimeContainer": {
+        "type": "structure",
+        "members": {
+          "unix": {
+            "shape": "Timestamp",
+            "timestampFormat": "unixTimestamp"
+          },
+          "rfc822": {
+            "shape": "Timestamp",
+            "timestampFormat": "rfc822"
+          },
+          "iso8601": {
+            "shape": "Timestamp",
+            "timestampFormat": "iso8601"
+          }
+        }
       }
     },
     "cases": [
@@ -308,26 +321,16 @@
           "name": "OperationName"
         },
         "params": {
-          "TimeArg": 1422172800
+          "TimeMember": 1398796238,
+          "StructMember": {
+            "unix": 1398796238,
+            "rfc822": "Tue, 29 Apr 2014 18:30:38 GMT",
+            "iso8601": "2014-04-29T18:30:38Z"
+          }
         },
         "serialized": {
           "uri": "/",
-          "body": "Action=OperationName&Version=2014-01-01&TimeArg=2015-01-25T08%3A00%3A00Z"
-        }
-      },
-      {
-        "given": {
-          "input": {
-            "shape": "InputShape"
-          },
-          "name": "OperationName"
-        },
-        "params": {
-          "TimeArg2": 1422172800
-        },
-        "serialized": {
-          "uri": "/",
-          "body": "Action=OperationName&Version=2014-01-01&TimeArg2=1422172800"
+          "body": "Action=OperationName&Version=2014-01-01&StructMember.iso8601=2014-04-29T18%3A30%3A38Z&StructMember.unix=1398796238&StructMember.rfc822=Tue%2C%2029%20Apr%202014%2018%3A30%3A38%20GMT&TimeMember=2014-04-29T18%3A30%3A38Z"
         }
       }
     ]
