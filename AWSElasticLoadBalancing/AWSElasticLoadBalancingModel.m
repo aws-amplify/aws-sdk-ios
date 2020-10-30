@@ -578,6 +578,7 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
              @"name" : @"Name",
              @"port" : @"Port",
              @"protocols" : @"Protocol",
+             @"protocolVersion" : @"ProtocolVersion",
              @"tags" : @"Tags",
              @"targetType" : @"TargetType",
              @"unhealthyThresholdCount" : @"UnhealthyThresholdCount",
@@ -1575,6 +1576,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"grpcCode" : @"GrpcCode",
              @"httpCode" : @"HttpCode",
              };
 }
@@ -2413,6 +2415,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"matcher" : @"Matcher",
              @"port" : @"Port",
              @"protocols" : @"Protocol",
+             @"protocolVersion" : @"ProtocolVersion",
              @"targetGroupArn" : @"TargetGroupArn",
              @"targetGroupName" : @"TargetGroupName",
              @"targetType" : @"TargetType",
