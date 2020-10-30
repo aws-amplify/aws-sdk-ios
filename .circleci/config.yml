@@ -1186,7 +1186,7 @@ workflows:
               only:
                 - develop
                 - main
-                - royjit/Non_modelType_Tests
+                - royjit/refresh_id_token
 
       - integ_test:
           scheme: AWSAutoScaling
