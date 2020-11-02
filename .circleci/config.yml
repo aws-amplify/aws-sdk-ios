@@ -542,34 +542,9 @@ jobs:
             echo "export SAMPLE_APPS_REPO_ACCOUNT=$SAMPLE_APPS_REPO_ACCOUNT" >> $BASH_ENV
             git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
       - run:
-          name: Update version
-          command:
-            python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
-      - run:
           name: Build projects
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
-      - run:
-          name: Stage changes
-          command: |
-            cd aws-sdk-ios-samples
-            git config --local user.name "AWS"
-            gitstatus=$(git status)
-            echo $gitstatus
-            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then
-              git add .
-            else
-              echo "No changes for sample application bump version"
-              circleci step halt
-            fi
-      - run:
-          name: Check in changes
-          command: |
-            cd aws-sdk-ios-samples
-            git status
-            git config --local user.name "AWS"
-            git commit -m "Update sample app dependency to ${release_version}"
-            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
   release_ios_s3:
     macos:
       xcode: "12.0.0"
