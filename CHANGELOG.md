@@ -7,6 +7,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
 ---AWSElasticLoadBalancing
 ---AWSEC2
+---AWSIoT
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased

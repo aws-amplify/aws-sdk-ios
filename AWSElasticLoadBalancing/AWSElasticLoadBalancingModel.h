@@ -571,7 +571,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingCertificate *> * _Nullable certificates;
 
 /**
- <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p><p>If the action type is <code>forward</code>, you specify one or more target groups. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p><p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant.</p><p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools supported by Amazon Cognito.</p><p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests from one URL to another.</p><p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests and return a custom HTTP response.</p>
+ <p>The actions for the default rule.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAction *> * _Nullable defaultActions;
 
@@ -688,12 +688,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The actions. Each rule must include exactly one of the following types of actions: <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be the last action to be performed.</p><p>If the action type is <code>forward</code>, you specify one or more target groups. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p><p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant.</p><p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools supported by Amazon Cognito.</p><p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests from one URL to another.</p><p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests and return a custom HTTP response.</p>
+ <p>The actions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAction *> * _Nullable actions;
 
 /**
- <p>The conditions. Each rule can optionally include up to one of each of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>. Each rule can also optionally include one or more of each of the following conditions: <code>http-header</code> and <code>query-string</code>.</p>
+ <p>The conditions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingRuleCondition *> * _Nullable conditions;
 
@@ -744,7 +744,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckIntervalSeconds;
 
 /**
- <p>[HTTP/HTTPS health checks] The ping path that is the destination on the targets for health checks. The default is /.</p>
+ <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p><p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p><p>[GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckPath;
 
@@ -769,7 +769,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
 
 /**
- <p>[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target.</p>
+ <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingMatcher * _Nullable matcher;
 
@@ -787,6 +787,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
+
+/**
+ <p>[HTTP/HTTPS protocol] The protocol version. Specify <code>GRPC</code> to send requests to targets using gRPC. Specify <code>HTTP2</code> to send requests to targets using HTTP/2. The default is <code>HTTP1</code>, which sends requests to targets using HTTP/1.1.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocolVersion;
 
 /**
  <p>The tags to assign to the target group.</p>
@@ -1634,14 +1639,18 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @end
 
 /**
- <p>Information to use when checking for a successful response from a target.</p>
- Required parameters: [HttpCode]
+ <p>The codes to use when checking for a successful response from a target. If the protocol version is gRPC, these are gRPC codes. Otherwise, these are HTTP codes.</p>
  */
 @interface AWSElasticLoadBalancingMatcher : AWSModel
 
 
 /**
- <p>The HTTP codes.</p><p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers, this is 200–399.</p>
+ <p>You can specify values between 0 and 99. You can specify multiple values (for example, "0,1") or a range of values (for example, "0-5"). The default value is 12.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable grpcCode;
+
+/**
+ <p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers, this is "200–399".</p>
  */
 @property (nonatomic, strong) NSString * _Nullable httpCode;
 
@@ -1664,7 +1673,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingCertificate *> * _Nullable certificates;
 
 /**
- <p>The actions for the default rule. The rule must include one forward action or one or more fixed-response actions.</p><p>If the action type is <code>forward</code>, you specify one or more target groups. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p><p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant.</p><p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools supported by Amazon Cognito.</p><p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests from one URL to another.</p><p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests and return a custom HTTP response.</p>
+ <p>The actions for the default rule.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAction *> * _Nullable defaultActions;
 
@@ -1741,12 +1750,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The actions. Each rule must include exactly one of the following types of actions: <code>forward</code>, <code>fixed-response</code>, or <code>redirect</code>, and it must be the last action to be performed.</p><p>If the action type is <code>forward</code>, you specify one or more target groups. The protocol of the target group must be HTTP or HTTPS for an Application Load Balancer. The protocol of the target group must be TCP, TLS, UDP, or TCP_UDP for a Network Load Balancer.</p><p>[HTTPS listeners] If the action type is <code>authenticate-oidc</code>, you authenticate users through an identity provider that is OpenID Connect (OIDC) compliant.</p><p>[HTTPS listeners] If the action type is <code>authenticate-cognito</code>, you authenticate users through the user pools supported by Amazon Cognito.</p><p>[Application Load Balancer] If the action type is <code>redirect</code>, you redirect specified client requests from one URL to another.</p><p>[Application Load Balancer] If the action type is <code>fixed-response</code>, you drop specified client requests and return a custom HTTP response.</p>
+ <p>The actions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingAction *> * _Nullable actions;
 
 /**
- <p>The conditions. Each rule can include zero or one of the following conditions: <code>http-request-method</code>, <code>host-header</code>, <code>path-pattern</code>, and <code>source-ip</code>, and zero or more of the following conditions: <code>http-header</code> and <code>query-string</code>.</p>
+ <p>The conditions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingRuleCondition *> * _Nullable conditions;
 
@@ -1813,12 +1822,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckEnabled;
 
 /**
- <p>The approximate amount of time, in seconds, between health checks of an individual target. For Application Load Balancers, the range is 5 to 300 seconds. For Network Load Balancers, the supported values are 10 or 30 seconds.</p><p>With Network Load Balancers, you can't modify this setting.</p>
+ <p>The approximate amount of time, in seconds, between health checks of an individual target. For HTTP and HTTPS health checks, the range is 5 to 300 seconds. For TPC health checks, the supported values are 10 or 30 seconds.</p><p>With Network Load Balancers, you can't modify this setting.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckIntervalSeconds;
 
 /**
- <p>[HTTP/HTTPS health checks] The ping path that is the destination for the health check request.</p>
+ <p>[HTTP/HTTPS health checks] The destination for health checks on the targets.</p><p>[HTTP1 or HTTP2 protocol version] The ping path. The default is /.</p><p>[GRPC protocol version] The path of a custom health check method with the format /package.service/method. The default is /AWS.ALB/healthcheck.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckPath;
 
@@ -1843,7 +1852,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
 
 /**
- <p>[HTTP/HTTPS health checks] The HTTP codes to use when checking for a successful response from a target. The possible values are from 200 to 499. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299"). The default is 200.</p><p>With Network Load Balancers, you can't modify this setting.</p>
+ <p>[HTTP/HTTPS health checks] The HTTP or gRPC codes to use when checking for a successful response from a target.</p><p>With Network Load Balancers, you can't modify this setting.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingMatcher * _Nullable matcher;
 
@@ -1853,7 +1862,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable targetGroupArn;
 
 /**
- <p>The number of consecutive health check failures required before considering the target unhealthy. For Network Load Balancers, this value must be the same as the healthy threshold count.</p>
+ <p>The number of consecutive health check failures required before considering the target unhealthy. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable unhealthyThresholdCount;
 
@@ -1967,7 +1976,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable targetGroupArn;
 
 /**
- <p>The targets.</p><p>To register a target by instance ID, specify the instance ID. To register a target by IP address, specify the IP address. To register a Lambda function, specify the ARN of the Lambda function.</p>
+ <p>The targets.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTargetDescription *> * _Nullable targets;
 
@@ -2393,7 +2402,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckIntervalSeconds;
 
 /**
- <p>The destination for the health check request.</p>
+ <p>The destination for health checks on the targets.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckPath;
 
@@ -2423,7 +2432,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable loadBalancerArns;
 
 /**
- <p>The HTTP codes to use when checking for a successful response from a target.</p>
+ <p>The HTTP or gRPC codes to use when checking for a successful response from a target.</p>
  */
 @property (nonatomic, strong) AWSElasticLoadBalancingMatcher * _Nullable matcher;
 
@@ -2436,6 +2445,11 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
  <p>The protocol to use for routing traffic to the targets.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
+
+/**
+ <p>[HTTP/HTTPS protocol] The protocol version. The possible values are <code>GRPC</code>, <code>HTTP1</code>, and <code>HTTP2</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocolVersion;
 
 /**
  <p>The Amazon Resource Name (ARN) of the target group.</p>
