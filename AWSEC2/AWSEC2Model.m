@@ -3114,6 +3114,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dnsName" : @"DnsName",
              @"dnsServers" : @"DnsServers",
              @"securityGroupIds" : @"SecurityGroupIds",
+             @"selfServicePortalUrl" : @"SelfServicePortalUrl",
              @"serverCertificateArn" : @"ServerCertificateArn",
              @"splitTunnel" : @"SplitTunnel",
              @"status" : @"Status",
@@ -3906,6 +3907,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dnsServers" : @"DnsServers",
              @"dryRun" : @"DryRun",
              @"securityGroupIds" : @"SecurityGroupIds",
+             @"selfServicePortal" : @"SelfServicePortal",
              @"serverCertificateArn" : @"ServerCertificateArn",
              @"splitTunnel" : @"SplitTunnel",
              @"tagSpecifications" : @"TagSpecifications",
@@ -3921,6 +3923,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)connectionLogOptionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ConnectionLogOptions class]];
+}
+
++ (NSValueTransformer *)selfServicePortalJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"enabled"] == NSOrderedSame) {
+            return @(AWSEC2SelfServicePortalEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2SelfServicePortalDisabled);
+        }
+        return @(AWSEC2SelfServicePortalUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2SelfServicePortalEnabled:
+                return @"enabled";
+            case AWSEC2SelfServicePortalDisabled:
+                return @"disabled";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)tagSpecificationsJSONTransformer {
@@ -7902,9 +7925,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"applianceModeSupport" : @"ApplianceModeSupport",
              @"dnsSupport" : @"DnsSupport",
              @"ipv6Support" : @"Ipv6Support",
              };
+}
+
++ (NSValueTransformer *)applianceModeSupportJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"enable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueEnable);
+        }
+        if ([value caseInsensitiveCompare:@"disable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueDisable);
+        }
+        return @(AWSEC2ApplianceModeSupportValueUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ApplianceModeSupportValueEnable:
+                return @"enable";
+            case AWSEC2ApplianceModeSupportValueDisable:
+                return @"disable";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)dnsSupportJSONTransformer {
@@ -21348,6 +21393,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"samlProviderArn" : @"SamlProviderArn",
+             @"selfServiceSamlProviderArn" : @"SelfServiceSamlProviderArn",
              };
 }
 
@@ -21362,6 +21408,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"SAMLProviderArn" : @"SAMLProviderArn",
+             @"selfServiceSAMLProviderArn" : @"SelfServiceSAMLProviderArn",
              };
 }
 
@@ -42710,6 +42757,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dnsServers" : @"DnsServers",
              @"dryRun" : @"DryRun",
              @"securityGroupIds" : @"SecurityGroupIds",
+             @"selfServicePortal" : @"SelfServicePortal",
              @"serverCertificateArn" : @"ServerCertificateArn",
              @"splitTunnel" : @"SplitTunnel",
              @"vpcId" : @"VpcId",
@@ -42723,6 +42771,27 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)dnsServersJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2DnsServersOptionsModifyStructure class]];
+}
+
++ (NSValueTransformer *)selfServicePortalJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"enabled"] == NSOrderedSame) {
+            return @(AWSEC2SelfServicePortalEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"disabled"] == NSOrderedSame) {
+            return @(AWSEC2SelfServicePortalDisabled);
+        }
+        return @(AWSEC2SelfServicePortalUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2SelfServicePortalEnabled:
+                return @"enabled";
+            case AWSEC2SelfServicePortalDisabled:
+                return @"disabled";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -44286,9 +44355,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"applianceModeSupport" : @"ApplianceModeSupport",
              @"dnsSupport" : @"DnsSupport",
              @"ipv6Support" : @"Ipv6Support",
              };
+}
+
++ (NSValueTransformer *)applianceModeSupportJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"enable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueEnable);
+        }
+        if ([value caseInsensitiveCompare:@"disable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueDisable);
+        }
+        return @(AWSEC2ApplianceModeSupportValueUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ApplianceModeSupportValueEnable:
+                return @"enable";
+            case AWSEC2ApplianceModeSupportValueDisable:
+                return @"disable";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)dnsSupportJSONTransformer {
@@ -70904,9 +70995,31 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"applianceModeSupport" : @"ApplianceModeSupport",
              @"dnsSupport" : @"DnsSupport",
              @"ipv6Support" : @"Ipv6Support",
              };
+}
+
++ (NSValueTransformer *)applianceModeSupportJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"enable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueEnable);
+        }
+        if ([value caseInsensitiveCompare:@"disable"] == NSOrderedSame) {
+            return @(AWSEC2ApplianceModeSupportValueDisable);
+        }
+        return @(AWSEC2ApplianceModeSupportValueUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2ApplianceModeSupportValueEnable:
+                return @"enable";
+            case AWSEC2ApplianceModeSupportValueDisable:
+                return @"disable";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)dnsSupportJSONTransformer {

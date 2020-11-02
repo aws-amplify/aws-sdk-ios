@@ -68,6 +68,12 @@ typedef NS_ENUM(NSInteger, AWSEC2AllowsMultipleInstanceTypes) {
     AWSEC2AllowsMultipleInstanceTypesOff,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ApplianceModeSupportValue) {
+    AWSEC2ApplianceModeSupportValueUnknown,
+    AWSEC2ApplianceModeSupportValueEnable,
+    AWSEC2ApplianceModeSupportValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ArchitectureType) {
     AWSEC2ArchitectureTypeUnknown,
     AWSEC2ArchitectureTypeI386,
@@ -1456,6 +1462,12 @@ typedef NS_ENUM(NSInteger, AWSEC2RuleAction) {
     AWSEC2RuleActionUnknown,
     AWSEC2RuleActionAllow,
     AWSEC2RuleActionDeny,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2SelfServicePortal) {
+    AWSEC2SelfServicePortalUnknown,
+    AWSEC2SelfServicePortalEnabled,
+    AWSEC2SelfServicePortalDisabled,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ServiceState) {
@@ -5743,7 +5755,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
+ <p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href="https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>
  */
 @interface AWSEC2ClientVpnAuthentication : AWSModel
 
@@ -5967,6 +5979,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IDs of the security groups for the target network.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>The URL of the self-service portal.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable selfServicePortalUrl;
 
 /**
  <p>The ARN of the server certificate.</p>
@@ -6720,6 +6737,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IDs of one or more security groups to apply to the target network. You must also specify the ID of the VPC that contains the security groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
+
+/**
+ <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p><p>Default Value: <code>enabled</code></p>
+ */
+@property (nonatomic, assign) AWSEC2SelfServicePortal selfServicePortal;
 
 /**
  <p>The ARN of the server certificate. For more information, see the <a href="https://docs.aws.amazon.com/acm/latest/userguide/">AWS Certificate Manager User Guide</a>.</p>
@@ -9031,6 +9053,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2CreateTransitGatewayVpcAttachmentRequestOptions : AWSModel
 
+
+/**
+ <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+ */
+@property (nonatomic, assign) AWSEC2ApplianceModeSupportValue applianceModeSupport;
 
 /**
  <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
@@ -19133,7 +19160,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the IAM SAML identity provider used for federated authentication.</p>
+ <p>Describes the IAM SAML identity providers used for federated authentication.</p>
  */
 @interface AWSEC2FederatedAuthentication : AWSModel
 
@@ -19142,6 +19169,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable samlProviderArn;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable selfServiceSamlProviderArn;
 
 @end
 
@@ -19155,6 +19187,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable SAMLProviderArn;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable selfServiceSAMLProviderArn;
 
 @end
 
@@ -25475,6 +25512,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupIds;
 
 /**
+ <p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>
+ */
+@property (nonatomic, assign) AWSEC2SelfServicePortal selfServicePortal;
+
+/**
  <p>The ARN of the server certificate to be used. The server certificate must be provisioned in AWS Certificate Manager (ACM).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serverCertificateArn;
@@ -26809,6 +26851,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2ModifyTransitGatewayVpcAttachmentRequestOptions : AWSModel
 
+
+/**
+ <p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>
+ */
+@property (nonatomic, assign) AWSEC2ApplianceModeSupportValue applianceModeSupport;
 
 /**
  <p>Enable or disable DNS support. The default is <code>enable</code>.</p>
@@ -35713,6 +35760,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2TransitGatewayVpcAttachmentOptions : AWSModel
 
+
+/**
+ <p>Indicates whether appliance mode support is enabled.</p>
+ */
+@property (nonatomic, assign) AWSEC2ApplianceModeSupportValue applianceModeSupport;
 
 /**
  <p>Indicates whether DNS support is enabled.</p>

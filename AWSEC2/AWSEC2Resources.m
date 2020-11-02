@@ -4803,6 +4803,13 @@
         \"off\"\
       ]\
     },\
+    \"ApplianceModeSupportValue\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"enable\",\
+        \"disable\"\
+      ]\
+    },\
     \"ApplySecurityGroupsToClientVpnTargetNetworkRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -7039,7 +7046,7 @@
           \"locationName\":\"federatedAuthentication\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/authentication-authrization.html#client-authentication\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
+      \"documentation\":\"<p>Describes the authentication methods used by a Client VPN endpoint. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpn/latest/clientvpn-admin/client-authentication.html\\\">Authentication</a> in the <i>AWS Client VPN Administrator Guide</i>.</p>\"\
     },\
     \"ClientVpnAuthenticationList\":{\
       \"type\":\"list\",\
@@ -7309,6 +7316,11 @@
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC.</p>\",\
           \"locationName\":\"vpcId\"\
+        },\
+        \"SelfServicePortalUrl\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The URL of the self-service portal.</p>\",\
+          \"locationName\":\"selfServicePortalUrl\"\
         }\
       },\
       \"documentation\":\"<p>Describes a Client VPN endpoint.</p>\"\
@@ -8098,6 +8110,10 @@
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC to associate with the Client VPN endpoint. If no security group IDs are specified in the request, the default security group for the VPC is applied.</p>\"\
+        },\
+        \"SelfServicePortal\":{\
+          \"shape\":\"SelfServicePortal\",\
+          \"documentation\":\"<p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p> <p>Default Value: <code>enabled</code> </p>\"\
         }\
       }\
     },\
@@ -10119,6 +10135,10 @@
         \"Ipv6Support\":{\
           \"shape\":\"Ipv6SupportValue\",\
           \"documentation\":\"<p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>\"\
+        },\
+        \"ApplianceModeSupport\":{\
+          \"shape\":\"ApplianceModeSupportValue\",\
+          \"documentation\":\"<p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the options for a VPC attachment.</p>\"\
@@ -19446,9 +19466,14 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>\",\
           \"locationName\":\"samlProviderArn\"\
+        },\
+        \"SelfServiceSamlProviderArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>\",\
+          \"locationName\":\"selfServiceSamlProviderArn\"\
         }\
       },\
-      \"documentation\":\"<p>Describes the IAM SAML identity provider used for federated authentication.</p>\"\
+      \"documentation\":\"<p>Describes the IAM SAML identity providers used for federated authentication.</p>\"\
     },\
     \"FederatedAuthenticationRequest\":{\
       \"type\":\"structure\",\
@@ -19456,6 +19481,10 @@
         \"SAMLProviderArn\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider.</p>\"\
+        },\
+        \"SelfServiceSAMLProviderArn\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the IAM SAML identity provider for the self-service portal.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The IAM SAML identity provider used for federated authentication.</p>\"\
@@ -26768,6 +26797,10 @@
         \"VpcId\":{\
           \"shape\":\"VpcId\",\
           \"documentation\":\"<p>The ID of the VPC to associate with the Client VPN endpoint.</p>\"\
+        },\
+        \"SelfServicePortal\":{\
+          \"shape\":\"SelfServicePortal\",\
+          \"documentation\":\"<p>Specify whether to enable the self-service portal for the Client VPN endpoint.</p>\"\
         }\
       }\
     },\
@@ -27894,6 +27927,10 @@
         \"Ipv6Support\":{\
           \"shape\":\"Ipv6SupportValue\",\
           \"documentation\":\"<p>Enable or disable IPv6 support. The default is <code>enable</code>.</p>\"\
+        },\
+        \"ApplianceModeSupport\":{\
+          \"shape\":\"ApplianceModeSupportValue\",\
+          \"documentation\":\"<p>Enable or disable support for appliance mode. If enabled, a traffic flow between a source and destination uses the same Availability Zone for the VPC attachment for the lifetime of that flow. The default is <code>disable</code>.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Describes the options for a VPC attachment.</p>\"\
@@ -34232,6 +34269,13 @@
         \"locationName\":\"SecurityGroup\"\
       }\
     },\
+    \"SelfServicePortal\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"enabled\",\
+        \"disabled\"\
+      ]\
+    },\
     \"SendDiagnosticInterruptRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -37758,6 +37802,11 @@
           \"shape\":\"Ipv6SupportValue\",\
           \"documentation\":\"<p>Indicates whether IPv6 support is disabled.</p>\",\
           \"locationName\":\"ipv6Support\"\
+        },\
+        \"ApplianceModeSupport\":{\
+          \"shape\":\"ApplianceModeSupportValue\",\
+          \"documentation\":\"<p>Indicates whether appliance mode support is enabled.</p>\",\
+          \"locationName\":\"applianceModeSupport\"\
         }\
       },\
       \"documentation\":\"<p>Describes the VPC attachment options.</p>\"\
