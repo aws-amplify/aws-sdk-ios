@@ -484,7 +484,9 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                 if (url) {
                     [self processURL:url forRedirection:NO];
                 } else {
-                    [self signOutLocallyAndClearLastKnownUser];
+                    if (error.code != SFAuthenticationErrorCanceledLogin) {
+                        [self signOutLocallyAndClearLastKnownUser];
+                    }
                     [self dismissSafariViewControllerAndCompleteSignOut:error];
                 }
             }];
