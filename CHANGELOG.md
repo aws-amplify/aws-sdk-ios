@@ -1,14 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSSNS
----AWSElasticLoadBalancing
----AWSEC2
----AWSIoT
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -41,6 +30,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 - Model updates for the following services
   - Amazon EC2
+  - Amazon Elastic Load Balancing (ELB)
   - AWS IoT
   - Amazon S3
   - Amazon Simple Notification Service (SNS)
