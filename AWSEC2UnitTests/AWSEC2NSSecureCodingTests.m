@@ -53,6 +53,8 @@
 - (void) test_AWSEC2AssociateClientVpnTargetNetworkRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateClientVpnTargetNetworkResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateDhcpOptionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateEnclaveCertificateIamRoleRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateEnclaveCertificateIamRoleResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateIamInstanceProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateIamInstanceProfileResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateRouteTableRequest API_AVAILABLE(ios(11));
@@ -65,6 +67,7 @@
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateVpcCidrBlockRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateVpcCidrBlockResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociatedRole API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociatedTargetNetwork API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociationStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AttachClassicLinkVpcRequest API_AVAILABLE(ios(11));
@@ -623,6 +626,8 @@
 - (void) test_AWSEC2DisassociateAddressRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateClientVpnTargetNetworkRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateClientVpnTargetNetworkResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateEnclaveCertificateIamRoleRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateEnclaveCertificateIamRoleResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateIamInstanceProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateIamInstanceProfileResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateRouteTableRequest API_AVAILABLE(ios(11));
@@ -670,6 +675,8 @@
 - (void) test_AWSEC2EnableVpcClassicLinkDnsSupportResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableVpcClassicLinkRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EnableVpcClassicLinkResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnclaveOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2EnclaveOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2EventInformation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ExportClientVpnClientCertificateRevocationListRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ExportClientVpnClientCertificateRevocationListResult API_AVAILABLE(ios(11));
@@ -703,6 +710,8 @@
 - (void) test_AWSEC2FpgaImageAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FpgaImageState API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FpgaInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetAssociatedEnclaveCertificateIamRolesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetCapacityReservationUsageRequest API_AVAILABLE(ios(11));
@@ -848,6 +857,8 @@
 - (void) test_AWSEC2LaunchTemplateEbsBlockDeviceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LaunchTemplateElasticInferenceAccelerator API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse API_AVAILABLE(ios(11));
+- (void) test_AWSEC2LaunchTemplateEnclaveOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2LaunchTemplateEnclaveOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LaunchTemplateHibernationOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LaunchTemplateHibernationOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2LaunchTemplateIamInstanceProfileSpecification API_AVAILABLE(ios(11));
@@ -1424,6 +1435,14 @@
     [self validateSecureCodingForClass:[AWSEC2AssociateDhcpOptionsRequest class]];
 }
 
+- (void) test_AWSEC2AssociateEnclaveCertificateIamRoleRequest {
+    [self validateSecureCodingForClass:[AWSEC2AssociateEnclaveCertificateIamRoleRequest class]];
+}
+
+- (void) test_AWSEC2AssociateEnclaveCertificateIamRoleResult {
+    [self validateSecureCodingForClass:[AWSEC2AssociateEnclaveCertificateIamRoleResult class]];
+}
+
 - (void) test_AWSEC2AssociateIamInstanceProfileRequest {
     [self validateSecureCodingForClass:[AWSEC2AssociateIamInstanceProfileRequest class]];
 }
@@ -1470,6 +1489,10 @@
 
 - (void) test_AWSEC2AssociateVpcCidrBlockResult {
     [self validateSecureCodingForClass:[AWSEC2AssociateVpcCidrBlockResult class]];
+}
+
+- (void) test_AWSEC2AssociatedRole {
+    [self validateSecureCodingForClass:[AWSEC2AssociatedRole class]];
 }
 
 - (void) test_AWSEC2AssociatedTargetNetwork {
@@ -3704,6 +3727,14 @@
     [self validateSecureCodingForClass:[AWSEC2DisassociateClientVpnTargetNetworkResult class]];
 }
 
+- (void) test_AWSEC2DisassociateEnclaveCertificateIamRoleRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateEnclaveCertificateIamRoleRequest class]];
+}
+
+- (void) test_AWSEC2DisassociateEnclaveCertificateIamRoleResult {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateEnclaveCertificateIamRoleResult class]];
+}
+
 - (void) test_AWSEC2DisassociateIamInstanceProfileRequest {
     [self validateSecureCodingForClass:[AWSEC2DisassociateIamInstanceProfileRequest class]];
 }
@@ -3892,6 +3923,14 @@
     [self validateSecureCodingForClass:[AWSEC2EnableVpcClassicLinkResult class]];
 }
 
+- (void) test_AWSEC2EnclaveOptions {
+    [self validateSecureCodingForClass:[AWSEC2EnclaveOptions class]];
+}
+
+- (void) test_AWSEC2EnclaveOptionsRequest {
+    [self validateSecureCodingForClass:[AWSEC2EnclaveOptionsRequest class]];
+}
+
 - (void) test_AWSEC2EventInformation {
     [self validateSecureCodingForClass:[AWSEC2EventInformation class]];
 }
@@ -4022,6 +4061,14 @@
 
 - (void) test_AWSEC2FpgaInfo {
     [self validateSecureCodingForClass:[AWSEC2FpgaInfo class]];
+}
+
+- (void) test_AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetAssociatedEnclaveCertificateIamRolesRequest class]];
+}
+
+- (void) test_AWSEC2GetAssociatedEnclaveCertificateIamRolesResult {
+    [self validateSecureCodingForClass:[AWSEC2GetAssociatedEnclaveCertificateIamRolesResult class]];
 }
 
 - (void) test_AWSEC2GetAssociatedIpv6PoolCidrsRequest {
@@ -4602,6 +4649,14 @@
 
 - (void) test_AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse {
     [self validateSecureCodingForClass:[AWSEC2LaunchTemplateElasticInferenceAcceleratorResponse class]];
+}
+
+- (void) test_AWSEC2LaunchTemplateEnclaveOptions {
+    [self validateSecureCodingForClass:[AWSEC2LaunchTemplateEnclaveOptions class]];
+}
+
+- (void) test_AWSEC2LaunchTemplateEnclaveOptionsRequest {
+    [self validateSecureCodingForClass:[AWSEC2LaunchTemplateEnclaveOptionsRequest class]];
 }
 
 - (void) test_AWSEC2LaunchTemplateHibernationOptions {
