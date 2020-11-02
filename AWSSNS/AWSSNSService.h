@@ -804,7 +804,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)setPlatformApplicationAttributes:(AWSSNSSetPlatformApplicationAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
 
@@ -816,7 +816,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSSetSMSAttributesResponse *> *)setSMSAttributes:(AWSSNSSetSMSAttributesInput *)request;
 
 /**
- <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Sending an SMS Message</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Use this request to set the default settings for sending SMS messages and receiving daily SMS usage reports.</p><p>You can override some of these settings for a single message when you use the <code>Publish</code> action with the <code>MessageAttributes.entry.N</code> parameter. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sms_publish-to-phone.html">Publishing to a mobile phone</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the SetSMSAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
