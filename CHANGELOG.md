@@ -26,6 +26,11 @@
     - `AWSS3RecordsEvent`
     - `AWSS3UploadPartRequest`
   - Amazon Transcribe Streaming ([PR #3164](https://github.com/aws-amplify/aws-sdk-ios/pull/3164))
+- `AWSPinpointEndpointProfileUser` now supports adding user attributes (See [Issue #3086](https://github.com/aws-amplify/aws-sdk-ios/issues/3086), [PR #3142](https://github.com/aws-amplify/aws-sdk-ios/pull/3142))
+
+### Bug fixes
+- Fix decoding claims that contain special characters ([PR #2928](https://github.com/aws-amplify/aws-sdk-ios/pull/2928)) Thanks @rolisanchez!
+- Fixed link for `AWSTask` documentation (See [Issue #3171](https://github.com/aws-amplify/aws-sdk-ios/issues/3171), [PR #3177](https://github.com/aws-amplify/aws-sdk-ios/pull/3177))
 
 ### Misc. Updates
 - Model updates for the following services
