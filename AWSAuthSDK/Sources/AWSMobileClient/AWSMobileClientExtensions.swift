@@ -268,7 +268,7 @@ extension AWSMobileClient {
             // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
             defer {
                 if error == nil {
-                    // Invoke credentials inorder to refresh the id token before returning signedin
+                    // Invoke `credentials` in order to refresh the id token before returning signedIn
                     self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
                         self.mobileClientStatusChanged(userState: .signedIn,
                                                        additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
