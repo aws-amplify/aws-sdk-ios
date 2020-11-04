@@ -565,7 +565,10 @@
       "InputShape": {
         "type": "structure",
         "members": {
-          "StructureParam": {
+          "TimeMember": {
+            "shape": "Timestamp"
+          },
+          "StructMember": {
             "shape": "StructureShape"
           }
         }
@@ -573,17 +576,25 @@
       "StructureShape": {
         "type": "structure",
         "members": {
-          "t": {
-            "shape": "TShape"
+          "unix": {
+            "shape": "Timestamp",
+            "timestampFormat": "unixTimestamp"
+          },
+          "rfc822": {
+            "shape": "Timestamp",
+            "timestampFormat": "rfc822"
+          },
+          "iso8601": {
+            "shape": "Timestamp",
+            "timestampFormat": "iso8601"
           },
           "b": {
-            "shape": "BShape"
+              "shape": "BShape"
           }
         }
       },
-      "TShape": {
-        "type": "timestamp",
-        "timestampFormat": "iso8601"
+      "Timestamp": {
+        "type": "timestamp"
       },
       "BShape": {
         "type": "blob"
@@ -604,14 +615,17 @@
           "name": "OperationName"
         },
         "params": {
-          "StructureParam": {
-            "t": 1422172800,
+          "TimeMember": 1398796238,
+          "StructMember": {
+            "unix": 1398796238,
+            "rfc822": "Tue, 29 Apr 2014 18:30:38 GMT",
+            "iso8601": "2014-04-29T18:30:38Z",
             "b": "foo"
           }
         },
         "serialized": {
           "method": "POST",
-          "body": "<OperationRequest xmlns=\"https://foo/\"><StructureParam><t>2015-01-25T08:00:00Z</t><b>Zm9v</b></StructureParam></OperationRequest>",
+          "body": "<OperationRequest xmlns=\"https://foo/\"><TimeMember>Tue, 29 Apr 2014 18:30:38 GMT</TimeMember><StructMember><unix>1398796238</unix><iso8601>2014-04-29T18:30:38Z</iso8601><rfc822>Tue, 29 Apr 2014 18:30:38 GMT</rfc822><b>Zm9v</b></StructMember></OperationRequest>",
           "uri": "/2014-01-01/hostedzone",
           "headers": {}
         }

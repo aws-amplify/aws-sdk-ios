@@ -430,6 +430,8 @@
 		211167352399CD0600902FC1 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		211167392399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */; };
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
+		2171EB6A254C721E00FAB22F /* AWSTimestampSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */; };
+		2171EBE0254C725C00FAB22F /* AWSTimestampSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
 		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
@@ -3060,6 +3062,8 @@
 		211167372399CE8400902FC1 /* AWSKinesisVideoSignalingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoSignalingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoSignalingTests.m; sourceTree = "<group>"; };
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
+		2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTimestampSerialization.h; sourceTree = "<group>"; };
+		2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTimestampSerialization.m; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
@@ -6446,6 +6450,8 @@
 			children = (
 				CE0D41EB1C6A673E006B91B5 /* AWSSerialization.h */,
 				CE0D41EC1C6A673E006B91B5 /* AWSSerialization.m */,
+				2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */,
+				2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */,
 				CE0D41ED1C6A673E006B91B5 /* AWSURLRequestRetryHandler.h */,
 				CE0D41EE1C6A673E006B91B5 /* AWSURLRequestRetryHandler.m */,
 				CE0D41EF1C6A673E006B91B5 /* AWSURLRequestSerialization.h */,
@@ -8301,6 +8307,7 @@
 				184F432E1E930E05004F3FE2 /* AWSDDOSLogger.h in Headers */,
 				184F431E1E930A2D004F3FE2 /* AWSDDTTYLogger.h in Headers */,
 				184F430F1E930A2D004F3FE2 /* AWSCocoaLumberjack.h in Headers */,
+				2171EBE0254C725C00FAB22F /* AWSTimestampSerialization.h in Headers */,
 				184F431A1E930A2D004F3FE2 /* AWSDDLog.h in Headers */,
 				184F43161E930A2D004F3FE2 /* AWSDDAssertMacros.h in Headers */,
 				CE0D42341C6A673E006B91B5 /* AWSTask.h in Headers */,
@@ -12696,6 +12703,7 @@
 				CE0D426A1C6A673E006B91B5 /* NSArray+AWSMTLManipulationAdditions.m in Sources */,
 				18DF08D51D347633004C7D19 /* AWSCognitoIdentity+Fabric.m in Sources */,
 				184F43271E930A34004F3FE2 /* AWSDDContextFilterLogFormatter.m in Sources */,
+				2171EB6A254C721E00FAB22F /* AWSTimestampSerialization.m in Sources */,
 				CE0D42491C6A673E006B91B5 /* AWSFMDatabasePool.m in Sources */,
 				CE0D424E1C6A673E006B91B5 /* AWSFMResultSet.m in Sources */,
 				CE0D429A1C6A673E006B91B5 /* AWSTMMemoryCache.m in Sources */,
