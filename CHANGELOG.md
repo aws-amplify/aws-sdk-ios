@@ -42,9 +42,9 @@
   - Amazon Simple Notification Service (SNS)
   
 - Enhanced code generated model support
-  - consider timestamp format for JSON protocol serialization ([PR #3182](https://github.com/aws-amplify/aws-sdk-ios/pull/3182))
-  - support listType for url parameters ([PR #3186](https://github.com/aws-amplify/aws-sdk-ios/pull/3186))
-  - use hostPrefix when available to prepend to endpoint ([PR #3183](https://github.com/aws-amplify/aws-sdk-ios/pull/3183))
+  - Consider timestamp format for JSON protocol serialization ([PR #3182](https://github.com/aws-amplify/aws-sdk-ios/pull/3182))
+  - Support `listType` for url parameters ([PR #3186](https://github.com/aws-amplify/aws-sdk-ios/pull/3186))
+  - Use `hostPrefix` when available to prepend to endpoint ([PR #3183](https://github.com/aws-amplify/aws-sdk-ios/pull/3183))
 
 ## 2.18.0
 
