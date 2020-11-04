@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.18.1
+
 ### New Features
 - The following models now support `NSSecureCoding`
   - Amazon EC2 ([PR #3150](https://github.com/aws-amplify/aws-sdk-ios/pull/3150))
