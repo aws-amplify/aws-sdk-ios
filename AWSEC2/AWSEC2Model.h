@@ -931,6 +931,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeP3_8xlarge,
     AWSEC2InstanceTypeP3_16xlarge,
     AWSEC2InstanceTypeP3Dn_24xlarge,
+    AWSEC2InstanceTypeP4D_24xlarge,
     AWSEC2InstanceTypeD2_xlarge,
     AWSEC2InstanceTypeD2_2xlarge,
     AWSEC2InstanceTypeD2_4xlarge,
@@ -4427,6 +4428,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
+ <p>The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
+
+/**
  <p>The ID of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
@@ -4443,6 +4449,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the network interface attachment.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable attachmentId;
+
+/**
+ <p>The index of the network card.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
 
 @end
 
@@ -23023,6 +23034,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable deviceIndex;
 
 /**
+ <p>The index of the network card.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
+
+/**
  <p>The attachment state.</p>
  */
 @property (nonatomic, assign) AWSEC2AttachmentStatus status;
@@ -23066,7 +23082,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
+ <p>The type of network interface.</p><p>To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable interfaceType;
 
@@ -23079,6 +23095,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>One or more IPv6 addresses to assign to the network interface. You cannot specify this option and the option to assign a number of IPv6 addresses in the same request. You cannot specify this option if you've specified a minimum number of instances to launch.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceIpv6Address *> * _Nullable ipv6Addresses;
+
+/**
+ <p>The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
 
 /**
  <p>The ID of the network interface.</p><p>If you are creating a Spot Fleet, omit this parameter because you can’t specify a network interface ID in a launch specification.</p>
@@ -24247,7 +24268,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
  */
 @interface AWSEC2LaunchTemplateEnclaveOptionsRequest : AWSModel
 
@@ -24460,6 +24481,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2InstanceIpv6Address *> * _Nullable ipv6Addresses;
 
 /**
+ <p>The index of the network card.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
+
+/**
  <p>The ID of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
@@ -24536,6 +24562,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>One or more specific IPv6 addresses from the IPv6 CIDR block range of your subnet. You can't use this option if you're specifying a number of IPv6 addresses.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2InstanceIpv6AddressRequest *> * _Nullable ipv6Addresses;
+
+/**
+ <p>The index of the network card. Some instance types support multiple network cards. The primary network interface must be assigned to network card index 0. The default is network card index 0.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
 
 /**
  <p>The ID of the network interface.</p>
@@ -28039,7 +28070,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable publicDnsName;
 
 /**
- <p>The address of the Elastic IP address or Carrier IP address bound to the network interface.</p>
+ <p>The address of the Elastic IP address bound to the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -28080,6 +28111,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The AWS account ID of the owner of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceOwnerId;
+
+/**
+ <p>The index of the network card.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkCardIndex;
 
 /**
  <p>The attachment state.</p>
@@ -30211,7 +30247,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2LaunchTemplateElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
- <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance. For more information about AWS Nitro Enclaves requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html#nitro-enclave-reqs"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2LaunchTemplateEnclaveOptionsRequest * _Nullable enclaveOptions;
 
