@@ -131,6 +131,8 @@
 - (void) test_AWSEC2ClassicLoadBalancer API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClassicLoadBalancersConfig API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientCertificateRevocationListStatus API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ClientConnectOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ClientConnectResponseOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientData API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnAuthentication API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnAuthenticationRequest API_AVAILABLE(ios(11));
@@ -138,6 +140,7 @@
 - (void) test_AWSEC2ClientVpnConnection API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnConnectionStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnEndpoint API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ClientVpnEndpointAttributeStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnEndpointStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnRoute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ClientVpnRouteStatus API_AVAILABLE(ios(11));
@@ -703,6 +706,10 @@
 - (void) test_AWSEC2FleetLaunchTemplateOverridesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FleetLaunchTemplateSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FleetLaunchTemplateSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FleetSpotCapacityRebalance API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FleetSpotCapacityRebalanceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FleetSpotMaintenanceStrategies API_AVAILABLE(ios(11));
+- (void) test_AWSEC2FleetSpotMaintenanceStrategiesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FlowLog API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FpgaDeviceInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2FpgaDeviceMemoryInfo API_AVAILABLE(ios(11));
@@ -1163,6 +1170,7 @@
 - (void) test_AWSEC2SnapshotDiskContainer API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SnapshotInfo API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SnapshotTaskDetail API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SpotCapacityRebalance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotDatafeedSubscription API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotFleetLaunchSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotFleetMonitoring API_AVAILABLE(ios(11));
@@ -1172,6 +1180,7 @@
 - (void) test_AWSEC2SpotInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotInstanceStateFault API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotInstanceStatus API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SpotMaintenanceStrategies API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotMarketOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotOptions API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SpotOptionsRequest API_AVAILABLE(ios(11));
@@ -1747,6 +1756,14 @@
     [self validateSecureCodingForClass:[AWSEC2ClientCertificateRevocationListStatus class]];
 }
 
+- (void) test_AWSEC2ClientConnectOptions {
+    [self validateSecureCodingForClass:[AWSEC2ClientConnectOptions class]];
+}
+
+- (void) test_AWSEC2ClientConnectResponseOptions {
+    [self validateSecureCodingForClass:[AWSEC2ClientConnectResponseOptions class]];
+}
+
 - (void) test_AWSEC2ClientData {
     [self validateSecureCodingForClass:[AWSEC2ClientData class]];
 }
@@ -1773,6 +1790,10 @@
 
 - (void) test_AWSEC2ClientVpnEndpoint {
     [self validateSecureCodingForClass:[AWSEC2ClientVpnEndpoint class]];
+}
+
+- (void) test_AWSEC2ClientVpnEndpointAttributeStatus {
+    [self validateSecureCodingForClass:[AWSEC2ClientVpnEndpointAttributeStatus class]];
 }
 
 - (void) test_AWSEC2ClientVpnEndpointStatus {
@@ -4035,6 +4056,22 @@
     [self validateSecureCodingForClass:[AWSEC2FleetLaunchTemplateSpecificationRequest class]];
 }
 
+- (void) test_AWSEC2FleetSpotCapacityRebalance {
+    [self validateSecureCodingForClass:[AWSEC2FleetSpotCapacityRebalance class]];
+}
+
+- (void) test_AWSEC2FleetSpotCapacityRebalanceRequest {
+    [self validateSecureCodingForClass:[AWSEC2FleetSpotCapacityRebalanceRequest class]];
+}
+
+- (void) test_AWSEC2FleetSpotMaintenanceStrategies {
+    [self validateSecureCodingForClass:[AWSEC2FleetSpotMaintenanceStrategies class]];
+}
+
+- (void) test_AWSEC2FleetSpotMaintenanceStrategiesRequest {
+    [self validateSecureCodingForClass:[AWSEC2FleetSpotMaintenanceStrategiesRequest class]];
+}
+
 - (void) test_AWSEC2FlowLog {
     [self validateSecureCodingForClass:[AWSEC2FlowLog class]];
 }
@@ -5875,6 +5912,10 @@
     [self validateSecureCodingForClass:[AWSEC2SnapshotTaskDetail class]];
 }
 
+- (void) test_AWSEC2SpotCapacityRebalance {
+    [self validateSecureCodingForClass:[AWSEC2SpotCapacityRebalance class]];
+}
+
 - (void) test_AWSEC2SpotDatafeedSubscription {
     [self validateSecureCodingForClass:[AWSEC2SpotDatafeedSubscription class]];
 }
@@ -5909,6 +5950,10 @@
 
 - (void) test_AWSEC2SpotInstanceStatus {
     [self validateSecureCodingForClass:[AWSEC2SpotInstanceStatus class]];
+}
+
+- (void) test_AWSEC2SpotMaintenanceStrategies {
+    [self validateSecureCodingForClass:[AWSEC2SpotMaintenanceStrategies class]];
 }
 
 - (void) test_AWSEC2SpotMarketOptions {

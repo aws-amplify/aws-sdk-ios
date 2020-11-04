@@ -261,6 +261,12 @@ typedef NS_ENUM(NSInteger, AWSEC2ClientVpnConnectionStatusCode) {
     AWSEC2ClientVpnConnectionStatusCodeTerminated,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ClientVpnEndpointAttributeStatusCode) {
+    AWSEC2ClientVpnEndpointAttributeStatusCodeUnknown,
+    AWSEC2ClientVpnEndpointAttributeStatusCodeApplying,
+    AWSEC2ClientVpnEndpointAttributeStatusCodeApplied,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ClientVpnEndpointStatusCode) {
     AWSEC2ClientVpnEndpointStatusCodeUnknown,
     AWSEC2ClientVpnEndpointStatusCodePendingAssociate,
@@ -516,6 +522,11 @@ typedef NS_ENUM(NSInteger, AWSEC2FleetOnDemandAllocationStrategy) {
     AWSEC2FleetOnDemandAllocationStrategyUnknown,
     AWSEC2FleetOnDemandAllocationStrategyLowestPrice,
     AWSEC2FleetOnDemandAllocationStrategyPrioritized,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2FleetReplacementStrategy) {
+    AWSEC2FleetReplacementStrategyUnknown,
+    AWSEC2FleetReplacementStrategyLaunch,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2FleetStateCode) {
@@ -1336,6 +1347,11 @@ typedef NS_ENUM(NSInteger, AWSEC2RecurringChargeFrequency) {
     AWSEC2RecurringChargeFrequencyHourly,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ReplacementStrategy) {
+    AWSEC2ReplacementStrategyUnknown,
+    AWSEC2ReplacementStrategyLaunch,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ReportInstanceReasonCodes) {
     AWSEC2ReportInstanceReasonCodesUnknown,
     AWSEC2ReportInstanceReasonCodesInstanceStuckInState,
@@ -2031,6 +2047,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ClassicLoadBalancer;
 @class AWSEC2ClassicLoadBalancersConfig;
 @class AWSEC2ClientCertificateRevocationListStatus;
+@class AWSEC2ClientConnectOptions;
+@class AWSEC2ClientConnectResponseOptions;
 @class AWSEC2ClientData;
 @class AWSEC2ClientVpnAuthentication;
 @class AWSEC2ClientVpnAuthenticationRequest;
@@ -2038,6 +2056,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ClientVpnConnection;
 @class AWSEC2ClientVpnConnectionStatus;
 @class AWSEC2ClientVpnEndpoint;
+@class AWSEC2ClientVpnEndpointAttributeStatus;
 @class AWSEC2ClientVpnEndpointStatus;
 @class AWSEC2ClientVpnRoute;
 @class AWSEC2ClientVpnRouteStatus;
@@ -2603,6 +2622,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2FleetLaunchTemplateOverridesRequest;
 @class AWSEC2FleetLaunchTemplateSpecification;
 @class AWSEC2FleetLaunchTemplateSpecificationRequest;
+@class AWSEC2FleetSpotCapacityRebalance;
+@class AWSEC2FleetSpotCapacityRebalanceRequest;
+@class AWSEC2FleetSpotMaintenanceStrategies;
+@class AWSEC2FleetSpotMaintenanceStrategiesRequest;
 @class AWSEC2FlowLog;
 @class AWSEC2FpgaDeviceInfo;
 @class AWSEC2FpgaDeviceMemoryInfo;
@@ -3063,6 +3086,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SnapshotDiskContainer;
 @class AWSEC2SnapshotInfo;
 @class AWSEC2SnapshotTaskDetail;
+@class AWSEC2SpotCapacityRebalance;
 @class AWSEC2SpotDatafeedSubscription;
 @class AWSEC2SpotFleetLaunchSpecification;
 @class AWSEC2SpotFleetMonitoring;
@@ -3072,6 +3096,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SpotInstanceRequest;
 @class AWSEC2SpotInstanceStateFault;
 @class AWSEC2SpotInstanceStatus;
+@class AWSEC2SpotMaintenanceStrategies;
 @class AWSEC2SpotMarketOptions;
 @class AWSEC2SpotOptions;
 @class AWSEC2SpotOptionsRequest;
@@ -5459,7 +5484,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.</p><note><p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p></note><p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet Example Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.</p><note><p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p></note><p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @interface AWSEC2CapacityReservationOptions : AWSModel
 
@@ -5472,7 +5497,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.</p><note><p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p></note><p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet Example Configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Describes the strategy for using unused Capacity Reservations for fulfilling On-Demand capacity.</p><note><p>This strategy can only be used if the EC2 Fleet is of type <code>instant</code>.</p></note><p>For more information about Capacity Reservations, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-capacity-reservations.html">On-Demand Capacity Reservations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. For examples of using Capacity Reservations in an EC2 Fleet, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-examples.html">EC2 Fleet example configurations</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @interface AWSEC2CapacityReservationOptionsRequest : AWSModel
 
@@ -5738,6 +5763,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The options for managing connection authorization for new client connections.</p>
+ */
+@interface AWSEC2ClientConnectOptions : AWSModel
+
+
+/**
+ <p>Indicates whether client connect options are enabled. The default is <code>false</code> (not enabled).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaFunctionArn;
+
+@end
+
+/**
+ <p>The options for managing connection authorization for new client connections.</p>
+ */
+@interface AWSEC2ClientConnectResponseOptions : AWSModel
+
+
+/**
+ <p>Indicates whether client connect options are enabled.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable enabled;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Lambda function used for connection authorization.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaFunctionArn;
+
+/**
+ <p>The status of any updates to the client connect options.</p>
+ */
+@property (nonatomic, strong) AWSEC2ClientVpnEndpointAttributeStatus * _Nullable status;
+
+@end
+
+/**
  <p>Describes the client-specific data.</p>
  */
 @interface AWSEC2ClientData : AWSModel
@@ -5896,6 +5962,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ingressPackets;
 
 /**
+ <p>The statuses returned by the client connect handler for posture compliance, if applicable.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable postureComplianceStatuses;
+
+/**
  <p>The current state of the client connection.</p>
  */
 @property (nonatomic, strong) AWSEC2ClientVpnConnectionStatus * _Nullable status;
@@ -5950,6 +6021,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IPv4 address range, in CIDR notation, from which client IP addresses are assigned.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientCidrBlock;
+
+/**
+ <p>The options for managing connection authorization for new client connections.</p>
+ */
+@property (nonatomic, strong) AWSEC2ClientConnectResponseOptions * _Nullable clientConnectOptions;
 
 /**
  <p>The ID of the Client VPN endpoint.</p>
@@ -6035,6 +6111,24 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The protocol used by the VPN session.</p>
  */
 @property (nonatomic, assign) AWSEC2VpnProtocol vpnProtocol;
+
+@end
+
+/**
+ <p>Describes the status of the Client VPN endpoint attribute.</p>
+ */
+@interface AWSEC2ClientVpnEndpointAttributeStatus : AWSModel
+
+
+/**
+ <p>The status code.</p>
+ */
+@property (nonatomic, assign) AWSEC2ClientVpnEndpointAttributeStatusCode code;
+
+/**
+ <p>The status message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
 
 @end
 
@@ -6720,6 +6814,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable clientCidrBlock;
 
 /**
+ <p>The options for managing connection authorization for new client connections.</p>
+ */
+@property (nonatomic, strong) AWSEC2ClientConnectOptions * _Nullable clientConnectOptions;
+
+/**
  <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
@@ -7159,7 +7258,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2SpotOptionsRequest * _Nullable spotOptions;
 
 /**
- <p>The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging Your Resources</a>. </p>
+ <p>The key-value pair for tagging the EC2 Fleet request on creation. The value for <code>ResourceType</code> must be <code>fleet</code>, otherwise the fleet request fails. To tag instances at launch, specify the tags in the <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-launch-templates.html#create-launch-template">launch template</a>. For information about tagging after launch, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Using_Tags.html#tag-resources">Tagging your resources</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
 
@@ -7174,7 +7273,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable terminateInstancesWithExpiration;
 
 /**
- <p>The type of the request. By default, the EC2 Fleet places an asynchronous request for your desired capacity, and maintains it by replenishing interrupted Spot Instances (<code>maintain</code>). A value of <code>instant</code> places a synchronous one-time request, and returns errors for any instances that could not be launched. A value of <code>request</code> places an asynchronous one-time request without maintaining capacity or submitting requests in alternative capacity pools if capacity is unavailable. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2 Fleet Request Types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>The type of request. The default value is <code>maintain</code>.</p><ul><li><p><code>maintain</code> - The EC2 Fleet plaees an asynchronous request for your desired capacity, and continues to maintain your desired Spot capacity by replenishing interrupted Spot Instances.</p></li><li><p><code>request</code> - The EC2 Fleet places an asynchronous one-time request for your desired capacity, but does submit Spot requests in alternative capacity pools if Spot capacity is unavailable, and does not maintain Spot capacity if Spot Instances are interrupted.</p></li><li><p><code>instant</code> - The EC2 Fleet places a synchronous one-time request for your desired capacity, and returns errors for any instances that could not be launched.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-request-type">EC2 Fleet request types</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2FleetType types;
 
@@ -18719,7 +18818,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p>
  */
 @interface AWSEC2EnclaveOptionsRequest : AWSModel
 
@@ -19497,6 +19596,58 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The launch template version number, <code>$Latest</code>, or <code>$Default</code>. You must specify a value, otherwise the request fails.</p><p>If the value is <code>$Latest</code>, Amazon EC2 uses the latest version of the launch template.</p><p>If the value is <code>$Default</code>, Amazon EC2 uses the default version of the launch template.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable version;
+
+@end
+
+/**
+ <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.</p>
+ */
+@interface AWSEC2FleetSpotCapacityRebalance : AWSModel
+
+
+/**
+ <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for both instances while they are running.</p></note>
+ */
+@property (nonatomic, assign) AWSEC2FleetReplacementStrategy replacementStrategy;
+
+@end
+
+/**
+ <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#ec2-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@interface AWSEC2FleetSpotCapacityRebalanceRequest : AWSModel
+
+
+/**
+ <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</p><p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. You must specify a value, otherwise you get an error.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for all instances while they are running.</p></note>
+ */
+@property (nonatomic, assign) AWSEC2FleetReplacementStrategy replacementStrategy;
+
+@end
+
+/**
+ <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
+ */
+@interface AWSEC2FleetSpotMaintenanceStrategies : AWSModel
+
+
+/**
+ <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.</p>
+ */
+@property (nonatomic, strong) AWSEC2FleetSpotCapacityRebalance * _Nullable capacityRebalance;
+
+@end
+
+/**
+ <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
+ */
+@interface AWSEC2FleetSpotMaintenanceStrategiesRequest : AWSModel
+
+
+/**
+ <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.</p>
+ */
+@property (nonatomic, strong) AWSEC2FleetSpotCapacityRebalanceRequest * _Nullable capacityRebalance;
 
 @end
 
@@ -25511,6 +25662,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @interface AWSEC2ModifyClientVpnEndpointRequest : AWSRequest
 
+
+/**
+ <p>The options for managing connection authorization for new client connections.</p>
+ */
+@property (nonatomic, strong) AWSEC2ClientConnectOptions * _Nullable clientConnectOptions;
 
 /**
  <p>The ID of the Client VPN endpoint to modify.</p>
@@ -31842,7 +31998,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2ElasticInferenceAccelerator *> * _Nullable elasticInferenceAccelerators;
 
 /**
- <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance. For more information about AWS Nitro Enclaves requirements, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/nitro-enclave.html#nitro-enclave-reqs"> AWS Nitro Enclaves</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether the instance is enabled for AWS Nitro Enclaves. For more information, see <a href="https://docs.aws.amazon.com/enclaves/latest/user/nitro-enclave.html"> What is AWS Nitro Enclaves?</a> in the <i>AWS Nitro Enclaves User Guide</i>.</p><p>You can't enable AWS Nitro Enclaves and hibernation on the same instance.</p>
  */
 @property (nonatomic, strong) AWSEC2EnclaveOptionsRequest * _Nullable enclaveOptions;
 
@@ -33295,6 +33451,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The Spot Instance replacement strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-fleet-configuration-strategies.html#spot-fleet-capacity-rebalance">Capacity rebalancing</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p>
+ */
+@interface AWSEC2SpotCapacityRebalance : AWSModel
+
+
+/**
+ <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>. You must specify a value, otherwise you get an error.</p><p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for all instances while they are running.</p></note>
+ */
+@property (nonatomic, assign) AWSEC2ReplacementStrategy replacementStrategy;
+
+@end
+
+/**
  <p>Describes the data feed for a Spot Instance.</p>
  */
 @interface AWSEC2SpotDatafeedSubscription : AWSModel
@@ -33559,6 +33728,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable replaceUnhealthyInstances;
 
 /**
+ <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
+ */
+@property (nonatomic, strong) AWSEC2SpotMaintenanceStrategies * _Nullable spotMaintenanceStrategies;
+
+/**
  <p>The maximum amount per hour for Spot Instances that you're willing to pay. You can use the <code>spotdMaxTotalPrice</code> parameter, the <code>onDemandMaxTotalPrice</code> parameter, or both parameters to ensure that your fleet cost does not exceed your budget. If you set a maximum price per hour for the On-Demand Instances and Spot Instances in your request, Spot Fleet will launch instances until it reaches the maximum amount you're willing to pay. When the maximum amount you're willing to pay is reached, the fleet stops launching instances even if it hasn’t met the target capacity.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable spotMaxTotalPrice;
@@ -33763,6 +33937,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
+ */
+@interface AWSEC2SpotMaintenanceStrategies : AWSModel
+
+
+/**
+ <p>The strategy to use when Amazon EC2 emits a signal that your Spot Instance is at an elevated risk of being interrupted.</p>
+ */
+@property (nonatomic, strong) AWSEC2SpotCapacityRebalance * _Nullable capacityRebalance;
+
+@end
+
+/**
  <p>The options for Spot Instances.</p>
  */
 @interface AWSEC2SpotMarketOptions : AWSModel
@@ -33817,6 +34004,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable instancePoolsToUseCount;
 
 /**
+ <p>The strategies for managing your workloads on your Spot Instances that will be interrupted. Currently only the capacity rebalance strategy is available.</p>
+ */
+@property (nonatomic, strong) AWSEC2FleetSpotMaintenanceStrategies * _Nullable maintenanceStrategies;
+
+/**
  <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable maxTotalPrice;
@@ -33858,6 +34050,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The number of Spot pools across which to allocate your target Spot capacity. Valid only when Spot <b>AllocationStrategy</b> is set to <code>lowest-price</code>. EC2 Fleet selects the cheapest Spot pools and evenly allocates your target Spot capacity across the number of Spot pools that you specify.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable instancePoolsToUseCount;
+
+/**
+ <p>The strategies for managing your Spot Instances that are at an elevated risk of being interrupted.</p>
+ */
+@property (nonatomic, strong) AWSEC2FleetSpotMaintenanceStrategiesRequest * _Nullable maintenanceStrategies;
 
 /**
  <p>The maximum amount per hour for Spot Instances that you're willing to pay.</p>
