@@ -27,14 +27,11 @@
     - `AWSS3UploadPartRequest`
   - Amazon Transcribe Streaming ([PR #3164](https://github.com/aws-amplify/aws-sdk-ios/pull/3164))
 - `AWSPinpointEndpointProfileUser` now supports adding user attributes (See [Issue #3086](https://github.com/aws-amplify/aws-sdk-ios/issues/3086), [PR #3142](https://github.com/aws-amplify/aws-sdk-ios/pull/3142))
-- AWSCore - use hostPrefix when available to prepend to endpoint ([PR #3183](https://github.com/aws-amplify/aws-sdk-ios/pull/3183))
-- AWSCore - support listType for url parameters ([PR #3186](https://github.com/aws-amplify/aws-sdk-ios/pull/3186))
 
 ### Bug fixes
 - Fix decoding claims that contain special characters ([PR #2928](https://github.com/aws-amplify/aws-sdk-ios/pull/2928)) Thanks @rolisanchez!
 - Fixed link for `AWSTask` documentation (See [Issue #3171](https://github.com/aws-amplify/aws-sdk-ios/issues/3171), [PR #3177](https://github.com/aws-amplify/aws-sdk-ios/pull/3177))
 - Fixed cancel signout that takes the app into an inconsistent state (See [Issue #2886](https://github.com/aws-amplify/aws-sdk-ios/issues/2886), [PR #3190](https://github.com/aws-amplify/aws-sdk-ios/pull/3190))
-- AWSCore - consider timestamp format for JSON protocol serialization ([PR #3182](https://github.com/aws-amplify/aws-sdk-ios/pull/3182))
 
 ### Misc. Updates
 - Model updates for the following services
@@ -43,6 +40,11 @@
   - AWS IoT
   - Amazon S3
   - Amazon Simple Notification Service (SNS)
+  
+- Enhanced code generated model support
+  - consider timestamp format for JSON protocol serialization ([PR #3182](https://github.com/aws-amplify/aws-sdk-ios/pull/3182))
+  - support listType for url parameters ([PR #3186](https://github.com/aws-amplify/aws-sdk-ios/pull/3186))
+  - use hostPrefix when available to prepend to endpoint ([PR #3183](https://github.com/aws-amplify/aws-sdk-ios/pull/3183))
 
 ## 2.18.0
 
