@@ -529,7 +529,7 @@ final public class AWSMobileClient: _AWSMobileClient {
                     self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
                     self.pendingGetTokensCompletion = nil
 
-                    // Invoke credentials inorder to refresh the id token before returning signedin
+                    // Invoke `credentials` in order to refresh the id token before returning signedIn
                     self.internalCredentialsProvider?.credentials(withCancellationToken: self.credentialsFetchCancellationSource).continueWith { _ in
                         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
                         completionHandler(.signedIn, nil)
