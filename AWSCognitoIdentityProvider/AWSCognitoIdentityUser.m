@@ -383,6 +383,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                 authenticationDelegate = [self.pool.delegate startCustomAuthentication];
             }
             if (authenticationDelegate != nil) {
+                if ([authenticateResult.challengeParameters objectForKey:@"USERNAME"] != nil) {
+                    self.username = [authenticateResult.challengeParameters objectForKey:@"USERNAME"];
+                }
                 AWSCognitoIdentityCustomAuthenticationInput *input = [AWSCognitoIdentityCustomAuthenticationInput new];
                 input.challengeParameters = authenticateResult.challengeParameters;
                 AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> *challengeDetails = [AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails *> new];
