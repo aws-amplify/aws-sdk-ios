@@ -4,6 +4,10 @@
 
 -Features for next release
 
+### Breaking Changes
+- **Amazon Cognito**
+  - **Breaking Change** Custom auth will set the right username after a signin flow. Earlier if you use an alias (ex email) for custom auth signin, after successfull signIn `AWSMobileClient.default.username` would return the entered alias. This has been changed in this release and instead of the entering the alias, `AWSMobileClient.default.username` will return the actual Cognito username of the user. (See [Issue #3194](https://github.com/aws-amplify/aws-sdk-ios/issues/3194), [PR #3198](https://github.com/aws-amplify/aws-sdk-ios/pull/3198))
+
 ## 2.18.1
 
 ### New Features
