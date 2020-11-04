@@ -34,6 +34,7 @@
                                 rules:(AWSJSONDictionary *)rules
                            parameters:(NSDictionary *)params
                             uriSchema:(NSString *)uriSchema
+                           hostPrefix:(NSString *)hostPrefix
                                 error:(NSError *__autoreleasing *)error;
 @end
 
