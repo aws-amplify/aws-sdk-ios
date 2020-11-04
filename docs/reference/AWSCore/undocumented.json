@@ -3858,6 +3858,83 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 20,
+      "symbol": "AWSTimestampSerializationErrorDomain",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 22,
+      "symbol": "AWSTimestampSerializationError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 22,
+      "symbol": "AWSTimestampSerializationError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 23,
+      "symbol": "AWSTimestampSerializationError.AWSTimestampParserError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 26,
+      "symbol": "AWSTimestampSerialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 28,
+      "symbol": "AWSTimestampSerialization.+serializeTimestamp:value:error:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 32,
+      "symbol": "AWSTimestampSerialization.+parseTimestamp:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 36,
+      "symbol": "AWSJSONTimestampSerialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 39,
+      "symbol": "AWSXMLTimestampSerialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 42,
+      "symbol": "AWSQueryTimestampSerialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Serialization/AWSTimestampSerialization.h",
+      "line": 45,
+      "symbol": "AWSEC2TimestampSerialization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSCore/Serialization/AWSURLRequestRetryHandler.h",
       "line": 20,
       "symbol": "AWSURLRequestRetryHandler",
@@ -3909,27 +3986,27 @@
     {
       "file": "/Users/distiller/project/AWSCore/Serialization/AWSURLRequestSerialization.h",
       "line": 33,
-      "symbol": "AWSXMLRequestSerializer.+constructURIandHeadersAndBody:rules:parameters:uriSchema:error:",
+      "symbol": "AWSXMLRequestSerializer.+constructURIandHeadersAndBody:rules:parameters:uriSchema:hostPrefix:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Serialization/AWSURLRequestSerialization.h",
-      "line": 40,
+      "line": 41,
       "symbol": "AWSQueryStringRequestSerializer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Serialization/AWSURLRequestSerialization.h",
-      "line": 42,
+      "line": 43,
       "symbol": "AWSQueryStringRequestSerializer.-initWithJSONDefinition:actionName:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Serialization/AWSURLRequestSerialization.h",
-      "line": 45,
+      "line": 46,
       "symbol": "AWSQueryStringRequestSerializer.additionalParameters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
