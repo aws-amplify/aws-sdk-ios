@@ -133,6 +133,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeProvidedAl2,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
+    AWSLambdaSourceAccessTypeUnknown,
+    AWSLambdaSourceAccessTypeBasicAuth,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
     AWSLambdaStateUnknown,
     AWSLambdaStatePending,
@@ -258,6 +263,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaPutProvisionedConcurrencyConfigResponse;
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
+@class AWSLambdaSourceAccessConfiguration;
 @class AWSLambdaTagResourceRequest;
 @class AWSLambdaTracingConfig;
 @class AWSLambdaTracingConfigResponse;
@@ -602,6 +608,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
+ <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
+
+/**
+ <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
+
+/**
  <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
  */
 @property (nonatomic, assign) AWSLambdaEventSourcePosition startingPosition;
@@ -919,7 +935,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
- <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
 
@@ -949,24 +965,34 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) The maximum age of a record that Lambda sends to a function for processing.</p>
+ <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) The maximum number of times to retry when the function returns an error.</p>
+ <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
 /**
- <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
+
+/**
+ <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
+
+/**
+ <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
  <p>The state of the event source mapping. It can be one of the following: <code>Creating</code>, <code>Enabling</code>, <code>Enabled</code>, <code>Disabling</code>, <code>Disabled</code>, <code>Updating</code>, or <code>Deleting</code>.</p>
@@ -979,7 +1005,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable stateTransitionReason;
 
 /**
- <p> (MSK) The name of the Kafka topic. </p>
+ <p> (MSK) The name of the Kafka topic to consume. </p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
@@ -2556,6 +2582,24 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p>
+ */
+@interface AWSLambdaSourceAccessConfiguration : AWSModel
+
+
+/**
+ <p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ */
+@property (nonatomic, assign) AWSLambdaSourceAccessType types;
+
+/**
+ <p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable URI;
+
+@end
+
+/**
  
  */
 @interface AWSLambdaTagResourceRequest : AWSRequest
@@ -2705,6 +2749,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>(Streams) The number of batches to process from each shard concurrently.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
+
+/**
+ <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
  <p>The identifier of the event source mapping.</p>
