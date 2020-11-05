@@ -40,6 +40,7 @@
 - Fix decoding claims that contain special characters ([PR #2928](https://github.com/aws-amplify/aws-sdk-ios/pull/2928)) Thanks @rolisanchez!
 - Fixed link for `AWSTask` documentation (See [Issue #3171](https://github.com/aws-amplify/aws-sdk-ios/issues/3171), [PR #3177](https://github.com/aws-amplify/aws-sdk-ios/pull/3177))
 - Fixed cancel signout that takes the app into an inconsistent state (See [Issue #2886](https://github.com/aws-amplify/aws-sdk-ios/issues/2886), [PR #3190](https://github.com/aws-amplify/aws-sdk-ios/pull/3190))
+- End AWSPinpoint background task when app enters foreground (See [Issue #2651](https://github.com/aws-amplify/aws-sdk-ios/issues/2651), [PR #3084](https://github.com/aws-amplify/aws-sdk-ios/pull/3084))
 
 ### Misc. Updates
 - Model updates for the following services
