@@ -1,3 +1,13 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSEC2
+---AWSLambda
+---AWSDynamoDB
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
