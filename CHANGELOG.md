@@ -8,6 +8,16 @@
 - **Amazon Cognito**
   - **Breaking Change** Custom auth now sets the correct `username` after a sign in flow. Before, if a user signed in with an alias (for example, an email) in a custom auth sign in flow, after a successful signIn, `AWSMobileClient.default().username` would return that entered alias. This has been fixed in this release to conform to the behavior in the standard SRP flow: instead of the returning the alias, `AWSMobileClient.default().username` will return the actual Cognito username of the user. (See [Issue #3194](https://github.com/aws-amplify/aws-sdk-ios/issues/3194), [PR #3198](https://github.com/aws-amplify/aws-sdk-ios/pull/3198))
 
+### Misc
+- AWS IoT: optimistic workaround for cleaning up nsoutputstream (See [Issue #2770](https://github.com/aws-amplify/aws-sdk-ios/issues/2770), [PR #3208](https://github.com/aws-amplify/aws-sdk-ios/pull/3208))
+- Build project with Xcode 12.1
+- Model updates for the following services
+  - Amazon DynamoDB
+  - AWS Auto Scaling
+  - Amazon EC2
+  - AWS IoT
+  - Amazon Lambda
+
 ## 2.18.1
 
 ### New Features
