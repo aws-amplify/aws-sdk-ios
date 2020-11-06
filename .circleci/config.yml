@@ -14,6 +14,7 @@ commands:
           command: |
             HOMEBREW_LOGS=~/homebrew-logs
             HOMEBREW_TEMP=~/homebrew-temp
+            brew upgrade
             brew update
 
   set_environment_variables:
@@ -249,7 +250,7 @@ commands:
 jobs:
   build:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -272,7 +273,7 @@ jobs:
 
   build_test_host_apps:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -289,7 +290,7 @@ jobs:
 
   unit_test:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -342,7 +343,7 @@ jobs:
 
   integ_test:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     parameters:
       project:
         default: "AWSiOSSDKv2.xcodeproj"
@@ -402,7 +403,7 @@ jobs:
 
   release_tag:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -419,7 +420,7 @@ jobs:
 
   build_carthage:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -442,7 +443,7 @@ jobs:
 
   release_carthage:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -467,14 +468,14 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
       - run:
           # Note that this invocation of cocoapods_release requires at least
           # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
-          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 12.0.0 Xcode
+          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 12.1.0 Xcode
           # image, but just to be safe, we'll manually update cocoapods-trunk
           name: Update cocoapods-trunk to support --synchronous flag
           command: gem update cocoapods-trunk
@@ -485,7 +486,7 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -515,7 +516,7 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -529,7 +530,7 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
@@ -547,7 +548,7 @@ jobs:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
   release_ios_s3:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     environment:
       TERM: xterm-256color
     steps:
@@ -591,7 +592,7 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
