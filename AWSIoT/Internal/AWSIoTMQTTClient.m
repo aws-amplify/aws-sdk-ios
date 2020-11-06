@@ -647,8 +647,8 @@
 
 - (void)cleanUpToDecoderStream {
     self.toDecoderStream.delegate = nil;
-    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     [self.toDecoderStream close];
+    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
     self.toDecoderStream = nil;
 }
 
