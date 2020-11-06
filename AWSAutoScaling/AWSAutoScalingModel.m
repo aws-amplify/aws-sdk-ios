@@ -266,6 +266,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"autoScalingGroupARN" : @"AutoScalingGroupARN",
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"availabilityZones" : @"AvailabilityZones",
+             @"capacityRebalance" : @"CapacityRebalance",
              @"createdTime" : @"CreatedTime",
              @"defaultCooldown" : @"DefaultCooldown",
              @"desiredCapacity" : @"DesiredCapacity",
@@ -562,6 +563,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"availabilityZones" : @"AvailabilityZones",
+             @"capacityRebalance" : @"CapacityRebalance",
              @"defaultCooldown" : @"DefaultCooldown",
              @"desiredCapacity" : @"DesiredCapacity",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
@@ -2726,6 +2728,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
              @"availabilityZones" : @"AvailabilityZones",
+             @"capacityRebalance" : @"CapacityRebalance",
              @"defaultCooldown" : @"DefaultCooldown",
              @"desiredCapacity" : @"DesiredCapacity",
              @"healthCheckGracePeriod" : @"HealthCheckGracePeriod",
