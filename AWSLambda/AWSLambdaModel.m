@@ -213,6 +213,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
+             @"queues" : @"Queues",
+             @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              @"topics" : @"Topics",
@@ -221,6 +223,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaSourceAccessConfiguration class]];
 }
 
 + (NSValueTransformer *)startingPositionJSONTransformer {
@@ -646,6 +652,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
+             @"queues" : @"Queues",
+             @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"topics" : @"Topics",
@@ -663,6 +671,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaSourceAccessConfiguration class]];
 }
 
 @end
@@ -2484,6 +2496,37 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaSourceAccessConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"types" : @"Type",
+             @"URI" : @"URI",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BASIC_AUTH"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeBasicAuth);
+        }
+        return @(AWSLambdaSourceAccessTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaSourceAccessTypeBasicAuth:
+                return @"BASIC_AUTH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLambdaTagResourceRequest
 
 + (BOOL)supportsSecureCoding {
@@ -2624,12 +2667,17 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
+             @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"UUID" : @"UUID",
              };
 }
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaSourceAccessConfiguration class]];
 }
 
 @end
