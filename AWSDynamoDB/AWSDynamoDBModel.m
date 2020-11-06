@@ -3582,6 +3582,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusRegionDisabled);
         }
+        if ([value caseInsensitiveCompare:@"INACCESSIBLE_ENCRYPTION_CREDENTIALS"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3597,6 +3600,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"ACTIVE";
             case AWSDynamoDBReplicaStatusRegionDisabled:
                 return @"REGION_DISABLED";
+            case AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials:
+                return @"INACCESSIBLE_ENCRYPTION_CREDENTIALS";
             default:
                 return nil;
         }
@@ -3684,6 +3689,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusRegionDisabled);
         }
+        if ([value caseInsensitiveCompare:@"INACCESSIBLE_ENCRYPTION_CREDENTIALS"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3699,6 +3707,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"ACTIVE";
             case AWSDynamoDBReplicaStatusRegionDisabled:
                 return @"REGION_DISABLED";
+            case AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials:
+                return @"INACCESSIBLE_ENCRYPTION_CREDENTIALS";
             default:
                 return nil;
         }
@@ -3953,6 +3963,9 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
         if ([value caseInsensitiveCompare:@"REGION_DISABLED"] == NSOrderedSame) {
             return @(AWSDynamoDBReplicaStatusRegionDisabled);
         }
+        if ([value caseInsensitiveCompare:@"INACCESSIBLE_ENCRYPTION_CREDENTIALS"] == NSOrderedSame) {
+            return @(AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials);
+        }
         return @(AWSDynamoDBReplicaStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3968,6 +3981,8 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
                 return @"ACTIVE";
             case AWSDynamoDBReplicaStatusRegionDisabled:
                 return @"REGION_DISABLED";
+            case AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials:
+                return @"INACCESSIBLE_ENCRYPTION_CREDENTIALS";
             default:
                 return nil;
         }
