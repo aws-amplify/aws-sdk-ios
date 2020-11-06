@@ -2699,7 +2699,8 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InternalFailureException\"},\
-        {\"shape\":\"ResourceNotFoundException\"}\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>List the thing groups in your account.</p>\"\
     },\
@@ -2714,7 +2715,8 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InternalFailureException\"},\
-        {\"shape\":\"ResourceNotFoundException\"}\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>List the thing groups to which the specified thing belongs.</p>\"\
     },\
@@ -2829,7 +2831,8 @@
       \"errors\":[\
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InternalFailureException\"},\
-        {\"shape\":\"ResourceNotFoundException\"}\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>Lists the things in the specified group.</p>\"\
     },\
@@ -10715,7 +10718,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -10742,7 +10745,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -11382,7 +11385,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -11410,7 +11413,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListPrincipalThings operation.</p>\"\
@@ -11676,7 +11679,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         }\
@@ -11691,7 +11694,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -11781,7 +11784,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -11802,7 +11805,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -11811,7 +11814,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -11850,7 +11853,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
         }\
       }\
     },\
@@ -11858,6 +11861,18 @@
       \"type\":\"structure\",\
       \"required\":[\"thingName\"],\
       \"members\":{\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"maxResults\":{\
+          \"shape\":\"RegistryMaxResults\",\
+          \"documentation\":\"<p>The maximum number of results to return in this operation.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
         \"thingName\":{\
           \"shape\":\"ThingName\",\
           \"documentation\":\"<p>The name of the thing.</p>\",\
@@ -11873,6 +11888,10 @@
         \"principals\":{\
           \"shape\":\"Principals\",\
           \"documentation\":\"<p>The principals associated with the thing.</p>\"\
+        },\
+        \"nextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListThingPrincipals operation.</p>\"\
@@ -11898,7 +11917,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -11923,7 +11942,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -11932,7 +11951,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -11959,7 +11978,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -11968,7 +11987,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12013,7 +12032,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12034,7 +12053,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
         }\
       }\
     },\
@@ -12056,7 +12075,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12077,7 +12096,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -12086,7 +12105,7 @@
       \"members\":{\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12126,7 +12145,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results. Will not be returned if operation has returned all results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListThings operation.</p>\"\
@@ -12142,7 +12161,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         }\
@@ -12157,7 +12176,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token to retrieve the next set of results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\
@@ -12178,7 +12197,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>A token used to retrieve the next value.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12200,7 +12219,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>A token used to retrieve the next value.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       },\
       \"documentation\":\"<p>The output from the ListTopicRules operation.</p>\"\
@@ -12216,7 +12235,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\",\
+          \"documentation\":\"<p>To retrieve the next set of results, the <code>nextToken</code> value from a previous response; otherwise <b>null</b> to receive the first set of results.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"nextToken\"\
         },\
@@ -12237,7 +12256,7 @@
         },\
         \"nextToken\":{\
           \"shape\":\"NextToken\",\
-          \"documentation\":\"<p>The token used to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
+          \"documentation\":\"<p>The token to use to get the next set of results, or <b>null</b> if there are no additional results.</p>\"\
         }\
       }\
     },\

@@ -9089,6 +9089,8 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
              @"thingName" : @"thingName",
              };
 }
@@ -9103,6 +9105,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"nextToken" : @"nextToken",
              @"principals" : @"principals",
              };
 }
