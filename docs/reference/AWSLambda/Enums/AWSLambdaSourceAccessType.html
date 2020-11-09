@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLambdaGetFunctionConcurrencyResponse Class Reference</title>
+    <title>AWSLambdaSourceAccessType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLambdaGetFunctionConcurrencyResponse" class="dashAnchor"></a>
-    <a title="AWSLambdaGetFunctionConcurrencyResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSLambdaSourceAccessType" class="dashAnchor"></a>
+    <a title="AWSLambdaSourceAccessType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLambda 2.19.0 Docs</a> (78% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLambda Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSLambdaGetFunctionConcurrencyResponse Class Reference
+        AWSLambdaSourceAccessType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -444,20 +444,24 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLambdaGetFunctionConcurrencyResponse</h1>
+            <h1>AWSLambdaSourceAccessType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLambdaGetFunctionConcurrencyResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLambdaSourceAccessType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLambdaSourceAccessTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSLambdaSourceAccessTypeBasicAuth</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLambdaGetFunctionConcurrencyResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLambdaSourceAccessType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -465,9 +469,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLambdaGetFunctionConcurrencyResponse(py)reservedConcurrentExecutions"></a>
-                    <a name="//apple_ref/objc/Property/reservedConcurrentExecutions" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLambdaGetFunctionConcurrencyResponse(py)reservedConcurrentExecutions">reservedConcurrentExecutions</a>
+                    <a name="/c:@E@AWSLambdaSourceAccessType@AWSLambdaSourceAccessTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaSourceAccessTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaSourceAccessType@AWSLambdaSourceAccessTypeUnknown">AWSLambdaSourceAccessTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -475,19 +479,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The number of simultaneous executions that are reserved for the function.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">reservedConcurrentExecutions</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaSourceAccessTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">reservedConcurrentExecutions</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLambdaSourceAccessType@AWSLambdaSourceAccessTypeBasicAuth"></a>
+                    <a name="//apple_ref/objc/Case/AWSLambdaSourceAccessTypeBasicAuth" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLambdaSourceAccessType@AWSLambdaSourceAccessTypeBasicAuth">AWSLambdaSourceAccessTypeBasicAuth</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLambdaSourceAccessTypeBasicAuth</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">basicAuth</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
