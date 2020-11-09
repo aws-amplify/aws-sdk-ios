@@ -27,11 +27,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorBackupNotFound,
     AWSDynamoDBErrorConditionalCheckFailed,
     AWSDynamoDBErrorContinuousBackupsUnavailable,
+    AWSDynamoDBErrorExportConflict,
+    AWSDynamoDBErrorExportNotFound,
     AWSDynamoDBErrorGlobalTableAlreadyExists,
     AWSDynamoDBErrorGlobalTableNotFound,
     AWSDynamoDBErrorIdempotentParameterMismatch,
     AWSDynamoDBErrorIndexNotFound,
     AWSDynamoDBErrorInternalServer,
+    AWSDynamoDBErrorInvalidExportTime,
     AWSDynamoDBErrorInvalidRestoreTime,
     AWSDynamoDBErrorItemCollectionSizeLimitExceeded,
     AWSDynamoDBErrorLimitExceeded,
@@ -129,6 +132,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsStatus) {
     AWSDynamoDBContributorInsightsStatusFailed,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportFormat) {
+    AWSDynamoDBExportFormatUnknown,
+    AWSDynamoDBExportFormatDynamodbJson,
+    AWSDynamoDBExportFormatIon,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportStatus) {
+    AWSDynamoDBExportStatusUnknown,
+    AWSDynamoDBExportStatusInProgress,
+    AWSDynamoDBExportStatusCompleted,
+    AWSDynamoDBExportStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBGlobalTableStatus) {
     AWSDynamoDBGlobalTableStatusUnknown,
     AWSDynamoDBGlobalTableStatusCreating,
@@ -201,6 +217,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBReturnValuesOnConditionCheckFailure) {
     AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown,
     AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld,
     AWSDynamoDBReturnValuesOnConditionCheckFailureNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBS3SseAlgorithm) {
+    AWSDynamoDBS3SseAlgorithmUnknown,
+    AWSDynamoDBS3SseAlgorithmAES256,
+    AWSDynamoDBS3SseAlgorithmKms,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBSSEStatus) {
@@ -313,6 +335,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeContributorInsightsOutput;
 @class AWSDynamoDBDescribeEndpointsRequest;
 @class AWSDynamoDBDescribeEndpointsResponse;
+@class AWSDynamoDBDescribeExportInput;
+@class AWSDynamoDBDescribeExportOutput;
 @class AWSDynamoDBDescribeGlobalTableInput;
 @class AWSDynamoDBDescribeGlobalTableOutput;
 @class AWSDynamoDBDescribeGlobalTableSettingsInput;
@@ -327,6 +351,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeTimeToLiveOutput;
 @class AWSDynamoDBEndpoint;
 @class AWSDynamoDBExpectedAttributeValue;
+@class AWSDynamoDBExportDescription;
+@class AWSDynamoDBExportSummary;
+@class AWSDynamoDBExportTableToPointInTimeInput;
+@class AWSDynamoDBExportTableToPointInTimeOutput;
 @class AWSDynamoDBFailureException;
 @class AWSDynamoDBGet;
 @class AWSDynamoDBGetItemInput;
@@ -347,6 +375,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBListBackupsOutput;
 @class AWSDynamoDBListContributorInsightsInput;
 @class AWSDynamoDBListContributorInsightsOutput;
+@class AWSDynamoDBListExportsInput;
+@class AWSDynamoDBListExportsOutput;
 @class AWSDynamoDBListGlobalTablesInput;
 @class AWSDynamoDBListGlobalTablesOutput;
 @class AWSDynamoDBListTablesInput;
@@ -1106,7 +1136,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents a Contributor Insights summary entry..</p>
+ <p>Represents a Contributor Insights summary entry.</p>
  */
 @interface AWSDynamoDBContributorInsightsSummary : AWSModel
 
@@ -1696,6 +1726,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBDescribeExportInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeExportOutput : AWSModel
+
+
+/**
+ <p>Represents the properties of the export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBExportDescription * _Nullable exportDescription;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBDescribeGlobalTableInput : AWSRequest
 
 
@@ -1909,6 +1965,193 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the data for the expected attribute.</p><p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAttributeValue * _Nullable value;
+
+@end
+
+/**
+ <p>Represents the properties of the exported table.</p>
+ */
+@interface AWSDynamoDBExportDescription : AWSModel
+
+
+/**
+ <p>The billable size of the table export.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billedSizeBytes;
+
+/**
+ <p>The client token that was provided for the export task. A client token makes calls to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The time at which the export task completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the table export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+/**
+ <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportFormat exportFormat;
+
+/**
+ <p>The name of the manifest file for the export task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportManifest;
+
+/**
+ <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportStatus exportStatus;
+
+/**
+ <p>Point in time from which table data was exported.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportTime;
+
+/**
+ <p>Status code for the result of the failed export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureCode;
+
+/**
+ <p>Export failure reason description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureMessage;
+
+/**
+ <p>The number of items exported.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable itemCount;
+
+/**
+ <p>The name of the Amazon S3 bucket containing the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The ID of the AWS account that owns the bucket containing the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
+
+/**
+ <p>The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+/**
+ <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
+
+/**
+ <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
+
+/**
+ <p>The time at which the export task began.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+/**
+ <p>Unique ID of the table that was exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableId;
+
+@end
+
+/**
+ <p>Summary information about an export task.</p>
+ */
+@interface AWSDynamoDBExportSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+/**
+ <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportStatus exportStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExportTableToPointInTimeInput : AWSRequest
+
+
+/**
+ <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The format for the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportFormat exportFormat;
+
+/**
+ <p>Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportTime;
+
+/**
+ <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The ID of the AWS account that owns the bucket the export will be stored in.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
+
+/**
+ <p>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+/**
+ <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
+
+/**
+ <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExportTableToPointInTimeOutput : AWSModel
+
+
+/**
+ <p>Contains a description of the table export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBExportDescription * _Nullable exportDescription;
 
 @end
 
@@ -2423,6 +2666,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>A token to go to the next page if there is one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListExportsInput : AWSRequest
+
+
+/**
+ <p>Maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListExports</code>. When provided in this manner, the API fetches the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListExportsOutput : AWSModel
+
+
+/**
+ <p>A list of <code>ExportSummary</code> objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBExportSummary *> * _Nullable exportSummaries;
+
+/**
+ <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
