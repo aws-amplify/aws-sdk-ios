@@ -7248,6 +7248,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"routeTableId" : @"RouteTableId",
              @"transitGatewayId" : @"TransitGatewayId",
+             @"vpcEndpointId" : @"VpcEndpointId",
              @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
              };
 }
@@ -8298,6 +8299,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Gateway"] == NSOrderedSame) {
             return @(AWSEC2VpcEndpointTypeGateway);
         }
+        if ([value caseInsensitiveCompare:@"GatewayLoadBalancer"] == NSOrderedSame) {
+            return @(AWSEC2VpcEndpointTypeGatewayLoadBalancer);
+        }
         return @(AWSEC2VpcEndpointTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -8305,6 +8309,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Interface";
             case AWSEC2VpcEndpointTypeGateway:
                 return @"Gateway";
+            case AWSEC2VpcEndpointTypeGatewayLoadBalancer:
+                return @"GatewayLoadBalancer";
             default:
                 return nil;
         }
@@ -8343,6 +8349,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"acceptanceRequired" : @"AcceptanceRequired",
              @"clientToken" : @"ClientToken",
              @"dryRun" : @"DryRun",
+             @"gatewayLoadBalancerArns" : @"GatewayLoadBalancerArns",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"privateDnsName" : @"PrivateDnsName",
              @"tagSpecifications" : @"TagSpecifications",
@@ -44887,9 +44894,11 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"acceptanceRequired" : @"AcceptanceRequired",
+             @"addGatewayLoadBalancerArns" : @"AddGatewayLoadBalancerArns",
              @"addNetworkLoadBalancerArns" : @"AddNetworkLoadBalancerArns",
              @"dryRun" : @"DryRun",
              @"privateDnsName" : @"PrivateDnsName",
+             @"removeGatewayLoadBalancerArns" : @"RemoveGatewayLoadBalancerArns",
              @"removeNetworkLoadBalancerArns" : @"RemoveNetworkLoadBalancerArns",
              @"removePrivateDnsName" : @"RemovePrivateDnsName",
              @"serviceId" : @"ServiceId",
@@ -47791,6 +47800,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"routeTableId" : @"RouteTableId",
              @"transitGatewayId" : @"TransitGatewayId",
+             @"vpcEndpointId" : @"VpcEndpointId",
              @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
              };
 }
@@ -62925,6 +62935,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"acceptanceRequired" : @"AcceptanceRequired",
              @"availabilityZones" : @"AvailabilityZones",
              @"baseEndpointDnsNames" : @"BaseEndpointDnsNames",
+             @"gatewayLoadBalancerArns" : @"GatewayLoadBalancerArns",
              @"managesVpcEndpoints" : @"ManagesVpcEndpoints",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"privateDnsName" : @"PrivateDnsName",
@@ -63066,6 +63077,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Gateway"] == NSOrderedSame) {
             return @(AWSEC2ServiceTypeGateway);
         }
+        if ([value caseInsensitiveCompare:@"GatewayLoadBalancer"] == NSOrderedSame) {
+            return @(AWSEC2ServiceTypeGatewayLoadBalancer);
+        }
         return @(AWSEC2ServiceTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -63073,6 +63087,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Interface";
             case AWSEC2ServiceTypeGateway:
                 return @"Gateway";
+            case AWSEC2ServiceTypeGatewayLoadBalancer:
+                return @"GatewayLoadBalancer";
             default:
                 return nil;
         }
@@ -72788,6 +72804,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"Gateway"] == NSOrderedSame) {
             return @(AWSEC2VpcEndpointTypeGateway);
         }
+        if ([value caseInsensitiveCompare:@"GatewayLoadBalancer"] == NSOrderedSame) {
+            return @(AWSEC2VpcEndpointTypeGatewayLoadBalancer);
+        }
         return @(AWSEC2VpcEndpointTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -72795,6 +72814,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"Interface";
             case AWSEC2VpcEndpointTypeGateway:
                 return @"Gateway";
+            case AWSEC2VpcEndpointTypeGatewayLoadBalancer:
+                return @"GatewayLoadBalancer";
             default:
                 return nil;
         }
@@ -72813,6 +72834,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"creationTimestamp" : @"CreationTimestamp",
              @"dnsEntries" : @"DnsEntries",
+             @"gatewayLoadBalancerArns" : @"GatewayLoadBalancerArns",
              @"networkLoadBalancerArns" : @"NetworkLoadBalancerArns",
              @"serviceId" : @"ServiceId",
              @"vpcEndpointId" : @"VpcEndpointId",
