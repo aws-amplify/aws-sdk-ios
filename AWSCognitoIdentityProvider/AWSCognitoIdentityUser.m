@@ -243,11 +243,9 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                                                                 refreshToken:refreshToken
                                                               expirationTime:expiration];
         }
-        
-        
+
         // If the session expires > 2 minutes return it. We need to check both accessToken and id Token expiry
-        // since user can change both of them in Cognito console. We are also checking `expiration` time returned
-        // from Cognito auth result to keep the logic similar to before.
+        // since user can change both of them in Cognito console.
         if(session
            && [self isSessionValid:session]
            && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:2 * 60]] == NSOrderedDescending) {
