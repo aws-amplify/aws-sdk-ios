@@ -5998,6 +5998,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"batchMode" : @"batchMode",
              @"deliveryStreamName" : @"deliveryStreamName",
              @"roleArn" : @"roleArn",
              @"separator" : @"separator",
@@ -6697,6 +6698,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"batchMode" : @"batchMode",
              @"channelArn" : @"channelArn",
              @"channelName" : @"channelName",
              @"roleArn" : @"roleArn",
@@ -6713,6 +6715,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"batchMode" : @"batchMode",
              @"inputName" : @"inputName",
              @"messageId" : @"messageId",
              @"roleArn" : @"roleArn",
