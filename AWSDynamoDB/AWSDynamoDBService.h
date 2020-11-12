@@ -475,6 +475,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeEndpoints:(AWSDynamoDBDescribeEndpointsRequest *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeEndpointsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes an existing table export.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeExport service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeExportOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorExportNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeExportInput
+ @see AWSDynamoDBDescribeExportOutput
+ */
+- (AWSTask<AWSDynamoDBDescribeExportOutput *> *)describeExport:(AWSDynamoDBDescribeExportInput *)request;
+
+/**
+ <p>Describes an existing table export.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeExport service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorExportNotFound`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeExportInput
+ @see AWSDynamoDBDescribeExportOutput
+ */
+- (void)describeExport:(AWSDynamoDBDescribeExportInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeExportOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns information about the specified global table.</p><note><p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables. If you are using global tables <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> you can use <a href="https://docs.aws.amazon.com/amazondynamodb/latest/APIReference/API_DescribeTable.html">DescribeTable</a> instead.</p></note>
  
  @param request A container for the necessary parameters to execute the DescribeGlobalTable service method.
@@ -625,6 +650,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeTimeToLive:(AWSDynamoDBDescribeTimeToLiveInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeTimeToLiveOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>
+ 
+ @param request A container for the necessary parameters to execute the ExportTableToPointInTime service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBExportTableToPointInTimeOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorTableNotFound`, `AWSDynamoDBErrorPointInTimeRecoveryUnavailable`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInvalidExportTime`, `AWSDynamoDBErrorExportConflict`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBExportTableToPointInTimeInput
+ @see AWSDynamoDBExportTableToPointInTimeOutput
+ */
+- (AWSTask<AWSDynamoDBExportTableToPointInTimeOutput *> *)exportTableToPointInTime:(AWSDynamoDBExportTableToPointInTimeInput *)request;
+
+/**
+ <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>
+ 
+ @param request A container for the necessary parameters to execute the ExportTableToPointInTime service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorTableNotFound`, `AWSDynamoDBErrorPointInTimeRecoveryUnavailable`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInvalidExportTime`, `AWSDynamoDBErrorExportConflict`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBExportTableToPointInTimeInput
+ @see AWSDynamoDBExportTableToPointInTimeOutput
+ */
+- (void)exportTableToPointInTime:(AWSDynamoDBExportTableToPointInTimeInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBExportTableToPointInTimeOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>The <code>GetItem</code> operation returns a set of attributes for the item with the given primary key. If there is no matching item, <code>GetItem</code> does not return any data and there will be no <code>Item</code> element in the response.</p><p><code>GetItem</code> provides an eventually consistent read by default. If your application requires a strongly consistent read, set <code>ConsistentRead</code> to <code>true</code>. Although a strongly consistent read might take more time than an eventually consistent read, it always returns the last updated value.</p>
  
  @param request A container for the necessary parameters to execute the GetItem service method.
@@ -698,6 +748,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBListContributorInsightsOutput
  */
 - (void)listContributorInsights:(AWSDynamoDBListContributorInsightsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListContributorInsightsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists completed exports within the past 90 days.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListExports service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBListExportsOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBListExportsInput
+ @see AWSDynamoDBListExportsOutput
+ */
+- (AWSTask<AWSDynamoDBListExportsOutput *> *)listExports:(AWSDynamoDBListExportsInput *)request;
+
+/**
+ <p>Lists completed exports within the past 90 days.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListExports service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBListExportsInput
+ @see AWSDynamoDBListExportsOutput
+ */
+- (void)listExports:(AWSDynamoDBListExportsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBListExportsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists all global tables that have a replica in the specified Region.</p><note><p>This operation only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V1.html">Version 2017.11.29</a> of global tables.</p></note>
