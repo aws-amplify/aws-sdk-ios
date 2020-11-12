@@ -72,6 +72,8 @@
 - (void) test_AWSDynamoDBDescribeContributorInsightsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeEndpointsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeEndpointsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeExportInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeExportOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsInput API_AVAILABLE(ios(11));
@@ -86,6 +88,10 @@
 - (void) test_AWSDynamoDBDescribeTimeToLiveOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBEndpoint API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExpectedAttributeValue API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExportDescription API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExportSummary API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExportTableToPointInTimeInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExportTableToPointInTimeOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBFailureException API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGet API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBGetItemInput API_AVAILABLE(ios(11));
@@ -106,6 +112,8 @@
 - (void) test_AWSDynamoDBListBackupsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListContributorInsightsInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListContributorInsightsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBListExportsInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBListExportsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListGlobalTablesInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListGlobalTablesOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListTablesInput API_AVAILABLE(ios(11));
@@ -403,6 +411,14 @@
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeEndpointsResponse class]];
 }
 
+- (void) test_AWSDynamoDBDescribeExportInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeExportInput class]];
+}
+
+- (void) test_AWSDynamoDBDescribeExportOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeExportOutput class]];
+}
+
 - (void) test_AWSDynamoDBDescribeGlobalTableInput {
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeGlobalTableInput class]];
 }
@@ -457,6 +473,22 @@
 
 - (void) test_AWSDynamoDBExpectedAttributeValue {
     [self validateSecureCodingForClass:[AWSDynamoDBExpectedAttributeValue class]];
+}
+
+- (void) test_AWSDynamoDBExportDescription {
+    [self validateSecureCodingForClass:[AWSDynamoDBExportDescription class]];
+}
+
+- (void) test_AWSDynamoDBExportSummary {
+    [self validateSecureCodingForClass:[AWSDynamoDBExportSummary class]];
+}
+
+- (void) test_AWSDynamoDBExportTableToPointInTimeInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExportTableToPointInTimeInput class]];
+}
+
+- (void) test_AWSDynamoDBExportTableToPointInTimeOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExportTableToPointInTimeOutput class]];
 }
 
 - (void) test_AWSDynamoDBFailureException {
@@ -537,6 +569,14 @@
 
 - (void) test_AWSDynamoDBListContributorInsightsOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBListContributorInsightsOutput class]];
+}
+
+- (void) test_AWSDynamoDBListExportsInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBListExportsInput class]];
+}
+
+- (void) test_AWSDynamoDBListExportsOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBListExportsOutput class]];
 }
 
 - (void) test_AWSDynamoDBListGlobalTablesInput {

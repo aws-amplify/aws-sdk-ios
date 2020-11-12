@@ -1816,6 +1816,38 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 @end
 
+@implementation AWSDynamoDBDescribeExportInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportArn" : @"ExportArn",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBDescribeExportOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportDescription" : @"ExportDescription",
+             };
+}
+
++ (NSValueTransformer *)exportDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBExportDescription class]];
+}
+
+@end
+
 @implementation AWSDynamoDBDescribeGlobalTableInput
 
 + (BOOL)supportsSecureCoding {
@@ -2114,6 +2146,261 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)valueJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBAttributeValue class]];
+}
+
+@end
+
+@implementation AWSDynamoDBExportDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"billedSizeBytes" : @"BilledSizeBytes",
+             @"clientToken" : @"ClientToken",
+             @"endTime" : @"EndTime",
+             @"exportArn" : @"ExportArn",
+             @"exportFormat" : @"ExportFormat",
+             @"exportManifest" : @"ExportManifest",
+             @"exportStatus" : @"ExportStatus",
+             @"exportTime" : @"ExportTime",
+             @"failureCode" : @"FailureCode",
+             @"failureMessage" : @"FailureMessage",
+             @"itemCount" : @"ItemCount",
+             @"s3Bucket" : @"S3Bucket",
+             @"s3BucketOwner" : @"S3BucketOwner",
+             @"s3Prefix" : @"S3Prefix",
+             @"s3SseAlgorithm" : @"S3SseAlgorithm",
+             @"s3SseKmsKeyId" : @"S3SseKmsKeyId",
+             @"startTime" : @"StartTime",
+             @"tableArn" : @"TableArn",
+             @"tableId" : @"TableId",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)exportFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DYNAMODB_JSON"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportFormatDynamodbJson);
+        }
+        if ([value caseInsensitiveCompare:@"ION"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportFormatIon);
+        }
+        return @(AWSDynamoDBExportFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBExportFormatDynamodbJson:
+                return @"DYNAMODB_JSON";
+            case AWSDynamoDBExportFormatIon:
+                return @"ION";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)exportStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusFailed);
+        }
+        return @(AWSDynamoDBExportStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBExportStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSDynamoDBExportStatusCompleted:
+                return @"COMPLETED";
+            case AWSDynamoDBExportStatusFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)exportTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)s3SseAlgorithmJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AES256"] == NSOrderedSame) {
+            return @(AWSDynamoDBS3SseAlgorithmAES256);
+        }
+        if ([value caseInsensitiveCompare:@"KMS"] == NSOrderedSame) {
+            return @(AWSDynamoDBS3SseAlgorithmKms);
+        }
+        return @(AWSDynamoDBS3SseAlgorithmUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBS3SseAlgorithmAES256:
+                return @"AES256";
+            case AWSDynamoDBS3SseAlgorithmKms:
+                return @"KMS";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBExportSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportArn" : @"ExportArn",
+             @"exportStatus" : @"ExportStatus",
+             };
+}
+
++ (NSValueTransformer *)exportStatusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"IN_PROGRESS"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusInProgress);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"FAILED"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportStatusFailed);
+        }
+        return @(AWSDynamoDBExportStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBExportStatusInProgress:
+                return @"IN_PROGRESS";
+            case AWSDynamoDBExportStatusCompleted:
+                return @"COMPLETED";
+            case AWSDynamoDBExportStatusFailed:
+                return @"FAILED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBExportTableToPointInTimeInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"clientToken" : @"ClientToken",
+             @"exportFormat" : @"ExportFormat",
+             @"exportTime" : @"ExportTime",
+             @"s3Bucket" : @"S3Bucket",
+             @"s3BucketOwner" : @"S3BucketOwner",
+             @"s3Prefix" : @"S3Prefix",
+             @"s3SseAlgorithm" : @"S3SseAlgorithm",
+             @"s3SseKmsKeyId" : @"S3SseKmsKeyId",
+             @"tableArn" : @"TableArn",
+             };
+}
+
++ (NSValueTransformer *)exportFormatJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DYNAMODB_JSON"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportFormatDynamodbJson);
+        }
+        if ([value caseInsensitiveCompare:@"ION"] == NSOrderedSame) {
+            return @(AWSDynamoDBExportFormatIon);
+        }
+        return @(AWSDynamoDBExportFormatUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBExportFormatDynamodbJson:
+                return @"DYNAMODB_JSON";
+            case AWSDynamoDBExportFormatIon:
+                return @"ION";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)exportTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)s3SseAlgorithmJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"AES256"] == NSOrderedSame) {
+            return @(AWSDynamoDBS3SseAlgorithmAES256);
+        }
+        if ([value caseInsensitiveCompare:@"KMS"] == NSOrderedSame) {
+            return @(AWSDynamoDBS3SseAlgorithmKms);
+        }
+        return @(AWSDynamoDBS3SseAlgorithmUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSDynamoDBS3SseAlgorithmAES256:
+                return @"AES256";
+            case AWSDynamoDBS3SseAlgorithmKms:
+                return @"KMS";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSDynamoDBExportTableToPointInTimeOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportDescription" : @"ExportDescription",
+             };
+}
+
++ (NSValueTransformer *)exportDescriptionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSDynamoDBExportDescription class]];
 }
 
 @end
@@ -2732,6 +3019,41 @@ NSString *const AWSDynamoDBErrorDomain = @"com.amazonaws.AWSDynamoDBErrorDomain"
 
 + (NSValueTransformer *)contributorInsightsSummariesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBContributorInsightsSummary class]];
+}
+
+@end
+
+@implementation AWSDynamoDBListExportsInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"tableArn" : @"TableArn",
+             };
+}
+
+@end
+
+@implementation AWSDynamoDBListExportsOutput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"exportSummaries" : @"ExportSummaries",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)exportSummariesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSDynamoDBExportSummary class]];
 }
 
 @end

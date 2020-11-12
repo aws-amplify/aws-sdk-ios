@@ -109,6 +109,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingLoadBalancerTypeEnum) {
     AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown,
     AWSElasticLoadBalancingLoadBalancerTypeEnumApplication,
     AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork,
+    AWSElasticLoadBalancingLoadBalancerTypeEnumGateway,
 };
 
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProtocolEnum) {
@@ -119,6 +120,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingProtocolEnum) {
     AWSElasticLoadBalancingProtocolEnumTls,
     AWSElasticLoadBalancingProtocolEnumUdp,
     AWSElasticLoadBalancingProtocolEnumTcpUdp,
+    AWSElasticLoadBalancingProtocolEnumGeneve,
 };
 
 typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingRedirectActionStatusCodeEnum) {
@@ -561,12 +563,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p><ul><li><p><code>HTTP1Only</code></p></li><li><p><code>HTTP2Only</code></p></li><li><p><code>HTTP2Optional</code></p></li><li><p><code>HTTP2Preferred</code></p></li><li><p><code>None</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p><ul><li><p><code>HTTP1Only</code></p></li><li><p><code>HTTP2Only</code></p></li><li><p><code>HTTP2Optional</code></p></li><li><p><code>HTTP2Preferred</code></p></li><li><p><code>None</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alpnPolicy;
 
 /**
- <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p><p>To create a certificate list for the listener, use <a>AddListenerCertificates</a>.</p>
+ <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingCertificate *> * _Nullable certificates;
 
@@ -581,17 +583,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerArn;
 
 /**
- <p>The port on which the load balancer is listening.</p>
+ <p>The port on which the load balancer is listening. You cannot specify a port for a Gateway Load Balancer.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
 /**
- <p>The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP.</p>
+ <p>The protocol for connections from clients to the load balancer. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, and TCP_UDP. You cannot specify a protocol for a Gateway Load Balancer.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
 
 /**
- <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. The following are the possible values:</p><ul><li><p><code>ELBSecurityPolicy-2016-08</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-0-2015-04</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-1-2017-01</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-2-2017-01</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code></p></li><li><p><code>ELBSecurityPolicy-FS-2018-06</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-1-2019-08</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-2-2019-08</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security Policies</a> in the <i>Application Load Balancers Guide</i> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sslPolicy;
 
@@ -637,7 +639,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.</p><p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.</p><p>The default is an Internet-facing load balancer.</p>
+ <p>The nodes of an Internet-facing load balancer have public IP addresses. The DNS name of an Internet-facing load balancer is publicly resolvable to the public IP addresses of the nodes. Therefore, Internet-facing load balancers can route requests from clients over the internet.</p><p>The nodes of an internal load balancer have only private IP addresses. The DNS name of an internal load balancer is publicly resolvable to the private IP addresses of the nodes. Therefore, internal load balancers can route requests only from clients with access to the VPC for the load balancer.</p><p>The default is an Internet-facing load balancer.</p><p>You cannot specify a scheme for a Gateway Load Balancer.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingLoadBalancerSchemeEnum scheme;
 
@@ -647,12 +649,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
 
 /**
- <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet.</p>
+ <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones. You cannot specify Elastic IP addresses for your subnets.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones. You can specify one Elastic IP address per subnet if you need static IP addresses for your internet-facing load balancer. For internal load balancers, you can specify one private IP address per subnet from the IPv4 range of the subnet.</p><p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones. You cannot specify Elastic IP addresses for your subnets.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingSubnetMapping *> * _Nullable subnetMappings;
 
 /**
- <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p>
+ <p>The IDs of the public subnets. You can specify only one subnet per Availability Zone. You must specify either subnets or subnet mappings.</p><p>[Application Load Balancers] You must specify subnets from at least two Availability Zones.</p><p>[Application Load Balancers on Outposts] You must specify one Outpost subnet.</p><p>[Application Load Balancers on Local Zones] You can specify subnets from one or more Local Zones.</p><p>[Network Load Balancers] You can specify subnets from one or more Availability Zones.</p><p>[Gateway Load Balancers] You can specify subnets from one or more Availability Zones.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnets;
 
@@ -739,7 +741,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckEnabled;
 
 /**
- <p>The approximate amount of time, in seconds, between health checks of an individual target. For HTTP and HTTPS health checks, the range is 5–300 seconds. For TCP health checks, the supported values are 10 and 30 seconds. If the target type is <code>instance</code> or <code>ip</code>, the default is 30 seconds. If the target type is <code>lambda</code>, the default is 35 seconds.</p>
+ <p>The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 and 30 seconds. If the target type is <code>instance</code> or <code>ip</code>, the default is 30 seconds. If the target group protocol is GENEVE, the default is 10 seconds. If the target type is <code>lambda</code>, the default is 35 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckIntervalSeconds;
 
@@ -749,22 +751,22 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable healthCheckPath;
 
 /**
- <p>The port the load balancer uses when performing health checks on targets. The default is <code>traffic-port</code>, which is the port on which each target receives traffic from the load balancer.</p>
+ <p>The port the load balancer uses when performing health checks on targets. If the protocol is HTTP, HTTPS, TCP, TLS, UDP, or TCP_UDP, the default is <code>traffic-port</code>, which is the port on which each target receives traffic from the load balancer. If the protocol is GENEVE, the default is port 80.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckPort;
 
 /**
- <p>The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers, the default is HTTP. For Network Load Balancers, the default is TCP. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported for health checks.</p>
+ <p>The protocol the load balancer uses when performing health checks on targets. For Application Load Balancers, the default is HTTP. For Network Load Balancers and Gateway Load Balancers, the default is TCP. The TCP protocol is not supported for health checks if the protocol of the target group is HTTP or HTTPS. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum healthCheckProtocol;
 
 /**
- <p>The amount of time, in seconds, during which no response from a target means a failed health check. For target groups with a protocol of HTTP or HTTPS, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is <code>lambda</code>, the default is 30 seconds.</p>
+ <p>The amount of time, in seconds, during which no response from a target means a failed health check. For target groups with a protocol of HTTP, HTTPS, or GENEVE, the default is 5 seconds. For target groups with a protocol of TCP or TLS, this value must be 6 seconds for HTTP health checks and 10 seconds for TCP and HTTPS health checks. If the target type is <code>lambda</code>, the default is 30 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckTimeoutSeconds;
 
 /**
- <p>The number of consecutive health checks successes required before considering an unhealthy target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP or TLS, the default is 3. If the target type is <code>lambda</code>, the default is 5.</p>
+ <p>The number of consecutive health checks successes required before considering an unhealthy target healthy. For target groups with a protocol of HTTP or HTTPS, the default is 5. For target groups with a protocol of TCP, TLS, or GENEVE, the default is 3. If the target type is <code>lambda</code>, the default is 5.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthyThresholdCount;
 
@@ -779,12 +781,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply.</p>
+ <p>The port on which the targets receive traffic. This port is used unless you specify a port override when registering the target. If the target is a Lambda function, this parameter does not apply. If the protocol is GENEVE, the supported port is 6081.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
 /**
- <p>The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.</p>
+ <p>The protocol to use for routing traffic to the targets. For Application Load Balancers, the supported protocols are HTTP and HTTPS. For Network Load Balancers, the supported protocols are TCP, TLS, UDP, or TCP_UDP. For Gateway Load Balancers, the supported protocol is GENEVE. A TCP_UDP listener must be associated with a TCP_UDP target group. If the target is a Lambda function, this parameter does not apply.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
 
@@ -799,12 +801,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingTag *> * _Nullable tags;
 
 /**
- <p>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</p><ul><li><p><code>instance</code> - Targets are specified by instance ID. This is the default value.</p></li><li><p><code>ip</code> - Targets are specified by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.</p></li><li><p><code>lambda</code> - The target groups contains a single Lambda function.</p></li></ul>
+ <p>The type of target that you must specify when registering targets with this target group. You can't specify targets for a target group using more than one target type.</p><ul><li><p><code>instance</code> - Register targets by instance ID. This is the default value.</p></li><li><p><code>ip</code> - Register targets by IP address. You can specify IP addresses from the subnets of the virtual private cloud (VPC) for the target group, the RFC 1918 range (10.0.0.0/8, 172.16.0.0/12, and 192.168.0.0/16), and the RFC 6598 range (100.64.0.0/10). You can't specify publicly routable IP addresses.</p></li><li><p><code>lambda</code> - Register a single Lambda function as a target.</p></li></ul>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetTypeEnum targetType;
 
 /**
- <p>The number of consecutive health check failures required before considering a target unhealthy. For target groups with a protocol of HTTP or HTTPS, the default is 2. For target groups with a protocol of TCP or TLS, this value must be the same as the healthy threshold count. If the target type is <code>lambda</code>, the default is 2.</p>
+ <p>The number of consecutive health check failures required before considering a target unhealthy. If the target group protocol is HTTP or HTTPS, the default is 2. If the target group protocol is TCP or TLS, this value must be the same as the healthy threshold count. If the target group protocol is GENEVE, the default is 3. If the target type is <code>lambda</code>, the default is 2.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable unhealthyThresholdCount;
 
@@ -1452,7 +1454,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable max;
 
 /**
- <p>The name of the limit. The possible values are:</p><ul><li><p>application-load-balancers</p></li><li><p>listeners-per-application-load-balancer</p></li><li><p>listeners-per-network-load-balancer</p></li><li><p>network-load-balancers</p></li><li><p>rules-per-application-load-balancer</p></li><li><p>target-groups</p></li><li><p>target-groups-per-action-on-application-load-balancer</p></li><li><p>target-groups-per-action-on-network-load-balancer</p></li><li><p>target-groups-per-application-load-balancer</p></li><li><p>targets-per-application-load-balancer</p></li><li><p>targets-per-availability-zone-per-network-load-balancer</p></li><li><p>targets-per-network-load-balancer</p></li></ul>
+ <p>The name of the limit. The possible values are:</p><ul><li><p>application-load-balancers</p></li><li><p>condition-values-per-alb-rule</p></li><li><p>condition-wildcards-per-alb-rule</p></li><li><p>gateway-load-balancers</p></li><li><p>gateway-load-balancers-per-vpc</p></li><li><p>geneve-target-groups</p></li><li><p>listeners-per-application-load-balancer</p></li><li><p>listeners-per-network-load-balancer</p></li><li><p>network-load-balancers</p></li><li><p>rules-per-application-load-balancer</p></li><li><p>target-groups</p></li><li><p>target-groups-per-action-on-application-load-balancer</p></li><li><p>target-groups-per-action-on-network-load-balancer</p></li><li><p>target-groups-per-application-load-balancer</p></li><li><p>targets-per-application-load-balancer</p></li><li><p>targets-per-availability-zone-per-gateway-load-balancer</p></li><li><p>targets-per-availability-zone-per-network-load-balancer</p></li><li><p>targets-per-network-load-balancer</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -1609,7 +1611,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The name of the attribute.</p><p>The following attributes are supported by both Application Load Balancers and Network Load Balancers:</p><ul><li><p><code>access_logs.s3.enabled</code> - Indicates whether access logs are enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li><li><p><code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.</p></li><li><p><code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the access logs.</p></li><li><p><code>deletion_protection.enabled</code> - Indicates whether deletion protection is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul><p>The following attributes are supported by only Application Load Balancers:</p><ul><li><p><code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.</p></li><li><p><code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default is <code>defensive</code>.</p></li><li><p><code>routing.http.drop_invalid_header_fields.enabled</code> - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (<code>true</code>) or routed to targets (<code>false</code>). The default is <code>false</code>.</p></li><li><p><code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>true</code>. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.</p></li></ul><p>The following attributes are supported by only Network Load Balancers:</p><ul><li><p><code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load balancing is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul>
+ <p>The name of the attribute.</p><p>The following attribute is supported by all load balancers:</p><ul><li><p><code>deletion_protection.enabled</code> - Indicates whether deletion protection is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul><p>The following attributes are supported by both Application Load Balancers and Network Load Balancers:</p><ul><li><p><code>access_logs.s3.enabled</code> - Indicates whether access logs are enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li><li><p><code>access_logs.s3.bucket</code> - The name of the S3 bucket for the access logs. This attribute is required if access logs are enabled. The bucket must exist in the same region as the load balancer and have a bucket policy that grants Elastic Load Balancing permissions to write to the bucket.</p></li><li><p><code>access_logs.s3.prefix</code> - The prefix for the location in the S3 bucket for the access logs.</p></li></ul><p>The following attributes are supported by only Application Load Balancers:</p><ul><li><p><code>idle_timeout.timeout_seconds</code> - The idle timeout value, in seconds. The valid range is 1-4000 seconds. The default is 60 seconds.</p></li><li><p><code>routing.http.desync_mitigation_mode</code> - Determines how the load balancer handles requests that might pose a security risk to your application. The possible values are <code>monitor</code>, <code>defensive</code>, and <code>strictest</code>. The default is <code>defensive</code>.</p></li><li><p><code>routing.http.drop_invalid_header_fields.enabled</code> - Indicates whether HTTP headers with invalid header fields are removed by the load balancer (<code>true</code>) or routed to targets (<code>false</code>). The default is <code>false</code>.</p></li><li><p><code>routing.http2.enabled</code> - Indicates whether HTTP/2 is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>true</code>. Elastic Load Balancing requires that message header names contain only alphanumeric characters and hyphens.</p></li></ul><p>The following attribute is supported by Network Load Balancers and Gateway Load Balancers:</p><ul><li><p><code>load_balancing.cross_zone.enabled</code> - Indicates whether cross-zone load balancing is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
@@ -1650,7 +1652,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable grpcCode;
 
 /**
- <p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers, this is "200–399".</p>
+ <p>For Application Load Balancers, you can specify values between 200 and 499, and the default value is 200. You can specify multiple values (for example, "200,202") or a range of values (for example, "200-299").</p><p>For Network Load Balancers and Gateway Load Balancers, this must be "200–399".</p>
  */
 @property (nonatomic, strong) NSString * _Nullable httpCode;
 
@@ -1663,12 +1665,12 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p><ul><li><p><code>HTTP1Only</code></p></li><li><p><code>HTTP2Only</code></p></li><li><p><code>HTTP2Optional</code></p></li><li><p><code>HTTP2Preferred</code></p></li><li><p><code>None</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ <p>[TLS listeners] The name of the Application-Layer Protocol Negotiation (ALPN) policy. You can specify one policy name. The following are the possible values:</p><ul><li><p><code>HTTP1Only</code></p></li><li><p><code>HTTP2Only</code></p></li><li><p><code>HTTP2Optional</code></p></li><li><p><code>HTTP2Preferred</code></p></li><li><p><code>None</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#alpn-policies">ALPN policies</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable alpnPolicy;
 
 /**
- <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p><p>To create a certificate list, use <a>AddListenerCertificates</a>.</p>
+ <p>[HTTPS and TLS listeners] The default certificate for the listener. You must provide exactly one certificate. Set <code>CertificateArn</code> to the certificate ARN but do not set <code>IsDefault</code>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSElasticLoadBalancingCertificate *> * _Nullable certificates;
 
@@ -1683,17 +1685,17 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable listenerArn;
 
 /**
- <p>The port for connections from clients to the load balancer.</p>
+ <p>The port for connections from clients to the load balancer. You cannot specify a port for a Gateway Load Balancer.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
 /**
- <p>The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols.</p>
+ <p>The protocol for connections from clients to the load balancer. Application Load Balancers support the HTTP and HTTPS protocols. Network Load Balancers support the TCP, TLS, UDP, and TCP_UDP protocols. You cannot specify a protocol for a Gateway Load Balancer.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum protocols;
 
 /**
- <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported. The following are the possible values:</p><ul><li><p><code>ELBSecurityPolicy-2016-08</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-0-2015-04</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-1-2017-01</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-2-2017-01</code></p></li><li><p><code>ELBSecurityPolicy-TLS-1-2-Ext-2018-06</code></p></li><li><p><code>ELBSecurityPolicy-FS-2018-06</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-1-2019-08</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-2-2019-08</code></p></li><li><p><code>ELBSecurityPolicy-FS-1-2-Res-2019-08</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security Policies</a> in the <i>Application Load Balancers Guide</i> and <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security Policies</a> in the <i>Network Load Balancers Guide</i>.</p>
+ <p>[HTTPS and TLS listeners] The security policy that defines which protocols and ciphers are supported.</p><p>For more information, see <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/create-https-listener.html#describe-ssl-policies">Security policies</a> in the <i>Application Load Balancers Guide</i> or <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/create-tls-listener.html#describe-ssl-policies">Security policies</a> in the <i>Network Load Balancers Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sslPolicy;
 
@@ -1822,7 +1824,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckEnabled;
 
 /**
- <p>The approximate amount of time, in seconds, between health checks of an individual target. For HTTP and HTTPS health checks, the range is 5 to 300 seconds. For TPC health checks, the supported values are 10 or 30 seconds.</p><p>With Network Load Balancers, you can't modify this setting.</p>
+ <p>The approximate amount of time, in seconds, between health checks of an individual target. For TCP health checks, the supported values are 10 or 30 seconds.</p><p>With Network Load Balancers, you can't modify this setting.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckIntervalSeconds;
 
@@ -1837,7 +1839,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable healthCheckPort;
 
 /**
- <p>The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The TLS, UDP, and TCP_UDP protocols are not supported for health checks.</p><p>With Network Load Balancers, you can't modify this setting.</p>
+ <p>The protocol the load balancer uses when performing health checks on targets. The TCP protocol is supported for health checks only if the protocol of the target group is TCP, TLS, UDP, or TCP_UDP. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.</p><p>With Network Load Balancers, you can't modify this setting.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum healthCheckProtocol;
 
@@ -2148,7 +2150,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>. Network Load Balancers must use <code>ipv4</code>.</p>
+ <p>The IP address type. The possible values are <code>ipv4</code> (for IPv4 addresses) and <code>dualstack</code> (for IPv4 and IPv6 addresses). Internal load balancers must use <code>ipv4</code>. </p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingIpAddressType ipAddressType;
 
@@ -2379,7 +2381,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The port on which the target is listening. Not used if the target is a Lambda function.</p>
+ <p>The port on which the target is listening. If the target group protocol is GENEVE, the supported port is 6081. Not used if the target is a Lambda function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable port;
 
@@ -2412,7 +2414,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable healthCheckPort;
 
 /**
- <p>The protocol to use to connect with the target.</p>
+ <p>The protocol to use to connect with the target. The GENEVE, TLS, UDP, and TCP_UDP protocols are not supported for health checks.</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingProtocolEnum healthCheckProtocol;
 
@@ -2462,7 +2464,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable targetGroupName;
 
 /**
- <p>The type of target that you must specify when registering targets with this target group. The possible values are <code>instance</code> (targets are specified by instance ID) or <code>ip</code> (targets are specified by IP address).</p>
+ <p>The type of target that you must specify when registering targets with this target group. The possible values are <code>instance</code> (register targets by instance ID), <code>ip</code> (register targets by IP address), or <code>lambda</code> (register a single Lambda function as a target).</p>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetTypeEnum targetType;
 
@@ -2485,7 +2487,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 
 
 /**
- <p>The name of the attribute.</p><p>The following attributes are supported by both Application Load Balancers and Network Load Balancers:</p><ul><li><p><code>deregistration_delay.timeout_seconds</code> - The amount of time, in seconds, for Elastic Load Balancing to wait before changing the state of a deregistering target from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The default value is 300 seconds. If the target is a Lambda function, this attribute is not supported.</p></li><li><p><code>stickiness.enabled</code> - Indicates whether sticky sessions are enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li><li><p><code>stickiness.type</code> - The type of sticky sessions. The possible values are <code>lb_cookie</code> for Application Load Balancers or <code>source_ip</code> for Network Load Balancers.</p></li></ul><p>The following attributes are supported only if the load balancer is an Application Load Balancer and the target is an instance or an IP address:</p><ul><li><p><code>load_balancing.algorithm.type</code> - The load balancing algorithm determines how the load balancer selects targets when routing requests. The value is <code>round_robin</code> or <code>least_outstanding_requests</code>. The default is <code>round_robin</code>.</p></li><li><p><code>slow_start.duration_seconds</code> - The time period, in seconds, during which a newly registered target receives an increasing share of the traffic to the target group. After this time period ends, the target receives its full share of traffic. The range is 30-900 seconds (15 minutes). The default is 0 seconds (disabled).</p></li><li><p><code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).</p></li></ul><p>The following attribute is supported only if the load balancer is an Application Load Balancer and the target is a Lambda function:</p><ul><li><p><code>lambda.multi_value_headers.enabled</code> - Indicates whether the request and response headers that are exchanged between the load balancer and the Lambda function include arrays of values or strings. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>. If the value is <code>false</code> and the request contains a duplicate header field name or query parameter key, the load balancer uses the last value sent by the client.</p></li></ul><p>The following attribute is supported only by Network Load Balancers:</p><ul><li><p><code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul>
+ <p>The name of the attribute.</p><p>The following attribute is supported by all load balancers:</p><ul><li><p><code>deregistration_delay.timeout_seconds</code> - The amount of time, in seconds, for Elastic Load Balancing to wait before changing the state of a deregistering target from <code>draining</code> to <code>unused</code>. The range is 0-3600 seconds. The default value is 300 seconds. If the target is a Lambda function, this attribute is not supported.</p></li></ul><p>The following attributes are supported by both Application Load Balancers and Network Load Balancers:</p><ul><li><p><code>stickiness.enabled</code> - Indicates whether sticky sessions are enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li><li><p><code>stickiness.type</code> - The type of sticky sessions. The possible values are <code>lb_cookie</code> for Application Load Balancers or <code>source_ip</code> for Network Load Balancers.</p></li></ul><p>The following attributes are supported only if the load balancer is an Application Load Balancer and the target is an instance or an IP address:</p><ul><li><p><code>load_balancing.algorithm.type</code> - The load balancing algorithm determines how the load balancer selects targets when routing requests. The value is <code>round_robin</code> or <code>least_outstanding_requests</code>. The default is <code>round_robin</code>.</p></li><li><p><code>slow_start.duration_seconds</code> - The time period, in seconds, during which a newly registered target receives an increasing share of the traffic to the target group. After this time period ends, the target receives its full share of traffic. The range is 30-900 seconds (15 minutes). The default is 0 seconds (disabled).</p></li><li><p><code>stickiness.lb_cookie.duration_seconds</code> - The time period, in seconds, during which requests from a client should be routed to the same target. After this time period expires, the load balancer-generated cookie is considered stale. The range is 1 second to 1 week (604800 seconds). The default value is 1 day (86400 seconds).</p></li></ul><p>The following attribute is supported only if the load balancer is an Application Load Balancer and the target is a Lambda function:</p><ul><li><p><code>lambda.multi_value_headers.enabled</code> - Indicates whether the request and response headers that are exchanged between the load balancer and the Lambda function include arrays of values or strings. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>. If the value is <code>false</code> and the request contains a duplicate header field name or query parameter key, the load balancer uses the last value sent by the client.</p></li></ul><p>The following attribute is supported only by Network Load Balancers:</p><ul><li><p><code>proxy_protocol_v2.enabled</code> - Indicates whether Proxy Protocol version 2 is enabled. The value is <code>true</code> or <code>false</code>. The default is <code>false</code>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
@@ -2544,7 +2546,7 @@ typedef NS_ENUM(NSInteger, AWSElasticLoadBalancingTargetTypeEnum) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The reason code.</p><p>If the target state is <code>healthy</code>, a reason code is not provided.</p><p>If the target state is <code>initial</code>, the reason code can be one of the following values:</p><ul><li><p><code>Elb.RegistrationInProgress</code> - The target is in the process of being registered with the load balancer.</p></li><li><p><code>Elb.InitialHealthChecking</code> - The load balancer is still sending the target the minimum number of health checks required to determine its health status.</p></li></ul><p>If the target state is <code>unhealthy</code>, the reason code can be one of the following values:</p><ul><li><p><code>Target.ResponseCodeMismatch</code> - The health checks did not return an expected HTTP code. Applies only to Application Load Balancers.</p></li><li><p><code>Target.Timeout</code> - The health check requests timed out. Applies only to Application Load Balancers.</p></li><li><p><code>Target.FailedHealthChecks</code> - The load balancer received an error while establishing a connection to the target or the target response was malformed.</p></li><li><p><code>Elb.InternalError</code> - The health checks failed due to an internal error. Applies only to Application Load Balancers.</p></li></ul><p>If the target state is <code>unused</code>, the reason code can be one of the following values:</p><ul><li><p><code>Target.NotRegistered</code> - The target is not registered with the target group.</p></li><li><p><code>Target.NotInUse</code> - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.</p></li><li><p><code>Target.InvalidState</code> - The target is in the stopped or terminated state.</p></li><li><p><code>Target.IpUnusable</code> - The target IP address is reserved for use by a load balancer.</p></li></ul><p>If the target state is <code>draining</code>, the reason code can be the following value:</p><ul><li><p><code>Target.DeregistrationInProgress</code> - The target is in the process of being deregistered and the deregistration delay period has not expired.</p></li></ul><p>If the target state is <code>unavailable</code>, the reason code can be the following value:</p><ul><li><p><code>Target.HealthCheckDisabled</code> - Health checks are disabled for the target group. Applies only to Application Load Balancers.</p></li><li><p><code>Elb.InternalError</code> - Target health is unavailable due to an internal error. Applies only to Network Load Balancers.</p></li></ul>
+ <p>The reason code.</p><p>If the target state is <code>healthy</code>, a reason code is not provided.</p><p>If the target state is <code>initial</code>, the reason code can be one of the following values:</p><ul><li><p><code>Elb.RegistrationInProgress</code> - The target is in the process of being registered with the load balancer.</p></li><li><p><code>Elb.InitialHealthChecking</code> - The load balancer is still sending the target the minimum number of health checks required to determine its health status.</p></li></ul><p>If the target state is <code>unhealthy</code>, the reason code can be one of the following values:</p><ul><li><p><code>Target.ResponseCodeMismatch</code> - The health checks did not return an expected HTTP code. Applies only to Application Load Balancers and Gateway Load Balancers.</p></li><li><p><code>Target.Timeout</code> - The health check requests timed out. Applies only to Application Load Balancers and Gateway Load Balancers.</p></li><li><p><code>Target.FailedHealthChecks</code> - The load balancer received an error while establishing a connection to the target or the target response was malformed.</p></li><li><p><code>Elb.InternalError</code> - The health checks failed due to an internal error. Applies only to Application Load Balancers.</p></li></ul><p>If the target state is <code>unused</code>, the reason code can be one of the following values:</p><ul><li><p><code>Target.NotRegistered</code> - The target is not registered with the target group.</p></li><li><p><code>Target.NotInUse</code> - The target group is not used by any load balancer or the target is in an Availability Zone that is not enabled for its load balancer.</p></li><li><p><code>Target.InvalidState</code> - The target is in the stopped or terminated state.</p></li><li><p><code>Target.IpUnusable</code> - The target IP address is reserved for use by a load balancer.</p></li></ul><p>If the target state is <code>draining</code>, the reason code can be the following value:</p><ul><li><p><code>Target.DeregistrationInProgress</code> - The target is in the process of being deregistered and the deregistration delay period has not expired.</p></li></ul><p>If the target state is <code>unavailable</code>, the reason code can be the following value:</p><ul><li><p><code>Target.HealthCheckDisabled</code> - Health checks are disabled for the target group. Applies only to Application Load Balancers.</p></li><li><p><code>Elb.InternalError</code> - Target health is unavailable due to an internal error. Applies only to Network Load Balancers.</p></li></ul>
  */
 @property (nonatomic, assign) AWSElasticLoadBalancingTargetHealthReasonEnum reason;
 

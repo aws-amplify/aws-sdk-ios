@@ -1,19 +1,24 @@
 ---
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSAutoScaling
----AWSElasticLoadBalancing
----AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
 
+## 2.19.1
+
+### Bug fixes
+
+- Fixed an issue where id token is not refreshed automatically for customers who set short custom expiration intervals (See [Issue #869](https://github.com/aws-amplify/amplify-ios/issues/869), [PR #3220](https://github.com/aws-amplify/aws-sdk-ios/pull/3220/))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSElasticLoadBalancing
+  - AWSEC2
+  - AWSDynamoDB
+  
 ## 2.19.0
 
 ### Breaking Changes

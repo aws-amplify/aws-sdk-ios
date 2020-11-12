@@ -355,6 +355,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -370,6 +373,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -478,6 +483,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"network"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork);
         }
+        if ([value caseInsensitiveCompare:@"gateway"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingLoadBalancerTypeEnumGateway);
+        }
         return @(AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -485,6 +493,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"application";
             case AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork:
                 return @"network";
+            case AWSElasticLoadBalancingLoadBalancerTypeEnumGateway:
+                return @"gateway";
             default:
                 return nil;
         }
@@ -606,6 +616,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -621,6 +634,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -651,6 +666,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -666,6 +684,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -1363,6 +1383,9 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1378,6 +1401,8 @@ NSString *const AWSElasticLoadBalancingErrorDomain = @"com.amazonaws.AWSElasticL
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -1476,6 +1501,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork);
         }
+        if ([value caseInsensitiveCompare:@"gateway"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingLoadBalancerTypeEnumGateway);
+        }
         return @(AWSElasticLoadBalancingLoadBalancerTypeEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1483,6 +1511,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"application";
             case AWSElasticLoadBalancingLoadBalancerTypeEnumNetwork:
                 return @"network";
+            case AWSElasticLoadBalancingLoadBalancerTypeEnumGateway:
+                return @"gateway";
             default:
                 return nil;
         }
@@ -1629,6 +1659,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1644,6 +1677,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -1827,6 +1862,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1842,6 +1880,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -2444,6 +2484,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2459,6 +2502,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }
@@ -2489,6 +2534,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"TCP_UDP"] == NSOrderedSame) {
             return @(AWSElasticLoadBalancingProtocolEnumTcpUdp);
         }
+        if ([value caseInsensitiveCompare:@"GENEVE"] == NSOrderedSame) {
+            return @(AWSElasticLoadBalancingProtocolEnumGeneve);
+        }
         return @(AWSElasticLoadBalancingProtocolEnumUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -2504,6 +2552,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"UDP";
             case AWSElasticLoadBalancingProtocolEnumTcpUdp:
                 return @"TCP_UDP";
+            case AWSElasticLoadBalancingProtocolEnumGeneve:
+                return @"GENEVE";
             default:
                 return nil;
         }

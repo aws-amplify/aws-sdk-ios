@@ -1500,6 +1500,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ServiceType) {
     AWSEC2ServiceTypeUnknown,
     AWSEC2ServiceTypeInterface,
     AWSEC2ServiceTypeGateway,
+    AWSEC2ServiceTypeGatewayLoadBalancer,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2ShutdownBehavior) {
@@ -1879,6 +1880,7 @@ typedef NS_ENUM(NSInteger, AWSEC2VpcEndpointType) {
     AWSEC2VpcEndpointTypeUnknown,
     AWSEC2VpcEndpointTypeInterface,
     AWSEC2VpcEndpointTypeGateway,
+    AWSEC2VpcEndpointTypeGatewayLoadBalancer,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2VpcPeeringConnectionStateReasonCode) {
@@ -8300,6 +8302,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
 
 /**
+ <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcEndpointId;
+
+/**
  <p>The ID of a VPC peering connection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
@@ -9368,7 +9375,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.</p>
+ <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format. If this parameter is not specified, we attach a default policy that allows full access to the service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -9393,7 +9400,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable serviceName;
 
 /**
- <p>(Interface endpoint) The ID of one or more subnets in which to create an endpoint network interface.</p>
+ <p>(Interface and Gateway Load Balancer endpoints) The ID of one or more subnets in which to create an endpoint network interface. For a Gateway Load Balancer endpoint, you can specify one subnet only.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
 
@@ -9454,12 +9461,17 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>The Amazon Resource Names (ARNs) of one or more Gateway Load Balancers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable gatewayLoadBalancerArns;
+
+/**
  <p>The Amazon Resource Names (ARNs) of one or more Network Load Balancers for your service.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable networkLoadBalancerArns;
 
 /**
- <p>The private DNS name to assign to the VPC endpoint service.</p>
+ <p>(Interface endpoint configuration) The private DNS name to assign to the VPC endpoint service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateDnsName;
 
@@ -16984,7 +16996,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>service-name</code> - The name of the service.</p></li><li><p><code>vpc-id</code> - The ID of the VPC in which the endpoint resides.</p></li><li><p><code>vpc-endpoint-id</code> - The ID of the endpoint.</p></li><li><p><code>vpc-endpoint-state</code> - The state of the endpoint (<code>pendingAcceptance</code> | <code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code> | <code>rejected</code> | <code>failed</code>).</p></li><li><p><code>vpc-endpoint-type</code> - The type of VPC endpoint (<code>Interface</code> | <code>Gateway</code> | <code>GatewayLoadBalancer</code>).</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -27221,7 +27233,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addSecurityGroupIds;
 
 /**
- <p>(Interface endpoint) One or more subnet IDs in which to serve the endpoint.</p>
+ <p>(Interface and Gateway Load Balancer endpoints) One or more subnet IDs in which to serve the endpoint. For a Gateway Load Balancer endpoint, you can specify only one subnet.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addSubnetIds;
 
@@ -27231,7 +27243,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.</p>
+ <p>(Interface and gateway endpoints) A policy to attach to the endpoint that controls access to the service. The policy must be in valid JSON format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
@@ -27292,6 +27304,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable acceptanceRequired;
 
 /**
+ <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable addGatewayLoadBalancerArns;
+
+/**
  <p>The Amazon Resource Names (ARNs) of Network Load Balancers to add to your service configuration.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable addNetworkLoadBalancerArns;
@@ -27302,9 +27319,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>The private DNS name to assign to the endpoint service.</p>
+ <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateDnsName;
+
+/**
+ <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeGatewayLoadBalancerArns;
 
 /**
  <p>The Amazon Resource Names (ARNs) of Network Load Balancers to remove from your service configuration.</p>
@@ -27312,7 +27334,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable removeNetworkLoadBalancerArns;
 
 /**
- <p>Removes the private DNS name of the endpoint service.</p>
+ <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable removePrivateDnsName;
 
@@ -30259,6 +30281,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
 
 /**
+ <p>The ID of a VPC endpoint. Supported for Gateway Load Balancer endpoints only.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcEndpointId;
+
+/**
  <p>The ID of a VPC peering connection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
@@ -33038,6 +33065,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The DNS names for the service.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable baseEndpointDnsNames;
+
+/**
+ <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable gatewayLoadBalancerArns;
 
 /**
  <p>Indicates whether the service manages its VPC endpoints. Management of the service VPC endpoints using the VPC endpoint API is restricted.</p>
@@ -37201,6 +37233,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The DNS entries for the VPC endpoint.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2DnsEntry *> * _Nullable dnsEntries;
+
+/**
+ <p>The Amazon Resource Names (ARNs) of the Gateway Load Balancers for the service.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable gatewayLoadBalancerArns;
 
 /**
  <p>The Amazon Resource Names (ARNs) of the network load balancers for the service.</p>
