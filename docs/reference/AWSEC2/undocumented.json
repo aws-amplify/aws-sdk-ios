@@ -9326,2625 +9326,2639 @@
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1505,
+      "line": 1503,
+      "symbol": "AWSEC2ServiceType.AWSEC2ServiceTypeGatewayLoadBalancer",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
+      "line": 1506,
       "symbol": "AWSEC2ShutdownBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1505,
+      "line": 1506,
       "symbol": "AWSEC2ShutdownBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1506,
+      "line": 1507,
       "symbol": "AWSEC2ShutdownBehavior.AWSEC2ShutdownBehaviorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1507,
+      "line": 1508,
       "symbol": "AWSEC2ShutdownBehavior.AWSEC2ShutdownBehaviorStop",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1508,
+      "line": 1509,
       "symbol": "AWSEC2ShutdownBehavior.AWSEC2ShutdownBehaviorTerminate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1511,
+      "line": 1512,
       "symbol": "AWSEC2SnapshotAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1511,
+      "line": 1512,
       "symbol": "AWSEC2SnapshotAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1512,
+      "line": 1513,
       "symbol": "AWSEC2SnapshotAttributeName.AWSEC2SnapshotAttributeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1513,
+      "line": 1514,
       "symbol": "AWSEC2SnapshotAttributeName.AWSEC2SnapshotAttributeNameProductCodes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1514,
+      "line": 1515,
       "symbol": "AWSEC2SnapshotAttributeName.AWSEC2SnapshotAttributeNameCreateVolumePermission",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1517,
+      "line": 1518,
       "symbol": "AWSEC2SnapshotState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1517,
+      "line": 1518,
       "symbol": "AWSEC2SnapshotState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1518,
+      "line": 1519,
       "symbol": "AWSEC2SnapshotState.AWSEC2SnapshotStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1519,
+      "line": 1520,
       "symbol": "AWSEC2SnapshotState.AWSEC2SnapshotStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1520,
+      "line": 1521,
       "symbol": "AWSEC2SnapshotState.AWSEC2SnapshotStateCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1521,
+      "line": 1522,
       "symbol": "AWSEC2SnapshotState.AWSEC2SnapshotStateError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1524,
+      "line": 1525,
       "symbol": "AWSEC2SpotAllocationStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1524,
+      "line": 1525,
       "symbol": "AWSEC2SpotAllocationStrategy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1525,
+      "line": 1526,
       "symbol": "AWSEC2SpotAllocationStrategy.AWSEC2SpotAllocationStrategyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1526,
+      "line": 1527,
       "symbol": "AWSEC2SpotAllocationStrategy.AWSEC2SpotAllocationStrategyLowestPrice",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1527,
+      "line": 1528,
       "symbol": "AWSEC2SpotAllocationStrategy.AWSEC2SpotAllocationStrategyDiversified",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1528,
+      "line": 1529,
       "symbol": "AWSEC2SpotAllocationStrategy.AWSEC2SpotAllocationStrategyCapacityOptimized",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1531,
+      "line": 1532,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1531,
+      "line": 1532,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1532,
+      "line": 1533,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior.AWSEC2SpotInstanceInterruptionBehaviorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1533,
+      "line": 1534,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior.AWSEC2SpotInstanceInterruptionBehaviorHibernate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1534,
+      "line": 1535,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior.AWSEC2SpotInstanceInterruptionBehaviorStop",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1535,
+      "line": 1536,
       "symbol": "AWSEC2SpotInstanceInterruptionBehavior.AWSEC2SpotInstanceInterruptionBehaviorTerminate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1538,
+      "line": 1539,
       "symbol": "AWSEC2SpotInstanceState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1538,
+      "line": 1539,
       "symbol": "AWSEC2SpotInstanceState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1539,
+      "line": 1540,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1540,
+      "line": 1541,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateOpen",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1541,
+      "line": 1542,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1542,
+      "line": 1543,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateClosed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1543,
+      "line": 1544,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateCancelled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1544,
+      "line": 1545,
       "symbol": "AWSEC2SpotInstanceState.AWSEC2SpotInstanceStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1547,
+      "line": 1548,
       "symbol": "AWSEC2SpotInstanceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1547,
+      "line": 1548,
       "symbol": "AWSEC2SpotInstanceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1548,
+      "line": 1549,
       "symbol": "AWSEC2SpotInstanceType.AWSEC2SpotInstanceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1549,
+      "line": 1550,
       "symbol": "AWSEC2SpotInstanceType.AWSEC2SpotInstanceTypeOneTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1550,
+      "line": 1551,
       "symbol": "AWSEC2SpotInstanceType.AWSEC2SpotInstanceTypePersistent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1553,
+      "line": 1554,
       "symbol": "AWSEC2State",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1553,
+      "line": 1554,
       "symbol": "AWSEC2State",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1554,
+      "line": 1555,
       "symbol": "AWSEC2State.AWSEC2StateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1555,
+      "line": 1556,
       "symbol": "AWSEC2State.AWSEC2StatePendingAcceptance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1556,
+      "line": 1557,
       "symbol": "AWSEC2State.AWSEC2StatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1557,
+      "line": 1558,
       "symbol": "AWSEC2State.AWSEC2StateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1558,
+      "line": 1559,
       "symbol": "AWSEC2State.AWSEC2StateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1559,
+      "line": 1560,
       "symbol": "AWSEC2State.AWSEC2StateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1560,
+      "line": 1561,
       "symbol": "AWSEC2State.AWSEC2StateRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1561,
+      "line": 1562,
       "symbol": "AWSEC2State.AWSEC2StateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1562,
+      "line": 1563,
       "symbol": "AWSEC2State.AWSEC2StateExpired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1565,
+      "line": 1566,
       "symbol": "AWSEC2Status",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1565,
+      "line": 1566,
       "symbol": "AWSEC2Status",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1566,
+      "line": 1567,
       "symbol": "AWSEC2Status.AWSEC2StatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1567,
+      "line": 1568,
       "symbol": "AWSEC2Status.AWSEC2StatusMoveInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1568,
+      "line": 1569,
       "symbol": "AWSEC2Status.AWSEC2StatusInVpc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1569,
+      "line": 1570,
       "symbol": "AWSEC2Status.AWSEC2StatusInClassic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1572,
+      "line": 1573,
       "symbol": "AWSEC2StatusName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1572,
+      "line": 1573,
       "symbol": "AWSEC2StatusName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1573,
+      "line": 1574,
       "symbol": "AWSEC2StatusName.AWSEC2StatusNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1574,
+      "line": 1575,
       "symbol": "AWSEC2StatusName.AWSEC2StatusNameReachability",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1577,
+      "line": 1578,
       "symbol": "AWSEC2StatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1577,
+      "line": 1578,
       "symbol": "AWSEC2StatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1578,
+      "line": 1579,
       "symbol": "AWSEC2StatusType.AWSEC2StatusTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1579,
+      "line": 1580,
       "symbol": "AWSEC2StatusType.AWSEC2StatusTypePassed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1580,
+      "line": 1581,
       "symbol": "AWSEC2StatusType.AWSEC2StatusTypeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1581,
+      "line": 1582,
       "symbol": "AWSEC2StatusType.AWSEC2StatusTypeInsufficientData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1582,
+      "line": 1583,
       "symbol": "AWSEC2StatusType.AWSEC2StatusTypeInitializing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1585,
+      "line": 1586,
       "symbol": "AWSEC2SubnetCidrBlockStateCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1585,
+      "line": 1586,
       "symbol": "AWSEC2SubnetCidrBlockStateCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1586,
+      "line": 1587,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1587,
+      "line": 1588,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeAssociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1588,
+      "line": 1589,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeAssociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1589,
+      "line": 1590,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeDisassociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1590,
+      "line": 1591,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeDisassociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1591,
+      "line": 1592,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeFailing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1592,
+      "line": 1593,
       "symbol": "AWSEC2SubnetCidrBlockStateCode.AWSEC2SubnetCidrBlockStateCodeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1595,
+      "line": 1596,
       "symbol": "AWSEC2SubnetState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1595,
+      "line": 1596,
       "symbol": "AWSEC2SubnetState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1596,
+      "line": 1597,
       "symbol": "AWSEC2SubnetState.AWSEC2SubnetStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1597,
+      "line": 1598,
       "symbol": "AWSEC2SubnetState.AWSEC2SubnetStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1598,
+      "line": 1599,
       "symbol": "AWSEC2SubnetState.AWSEC2SubnetStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1601,
+      "line": 1602,
       "symbol": "AWSEC2SummaryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1601,
+      "line": 1602,
       "symbol": "AWSEC2SummaryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1602,
+      "line": 1603,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1603,
+      "line": 1604,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusOK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1604,
+      "line": 1605,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusImpaired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1605,
+      "line": 1606,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusInsufficientData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1606,
+      "line": 1607,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusNotApplicable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1607,
+      "line": 1608,
       "symbol": "AWSEC2SummaryStatus.AWSEC2SummaryStatusInitializing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1610,
+      "line": 1611,
       "symbol": "AWSEC2TelemetryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1610,
+      "line": 1611,
       "symbol": "AWSEC2TelemetryStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1611,
+      "line": 1612,
       "symbol": "AWSEC2TelemetryStatus.AWSEC2TelemetryStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1612,
+      "line": 1613,
       "symbol": "AWSEC2TelemetryStatus.AWSEC2TelemetryStatusUp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1613,
+      "line": 1614,
       "symbol": "AWSEC2TelemetryStatus.AWSEC2TelemetryStatusDown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1616,
+      "line": 1617,
       "symbol": "AWSEC2Tenancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1616,
+      "line": 1617,
       "symbol": "AWSEC2Tenancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1617,
+      "line": 1618,
       "symbol": "AWSEC2Tenancy.AWSEC2TenancyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1618,
+      "line": 1619,
       "symbol": "AWSEC2Tenancy.AWSEC2TenancyDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1619,
+      "line": 1620,
       "symbol": "AWSEC2Tenancy.AWSEC2TenancyDedicated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1620,
+      "line": 1621,
       "symbol": "AWSEC2Tenancy.AWSEC2TenancyHost",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1623,
+      "line": 1624,
       "symbol": "AWSEC2TrafficDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1623,
+      "line": 1624,
       "symbol": "AWSEC2TrafficDirection",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1624,
+      "line": 1625,
       "symbol": "AWSEC2TrafficDirection.AWSEC2TrafficDirectionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1625,
+      "line": 1626,
       "symbol": "AWSEC2TrafficDirection.AWSEC2TrafficDirectionIngress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1626,
+      "line": 1627,
       "symbol": "AWSEC2TrafficDirection.AWSEC2TrafficDirectionEgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1629,
+      "line": 1630,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1629,
+      "line": 1630,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1630,
+      "line": 1631,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField.AWSEC2TrafficMirrorFilterRuleFieldUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1631,
+      "line": 1632,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField.AWSEC2TrafficMirrorFilterRuleFieldDestinationPortRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1632,
+      "line": 1633,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField.AWSEC2TrafficMirrorFilterRuleFieldSourcePortRange",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1633,
+      "line": 1634,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField.AWSEC2TrafficMirrorFilterRuleFieldProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1634,
+      "line": 1635,
       "symbol": "AWSEC2TrafficMirrorFilterRuleField.AWSEC2TrafficMirrorFilterRuleFieldDescription",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1637,
+      "line": 1638,
       "symbol": "AWSEC2TrafficMirrorNetworkService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1637,
+      "line": 1638,
       "symbol": "AWSEC2TrafficMirrorNetworkService",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1638,
+      "line": 1639,
       "symbol": "AWSEC2TrafficMirrorNetworkService.AWSEC2TrafficMirrorNetworkServiceUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1639,
+      "line": 1640,
       "symbol": "AWSEC2TrafficMirrorNetworkService.AWSEC2TrafficMirrorNetworkServiceAmazonDns",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1642,
+      "line": 1643,
       "symbol": "AWSEC2TrafficMirrorRuleAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1642,
+      "line": 1643,
       "symbol": "AWSEC2TrafficMirrorRuleAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1643,
+      "line": 1644,
       "symbol": "AWSEC2TrafficMirrorRuleAction.AWSEC2TrafficMirrorRuleActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1644,
+      "line": 1645,
       "symbol": "AWSEC2TrafficMirrorRuleAction.AWSEC2TrafficMirrorRuleActionAccept",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1645,
+      "line": 1646,
       "symbol": "AWSEC2TrafficMirrorRuleAction.AWSEC2TrafficMirrorRuleActionReject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1648,
+      "line": 1649,
       "symbol": "AWSEC2TrafficMirrorSessionField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1648,
+      "line": 1649,
       "symbol": "AWSEC2TrafficMirrorSessionField",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1649,
+      "line": 1650,
       "symbol": "AWSEC2TrafficMirrorSessionField.AWSEC2TrafficMirrorSessionFieldUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1650,
+      "line": 1651,
       "symbol": "AWSEC2TrafficMirrorSessionField.AWSEC2TrafficMirrorSessionFieldPacketLength",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1651,
+      "line": 1652,
       "symbol": "AWSEC2TrafficMirrorSessionField.AWSEC2TrafficMirrorSessionFieldDescription",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1652,
+      "line": 1653,
       "symbol": "AWSEC2TrafficMirrorSessionField.AWSEC2TrafficMirrorSessionFieldVirtualNetworkId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1655,
+      "line": 1656,
       "symbol": "AWSEC2TrafficMirrorTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1655,
+      "line": 1656,
       "symbol": "AWSEC2TrafficMirrorTargetType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1656,
+      "line": 1657,
       "symbol": "AWSEC2TrafficMirrorTargetType.AWSEC2TrafficMirrorTargetTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1657,
+      "line": 1658,
       "symbol": "AWSEC2TrafficMirrorTargetType.AWSEC2TrafficMirrorTargetTypeNetworkInterface",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1658,
+      "line": 1659,
       "symbol": "AWSEC2TrafficMirrorTargetType.AWSEC2TrafficMirrorTargetTypeNetworkLoadBalancer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1661,
+      "line": 1662,
       "symbol": "AWSEC2TrafficType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1661,
+      "line": 1662,
       "symbol": "AWSEC2TrafficType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1662,
+      "line": 1663,
       "symbol": "AWSEC2TrafficType.AWSEC2TrafficTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1663,
+      "line": 1664,
       "symbol": "AWSEC2TrafficType.AWSEC2TrafficTypeAccept",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1664,
+      "line": 1665,
       "symbol": "AWSEC2TrafficType.AWSEC2TrafficTypeReject",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1665,
+      "line": 1666,
       "symbol": "AWSEC2TrafficType.AWSEC2TrafficTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1668,
+      "line": 1669,
       "symbol": "AWSEC2TransitGatewayAssociationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1668,
+      "line": 1669,
       "symbol": "AWSEC2TransitGatewayAssociationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1669,
+      "line": 1670,
       "symbol": "AWSEC2TransitGatewayAssociationState.AWSEC2TransitGatewayAssociationStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1670,
+      "line": 1671,
       "symbol": "AWSEC2TransitGatewayAssociationState.AWSEC2TransitGatewayAssociationStateAssociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1671,
+      "line": 1672,
       "symbol": "AWSEC2TransitGatewayAssociationState.AWSEC2TransitGatewayAssociationStateAssociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1672,
+      "line": 1673,
       "symbol": "AWSEC2TransitGatewayAssociationState.AWSEC2TransitGatewayAssociationStateDisassociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1673,
+      "line": 1674,
       "symbol": "AWSEC2TransitGatewayAssociationState.AWSEC2TransitGatewayAssociationStateDisassociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1676,
+      "line": 1677,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1676,
+      "line": 1677,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1677,
+      "line": 1678,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1678,
+      "line": 1679,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypeVPC",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1679,
+      "line": 1680,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypeVpn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1680,
+      "line": 1681,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1681,
+      "line": 1682,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypePeering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1682,
+      "line": 1683,
       "symbol": "AWSEC2TransitGatewayAttachmentResourceType.AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1685,
+      "line": 1686,
       "symbol": "AWSEC2TransitGatewayAttachmentState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1685,
+      "line": 1686,
       "symbol": "AWSEC2TransitGatewayAttachmentState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1686,
+      "line": 1687,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1687,
+      "line": 1688,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateInitiating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1688,
+      "line": 1689,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateInitiatingRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1689,
+      "line": 1690,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStatePendingAcceptance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1690,
+      "line": 1691,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateRollingBack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1691,
+      "line": 1692,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1692,
+      "line": 1693,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1693,
+      "line": 1694,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateModifying",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1694,
+      "line": 1695,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1695,
+      "line": 1696,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1696,
+      "line": 1697,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1697,
+      "line": 1698,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1698,
+      "line": 1699,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateRejecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1699,
+      "line": 1700,
       "symbol": "AWSEC2TransitGatewayAttachmentState.AWSEC2TransitGatewayAttachmentStateFailing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1702,
+      "line": 1703,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1702,
+      "line": 1703,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1703,
+      "line": 1704,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState.AWSEC2TransitGatewayMulitcastDomainAssociationStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1704,
+      "line": 1705,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState.AWSEC2TransitGatewayMulitcastDomainAssociationStateAssociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1705,
+      "line": 1706,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState.AWSEC2TransitGatewayMulitcastDomainAssociationStateAssociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1706,
+      "line": 1707,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState.AWSEC2TransitGatewayMulitcastDomainAssociationStateDisassociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1707,
+      "line": 1708,
       "symbol": "AWSEC2TransitGatewayMulitcastDomainAssociationState.AWSEC2TransitGatewayMulitcastDomainAssociationStateDisassociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1710,
+      "line": 1711,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1710,
+      "line": 1711,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1711,
+      "line": 1712,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState.AWSEC2TransitGatewayMulticastDomainStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1712,
+      "line": 1713,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState.AWSEC2TransitGatewayMulticastDomainStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1713,
+      "line": 1714,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState.AWSEC2TransitGatewayMulticastDomainStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1714,
+      "line": 1715,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState.AWSEC2TransitGatewayMulticastDomainStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1715,
+      "line": 1716,
       "symbol": "AWSEC2TransitGatewayMulticastDomainState.AWSEC2TransitGatewayMulticastDomainStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1718,
+      "line": 1719,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1718,
+      "line": 1719,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1719,
+      "line": 1720,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState.AWSEC2TransitGatewayPrefixListReferenceStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1720,
+      "line": 1721,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState.AWSEC2TransitGatewayPrefixListReferenceStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1721,
+      "line": 1722,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState.AWSEC2TransitGatewayPrefixListReferenceStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1722,
+      "line": 1723,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState.AWSEC2TransitGatewayPrefixListReferenceStateModifying",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1723,
+      "line": 1724,
       "symbol": "AWSEC2TransitGatewayPrefixListReferenceState.AWSEC2TransitGatewayPrefixListReferenceStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1726,
+      "line": 1727,
       "symbol": "AWSEC2TransitGatewayPropagationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1726,
+      "line": 1727,
       "symbol": "AWSEC2TransitGatewayPropagationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1727,
+      "line": 1728,
       "symbol": "AWSEC2TransitGatewayPropagationState.AWSEC2TransitGatewayPropagationStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1728,
+      "line": 1729,
       "symbol": "AWSEC2TransitGatewayPropagationState.AWSEC2TransitGatewayPropagationStateEnabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1729,
+      "line": 1730,
       "symbol": "AWSEC2TransitGatewayPropagationState.AWSEC2TransitGatewayPropagationStateEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1730,
+      "line": 1731,
       "symbol": "AWSEC2TransitGatewayPropagationState.AWSEC2TransitGatewayPropagationStateDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1731,
+      "line": 1732,
       "symbol": "AWSEC2TransitGatewayPropagationState.AWSEC2TransitGatewayPropagationStateDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1734,
+      "line": 1735,
       "symbol": "AWSEC2TransitGatewayRouteState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1734,
+      "line": 1735,
       "symbol": "AWSEC2TransitGatewayRouteState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1735,
+      "line": 1736,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1736,
+      "line": 1737,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1737,
+      "line": 1738,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1738,
+      "line": 1739,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStateBlackhole",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1739,
+      "line": 1740,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1740,
+      "line": 1741,
       "symbol": "AWSEC2TransitGatewayRouteState.AWSEC2TransitGatewayRouteStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1743,
+      "line": 1744,
       "symbol": "AWSEC2TransitGatewayRouteTableState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1743,
+      "line": 1744,
       "symbol": "AWSEC2TransitGatewayRouteTableState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1744,
+      "line": 1745,
       "symbol": "AWSEC2TransitGatewayRouteTableState.AWSEC2TransitGatewayRouteTableStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1745,
+      "line": 1746,
       "symbol": "AWSEC2TransitGatewayRouteTableState.AWSEC2TransitGatewayRouteTableStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1746,
+      "line": 1747,
       "symbol": "AWSEC2TransitGatewayRouteTableState.AWSEC2TransitGatewayRouteTableStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1747,
+      "line": 1748,
       "symbol": "AWSEC2TransitGatewayRouteTableState.AWSEC2TransitGatewayRouteTableStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1748,
+      "line": 1749,
       "symbol": "AWSEC2TransitGatewayRouteTableState.AWSEC2TransitGatewayRouteTableStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1751,
+      "line": 1752,
       "symbol": "AWSEC2TransitGatewayRouteType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1751,
+      "line": 1752,
       "symbol": "AWSEC2TransitGatewayRouteType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1752,
+      "line": 1753,
       "symbol": "AWSEC2TransitGatewayRouteType.AWSEC2TransitGatewayRouteTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1753,
+      "line": 1754,
       "symbol": "AWSEC2TransitGatewayRouteType.AWSEC2TransitGatewayRouteTypeStatic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1754,
+      "line": 1755,
       "symbol": "AWSEC2TransitGatewayRouteType.AWSEC2TransitGatewayRouteTypePropagated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1757,
+      "line": 1758,
       "symbol": "AWSEC2TransitGatewayState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1757,
+      "line": 1758,
       "symbol": "AWSEC2TransitGatewayState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1758,
+      "line": 1759,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1759,
+      "line": 1760,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1760,
+      "line": 1761,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1761,
+      "line": 1762,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStateModifying",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1762,
+      "line": 1763,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1763,
+      "line": 1764,
       "symbol": "AWSEC2TransitGatewayState.AWSEC2TransitGatewayStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1766,
+      "line": 1767,
       "symbol": "AWSEC2TransportProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1766,
+      "line": 1767,
       "symbol": "AWSEC2TransportProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1767,
+      "line": 1768,
       "symbol": "AWSEC2TransportProtocol.AWSEC2TransportProtocolUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1768,
+      "line": 1769,
       "symbol": "AWSEC2TransportProtocol.AWSEC2TransportProtocolTcp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1769,
+      "line": 1770,
       "symbol": "AWSEC2TransportProtocol.AWSEC2TransportProtocolUdp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1772,
+      "line": 1773,
       "symbol": "AWSEC2TunnelInsideIpVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1772,
+      "line": 1773,
       "symbol": "AWSEC2TunnelInsideIpVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1773,
+      "line": 1774,
       "symbol": "AWSEC2TunnelInsideIpVersion.AWSEC2TunnelInsideIpVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1774,
+      "line": 1775,
       "symbol": "AWSEC2TunnelInsideIpVersion.AWSEC2TunnelInsideIpVersionIpv4",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1775,
+      "line": 1776,
       "symbol": "AWSEC2TunnelInsideIpVersion.AWSEC2TunnelInsideIpVersionIpv6",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1778,
+      "line": 1779,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1778,
+      "line": 1779,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1779,
+      "line": 1780,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily.AWSEC2UnlimitedSupportedInstanceFamilyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1780,
+      "line": 1781,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily.AWSEC2UnlimitedSupportedInstanceFamilyT2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1781,
+      "line": 1782,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily.AWSEC2UnlimitedSupportedInstanceFamilyT3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1782,
+      "line": 1783,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily.AWSEC2UnlimitedSupportedInstanceFamilyT3a",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1783,
+      "line": 1784,
       "symbol": "AWSEC2UnlimitedSupportedInstanceFamily.AWSEC2UnlimitedSupportedInstanceFamilyT4g",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1786,
+      "line": 1787,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1786,
+      "line": 1787,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1787,
+      "line": 1788,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode.AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1788,
+      "line": 1789,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode.AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceIDMalformed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1789,
+      "line": 1790,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode.AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCodeInvalidInstanceIDNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1790,
+      "line": 1791,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode.AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCodeIncorrectInstanceState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1791,
+      "line": 1792,
       "symbol": "AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCode.AWSEC2UnsuccessfulInstanceCreditSpecificationErrorCodeInstanceCreditSpecificationNotSupported",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1794,
+      "line": 1795,
       "symbol": "AWSEC2UsageClassType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1794,
+      "line": 1795,
       "symbol": "AWSEC2UsageClassType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1795,
+      "line": 1796,
       "symbol": "AWSEC2UsageClassType.AWSEC2UsageClassTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1796,
+      "line": 1797,
       "symbol": "AWSEC2UsageClassType.AWSEC2UsageClassTypeSpot",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1797,
+      "line": 1798,
       "symbol": "AWSEC2UsageClassType.AWSEC2UsageClassTypeOnDemand",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1800,
+      "line": 1801,
       "symbol": "AWSEC2VirtualizationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1800,
+      "line": 1801,
       "symbol": "AWSEC2VirtualizationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1801,
+      "line": 1802,
       "symbol": "AWSEC2VirtualizationType.AWSEC2VirtualizationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1802,
+      "line": 1803,
       "symbol": "AWSEC2VirtualizationType.AWSEC2VirtualizationTypeHVM",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1803,
+      "line": 1804,
       "symbol": "AWSEC2VirtualizationType.AWSEC2VirtualizationTypeParavirtual",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1806,
+      "line": 1807,
       "symbol": "AWSEC2VolumeAttachmentState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1806,
+      "line": 1807,
       "symbol": "AWSEC2VolumeAttachmentState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1807,
+      "line": 1808,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1808,
+      "line": 1809,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateAttaching",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1809,
+      "line": 1810,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateAttached",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1810,
+      "line": 1811,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateDetaching",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1811,
+      "line": 1812,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateDetached",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1812,
+      "line": 1813,
       "symbol": "AWSEC2VolumeAttachmentState.AWSEC2VolumeAttachmentStateBusy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1815,
+      "line": 1816,
       "symbol": "AWSEC2VolumeAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1815,
+      "line": 1816,
       "symbol": "AWSEC2VolumeAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1816,
+      "line": 1817,
       "symbol": "AWSEC2VolumeAttributeName.AWSEC2VolumeAttributeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1817,
+      "line": 1818,
       "symbol": "AWSEC2VolumeAttributeName.AWSEC2VolumeAttributeNameAutoEnableIO",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1818,
+      "line": 1819,
       "symbol": "AWSEC2VolumeAttributeName.AWSEC2VolumeAttributeNameProductCodes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1821,
+      "line": 1822,
       "symbol": "AWSEC2VolumeModificationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1821,
+      "line": 1822,
       "symbol": "AWSEC2VolumeModificationState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1822,
+      "line": 1823,
       "symbol": "AWSEC2VolumeModificationState.AWSEC2VolumeModificationStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1823,
+      "line": 1824,
       "symbol": "AWSEC2VolumeModificationState.AWSEC2VolumeModificationStateModifying",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1824,
+      "line": 1825,
       "symbol": "AWSEC2VolumeModificationState.AWSEC2VolumeModificationStateOptimizing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1825,
+      "line": 1826,
       "symbol": "AWSEC2VolumeModificationState.AWSEC2VolumeModificationStateCompleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1826,
+      "line": 1827,
       "symbol": "AWSEC2VolumeModificationState.AWSEC2VolumeModificationStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1829,
+      "line": 1830,
       "symbol": "AWSEC2VolumeState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1829,
+      "line": 1830,
       "symbol": "AWSEC2VolumeState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1830,
+      "line": 1831,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1831,
+      "line": 1832,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1832,
+      "line": 1833,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1833,
+      "line": 1834,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1834,
+      "line": 1835,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1835,
+      "line": 1836,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1836,
+      "line": 1837,
       "symbol": "AWSEC2VolumeState.AWSEC2VolumeStateError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1839,
+      "line": 1840,
       "symbol": "AWSEC2VolumeStatusInfoStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1839,
+      "line": 1840,
       "symbol": "AWSEC2VolumeStatusInfoStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1840,
+      "line": 1841,
       "symbol": "AWSEC2VolumeStatusInfoStatus.AWSEC2VolumeStatusInfoStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1841,
+      "line": 1842,
       "symbol": "AWSEC2VolumeStatusInfoStatus.AWSEC2VolumeStatusInfoStatusOK",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1842,
+      "line": 1843,
       "symbol": "AWSEC2VolumeStatusInfoStatus.AWSEC2VolumeStatusInfoStatusImpaired",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1843,
+      "line": 1844,
       "symbol": "AWSEC2VolumeStatusInfoStatus.AWSEC2VolumeStatusInfoStatusInsufficientData",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1846,
+      "line": 1847,
       "symbol": "AWSEC2VolumeStatusName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1846,
+      "line": 1847,
       "symbol": "AWSEC2VolumeStatusName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1847,
+      "line": 1848,
       "symbol": "AWSEC2VolumeStatusName.AWSEC2VolumeStatusNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1848,
+      "line": 1849,
       "symbol": "AWSEC2VolumeStatusName.AWSEC2VolumeStatusNameIoEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1849,
+      "line": 1850,
       "symbol": "AWSEC2VolumeStatusName.AWSEC2VolumeStatusNameIoPerformance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1852,
+      "line": 1853,
       "symbol": "AWSEC2VolumeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1852,
+      "line": 1853,
       "symbol": "AWSEC2VolumeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1853,
+      "line": 1854,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1854,
+      "line": 1855,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1855,
+      "line": 1856,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeIO1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1856,
+      "line": 1857,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeIo2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1857,
+      "line": 1858,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeGp2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1858,
+      "line": 1859,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeSc1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1859,
+      "line": 1860,
       "symbol": "AWSEC2VolumeType.AWSEC2VolumeTypeSt1",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1862,
+      "line": 1863,
       "symbol": "AWSEC2VpcAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1862,
+      "line": 1863,
       "symbol": "AWSEC2VpcAttributeName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1863,
+      "line": 1864,
       "symbol": "AWSEC2VpcAttributeName.AWSEC2VpcAttributeNameUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1864,
+      "line": 1865,
       "symbol": "AWSEC2VpcAttributeName.AWSEC2VpcAttributeNameEnableDNSSupport",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1865,
+      "line": 1866,
       "symbol": "AWSEC2VpcAttributeName.AWSEC2VpcAttributeNameEnableDNSHostnames",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1868,
+      "line": 1869,
       "symbol": "AWSEC2VpcCidrBlockStateCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1868,
+      "line": 1869,
       "symbol": "AWSEC2VpcCidrBlockStateCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1869,
+      "line": 1870,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1870,
+      "line": 1871,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeAssociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1871,
+      "line": 1872,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeAssociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1872,
+      "line": 1873,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeDisassociating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1873,
+      "line": 1874,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeDisassociated",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1874,
+      "line": 1875,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeFailing",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1875,
+      "line": 1876,
       "symbol": "AWSEC2VpcCidrBlockStateCode.AWSEC2VpcCidrBlockStateCodeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1878,
+      "line": 1879,
       "symbol": "AWSEC2VpcEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1878,
+      "line": 1879,
       "symbol": "AWSEC2VpcEndpointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1879,
+      "line": 1880,
       "symbol": "AWSEC2VpcEndpointType.AWSEC2VpcEndpointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1880,
+      "line": 1881,
       "symbol": "AWSEC2VpcEndpointType.AWSEC2VpcEndpointTypeInterface",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1881,
+      "line": 1882,
       "symbol": "AWSEC2VpcEndpointType.AWSEC2VpcEndpointTypeGateway",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1884,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1884,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1885,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeUnknown",
+      "line": 1883,
+      "symbol": "AWSEC2VpcEndpointType.AWSEC2VpcEndpointTypeGatewayLoadBalancer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1886,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeInitiatingRequest",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
+      "line": 1886,
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1887,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodePendingAcceptance",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1888,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeActive",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeInitiatingRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1889,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeDeleted",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodePendingAcceptance",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1890,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeRejected",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1891,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeFailed",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1892,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeExpired",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1893,
-      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeProvisioning",
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
       "line": 1894,
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeExpired",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
+      "line": 1895,
+      "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeProvisioning",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
+      "line": 1896,
       "symbol": "AWSEC2VpcPeeringConnectionStateReasonCode.AWSEC2VpcPeeringConnectionStateReasonCodeDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1897,
+      "line": 1899,
       "symbol": "AWSEC2VpcState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1897,
+      "line": 1899,
       "symbol": "AWSEC2VpcState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1898,
+      "line": 1900,
       "symbol": "AWSEC2VpcState.AWSEC2VpcStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1899,
+      "line": 1901,
       "symbol": "AWSEC2VpcState.AWSEC2VpcStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1900,
+      "line": 1902,
       "symbol": "AWSEC2VpcState.AWSEC2VpcStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1903,
+      "line": 1905,
       "symbol": "AWSEC2VpcTenancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1903,
+      "line": 1905,
       "symbol": "AWSEC2VpcTenancy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1904,
+      "line": 1906,
       "symbol": "AWSEC2VpcTenancy.AWSEC2VpcTenancyUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1905,
+      "line": 1907,
       "symbol": "AWSEC2VpcTenancy.AWSEC2VpcTenancyDefault",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1908,
+      "line": 1910,
       "symbol": "AWSEC2VpnEcmpSupportValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1908,
+      "line": 1910,
       "symbol": "AWSEC2VpnEcmpSupportValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1909,
+      "line": 1911,
       "symbol": "AWSEC2VpnEcmpSupportValue.AWSEC2VpnEcmpSupportValueUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1910,
+      "line": 1912,
       "symbol": "AWSEC2VpnEcmpSupportValue.AWSEC2VpnEcmpSupportValueEnable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1911,
+      "line": 1913,
       "symbol": "AWSEC2VpnEcmpSupportValue.AWSEC2VpnEcmpSupportValueDisable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1914,
+      "line": 1916,
       "symbol": "AWSEC2VpnProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1914,
+      "line": 1916,
       "symbol": "AWSEC2VpnProtocol",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1915,
+      "line": 1917,
       "symbol": "AWSEC2VpnProtocol.AWSEC2VpnProtocolUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1916,
+      "line": 1918,
       "symbol": "AWSEC2VpnProtocol.AWSEC2VpnProtocolOpenvpn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1919,
+      "line": 1921,
       "symbol": "AWSEC2VpnState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1919,
+      "line": 1921,
       "symbol": "AWSEC2VpnState",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1920,
+      "line": 1922,
       "symbol": "AWSEC2VpnState.AWSEC2VpnStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1921,
+      "line": 1923,
       "symbol": "AWSEC2VpnState.AWSEC2VpnStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1922,
+      "line": 1924,
       "symbol": "AWSEC2VpnState.AWSEC2VpnStateAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1923,
+      "line": 1925,
       "symbol": "AWSEC2VpnState.AWSEC2VpnStateDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1924,
+      "line": 1926,
       "symbol": "AWSEC2VpnState.AWSEC2VpnStateDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1927,
+      "line": 1929,
       "symbol": "AWSEC2VpnStaticRouteSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1927,
+      "line": 1929,
       "symbol": "AWSEC2VpnStaticRouteSource",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1928,
+      "line": 1930,
       "symbol": "AWSEC2VpnStaticRouteSource.AWSEC2VpnStaticRouteSourceUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1929,
+      "line": 1931,
       "symbol": "AWSEC2VpnStaticRouteSource.AWSEC2VpnStaticRouteSourceStatic",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1932,
+      "line": 1934,
       "symbol": "AWSEC2scope",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1932,
+      "line": 1934,
       "symbol": "AWSEC2scope",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1933,
+      "line": 1935,
       "symbol": "AWSEC2scope.AWSEC2scopeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1934,
+      "line": 1936,
       "symbol": "AWSEC2scope.AWSEC2scopeAvailabilityZone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSEC2/AWSEC2Model.h",
-      "line": 1935,
+      "line": 1937,
       "symbol": "AWSEC2scope.AWSEC2scopeRegion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"

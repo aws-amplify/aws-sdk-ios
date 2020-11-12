@@ -17,7 +17,7 @@
     <a title="AWSEC2ModifyVpcEndpointServiceConfigurationRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.19.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.19.1 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -4613,6 +4613,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)addGatewayLoadBalancerArns"></a>
+                    <a name="//apple_ref/objc/Property/addGatewayLoadBalancerArns" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)addGatewayLoadBalancerArns">addGatewayLoadBalancerArns</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to add to your service configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">addGatewayLoadBalancerArns</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">addGatewayLoadBalancerArns</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)addNetworkLoadBalancerArns"></a>
                     <a name="//apple_ref/objc/Property/addNetworkLoadBalancerArns" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)addNetworkLoadBalancerArns">addNetworkLoadBalancerArns</a>
@@ -4687,7 +4719,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The private DNS name to assign to the endpoint service.</p>
+                        <p>(Interface endpoint configuration) The private DNS name to assign to the endpoint service.</p>
 
                       </div>
                       <div class="declaration">
@@ -4700,6 +4732,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">privateDnsName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)removeGatewayLoadBalancerArns"></a>
+                    <a name="//apple_ref/objc/Property/removeGatewayLoadBalancerArns" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2ModifyVpcEndpointServiceConfigurationRequest(py)removeGatewayLoadBalancerArns">removeGatewayLoadBalancerArns</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon Resource Names (ARNs) of Gateway Load Balancers to remove from your service configuration.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">removeGatewayLoadBalancerArns</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">removeGatewayLoadBalancerArns</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -4751,7 +4815,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes the private DNS name of the endpoint service.</p>
+                        <p>(Interface endpoint configuration) Removes the private DNS name of the endpoint service.</p>
 
                       </div>
                       <div class="declaration">
@@ -4807,7 +4871,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-09)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
