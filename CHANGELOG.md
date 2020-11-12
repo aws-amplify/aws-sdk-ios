@@ -5,7 +5,6 @@
 
 -Features for next release
 
-## 2.19.1
 
 ### Bug fixes
 
