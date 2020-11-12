@@ -17,7 +17,7 @@
     <a title="AWSDynamoDBErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.19.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.19.1 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -200,6 +200,12 @@
                 <a href="../Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -240,6 +246,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBExpectedAttributeValue.html">AWSDynamoDBExpectedAttributeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportDescription.html">AWSDynamoDBExportDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportSummary.html">AWSDynamoDBExportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBFailureException.html">AWSDynamoDBFailureException</a>
@@ -300,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a>
@@ -621,6 +645,12 @@
                 <a href="../Enums/AWSDynamoDBErrorType.html">AWSDynamoDBErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportFormat.html">AWSDynamoDBExportFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportStatus.html">AWSDynamoDBExportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -652,6 +682,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBReturnValuesOnConditionCheckFailure.html">AWSDynamoDBReturnValuesOnConditionCheckFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBS3SseAlgorithm.html">AWSDynamoDBS3SseAlgorithm</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBSSEStatus.html">AWSDynamoDBSSEStatus</a>
@@ -699,11 +732,14 @@
     <span class="n">AWSDynamoDBErrorBackupNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorConditionalCheckFailed</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorContinuousBackupsUnavailable</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorExportConflict</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorExportNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorGlobalTableAlreadyExists</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorGlobalTableNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorIdempotentParameterMismatch</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorIndexNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorInternalServer</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorInvalidExportTime</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorInvalidRestoreTime</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorItemCollectionSizeLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorLimitExceeded</span><span class="p">,</span>
@@ -898,6 +934,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorExportConflict"></a>
+                    <a name="//apple_ref/objc/Case/AWSDynamoDBErrorExportConflict" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorExportConflict">AWSDynamoDBErrorExportConflict</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSDynamoDBErrorExportConflict</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportConflict</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorExportNotFound"></a>
+                    <a name="//apple_ref/objc/Case/AWSDynamoDBErrorExportNotFound" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorExportNotFound">AWSDynamoDBErrorExportNotFound</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSDynamoDBErrorExportNotFound</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">exportNotFound</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorGlobalTableAlreadyExists"></a>
                     <a name="//apple_ref/objc/Case/AWSDynamoDBErrorGlobalTableAlreadyExists" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorGlobalTableAlreadyExists">AWSDynamoDBErrorGlobalTableAlreadyExists</a>
@@ -920,7 +1020,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">globalTableAlreadyExists</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">globalTableAlreadyExists</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -952,7 +1052,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">globalTableNotFound</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">globalTableNotFound</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -984,7 +1084,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">idempotentParameterMismatch</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">idempotentParameterMismatch</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -1016,7 +1116,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">indexNotFound</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">indexNotFound</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -1048,7 +1148,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalServer</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">internalServer</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorInvalidExportTime"></a>
+                    <a name="//apple_ref/objc/Case/AWSDynamoDBErrorInvalidExportTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBErrorType@AWSDynamoDBErrorInvalidExportTime">AWSDynamoDBErrorInvalidExportTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSDynamoDBErrorInvalidExportTime</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidExportTime</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -1080,7 +1212,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRestoreTime</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidRestoreTime</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
 
                         </div>
                       </div>
@@ -1112,7 +1244,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">itemCollectionSizeLimitExceeded</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">itemCollectionSizeLimitExceeded</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
 
                         </div>
                       </div>
@@ -1144,7 +1276,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
 
                         </div>
                       </div>
@@ -1176,7 +1308,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pointInTimeRecoveryUnavailable</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pointInTimeRecoveryUnavailable</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
 
                         </div>
                       </div>
@@ -1208,7 +1340,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedThroughputExceeded</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedThroughputExceeded</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
 
                         </div>
                       </div>
@@ -1240,7 +1372,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">replicaAlreadyExists</span> <span class="o">=</span> <span class="mi">15</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">replicaAlreadyExists</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
 
                         </div>
                       </div>
@@ -1272,7 +1404,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">replicaNotFound</span> <span class="o">=</span> <span class="mi">16</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">replicaNotFound</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
 
                         </div>
                       </div>
@@ -1304,7 +1436,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestLimitExceeded</span> <span class="o">=</span> <span class="mi">17</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">requestLimitExceeded</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
 
                         </div>
                       </div>
@@ -1336,7 +1468,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">18</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceInUse</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
 
                         </div>
                       </div>
@@ -1368,7 +1500,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">19</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">resourceNotFound</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
 
                         </div>
                       </div>
@@ -1400,7 +1532,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableAlreadyExists</span> <span class="o">=</span> <span class="mi">20</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableAlreadyExists</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
 
                         </div>
                       </div>
@@ -1432,7 +1564,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableInUse</span> <span class="o">=</span> <span class="mi">21</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableInUse</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
 
                         </div>
                       </div>
@@ -1464,7 +1596,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableNotFound</span> <span class="o">=</span> <span class="mi">22</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">tableNotFound</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
 
                         </div>
                       </div>
@@ -1496,7 +1628,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionCanceled</span> <span class="o">=</span> <span class="mi">23</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionCanceled</span> <span class="o">=</span> <span class="mi">26</span></code></pre>
 
                         </div>
                       </div>
@@ -1528,7 +1660,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionConflict</span> <span class="o">=</span> <span class="mi">24</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionConflict</span> <span class="o">=</span> <span class="mi">27</span></code></pre>
 
                         </div>
                       </div>
@@ -1560,7 +1692,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionInProgress</span> <span class="o">=</span> <span class="mi">25</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transactionInProgress</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
 
                         </div>
                       </div>
@@ -1572,7 +1704,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-09)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSDynamoDB 2.19.0 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSDynamoDB 2.19.1 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -200,6 +200,12 @@
                 <a href="Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -240,6 +246,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBExpectedAttributeValue.html">AWSDynamoDBExpectedAttributeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportDescription.html">AWSDynamoDBExportDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportSummary.html">AWSDynamoDBExportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBFailureException.html">AWSDynamoDBFailureException</a>
@@ -300,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a>
@@ -621,6 +645,12 @@
                 <a href="Enums/AWSDynamoDBErrorType.html">AWSDynamoDBErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBExportFormat.html">AWSDynamoDBExportFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBExportStatus.html">AWSDynamoDBExportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -652,6 +682,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBReturnValuesOnConditionCheckFailure.html">AWSDynamoDBReturnValuesOnConditionCheckFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBS3SseAlgorithm.html">AWSDynamoDBS3SseAlgorithm</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBSSEStatus.html">AWSDynamoDBSSEStatus</a>
@@ -1520,7 +1553,7 @@ Required parameters: [ComparisonOperator]</p>
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Represents a Contributor Insights summary entry..</p>
+                        <p>Represents a Contributor Insights summary entry.</p>
 
                         <a href="Classes/AWSDynamoDBContributorInsightsSummary.html" class="slightly-smaller">See more</a>
                       </div>
@@ -2474,6 +2507,70 @@ Required parameters: [ComparisonOperator]</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDBDescribeExportInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBDescribeExportInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBDescribeExportInput">AWSDynamoDBDescribeExportInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBDescribeExportInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBDescribeExportInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBDescribeExportInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBDescribeExportOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBDescribeExportOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBDescribeExportOutput">AWSDynamoDBDescribeExportOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBDescribeExportOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBDescribeExportOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBDescribeExportOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDBDescribeGlobalTableInput"></a>
                     <a name="//apple_ref/objc/Class/AWSDynamoDBDescribeGlobalTableInput" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDBDescribeGlobalTableInput">AWSDynamoDBDescribeGlobalTableInput</a>
@@ -2922,6 +3019,136 @@ Required parameters: [ComparisonOperator]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBExpectedAttributeValue</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBExportDescription"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBExportDescription" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBExportDescription">AWSDynamoDBExportDescription</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Represents the properties of the exported table.</p>
+
+                        <a href="Classes/AWSDynamoDBExportDescription.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBExportDescription</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBExportDescription</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBExportSummary"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBExportSummary" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBExportSummary">AWSDynamoDBExportSummary</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Summary information about an export task.</p>
+
+                        <a href="Classes/AWSDynamoDBExportSummary.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBExportSummary</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBExportSummary</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBExportTableToPointInTimeInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBExportTableToPointInTimeInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBExportTableToPointInTimeInput">AWSDynamoDBExportTableToPointInTimeInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBExportTableToPointInTimeInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBExportTableToPointInTimeInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBExportTableToPointInTimeInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBExportTableToPointInTimeOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBExportTableToPointInTimeOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBExportTableToPointInTimeOutput">AWSDynamoDBExportTableToPointInTimeOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBExportTableToPointInTimeOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBExportTableToPointInTimeOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBExportTableToPointInTimeOutput</span></code></pre>
 
                         </div>
                       </div>
@@ -3590,6 +3817,70 @@ Required parameters: [ComparisonOperator]</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListContributorInsightsOutput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBListExportsInput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBListExportsInput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBListExportsInput">AWSDynamoDBListExportsInput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBListExportsInput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBListExportsInput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListExportsInput</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDBListExportsOutput"></a>
+                    <a name="//apple_ref/objc/Class/AWSDynamoDBListExportsOutput" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDBListExportsOutput">AWSDynamoDBListExportsOutput</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSDynamoDBListExportsOutput.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSDynamoDBListExportsOutput</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSDynamoDBListExportsOutput</span></code></pre>
 
                         </div>
                       </div>
@@ -6537,7 +6828,7 @@ Required parameters: [ComparisonOperator]</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-09)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

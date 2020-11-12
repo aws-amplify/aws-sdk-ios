@@ -17,7 +17,7 @@
     <a title="AWSDynamoDB Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSDynamoDB 2.19.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSDynamoDB 2.19.1 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -200,6 +200,12 @@
                 <a href="../Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -240,6 +246,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBExpectedAttributeValue.html">AWSDynamoDBExpectedAttributeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportDescription.html">AWSDynamoDBExportDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportSummary.html">AWSDynamoDBExportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBFailureException.html">AWSDynamoDBFailureException</a>
@@ -300,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a>
@@ -621,6 +645,12 @@
                 <a href="../Enums/AWSDynamoDBErrorType.html">AWSDynamoDBErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportFormat.html">AWSDynamoDBExportFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBExportStatus.html">AWSDynamoDBExportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -652,6 +682,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBReturnValuesOnConditionCheckFailure.html">AWSDynamoDBReturnValuesOnConditionCheckFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSDynamoDBS3SseAlgorithm.html">AWSDynamoDBS3SseAlgorithm</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSDynamoDBSSEStatus.html">AWSDynamoDBSSEStatus</a>
@@ -2769,6 +2802,147 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)describeExport:"></a>
+                    <a name="//apple_ref/objc/Method/-describeExport:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeExport:">-describeExport:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes an existing table export.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeExportInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeExportOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeExport</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeExport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeExport service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorExportNotFound</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)describeExport:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeExport:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeExport:completionHandler:">-describeExport:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes an existing table export.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeExportInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBDescribeExportOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeExport</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeExport</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeExport service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorExportNotFound</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDB(im)describeGlobalTable:"></a>
                     <a name="//apple_ref/objc/Method/-describeGlobalTable:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)describeGlobalTable:">-describeGlobalTable:<wbr></a>
@@ -3625,6 +3799,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)exportTableToPointInTime:"></a>
+                    <a name="//apple_ref/objc/Method/-exportTableToPointInTime:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)exportTableToPointInTime:">-exportTableToPointInTime:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBExportTableToPointInTimeInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBExportTableToPointInTimeOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">exportTableToPointInTime</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exportTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ExportTableToPointInTime service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorTableNotFound</code>, <code>AWSDynamoDBErrorPointInTimeRecoveryUnavailable</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInvalidExportTime</code>, <code>AWSDynamoDBErrorExportConflict</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)exportTableToPointInTime:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-exportTableToPointInTime:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)exportTableToPointInTime:completionHandler:">-exportTableToPointInTime:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBExportTableToPointInTimeInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBExportTableToPointInTimeOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">exportTableToPointInTime</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+               <span class="nf">completionHandler</span><span class="p">:</span>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">exportTableToPoint</span><span class="p">(</span><span class="n">inTime</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ExportTableToPointInTime service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorTableNotFound</code>, <code>AWSDynamoDBErrorPointInTimeRecoveryUnavailable</code>, <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInvalidExportTime</code>, <code>AWSDynamoDBErrorExportConflict</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSDynamoDB(im)getItem:"></a>
                     <a name="//apple_ref/objc/Method/-getItem:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)getItem:">-getItem:<wbr></a>
@@ -4038,6 +4356,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorResourceNotFound</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)listExports:"></a>
+                    <a name="//apple_ref/objc/Method/-listExports:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)listExports:">-listExports:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists completed exports within the past 90 days.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListExportsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListExportsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listExports</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listExports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListExports service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSDynamoDB(im)listExports:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listExports:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSDynamoDB(im)listExports:completionHandler:">-listExports:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Lists completed exports within the past 90 days.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListExportsInput</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSDynamoDBListExportsOutput</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listExports</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listExports</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListExports service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSDynamoDBErrorDomain">AWSDynamoDBErrorDomain</a></code> domain and the following error code: <code>AWSDynamoDBErrorLimitExceeded</code>, <code>AWSDynamoDBErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -6864,7 +7323,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-09)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

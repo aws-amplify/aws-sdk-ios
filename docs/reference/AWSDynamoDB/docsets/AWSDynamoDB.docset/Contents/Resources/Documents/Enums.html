@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSDynamoDB 2.19.0 Docs</a> (80% documented)</p>
+        <p><a href="index.html">AWSDynamoDB 2.19.1 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSDynamoDB.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -200,6 +200,12 @@
                 <a href="Classes/AWSDynamoDBDescribeEndpointsResponse.html">AWSDynamoDBDescribeEndpointsResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeExportInput.html">AWSDynamoDBDescribeExportInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBDescribeExportOutput.html">AWSDynamoDBDescribeExportOutput</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBDescribeGlobalTableInput.html">AWSDynamoDBDescribeGlobalTableInput</a>
               </li>
               <li class="nav-group-task">
@@ -240,6 +246,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBExpectedAttributeValue.html">AWSDynamoDBExpectedAttributeValue</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportDescription.html">AWSDynamoDBExportDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportSummary.html">AWSDynamoDBExportSummary</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportTableToPointInTimeInput.html">AWSDynamoDBExportTableToPointInTimeInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBExportTableToPointInTimeOutput.html">AWSDynamoDBExportTableToPointInTimeOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBFailureException.html">AWSDynamoDBFailureException</a>
@@ -300,6 +318,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListContributorInsightsOutput.html">AWSDynamoDBListContributorInsightsOutput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListExportsInput.html">AWSDynamoDBListExportsInput</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSDynamoDBListExportsOutput.html">AWSDynamoDBListExportsOutput</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSDynamoDBListGlobalTablesInput.html">AWSDynamoDBListGlobalTablesInput</a>
@@ -621,6 +645,12 @@
                 <a href="Enums/AWSDynamoDBErrorType.html">AWSDynamoDBErrorType</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBExportFormat.html">AWSDynamoDBExportFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBExportStatus.html">AWSDynamoDBExportStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBGlobalTableStatus.html">AWSDynamoDBGlobalTableStatus</a>
               </li>
               <li class="nav-group-task">
@@ -652,6 +682,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBReturnValuesOnConditionCheckFailure.html">AWSDynamoDBReturnValuesOnConditionCheckFailure</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSDynamoDBS3SseAlgorithm.html">AWSDynamoDBS3SseAlgorithm</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSDynamoDBSSEStatus.html">AWSDynamoDBSSEStatus</a>
@@ -723,11 +756,14 @@
     <span class="n">AWSDynamoDBErrorBackupNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorConditionalCheckFailed</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorContinuousBackupsUnavailable</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorExportConflict</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorExportNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorGlobalTableAlreadyExists</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorGlobalTableNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorIdempotentParameterMismatch</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorIndexNotFound</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorInternalServer</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBErrorInvalidExportTime</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorInvalidRestoreTime</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorItemCollectionSizeLimitExceeded</span><span class="p">,</span>
     <span class="n">AWSDynamoDBErrorLimitExceeded</span><span class="p">,</span>
@@ -1148,6 +1184,81 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSDynamoDBExportFormat"></a>
+                    <a name="//apple_ref/objc/Enum/AWSDynamoDBExportFormat" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBExportFormat">AWSDynamoDBExportFormat</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSDynamoDBExportFormat.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSDynamoDBExportFormat</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSDynamoDBExportFormatUnknown</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBExportFormatDynamodbJson</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBExportFormatIon</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSDynamoDBExportFormat</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSDynamoDBExportStatus"></a>
+                    <a name="//apple_ref/objc/Enum/AWSDynamoDBExportStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBExportStatus">AWSDynamoDBExportStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSDynamoDBExportStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSDynamoDBExportStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSDynamoDBExportStatusUnknown</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBExportStatusInProgress</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBExportStatusCompleted</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBExportStatusFailed</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSDynamoDBExportStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSDynamoDBGlobalTableStatus"></a>
                     <a name="//apple_ref/objc/Enum/AWSDynamoDBGlobalTableStatus" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSDynamoDBGlobalTableStatus">AWSDynamoDBGlobalTableStatus</a>
@@ -1532,6 +1643,43 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSDynamoDBS3SseAlgorithm"></a>
+                    <a name="//apple_ref/objc/Enum/AWSDynamoDBS3SseAlgorithm" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSDynamoDBS3SseAlgorithm">AWSDynamoDBS3SseAlgorithm</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSDynamoDBS3SseAlgorithm.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSDynamoDBS3SseAlgorithm</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSDynamoDBS3SseAlgorithmUnknown</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBS3SseAlgorithmAES256</span><span class="p">,</span>
+    <span class="n">AWSDynamoDBS3SseAlgorithmKms</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSDynamoDBS3SseAlgorithm</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSDynamoDBSSEStatus"></a>
                     <a name="//apple_ref/objc/Enum/AWSDynamoDBSSEStatus" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSDynamoDBSSEStatus">AWSDynamoDBSSEStatus</a>
@@ -1841,7 +1989,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-09)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
