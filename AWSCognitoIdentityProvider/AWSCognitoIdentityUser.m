@@ -185,6 +185,32 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     }];
 }
 
+- (BOOL) isSessionValid:(AWSCognitoIdentityUserSession * _Nonnull)session {
+    // If id token is not present we only need to check the accessToken to determine the validity of the token.
+    if (!session.idToken) {
+        return [self isTokenValid:session.accessToken];
+    } else {
+        return [self isTokenValid:session.accessToken] && [self isTokenValid:session.idToken];
+    }
+    return false;
+}
+
+// Check if the token is valid or not. Returns true if the token is valid.
+//
+// The token is consider invalid if the token expiry is less than or equal to 2 min. This 2 minute buffer is
+// given so that we do not hand over a token to the user which will get expired immediately. This guarrantees that the
+// returned session tokens are valid for atleast 2 min.
+- (BOOL) isTokenValid:(AWSCognitoIdentityUserSessionToken * _Nonnull)token {
+    if ([token.tokenClaims valueForKey:@"exp"]) {
+        int expiryWindow = 2 * 60;
+        NSTimeInterval expiryInterval = [[token.tokenClaims valueForKey:@"exp"] doubleValue];
+        NSDate *tokenExpiration =  [NSDate dateWithTimeIntervalSince1970:expiryInterval];
+        return (tokenExpiration &&
+                [tokenExpiration compare:[NSDate dateWithTimeIntervalSinceNow:expiryWindow]] == NSOrderedDescending);
+    }
+    return false;
+}
+
 /**
  Get a session
  */
@@ -203,13 +229,26 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
         self.confirmedStatus = AWSCognitoIdentityUserStatusConfirmed;
 
         NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
-        NSString * accessToken = self.pool.keychain[accessTokenKey];
-        //if the session expires > 5 minutes return it and there is at least an accessToken.
-        if(expiration && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:5 * 60]] == NSOrderedDescending && accessToken){
-            NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
-            AWSCognitoIdentityUserSession * session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:self.pool.keychain[idTokenKey] accessToken:accessToken refreshToken:refreshToken expirationTime:expiration];
+        NSString * idTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
         
-            session.expirationTime = expiration;
+        NSString * idToken = self.pool.keychain[idTokenKey];
+        NSString * accessToken = self.pool.keychain[accessTokenKey];
+        
+        AWSCognitoIdentityUserSession * session;
+        
+        // Session is available if we have expiration and accessToken.
+        if (expiration && accessToken) {
+            session = [[AWSCognitoIdentityUserSession alloc] initWithIdToken:idToken
+                                                                 accessToken:accessToken
+                                                                refreshToken:refreshToken
+                                                              expirationTime:expiration];
+        }
+
+        // If the session expires > 2 minutes return it. We need to check both accessToken and id Token expiry
+        // since user can change both of them in Cognito console.
+        if(session
+           && [self isSessionValid:session]
+           && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:2 * 60]] == NSOrderedDescending) {
             return [AWSTask taskWithResult:session];
         }
         //else refresh it using the refresh token
