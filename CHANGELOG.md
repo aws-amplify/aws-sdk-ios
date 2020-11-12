@@ -7,9 +7,6 @@
 
 ## 2.19.1
 
--Features for next release
-
-
 ### Bug fixes
 
 - Fixed an issue where id token is not refreshed automatically for customers who set short custom expiration intervals (See [Issue #869](https://github.com/aws-amplify/amplify-ios/issues/869), [PR #3220](https://github.com/aws-amplify/aws-sdk-ios/pull/3220/))
