@@ -522,14 +522,22 @@ final public class AWSMobileClient: _AWSMobileClient {
                         self.saveHostedUIOptionsScopesInKeychain()
                     }
                     
-                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation, session: session, federationToken: federationToken!, federationProviderIdentifier: federationProviderIdentifier, signInInfo: &signInInfo)
-                    self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
-                    completionHandler(.signedIn, nil)
-                    if self.pendingGetTokensCompletion != nil {
-                        self.tokenFetchLock.leave()
+                    self.performHostedUISuccessfulSignInTasks(disableFederation: hostedUIOptions.disableFederation,
+                                                              session: session,
+                                                              federationToken: federationToken!,
+                                                              federationProviderIdentifier: federationProviderIdentifier,
+                                                              signInInfo: &signInInfo)
+                    
+                    self.updateIdentityId(self.cachedLoginsMap) { _ in
+                        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: signInInfo)
+                        completionHandler(.signedIn, nil)
+                        if self.pendingGetTokensCompletion != nil {
+                            self.tokenFetchLock.leave()
+                        }
+                        self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
+                        self.pendingGetTokensCompletion = nil
                     }
-                    self.pendingGetTokensCompletion?(self.getTokensForCognitoAuthSession(session: session), nil)
-                    self.pendingGetTokensCompletion = nil
+                    
                 }
             }
             
