@@ -162,6 +162,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"InvalidS3ObjectException\"},\
+        {\"shape\":\"InvalidKMSKeyException\"},\
         {\"shape\":\"UnsupportedDocumentException\"},\
         {\"shape\":\"DocumentTooLargeException\"},\
         {\"shape\":\"BadDocumentException\"},\
@@ -185,6 +186,7 @@
       \"errors\":[\
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"InvalidS3ObjectException\"},\
+        {\"shape\":\"InvalidKMSKeyException\"},\
         {\"shape\":\"UnsupportedDocumentException\"},\
         {\"shape\":\"DocumentTooLargeException\"},\
         {\"shape\":\"BadDocumentException\"},\
@@ -269,6 +271,10 @@
         \"Text\":{\
           \"shape\":\"String\",\
           \"documentation\":\"<p>The word or line of text that's recognized by Amazon Textract. </p>\"\
+        },\
+        \"TextType\":{\
+          \"shape\":\"TextType\",\
+          \"documentation\":\"<p>The kind of text that Amazon Textract has detected. Can check for handwritten text and printed text.</p>\"\
         },\
         \"RowIndex\":{\
           \"shape\":\"UInteger\",\
@@ -434,7 +440,7 @@
       \"type\":\"structure\",\
       \"members\":{\
       },\
-      \"documentation\":\"<p>The document can't be processed because it's too large. The maximum document size for synchronous operations 5 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>\",\
+      \"documentation\":\"<p>The document can't be processed because it's too large. The maximum document size for synchronous operations 10 MB. The maximum document size for asynchronous operations is 500 MB for PDF files.</p>\",\
       \"exception\":true\
     },\
     \"EntityType\":{\
@@ -702,6 +708,13 @@
       \"documentation\":\"<p>An invalid job identifier was passed to <a>GetDocumentAnalysis</a> or to <a>GetDocumentAnalysis</a>.</p>\",\
       \"exception\":true\
     },\
+    \"InvalidKMSKeyException\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+      },\
+      \"documentation\":\"<p> Indicates you do not have decrypt permissions with the KMS key entered, or the KMS key was entered incorrectly. </p>\",\
+      \"exception\":true\
+    },\
     \"InvalidParameterException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -736,6 +749,12 @@
       \"max\":64,\
       \"min\":1,\
       \"pattern\":\"[a-zA-Z0-9_.\\\\-:]+\"\
+    },\
+    \"KMSKeyId\":{\
+      \"type\":\"string\",\
+      \"max\":2048,\
+      \"min\":1,\
+      \"pattern\":\"^[A-Za-z0-9][A-Za-z0-9:_/+=,@.-]{0,2048}$\"\
     },\
     \"LimitExceededException\":{\
       \"type\":\"structure\",\
@@ -936,6 +955,10 @@
         \"OutputConfig\":{\
           \"shape\":\"OutputConfig\",\
           \"documentation\":\"<p>Sets if the output will go to a customer defined bucket. By default, Amazon Textract will save the results internally to be accessed by the GetDocumentAnalysis operation.</p>\"\
+        },\
+        \"KMSKeyId\":{\
+          \"shape\":\"KMSKeyId\",\
+          \"documentation\":\"<p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>\"\
         }\
       }\
     },\
@@ -971,6 +994,10 @@
         \"OutputConfig\":{\
           \"shape\":\"OutputConfig\",\
           \"documentation\":\"<p>Sets if the output will go to a customer defined bucket. By default Amazon Textract will save the results internally to be accessed with the GetDocumentTextDetection operation.</p>\"\
+        },\
+        \"KMSKeyId\":{\
+          \"shape\":\"KMSKeyId\",\
+          \"documentation\":\"<p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>\"\
         }\
       }\
     },\
@@ -985,6 +1012,13 @@
     },\
     \"StatusMessage\":{\"type\":\"string\"},\
     \"String\":{\"type\":\"string\"},\
+    \"TextType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"HANDWRITING\",\
+        \"PRINTED\"\
+      ]\
+    },\
     \"ThrottlingException\":{\
       \"type\":\"structure\",\
       \"members\":{\
