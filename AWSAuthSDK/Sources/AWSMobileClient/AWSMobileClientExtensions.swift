@@ -774,6 +774,7 @@ extension AWSMobileClient {
                         let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
                         (errorType == .errorExpiredRefreshToken) {
                         self.pendingGetTokensCompletion = completionHandler
+                        self.invalidateCachedTemporaryCredentials()
                         self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
                                                        additionalInfo: [self.ProviderKey:"OAuth"])
                         // return early without releasing the tokenFetch lock.
@@ -953,6 +954,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         switch self.currentUserState {
         case .signedIn, .signedOutUserPoolsTokenInvalid:
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = passwordAuthenticationCompletionSource
+            self.invalidateCachedTemporaryCredentials()
             self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid, additionalInfo: ["username":self.userPoolClient?.currentUser()?.username ?? ""])
         default:
             break
@@ -990,6 +992,7 @@ extension AWSMobileClient: UserPoolAuthHelperlCallbacks {
         if ((self.currentUserState == .signedIn || self.currentUserState == .signedOutUserPoolsTokenInvalid) &&
             customAuthenticationInput.challengeParameters.isEmpty) {
             let username = self.userPoolClient?.currentUser()?.username ?? ""
+            self.invalidateCachedTemporaryCredentials()
             self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
                                            additionalInfo: ["username": username])
         } else {
