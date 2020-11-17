@@ -27,12 +27,15 @@
 - (void) test_AWSConnectCreateContactFlowResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateRoutingProfileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateRoutingProfileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateUserHierarchyGroupRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateUserHierarchyGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCredentials API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowResponse API_AVAILABLE(ios(11));
@@ -58,8 +61,10 @@
 - (void) test_AWSConnectHierarchyGroup API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyGroupSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyLevel API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHierarchyLevelUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyPath API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHierarchyStructure API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHierarchyStructureUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetricResult API_AVAILABLE(ios(11));
@@ -124,7 +129,9 @@
 - (void) test_AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserHierarchyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateUserHierarchyStructureRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserIdentityInfoRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserPhoneConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateUserRoutingProfileRequest API_AVAILABLE(ios(11));
@@ -171,6 +178,14 @@
     [self validateSecureCodingForClass:[AWSConnectCreateRoutingProfileResponse class]];
 }
 
+- (void) test_AWSConnectCreateUserHierarchyGroupRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateUserHierarchyGroupRequest class]];
+}
+
+- (void) test_AWSConnectCreateUserHierarchyGroupResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateUserHierarchyGroupResponse class]];
+}
+
 - (void) test_AWSConnectCreateUserRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateUserRequest class]];
 }
@@ -193,6 +208,10 @@
 
 - (void) test_AWSConnectCurrentMetricResult {
     [self validateSecureCodingForClass:[AWSConnectCurrentMetricResult class]];
+}
+
+- (void) test_AWSConnectDeleteUserHierarchyGroupRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteUserHierarchyGroupRequest class]];
 }
 
 - (void) test_AWSConnectDeleteUserRequest {
@@ -295,12 +314,20 @@
     [self validateSecureCodingForClass:[AWSConnectHierarchyLevel class]];
 }
 
+- (void) test_AWSConnectHierarchyLevelUpdate {
+    [self validateSecureCodingForClass:[AWSConnectHierarchyLevelUpdate class]];
+}
+
 - (void) test_AWSConnectHierarchyPath {
     [self validateSecureCodingForClass:[AWSConnectHierarchyPath class]];
 }
 
 - (void) test_AWSConnectHierarchyStructure {
     [self validateSecureCodingForClass:[AWSConnectHierarchyStructure class]];
+}
+
+- (void) test_AWSConnectHierarchyStructureUpdate {
+    [self validateSecureCodingForClass:[AWSConnectHierarchyStructureUpdate class]];
 }
 
 - (void) test_AWSConnectHistoricalMetric {
@@ -559,8 +586,16 @@
     [self validateSecureCodingForClass:[AWSConnectUpdateRoutingProfileQueuesRequest class]];
 }
 
+- (void) test_AWSConnectUpdateUserHierarchyGroupNameRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateUserHierarchyGroupNameRequest class]];
+}
+
 - (void) test_AWSConnectUpdateUserHierarchyRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateUserHierarchyRequest class]];
+}
+
+- (void) test_AWSConnectUpdateUserHierarchyStructureRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateUserHierarchyStructureRequest class]];
 }
 
 - (void) test_AWSConnectUpdateUserIdentityInfoRequest {
