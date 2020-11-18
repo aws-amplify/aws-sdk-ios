@@ -7,6 +7,8 @@
 - Model updates for the following services
   - AWSPolly
   - AWSIoT
+  - AWSElasticLoadBalancing
+  - AWSTextract
 
 ## 2.19.1
 
