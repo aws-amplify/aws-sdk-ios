@@ -220,7 +220,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     NSString * expirationTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserTokenExpiration];
     NSString * expirationDate = self.pool.keychain[expirationTokenKey];
-
+    
     if(expirationDate){
         NSDate *expiration = [NSDate aws_dateFromString:expirationDate format:AWSDateISO8601DateFormat1];
         NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
