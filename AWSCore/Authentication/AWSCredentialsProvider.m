@@ -703,7 +703,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     if (self.useEnhancedFlow) {
         
         // If there is no existing identity id, call the getIdentityId api and fetch the
-        // identity id for the logined user.
+        // identity id for the signed in user.
         if (self.identityId == nil) {
             return [[self getIdentityIdAPI:logins] continueWithSuccessBlock:^id (AWSTask *task) {
                 NSString *identityIdFromResponse = task.result;
