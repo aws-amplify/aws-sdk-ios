@@ -9,6 +9,7 @@
   - AWSIoT
   - AWSElasticLoadBalancing
   - AWSTextract
+  - AWSSNS
 
 ## 2.19.1
 
