@@ -10,6 +10,7 @@
   - AWSElasticLoadBalancing
   - AWSTextract
   - AWSSNS
+  - AWSConnect
 
 ## 2.19.1
 
