@@ -92,6 +92,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"rowSpan" : @"RowSpan",
              @"selectionStatus" : @"SelectionStatus",
              @"text" : @"Text",
+             @"textType" : @"TextType",
              };
 }
 
@@ -164,6 +165,27 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
                 return @"SELECTED";
             case AWSTextractSelectionStatusNotSelected:
                 return @"NOT_SELECTED";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)textTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"HANDWRITING"] == NSOrderedSame) {
+            return @(AWSTextractTextTypeHandwriting);
+        }
+        if ([value caseInsensitiveCompare:@"PRINTED"] == NSOrderedSame) {
+            return @(AWSTextractTextTypePrinted);
+        }
+        return @(AWSTextractTextTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTextractTextTypeHandwriting:
+                return @"HANDWRITING";
+            case AWSTextractTextTypePrinted:
+                return @"PRINTED";
             default:
                 return nil;
         }
@@ -627,6 +649,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"documentLocation" : @"DocumentLocation",
              @"featureTypes" : @"FeatureTypes",
              @"jobTag" : @"JobTag",
+             @"KMSKeyId" : @"KMSKeyId",
              @"notificationChannel" : @"NotificationChannel",
              @"outputConfig" : @"OutputConfig",
              };
@@ -671,6 +694,7 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
              @"clientRequestToken" : @"ClientRequestToken",
              @"documentLocation" : @"DocumentLocation",
              @"jobTag" : @"JobTag",
+             @"KMSKeyId" : @"KMSKeyId",
              @"notificationChannel" : @"NotificationChannel",
              @"outputConfig" : @"OutputConfig",
              };
