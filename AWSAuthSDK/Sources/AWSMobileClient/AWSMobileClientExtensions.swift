@@ -269,7 +269,7 @@ extension AWSMobileClient {
             defer {
                 if error == nil {
                     self.updateIdentityId([providerName: token]) { _ in
-                        let additionalInfo = [self.ProviderKey:providerName, self.TokenKey: token]
+                        let additionalInfo = [self.ProviderKey: providerName, self.TokenKey: token]
                         self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: additionalInfo)
                         completionHandler(UserState.signedIn, nil)
                     }
