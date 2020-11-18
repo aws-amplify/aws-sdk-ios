@@ -1,18 +1,14 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSElasticLoadBalancing
----AWSTextract
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSPolly
+  - AWSIoT
+  - AWSElasticLoadBalancing
+  - AWSTextract
 
 ## 2.19.1
 

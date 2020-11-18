@@ -536,7 +536,10 @@
       },\
       \"documentation\":\"<p>Contains metadata describing the lexicon such as the number of lexemes, language code, and so on. For more information, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/managing-lexicons.html\\\">Managing Lexicons</a>.</p>\"\
     },\
-    \"LexiconContent\":{\"type\":\"string\"},\
+    \"LexiconContent\":{\
+      \"type\":\"string\",\
+      \"sensitive\":true\
+    },\
     \"LexiconDescription\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -557,8 +560,7 @@
     },\
     \"LexiconName\":{\
       \"type\":\"string\",\
-      \"pattern\":\"[0-9A-Za-z]{1,20}\",\
-      \"sensitive\":true\
+      \"pattern\":\"[0-9A-Za-z]{1,20}\"\
     },\
     \"LexiconNameList\":{\
       \"type\":\"list\",\
@@ -695,7 +697,7 @@
     },\
     \"OutputS3KeyPrefix\":{\
       \"type\":\"string\",\
-      \"pattern\":\"^[0-9a-zA-Z\\\\/\\\\!\\\\-_\\\\.\\\\*\\\\'\\\\(\\\\)]{0,800}$\"\
+      \"pattern\":\"^[0-9a-zA-Z\\\\/\\\\!\\\\-_\\\\.\\\\*\\\\'\\\\(\\\\):;\\\\$@=+\\\\,\\\\?&]{0,800}$\"\
     },\
     \"OutputUri\":{\"type\":\"string\"},\
     \"PutLexiconInput\":{\
@@ -919,7 +921,7 @@
       \"members\":{\
         \"Engine\":{\
           \"shape\":\"Engine\",\
-          \"documentation\":\"<p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. Using a voice that is not supported for the engine selected will result in an error.</p>\"\
+          \"documentation\":\"<p>Specifies the engine (<code>standard</code> or <code>neural</code>) for Amazon Polly to use when processing input text for speech synthesis. For information on Amazon Polly voices and which voices are available in standard-only, NTTS-only, and both standard and NTTS formats, see <a href=\\\"https://docs.aws.amazon.com/polly/latest/dg/voicelist.html\\\">Available Voices</a>.</p> <p> <b>NTTS-only voices</b> </p> <p>When using NTTS-only voices such as Kevin (en-US), this parameter is required and must be set to <code>neural</code>. If the engine is not specified, or is set to <code>standard</code>, this will result in an error. </p> <p>Type: String</p> <p>Valid Values: <code>standard</code> | <code>neural</code> </p> <p>Required: Yes</p> <p> <b>Standard voices</b> </p> <p>For standard voices, this is not required; the engine parameter defaults to <code>standard</code>. If the engine is not specified, or is set to <code>standard</code> and an NTTS-only voice is selected, this will result in an error. </p>\"\
         },\
         \"LanguageCode\":{\
           \"shape\":\"LanguageCode\",\
@@ -1111,6 +1113,7 @@
         \"Mizuki\",\
         \"Naja\",\
         \"Nicole\",\
+        \"Olivia\",\
         \"Penelope\",\
         \"Raveena\",\
         \"Ricardo\",\
