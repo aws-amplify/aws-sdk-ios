@@ -335,6 +335,37 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreateUserHierarchyGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"parentGroupId" : @"ParentGroupId",
+             };
+}
+
+@end
+
+@implementation AWSConnectCreateUserHierarchyGroupResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hierarchyGroupArn" : @"HierarchyGroupArn",
+             @"hierarchyGroupId" : @"HierarchyGroupId",
+             };
+}
+
+@end
+
 @implementation AWSConnectCreateUserRequest
 
 + (BOOL)supportsSecureCoding {
@@ -569,6 +600,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)dimensionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectDimensions class]];
+}
+
+@end
+
+@implementation AWSConnectDeleteUserHierarchyGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hierarchyGroupId" : @"HierarchyGroupId",
+             @"instanceId" : @"InstanceId",
+             };
 }
 
 @end
@@ -1061,6 +1107,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectHierarchyLevelUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             };
+}
+
+@end
+
 @implementation AWSConnectHierarchyPath
 
 + (BOOL)supportsSecureCoding {
@@ -1133,6 +1193,44 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)levelTwoJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevel class]];
+}
+
+@end
+
+@implementation AWSConnectHierarchyStructureUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"levelFive" : @"LevelFive",
+             @"levelFour" : @"LevelFour",
+             @"levelOne" : @"LevelOne",
+             @"levelThree" : @"LevelThree",
+             @"levelTwo" : @"LevelTwo",
+             };
+}
+
++ (NSValueTransformer *)levelFiveJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevelUpdate class]];
+}
+
++ (NSValueTransformer *)levelFourJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevelUpdate class]];
+}
+
++ (NSValueTransformer *)levelOneJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevelUpdate class]];
+}
+
++ (NSValueTransformer *)levelThreeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevelUpdate class]];
+}
+
++ (NSValueTransformer *)levelTwoJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyLevelUpdate class]];
 }
 
 @end
@@ -3700,6 +3798,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectUpdateUserHierarchyGroupNameRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hierarchyGroupId" : @"HierarchyGroupId",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             };
+}
+
+@end
+
 @implementation AWSConnectUpdateUserHierarchyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3712,6 +3826,25 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"instanceId" : @"InstanceId",
              @"userId" : @"UserId",
              };
+}
+
+@end
+
+@implementation AWSConnectUpdateUserHierarchyStructureRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hierarchyStructure" : @"HierarchyStructure",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
++ (NSValueTransformer *)hierarchyStructureJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHierarchyStructureUpdate class]];
 }
 
 @end
