@@ -10057,7 +10057,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable fleetIds;
 
 /**
- <p>Indicates whether to terminate instances for an EC2 Fleet if it is deleted successfully.</p>
+ <p>Indicates whether to terminate the instances when the EC2 Fleet is deleted. The default is to terminate the instances.</p><p>To let the instances continue to run after the EC2 Fleet is deleted, specify <code>NoTerminateInstances</code>. Supported only for fleets of type <code>maintain</code> and <code>request</code>.</p><p>For <code>instant</code> fleets, you cannot specify <code>NoTerminateInstances</code>. A deleted <code>instant</code> fleet with running instances is not supported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable terminateInstances;
 
@@ -19619,7 +19619,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for both instances while they are running.</p></note>
+ <p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. Only available for fleets of type <code>maintain</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can leave it running. You are charged for both instances while they are running.</p></note>
  */
 @property (nonatomic, assign) AWSEC2FleetReplacementStrategy replacementStrategy;
 
@@ -19632,7 +19632,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</p><p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. You must specify a value, otherwise you get an error.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for all instances while they are running.</p></note>
+ <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>.</p><p>To allow EC2 Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for an existing Spot Instance in the fleet, specify <code>launch</code>. You must specify a value, otherwise you get an error.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can leave it running. You are charged for all instances while they are running.</p></note>
  */
 @property (nonatomic, assign) AWSEC2FleetReplacementStrategy replacementStrategy;
 
@@ -33528,7 +33528,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>. You must specify a value, otherwise you get an error.</p><p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can wait until Amazon EC2 interrupts it. You are charged for all instances while they are running.</p></note>
+ <p>The replacement strategy to use. Only available for fleets of type <code>maintain</code>. You must specify a value, otherwise you get an error.</p><p>To allow Spot Fleet to launch a replacement Spot Instance when an instance rebalance notification is emitted for a Spot Instance in the fleet, specify <code>launch</code>.</p><note><p>When a replacement instance is launched, the instance marked for rebalance is not automatically terminated. You can terminate it, or you can leave it running. You are charged for all instances while they are running.</p></note>
  */
 @property (nonatomic, assign) AWSEC2ReplacementStrategy replacementStrategy;
 
