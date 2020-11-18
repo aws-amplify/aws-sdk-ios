@@ -220,7 +220,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     NSString * expirationTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserTokenExpiration];
     NSString * expirationDate = self.pool.keychain[expirationTokenKey];
-    
+    BOOL invalidateTokens = [[NSUserDefaults standardUserDefaults] boolForKey:@"InvalidateTokens"];
     if(expirationDate){
         NSDate *expiration = [NSDate aws_dateFromString:expirationDate format:AWSDateISO8601DateFormat1];
         NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
@@ -246,13 +246,17 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 
         // If the session expires > 2 minutes return it. We need to check both accessToken and id Token expiry
         // since user can change both of them in Cognito console.
-        if(session
+        if(!invalidateTokens &&
+           session
            && [self isSessionValid:session]
            && [expiration compare:[NSDate dateWithTimeIntervalSinceNow:2 * 60]] == NSOrderedDescending) {
             return [AWSTask taskWithResult:session];
         }
         //else refresh it using the refresh token
         else if(refreshToken){
+            if (invalidateTokens) {
+                return [self interactiveAuth];
+            }
             AWSCognitoIdentityProviderInitiateAuthRequest * request = [AWSCognitoIdentityProviderInitiateAuthRequest new];
             request.authFlow = AWSCognitoIdentityProviderAuthFlowTypeRefreshTokenAuth;
             request.clientId = self.pool.userPoolConfiguration.clientId;
