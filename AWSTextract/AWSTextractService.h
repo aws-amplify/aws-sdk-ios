@@ -279,7 +279,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartDocumentAnalysis service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractStartDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractStartDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
  
  @see AWSTextractStartDocumentAnalysisRequest
  @see AWSTextractStartDocumentAnalysisResponse
@@ -292,7 +292,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the StartDocumentAnalysis service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
  
  @see AWSTextractStartDocumentAnalysisRequest
  @see AWSTextractStartDocumentAnalysisResponse
@@ -304,7 +304,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the StartDocumentTextDetection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractStartDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractStartDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
  
  @see AWSTextractStartDocumentTextDetectionRequest
  @see AWSTextractStartDocumentTextDetectionResponse
@@ -317,7 +317,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the StartDocumentTextDetection service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorIdempotentParameterMismatch`, `AWSTextractErrorThrottling`, `AWSTextractErrorLimitExceeded`.
  
  @see AWSTextractStartDocumentTextDetectionRequest
  @see AWSTextractStartDocumentTextDetectionResponse

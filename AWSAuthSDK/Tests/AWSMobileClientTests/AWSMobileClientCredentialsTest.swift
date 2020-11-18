@@ -267,4 +267,125 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
         })
         wait(for: [credentialFetchAfterSignIn2, credentialFetchBeforeSignIn, credentialFetchAfterSignOut], timeout: 15)
     }
+    
+    /// Test AWS credentials fetched for different user are different
+    ///
+    /// - Given: An authenticated session with valid aws crdentials
+    /// - When:
+    ///    - I invoke signout
+    ///    - I signIn with a different user
+    ///    - I fetch AWS credentials
+    /// - Then:
+    ///    - The AWS credentials should be different from the initial value
+    ///
+    func testGetAWSCredentialsForMultipleUser() {
+        let username_1 = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username_1)
+        
+        let username_2 = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username_2)
+        
+        signIn(username: username_1)
+        let credentialsExpectation_1 = expectation(description: "Successfully fetch AWS Credentials")
+        
+        var accessToken_1: String? = nil
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+                accessToken_1 = credentials.accessKey
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation_1.fulfill()
+        }
+        wait(for: [credentialsExpectation_1], timeout: 10)
+        
+        AWSMobileClient.default().signOut()
+        
+        signIn(username: username_2)
+        let credentialsExpectation_2 = expectation(description: "Successfully fetch AWS Credentials")
+        
+        var accessToken_2: String? = nil
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+                accessToken_2 = credentials.accessKey
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation_2.fulfill()
+        }
+        wait(for: [credentialsExpectation_2], timeout: 10)
+        XCTAssertNotEqual(accessToken_1, accessToken_2, "AWS Access token of two user should not match")
+    }
+    
+    /// Test AWS credentials fetched for different user are different
+    ///
+    /// - Given: An authenticated session with valid aws crdentials
+    /// - When:
+    ///    - I invoke signout
+    ///    - I manually expire Cognito token
+    ///    - Sign in to refresh Cognito tokens
+    ///    - I fetch AWS credentials
+    /// - Then:
+    ///    - The AWS credentials should be different from the initial value
+    ///
+    func testGetAWSCredentialsForMultipleUserDuringTokenRefresh() {
+        let username_1 = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username_1)
+        
+        let username_2 = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username_2)
+        
+        signIn(username: username_1)
+        let credentialsExpectation_1 = expectation(description: "Successfully fetch AWS Credentials")
+        
+        var accessToken_1: String? = nil
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+                accessToken_1 = credentials.accessKey
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation_1.fulfill()
+        }
+        wait(for: [credentialsExpectation_1], timeout: 10)
+        
+        // Setup a listener to signIn with a different user whenever you get signedOutUserPoolsTokenInvalid
+        AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
+            if (userstate == .signedOutUserPoolsTokenInvalid) {
+                DispatchQueue.main.async {
+                    self.signIn(username: username_2)
+                }
+            }
+        }
+        // Now invalidate the session and then try to call getToken
+        self.invalidateSession(username: username_1)
+
+        let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
+        AWSMobileClient.default().getTokens { (token, error) in
+            tokenFetchFailExpectation.fulfill()
+        }
+        wait(for: [tokenFetchFailExpectation], timeout: 10)
+        
+        let credentialsExpectation_2 = expectation(description: "Successfully fetch AWS Credentials")
+        
+        var accessToken_2: String? = nil
+        AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+            if let credentials = credentials {
+                XCTAssertNotNil(credentials.accessKey)
+                XCTAssertNotNil(credentials.secretKey)
+                accessToken_2 = credentials.accessKey
+            } else if let error = error {
+                XCTFail("Unexpected failure: \(error.localizedDescription)")
+            }
+            credentialsExpectation_2.fulfill()
+        }
+        wait(for: [credentialsExpectation_2], timeout: 10)
+        XCTAssertNotEqual(accessToken_1, accessToken_2, "AWS Access token of two user should not match")
+    }
 }

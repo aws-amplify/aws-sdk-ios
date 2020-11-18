@@ -46,6 +46,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"IdempotentParameterMismatchException" : @(AWSTextractErrorIdempotentParameterMismatch),
                             @"InternalServerError" : @(AWSTextractErrorInternalServer),
                             @"InvalidJobIdException" : @(AWSTextractErrorInvalidJobId),
+                            @"InvalidKMSKeyException" : @(AWSTextractErrorInvalidKMSKey),
                             @"InvalidParameterException" : @(AWSTextractErrorInvalidParameter),
                             @"InvalidS3ObjectException" : @(AWSTextractErrorInvalidS3Object),
                             @"LimitExceededException" : @(AWSTextractErrorLimitExceeded),
