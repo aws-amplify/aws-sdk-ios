@@ -261,7 +261,7 @@ Initializer for credentials provider with enhanced authentication flow. This is 
 /**
  Update the identity id for an authenticated user. The api will try to update the existing identity id to match the current signed in logins map's identity id.
  
- The api will return true if a successul identity id was fetched and updated.
+ Return true if the identity id was retrieved and updated in the local cache.
  */
 - (AWSTask<NSNumber *> *)updateIdentityIdWithAuthLogins:(NSDictionary<NSString *,NSString *> *)logins;
 
