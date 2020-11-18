@@ -11,6 +11,7 @@
   - AWSTextract
   - AWSSNS
   - AWSConnect
+  - AWSEC2
 
 ## 2.19.1
 
