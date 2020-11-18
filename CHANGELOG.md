@@ -1,17 +1,17 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSPolly
+  - AWSIoT
+  - AWSElasticLoadBalancing
+  - AWSTextract
+  - AWSSNS
+  - AWSConnect
+  - AWSEC2
 
 ## 2.19.1
 

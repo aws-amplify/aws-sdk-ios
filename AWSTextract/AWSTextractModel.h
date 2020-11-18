@@ -30,6 +30,7 @@ typedef NS_ENUM(NSInteger, AWSTextractErrorType) {
     AWSTextractErrorIdempotentParameterMismatch,
     AWSTextractErrorInternalServer,
     AWSTextractErrorInvalidJobId,
+    AWSTextractErrorInvalidKMSKey,
     AWSTextractErrorInvalidParameter,
     AWSTextractErrorInvalidS3Object,
     AWSTextractErrorLimitExceeded,
@@ -86,6 +87,12 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
     AWSTextractSelectionStatusUnknown,
     AWSTextractSelectionStatusSelected,
     AWSTextractSelectionStatusNotSelected,
+};
+
+typedef NS_ENUM(NSInteger, AWSTextractTextType) {
+    AWSTextractTextTypeUnknown,
+    AWSTextractTextTypeHandwriting,
+    AWSTextractTextTypePrinted,
 };
 
 @class AWSTextractAnalyzeDocumentRequest;
@@ -237,6 +244,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
  <p>The word or line of text that's recognized by Amazon Textract. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable text;
+
+/**
+ <p>The kind of text that Amazon Textract has detected. Can check for handwritten text and printed text.</p>
+ */
+@property (nonatomic, assign) AWSTextractTextType textType;
 
 @end
 
@@ -682,6 +694,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
+ <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSKeyId;
+
+/**
  <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
  */
 @property (nonatomic, strong) AWSTextractNotificationChannel * _Nullable notificationChannel;
@@ -726,6 +743,11 @@ typedef NS_ENUM(NSInteger, AWSTextractSelectionStatus) {
  <p>An identifier that you specify that's included in the completion notification published to the Amazon SNS topic. For example, you can use <code>JobTag</code> to identify the type of document that the completion notification corresponds to (such as a tax form or a receipt).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobTag;
+
+/**
+ <p>The KMS key used to encrypt the inference results. This can be in either Key ID or Key Alias format. When a KMS key is provided, the KMS key will be used for server-side encryption of the objects in the customer bucket. When this parameter is not enabled, the result will be encrypted server side,using SSE-S3.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSKeyId;
 
 /**
  <p>The Amazon SNS topic ARN that you want Amazon Textract to publish the completion status of the operation to. </p>
