@@ -33,6 +33,7 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorInvalidRequest,
     AWSConnectErrorLimitExceeded,
     AWSConnectErrorOutboundContactNotPermitted,
+    AWSConnectErrorResourceInUse,
     AWSConnectErrorResourceNotFound,
     AWSConnectErrorThrottling,
     AWSConnectErrorUserNotFound,
@@ -373,6 +374,17 @@ typedef NS_ENUM(NSInteger, AWSConnectQueueType) {
     AWSConnectQueueTypeAgent,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
+    AWSConnectResourceTypeUnknown,
+    AWSConnectResourceTypeContact,
+    AWSConnectResourceTypeContactFlow,
+    AWSConnectResourceTypeInstance,
+    AWSConnectResourceTypeParticipant,
+    AWSConnectResourceTypeHierarchyLevel,
+    AWSConnectResourceTypeHierarchyGroup,
+    AWSConnectResourceTypeUser,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectStatistic) {
     AWSConnectStatisticUnknown,
     AWSConnectStatisticSum,
@@ -402,12 +414,15 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateContactFlowResponse;
 @class AWSConnectCreateRoutingProfileRequest;
 @class AWSConnectCreateRoutingProfileResponse;
+@class AWSConnectCreateUserHierarchyGroupRequest;
+@class AWSConnectCreateUserHierarchyGroupResponse;
 @class AWSConnectCreateUserRequest;
 @class AWSConnectCreateUserResponse;
 @class AWSConnectCredentials;
 @class AWSConnectCurrentMetric;
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
+@class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
 @class AWSConnectDescribeContactFlowRequest;
 @class AWSConnectDescribeContactFlowResponse;
@@ -433,8 +448,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectHierarchyGroup;
 @class AWSConnectHierarchyGroupSummary;
 @class AWSConnectHierarchyLevel;
+@class AWSConnectHierarchyLevelUpdate;
 @class AWSConnectHierarchyPath;
 @class AWSConnectHierarchyStructure;
+@class AWSConnectHierarchyStructureUpdate;
 @class AWSConnectHistoricalMetric;
 @class AWSConnectHistoricalMetricData;
 @class AWSConnectHistoricalMetricResult;
@@ -499,7 +516,9 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
 @class AWSConnectUpdateRoutingProfileNameRequest;
 @class AWSConnectUpdateRoutingProfileQueuesRequest;
+@class AWSConnectUpdateUserHierarchyGroupNameRequest;
 @class AWSConnectUpdateUserHierarchyRequest;
+@class AWSConnectUpdateUserHierarchyStructureRequest;
 @class AWSConnectUpdateUserIdentityInfoRequest;
 @class AWSConnectUpdateUserPhoneConfigRequest;
 @class AWSConnectUpdateUserRoutingProfileRequest;
@@ -743,6 +762,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateUserHierarchyGroupRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the user hierarchy group. Must not be more than 100 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier for the parent hierarchy group. The user hierarchy is created at level one if the parent group ID is null.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable parentGroupId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateUserHierarchyGroupResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the hierarchy group. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hierarchyGroupArn;
+
+/**
+ <p>The identifier of the hierarchy group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateUserRequest : AWSRequest
 
 
@@ -895,6 +955,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The dimensions for the metrics.</p>
  */
 @property (nonatomic, strong) AWSConnectDimensions * _Nullable dimensions;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteUserHierarchyGroupRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the hierarchy group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 
@@ -1389,6 +1467,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Contains information about the hierarchy level to update.</p>
+ Required parameters: [Name]
+ */
+@interface AWSConnectHierarchyLevelUpdate : AWSModel
+
+
+/**
+ <p>The name of the user hierarchy level. Must not be more than 50 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
  <p>Contains information about the levels of a hierarchy group.</p>
  */
 @interface AWSConnectHierarchyPath : AWSModel
@@ -1451,6 +1543,39 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about level two.</p>
  */
 @property (nonatomic, strong) AWSConnectHierarchyLevel * _Nullable levelTwo;
+
+@end
+
+/**
+ <p>Contains information about the level hierarchy to update.</p>
+ */
+@interface AWSConnectHierarchyStructureUpdate : AWSModel
+
+
+/**
+ <p>The update for level five.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyLevelUpdate * _Nullable levelFive;
+
+/**
+ <p>The update for level four.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyLevelUpdate * _Nullable levelFour;
+
+/**
+ <p>The update for level one.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyLevelUpdate * _Nullable levelOne;
+
+/**
+ <p>The update for level three.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyLevelUpdate * _Nullable levelThree;
+
+/**
+ <p>The update for level two.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyLevelUpdate * _Nullable levelTwo;
 
 @end
 
@@ -2834,6 +2959,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateUserHierarchyGroupNameRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the hierarchy group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hierarchyGroupId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the hierarchy group. Must not be more than 100 characters.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateUserHierarchyRequest : AWSRequest
 
 
@@ -2851,6 +2999,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateUserHierarchyStructureRequest : AWSRequest
+
+
+/**
+ <p>The hierarchy levels to update.</p>
+ */
+@property (nonatomic, strong) AWSConnectHierarchyStructureUpdate * _Nullable hierarchyStructure;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
 
 @end
 

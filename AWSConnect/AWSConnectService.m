@@ -49,6 +49,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidRequestException" : @(AWSConnectErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSConnectErrorLimitExceeded),
                             @"OutboundContactNotPermittedException" : @(AWSConnectErrorOutboundContactNotPermitted),
+                            @"ResourceInUseException" : @(AWSConnectErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSConnectErrorResourceNotFound),
                             @"ThrottlingException" : @(AWSConnectErrorThrottling),
                             @"UserNotFoundException" : @(AWSConnectErrorUserNotFound),
@@ -379,6 +380,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateUserHierarchyGroupResponse *> *)createUserHierarchyGroup:(AWSConnectCreateUserHierarchyGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/user-hierarchy-groups/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateUserHierarchyGroup"
+                   outputClass:[AWSConnectCreateUserHierarchyGroupResponse class]];
+}
+
+- (void)createUserHierarchyGroup:(AWSConnectCreateUserHierarchyGroupRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateUserHierarchyGroupResponse *response, NSError *error))completionHandler {
+    [[self createUserHierarchyGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateUserHierarchyGroupResponse *> * _Nonnull task) {
+        AWSConnectCreateUserHierarchyGroupResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteUser:(AWSConnectDeleteUserRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -391,6 +415,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteUser:(AWSConnectDeleteUserRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteUser:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteUserHierarchyGroup:(AWSConnectDeleteUserHierarchyGroupRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteUserHierarchyGroup"
+                   outputClass:nil];
+}
+
+- (void)deleteUserHierarchyGroup:(AWSConnectDeleteUserHierarchyGroupRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteUserHierarchyGroup:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1255,6 +1301,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateUserHierarchy:(AWSConnectUpdateUserHierarchyRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateUserHierarchy:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateUserHierarchyGroupName:(AWSConnectUpdateUserHierarchyGroupNameRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/user-hierarchy-groups/{InstanceId}/{HierarchyGroupId}/name"
+                  targetPrefix:@""
+                 operationName:@"UpdateUserHierarchyGroupName"
+                   outputClass:nil];
+}
+
+- (void)updateUserHierarchyGroupName:(AWSConnectUpdateUserHierarchyGroupNameRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateUserHierarchyGroupName:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateUserHierarchyStructure:(AWSConnectUpdateUserHierarchyStructureRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/user-hierarchy-structure/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateUserHierarchyStructure"
+                   outputClass:nil];
+}
+
+- (void)updateUserHierarchyStructure:(AWSConnectUpdateUserHierarchyStructureRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateUserHierarchyStructure:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
