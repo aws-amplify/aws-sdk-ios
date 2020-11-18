@@ -818,6 +818,8 @@ extension AWSMobileClient {
                             // the user that the state changed to signedIn.
                             //
                             // If we have an idToken, try to refresh identity id before sending the callback.
+                            //
+                            // The waiting tokenFetchLock is released inside the method `informSignedInThroughUserPool`
                             if let idToken = session.idToken?.tokenString {
                                 self.updateIdentityId([self.userPoolClient!.identityProviderName: idToken]) { _ in
                                     self.informSignedInThroughUserPool()
@@ -866,12 +868,12 @@ extension AWSMobileClient {
     }
     
     internal func updateIdentityId(_ logins: [String: String], completion: @escaping (Bool) -> Void) {
-        if let credentialsProvider = self.internalCredentialsProvider {
-            credentialsProvider.updateIdentityId(withAuthLogins: logins).continueWith { _ in
-                completion(true)
-            }
-        } else {
+        guard let credentialsProvider = self.internalCredentialsProvider else {
             completion(false)
+            return
+        }
+        credentialsProvider.updateIdentityId(withAuthLogins: logins).continueWith { _ in
+            completion(true)
         }
     }
 

@@ -261,6 +261,11 @@ Initializer for credentials provider with enhanced authentication flow. This is 
 /**
  Update the identity id for an authenticated user. The api will try to update the existing identity id to match the current signed in logins map's identity id.
  
+ @Warning: Internal use only. This api is used internally by AWSMobileClient to update the identity id just after signIn. 
+ If this is the first time a user is signIn to Cognito and there is already a guest Identity Id, this api will migrate the guest identity id to authenticated identity id for the
+ signed in user. So after this call the signed in user will have the same identity id as the guest user.
+ If this is not the first time the user is signIn, this api will fetch the existing identity id of the user. If the SDK was in the guest state, the guest identity id will be invalidated.
+ 
  Return true if the identity id was retrieved and updated in the local cache.
  */
 - (AWSTask<NSNumber *> *)updateIdentityIdWithAuthLogins:(NSDictionary<NSString *,NSString *> *)logins;

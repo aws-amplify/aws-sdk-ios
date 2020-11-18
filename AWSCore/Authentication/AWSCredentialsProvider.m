@@ -696,7 +696,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
     }];
 }
 
-#pragma mark - Helper method to update identity id immediately after signin
+#pragma mark -
 
 - (AWSTask<NSNumber *> *)updateIdentityIdWithAuthLogins:(NSDictionary<NSString *,NSString *> *)logins {
     id<AWSCognitoCredentialsProviderHelper> providerRef = self.identityProvider;
@@ -706,14 +706,7 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
         // identity id for the signed in user.
         if (self.identityId == nil) {
             return [[self getIdentityIdAPI:logins] continueWithSuccessBlock:^id (AWSTask *task) {
-                NSString *identityIdFromResponse = task.result;
-                if (identityIdFromResponse) {
-                    self.identityId = identityIdFromResponse;
-                    providerRef.identityId = identityIdFromResponse;
-                    return [AWSTask taskWithResult:[NSNumber numberWithBool:true]];
-                } else {
-                    return [AWSTask taskWithResult:[NSNumber numberWithBool:false]];
-                }
+                return [self checkResultAndUpdate:task.result providerRef:providerRef];
             }];
         } else {
             // If there is already an existing identity id, try to migrate the identity id using
@@ -732,30 +725,27 @@ static NSString *const AWSCredentialsProviderKeychainIdentityId = @"identityId";
                     self.identityId = nil;
                     providerRef.identityId = nil;
                     return [[self getIdentityIdAPI:logins] continueWithSuccessBlock:^id (AWSTask *task) {
-                        NSString *identityIdFromResponse = task.result;
-                        if (identityIdFromResponse) {
-                            self.identityId = identityIdFromResponse;
-                            providerRef.identityId = identityIdFromResponse;
-                            return [AWSTask taskWithResult:[NSNumber numberWithBool:true]];
-                        } else {
-                            return [AWSTask taskWithResult:[NSNumber numberWithBool:false]];
-                        }
+                        return [self checkResultAndUpdate:task.result providerRef:providerRef];
                     }];
                 } else {
-                    NSString *identityIdFromResponse = task.result;
-                    if (identityIdFromResponse) {
-                        self.identityId = identityIdFromResponse;
-                        providerRef.identityId = identityIdFromResponse;
-                        return [AWSTask taskWithResult:[NSNumber numberWithBool:true]];
-                    } else {
-                        return [AWSTask taskWithResult:[NSNumber numberWithBool:false]];
-                    }
+                    return [self checkResultAndUpdate:task.result providerRef:providerRef];
                 }
                 
             }];
         }
     }
     return [AWSTask taskWithResult:[NSNumber numberWithBool:false]];
+}
+
+- (AWSTask<NSNumber *> *)checkResultAndUpdate: (NSString *) identityIdFromResponse
+                                  providerRef: (AWSCognitoCredentialsProviderHelper *) providerRef {
+    if (identityIdFromResponse) {
+        self.identityId = identityIdFromResponse;
+        providerRef.identityId = identityIdFromResponse;
+        return [AWSTask taskWithResult:[NSNumber numberWithBool:true]];
+    } else {
+        return [AWSTask taskWithResult:[NSNumber numberWithBool:false]];
+    }
 }
 
 - (AWSTask<NSString *> *)getIdentityFromCredentialsForIdentityAPI:(NSDictionary<NSString *,NSString *> *)logins {
