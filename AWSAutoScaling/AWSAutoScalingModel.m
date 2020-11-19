@@ -1872,8 +1872,13 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"instanceType" : @"InstanceType",
+             @"launchTemplateSpecification" : @"LaunchTemplateSpecification",
              @"weightedCapacity" : @"WeightedCapacity",
              };
+}
+
++ (NSValueTransformer *)launchTemplateSpecificationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplateSpecification class]];
 }
 
 @end
