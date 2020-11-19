@@ -12,6 +12,9 @@
   - AWSSNS
   - AWSConnect
   - AWSEC2
+  - AWSLex
+  - AWSAutoScaling
+  - AWSLambda
 
 ## 2.19.1
 
