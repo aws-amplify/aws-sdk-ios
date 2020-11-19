@@ -101,7 +101,7 @@
      }
     
     func testIdentityIdImmediatelyAfterSignIn() {
-        
+        AWSMobileClient.default().signOut()
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username)
         
