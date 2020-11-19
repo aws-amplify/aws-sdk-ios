@@ -654,6 +654,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
+             @"startingPosition" : @"StartingPosition",
+             @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"topics" : @"Topics",
@@ -675,6 +677,40 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaSourceAccessConfiguration class]];
+}
+
++ (NSValueTransformer *)startingPositionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRIM_HORIZON"] == NSOrderedSame) {
+            return @(AWSLambdaEventSourcePositionTrimHorizon);
+        }
+        if ([value caseInsensitiveCompare:@"LATEST"] == NSOrderedSame) {
+            return @(AWSLambdaEventSourcePositionLatest);
+        }
+        if ([value caseInsensitiveCompare:@"AT_TIMESTAMP"] == NSOrderedSame) {
+            return @(AWSLambdaEventSourcePositionAtTimestamp);
+        }
+        return @(AWSLambdaEventSourcePositionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaEventSourcePositionTrimHorizon:
+                return @"TRIM_HORIZON";
+            case AWSLambdaEventSourcePositionLatest:
+                return @"LATEST";
+            case AWSLambdaEventSourcePositionAtTimestamp:
+                return @"AT_TIMESTAMP";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startingPositionTimestampJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
 }
 
 @end
