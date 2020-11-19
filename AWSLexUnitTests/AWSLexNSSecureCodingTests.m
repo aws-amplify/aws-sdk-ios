@@ -19,6 +19,8 @@
 
 @interface AWSLexNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSLexActiveContext API_AVAILABLE(ios(11));
+- (void) test_AWSLexActiveContextTimeToLive API_AVAILABLE(ios(11));
 - (void) test_AWSLexButton API_AVAILABLE(ios(11));
 - (void) test_AWSLexDeleteSessionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLexDeleteSessionResponse API_AVAILABLE(ios(11));
@@ -41,6 +43,14 @@
 @end
 
 @implementation AWSLexNSSecureCodingTests
+
+- (void) test_AWSLexActiveContext {
+    [self validateSecureCodingForClass:[AWSLexActiveContext class]];
+}
+
+- (void) test_AWSLexActiveContextTimeToLive {
+    [self validateSecureCodingForClass:[AWSLexActiveContextTimeToLive class]];
+}
 
 - (void) test_AWSLexButton {
     [self validateSecureCodingForClass:[AWSLexButton class]];
