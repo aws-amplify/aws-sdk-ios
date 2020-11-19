@@ -221,6 +221,117 @@ class AWSMobileClientTests: AWSMobileClientTestBase {
              timeout: 15)
     }
     
+    /// Test whether multiple simultanous calls to credentials works for a signed in user.
+    ///
+    /// - Given: An authenticated session
+    /// - When:
+    ///    - I invoke the getTokens, getAWSCredentials and getTokn in a loop
+    /// - Then:
+    ///    - The callbacks for each operation should produce the expected result.
+    ///
+    func testMultipleCredentialsCallAfterSignIn() {
+        
+        let countOfCalls = 50
+        let identityIdExpectation = expectation(description: "Request to GetIdentityID is complete")
+        identityIdExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let tokensExpectation = expectation(description: "Request to GetToken is complete")
+        tokensExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let credentialsExpectation = expectation(description: "Request to GetCredentials is complete")
+        credentialsExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        for _ in 1...countOfCalls {
+            AWSMobileClient.default().getIdentityId().continueOnSuccessWith { task in
+                identityIdExpectation.fulfill()
+            }
+            
+            AWSMobileClient.default().getTokens { (tokens, error) in
+                guard tokens != nil else {
+                    XCTFail("Received error in tokens \(error!)")
+                    return
+                }
+                tokensExpectation.fulfill()
+            }
+            AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+                guard credentials != nil else {
+                    XCTFail("Received error in getAWSCredentials \(error!)")
+                    return
+                }
+                credentialsExpectation.fulfill()
+            }
+        }
+        wait(for: [identityIdExpectation, tokensExpectation, credentialsExpectation], timeout: 20)
+    }
+    
+    /// Test whether multiple simultanous calls to credentials works for a signed in user and token invalidation works as expected.
+    ///
+    /// - Given: An authenticated session
+    /// - When:
+    ///    - I invoke the getTokens, getAWSCredentials and getTokn in a loop
+    ///    - Invalidate token in between
+    ///    - SignIn when the token expires.
+    /// - Then:
+    ///    - The callbacks for each operation should produce the expected result.
+    ///
+    func testMultipleCredentialsCallWithTokenInvalidation() {
+        
+        let countOfCalls = 50
+        let identityIdExpectation = expectation(description: "Request to GetIdentityID is complete")
+        identityIdExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let tokensExpectation = expectation(description: "Request to GetToken is complete")
+        tokensExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let credentialsExpectation = expectation(description: "Request to GetCredentials is complete")
+        credentialsExpectation.expectedFulfillmentCount = countOfCalls
+        
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        
+        let signOutExpectation = expectation(description: "SignoutUserPoolsTokenInvalid should be called")
+        AWSMobileClient.default().addUserStateListener(self) { (userState, _) in
+            
+            if case .signedOutUserPoolsTokenInvalid = userState {
+                DispatchQueue.main.async {
+                    self.signIn(username: username)
+                }
+                signOutExpectation.fulfill()
+            }
+        }
+        
+        for index in 1...countOfCalls {
+            AWSMobileClient.default().getIdentityId().continueOnSuccessWith { task in
+                identityIdExpectation.fulfill()
+            }
+            
+            AWSMobileClient.default().getTokens { (tokens, error) in
+                guard tokens != nil else {
+                    XCTFail("Received error in tokens \(error!)")
+                    return
+                }
+                tokensExpectation.fulfill()
+            }
+            AWSMobileClient.default().getAWSCredentials { (credentials, error) in
+                guard credentials != nil else {
+                    XCTFail("Received error in getAWSCredentials \(error!)")
+                    return
+                }
+                credentialsExpectation.fulfill()
+            }
+            
+            if index == 15 {
+                self.invalidateSession(username: username)
+            }
+        }
+        wait(for: [identityIdExpectation, tokensExpectation, credentialsExpectation, signOutExpectation], timeout: 20)
+        AWSMobileClient.default().removeUserStateListener(self)
+    }
+    
     /// Test whether we are getting same identity id for unauth to auth transition.
     ///
     /// - Given: An unauthenticated user session

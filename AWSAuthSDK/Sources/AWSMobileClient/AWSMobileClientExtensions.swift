@@ -235,10 +235,15 @@ extension AWSMobileClient {
                     self.federationProvider = .userPools
                     self.performUserPoolSuccessfulSignInTasks(session: result)
                     let tokenString = result.idToken!.tokenString
-                    self.mobileClientStatusChanged(userState: .signedIn,
-                                                   additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
-                                                                    self.TokenKey:tokenString])
-                    self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+                    self.updateIdentityId(self.cachedLoginsMap) { _ in
+                        if (self.currentUserState != .signedIn) {
+                            self.mobileClientStatusChanged(userState: .signedIn,
+                                                           additionalInfo: [self.ProviderKey:self.userPoolClient!.identityProviderName,
+                                                                            self.TokenKey:tokenString])
+                            self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+                        }
+                    }
+                    
                 }
                 return nil
             }
@@ -263,9 +268,12 @@ extension AWSMobileClient {
             // At the end of operation if there is an error anywhere in the flow, we return it back to the developer; else return a successful signedIn state.
             defer {
                 if error == nil {
-                    self.mobileClientStatusChanged(userState: .signedIn,
-                                                   additionalInfo: [self.ProviderKey:providerName, self.TokenKey: token])
-                    completionHandler(UserState.signedIn, nil)
+                    self.updateIdentityId([providerName: token]) { _ in
+                        let additionalInfo = [self.ProviderKey: providerName, self.TokenKey: token]
+                        self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: additionalInfo)
+                        completionHandler(UserState.signedIn, nil)
+                    }
+                    
                 } else {
                     completionHandler(nil, error)
                 }
@@ -799,15 +807,34 @@ extension AWSMobileClient {
                     if let error = task.error {
                         completionHandler(nil, error)
                         self.invokeSignInCallback(signResult: nil, error: error)
+                        self.tokenFetchLock.leave()
                     } else if let session = task.result {
+                        
                         completionHandler(self.userSessionToTokens(userSession: session), nil)
                         self.federationProvider = .userPools
                         if (self.currentUserState != .signedIn) {
-                            self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
+                            // If the current state is not already signedIn, we might have reached here due to
+                            // authentication flow because of session expiry. Since we got a valid session, we inform
+                            // the user that the state changed to signedIn.
+                            //
+                            // If we have an idToken, try to refresh identity id before sending the callback.
+                            //
+                            // The waiting tokenFetchLock is released inside the method `informSignedInThroughUserPool`
+                            if let idToken = session.idToken?.tokenString {
+                                self.updateIdentityId([self.userPoolClient!.identityProviderName: idToken]) { _ in
+                                    self.informSignedInThroughUserPool()
+                                }
+                            } else {
+                                self.informSignedInThroughUserPool()
+                            }
+                            
+                        } else {
+                            self.tokenFetchLock.leave()
                         }
-                        self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+                    } else {
+                        self.tokenFetchLock.leave()
                     }
-                    self.tokenFetchLock.leave()
+                    
                     return nil
                 })
                 self.tokenFetchLock.wait()
@@ -816,6 +843,14 @@ extension AWSMobileClient {
         }
     }
 
+    internal func informSignedInThroughUserPool() {
+        if (self.currentUserState != .signedIn) {
+            self.mobileClientStatusChanged(userState: .signedIn, additionalInfo: [:])
+            self.invokeSignInCallback(signResult: SignInResult(signInState: .signedIn), error: nil)
+        }
+        self.tokenFetchLock.leave()
+    }
+    
     internal func userSessionToTokens(userSession: AWSCognitoIdentityUserSession) -> Tokens {
         var idToken: SessionToken?
         var accessToken: SessionToken?
@@ -830,6 +865,16 @@ extension AWSMobileClient {
             refreshToken = SessionToken(tokenString: userSession.refreshToken?.tokenString)
         }
         return Tokens(idToken: idToken, accessToken: accessToken, refreshToken: refreshToken, expiration: userSession.expirationTime)
+    }
+    
+    internal func updateIdentityId(_ logins: [String: String], completion: @escaping (Bool) -> Void) {
+        guard let credentialsProvider = self.internalCredentialsProvider else {
+            completion(false)
+            return
+        }
+        credentialsProvider.updateIdentityId(withAuthLogins: logins).continueWith { _ in
+            completion(true)
+        }
     }
 
 }
