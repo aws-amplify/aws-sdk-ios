@@ -1,13 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLex
----AWSAutoScaling
----AWSLambda
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -22,6 +12,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSSNS
   - AWSConnect
   - AWSEC2
+  - AWSLex
+  - AWSAutoScaling
+  - AWSLambda
 
 ## 2.19.1
 
