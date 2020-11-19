@@ -5,8 +5,8 @@
 ### Bug fixes
 
 - **Amazon Cognito**
-  - Fixed an issue where the aws credentials are not cleared during token expiry (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
-  - Fixed an issue where identity id is not updated immediately after signin (See [Issue #2922](https://github.com/aws-amplify/aws-sdk-ios/issues/2922), [PR #3236](https://github.com/aws-amplify/aws-sdk-ios/pull/3236))
+  - Remove cached AWS Credentials when token expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
+  - Update Cognito id token immediately after signIn (See [Issue #2922](https://github.com/aws-amplify/aws-sdk-ios/issues/2922), [PR #3236](https://github.com/aws-amplify/aws-sdk-ios/pull/3236))
 
 ### Misc. Updates
 
