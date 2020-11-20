@@ -387,5 +387,6 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
         }
         wait(for: [credentialsExpectation_2], timeout: 10)
         XCTAssertNotEqual(accessToken_1, accessToken_2, "AWS Access token of two user should not match")
+        AWSMobileClient.default().removeUserStateListener(self)
     }
 }
