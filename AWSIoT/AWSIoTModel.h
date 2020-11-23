@@ -10146,6 +10146,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable fileName;
 
 /**
+ <p>An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable fileType;
+
+/**
  <p>The file version.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable fileVersion;
