@@ -250,6 +250,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createAlias:(AWSLambdaCreateAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAliasConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail). </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaCreateCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`.
+ 
+ @see AWSLambdaCreateCodeSigningConfigRequest
+ @see AWSLambdaCreateCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaCreateCodeSigningConfigResponse *> *)createCodeSigningConfig:(AWSLambdaCreateCodeSigningConfigRequest *)request;
+
+/**
+ <p>Creates a code signing configuration. A <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">code signing configuration</a> defines a list of allowed signing profiles and defines the code-signing validation policy (action to be taken if deployment validation checks fail). </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`.
+ 
+ @see AWSLambdaCreateCodeSigningConfigRequest
+ @see AWSLambdaCreateCodeSigningConfigResponse
+ */
+- (void)createCodeSigningConfig:(AWSLambdaCreateCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaCreateCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon MQ</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateEventSourceMapping service method.
@@ -275,11 +300,11 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaEventSourceMappingConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFunction service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaCreateFunctionRequest
  @see AWSLambdaFunctionConfiguration
@@ -287,12 +312,12 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)createFunction:(AWSLambdaCreateFunctionRequest *)request;
 
 /**
- <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFunction service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaCreateFunctionRequest
  @see AWSLambdaFunctionConfiguration
@@ -320,6 +345,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaDeleteAliasRequest
  */
 - (void)deleteAlias:(AWSLambdaDeleteAliasRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is using it. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaDeleteCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`.
+ 
+ @see AWSLambdaDeleteCodeSigningConfigRequest
+ @see AWSLambdaDeleteCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaDeleteCodeSigningConfigResponse *> *)deleteCodeSigningConfig:(AWSLambdaDeleteCodeSigningConfigRequest *)request;
+
+/**
+ <p>Deletes the code signing configuration. You can delete the code signing configuration only if no function is using it. </p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorResourceConflict`.
+ 
+ @see AWSLambdaDeleteCodeSigningConfigRequest
+ @see AWSLambdaDeleteCodeSigningConfigResponse
+ */
+- (void)deleteCodeSigningConfig:(AWSLambdaDeleteCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaDeleteCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-invocation-modes.html">event source mapping</a>. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p><p>When you delete an event source mapping, it enters a <code>Deleting</code> state and might not be completely deleted for several seconds.</p>
@@ -367,6 +417,28 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaDeleteFunctionRequest
  */
 - (void)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes the code signing configuration from the function.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFunctionCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorCodeSigningConfigNotFound`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
+ 
+ @see AWSLambdaDeleteFunctionCodeSigningConfigRequest
+ */
+- (AWSTask *)deleteFunctionCodeSigningConfig:(AWSLambdaDeleteFunctionCodeSigningConfigRequest *)request;
+
+/**
+ <p>Removes the code signing configuration from the function.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteFunctionCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorCodeSigningConfigNotFound`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
+ 
+ @see AWSLambdaDeleteFunctionCodeSigningConfigRequest
+ */
+- (void)deleteFunctionCodeSigningConfig:(AWSLambdaDeleteFunctionCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Removes a concurrent execution limit from a function.</p>
@@ -507,6 +579,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)getAlias:(AWSLambdaGetAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAliasConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns information about the specified code signing configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaGetCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaGetCodeSigningConfigRequest
+ @see AWSLambdaGetCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaGetCodeSigningConfigResponse *> *)getCodeSigningConfig:(AWSLambdaGetCodeSigningConfigRequest *)request;
+
+/**
+ <p>Returns information about the specified code signing configuration.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaGetCodeSigningConfigRequest
+ @see AWSLambdaGetCodeSigningConfigResponse
+ */
+- (void)getCodeSigningConfig:(AWSLambdaGetCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns details about an event source mapping. You can get the identifier of a mapping from the output of <a>ListEventSourceMappings</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetEventSourceMapping service method.
@@ -555,6 +652,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaGetFunctionResponse
  */
 - (void)getFunction:(AWSLambdaGetFunctionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetFunctionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns the code signing configuration for the specified function.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetFunctionCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaGetFunctionCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaGetFunctionCodeSigningConfigRequest
+ @see AWSLambdaGetFunctionCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaGetFunctionCodeSigningConfigResponse *> *)getFunctionCodeSigningConfig:(AWSLambdaGetFunctionCodeSigningConfigRequest *)request;
+
+/**
+ <p>Returns the code signing configuration for the specified function.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetFunctionCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorService`, `AWSLambdaErrorTooManyRequests`.
+ 
+ @see AWSLambdaGetFunctionCodeSigningConfigRequest
+ @see AWSLambdaGetFunctionCodeSigningConfigResponse
+ */
+- (void)getFunctionCodeSigningConfig:(AWSLambdaGetFunctionCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetFunctionCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns details about the reserved concurrency configuration for a function. To set a concurrency limit for a function, use <a>PutFunctionConcurrency</a>.</p>
@@ -832,6 +954,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)listAliases:(AWSLambdaListAliasesRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListAliasesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code signing configurations</a> for the specified function. A request returns up to 10,000 configurations per call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListCodeSigningConfigs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaListCodeSigningConfigsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`.
+ 
+ @see AWSLambdaListCodeSigningConfigsRequest
+ @see AWSLambdaListCodeSigningConfigsResponse
+ */
+- (AWSTask<AWSLambdaListCodeSigningConfigsResponse *> *)listCodeSigningConfigs:(AWSLambdaListCodeSigningConfigsRequest *)request;
+
+/**
+ <p>Returns a list of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuring-codesigning.html">code signing configurations</a> for the specified function. A request returns up to 10,000 configurations per call. You can use the <code>MaxItems</code> parameter to return fewer configurations per call. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListCodeSigningConfigs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`.
+ 
+ @see AWSLambdaListCodeSigningConfigsRequest
+ @see AWSLambdaListCodeSigningConfigsResponse
+ */
+- (void)listCodeSigningConfigs:(AWSLambdaListCodeSigningConfigsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListCodeSigningConfigsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists event source mappings. Specify an <code>EventSourceArn</code> to only show event source mappings for a single event source.</p>
  
  @param request A container for the necessary parameters to execute the ListEventSourceMappings service method.
@@ -905,6 +1052,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaListFunctionsResponse
  */
 - (void)listFunctions:(AWSLambdaListFunctionsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFunctionsByCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaListFunctionsByCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaListFunctionsByCodeSigningConfigRequest
+ @see AWSLambdaListFunctionsByCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaListFunctionsByCodeSigningConfigResponse *> *)listFunctionsByCodeSigningConfig:(AWSLambdaListFunctionsByCodeSigningConfigRequest *)request;
+
+/**
+ <p>List the functions that use the specified code signing configuration. You can use this method prior to deleting a code signing configuration, to verify that no functions are using it.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListFunctionsByCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaListFunctionsByCodeSigningConfigRequest
+ @see AWSLambdaListFunctionsByCodeSigningConfigResponse
+ */
+- (void)listFunctionsByCodeSigningConfig:(AWSLambdaListFunctionsByCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionsByCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime.</p>
@@ -1080,6 +1252,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @see AWSLambdaFunctionConfiguration
  */
 - (void)publishVersion:(AWSLambdaPublishVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>
+ 
+ @param request A container for the necessary parameters to execute the PutFunctionCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaPutFunctionCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorCodeSigningConfigNotFound`.
+ 
+ @see AWSLambdaPutFunctionCodeSigningConfigRequest
+ @see AWSLambdaPutFunctionCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaPutFunctionCodeSigningConfigResponse *> *)putFunctionCodeSigningConfig:(AWSLambdaPutFunctionCodeSigningConfigRequest *)request;
+
+/**
+ <p>Update the code signing configuration for the function. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>
+ 
+ @param request A container for the necessary parameters to execute the PutFunctionCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorCodeSigningConfigNotFound`.
+ 
+ @see AWSLambdaPutFunctionCodeSigningConfigRequest
+ @see AWSLambdaPutFunctionCodeSigningConfigResponse
+ */
+- (void)putFunctionCodeSigningConfig:(AWSLambdaPutFunctionCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaPutFunctionCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Sets the maximum number of simultaneous executions for a function, and reserves capacity for that concurrency level.</p><p>Concurrency settings apply to the function as a whole, including all published versions and the unpublished version. Reserving concurrency both ensures that your function has capacity to process the specified number of events simultaneously, and prevents it from scaling beyond that level. Use <a>GetFunction</a> to see the current setting for a function.</p><p>Use <a>GetAccountSettings</a> to see your Regional concurrency limit. You can reserve concurrency for as many functions as you like, as long as you leave at least 100 simultaneous executions unreserved for functions that aren't configured with a per-function limit. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/concurrent-executions.html">Managing Concurrency</a>.</p>
@@ -1270,6 +1467,31 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)updateAlias:(AWSLambdaUpdateAliasRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAliasConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCodeSigningConfig service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaUpdateCodeSigningConfigResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaUpdateCodeSigningConfigRequest
+ @see AWSLambdaUpdateCodeSigningConfigResponse
+ */
+- (AWSTask<AWSLambdaUpdateCodeSigningConfigResponse *> *)updateCodeSigningConfig:(AWSLambdaUpdateCodeSigningConfigRequest *)request;
+
+/**
+ <p>Update the code signing configuration. Changes to the code signing configuration take effect the next time a user tries to deploy a code package to the function. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCodeSigningConfig service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorResourceNotFound`.
+ 
+ @see AWSLambdaUpdateCodeSigningConfigRequest
+ @see AWSLambdaUpdateCodeSigningConfigResponse
+ */
+- (void)updateCodeSigningConfig:(AWSLambdaUpdateCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaUpdateCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateEventSourceMapping service method.
@@ -1295,11 +1517,11 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaEventSourceMappingConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates a Lambda function's code.</p><p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p>
+ <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p><p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p>
  
  @param request A container for the necessary parameters to execute the UpdateFunctionCode service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorResourceConflict`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaUpdateFunctionCodeRequest
  @see AWSLambdaFunctionConfiguration
@@ -1307,12 +1529,12 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request;
 
 /**
- <p>Updates a Lambda function's code.</p><p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p>
+ <p>Updates a Lambda function's code. If code signing is enabled for the function, the code package must be signed by a trusted publisher. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-trustedcode.html">Configuring code signing</a>.</p><p>The function's code is locked when you publish a version. You can't modify the code of a published version, only the unpublished version.</p>
  
  @param request A container for the necessary parameters to execute the UpdateFunctionCode service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorResourceConflict`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorCodeStorageExceeded`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaUpdateFunctionCodeRequest
  @see AWSLambdaFunctionConfiguration
@@ -1324,7 +1546,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorPreconditionFailed`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionConfiguration`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaUpdateFunctionConfigurationRequest
  @see AWSLambdaFunctionConfiguration
@@ -1337,7 +1559,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @param request A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorPreconditionFailed`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`, `AWSLambdaErrorPreconditionFailed`, `AWSLambdaErrorCodeVerificationFailed`, `AWSLambdaErrorInvalidCodeSignature`, `AWSLambdaErrorCodeSigningConfigNotFound`.
  
  @see AWSLambdaUpdateFunctionConfigurationRequest
  @see AWSLambdaFunctionConfiguration
