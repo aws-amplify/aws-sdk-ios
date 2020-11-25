@@ -9111,6 +9111,11 @@
       \"documentation\":\"<p>The location of the OTA update.</p>\"\
     },\
     \"FileName\":{\"type\":\"string\"},\
+    \"FileType\":{\
+      \"type\":\"integer\",\
+      \"max\":255,\
+      \"min\":0\
+    },\
     \"FindingId\":{\
       \"type\":\"string\",\
       \"max\":128,\
@@ -12695,6 +12700,10 @@
         \"fileName\":{\
           \"shape\":\"FileName\",\
           \"documentation\":\"<p>The name of the file.</p>\"\
+        },\
+        \"fileType\":{\
+          \"shape\":\"FileType\",\
+          \"documentation\":\"<p>An integer value you can include in the job document to allow your devices to identify the type of file received from the cloud.</p>\"\
         },\
         \"fileVersion\":{\
           \"shape\":\"OTAUpdateFileVersion\",\
