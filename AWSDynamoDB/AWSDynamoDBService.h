@@ -175,6 +175,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 + (void)removeDynamoDBForKey:(NSString *)key;
 
 /**
+ <p> This operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the BatchExecuteStatement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBBatchExecuteStatementOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBBatchExecuteStatementInput
+ @see AWSDynamoDBBatchExecuteStatementOutput
+ */
+- (AWSTask<AWSDynamoDBBatchExecuteStatementOutput *> *)batchExecuteStatement:(AWSDynamoDBBatchExecuteStatementInput *)request;
+
+/**
+ <p> This operation allows you to perform batch reads and writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the BatchExecuteStatement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBBatchExecuteStatementInput
+ @see AWSDynamoDBBatchExecuteStatementOutput
+ */
+- (void)batchExecuteStatement:(AWSDynamoDBBatchExecuteStatementInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBBatchExecuteStatementOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>The <code>BatchGetItem</code> operation returns the attributes of one or more items from one or more tables. You identify requested items by primary key.</p><p>A single operation can retrieve up to 16 MB of data, which can contain as many as 100 items. <code>BatchGetItem</code> returns a partial result if the response size limit is exceeded, the table's provisioned throughput is exceeded, or an internal processing failure occurs. If a partial result is returned, the operation returns a value for <code>UnprocessedKeys</code>. You can use this value to retry the operation starting with the next item to get.</p><important><p>If you request more than 100 items, <code>BatchGetItem</code> returns a <code>ValidationException</code> with the message "Too many items requested for the BatchGetItem call."</p></important><p>For example, if you ask to retrieve 100 items, but each individual item is 300 KB in size, the system returns 52 items (so as not to exceed the 16 MB limit). It also returns an appropriate <code>UnprocessedKeys</code> value so you can get the next page of results. If desired, your application can include its own logic to assemble the pages of results into one dataset.</p><p>If <i>none</i> of the items can be processed due to insufficient provisioned throughput on all of the tables in the request, then <code>BatchGetItem</code> returns a <code>ProvisionedThroughputExceededException</code>. If <i>at least one</i> of the items is successfully processed, then <code>BatchGetItem</code> completes successfully, while returning the keys of the unread items in <code>UnprocessedKeys</code>.</p><important><p>If DynamoDB returns any unprocessed items, you should retry the batch operation on those items. However, <i>we strongly recommend that you use an exponential backoff algorithm</i>. If you retry the batch operation immediately, the underlying read or write requests can still fail due to throttling on the individual tables. If you delay the batch operation using exponential backoff, the individual requests in the batch are much more likely to succeed.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ErrorHandling.html#BatchOperations">Batch Operations and Error Handling</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></important><p>By default, <code>BatchGetItem</code> performs eventually consistent reads on every table in the request. If you want strongly consistent reads instead, you can set <code>ConsistentRead</code> to <code>true</code> for any or all tables.</p><p>In order to minimize response latency, <code>BatchGetItem</code> retrieves items in parallel.</p><p>When designing your application, keep in mind that DynamoDB does not return items in any particular order. To help parse the response by item, include the primary key values for the items in your request in the <code>ProjectionExpression</code> parameter.</p><p>If a requested item does not exist, it is not returned in the result. Requests for nonexistent items consume the minimum read capacity units according to the type of read. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#CapacityUnitCalculations">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the BatchGetItem service method.
@@ -550,6 +575,31 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
 - (void)describeGlobalTableSettings:(AWSDynamoDBDescribeGlobalTableSettingsInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeGlobalTableSettingsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Returns information about the status of Kinesis streaming.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeKinesisStreamingDestination service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBDescribeKinesisStreamingDestinationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeKinesisStreamingDestinationInput
+ @see AWSDynamoDBDescribeKinesisStreamingDestinationOutput
+ */
+- (AWSTask<AWSDynamoDBDescribeKinesisStreamingDestinationOutput *> *)describeKinesisStreamingDestination:(AWSDynamoDBDescribeKinesisStreamingDestinationInput *)request;
+
+/**
+ <p>Returns information about the status of Kinesis streaming.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeKinesisStreamingDestination service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBDescribeKinesisStreamingDestinationInput
+ @see AWSDynamoDBDescribeKinesisStreamingDestinationOutput
+ */
+- (void)describeKinesisStreamingDestination:(AWSDynamoDBDescribeKinesisStreamingDestinationInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeKinesisStreamingDestinationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns the current provisioned-capacity quotas for your AWS account in a Region, both for the Region as a whole and for any one DynamoDB table that you create there.</p><p>When you establish an AWS account, the account has initial quotas on the maximum read capacity units and write capacity units that you can provision across all of your DynamoDB tables in a given Region. Also, there are per-table quotas that apply when you create a table there. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> page in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>Although you can increase these quotas by filing a case at <a href="https://console.aws.amazon.com/support/home#/">AWS Support Center</a>, obtaining the increase is not instantaneous. The <code>DescribeLimits</code> action lets you write code to compare the capacity you are currently using to those quotas imposed by your account so that you have enough time to apply for an increase before you hit a quota.</p><p>For example, you could use one of the AWS SDKs to do the following:</p><ol><li><p>Call <code>DescribeLimits</code> for a particular Region to obtain your current account quotas on provisioned capacity there.</p></li><li><p>Create a variable to hold the aggregate read capacity units provisioned for all your tables in that Region, and one to hold the aggregate write capacity units. Zero them both.</p></li><li><p>Call <code>ListTables</code> to obtain a list of all your DynamoDB tables.</p></li><li><p>For each table name listed by <code>ListTables</code>, do the following:</p><ul><li><p>Call <code>DescribeTable</code> with the table name.</p></li><li><p>Use the data returned by <code>DescribeTable</code> to add the read capacity units and write capacity units provisioned for the table itself to your variables.</p></li><li><p>If the table has one or more global secondary indexes (GSIs), loop over these GSIs and add their provisioned capacity values to your variables as well.</p></li></ul></li><li><p>Report the account quotas for that Region returned by <code>DescribeLimits</code>, along with the total current provisioned capacity levels you have calculated.</p></li></ol><p>This will let you see whether you are getting close to your account-level quotas.</p><p>The per-table quotas apply only when you are creating a new table. They restrict the sum of the provisioned capacity of the new table itself and all its global secondary indexes.</p><p>For existing tables and their GSIs, DynamoDB doesn't let you increase provisioned capacity extremely rapidly, but the only quota that applies is that the aggregate provisioned capacity over all your tables and GSIs cannot exceed either of the per-account quotas.</p><note><p><code>DescribeLimits</code> should only be called periodically. You can expect throttling errors if you call it more than once in a minute.</p></note><p>The <code>DescribeLimits</code> Request element has no content.</p>
  
  @param request A container for the necessary parameters to execute the DescribeLimits service method.
@@ -648,6 +698,106 @@ FOUNDATION_EXPORT NSString *const AWSDynamoDBSDKVersion;
  @see AWSDynamoDBDescribeTimeToLiveOutput
  */
 - (void)describeTimeToLive:(AWSDynamoDBDescribeTimeToLiveInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBDescribeTimeToLiveOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done without deleting either of the resources.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableKinesisStreamingDestination service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBKinesisStreamingDestinationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
+ 
+ @see AWSDynamoDBKinesisStreamingDestinationInput
+ @see AWSDynamoDBKinesisStreamingDestinationOutput
+ */
+- (AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> *)disableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request;
+
+/**
+ <p>Stops replication from the DynamoDB table to the Kinesis data stream. This is done without deleting either of the resources.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisableKinesisStreamingDestination service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
+ 
+ @see AWSDynamoDBKinesisStreamingDestinationInput
+ @see AWSDynamoDBKinesisStreamingDestinationOutput
+ */
+- (void)disableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBKinesisStreamingDestinationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen during the enable workflow. If this operation doesn't return results immediately, use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is ACTIVE.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableKinesisStreamingDestination service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBKinesisStreamingDestinationOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
+ 
+ @see AWSDynamoDBKinesisStreamingDestinationInput
+ @see AWSDynamoDBKinesisStreamingDestinationOutput
+ */
+- (AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> *)enableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request;
+
+/**
+ <p>Starts table data replication to the specified Kinesis data stream at a timestamp chosen during the enable workflow. If this operation doesn't return results immediately, use DescribeKinesisStreamingDestination to check if streaming to the Kinesis data stream is ACTIVE.</p>
+ 
+ @param request A container for the necessary parameters to execute the EnableKinesisStreamingDestination service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorLimitExceeded`, `AWSDynamoDBErrorResourceInUse`, `AWSDynamoDBErrorResourceNotFound`.
+ 
+ @see AWSDynamoDBKinesisStreamingDestinationInput
+ @see AWSDynamoDBKinesisStreamingDestinationOutput
+ */
+- (void)enableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBKinesisStreamingDestinationOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the ExecuteStatement service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBExecuteStatementOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorDuplicateItem`.
+ 
+ @see AWSDynamoDBExecuteStatementInput
+ @see AWSDynamoDBExecuteStatementOutput
+ */
+- (AWSTask<AWSDynamoDBExecuteStatementOutput *> *)executeStatement:(AWSDynamoDBExecuteStatementInput *)request;
+
+/**
+ <p> This operation allows you to perform reads and singleton writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the ExecuteStatement service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorConditionalCheckFailed`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorItemCollectionSizeLimitExceeded`, `AWSDynamoDBErrorTransactionConflict`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`, `AWSDynamoDBErrorDuplicateItem`.
+ 
+ @see AWSDynamoDBExecuteStatementInput
+ @see AWSDynamoDBExecuteStatementOutput
+ */
+- (void)executeStatement:(AWSDynamoDBExecuteStatementInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBExecuteStatementOutput * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p> This operation allows you to perform transactional reads or writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the ExecuteTransaction service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSDynamoDBExecuteTransactionOutput`. On failed execution, `task.error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBExecuteTransactionInput
+ @see AWSDynamoDBExecuteTransactionOutput
+ */
+- (AWSTask<AWSDynamoDBExecuteTransactionOutput *> *)executeTransaction:(AWSDynamoDBExecuteTransactionInput *)request;
+
+/**
+ <p> This operation allows you to perform transactional reads or writes on data stored in DynamoDB, using PartiQL. </p>
+ 
+ @param request A container for the necessary parameters to execute the ExecuteTransaction service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSDynamoDBErrorDomain` domain and the following error code: `AWSDynamoDBErrorResourceNotFound`, `AWSDynamoDBErrorTransactionCanceled`, `AWSDynamoDBErrorTransactionInProgress`, `AWSDynamoDBErrorIdempotentParameterMismatch`, `AWSDynamoDBErrorProvisionedThroughputExceeded`, `AWSDynamoDBErrorRequestLimitExceeded`, `AWSDynamoDBErrorInternalServer`.
+ 
+ @see AWSDynamoDBExecuteTransactionInput
+ @see AWSDynamoDBExecuteTransactionOutput
+ */
+- (void)executeTransaction:(AWSDynamoDBExecuteTransactionInput *)request completionHandler:(void (^ _Nullable)(AWSDynamoDBExecuteTransactionOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Exports table data to an S3 bucket. The table must have point in time recovery enabled, and you can export data from any time within the point in time recovery window.</p>

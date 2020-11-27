@@ -1039,6 +1039,7 @@
 - (void) test_AWSEC2PriceScheduleSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PricingDetail API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PrincipalIdFormat API_AVAILABLE(ios(11));
+- (void) test_AWSEC2PrivateDnsDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PrivateDnsNameConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PrivateIpAddressSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ProcessorInfo API_AVAILABLE(ios(11));
@@ -5387,6 +5388,10 @@
 
 - (void) test_AWSEC2PrincipalIdFormat {
     [self validateSecureCodingForClass:[AWSEC2PrincipalIdFormat class]];
+}
+
+- (void) test_AWSEC2PrivateDnsDetails {
+    [self validateSecureCodingForClass:[AWSEC2PrivateDnsDetails class]];
 }
 
 - (void) test_AWSEC2PrivateDnsNameConfiguration {

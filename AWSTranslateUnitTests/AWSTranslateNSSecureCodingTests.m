@@ -20,21 +20,32 @@
 @interface AWSTranslateNSSecureCodingTests : AWSNSSecureCodingTest
 
 - (void) test_AWSTranslateAppliedTerminology API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateCreateParallelDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateCreateParallelDataResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateDeleteParallelDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateDeleteParallelDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateDeleteTerminologyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateDescribeTextTranslationJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateDescribeTextTranslationJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateEncryptionKey API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateGetParallelDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateGetParallelDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateGetTerminologyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateGetTerminologyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateImportTerminologyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateImportTerminologyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateJobDetails API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateListParallelDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateListParallelDataResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListTerminologiesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListTerminologiesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListTextTranslationJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateListTextTranslationJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateOutputDataConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateParallelDataConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateParallelDataDataLocation API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateParallelDataProperties API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateStartTextTranslationJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateStartTextTranslationJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateStopTextTranslationJobRequest API_AVAILABLE(ios(11));
@@ -47,6 +58,8 @@
 - (void) test_AWSTranslateTextTranslationJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateTranslateTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranslateTranslateTextResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateUpdateParallelDataRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranslateUpdateParallelDataResponse API_AVAILABLE(ios(11));
 
 @end
 
@@ -54,6 +67,22 @@
 
 - (void) test_AWSTranslateAppliedTerminology {
     [self validateSecureCodingForClass:[AWSTranslateAppliedTerminology class]];
+}
+
+- (void) test_AWSTranslateCreateParallelDataRequest {
+    [self validateSecureCodingForClass:[AWSTranslateCreateParallelDataRequest class]];
+}
+
+- (void) test_AWSTranslateCreateParallelDataResponse {
+    [self validateSecureCodingForClass:[AWSTranslateCreateParallelDataResponse class]];
+}
+
+- (void) test_AWSTranslateDeleteParallelDataRequest {
+    [self validateSecureCodingForClass:[AWSTranslateDeleteParallelDataRequest class]];
+}
+
+- (void) test_AWSTranslateDeleteParallelDataResponse {
+    [self validateSecureCodingForClass:[AWSTranslateDeleteParallelDataResponse class]];
 }
 
 - (void) test_AWSTranslateDeleteTerminologyRequest {
@@ -70,6 +99,14 @@
 
 - (void) test_AWSTranslateEncryptionKey {
     [self validateSecureCodingForClass:[AWSTranslateEncryptionKey class]];
+}
+
+- (void) test_AWSTranslateGetParallelDataRequest {
+    [self validateSecureCodingForClass:[AWSTranslateGetParallelDataRequest class]];
+}
+
+- (void) test_AWSTranslateGetParallelDataResponse {
+    [self validateSecureCodingForClass:[AWSTranslateGetParallelDataResponse class]];
 }
 
 - (void) test_AWSTranslateGetTerminologyRequest {
@@ -96,6 +133,14 @@
     [self validateSecureCodingForClass:[AWSTranslateJobDetails class]];
 }
 
+- (void) test_AWSTranslateListParallelDataRequest {
+    [self validateSecureCodingForClass:[AWSTranslateListParallelDataRequest class]];
+}
+
+- (void) test_AWSTranslateListParallelDataResponse {
+    [self validateSecureCodingForClass:[AWSTranslateListParallelDataResponse class]];
+}
+
 - (void) test_AWSTranslateListTerminologiesRequest {
     [self validateSecureCodingForClass:[AWSTranslateListTerminologiesRequest class]];
 }
@@ -114,6 +159,18 @@
 
 - (void) test_AWSTranslateOutputDataConfig {
     [self validateSecureCodingForClass:[AWSTranslateOutputDataConfig class]];
+}
+
+- (void) test_AWSTranslateParallelDataConfig {
+    [self validateSecureCodingForClass:[AWSTranslateParallelDataConfig class]];
+}
+
+- (void) test_AWSTranslateParallelDataDataLocation {
+    [self validateSecureCodingForClass:[AWSTranslateParallelDataDataLocation class]];
+}
+
+- (void) test_AWSTranslateParallelDataProperties {
+    [self validateSecureCodingForClass:[AWSTranslateParallelDataProperties class]];
 }
 
 - (void) test_AWSTranslateStartTextTranslationJobRequest {
@@ -162,6 +219,14 @@
 
 - (void) test_AWSTranslateTranslateTextResponse {
     [self validateSecureCodingForClass:[AWSTranslateTranslateTextResponse class]];
+}
+
+- (void) test_AWSTranslateUpdateParallelDataRequest {
+    [self validateSecureCodingForClass:[AWSTranslateUpdateParallelDataRequest class]];
+}
+
+- (void) test_AWSTranslateUpdateParallelDataResponse {
+    [self validateSecureCodingForClass:[AWSTranslateUpdateParallelDataResponse class]];
 }
 
 @end

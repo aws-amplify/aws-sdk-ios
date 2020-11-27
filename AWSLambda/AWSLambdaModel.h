@@ -23,7 +23,9 @@ FOUNDATION_EXPORT NSString *const AWSLambdaErrorDomain;
 
 typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorUnknown,
+    AWSLambdaErrorCodeSigningConfigNotFound,
     AWSLambdaErrorCodeStorageExceeded,
+    AWSLambdaErrorCodeVerificationFailed,
     AWSLambdaErrorEC2AccessDenied,
     AWSLambdaErrorEC2Throttled,
     AWSLambdaErrorEC2Unexpected,
@@ -32,6 +34,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorEFSMountFailure,
     AWSLambdaErrorEFSMountTimeout,
     AWSLambdaErrorENILimitReached,
+    AWSLambdaErrorInvalidCodeSignature,
     AWSLambdaErrorInvalidParameterValue,
     AWSLambdaErrorInvalidRequestContent,
     AWSLambdaErrorInvalidRuntime,
@@ -54,6 +57,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaErrorType) {
     AWSLambdaErrorSubnetIPAddressLimitReached,
     AWSLambdaErrorTooManyRequests,
     AWSLambdaErrorUnsupportedMediaType,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaCodeSigningPolicy) {
+    AWSLambdaCodeSigningPolicyUnknown,
+    AWSLambdaCodeSigningPolicyWarn,
+    AWSLambdaCodeSigningPolicyEnforce,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaEventSourcePosition) {
@@ -183,13 +192,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaAddPermissionResponse;
 @class AWSLambdaAliasConfiguration;
 @class AWSLambdaAliasRoutingConfiguration;
+@class AWSLambdaAllowedPublishers;
+@class AWSLambdaCodeSigningConfig;
+@class AWSLambdaCodeSigningPolicies;
 @class AWSLambdaConcurrency;
 @class AWSLambdaCreateAliasRequest;
+@class AWSLambdaCreateCodeSigningConfigRequest;
+@class AWSLambdaCreateCodeSigningConfigResponse;
 @class AWSLambdaCreateEventSourceMappingRequest;
 @class AWSLambdaCreateFunctionRequest;
 @class AWSLambdaDeadLetterConfig;
 @class AWSLambdaDeleteAliasRequest;
+@class AWSLambdaDeleteCodeSigningConfigRequest;
+@class AWSLambdaDeleteCodeSigningConfigResponse;
 @class AWSLambdaDeleteEventSourceMappingRequest;
+@class AWSLambdaDeleteFunctionCodeSigningConfigRequest;
 @class AWSLambdaDeleteFunctionConcurrencyRequest;
 @class AWSLambdaDeleteFunctionEventInvokeConfigRequest;
 @class AWSLambdaDeleteFunctionRequest;
@@ -208,7 +225,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetAccountSettingsRequest;
 @class AWSLambdaGetAccountSettingsResponse;
 @class AWSLambdaGetAliasRequest;
+@class AWSLambdaGetCodeSigningConfigRequest;
+@class AWSLambdaGetCodeSigningConfigResponse;
 @class AWSLambdaGetEventSourceMappingRequest;
+@class AWSLambdaGetFunctionCodeSigningConfigRequest;
+@class AWSLambdaGetFunctionCodeSigningConfigResponse;
 @class AWSLambdaGetFunctionConcurrencyRequest;
 @class AWSLambdaGetFunctionConcurrencyResponse;
 @class AWSLambdaGetFunctionConfigurationRequest;
@@ -235,10 +256,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaLayersListItem;
 @class AWSLambdaListAliasesRequest;
 @class AWSLambdaListAliasesResponse;
+@class AWSLambdaListCodeSigningConfigsRequest;
+@class AWSLambdaListCodeSigningConfigsResponse;
 @class AWSLambdaListEventSourceMappingsRequest;
 @class AWSLambdaListEventSourceMappingsResponse;
 @class AWSLambdaListFunctionEventInvokeConfigsRequest;
 @class AWSLambdaListFunctionEventInvokeConfigsResponse;
+@class AWSLambdaListFunctionsByCodeSigningConfigRequest;
+@class AWSLambdaListFunctionsByCodeSigningConfigResponse;
 @class AWSLambdaListFunctionsRequest;
 @class AWSLambdaListFunctionsResponse;
 @class AWSLambdaListLayerVersionsRequest;
@@ -257,6 +282,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaPublishLayerVersionRequest;
 @class AWSLambdaPublishLayerVersionResponse;
 @class AWSLambdaPublishVersionRequest;
+@class AWSLambdaPutFunctionCodeSigningConfigRequest;
+@class AWSLambdaPutFunctionCodeSigningConfigResponse;
 @class AWSLambdaPutFunctionConcurrencyRequest;
 @class AWSLambdaPutFunctionEventInvokeConfigRequest;
 @class AWSLambdaPutProvisionedConcurrencyConfigRequest;
@@ -269,6 +296,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaTracingConfigResponse;
 @class AWSLambdaUntagResourceRequest;
 @class AWSLambdaUpdateAliasRequest;
+@class AWSLambdaUpdateCodeSigningConfigRequest;
+@class AWSLambdaUpdateCodeSigningConfigResponse;
 @class AWSLambdaUpdateEventSourceMappingRequest;
 @class AWSLambdaUpdateFunctionCodeRequest;
 @class AWSLambdaUpdateFunctionConfigurationRequest;
@@ -506,6 +535,72 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
+ <p>List of signing profiles that can sign a code package. </p>
+ Required parameters: [SigningProfileVersionArns]
+ */
+@interface AWSLambdaAllowedPublishers : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for each of the signing profiles. A signing profile defines a trusted user who can sign a code package. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable signingProfileVersionArns;
+
+@end
+
+/**
+ <p>Details about a Code signing configuration. </p>
+ Required parameters: [CodeSigningConfigId, CodeSigningConfigArn, AllowedPublishers, CodeSigningPolicies, LastModified]
+ */
+@interface AWSLambdaCodeSigningConfig : AWSModel
+
+
+/**
+ <p>List of allowed publishers.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAllowedPublishers * _Nullable allowedPublishers;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>Unique identifer for the Code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigId;
+
+/**
+ <p>The code signing policy controls the validation failure action for signature mismatch or expiry.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningPolicies * _Nullable codeSigningPolicies;
+
+/**
+ <p>Code signing configuration description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The date and time that the Code signing configuration was last modified, in ISO-8601 format (YYYY-MM-DDThh:mm:ss.sTZD). </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lastModified;
+
+@end
+
+/**
+ <p>Code signing configuration policies specifies the validation failure action for signature mismatch or expiry.</p>
+ */
+@interface AWSLambdaCodeSigningPolicies : AWSModel
+
+
+/**
+ <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p><p>Default value: <code>Warn</code></p>
+ */
+@property (nonatomic, assign) AWSLambdaCodeSigningPolicy untrustedArtifactOnDeployment;
+
+@end
+
+/**
  
  */
 @interface AWSLambdaConcurrency : AWSModel
@@ -548,6 +643,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>Signing profiles for this code signing configuration.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAllowedPublishers * _Nullable allowedPublishers;
+
+/**
+ <p>The code signing policies define the actions to take if the validation checks fail. </p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningPolicies * _Nullable codeSigningPolicies;
+
+/**
+ <p>Descriptive name for this code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaCreateCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The code signing configuration.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningConfig * _Nullable codeSigningConfig;
 
 @end
 
@@ -644,6 +775,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The code for the function.</p>
  */
 @property (nonatomic, strong) AWSLambdaFunctionCode * _Nullable code;
+
+/**
+ <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
 
 /**
  <p>A dead letter queue configuration that specifies the queue or topic where Lambda sends asynchronous events when they fail processing. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#dlq">Dead Letter Queues</a>.</p>
@@ -761,6 +897,27 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaDeleteCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteCodeSigningConfigResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaDeleteEventSourceMappingRequest : AWSRequest
 
 
@@ -768,6 +925,19 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The identifier of the event source mapping.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable UUID;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaDeleteFunctionCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
 
 @end
 
@@ -1198,6 +1368,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
+ <p>The ARN of the signing job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingJobArn;
+
+/**
+ <p>The ARN of the signing profile version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingProfileVersionArn;
+
+/**
  <p>The current state of the function. When the state is <code>Inactive</code>, you can reactivate the function by invoking it.</p>
  */
 @property (nonatomic, assign) AWSLambdaState state;
@@ -1314,6 +1494,32 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaGetCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The code signing configuration</p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningConfig * _Nullable codeSigningConfig;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaGetEventSourceMappingRequest : AWSRequest
 
 
@@ -1321,6 +1527,37 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The identifier of the event source mapping.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable UUID;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaGetFunctionCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
 
 @end
 
@@ -1757,6 +1994,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  */
 @property (nonatomic, strong) NSNumber * _Nullable codeSize;
 
+/**
+ <p>The Amazon Resource Name (ARN) of a signing job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingJobArn;
+
+/**
+ <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingProfileVersionArn;
+
 @end
 
 /**
@@ -1807,6 +2054,16 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A link to the layer archive in Amazon S3 that is valid for 10 minutes.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
+
+/**
+ <p>The Amazon Resource Name (ARN) of a signing job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingJobArn;
+
+/**
+ <p>The Amazon Resource Name (ARN) for a signing profile version.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable signingProfileVersionArn;
 
 @end
 
@@ -1920,6 +2177,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaListCodeSigningConfigsRequest : AWSRequest
+
+
+/**
+ <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>Maximum number of items to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListCodeSigningConfigsResponse : AWSModel
+
+
+/**
+ <p>The code signing configurations</p>
+ */
+@property (nonatomic, strong) NSArray<AWSLambdaCodeSigningConfig *> * _Nullable codeSigningConfigs;
+
+/**
+ <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaListEventSourceMappingsRequest : AWSRequest
 
 
@@ -1996,6 +2289,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>A list of configurations.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaFunctionEventInvokeConfig *> * _Nullable functionEventInvokeConfigs;
+
+/**
+ <p>The pagination token that's included if more results are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionsByCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>Specify the pagination token that's returned by a previous request to retrieve the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable marker;
+
+/**
+ <p>Maximum number of items to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxItems;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaListFunctionsByCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The function ARNs. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable functionArns;
 
 /**
  <p>The pagination token that's included if more results are available.</p>
@@ -2426,6 +2760,42 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 /**
  
  */
+@interface AWSLambdaPutFunctionCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaPutFunctionCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>The name of the Lambda function.</p><p class="title"><b>Name formats</b></p><ul><li><p><b>Function name</b> - <code>MyFunction</code>.</p></li><li><p><b>Function ARN</b> - <code>arn:aws:lambda:us-west-2:123456789012:function:MyFunction</code>.</p></li><li><p><b>Partial ARN</b> - <code>123456789012:function:MyFunction</code>.</p></li></ul><p>The length constraint applies only to the full ARN. If you specify only the function name, it is limited to 64 characters in length.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable functionName;
+
+@end
+
+/**
+ 
+ */
 @interface AWSLambdaPutFunctionConcurrencyRequest : AWSRequest
 
 
@@ -2706,6 +3076,47 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-aliases.html#configuring-alias-routing">routing configuration</a> of the alias.</p>
  */
 @property (nonatomic, strong) AWSLambdaAliasRoutingConfiguration * _Nullable routingConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateCodeSigningConfigRequest : AWSRequest
+
+
+/**
+ <p>Signing profiles for this code signing configuration.</p>
+ */
+@property (nonatomic, strong) AWSLambdaAllowedPublishers * _Nullable allowedPublishers;
+
+/**
+ <p>The The Amazon Resource Name (ARN) of the code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
+
+/**
+ <p>The code signing policy.</p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningPolicies * _Nullable codeSigningPolicies;
+
+/**
+ <p>Descriptive name for this code signing configuration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+@end
+
+/**
+ 
+ */
+@interface AWSLambdaUpdateCodeSigningConfigResponse : AWSModel
+
+
+/**
+ <p>The code signing configuration</p>
+ */
+@property (nonatomic, strong) AWSLambdaCodeSigningConfig * _Nullable codeSigningConfig;
 
 @end
 

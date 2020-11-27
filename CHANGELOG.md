@@ -22,6 +22,9 @@
   - AWSLambda
   - AWSTranslate
   - AWSDynamoDB
+  - AWSCognitoIdentity
+  - AWSComprehend
+  - AWSCognitoIdentityProvider
 
 ## 2.19.1
 

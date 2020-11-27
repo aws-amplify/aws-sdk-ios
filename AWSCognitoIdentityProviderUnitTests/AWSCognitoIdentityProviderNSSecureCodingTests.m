@@ -109,6 +109,8 @@
 - (void) test_AWSCognitoIdentityProviderCreateUserPoolRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderCreateUserPoolResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderCustomDomainConfigType API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderDeleteGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderDeleteIdentityProviderRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderDeleteResourceServerRequest API_AVAILABLE(ios(11));
@@ -633,6 +635,14 @@
 
 - (void) test_AWSCognitoIdentityProviderCustomDomainConfigType {
     [self validateSecureCodingForClass:[AWSCognitoIdentityProviderCustomDomainConfigType class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType class]];
 }
 
 - (void) test_AWSCognitoIdentityProviderDeleteGroupRequest {

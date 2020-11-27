@@ -175,6 +175,56 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
 + (void)removeTranslateForKey:(NSString *)key;
 
 /**
+ <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateParallelData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateCreateParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateCreateParallelDataRequest
+ @see AWSTranslateCreateParallelDataResponse
+ */
+- (AWSTask<AWSTranslateCreateParallelDataResponse *> *)createParallelData:(AWSTranslateCreateParallelDataRequest *)request;
+
+/**
+ <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateParallelData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateCreateParallelDataRequest
+ @see AWSTranslateCreateParallelDataResponse
+ */
+- (void)createParallelData:(AWSTranslateCreateParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateCreateParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a parallel data resource in Amazon Translate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteParallelData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateDeleteParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDeleteParallelDataRequest
+ @see AWSTranslateDeleteParallelDataResponse
+ */
+- (AWSTask<AWSTranslateDeleteParallelDataResponse *> *)deleteParallelData:(AWSTranslateDeleteParallelDataRequest *)request;
+
+/**
+ <p>Deletes a parallel data resource in Amazon Translate.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteParallelData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateDeleteParallelDataRequest
+ @see AWSTranslateDeleteParallelDataResponse
+ */
+- (void)deleteParallelData:(AWSTranslateDeleteParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateDeleteParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>A synchronous action that deletes a custom terminology.</p>
  
  @param request A container for the necessary parameters to execute the DeleteTerminology service method.
@@ -220,6 +270,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @see AWSTranslateDescribeTextTranslationJobResponse
  */
 - (void)describeTextTranslationJob:(AWSTranslateDescribeTextTranslationJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateDescribeTextTranslationJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides information about a parallel data resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetParallelData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateGetParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateGetParallelDataRequest
+ @see AWSTranslateGetParallelDataResponse
+ */
+- (AWSTask<AWSTranslateGetParallelDataResponse *> *)getParallelData:(AWSTranslateGetParallelDataRequest *)request;
+
+/**
+ <p>Provides information about a parallel data resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetParallelData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateGetParallelDataRequest
+ @see AWSTranslateGetParallelDataResponse
+ */
+- (void)getParallelData:(AWSTranslateGetParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateGetParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Retrieves a custom terminology.</p>
@@ -270,6 +345,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @see AWSTranslateImportTerminologyResponse
  */
 - (void)importTerminology:(AWSTranslateImportTerminologyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateImportTerminologyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListParallelData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateListParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListParallelDataRequest
+ @see AWSTranslateListParallelDataResponse
+ */
+- (AWSTask<AWSTranslateListParallelDataResponse *> *)listParallelData:(AWSTranslateListParallelDataRequest *)request;
+
+/**
+ <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListParallelData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateListParallelDataRequest
+ @see AWSTranslateListParallelDataResponse
+ */
+- (void)listParallelData:(AWSTranslateListParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateListParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Provides a list of custom terminologies associated with your account.</p>
@@ -395,6 +495,31 @@ FOUNDATION_EXPORT NSString *const AWSTranslateSDKVersion;
  @see AWSTranslateTranslateTextResponse
  */
 - (void)translateText:(AWSTranslateTranslateTextRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateTranslateTextResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates a previously created parallel data resource by importing a new input file from Amazon S3.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateParallelData service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranslateUpdateParallelDataResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateUpdateParallelDataRequest
+ @see AWSTranslateUpdateParallelDataResponse
+ */
+- (AWSTask<AWSTranslateUpdateParallelDataResponse *> *)updateParallelData:(AWSTranslateUpdateParallelDataRequest *)request;
+
+/**
+ <p>Updates a previously created parallel data resource by importing a new input file from Amazon S3.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateParallelData service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranslateErrorDomain` domain and the following error code: `AWSTranslateErrorConcurrentModification`, `AWSTranslateErrorInvalidParameterValue`, `AWSTranslateErrorInvalidRequest`, `AWSTranslateErrorLimitExceeded`, `AWSTranslateErrorTooManyRequests`, `AWSTranslateErrorConflict`, `AWSTranslateErrorResourceNotFound`, `AWSTranslateErrorInternalServer`.
+ 
+ @see AWSTranslateUpdateParallelDataRequest
+ @see AWSTranslateUpdateParallelDataResponse
+ */
+- (void)updateParallelData:(AWSTranslateUpdateParallelDataRequest *)request completionHandler:(void (^ _Nullable)(AWSTranslateUpdateParallelDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

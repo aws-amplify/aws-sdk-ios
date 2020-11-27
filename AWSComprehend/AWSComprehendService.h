@@ -625,6 +625,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)describeEntityRecognizer:(AWSComprehendDescribeEntityRecognizerRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribeEntityRecognizerResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets the status and details of an events detection job.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEventsDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendDescribeEventsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribeEventsDetectionJobRequest
+ @see AWSComprehendDescribeEventsDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendDescribeEventsDetectionJobResponse *> *)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request;
+
+/**
+ <p>Gets the status and details of an events detection job.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeEventsDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendDescribeEventsDetectionJobRequest
+ @see AWSComprehendDescribeEventsDetectionJobResponse
+ */
+- (void)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendDescribeEventsDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Gets the properties associated with a key phrases detection job. Use this operation to get the status of a detection job.</p>
  
  @param request A container for the necessary parameters to execute the DescribeKeyPhrasesDetectionJob service method.
@@ -1025,6 +1050,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)listEntityRecognizers:(AWSComprehendListEntityRecognizersRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListEntityRecognizersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Gets a list of the events detection jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEventsDetectionJobs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendListEventsDetectionJobsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInvalidFilter`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListEventsDetectionJobsRequest
+ @see AWSComprehendListEventsDetectionJobsResponse
+ */
+- (AWSTask<AWSComprehendListEventsDetectionJobsResponse *> *)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request;
+
+/**
+ <p>Gets a list of the events detection jobs that you have submitted.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListEventsDetectionJobs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorInvalidFilter`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendListEventsDetectionJobsRequest
+ @see AWSComprehendListEventsDetectionJobsResponse
+ */
+- (void)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendListEventsDetectionJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Get a list of key phrase detection jobs that you have submitted.</p>
  
  @param request A container for the necessary parameters to execute the ListKeyPhrasesDetectionJobs service method.
@@ -1225,6 +1275,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
 - (void)startEntitiesDetectionJob:(AWSComprehendStartEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStartEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Starts an asynchronous event detection job for a collection of documents.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartEventsDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStartEventsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStartEventsDetectionJobRequest
+ @see AWSComprehendStartEventsDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendStartEventsDetectionJobResponse *> *)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request;
+
+/**
+ <p>Starts an asynchronous event detection job for a collection of documents.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartEventsDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorTooManyRequests`, `AWSComprehendErrorKmsKeyValidation`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStartEventsDetectionJobRequest
+ @see AWSComprehendStartEventsDetectionJobResponse
+ */
+- (void)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStartEventsDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>
  
  @param request A container for the necessary parameters to execute the StartKeyPhrasesDetectionJob service method.
@@ -1373,6 +1448,31 @@ FOUNDATION_EXPORT NSString *const AWSComprehendSDKVersion;
  @see AWSComprehendStopEntitiesDetectionJobResponse
  */
 - (void)stopEntitiesDetectionJob:(AWSComprehendStopEntitiesDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopEntitiesDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Stops an events detection job in progress.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopEventsDetectionJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSComprehendStopEventsDetectionJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopEventsDetectionJobRequest
+ @see AWSComprehendStopEventsDetectionJobResponse
+ */
+- (AWSTask<AWSComprehendStopEventsDetectionJobResponse *> *)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request;
+
+/**
+ <p>Stops an events detection job in progress.</p>
+ 
+ @param request A container for the necessary parameters to execute the StopEventsDetectionJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSComprehendErrorDomain` domain and the following error code: `AWSComprehendErrorInvalidRequest`, `AWSComprehendErrorJobNotFound`, `AWSComprehendErrorInternalServer`.
+ 
+ @see AWSComprehendStopEventsDetectionJobRequest
+ @see AWSComprehendStopEventsDetectionJobResponse
+ */
+- (void)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSComprehendStopEventsDetectionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Stops a key phrases detection job in progress.</p><p>If the job state is <code>IN_PROGRESS</code> the job is marked for termination and put into the <code>STOP_REQUESTED</code> state. If the job completes before it can be stopped, it is put into the <code>COMPLETED</code> state; otherwise the job is stopped and put into the <code>STOPPED</code> state.</p><p>If the job is in the <code>COMPLETED</code> or <code>FAILED</code> state when you call the <code>StopDominantLanguageDetectionJob</code> operation, the operation returns a 400 Internal Request Exception. </p><p>When a job is stopped, any documents already processed are written to the output location.</p>

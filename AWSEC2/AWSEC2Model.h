@@ -2957,6 +2957,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2PriceScheduleSpecification;
 @class AWSEC2PricingDetail;
 @class AWSEC2PrincipalIdFormat;
+@class AWSEC2PrivateDnsDetails;
 @class AWSEC2PrivateDnsNameConfiguration;
 @class AWSEC2PrivateIpAddressSpecification;
 @class AWSEC2ProcessorInfo;
@@ -29129,6 +29130,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Information about the Private DNS name for interface endpoints.</p>
+ */
+@interface AWSEC2PrivateDnsDetails : AWSModel
+
+
+/**
+ <p>The private DNS name assigned to the VPC endpoint service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable privateDnsName;
+
+@end
+
+/**
  <p>Information about the private DNS name for the service endpoint. For more information about these parameters, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/ndpoint-services-dns-validation.html">VPC Endpoint Service Private DNS Name Verification</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  */
 @interface AWSEC2PrivateDnsNameConfiguration : AWSModel
@@ -33158,6 +33172,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The verification state of the VPC endpoint service.</p><p>Consumers of the endpoint service cannot use the private name when the state is not <code>verified</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2DnsNameState privateDnsNameVerificationState;
+
+/**
+ <p>The private DNS names assigned to the VPC endpoint service. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PrivateDnsDetails *> * _Nullable privateDnsNames;
 
 /**
  <p>The ID of the endpoint service.</p>
