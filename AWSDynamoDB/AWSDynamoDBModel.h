@@ -27,6 +27,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorBackupNotFound,
     AWSDynamoDBErrorConditionalCheckFailed,
     AWSDynamoDBErrorContinuousBackupsUnavailable,
+    AWSDynamoDBErrorDuplicateItem,
     AWSDynamoDBErrorExportConflict,
     AWSDynamoDBErrorExportNotFound,
     AWSDynamoDBErrorGlobalTableAlreadyExists,
@@ -82,6 +83,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBBackupTypeFilter) {
     AWSDynamoDBBackupTypeFilterAll,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBBatchStatementErrorCodeEnum) {
+    AWSDynamoDBBatchStatementErrorCodeEnumUnknown,
+    AWSDynamoDBBatchStatementErrorCodeEnumConditionalCheckFailed,
+    AWSDynamoDBBatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumRequestLimitExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumValidationError,
+    AWSDynamoDBBatchStatementErrorCodeEnumProvisionedThroughputExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumTransactionConflict,
+    AWSDynamoDBBatchStatementErrorCodeEnumThrottlingError,
+    AWSDynamoDBBatchStatementErrorCodeEnumInternalServerError,
+    AWSDynamoDBBatchStatementErrorCodeEnumResourceNotFound,
+    AWSDynamoDBBatchStatementErrorCodeEnumAccessDenied,
+    AWSDynamoDBBatchStatementErrorCodeEnumDuplicateItem,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBBillingMode) {
     AWSDynamoDBBillingModeUnknown,
     AWSDynamoDBBillingModeProvisioned,
@@ -130,6 +146,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsStatus) {
     AWSDynamoDBContributorInsightsStatusDisabling,
     AWSDynamoDBContributorInsightsStatusDisabled,
     AWSDynamoDBContributorInsightsStatusFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBDestinationStatus) {
+    AWSDynamoDBDestinationStatusUnknown,
+    AWSDynamoDBDestinationStatusEnabling,
+    AWSDynamoDBDestinationStatusActive,
+    AWSDynamoDBDestinationStatusDisabling,
+    AWSDynamoDBDestinationStatusDisabled,
+    AWSDynamoDBDestinationStatusEnableFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBExportFormat) {
@@ -295,8 +320,13 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBBackupDescription;
 @class AWSDynamoDBBackupDetails;
 @class AWSDynamoDBBackupSummary;
+@class AWSDynamoDBBatchExecuteStatementInput;
+@class AWSDynamoDBBatchExecuteStatementOutput;
 @class AWSDynamoDBBatchGetItemInput;
 @class AWSDynamoDBBatchGetItemOutput;
+@class AWSDynamoDBBatchStatementError;
+@class AWSDynamoDBBatchStatementRequest;
+@class AWSDynamoDBBatchStatementResponse;
 @class AWSDynamoDBBatchWriteItemInput;
 @class AWSDynamoDBBatchWriteItemOutput;
 @class AWSDynamoDBBillingModeSummary;
@@ -341,6 +371,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeGlobalTableOutput;
 @class AWSDynamoDBDescribeGlobalTableSettingsInput;
 @class AWSDynamoDBDescribeGlobalTableSettingsOutput;
+@class AWSDynamoDBDescribeKinesisStreamingDestinationInput;
+@class AWSDynamoDBDescribeKinesisStreamingDestinationOutput;
 @class AWSDynamoDBDescribeLimitsInput;
 @class AWSDynamoDBDescribeLimitsOutput;
 @class AWSDynamoDBDescribeTableInput;
@@ -350,6 +382,10 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeTimeToLiveInput;
 @class AWSDynamoDBDescribeTimeToLiveOutput;
 @class AWSDynamoDBEndpoint;
+@class AWSDynamoDBExecuteStatementInput;
+@class AWSDynamoDBExecuteStatementOutput;
+@class AWSDynamoDBExecuteTransactionInput;
+@class AWSDynamoDBExecuteTransactionOutput;
 @class AWSDynamoDBExpectedAttributeValue;
 @class AWSDynamoDBExportDescription;
 @class AWSDynamoDBExportSummary;
@@ -371,6 +407,9 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBItemResponse;
 @class AWSDynamoDBKeySchemaElement;
 @class AWSDynamoDBKeysAndAttributes;
+@class AWSDynamoDBKinesisDataStreamDestination;
+@class AWSDynamoDBKinesisStreamingDestinationInput;
+@class AWSDynamoDBKinesisStreamingDestinationOutput;
 @class AWSDynamoDBListBackupsInput;
 @class AWSDynamoDBListBackupsOutput;
 @class AWSDynamoDBListContributorInsightsInput;
@@ -386,6 +425,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBLocalSecondaryIndex;
 @class AWSDynamoDBLocalSecondaryIndexDescription;
 @class AWSDynamoDBLocalSecondaryIndexInfo;
+@class AWSDynamoDBParameterizedStatement;
 @class AWSDynamoDBPointInTimeRecoveryDescription;
 @class AWSDynamoDBPointInTimeRecoverySpecification;
 @class AWSDynamoDBProjection;
@@ -863,6 +903,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBBatchExecuteStatementInput : AWSRequest
+
+
+/**
+ <p> The list of PartiQL statements representing the batch to run. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementRequest *> * _Nullable statements;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBBatchExecuteStatementOutput : AWSModel
+
+
+/**
+ <p> The response to each PartiQL statement in the batch. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementResponse *> * _Nullable responses;
+
+@end
+
+/**
  <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
  Required parameters: [RequestItems]
  */
@@ -901,6 +967,71 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>A map of tables and their respective keys that were not processed with the current response. The <code>UnprocessedKeys</code> value is in the same form as <code>RequestItems</code>, so the value can be provided directly to a subsequent <code>BatchGetItem</code> operation. For more information, see <code>RequestItems</code> in the Request Parameters section.</p><p>Each element consists of:</p><ul><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table.</p></li><li><p><code>ProjectionExpression</code> - One or more attributes to be retrieved from the table or index. By default, all attributes are returned. If a requested attribute is not found, it does not appear in the result.</p></li><li><p><code>ConsistentRead</code> - The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used.</p></li></ul><p>If there are no unprocessed keys remaining, the response contains an empty <code>UnprocessedKeys</code> map.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBKeysAndAttributes *> * _Nullable unprocessedKeys;
+
+@end
+
+/**
+ <p> An error associated with a statement in a PartiQL batch that was run. </p>
+ */
+@interface AWSDynamoDBBatchStatementError : AWSModel
+
+
+/**
+ <p> The error code associated with the failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBatchStatementErrorCodeEnum code;
+
+/**
+ <p> The error message associated with the PartiQL batch resposne. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p> A PartiQL batch statement request. </p>
+ Required parameters: [Statement]
+ */
+@interface AWSDynamoDBBatchStatementRequest : AWSModel
+
+
+/**
+ <p> The read consistency of the PartiQL batch request. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable consistentRead;
+
+/**
+ <p> The parameters associated with a PartiQL statement in the batch request. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> A valid PartiQL statement. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
+
+@end
+
+/**
+ <p> A PartiQL batch statement response.. </p>
+ */
+@interface AWSDynamoDBBatchStatementResponse : AWSModel
+
+
+/**
+ <p> The error associated with a failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBBatchStatementError * _Nullable error;
+
+/**
+ <p> A DynamoDB item associated with a BatchStatementResponse </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+/**
+ <p> The table name associated with a failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -1807,6 +1938,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBDescribeKinesisStreamingDestinationInput : AWSRequest
+
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeKinesisStreamingDestinationOutput : AWSModel
+
+
+/**
+ <p>The list of replica structures for the table being described.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBKinesisDataStreamDestination *> * _Nullable kinesisDataStreamDestinations;
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  <p>Represents the input of a <code>DescribeLimits</code> operation. Has no content.</p>
  */
 @interface AWSDynamoDBDescribeLimitsInput : AWSRequest
@@ -1937,6 +2099,83 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Endpoint cache time to live (TTL) value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable cachePeriodInMinutes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteStatementInput : AWSRequest
+
+
+/**
+ <p> The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable consistentRead;
+
+/**
+ <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> The parameters for the PartiQL statement, if any. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> The PartiQL statement representing the operation to run. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteStatementOutput : AWSModel
+
+
+/**
+ <p> If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty. </p>
+ */
+@property (nonatomic, strong) NSArray<NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *> * _Nullable items;
+
+/**
+ <p> If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteTransactionInput : AWSRequest
+
+
+/**
+ <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> The list of PartiQL statements representing the transaction to run. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBParameterizedStatement *> * _Nullable transactStatements;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteTransactionOutput : AWSModel
+
+
+/**
+ <p> The response to a PartiQL transaction. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBItemResponse *> * _Nullable responses;
 
 @end
 
@@ -2575,6 +2814,70 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Describes a Kinesis data stream destination.</p>
+ */
+@interface AWSDynamoDBKinesisDataStreamDestination : AWSModel
+
+
+/**
+ <p>The current status of replication.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The human-readable string that corresponds to the replica status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationStatusDescription;
+
+/**
+ <p>The ARN for a specific Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBKinesisStreamingDestinationInput : AWSRequest
+
+
+/**
+ <p>The ARN for a Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The name of the DynamoDB table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBKinesisStreamingDestinationOutput : AWSModel
+
+
+/**
+ <p>The current status of the replication.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The ARN for the specific Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The name of the table being modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  
  */
 @interface AWSDynamoDBListBackupsInput : AWSRequest
@@ -2907,6 +3210,25 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents attributes that are copied (projected) from the table into the global secondary index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. </p>
  */
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
+
+@end
+
+/**
+ <p> Represents a PartiQL statment that uses parameters. </p>
+ Required parameters: [Statement]
+ */
+@interface AWSDynamoDBParameterizedStatement : AWSModel
+
+
+/**
+ <p> The parameter values. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> A PartiQL statment that uses parameters. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
 
 @end
 

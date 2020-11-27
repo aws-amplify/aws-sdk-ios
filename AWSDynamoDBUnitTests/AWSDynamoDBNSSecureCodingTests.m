@@ -32,8 +32,13 @@
 - (void) test_AWSDynamoDBBackupDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBackupDetails API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBackupSummary API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBBatchExecuteStatementInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBBatchExecuteStatementOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBatchGetItemInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBatchGetItemOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBBatchStatementError API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBBatchStatementRequest API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBBatchStatementResponse API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBatchWriteItemInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBatchWriteItemOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBBillingModeSummary API_AVAILABLE(ios(11));
@@ -78,6 +83,8 @@
 - (void) test_AWSDynamoDBDescribeGlobalTableOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeGlobalTableSettingsOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeLimitsInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeLimitsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeTableInput API_AVAILABLE(ios(11));
@@ -87,6 +94,10 @@
 - (void) test_AWSDynamoDBDescribeTimeToLiveInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBDescribeTimeToLiveOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBEndpoint API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExecuteStatementInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExecuteStatementOutput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExecuteTransactionInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBExecuteTransactionOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExpectedAttributeValue API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExportDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBExportSummary API_AVAILABLE(ios(11));
@@ -108,6 +119,9 @@
 - (void) test_AWSDynamoDBItemResponse API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBKeySchemaElement API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBKeysAndAttributes API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBKinesisDataStreamDestination API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBKinesisStreamingDestinationInput API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBKinesisStreamingDestinationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListBackupsInput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListBackupsOutput API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBListContributorInsightsInput API_AVAILABLE(ios(11));
@@ -123,6 +137,7 @@
 - (void) test_AWSDynamoDBLocalSecondaryIndex API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBLocalSecondaryIndexDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBLocalSecondaryIndexInfo API_AVAILABLE(ios(11));
+- (void) test_AWSDynamoDBParameterizedStatement API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPointInTimeRecoveryDescription API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBPointInTimeRecoverySpecification API_AVAILABLE(ios(11));
 - (void) test_AWSDynamoDBProjection API_AVAILABLE(ios(11));
@@ -251,12 +266,32 @@
     [self validateSecureCodingForClass:[AWSDynamoDBBackupSummary class]];
 }
 
+- (void) test_AWSDynamoDBBatchExecuteStatementInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBBatchExecuteStatementInput class]];
+}
+
+- (void) test_AWSDynamoDBBatchExecuteStatementOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBBatchExecuteStatementOutput class]];
+}
+
 - (void) test_AWSDynamoDBBatchGetItemInput {
     [self validateSecureCodingForClass:[AWSDynamoDBBatchGetItemInput class]];
 }
 
 - (void) test_AWSDynamoDBBatchGetItemOutput {
     [self validateSecureCodingForClass:[AWSDynamoDBBatchGetItemOutput class]];
+}
+
+- (void) test_AWSDynamoDBBatchStatementError {
+    [self validateSecureCodingForClass:[AWSDynamoDBBatchStatementError class]];
+}
+
+- (void) test_AWSDynamoDBBatchStatementRequest {
+    [self validateSecureCodingForClass:[AWSDynamoDBBatchStatementRequest class]];
+}
+
+- (void) test_AWSDynamoDBBatchStatementResponse {
+    [self validateSecureCodingForClass:[AWSDynamoDBBatchStatementResponse class]];
 }
 
 - (void) test_AWSDynamoDBBatchWriteItemInput {
@@ -435,6 +470,14 @@
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeGlobalTableSettingsOutput class]];
 }
 
+- (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeKinesisStreamingDestinationInput class]];
+}
+
+- (void) test_AWSDynamoDBDescribeKinesisStreamingDestinationOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBDescribeKinesisStreamingDestinationOutput class]];
+}
+
 - (void) test_AWSDynamoDBDescribeLimitsInput {
     [self validateSecureCodingForClass:[AWSDynamoDBDescribeLimitsInput class]];
 }
@@ -469,6 +512,22 @@
 
 - (void) test_AWSDynamoDBEndpoint {
     [self validateSecureCodingForClass:[AWSDynamoDBEndpoint class]];
+}
+
+- (void) test_AWSDynamoDBExecuteStatementInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExecuteStatementInput class]];
+}
+
+- (void) test_AWSDynamoDBExecuteStatementOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExecuteStatementOutput class]];
+}
+
+- (void) test_AWSDynamoDBExecuteTransactionInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExecuteTransactionInput class]];
+}
+
+- (void) test_AWSDynamoDBExecuteTransactionOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBExecuteTransactionOutput class]];
 }
 
 - (void) test_AWSDynamoDBExpectedAttributeValue {
@@ -555,6 +614,18 @@
     [self validateSecureCodingForClass:[AWSDynamoDBKeysAndAttributes class]];
 }
 
+- (void) test_AWSDynamoDBKinesisDataStreamDestination {
+    [self validateSecureCodingForClass:[AWSDynamoDBKinesisDataStreamDestination class]];
+}
+
+- (void) test_AWSDynamoDBKinesisStreamingDestinationInput {
+    [self validateSecureCodingForClass:[AWSDynamoDBKinesisStreamingDestinationInput class]];
+}
+
+- (void) test_AWSDynamoDBKinesisStreamingDestinationOutput {
+    [self validateSecureCodingForClass:[AWSDynamoDBKinesisStreamingDestinationOutput class]];
+}
+
 - (void) test_AWSDynamoDBListBackupsInput {
     [self validateSecureCodingForClass:[AWSDynamoDBListBackupsInput class]];
 }
@@ -613,6 +684,10 @@
 
 - (void) test_AWSDynamoDBLocalSecondaryIndexInfo {
     [self validateSecureCodingForClass:[AWSDynamoDBLocalSecondaryIndexInfo class]];
+}
+
+- (void) test_AWSDynamoDBParameterizedStatement {
+    [self validateSecureCodingForClass:[AWSDynamoDBParameterizedStatement class]];
 }
 
 - (void) test_AWSDynamoDBPointInTimeRecoveryDescription {
