@@ -20,6 +20,8 @@
   - AWSLex
   - AWSAutoScaling
   - AWSLambda
+  - AWSTranslate
+  - AWSDynamoDB
   - AWSCognitoIdentity
   - AWSComprehend
   - AWSCognitoIdentityProvider
