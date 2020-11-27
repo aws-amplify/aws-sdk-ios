@@ -64,6 +64,8 @@
 - (void) test_AWSComprehendDescribeEntitiesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeEntityRecognizerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeEntityRecognizerResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDescribeEventsDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendDescribeEventsDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeKeyPhrasesDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribeKeyPhrasesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendDescribePiiEntitiesDetectionJobRequest API_AVAILABLE(ios(11));
@@ -111,6 +113,8 @@
 - (void) test_AWSComprehendEntityRecognizerProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityTypesEvaluationMetrics API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityTypesListItem API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendEventsDetectionJobFilter API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendEventsDetectionJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendInputDataConfig API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendKeyPhrase API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendKeyPhrasesDetectionJobFilter API_AVAILABLE(ios(11));
@@ -127,6 +131,8 @@
 - (void) test_AWSComprehendListEntitiesDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntityRecognizersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListEntityRecognizersResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListEventsDetectionJobsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendListEventsDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListKeyPhrasesDetectionJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListKeyPhrasesDetectionJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendListPiiEntitiesDetectionJobsRequest API_AVAILABLE(ios(11));
@@ -153,6 +159,8 @@
 - (void) test_AWSComprehendStartDominantLanguageDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartEntitiesDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartEntitiesDetectionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStartEventsDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStartEventsDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartKeyPhrasesDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartKeyPhrasesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStartPiiEntitiesDetectionJobRequest API_AVAILABLE(ios(11));
@@ -165,6 +173,8 @@
 - (void) test_AWSComprehendStopDominantLanguageDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopEntitiesDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopEntitiesDetectionJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStopEventsDetectionJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendStopEventsDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopKeyPhrasesDetectionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopKeyPhrasesDetectionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendStopPiiEntitiesDetectionJobRequest API_AVAILABLE(ios(11));
@@ -371,6 +381,14 @@
     [self validateSecureCodingForClass:[AWSComprehendDescribeEntityRecognizerResponse class]];
 }
 
+- (void) test_AWSComprehendDescribeEventsDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendDescribeEventsDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendDescribeEventsDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendDescribeEventsDetectionJobResponse class]];
+}
+
 - (void) test_AWSComprehendDescribeKeyPhrasesDetectionJobRequest {
     [self validateSecureCodingForClass:[AWSComprehendDescribeKeyPhrasesDetectionJobRequest class]];
 }
@@ -559,6 +577,14 @@
     [self validateSecureCodingForClass:[AWSComprehendEntityTypesListItem class]];
 }
 
+- (void) test_AWSComprehendEventsDetectionJobFilter {
+    [self validateSecureCodingForClass:[AWSComprehendEventsDetectionJobFilter class]];
+}
+
+- (void) test_AWSComprehendEventsDetectionJobProperties {
+    [self validateSecureCodingForClass:[AWSComprehendEventsDetectionJobProperties class]];
+}
+
 - (void) test_AWSComprehendInputDataConfig {
     [self validateSecureCodingForClass:[AWSComprehendInputDataConfig class]];
 }
@@ -621,6 +647,14 @@
 
 - (void) test_AWSComprehendListEntityRecognizersResponse {
     [self validateSecureCodingForClass:[AWSComprehendListEntityRecognizersResponse class]];
+}
+
+- (void) test_AWSComprehendListEventsDetectionJobsRequest {
+    [self validateSecureCodingForClass:[AWSComprehendListEventsDetectionJobsRequest class]];
+}
+
+- (void) test_AWSComprehendListEventsDetectionJobsResponse {
+    [self validateSecureCodingForClass:[AWSComprehendListEventsDetectionJobsResponse class]];
 }
 
 - (void) test_AWSComprehendListKeyPhrasesDetectionJobsRequest {
@@ -727,6 +761,14 @@
     [self validateSecureCodingForClass:[AWSComprehendStartEntitiesDetectionJobResponse class]];
 }
 
+- (void) test_AWSComprehendStartEventsDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendStartEventsDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendStartEventsDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendStartEventsDetectionJobResponse class]];
+}
+
 - (void) test_AWSComprehendStartKeyPhrasesDetectionJobRequest {
     [self validateSecureCodingForClass:[AWSComprehendStartKeyPhrasesDetectionJobRequest class]];
 }
@@ -773,6 +815,14 @@
 
 - (void) test_AWSComprehendStopEntitiesDetectionJobResponse {
     [self validateSecureCodingForClass:[AWSComprehendStopEntitiesDetectionJobResponse class]];
+}
+
+- (void) test_AWSComprehendStopEventsDetectionJobRequest {
+    [self validateSecureCodingForClass:[AWSComprehendStopEventsDetectionJobRequest class]];
+}
+
+- (void) test_AWSComprehendStopEventsDetectionJobResponse {
+    [self validateSecureCodingForClass:[AWSComprehendStopEventsDetectionJobResponse class]];
 }
 
 - (void) test_AWSComprehendStopKeyPhrasesDetectionJobRequest {

@@ -703,6 +703,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDescribeEventsDetectionJobResponse *> *)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeEventsDetectionJob"
+                   outputClass:[AWSComprehendDescribeEventsDetectionJobResponse class]];
+}
+
+- (void)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeEventsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeKeyPhrasesDetectionJobResponse *> *)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1071,6 +1094,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListEventsDetectionJobsResponse *> *)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEventsDetectionJobs"
+                   outputClass:[AWSComprehendListEventsDetectionJobsResponse class]];
+}
+
+- (void)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEventsDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listEventsDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEventsDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListEventsDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListKeyPhrasesDetectionJobsResponse *> *)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1255,6 +1301,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendStartEventsDetectionJobResponse *> *)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartEventsDetectionJob"
+                   outputClass:[AWSComprehendStartEventsDetectionJobResponse class]];
+}
+
+- (void)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartEventsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendStartKeyPhrasesDetectionJobResponse *> *)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1383,6 +1452,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStopEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
     [[self stopEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopEntitiesDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStopEntitiesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopEventsDetectionJobResponse *> *)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopEventsDetectionJob"
+                   outputClass:[AWSComprehendStopEventsDetectionJobResponse class]];
+}
+
+- (void)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopEventsDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
