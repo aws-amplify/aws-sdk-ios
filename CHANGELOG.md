@@ -20,6 +20,7 @@
   - AWSLex
   - AWSAutoScaling
   - AWSLambda
+  - AWSCognitoIdentity
   - AWSComprehend
   - AWSCognitoIdentityProvider
 
