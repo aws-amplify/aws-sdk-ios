@@ -1,16 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLambda
----AWSEC2
----AWSTranslate
----AWSDynamoDB
----AWSIoT
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -33,6 +20,8 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSLex
   - AWSAutoScaling
   - AWSLambda
+  - AWSTranslate
+  - AWSDynamoDB
 
 ## 2.19.1
 
