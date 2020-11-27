@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
----AWSCognitoIdentity
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -29,6 +20,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSLex
   - AWSAutoScaling
   - AWSLambda
+  - AWSCognitoIdentity
 
 ## 2.19.1
 
