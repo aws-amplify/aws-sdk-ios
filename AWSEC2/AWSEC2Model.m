@@ -46728,6 +46728,20 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2PrivateDnsDetails
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"privateDnsName" : @"PrivateDnsName",
+             };
+}
+
+@end
+
 @implementation AWSEC2PrivateDnsNameConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -63013,6 +63027,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"owner" : @"Owner",
              @"privateDnsName" : @"PrivateDnsName",
              @"privateDnsNameVerificationState" : @"PrivateDnsNameVerificationState",
+             @"privateDnsNames" : @"PrivateDnsNames",
              @"serviceId" : @"ServiceId",
              @"serviceName" : @"ServiceName",
              @"serviceType" : @"ServiceType",
@@ -63045,6 +63060,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)privateDnsNamesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2PrivateDnsDetails class]];
 }
 
 + (NSValueTransformer *)serviceTypeJSONTransformer {

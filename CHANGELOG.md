@@ -21,6 +21,8 @@
   - AWSAutoScaling
   - AWSLambda
   - AWSCognitoIdentity
+  - AWSComprehend
+  - AWSCognitoIdentityProvider
 
 ## 2.19.1
 

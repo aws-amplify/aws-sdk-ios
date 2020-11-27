@@ -49,8 +49,10 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"InvalidRequestException" : @(AWSConnectErrorInvalidRequest),
                             @"LimitExceededException" : @(AWSConnectErrorLimitExceeded),
                             @"OutboundContactNotPermittedException" : @(AWSConnectErrorOutboundContactNotPermitted),
+                            @"ResourceConflictException" : @(AWSConnectErrorResourceConflict),
                             @"ResourceInUseException" : @(AWSConnectErrorResourceInUse),
                             @"ResourceNotFoundException" : @(AWSConnectErrorResourceNotFound),
+                            @"ServiceQuotaExceededException" : @(AWSConnectErrorServiceQuotaExceeded),
                             @"ThrottlingException" : @(AWSConnectErrorThrottling),
                             @"UserNotFoundException" : @(AWSConnectErrorUserNotFound),
                             };
@@ -289,6 +291,95 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask *)associateApprovedOrigin:(AWSConnectAssociateApprovedOriginRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/approved-origin"
+                  targetPrefix:@""
+                 operationName:@"AssociateApprovedOrigin"
+                   outputClass:nil];
+}
+
+- (void)associateApprovedOrigin:(AWSConnectAssociateApprovedOriginRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateApprovedOrigin:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectAssociateInstanceStorageConfigResponse *> *)associateInstanceStorageConfig:(AWSConnectAssociateInstanceStorageConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/storage-config"
+                  targetPrefix:@""
+                 operationName:@"AssociateInstanceStorageConfig"
+                   outputClass:[AWSConnectAssociateInstanceStorageConfigResponse class]];
+}
+
+- (void)associateInstanceStorageConfig:(AWSConnectAssociateInstanceStorageConfigRequest *)request
+     completionHandler:(void (^)(AWSConnectAssociateInstanceStorageConfigResponse *response, NSError *error))completionHandler {
+    [[self associateInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateInstanceStorageConfigResponse *> * _Nonnull task) {
+        AWSConnectAssociateInstanceStorageConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)associateLambdaFunction:(AWSConnectAssociateLambdaFunctionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/lambda-function"
+                  targetPrefix:@""
+                 operationName:@"AssociateLambdaFunction"
+                   outputClass:nil];
+}
+
+- (void)associateLambdaFunction:(AWSConnectAssociateLambdaFunctionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateLambdaFunction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)associateLexBot:(AWSConnectAssociateLexBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/lex-bot"
+                  targetPrefix:@""
+                 operationName:@"AssociateLexBot"
+                   outputClass:nil];
+}
+
+- (void)associateLexBot:(AWSConnectAssociateLexBotRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateLexBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)associateRoutingProfileQueues:(AWSConnectAssociateRoutingProfileQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -311,6 +402,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectAssociateSecurityKeyResponse *> *)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/security-key"
+                  targetPrefix:@""
+                 operationName:@"AssociateSecurityKey"
+                   outputClass:[AWSConnectAssociateSecurityKeyResponse class]];
+}
+
+- (void)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request
+     completionHandler:(void (^)(AWSConnectAssociateSecurityKeyResponse *response, NSError *error))completionHandler {
+    [[self associateSecurityKey:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectAssociateSecurityKeyResponse *> * _Nonnull task) {
+        AWSConnectAssociateSecurityKeyResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateContactFlowResponse *> *)createContactFlow:(AWSConnectCreateContactFlowRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -324,6 +438,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectCreateContactFlowResponse *response, NSError *error))completionHandler {
     [[self createContactFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateContactFlowResponse *> * _Nonnull task) {
         AWSConnectCreateContactFlowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectCreateInstanceResponse *> *)createInstance:(AWSConnectCreateInstanceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance"
+                  targetPrefix:@""
+                 operationName:@"CreateInstance"
+                   outputClass:[AWSConnectCreateInstanceResponse class]];
+}
+
+- (void)createInstance:(AWSConnectCreateInstanceRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateInstanceResponse *response, NSError *error))completionHandler {
+    [[self createInstance:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateInstanceResponse *> * _Nonnull task) {
+        AWSConnectCreateInstanceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -403,6 +540,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)deleteInstance:(AWSConnectDeleteInstanceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteInstance"
+                   outputClass:nil];
+}
+
+- (void)deleteInstance:(AWSConnectDeleteInstanceRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteInstance:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)deleteUser:(AWSConnectDeleteUserRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -460,6 +619,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeContactFlowResponse *response, NSError *error))completionHandler {
     [[self describeContactFlow:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeContactFlowResponse *> * _Nonnull task) {
         AWSConnectDescribeContactFlowResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeInstanceResponse *> *)describeInstance:(AWSConnectDescribeInstanceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeInstance"
+                   outputClass:[AWSConnectDescribeInstanceResponse class]];
+}
+
+- (void)describeInstance:(AWSConnectDescribeInstanceRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeInstanceResponse *response, NSError *error))completionHandler {
+    [[self describeInstance:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeInstanceResponse *> * _Nonnull task) {
+        AWSConnectDescribeInstanceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeInstanceAttributeResponse *> *)describeInstanceAttribute:(AWSConnectDescribeInstanceAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/attribute/{AttributeType}"
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceAttribute"
+                   outputClass:[AWSConnectDescribeInstanceAttributeResponse class]];
+}
+
+- (void)describeInstanceAttribute:(AWSConnectDescribeInstanceAttributeRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeInstanceAttributeResponse *response, NSError *error))completionHandler {
+    [[self describeInstanceAttribute:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeInstanceAttributeResponse *> * _Nonnull task) {
+        AWSConnectDescribeInstanceAttributeResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeInstanceStorageConfigResponse *> *)describeInstanceStorageConfig:(AWSConnectDescribeInstanceStorageConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/storage-config/{AssociationId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceStorageConfig"
+                   outputClass:[AWSConnectDescribeInstanceStorageConfigResponse class]];
+}
+
+- (void)describeInstanceStorageConfig:(AWSConnectDescribeInstanceStorageConfigRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeInstanceStorageConfigResponse *response, NSError *error))completionHandler {
+    [[self describeInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeInstanceStorageConfigResponse *> * _Nonnull task) {
+        AWSConnectDescribeInstanceStorageConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -562,6 +790,94 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)disassociateApprovedOrigin:(AWSConnectDisassociateApprovedOriginRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/approved-origin"
+                  targetPrefix:@""
+                 operationName:@"DisassociateApprovedOrigin"
+                   outputClass:nil];
+}
+
+- (void)disassociateApprovedOrigin:(AWSConnectDisassociateApprovedOriginRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateApprovedOrigin:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateInstanceStorageConfig:(AWSConnectDisassociateInstanceStorageConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/storage-config/{AssociationId}"
+                  targetPrefix:@""
+                 operationName:@"DisassociateInstanceStorageConfig"
+                   outputClass:nil];
+}
+
+- (void)disassociateInstanceStorageConfig:(AWSConnectDisassociateInstanceStorageConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateLambdaFunction:(AWSConnectDisassociateLambdaFunctionRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/lambda-function"
+                  targetPrefix:@""
+                 operationName:@"DisassociateLambdaFunction"
+                   outputClass:nil];
+}
+
+- (void)disassociateLambdaFunction:(AWSConnectDisassociateLambdaFunctionRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateLambdaFunction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/lex-bot"
+                  targetPrefix:@""
+                 operationName:@"DisassociateLexBot"
+                   outputClass:nil];
+}
+
+- (void)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateLexBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)disassociateRoutingProfileQueues:(AWSConnectDisassociateRoutingProfileQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -574,6 +890,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)disassociateRoutingProfileQueues:(AWSConnectDisassociateRoutingProfileQueuesRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self disassociateRoutingProfileQueues:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateSecurityKey:(AWSConnectDisassociateSecurityKeyRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/instance/{InstanceId}/security-key/{AssociationId}"
+                  targetPrefix:@""
+                 operationName:@"DisassociateSecurityKey"
+                   outputClass:nil];
+}
+
+- (void)disassociateSecurityKey:(AWSConnectDisassociateSecurityKeyRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateSecurityKey:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -676,6 +1014,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListApprovedOriginsResponse *> *)listApprovedOrigins:(AWSConnectListApprovedOriginsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/approved-origins"
+                  targetPrefix:@""
+                 operationName:@"ListApprovedOrigins"
+                   outputClass:[AWSConnectListApprovedOriginsResponse class]];
+}
+
+- (void)listApprovedOrigins:(AWSConnectListApprovedOriginsRequest *)request
+     completionHandler:(void (^)(AWSConnectListApprovedOriginsResponse *response, NSError *error))completionHandler {
+    [[self listApprovedOrigins:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListApprovedOriginsResponse *> * _Nonnull task) {
+        AWSConnectListApprovedOriginsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListContactFlowsResponse *> *)listContactFlows:(AWSConnectListContactFlowsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -712,6 +1073,121 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListHoursOfOperationsResponse *response, NSError *error))completionHandler {
     [[self listHoursOfOperations:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListHoursOfOperationsResponse *> * _Nonnull task) {
         AWSConnectListHoursOfOperationsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListInstanceAttributesResponse *> *)listInstanceAttributes:(AWSConnectListInstanceAttributesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/attributes"
+                  targetPrefix:@""
+                 operationName:@"ListInstanceAttributes"
+                   outputClass:[AWSConnectListInstanceAttributesResponse class]];
+}
+
+- (void)listInstanceAttributes:(AWSConnectListInstanceAttributesRequest *)request
+     completionHandler:(void (^)(AWSConnectListInstanceAttributesResponse *response, NSError *error))completionHandler {
+    [[self listInstanceAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListInstanceAttributesResponse *> * _Nonnull task) {
+        AWSConnectListInstanceAttributesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListInstanceStorageConfigsResponse *> *)listInstanceStorageConfigs:(AWSConnectListInstanceStorageConfigsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/storage-configs"
+                  targetPrefix:@""
+                 operationName:@"ListInstanceStorageConfigs"
+                   outputClass:[AWSConnectListInstanceStorageConfigsResponse class]];
+}
+
+- (void)listInstanceStorageConfigs:(AWSConnectListInstanceStorageConfigsRequest *)request
+     completionHandler:(void (^)(AWSConnectListInstanceStorageConfigsResponse *response, NSError *error))completionHandler {
+    [[self listInstanceStorageConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListInstanceStorageConfigsResponse *> * _Nonnull task) {
+        AWSConnectListInstanceStorageConfigsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListInstancesResponse *> *)listInstances:(AWSConnectListInstancesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance"
+                  targetPrefix:@""
+                 operationName:@"ListInstances"
+                   outputClass:[AWSConnectListInstancesResponse class]];
+}
+
+- (void)listInstances:(AWSConnectListInstancesRequest *)request
+     completionHandler:(void (^)(AWSConnectListInstancesResponse *response, NSError *error))completionHandler {
+    [[self listInstances:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListInstancesResponse *> * _Nonnull task) {
+        AWSConnectListInstancesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListLambdaFunctionsResponse *> *)listLambdaFunctions:(AWSConnectListLambdaFunctionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/lambda-functions"
+                  targetPrefix:@""
+                 operationName:@"ListLambdaFunctions"
+                   outputClass:[AWSConnectListLambdaFunctionsResponse class]];
+}
+
+- (void)listLambdaFunctions:(AWSConnectListLambdaFunctionsRequest *)request
+     completionHandler:(void (^)(AWSConnectListLambdaFunctionsResponse *response, NSError *error))completionHandler {
+    [[self listLambdaFunctions:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListLambdaFunctionsResponse *> * _Nonnull task) {
+        AWSConnectListLambdaFunctionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListLexBotsResponse *> *)listLexBots:(AWSConnectListLexBotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/lex-bots"
+                  targetPrefix:@""
+                 operationName:@"ListLexBots"
+                   outputClass:[AWSConnectListLexBotsResponse class]];
+}
+
+- (void)listLexBots:(AWSConnectListLexBotsRequest *)request
+     completionHandler:(void (^)(AWSConnectListLexBotsResponse *response, NSError *error))completionHandler {
+    [[self listLexBots:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListLexBotsResponse *> * _Nonnull task) {
+        AWSConnectListLexBotsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -827,6 +1303,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListRoutingProfilesResponse *response, NSError *error))completionHandler {
     [[self listRoutingProfiles:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListRoutingProfilesResponse *> * _Nonnull task) {
         AWSConnectListRoutingProfilesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListSecurityKeysResponse *> *)listSecurityKeys:(AWSConnectListSecurityKeysRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/security-keys"
+                  targetPrefix:@""
+                 operationName:@"ListSecurityKeys"
+                   outputClass:[AWSConnectListSecurityKeysResponse class]];
+}
+
+- (void)listSecurityKeys:(AWSConnectListSecurityKeysRequest *)request
+     completionHandler:(void (^)(AWSConnectListSecurityKeysResponse *response, NSError *error))completionHandler {
+    [[self listSecurityKeys:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListSecurityKeysResponse *> * _Nonnull task) {
+        AWSConnectListSecurityKeysResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1191,6 +1690,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateContactFlowName:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateInstanceAttribute:(AWSConnectUpdateInstanceAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/instance/{InstanceId}/attribute/{AttributeType}"
+                  targetPrefix:@""
+                 operationName:@"UpdateInstanceAttribute"
+                   outputClass:nil];
+}
+
+- (void)updateInstanceAttribute:(AWSConnectUpdateInstanceAttributeRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateInstanceAttribute:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/instance/{InstanceId}/storage-config/{AssociationId}"
+                  targetPrefix:@""
+                 operationName:@"UpdateInstanceStorageConfig"
+                   outputClass:nil];
+}
+
+- (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

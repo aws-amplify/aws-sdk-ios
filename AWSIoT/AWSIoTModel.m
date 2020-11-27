@@ -9972,6 +9972,7 @@ NSString *const AWSIoTErrorDomain = @"com.amazonaws.AWSIoTErrorDomain";
              @"codeSigning" : @"codeSigning",
              @"fileLocation" : @"fileLocation",
              @"fileName" : @"fileName",
+             @"fileType" : @"fileType",
              @"fileVersion" : @"fileVersion",
              };
 }

@@ -135,6 +135,16 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderCompromisedCredentialsEvent
     AWSCognitoIdentityProviderCompromisedCredentialsEventActionTypeNoAction,
 };
 
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType) {
+    AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeUnknown,
+    AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeV10,
+};
+
+typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType) {
+    AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeUnknown,
+    AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeV10,
+};
+
 typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderDefaultEmailOptionType) {
     AWSCognitoIdentityProviderDefaultEmailOptionTypeUnknown,
     AWSCognitoIdentityProviderDefaultEmailOptionTypeConfirmWithLink,
@@ -407,6 +417,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @class AWSCognitoIdentityProviderCreateUserPoolRequest;
 @class AWSCognitoIdentityProviderCreateUserPoolResponse;
 @class AWSCognitoIdentityProviderCustomDomainConfigType;
+@class AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType;
+@class AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType;
 @class AWSCognitoIdentityProviderDeleteGroupRequest;
 @class AWSCognitoIdentityProviderDeleteIdentityProviderRequest;
 @class AWSCognitoIdentityProviderDeleteResourceServerRequest;
@@ -2545,12 +2557,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) AWSCognitoIdentityProviderEmailConfigurationType * _Nullable emailConfiguration;
 
 /**
- <p>A string representing the email verification message.</p>
+ <p>A string representing the email verification message. EmailVerificationMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationMessage;
 
 /**
- <p>A string representing the email verification subject.</p>
+ <p>A string representing the email verification subject. EmailVerificationSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailVerificationSubject;
 
@@ -2645,6 +2657,44 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
  <p>The Amazon Resource Name (ARN) of an AWS Certificate Manager SSL certificate. You use this certificate for the subdomain of your custom domain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateArn;
+
+@end
+
+/**
+ <p>A custom email sender Lambda configuration type.</p>
+ Required parameters: [LambdaVersion, LambdaArn]
+ */
+@interface AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType : AWSModel
+
+
+/**
+ <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaArn;
+
+/**
+ <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is <code>V1_0</code>.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType lambdaVersion;
+
+@end
+
+/**
+ <p>A custom SMS sender Lambda configuration type.</p>
+ Required parameters: [LambdaVersion, LambdaArn]
+ */
+@interface AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType : AWSModel
+
+
+/**
+ <p>The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send SMS notifications to users.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable lambdaArn;
+
+/**
+ <p>The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is <code>V1_0</code>.</p>
+ */
+@property (nonatomic, assign) AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType lambdaVersion;
 
 @end
 
@@ -3130,7 +3180,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The email configuration type.</p>
+ <p>The email configuration type. </p><note><p>Amazon Cognito has specific regions for use with Amazon SES. For more information on the supported regions, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-email.html">Email Settings for Amazon Cognito User Pools</a>.</p></note>
  */
 @interface AWSCognitoIdentityProviderEmailConfigurationType : AWSModel
 
@@ -3141,7 +3191,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable configurationSet;
 
 /**
- <p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:</p><dl><dt>COGNITO_DEFAULT</dt><dd><p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p><p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p><p>The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p></dd><dt>DEVELOPER</dt><dd><p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.</p><p>If you use this option, you must provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p></dd></dl>
+ <p>Specifies whether Amazon Cognito emails your users by using its built-in email functionality or your Amazon SES email configuration. Specify one of the following values:</p><dl><dt>COGNITO_DEFAULT</dt><dd><p>When Amazon Cognito emails your users, it uses its built-in email functionality. When you use the default option, Amazon Cognito allows only a limited number of emails each day for your user pool. For typical production environments, the default email limit is below the required delivery volume. To achieve a higher delivery volume, specify DEVELOPER to use your Amazon SES email configuration.</p><p>To look up the email delivery limit for the default option, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/limits.html">Limits in Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p><p>The default FROM address is no-reply@verificationemail.com. To customize the FROM address, provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p> If EmailSendingAccount is COGNITO_DEFAULT, the following parameters aren't allowed:</p><ul><li><p>EmailVerificationMessage</p></li><li><p>EmailVerificationSubject</p></li><li><p>InviteMessageTemplate.EmailMessage</p></li><li><p>InviteMessageTemplate.EmailSubject</p></li><li><p>VerificationMessageTemplate.EmailMessage</p></li><li><p>VerificationMessageTemplate.EmailMessageByLink</p></li><li><p>VerificationMessageTemplate.EmailSubject,</p></li><li><p>VerificationMessageTemplate.EmailSubjectByLink</p></li></ul><note><p>DEVELOPER EmailSendingAccount is required.</p></note></dd><dt>DEVELOPER</dt><dd><p>When Amazon Cognito emails your users, it uses your Amazon SES configuration. Amazon Cognito calls Amazon SES on your behalf to send email from your verified email address. When you use this option, the email delivery limits are the same limits that apply to your Amazon SES verified email address in your AWS account.</p><p>If you use this option, you must provide the ARN of an Amazon SES verified email address for the <code>SourceArn</code> parameter.</p><p>Before Amazon Cognito can email your users, it requires additional permissions to call Amazon SES on your behalf. When you update your user pool with this option, Amazon Cognito creates a <i>service-linked role</i>, which is a type of IAM role, in your AWS account. This role contains the permissions that allow Amazon Cognito to access Amazon SES and send email messages with your address. For more information about the service-linked role that Amazon Cognito creates, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/using-service-linked-roles.html">Using Service-Linked Roles for Amazon Cognito</a> in the <i>Amazon Cognito Developer Guide</i>.</p></dd></dl>
  */
 @property (nonatomic, assign) AWSCognitoIdentityProviderEmailSendingAccountType emailSendingAccount;
 
@@ -3829,14 +3879,29 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable createAuthChallenge;
 
 /**
+ <p>A custom email sender AWS Lambda trigger.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType * _Nullable customEmailSender;
+
+/**
  <p>A custom Message AWS Lambda trigger.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable customMessage;
 
 /**
+ <p>A custom SMS sender AWS Lambda trigger.</p>
+ */
+@property (nonatomic, strong) AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType * _Nullable customSMSSender;
+
+/**
  <p>Defines the authentication challenge.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable defineAuthChallenge;
+
+/**
+ <p>The Amazon Resource Name of Key Management Service <a href="/kms/latest/developerguide/concepts.html#master_keys">Customer master keys</a> . Amazon Cognito uses the key to encrypt codes and temporary passwords sent to <code>CustomEmailSender</code> and <code>CustomSMSSender</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSKeyID;
 
 /**
  <p>A post-authentication AWS Lambda trigger.</p>
@@ -4310,12 +4375,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 
 
 /**
- <p>The message template for email messages.</p>
+ <p>The message template for email messages. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailMessage;
 
 /**
- <p>The subject line for email messages.</p>
+ <p>The subject line for email messages. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailSubject;
 
@@ -4761,13 +4826,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The type used for enabling SMS MFA at the user level.</p>
+ <p>The type used for enabling SMS MFA at the user level. Phone numbers don't need to be verified to be used for SMS MFA. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
  */
 @interface AWSCognitoIdentityProviderSMSMfaSettingsType : AWSModel
 
 
 /**
- <p>Specifies whether SMS text message MFA is enabled.</p>
+ <p>Specifies whether SMS text message MFA is enabled. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -5108,7 +5173,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, strong) NSString * _Nullable externalId;
 
 /**
- <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages.</p>
+ <p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (SNS) caller. This is the ARN of the IAM role in your AWS account which Cognito will use to send SMS messages. SMS messages are subject to a <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/user-pool-settings-email-phone-verification.html">spending limit</a>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable snsCallerArn;
 
@@ -5146,13 +5211,13 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @end
 
 /**
- <p>The type used for enabling software token MFA at the user level.</p>
+ <p>The type used for enabling software token MFA at the user level. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted. If you would like MFA to be applied selectively based on the assessed risk level of sign in attempts, disable MFA for users and turn on Adaptive Authentication for the user pool.</p>
  */
 @interface AWSCognitoIdentityProviderSoftwareTokenMfaSettingsType : AWSModel
 
 
 /**
- <p>Specifies whether software token MFA is enabled.</p>
+ <p>Specifies whether software token MFA is enabled. If an MFA type is enabled for a user, the user will be prompted for MFA during all sign in attempts, unless device tracking is turned on and the device has been trusted.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -6386,22 +6451,22 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityProviderVerifySoftwareTokenResponse
 @property (nonatomic, assign) AWSCognitoIdentityProviderDefaultEmailOptionType defaultEmailOption;
 
 /**
- <p>The email message template.</p>
+ <p>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailMessage;
 
 /**
- <p>The email message template for sending a confirmation link to the user.</p>
+ <p>The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailMessageByLink;
 
 /**
- <p>The subject line for the email message template.</p>
+ <p>The subject line for the email message template. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailSubject;
 
 /**
- <p>The subject line for the email message template for sending a confirmation link to the user.</p>
+ <p>The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable emailSubjectByLink;
 

@@ -30413,6 +30413,24 @@
         \"Role\"\
       ]\
     },\
+    \"PrivateDnsDetails\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"PrivateDnsName\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The private DNS name assigned to the VPC endpoint service.</p>\",\
+          \"locationName\":\"privateDnsName\"\
+        }\
+      },\
+      \"documentation\":\"<p>Information about the Private DNS name for interface endpoints.</p>\"\
+    },\
+    \"PrivateDnsDetailsSet\":{\
+      \"type\":\"list\",\
+      \"member\":{\
+        \"shape\":\"PrivateDnsDetails\",\
+        \"locationName\":\"item\"\
+      }\
+    },\
     \"PrivateDnsNameConfiguration\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -34637,6 +34655,11 @@
           \"shape\":\"String\",\
           \"documentation\":\"<p>The private DNS name for the service.</p>\",\
           \"locationName\":\"privateDnsName\"\
+        },\
+        \"PrivateDnsNames\":{\
+          \"shape\":\"PrivateDnsDetailsSet\",\
+          \"documentation\":\"<p>The private DNS names assigned to the VPC endpoint service. </p>\",\
+          \"locationName\":\"privateDnsNameSet\"\
         },\
         \"VpcEndpointPolicySupported\":{\
           \"shape\":\"Boolean\",\

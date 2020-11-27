@@ -159,6 +159,82 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaAllowedPublishers
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"signingProfileVersionArns" : @"SigningProfileVersionArns",
+             };
+}
+
+@end
+
+@implementation AWSLambdaCodeSigningConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedPublishers" : @"AllowedPublishers",
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"codeSigningConfigId" : @"CodeSigningConfigId",
+             @"codeSigningPolicies" : @"CodeSigningPolicies",
+             @"detail" : @"Description",
+             @"lastModified" : @"LastModified",
+             };
+}
+
++ (NSValueTransformer *)allowedPublishersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAllowedPublishers class]];
+}
+
++ (NSValueTransformer *)codeSigningPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningPolicies class]];
+}
+
+@end
+
+@implementation AWSLambdaCodeSigningPolicies
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"untrustedArtifactOnDeployment" : @"UntrustedArtifactOnDeployment",
+             };
+}
+
++ (NSValueTransformer *)untrustedArtifactOnDeploymentJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Warn"] == NSOrderedSame) {
+            return @(AWSLambdaCodeSigningPolicyWarn);
+        }
+        if ([value caseInsensitiveCompare:@"Enforce"] == NSOrderedSame) {
+            return @(AWSLambdaCodeSigningPolicyEnforce);
+        }
+        return @(AWSLambdaCodeSigningPolicyUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaCodeSigningPolicyWarn:
+                return @"Warn";
+            case AWSLambdaCodeSigningPolicyEnforce:
+                return @"Enforce";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSLambdaConcurrency
 
 + (BOOL)supportsSecureCoding {
@@ -191,6 +267,48 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)routingConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAliasRoutingConfiguration class]];
+}
+
+@end
+
+@implementation AWSLambdaCreateCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedPublishers" : @"AllowedPublishers",
+             @"codeSigningPolicies" : @"CodeSigningPolicies",
+             @"detail" : @"Description",
+             };
+}
+
++ (NSValueTransformer *)allowedPublishersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAllowedPublishers class]];
+}
+
++ (NSValueTransformer *)codeSigningPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningPolicies class]];
+}
+
+@end
+
+@implementation AWSLambdaCreateCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfig" : @"CodeSigningConfig",
+             };
+}
+
++ (NSValueTransformer *)codeSigningConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningConfig class]];
 }
 
 @end
@@ -274,6 +392,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"code" : @"Code",
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
              @"deadLetterConfig" : @"DeadLetterConfig",
              @"detail" : @"Description",
              @"environment" : @"Environment",
@@ -474,6 +593,28 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaDeleteCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             };
+}
+
+@end
+
+@implementation AWSLambdaDeleteCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSLambdaDeleteEventSourceMappingRequest
 
 + (BOOL)supportsSecureCoding {
@@ -483,6 +624,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"UUID" : @"UUID",
+             };
+}
+
+@end
+
+@implementation AWSLambdaDeleteFunctionCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
              };
 }
 
@@ -790,6 +945,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"revisionId" : @"RevisionId",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
+             @"signingJobArn" : @"SigningJobArn",
+             @"signingProfileVersionArn" : @"SigningProfileVersionArn",
              @"state" : @"State",
              @"stateReason" : @"StateReason",
              @"stateReasonCode" : @"StateReasonCode",
@@ -1192,6 +1349,38 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaGetCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfig" : @"CodeSigningConfig",
+             };
+}
+
++ (NSValueTransformer *)codeSigningConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningConfig class]];
+}
+
+@end
+
 @implementation AWSLambdaGetEventSourceMappingRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1201,6 +1390,35 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"UUID" : @"UUID",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetFunctionCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionName" : @"FunctionName",
+             };
+}
+
+@end
+
+@implementation AWSLambdaGetFunctionCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"functionName" : @"FunctionName",
              };
 }
 
@@ -1605,6 +1823,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 	return @{
              @"arn" : @"Arn",
              @"codeSize" : @"CodeSize",
+             @"signingJobArn" : @"SigningJobArn",
+             @"signingProfileVersionArn" : @"SigningProfileVersionArn",
              };
 }
 
@@ -1638,6 +1858,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"codeSha256" : @"CodeSha256",
              @"codeSize" : @"CodeSize",
              @"location" : @"Location",
+             @"signingJobArn" : @"SigningJobArn",
+             @"signingProfileVersionArn" : @"SigningProfileVersionArn",
              };
 }
 
@@ -1718,6 +1940,40 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaListCodeSigningConfigsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"marker" : @"Marker",
+             @"maxItems" : @"MaxItems",
+             };
+}
+
+@end
+
+@implementation AWSLambdaListCodeSigningConfigsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigs" : @"CodeSigningConfigs",
+             @"nextMarker" : @"NextMarker",
+             };
+}
+
++ (NSValueTransformer *)codeSigningConfigsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaCodeSigningConfig class]];
+}
+
+@end
+
 @implementation AWSLambdaListEventSourceMappingsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1785,6 +2041,37 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)functionEventInvokeConfigsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFunctionEventInvokeConfig class]];
+}
+
+@end
+
+@implementation AWSLambdaListFunctionsByCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"marker" : @"Marker",
+             @"maxItems" : @"MaxItems",
+             };
+}
+
+@end
+
+@implementation AWSLambdaListFunctionsByCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"functionArns" : @"FunctionArns",
+             @"nextMarker" : @"NextMarker",
+             };
 }
 
 @end
@@ -2400,6 +2687,36 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaPutFunctionCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"functionName" : @"FunctionName",
+             };
+}
+
+@end
+
+@implementation AWSLambdaPutFunctionCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"functionName" : @"FunctionName",
+             };
+}
+
+@end
+
 @implementation AWSLambdaPutFunctionConcurrencyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -2682,6 +2999,49 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)routingConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAliasRoutingConfiguration class]];
+}
+
+@end
+
+@implementation AWSLambdaUpdateCodeSigningConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allowedPublishers" : @"AllowedPublishers",
+             @"codeSigningConfigArn" : @"CodeSigningConfigArn",
+             @"codeSigningPolicies" : @"CodeSigningPolicies",
+             @"detail" : @"Description",
+             };
+}
+
++ (NSValueTransformer *)allowedPublishersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaAllowedPublishers class]];
+}
+
++ (NSValueTransformer *)codeSigningPoliciesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningPolicies class]];
+}
+
+@end
+
+@implementation AWSLambdaUpdateCodeSigningConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"codeSigningConfig" : @"CodeSigningConfig",
+             };
+}
+
++ (NSValueTransformer *)codeSigningConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaCodeSigningConfig class]];
 }
 
 @end

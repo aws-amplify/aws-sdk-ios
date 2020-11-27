@@ -2227,6 +2227,68 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 
 @end
 
+@implementation AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lambdaArn" : @"LambdaArn",
+             @"lambdaVersion" : @"LambdaVersion",
+             };
+}
+
++ (NSValueTransformer *)lambdaVersionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"V1_0"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeV10);
+        }
+        return @(AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionTypeV10:
+                return @"V1_0";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lambdaArn" : @"LambdaArn",
+             @"lambdaVersion" : @"LambdaVersion",
+             };
+}
+
++ (NSValueTransformer *)lambdaVersionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"V1_0"] == NSOrderedSame) {
+            return @(AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeV10);
+        }
+        return @(AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionTypeV10:
+                return @"V1_0";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSCognitoIdentityProviderDeleteGroupRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3599,8 +3661,11 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"createAuthChallenge" : @"CreateAuthChallenge",
+             @"customEmailSender" : @"CustomEmailSender",
              @"customMessage" : @"CustomMessage",
+             @"customSMSSender" : @"CustomSMSSender",
              @"defineAuthChallenge" : @"DefineAuthChallenge",
+             @"KMSKeyID" : @"KMSKeyID",
              @"postAuthentication" : @"PostAuthentication",
              @"postConfirmation" : @"PostConfirmation",
              @"preAuthentication" : @"PreAuthentication",
@@ -3609,6 +3674,14 @@ NSString *const AWSCognitoIdentityProviderErrorDomain = @"com.amazonaws.AWSCogni
              @"userMigration" : @"UserMigration",
              @"verifyAuthChallengeResponse" : @"VerifyAuthChallengeResponse",
              };
+}
+
++ (NSValueTransformer *)customEmailSenderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType class]];
+}
+
++ (NSValueTransformer *)customSMSSenderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType class]];
 }
 
 @end

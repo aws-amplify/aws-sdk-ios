@@ -44,6 +44,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"BackupNotFoundException" : @(AWSDynamoDBErrorBackupNotFound),
                             @"ConditionalCheckFailedException" : @(AWSDynamoDBErrorConditionalCheckFailed),
                             @"ContinuousBackupsUnavailableException" : @(AWSDynamoDBErrorContinuousBackupsUnavailable),
+                            @"DuplicateItemException" : @(AWSDynamoDBErrorDuplicateItem),
                             @"ExportConflictException" : @(AWSDynamoDBErrorExportConflict),
                             @"ExportNotFoundException" : @(AWSDynamoDBErrorExportNotFound),
                             @"GlobalTableAlreadyExistsException" : @(AWSDynamoDBErrorGlobalTableAlreadyExists),
@@ -294,6 +295,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 }
 
 #pragma mark - Service method
+
+- (AWSTask<AWSDynamoDBBatchExecuteStatementOutput *> *)batchExecuteStatement:(AWSDynamoDBBatchExecuteStatementInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"BatchExecuteStatement"
+                   outputClass:[AWSDynamoDBBatchExecuteStatementOutput class]];
+}
+
+- (void)batchExecuteStatement:(AWSDynamoDBBatchExecuteStatementInput *)request
+     completionHandler:(void (^)(AWSDynamoDBBatchExecuteStatementOutput *response, NSError *error))completionHandler {
+    [[self batchExecuteStatement:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBBatchExecuteStatementOutput *> * _Nonnull task) {
+        AWSDynamoDBBatchExecuteStatementOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
 
 - (AWSTask<AWSDynamoDBBatchGetItemOutput *> *)batchGetItem:(AWSDynamoDBBatchGetItemInput *)request {
     return [self invokeRequest:request
@@ -640,6 +664,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSDynamoDBDescribeKinesisStreamingDestinationOutput *> *)describeKinesisStreamingDestination:(AWSDynamoDBDescribeKinesisStreamingDestinationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"DescribeKinesisStreamingDestination"
+                   outputClass:[AWSDynamoDBDescribeKinesisStreamingDestinationOutput class]];
+}
+
+- (void)describeKinesisStreamingDestination:(AWSDynamoDBDescribeKinesisStreamingDestinationInput *)request
+     completionHandler:(void (^)(AWSDynamoDBDescribeKinesisStreamingDestinationOutput *response, NSError *error))completionHandler {
+    [[self describeKinesisStreamingDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeKinesisStreamingDestinationOutput *> * _Nonnull task) {
+        AWSDynamoDBDescribeKinesisStreamingDestinationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSDynamoDBDescribeLimitsOutput *> *)describeLimits:(AWSDynamoDBDescribeLimitsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -722,6 +769,98 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSDynamoDBDescribeTimeToLiveOutput *response, NSError *error))completionHandler {
     [[self describeTimeToLive:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBDescribeTimeToLiveOutput *> * _Nonnull task) {
         AWSDynamoDBDescribeTimeToLiveOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> *)disableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"DisableKinesisStreamingDestination"
+                   outputClass:[AWSDynamoDBKinesisStreamingDestinationOutput class]];
+}
+
+- (void)disableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request
+     completionHandler:(void (^)(AWSDynamoDBKinesisStreamingDestinationOutput *response, NSError *error))completionHandler {
+    [[self disableKinesisStreamingDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> * _Nonnull task) {
+        AWSDynamoDBKinesisStreamingDestinationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> *)enableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"EnableKinesisStreamingDestination"
+                   outputClass:[AWSDynamoDBKinesisStreamingDestinationOutput class]];
+}
+
+- (void)enableKinesisStreamingDestination:(AWSDynamoDBKinesisStreamingDestinationInput *)request
+     completionHandler:(void (^)(AWSDynamoDBKinesisStreamingDestinationOutput *response, NSError *error))completionHandler {
+    [[self enableKinesisStreamingDestination:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBKinesisStreamingDestinationOutput *> * _Nonnull task) {
+        AWSDynamoDBKinesisStreamingDestinationOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBExecuteStatementOutput *> *)executeStatement:(AWSDynamoDBExecuteStatementInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"ExecuteStatement"
+                   outputClass:[AWSDynamoDBExecuteStatementOutput class]];
+}
+
+- (void)executeStatement:(AWSDynamoDBExecuteStatementInput *)request
+     completionHandler:(void (^)(AWSDynamoDBExecuteStatementOutput *response, NSError *error))completionHandler {
+    [[self executeStatement:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBExecuteStatementOutput *> * _Nonnull task) {
+        AWSDynamoDBExecuteStatementOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSDynamoDBExecuteTransactionOutput *> *)executeTransaction:(AWSDynamoDBExecuteTransactionInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"DynamoDB_20120810"
+                 operationName:@"ExecuteTransaction"
+                   outputClass:[AWSDynamoDBExecuteTransactionOutput class]];
+}
+
+- (void)executeTransaction:(AWSDynamoDBExecuteTransactionInput *)request
+     completionHandler:(void (^)(AWSDynamoDBExecuteTransactionOutput *response, NSError *error))completionHandler {
+    [[self executeTransaction:request] continueWithBlock:^id _Nullable(AWSTask<AWSDynamoDBExecuteTransactionOutput *> * _Nonnull task) {
+        AWSDynamoDBExecuteTransactionOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

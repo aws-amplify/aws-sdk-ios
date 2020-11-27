@@ -40,7 +40,9 @@ NSString *const AWSLambdaSDKVersion = @"2.19.1";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
+                            @"CodeSigningConfigNotFoundException" : @(AWSLambdaErrorCodeSigningConfigNotFound),
                             @"CodeStorageExceededException" : @(AWSLambdaErrorCodeStorageExceeded),
+                            @"CodeVerificationFailedException" : @(AWSLambdaErrorCodeVerificationFailed),
                             @"EC2AccessDeniedException" : @(AWSLambdaErrorEC2AccessDenied),
                             @"EC2ThrottledException" : @(AWSLambdaErrorEC2Throttled),
                             @"EC2UnexpectedException" : @(AWSLambdaErrorEC2Unexpected),
@@ -49,6 +51,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"EFSMountFailureException" : @(AWSLambdaErrorEFSMountFailure),
                             @"EFSMountTimeoutException" : @(AWSLambdaErrorEFSMountTimeout),
                             @"ENILimitReachedException" : @(AWSLambdaErrorENILimitReached),
+                            @"InvalidCodeSignatureException" : @(AWSLambdaErrorInvalidCodeSignature),
                             @"InvalidParameterValueException" : @(AWSLambdaErrorInvalidParameterValue),
                             @"InvalidRequestContentException" : @(AWSLambdaErrorInvalidRequestContent),
                             @"InvalidRuntimeException" : @(AWSLambdaErrorInvalidRuntime),
@@ -404,6 +407,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaCreateCodeSigningConfigResponse *> *)createCodeSigningConfig:(AWSLambdaCreateCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/2020-04-22/code-signing-configs/"
+                  targetPrefix:@""
+                 operationName:@"CreateCodeSigningConfig"
+                   outputClass:[AWSLambdaCreateCodeSigningConfigResponse class]];
+}
+
+- (void)createCodeSigningConfig:(AWSLambdaCreateCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaCreateCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self createCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaCreateCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaCreateCodeSigningConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -472,6 +498,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaDeleteCodeSigningConfigResponse *> *)deleteCodeSigningConfig:(AWSLambdaDeleteCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2020-04-22/code-signing-configs/{CodeSigningConfigArn}"
+                  targetPrefix:@""
+                 operationName:@"DeleteCodeSigningConfig"
+                   outputClass:[AWSLambdaDeleteCodeSigningConfigResponse class]];
+}
+
+- (void)deleteCodeSigningConfig:(AWSLambdaDeleteCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaDeleteCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self deleteCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaDeleteCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaDeleteCodeSigningConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -507,6 +556,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteFunction:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteFunctionCodeSigningConfig:(AWSLambdaDeleteFunctionCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/2020-06-30/functions/{FunctionName}/code-signing-config"
+                  targetPrefix:@""
+                 operationName:@"DeleteFunctionCodeSigningConfig"
+                   outputClass:nil];
+}
+
+- (void)deleteFunctionCodeSigningConfig:(AWSLambdaDeleteFunctionCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteFunctionCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -651,6 +722,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaGetCodeSigningConfigResponse *> *)getCodeSigningConfig:(AWSLambdaGetCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2020-04-22/code-signing-configs/{CodeSigningConfigArn}"
+                  targetPrefix:@""
+                 operationName:@"GetCodeSigningConfig"
+                   outputClass:[AWSLambdaGetCodeSigningConfigResponse class]];
+}
+
+- (void)getCodeSigningConfig:(AWSLambdaGetCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self getCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetCodeSigningConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)getEventSourceMapping:(AWSLambdaGetEventSourceMappingRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -687,6 +781,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaGetFunctionResponse *response, NSError *error))completionHandler {
     [[self getFunction:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetFunctionResponse *> * _Nonnull task) {
         AWSLambdaGetFunctionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaGetFunctionCodeSigningConfigResponse *> *)getFunctionCodeSigningConfig:(AWSLambdaGetFunctionCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2020-06-30/functions/{FunctionName}/code-signing-config"
+                  targetPrefix:@""
+                 operationName:@"GetFunctionCodeSigningConfig"
+                   outputClass:[AWSLambdaGetFunctionCodeSigningConfigResponse class]];
+}
+
+- (void)getFunctionCodeSigningConfig:(AWSLambdaGetFunctionCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaGetFunctionCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self getFunctionCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaGetFunctionCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaGetFunctionCodeSigningConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -950,6 +1067,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSLambdaListCodeSigningConfigsResponse *> *)listCodeSigningConfigs:(AWSLambdaListCodeSigningConfigsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2020-04-22/code-signing-configs/"
+                  targetPrefix:@""
+                 operationName:@"ListCodeSigningConfigs"
+                   outputClass:[AWSLambdaListCodeSigningConfigsResponse class]];
+}
+
+- (void)listCodeSigningConfigs:(AWSLambdaListCodeSigningConfigsRequest *)request
+     completionHandler:(void (^)(AWSLambdaListCodeSigningConfigsResponse *response, NSError *error))completionHandler {
+    [[self listCodeSigningConfigs:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListCodeSigningConfigsResponse *> * _Nonnull task) {
+        AWSLambdaListCodeSigningConfigsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSLambdaListEventSourceMappingsResponse *> *)listEventSourceMappings:(AWSLambdaListEventSourceMappingsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1009,6 +1149,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaListFunctionsResponse *response, NSError *error))completionHandler {
     [[self listFunctions:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionsResponse *> * _Nonnull task) {
         AWSLambdaListFunctionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaListFunctionsByCodeSigningConfigResponse *> *)listFunctionsByCodeSigningConfig:(AWSLambdaListFunctionsByCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/2020-04-22/code-signing-configs/{CodeSigningConfigArn}/functions"
+                  targetPrefix:@""
+                 operationName:@"ListFunctionsByCodeSigningConfig"
+                   outputClass:[AWSLambdaListFunctionsByCodeSigningConfigResponse class]];
+}
+
+- (void)listFunctionsByCodeSigningConfig:(AWSLambdaListFunctionsByCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaListFunctionsByCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self listFunctionsByCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaListFunctionsByCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaListFunctionsByCodeSigningConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1170,6 +1333,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaFunctionConfiguration *response, NSError *error))completionHandler {
     [[self publishVersion:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaFunctionConfiguration *> * _Nonnull task) {
         AWSLambdaFunctionConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaPutFunctionCodeSigningConfigResponse *> *)putFunctionCodeSigningConfig:(AWSLambdaPutFunctionCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2020-06-30/functions/{FunctionName}/code-signing-config"
+                  targetPrefix:@""
+                 operationName:@"PutFunctionCodeSigningConfig"
+                   outputClass:[AWSLambdaPutFunctionCodeSigningConfigResponse class]];
+}
+
+- (void)putFunctionCodeSigningConfig:(AWSLambdaPutFunctionCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaPutFunctionCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self putFunctionCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaPutFunctionCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaPutFunctionCodeSigningConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1350,6 +1536,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSLambdaAliasConfiguration *response, NSError *error))completionHandler {
     [[self updateAlias:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaAliasConfiguration *> * _Nonnull task) {
         AWSLambdaAliasConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSLambdaUpdateCodeSigningConfigResponse *> *)updateCodeSigningConfig:(AWSLambdaUpdateCodeSigningConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/2020-04-22/code-signing-configs/{CodeSigningConfigArn}"
+                  targetPrefix:@""
+                 operationName:@"UpdateCodeSigningConfig"
+                   outputClass:[AWSLambdaUpdateCodeSigningConfigResponse class]];
+}
+
+- (void)updateCodeSigningConfig:(AWSLambdaUpdateCodeSigningConfigRequest *)request
+     completionHandler:(void (^)(AWSLambdaUpdateCodeSigningConfigResponse *response, NSError *error))completionHandler {
+    [[self updateCodeSigningConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSLambdaUpdateCodeSigningConfigResponse *> * _Nonnull task) {
+        AWSLambdaUpdateCodeSigningConfigResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -248,6 +248,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDescribeEntitiesDetectionJobResponse;
 @class AWSComprehendDescribeEntityRecognizerRequest;
 @class AWSComprehendDescribeEntityRecognizerResponse;
+@class AWSComprehendDescribeEventsDetectionJobRequest;
+@class AWSComprehendDescribeEventsDetectionJobResponse;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobRequest;
 @class AWSComprehendDescribeKeyPhrasesDetectionJobResponse;
 @class AWSComprehendDescribePiiEntitiesDetectionJobRequest;
@@ -295,6 +297,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendEntityRecognizerProperties;
 @class AWSComprehendEntityTypesEvaluationMetrics;
 @class AWSComprehendEntityTypesListItem;
+@class AWSComprehendEventsDetectionJobFilter;
+@class AWSComprehendEventsDetectionJobProperties;
 @class AWSComprehendInputDataConfig;
 @class AWSComprehendKeyPhrase;
 @class AWSComprehendKeyPhrasesDetectionJobFilter;
@@ -311,6 +315,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendListEntitiesDetectionJobsResponse;
 @class AWSComprehendListEntityRecognizersRequest;
 @class AWSComprehendListEntityRecognizersResponse;
+@class AWSComprehendListEventsDetectionJobsRequest;
+@class AWSComprehendListEventsDetectionJobsResponse;
 @class AWSComprehendListKeyPhrasesDetectionJobsRequest;
 @class AWSComprehendListKeyPhrasesDetectionJobsResponse;
 @class AWSComprehendListPiiEntitiesDetectionJobsRequest;
@@ -337,6 +343,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStartDominantLanguageDetectionJobResponse;
 @class AWSComprehendStartEntitiesDetectionJobRequest;
 @class AWSComprehendStartEntitiesDetectionJobResponse;
+@class AWSComprehendStartEventsDetectionJobRequest;
+@class AWSComprehendStartEventsDetectionJobResponse;
 @class AWSComprehendStartKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStartKeyPhrasesDetectionJobResponse;
 @class AWSComprehendStartPiiEntitiesDetectionJobRequest;
@@ -349,6 +357,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendStopDominantLanguageDetectionJobResponse;
 @class AWSComprehendStopEntitiesDetectionJobRequest;
 @class AWSComprehendStopEntitiesDetectionJobResponse;
+@class AWSComprehendStopEventsDetectionJobRequest;
+@class AWSComprehendStopEventsDetectionJobResponse;
 @class AWSComprehendStopKeyPhrasesDetectionJobRequest;
 @class AWSComprehendStopKeyPhrasesDetectionJobResponse;
 @class AWSComprehendStopPiiEntitiesDetectionJobRequest;
@@ -789,7 +799,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentClass *> * _Nullable classes;
 
 /**
- <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not multually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
+ <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentLabel *> * _Nullable labels;
 
@@ -1189,6 +1199,32 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>Describes information associated with an entity recognizer.</p>
  */
 @property (nonatomic, strong) AWSComprehendEntityRecognizerProperties * _Nullable entityRecognizerProperties;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeEventsDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendDescribeEventsDetectionJobResponse : AWSModel
+
+
+/**
+ <p>An object that contains the properties associated with an event detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendEventsDetectionJobProperties * _Nullable eventsDetectionJobProperties;
 
 @end
 
@@ -1881,7 +1917,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>The filter used to determine which endpoints are are returned. You can filter jobs on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
+ <p>The filter used to determine which endpoints are returned. You can filter jobs on their name, model, status, or the date and time that they were created. You can only set one filter at a time. </p>
  */
 @interface AWSComprehendEndpointFilter : AWSModel
 
@@ -2348,7 +2384,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
- <p>A measure of how accurate the recognizer results are for for a specific entity type in the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
+ <p>A measure of how accurate the recognizer results are for a specific entity type in the test data. It is derived from the <code>Precision</code> and <code>Recall</code> values. The <code>F1Score</code> is the harmonic average of the two scores. The highest score is 1, and the worst score is 0. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable f1Score;
 
@@ -2375,6 +2411,97 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>An entity type within a labeled training dataset that Amazon Comprehend uses to train a custom entity recognizer.</p><p>Entity types must not contain the following invalid characters: \n (line break), \\n (escaped line break, \r (carriage return), \\r (escaped carriage return), \t (tab), \\t (escaped tab), space, and , (comma).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable types;
+
+@end
+
+/**
+ <p>Provides information for filtering a list of event detection jobs.</p>
+ */
+@interface AWSComprehendEventsDetectionJobFilter : AWSModel
+
+
+/**
+ <p>Filters on the name of the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>Filters the list of jobs based on job status. Returns only jobs with the specified status.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted after the specified time. Jobs are returned in descending order, newest to oldest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeAfter;
+
+/**
+ <p>Filters the list of jobs based on the time that the job was submitted for processing. Returns only jobs submitted before the specified time. Jobs are returned in ascending order, oldest to newest.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTimeBefore;
+
+@end
+
+/**
+ <p>Provides information about an events detection job.</p>
+ */
+@interface AWSComprehendEventsDetectionJobProperties : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identify and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>The time that the events detection job completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The input data configuration that you supplied when you created the events detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier assigned to the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The name you assigned the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The current status of the events detection job.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+/**
+ <p>The language code of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>A description of the status of the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>The output data configuration that you supplied when you created the events detection job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>The time that the events detection job was submitted for processing.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable submitTime;
+
+/**
+ <p>The types of events that are detected by the job.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable targetEventTypes;
 
 @end
 
@@ -2759,6 +2886,47 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The list of properties of an entity recognizer.</p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendEntityRecognizerProperties *> * _Nullable entityRecognizerPropertiesList;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListEventsDetectionJobsRequest : AWSRequest
+
+
+/**
+ <p>Filters the jobs that are returned. You can filter jobs on their name, status, or the date and time that they were submitted. You can only set one filter at a time.</p>
+ */
+@property (nonatomic, strong) AWSComprehendEventsDetectionJobFilter * _Nullable filter;
+
+/**
+ <p>The maximum number of results to return in each page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Identifies the next page of results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendListEventsDetectionJobsResponse : AWSModel
+
+
+/**
+ <p>A list containing the properties of each job that is returned.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendEventsDetectionJobProperties *> * _Nullable eventsDetectionJobPropertiesList;
 
 /**
  <p>Identifies the next page of results to return.</p>
@@ -3490,6 +3658,67 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 /**
  
  */
+@interface AWSComprehendStartEventsDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Identity and Access Management (IAM) role that grants Amazon Comprehend read access to your input data.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
+
+/**
+ <p>Specifies the format and location of the input data for the job.</p>
+ */
+@property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The identifier of the events detection job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobName;
+
+/**
+ <p>The language code of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>Specifies where to send the output files.</p>
+ */
+@property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
+
+/**
+ <p>The types of events to detect in the input documents.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable targetEventTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStartEventsDetectionJobResponse : AWSModel
+
+
+/**
+ <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the events detection job.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
 @interface AWSComprehendStartKeyPhrasesDetectionJobRequest : AWSRequest
 
 
@@ -3808,6 +4037,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 /**
  <p>Either <code>STOP_REQUESTED</code> if the job is currently running, or <code>STOPPED</code> if the job was previously stopped with the <code>StopEntitiesDetectionJob</code> operation.</p>
+ */
+@property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopEventsDetectionJobRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the events detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendStopEventsDetectionJobResponse : AWSModel
+
+
+/**
+ <p>The identifier of the events detection job to stop.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The status of the events detection job.</p>
  */
 @property (nonatomic, assign) AWSComprehendJobStatus jobStatus;
 
@@ -4175,7 +4435,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
+ <p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for the job. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html">Amazon VPC</a>. </p>
  Required parameters: [SecurityGroupIds, Subnets]
  */
 @interface AWSComprehendVpcConfig : AWSModel
