@@ -1937,6 +1937,13 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
     return tasks;
 }
 
+-(int)getLargeRandomNumber {
+
+    int from = 1e5;
+    int to = 1e6;
+    return (int)from + arc4random() % (to-from+1);
+}
+
 #pragma mark - Internal helper methods
 
 - (AWSTask *)callFinishMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask {
@@ -2226,7 +2233,18 @@ didCompleteWithError:(NSError *)error {
             subTask.eTag = (NSString *) HTTPResponse.allHeaderFields[@"ETAG"];
             
             //Add it to completed parts and remove it from remaining parts.
-            [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(subTask.taskIdentifier)];
+
+            // Don't clobber existing keys...
+            if ([transferUtilityMultiPartUploadTask.completedPartsDictionary objectForKey:@(subTask.taskIdentifier)]) {
+                long newKey = (long)subTask.taskIdentifier + [self getLargeRandomNumber];
+                [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(newKey)];
+                AWSDDLogDebug(@"setObject for completedPartsDictionary key = %@ would clobber existing key!. Using key = %@ instetad", @(subTask.taskIdentifier), @(newKey));
+
+            } else {
+                AWSDDLogDebug(@"setObject for completedPartsDictionary key = %@", @(subTask.taskIdentifier));
+                [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(subTask.taskIdentifier)];
+            }
+
             [transferUtilityMultiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(subTask.taskIdentifier)];
             //Update progress
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.completedUnitCount - subTask.totalBytesSent + subTask.totalBytesExpectedToSend;
@@ -2277,6 +2295,9 @@ didCompleteWithError:(NSError *)error {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
                     
+                    AWSDDLogError(@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer",
+                                  transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent));
+
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
                                                                          forKey:@"Message"];
                     
