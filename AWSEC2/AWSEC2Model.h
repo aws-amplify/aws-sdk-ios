@@ -1060,6 +1060,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM6Gd_8xlarge,
     AWSEC2InstanceTypeM6Gd_12xlarge,
     AWSEC2InstanceTypeM6Gd_16xlarge,
+    AWSEC2InstanceTypeMAC1_metal,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2InstanceTypeHypervisor) {

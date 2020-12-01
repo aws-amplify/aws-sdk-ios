@@ -19773,7 +19773,8 @@
         \"shape\":\"FleetLaunchTemplateConfigRequest\",\
         \"locationName\":\"item\"\
       },\
-      \"max\":50\
+      \"max\":50,\
+      \"min\":0\
     },\
     \"FleetLaunchTemplateConfigRequest\":{\
       \"type\":\"structure\",\
@@ -19843,7 +19844,8 @@
         \"shape\":\"FleetLaunchTemplateOverridesRequest\",\
         \"locationName\":\"item\"\
       },\
-      \"max\":50\
+      \"max\":50,\
+      \"min\":0\
     },\
     \"FleetLaunchTemplateOverridesRequest\":{\
       \"type\":\"structure\",\
@@ -24452,7 +24454,8 @@
         \"m6gd.4xlarge\",\
         \"m6gd.8xlarge\",\
         \"m6gd.12xlarge\",\
-        \"m6gd.16xlarge\"\
+        \"m6gd.16xlarge\",\
+        \"mac1.metal\"\
       ]\
     },\
     \"InstanceTypeHypervisor\":{\
@@ -31780,7 +31783,8 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"InstanceType\"},\
       \"locationName\":\"InstanceType\",\
-      \"max\":100\
+      \"max\":100,\
+      \"min\":0\
     },\
     \"RequestLaunchTemplateData\":{\
       \"type\":\"structure\",\
@@ -38666,7 +38670,8 @@
     },\
     \"VersionDescription\":{\
       \"type\":\"string\",\
-      \"max\":255\
+      \"max\":255,\
+      \"min\":0\
     },\
     \"VersionStringList\":{\
       \"type\":\"list\",\
