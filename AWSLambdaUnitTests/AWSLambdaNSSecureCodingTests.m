@@ -80,6 +80,9 @@
 - (void) test_AWSLambdaGetPolicyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaImageConfig API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaImageConfigError API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaImageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaInvocationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaInvocationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaInvokeAsyncRequest API_AVAILABLE(ios(11));
@@ -386,6 +389,18 @@
 
 - (void) test_AWSLambdaGetProvisionedConcurrencyConfigResponse {
     [self validateSecureCodingForClass:[AWSLambdaGetProvisionedConcurrencyConfigResponse class]];
+}
+
+- (void) test_AWSLambdaImageConfig {
+    [self validateSecureCodingForClass:[AWSLambdaImageConfig class]];
+}
+
+- (void) test_AWSLambdaImageConfigError {
+    [self validateSecureCodingForClass:[AWSLambdaImageConfigError class]];
+}
+
+- (void) test_AWSLambdaImageConfigResponse {
+    [self validateSecureCodingForClass:[AWSLambdaImageConfigResponse class]];
 }
 
 - (void) test_AWSLambdaInvocationRequest {

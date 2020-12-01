@@ -100,12 +100,20 @@ typedef NS_ENUM(NSInteger, AWSLambdaLastUpdateStatusReasonCode) {
     AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses,
     AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet,
     AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup,
+    AWSLambdaLastUpdateStatusReasonCodeImageDeleted,
+    AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaLogType) {
     AWSLambdaLogTypeUnknown,
     AWSLambdaLogTypeNone,
     AWSLambdaLogTypeTail,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaPackageType) {
+    AWSLambdaPackageTypeUnknown,
+    AWSLambdaPackageTypeZip,
+    AWSLambdaPackageTypeImage,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaProvisionedConcurrencyStatusEnum) {
@@ -167,6 +175,8 @@ typedef NS_ENUM(NSInteger, AWSLambdaStateReasonCode) {
     AWSLambdaStateReasonCodeSubnetOutOfIPAddresses,
     AWSLambdaStateReasonCodeInvalidSubnet,
     AWSLambdaStateReasonCodeInvalidSecurityGroup,
+    AWSLambdaStateReasonCodeImageDeleted,
+    AWSLambdaStateReasonCodeImageAccessDenied,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaThrottleReason) {
@@ -245,6 +255,9 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaGetPolicyResponse;
 @class AWSLambdaGetProvisionedConcurrencyConfigRequest;
 @class AWSLambdaGetProvisionedConcurrencyConfigResponse;
+@class AWSLambdaImageConfig;
+@class AWSLambdaImageConfigError;
+@class AWSLambdaImageConfigResponse;
 @class AWSLambdaInvocationRequest;
 @class AWSLambdaInvocationResponse;
 @class AWSLambdaInvokeAsyncRequest;
@@ -594,7 +607,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if code-signing validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p><p>Default value: <code>Warn</code></p>
+ <p>Code signing configuration policy for deployment validation failure. If you set the policy to <code>Enforce</code>, Lambda blocks the deployment request if signature validation checks fail. If you set the policy to <code>Warn</code>, Lambda allows the deployment and creates a CloudWatch log. </p><p>Default value: <code>Warn</code></p>
  */
 @property (nonatomic, assign) AWSLambdaCodeSigningPolicy untrustedArtifactOnDeployment;
 
@@ -777,7 +790,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaFunctionCode * _Nullable code;
 
 /**
- <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p>
+ <p>To enable code signing for this function, specify the ARN of a code-signing configuration. A code-signing configuration includes a set of signing profiles, which define the trusted publishers for this function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable codeSigningConfigArn;
 
@@ -812,6 +825,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
+ <p>Configuration values that override the container image Dockerfile.</p>
+ */
+@property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
+
+/**
  <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
@@ -825,6 +843,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The amount of memory that your function has access to. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value must be a multiple of 64 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
+
+/**
+ <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+ */
+@property (nonatomic, assign) AWSLambdaPackageType packageType;
 
 /**
  <p>Set to true to publish the first version of the function during creation.</p>
@@ -1216,10 +1239,15 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The code for the Lambda function. You can specify either an object in Amazon S3, or upload a deployment package directly.</p>
+ <p>The code for the Lambda function. You can specify either an object in Amazon S3, upload a ZIP archive deployment package directly, or specify the URI of a container image.</p>
  */
 @interface AWSLambdaFunctionCode : AWSModel
 
+
+/**
+ <p>URI of a container image in the Amazon ECR registry.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageUri;
 
 /**
  <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
@@ -1250,6 +1278,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
+ <p>URI of a container image in the Amazon ECR registry.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageUri;
+
+/**
  <p>A presigned URL that you can use to download the deployment package.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable location;
@@ -1258,6 +1291,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The service that's hosting the file.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable repositoryType;
+
+/**
+ <p>The resolved URI for the image.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resolvedImageUri;
 
 @end
 
@@ -1313,6 +1351,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
+ <p>The function's image configuration values.</p>
+ */
+@property (nonatomic, strong) AWSLambdaImageConfigResponse * _Nullable imageConfigResponse;
+
+/**
  <p>The KMS key that's used to encrypt the function's environment variables. This key is only returned if you've configured a customer managed CMK.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
@@ -1351,6 +1394,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The memory that's allocated to the function.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
+
+/**
+ <p>The type of deployment package. Set to <code>Image</code> for container image and set <code>Zip</code> for ZIP archive.</p>
+ */
+@property (nonatomic, assign) AWSLambdaPackageType packageType;
 
 /**
  <p>The latest updated revision of the function or alias.</p>
@@ -1873,6 +1921,65 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>For failed allocations, the reason that provisioned concurrency could not be allocated.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusReason;
+
+@end
+
+/**
+ <p>Configuration values that override the container image Dockerfile. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images-settings.html">Override Container settings</a>. </p>
+ */
+@interface AWSLambdaImageConfig : AWSModel
+
+
+/**
+ <p>Specifies parameters that you want to pass in with ENTRYPOINT. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable command;
+
+/**
+ <p>Specifies the entry point to their application, which is typically the location of the runtime executable.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable entryPoint;
+
+/**
+ <p>Specifies the working directory.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable workingDirectory;
+
+@end
+
+/**
+ <p>Error response to GetFunctionConfiguration.</p>
+ */
+@interface AWSLambdaImageConfigError : AWSModel
+
+
+/**
+ <p>Error code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
+ <p>Error message.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p>Response to GetFunctionConfiguration request.</p>
+ */
+@interface AWSLambdaImageConfigResponse : AWSModel
+
+
+/**
+ <p>Error response to GetFunctionConfiguration.</p>
+ */
+@property (nonatomic, strong) AWSLambdaImageConfigError * _Nullable error;
+
+/**
+ <p>Configuration values that override the container image Dockerfile.</p>
+ */
+@property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 @end
 
@@ -3200,6 +3307,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
+ <p>URI of a container image in the Amazon ECR registry.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageUri;
+
+/**
  <p>Set to true to publish a new version of the function after updating the code. This has the same effect as calling <a>PublishVersion</a> separately.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable publish;
@@ -3266,6 +3378,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
  <p>The name of the method within your code that Lambda calls to execute your function. The format includes the file name. It can also include namespaces and other qualifiers, depending on the runtime. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/programming-model-v2.html">Programming Model</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable handler;
+
+/**
+ <p>Configuration values that override the container image Dockerfile.</p>
+ */
+@property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
  <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>

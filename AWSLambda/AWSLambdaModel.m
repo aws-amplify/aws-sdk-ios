@@ -399,9 +399,11 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
+             @"imageConfig" : @"ImageConfig",
              @"KMSKeyArn" : @"KMSKeyArn",
              @"layers" : @"Layers",
              @"memorySize" : @"MemorySize",
+             @"packageType" : @"PackageType",
              @"publish" : @"Publish",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
@@ -426,6 +428,31 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
+}
+
++ (NSValueTransformer *)imageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaImageConfig class]];
+}
+
++ (NSValueTransformer *)packageTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Zip"] == NSOrderedSame) {
+            return @(AWSLambdaPackageTypeZip);
+        }
+        if ([value caseInsensitiveCompare:@"Image"] == NSOrderedSame) {
+            return @(AWSLambdaPackageTypeImage);
+        }
+        return @(AWSLambdaPackageTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaPackageTypeZip:
+                return @"Zip";
+            case AWSLambdaPackageTypeImage:
+                return @"Image";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
@@ -893,6 +920,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"imageUri" : @"ImageUri",
              @"s3Bucket" : @"S3Bucket",
              @"s3Key" : @"S3Key",
              @"s3ObjectVersion" : @"S3ObjectVersion",
@@ -910,8 +938,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"imageUri" : @"ImageUri",
              @"location" : @"Location",
              @"repositoryType" : @"RepositoryType",
+             @"resolvedImageUri" : @"ResolvedImageUri",
              };
 }
 
@@ -934,6 +964,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"functionArn" : @"FunctionArn",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
+             @"imageConfigResponse" : @"ImageConfigResponse",
              @"KMSKeyArn" : @"KMSKeyArn",
              @"lastModified" : @"LastModified",
              @"lastUpdateStatus" : @"LastUpdateStatus",
@@ -942,6 +973,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"layers" : @"Layers",
              @"masterArn" : @"MasterArn",
              @"memorySize" : @"MemorySize",
+             @"packageType" : @"PackageType",
              @"revisionId" : @"RevisionId",
              @"role" : @"Role",
              @"runtime" : @"Runtime",
@@ -967,6 +999,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
+}
+
++ (NSValueTransformer *)imageConfigResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaImageConfigResponse class]];
 }
 
 + (NSValueTransformer *)lastUpdateStatusJSONTransformer {
@@ -1018,6 +1054,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
             return @(AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"ImageDeleted"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeImageDeleted);
+        }
+        if ([value caseInsensitiveCompare:@"ImageAccessDenied"] == NSOrderedSame) {
+            return @(AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied);
+        }
         return @(AWSLambdaLastUpdateStatusReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1035,6 +1077,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InvalidSubnet";
             case AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup:
                 return @"InvalidSecurityGroup";
+            case AWSLambdaLastUpdateStatusReasonCodeImageDeleted:
+                return @"ImageDeleted";
+            case AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied:
+                return @"ImageAccessDenied";
             default:
                 return nil;
         }
@@ -1043,6 +1089,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)layersJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaLayer class]];
+}
+
++ (NSValueTransformer *)packageTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Zip"] == NSOrderedSame) {
+            return @(AWSLambdaPackageTypeZip);
+        }
+        if ([value caseInsensitiveCompare:@"Image"] == NSOrderedSame) {
+            return @(AWSLambdaPackageTypeImage);
+        }
+        return @(AWSLambdaPackageTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLambdaPackageTypeZip:
+                return @"Zip";
+            case AWSLambdaPackageTypeImage:
+                return @"Image";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
@@ -1234,6 +1301,12 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"InvalidSecurityGroup"] == NSOrderedSame) {
             return @(AWSLambdaStateReasonCodeInvalidSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"ImageDeleted"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeImageDeleted);
+        }
+        if ([value caseInsensitiveCompare:@"ImageAccessDenied"] == NSOrderedSame) {
+            return @(AWSLambdaStateReasonCodeImageAccessDenied);
+        }
         return @(AWSLambdaStateReasonCodeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1257,6 +1330,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"InvalidSubnet";
             case AWSLambdaStateReasonCodeInvalidSecurityGroup:
                 return @"InvalidSecurityGroup";
+            case AWSLambdaStateReasonCodeImageDeleted:
+                return @"ImageDeleted";
+            case AWSLambdaStateReasonCodeImageAccessDenied:
+                return @"ImageAccessDenied";
             default:
                 return nil;
         }
@@ -1696,6 +1773,60 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSLambdaImageConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"command" : @"Command",
+             @"entryPoint" : @"EntryPoint",
+             @"workingDirectory" : @"WorkingDirectory",
+             };
+}
+
+@end
+
+@implementation AWSLambdaImageConfigError
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"errorCode" : @"ErrorCode",
+             @"message" : @"Message",
+             };
+}
+
+@end
+
+@implementation AWSLambdaImageConfigResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"error" : @"Error",
+             @"imageConfig" : @"ImageConfig",
+             };
+}
+
++ (NSValueTransformer *)errorJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaImageConfigError class]];
+}
+
++ (NSValueTransformer *)imageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaImageConfig class]];
 }
 
 @end
@@ -3088,6 +3219,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 	return @{
              @"dryRun" : @"DryRun",
              @"functionName" : @"FunctionName",
+             @"imageUri" : @"ImageUri",
              @"publish" : @"Publish",
              @"revisionId" : @"RevisionId",
              @"s3Bucket" : @"S3Bucket",
@@ -3113,6 +3245,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"fileSystemConfigs" : @"FileSystemConfigs",
              @"functionName" : @"FunctionName",
              @"handler" : @"Handler",
+             @"imageConfig" : @"ImageConfig",
              @"KMSKeyArn" : @"KMSKeyArn",
              @"layers" : @"Layers",
              @"memorySize" : @"MemorySize",
@@ -3135,6 +3268,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 + (NSValueTransformer *)fileSystemConfigsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLambdaFileSystemConfig class]];
+}
+
++ (NSValueTransformer *)imageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaImageConfig class]];
 }
 
 + (NSValueTransformer *)runtimeJSONTransformer {
