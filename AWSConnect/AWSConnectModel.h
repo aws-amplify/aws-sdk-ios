@@ -45,6 +45,7 @@ typedef NS_ENUM(NSInteger, AWSConnectChannel) {
     AWSConnectChannelUnknown,
     AWSConnectChannelVoice,
     AWSConnectChannelChat,
+    AWSConnectChannelTask,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectComparison) {
@@ -155,6 +156,11 @@ typedef NS_ENUM(NSInteger, AWSConnectInstanceStorageResourceType) {
     AWSConnectInstanceStorageResourceTypeMediaStreams,
     AWSConnectInstanceStorageResourceTypeContactTraceRecords,
     AWSConnectInstanceStorageResourceTypeAgentEvents,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectIntegrationType) {
+    AWSConnectIntegrationTypeUnknown,
+    AWSConnectIntegrationTypeEvent,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectPhoneNumberCountryCode) {
@@ -416,6 +422,11 @@ typedef NS_ENUM(NSInteger, AWSConnectQueueType) {
     AWSConnectQueueTypeAgent,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectReferenceType) {
+    AWSConnectReferenceTypeUnknown,
+    AWSConnectReferenceTypeUrl,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeUnknown,
     AWSConnectResourceTypeContact,
@@ -425,6 +436,12 @@ typedef NS_ENUM(NSInteger, AWSConnectResourceType) {
     AWSConnectResourceTypeHierarchyLevel,
     AWSConnectResourceTypeHierarchyGroup,
     AWSConnectResourceTypeUser,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectSourceType) {
+    AWSConnectSourceTypeUnknown,
+    AWSConnectSourceTypeSalesforce,
+    AWSConnectSourceTypeZendesk,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectStatistic) {
@@ -447,6 +464,11 @@ typedef NS_ENUM(NSInteger, AWSConnectUnit) {
     AWSConnectUnitSeconds,
     AWSConnectUnitCount,
     AWSConnectUnitPercent,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectUseCaseType) {
+    AWSConnectUseCaseTypeUnknown,
+    AWSConnectUseCaseTypeRulesEvaluation,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
@@ -472,8 +494,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateContactFlowResponse;
 @class AWSConnectCreateInstanceRequest;
 @class AWSConnectCreateInstanceResponse;
+@class AWSConnectCreateIntegrationAssociationRequest;
+@class AWSConnectCreateIntegrationAssociationResponse;
 @class AWSConnectCreateRoutingProfileRequest;
 @class AWSConnectCreateRoutingProfileResponse;
+@class AWSConnectCreateUseCaseRequest;
+@class AWSConnectCreateUseCaseResponse;
 @class AWSConnectCreateUserHierarchyGroupRequest;
 @class AWSConnectCreateUserHierarchyGroupResponse;
 @class AWSConnectCreateUserRequest;
@@ -483,6 +509,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
 @class AWSConnectDeleteInstanceRequest;
+@class AWSConnectDeleteIntegrationAssociationRequest;
+@class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
 @class AWSConnectDescribeContactFlowRequest;
@@ -533,6 +561,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectInstanceStatusReason;
 @class AWSConnectInstanceStorageConfig;
 @class AWSConnectInstanceSummary;
+@class AWSConnectIntegrationAssociationSummary;
 @class AWSConnectKinesisFirehoseConfig;
 @class AWSConnectKinesisStreamConfig;
 @class AWSConnectKinesisVideoStreamConfig;
@@ -549,6 +578,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListInstanceStorageConfigsResponse;
 @class AWSConnectListInstancesRequest;
 @class AWSConnectListInstancesResponse;
+@class AWSConnectListIntegrationAssociationsRequest;
+@class AWSConnectListIntegrationAssociationsResponse;
 @class AWSConnectListLambdaFunctionsRequest;
 @class AWSConnectListLambdaFunctionsResponse;
 @class AWSConnectListLexBotsRequest;
@@ -569,6 +600,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListSecurityProfilesResponse;
 @class AWSConnectListTagsForResourceRequest;
 @class AWSConnectListTagsForResourceResponse;
+@class AWSConnectListUseCasesRequest;
+@class AWSConnectListUseCasesResponse;
 @class AWSConnectListUserHierarchyGroupsRequest;
 @class AWSConnectListUserHierarchyGroupsResponse;
 @class AWSConnectListUsersRequest;
@@ -580,6 +613,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectPromptSummary;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
+@class AWSConnectReference;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
 @class AWSConnectRoutingProfile;
@@ -596,6 +630,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectStartContactRecordingResponse;
 @class AWSConnectStartOutboundVoiceContactRequest;
 @class AWSConnectStartOutboundVoiceContactResponse;
+@class AWSConnectStartTaskContactRequest;
+@class AWSConnectStartTaskContactResponse;
 @class AWSConnectStopContactRecordingRequest;
 @class AWSConnectStopContactRecordingResponse;
 @class AWSConnectStopContactRequest;
@@ -622,6 +658,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateUserPhoneConfigRequest;
 @class AWSConnectUpdateUserRoutingProfileRequest;
 @class AWSConnectUpdateUserSecurityProfilesRequest;
+@class AWSConnectUseCase;
 @class AWSConnectUser;
 @class AWSConnectUserIdentityInfo;
 @class AWSConnectUserPhoneConfig;
@@ -995,6 +1032,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateIntegrationAssociationRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the integration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationArn;
+
+/**
+ <p>The type of information to be ingested.</p>
+ */
+@property (nonatomic, assign) AWSConnectIntegrationType integrationType;
+
+/**
+ <p>The name of the external application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceApplicationName;
+
+/**
+ <p>The URL for the external application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceApplicationUrl;
+
+/**
+ <p>The type of the data source.</p>
+ */
+@property (nonatomic, assign) AWSConnectSourceType sourceType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateIntegrationAssociationResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationArn;
+
+/**
+ <p>The identifier for the association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateRoutingProfileRequest : AWSRequest
 
 
@@ -1050,6 +1143,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the routing profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable routingProfileId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateUseCaseRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the AppIntegration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+/**
+ <p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>
+ */
+@property (nonatomic, assign) AWSConnectUseCaseType useCaseType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateUseCaseResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the use case.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable useCaseArn;
+
+/**
+ <p>The identifier of the use case.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable useCaseId;
 
 @end
 
@@ -1262,6 +1396,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the Amazon Connect instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteIntegrationAssociationRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the AppIntegration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDeleteUseCaseRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the AppIntegration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+/**
+ <p>The identifier for the use case.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable useCaseId;
 
 @end
 
@@ -1765,12 +1940,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSArray<AWSConnectCurrentMetric *> * _Nullable currentMetrics;
 
 /**
- <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
 /**
- <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
+ <p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p><p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupings;
 
@@ -1852,7 +2027,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSDate * _Nullable endTime;
 
 /**
- <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>
+ <p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>
  */
 @property (nonatomic, strong) AWSConnectFilters * _Nullable filters;
 
@@ -2349,6 +2524,54 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Contains summary information about the associated AppIntegrations.</p>
+ */
+@interface AWSConnectIntegrationAssociationSummary : AWSModel
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the AppIntegration.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationArn;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationArn;
+
+/**
+ <p>The identifier for the AppIntegration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+/**
+ <p>The integration type.</p>
+ */
+@property (nonatomic, assign) AWSConnectIntegrationType integrationType;
+
+/**
+ <p>The user-provided, friendly name for the external application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceApplicationName;
+
+/**
+ <p>The URL for the external application.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceApplicationUrl;
+
+/**
+ <p>The name of the source.</p>
+ */
+@property (nonatomic, assign) AWSConnectSourceType sourceType;
+
+@end
+
+/**
  <p>Configuration information of a Kinesis Firehose delivery stream.</p>
  Required parameters: [FirehoseArn]
  */
@@ -2661,6 +2884,47 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>Information about the instances.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectInstanceSummary *> * _Nullable instanceSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListIntegrationAssociationsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListIntegrationAssociationsResponse : AWSModel
+
+
+/**
+ <p>The AppIntegration associations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectIntegrationAssociationSummary *> * _Nullable integrationAssociationSummaryList;
 
 /**
  <p>If there are additional results, this is the token for the next set of results.</p>
@@ -3085,6 +3349,53 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Provides summary information about the use cases for the specified Amazon Connect AppIntegration association.</p>
+ Required parameters: [InstanceId, IntegrationAssociationId]
+ */
+@interface AWSConnectListUseCasesRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the integration association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListUseCasesResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The use cases.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectUseCase *> * _Nullable useCaseSummaryList;
+
+@end
+
+/**
  
  */
 @interface AWSConnectListUserHierarchyGroupsRequest : AWSRequest
@@ -3311,6 +3622,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The type of queue.</p>
  */
 @property (nonatomic, assign) AWSConnectQueueType queueType;
+
+@end
+
+/**
+ <p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes across all references for a contact.</p>
+ Required parameters: [Value, Type]
+ */
+@interface AWSConnectReference : AWSModel
+
+
+/**
+ <p>A valid URL.</p>
+ */
+@property (nonatomic, assign) AWSConnectReferenceType types;
+
+/**
+ <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
 
 @end
 
@@ -3724,6 +4054,67 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectStartTaskContactRequest : AWSRequest
+
+
+/**
+ <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p><p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier of the previous chat, voice, or task contact. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable previousContactId;
+
+/**
+ <p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSConnectReference *> * _Nullable references;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectStartTaskContactResponse : AWSModel
+
+
+/**
+ <p>The identifier of this contact within the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectStopContactRecordingRequest : AWSRequest
 
 
@@ -4082,7 +4473,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The queues to be updated for this routing profile.</p>
+ <p>The queues to be updated for this routing profile. Queues must first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
 
@@ -4246,6 +4637,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ <p>Contains the use case.</p>
+ */
+@interface AWSConnectUseCase : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the use case.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable useCaseArn;
+
+/**
+ <p>The identifier for the use case.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable useCaseId;
+
+/**
+ <p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>
+ */
+@property (nonatomic, assign) AWSConnectUseCaseType useCaseType;
 
 @end
 

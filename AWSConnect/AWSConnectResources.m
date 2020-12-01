@@ -213,7 +213,24 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>\"\
+    },\
+    \"CreateIntegrationAssociation\":{\
+      \"name\":\"CreateIntegrationAssociation\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations\"\
+      },\
+      \"input\":{\"shape\":\"CreateIntegrationAssociationRequest\"},\
+      \"output\":{\"shape\":\"CreateIntegrationAssociationResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Create an AppIntegration association with anAmazon Connect instance.</p>\"\
     },\
     \"CreateRoutingProfile\":{\
       \"name\":\"CreateRoutingProfile\",\
@@ -233,6 +250,23 @@
         {\"shape\":\"InternalServiceException\"}\
       ],\
       \"documentation\":\"<p>Creates a new routing profile.</p>\"\
+    },\
+    \"CreateUseCase\":{\
+      \"name\":\"CreateUseCase\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases\"\
+      },\
+      \"input\":{\"shape\":\"CreateUseCaseRequest\"},\
+      \"output\":{\"shape\":\"CreateUseCaseResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"DuplicateResourceException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates a use case for an AppIntegration association.</p>\"\
     },\
     \"CreateUser\":{\
       \"name\":\"CreateUser\",\
@@ -284,7 +318,37 @@
         {\"shape\":\"InternalServiceException\"},\
         {\"shape\":\"InvalidRequestException\"}\
       ],\
-      \"documentation\":\"<p>Deletes the Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes the Amazon Connect instance.</p>\"\
+    },\
+    \"DeleteIntegrationAssociation\":{\
+      \"name\":\"DeleteIntegrationAssociation\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteIntegrationAssociationRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>\"\
+    },\
+    \"DeleteUseCase\":{\
+      \"name\":\"DeleteUseCase\",\
+      \"http\":{\
+        \"method\":\"DELETE\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases/{UseCaseId}\"\
+      },\
+      \"input\":{\"shape\":\"DeleteUseCaseRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes a use case from an AppIntegration association.</p>\"\
     },\
     \"DeleteUser\":{\
       \"name\":\"DeleteUser\",\
@@ -683,7 +747,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Returns a paginated list of all attribute types for the given instance.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all attribute types for the given instance.</p>\"\
     },\
     \"ListInstanceStorageConfigs\":{\
       \"name\":\"ListInstanceStorageConfigs\",\
@@ -700,7 +764,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Returns a paginated list of storage configs for the identified instance and resource type.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of storage configs for the identified instance and resource type.</p>\"\
     },\
     \"ListInstances\":{\
       \"name\":\"ListInstances\",\
@@ -714,7 +778,23 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>\"\
+    },\
+    \"ListIntegrationAssociations\":{\
+      \"name\":\"ListIntegrationAssociations\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations\"\
+      },\
+      \"input\":{\"shape\":\"ListIntegrationAssociationsRequest\"},\
+      \"output\":{\"shape\":\"ListIntegrationAssociationsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Provides summary information about the AppIntegration associations for the specified Amazon Connect instance.</p>\"\
     },\
     \"ListLambdaFunctions\":{\
       \"name\":\"ListLambdaFunctions\",\
@@ -886,6 +966,22 @@
       ],\
       \"documentation\":\"<p>Lists the tags for the specified resource.</p> <p>For sample policies that use tags, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html\\\">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>\"\
     },\
+    \"ListUseCases\":{\
+      \"name\":\"ListUseCases\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/instance/{InstanceId}/integration-associations/{IntegrationAssociationId}/use-cases\"\
+      },\
+      \"input\":{\"shape\":\"ListUseCasesRequest\"},\
+      \"output\":{\"shape\":\"ListUseCasesResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>List the use cases. </p>\"\
+    },\
     \"ListUserHierarchyGroups\":{\
       \"name\":\"ListUserHierarchyGroups\",\
       \"http\":{\
@@ -986,6 +1082,24 @@
         {\"shape\":\"OutboundContactNotPermittedException\"}\
       ],\
       \"documentation\":\"<p>This API places an outbound call to a contact, and then initiates the contact flow. It performs the actions in the contact flow that's specified (in <code>ContactFlowId</code>).</p> <p>Agents are not involved in initiating the outbound API (that is, dialing the contact). If the contact flow places an outbound call to a contact, and then puts the contact in queue, that's when the call is routed to the agent, like any other inbound case.</p> <p>There is a 60 second dialing timeout for this operation. If the call is not connected after 60 seconds, it fails.</p> <note> <p>UK numbers with a 447 prefix are not allowed by default. Before you can dial these UK mobile numbers, you must submit a service quota increase request. For more information, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html\\\">Amazon Connect Service Quotas</a> in the <i>Amazon Connect Administrator Guide</i>. </p> </note>\"\
+    },\
+    \"StartTaskContact\":{\
+      \"name\":\"StartTaskContact\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/contact/task\"\
+      },\
+      \"input\":{\"shape\":\"StartTaskContactRequest\"},\
+      \"output\":{\"shape\":\"StartTaskContactResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"InvalidParameterException\"},\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ThrottlingException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
+        {\"shape\":\"InternalServiceException\"}\
+      ],\
+      \"documentation\":\"<p>Initiates a contact flow to start a new task.</p>\"\
     },\
     \"StopContact\":{\
       \"name\":\"StopContact\",\
@@ -1130,7 +1244,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Updates the value for the specified attribute type.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates the value for the specified attribute type.</p>\"\
     },\
     \"UpdateInstanceStorageConfig\":{\
       \"name\":\"UpdateInstanceStorageConfig\",\
@@ -1146,7 +1260,7 @@
         {\"shape\":\"InvalidParameterException\"},\
         {\"shape\":\"ThrottlingException\"}\
       ],\
-      \"documentation\":\"<p>Updates an existing configuration for a resource type. This API is idempotent.</p>\"\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates an existing configuration for a resource type. This API is idempotent.</p>\"\
     },\
     \"UpdateRoutingProfileConcurrency\":{\
       \"name\":\"UpdateRoutingProfileConcurrency\",\
@@ -1545,13 +1659,14 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"VOICE\",\
-        \"CHAT\"\
+        \"CHAT\",\
+        \"TASK\"\
       ]\
     },\
     \"Channels\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"Channel\"},\
-      \"max\":1\
+      \"max\":3\
     },\
     \"ChatContent\":{\
       \"type\":\"string\",\
@@ -1709,6 +1824,11 @@
       \"error\":{\"httpStatusCode\":410},\
       \"exception\":true\
     },\
+    \"ContactReferences\":{\
+      \"type\":\"map\",\
+      \"key\":{\"shape\":\"ReferenceKey\"},\
+      \"value\":{\"shape\":\"Reference\"}\
+    },\
     \"CreateContactFlowRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1806,6 +1926,58 @@
         }\
       }\
     },\
+    \"CreateIntegrationAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"IntegrationType\",\
+        \"IntegrationArn\",\
+        \"SourceApplicationUrl\",\
+        \"SourceApplicationName\",\
+        \"SourceType\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"IntegrationType\":{\
+          \"shape\":\"IntegrationType\",\
+          \"documentation\":\"<p>The type of information to be ingested.</p>\"\
+        },\
+        \"IntegrationArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the integration.</p>\"\
+        },\
+        \"SourceApplicationUrl\":{\
+          \"shape\":\"URI\",\
+          \"documentation\":\"<p>The URL for the external application.</p>\"\
+        },\
+        \"SourceApplicationName\":{\
+          \"shape\":\"SourceApplicationName\",\
+          \"documentation\":\"<p>The name of the external application.</p>\"\
+        },\
+        \"SourceType\":{\
+          \"shape\":\"SourceType\",\
+          \"documentation\":\"<p>The type of the data source.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateIntegrationAssociationResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the association.</p>\"\
+        },\
+        \"IntegrationAssociationArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the association.</p>\"\
+        }\
+      }\
+    },\
     \"CreateRoutingProfileRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1858,6 +2030,45 @@
         \"RoutingProfileId\":{\
           \"shape\":\"RoutingProfileId\",\
           \"documentation\":\"<p>The identifier of the routing profile.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateUseCaseRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"IntegrationAssociationId\",\
+        \"UseCaseType\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IntegrationAssociationId\"\
+        },\
+        \"UseCaseType\":{\
+          \"shape\":\"UseCaseType\",\
+          \"documentation\":\"<p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>\"\
+        }\
+      }\
+    },\
+    \"CreateUseCaseResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UseCaseId\":{\
+          \"shape\":\"UseCaseId\",\
+          \"documentation\":\"<p>The identifier of the use case.</p>\"\
+        },\
+        \"UseCaseArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the use case.</p>\"\
         }\
       }\
     },\
@@ -2074,6 +2285,55 @@
           \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
+        }\
+      }\
+    },\
+    \"DeleteIntegrationAssociationRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"IntegrationAssociationId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IntegrationAssociationId\"\
+        }\
+      }\
+    },\
+    \"DeleteUseCaseRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"IntegrationAssociationId\",\
+        \"UseCaseId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IntegrationAssociationId\"\
+        },\
+        \"UseCaseId\":{\
+          \"shape\":\"UseCaseId\",\
+          \"documentation\":\"<p>The identifier for the use case.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"UseCaseId\"\
         }\
       }\
     },\
@@ -2347,6 +2607,11 @@
           \"documentation\":\"<p>Information about the user account and configuration settings.</p>\"\
         }\
       }\
+    },\
+    \"Description\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":0\
     },\
     \"DestinationNotAllowedException\":{\
       \"type\":\"structure\",\
@@ -2647,11 +2912,11 @@
         },\
         \"Filters\":{\
           \"shape\":\"Filters\",\
-          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>\"\
+          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
-          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>\"\
+          \"documentation\":\"<p>The grouping applied to the metrics returned. For example, when grouped by <code>QUEUE</code>, the metrics returned apply to each queue rather than aggregated for all queues. If you group by <code>CHANNEL</code>, you should include a Channels filter. VOICE, CHAT, and TASK channels are supported.</p> <p>If no <code>Grouping</code> is included in the request, a summary of metrics is returned.</p>\"\
         },\
         \"CurrentMetrics\":{\
           \"shape\":\"CurrentMetrics\",\
@@ -2732,7 +2997,7 @@
         },\
         \"Filters\":{\
           \"shape\":\"Filters\",\
-          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. Both <code>VOICE</code> and <code>CHAT</code> channels are supported.</p>\"\
+          \"documentation\":\"<p>The queues, up to 100, or channels, to use to filter the metrics returned. Metric data is retrieved only for the resources associated with the queues or channels included in the filter. You can include both queue IDs and queue ARNs in the same request. VOICE, CHAT, and TASK channels are supported.</p>\"\
         },\
         \"Groupings\":{\
           \"shape\":\"Groupings\",\
@@ -3240,6 +3505,57 @@
       \"type\":\"list\",\
       \"member\":{\"shape\":\"InstanceSummary\"}\
     },\
+    \"IntegrationAssociationId\":{\
+      \"type\":\"string\",\
+      \"max\":200,\
+      \"min\":1\
+    },\
+    \"IntegrationAssociationSummary\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the AppIntegration association.</p>\"\
+        },\
+        \"IntegrationAssociationArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the AppIntegration association.</p>\"\
+        },\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"IntegrationType\":{\
+          \"shape\":\"IntegrationType\",\
+          \"documentation\":\"<p>The integration type.</p>\"\
+        },\
+        \"IntegrationArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the AppIntegration.</p>\"\
+        },\
+        \"SourceApplicationUrl\":{\
+          \"shape\":\"URI\",\
+          \"documentation\":\"<p>The URL for the external application.</p>\"\
+        },\
+        \"SourceApplicationName\":{\
+          \"shape\":\"SourceApplicationName\",\
+          \"documentation\":\"<p>The user-provided, friendly name for the external application.</p>\"\
+        },\
+        \"SourceType\":{\
+          \"shape\":\"SourceType\",\
+          \"documentation\":\"<p>The name of the source.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains summary information about the associated AppIntegrations.</p>\"\
+    },\
+    \"IntegrationAssociationSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"IntegrationAssociationSummary\"}\
+    },\
+    \"IntegrationType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"EVENT\"]\
+    },\
     \"InternalServiceException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -3599,6 +3915,44 @@
         \"InstanceSummaryList\":{\
           \"shape\":\"InstanceSummaryList\",\
           \"documentation\":\"<p>Information about the instances.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
+    \"ListIntegrationAssociationsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximimum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      }\
+    },\
+    \"ListIntegrationAssociationsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"IntegrationAssociationSummaryList\":{\
+          \"shape\":\"IntegrationAssociationSummaryList\",\
+          \"documentation\":\"<p>The AppIntegration associations.</p>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -3994,6 +4348,54 @@
         }\
       }\
     },\
+    \"ListUseCasesRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"IntegrationAssociationId\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"IntegrationAssociationId\":{\
+          \"shape\":\"IntegrationAssociationId\",\
+          \"documentation\":\"<p>The identifier for the integration association.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"IntegrationAssociationId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult100\",\
+          \"documentation\":\"<p>The maximimum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        }\
+      },\
+      \"documentation\":\"<p>Provides summary information about the use cases for the specified Amazon Connect AppIntegration association.</p>\"\
+    },\
+    \"ListUseCasesResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UseCaseSummaryList\":{\
+          \"shape\":\"UseCaseSummaryList\",\
+          \"documentation\":\"<p>The use cases.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListUserHierarchyGroupsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
@@ -4123,6 +4525,11 @@
       \"documentation\":\"<p>Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.</p>\"\
     },\
     \"Message\":{\"type\":\"string\"},\
+    \"Name\":{\
+      \"type\":\"string\",\
+      \"max\":512,\
+      \"min\":0\
+    },\
     \"NextToken\":{\"type\":\"string\"},\
     \"Origin\":{\
       \"type\":\"string\",\
@@ -4600,6 +5007,38 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"Reference\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"Value\",\
+        \"Type\"\
+      ],\
+      \"members\":{\
+        \"Value\":{\
+          \"shape\":\"ReferenceValue\",\
+          \"documentation\":\"<p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>\"\
+        },\
+        \"Type\":{\
+          \"shape\":\"ReferenceType\",\
+          \"documentation\":\"<p>A valid URL.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>A link that an agent selects to complete a given task. You can have up to 4,096 UTF-8 bytes across all references for a contact.</p>\"\
+    },\
+    \"ReferenceKey\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":1\
+    },\
+    \"ReferenceType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"URL\"]\
+    },\
+    \"ReferenceValue\":{\
+      \"type\":\"string\",\
+      \"max\":4096,\
+      \"min\":0\
+    },\
     \"ResourceConflictException\":{\
       \"type\":\"structure\",\
       \"members\":{\
@@ -4930,6 +5369,19 @@
       \"error\":{\"httpStatusCode\":402},\
       \"exception\":true\
     },\
+    \"SourceApplicationName\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1,\
+      \"pattern\":\"^[a-zA-Z0-9_ -]+$\"\
+    },\
+    \"SourceType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"SALESFORCE\",\
+        \"ZENDESK\"\
+      ]\
+    },\
     \"StartChatContactRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -5054,6 +5506,58 @@
       }\
     },\
     \"StartOutboundVoiceContactResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"ContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of this contact within the Amazon Connect instance.</p>\"\
+        }\
+      }\
+    },\
+    \"StartTaskContactRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"ContactFlowId\",\
+        \"Name\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+        },\
+        \"PreviousContactId\":{\
+          \"shape\":\"ContactId\",\
+          \"documentation\":\"<p>The identifier of the previous chat, voice, or task contact. </p>\"\
+        },\
+        \"ContactFlowId\":{\
+          \"shape\":\"ContactFlowId\",\
+          \"documentation\":\"<p>The identifier of the contact flow for initiating the tasks. To see the ContactFlowId in the Amazon Connect console user interface, on the navigation menu go to <b>Routing</b>, <b>Contact Flows</b>. Choose the contact flow. On the contact flow page, under the name of the contact flow, choose <b>Show additional flow information</b>. The ContactFlowId is the last part of the ARN, shown here in bold: </p> <p>arn:aws:connect:us-west-2:xxxxxxxxxxxx:instance/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/contact-flow/<b>846ec553-a005-41c0-8341-xxxxxxxxxxxx</b> </p>\"\
+        },\
+        \"Attributes\":{\
+          \"shape\":\"Attributes\",\
+          \"documentation\":\"<p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes.</p> <p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>\"\
+        },\
+        \"Name\":{\
+          \"shape\":\"Name\",\
+          \"documentation\":\"<p>The name of a task that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"References\":{\
+          \"shape\":\"ContactReferences\",\
+          \"documentation\":\"<p>A formatted URL that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"Description\":{\
+          \"shape\":\"Description\",\
+          \"documentation\":\"<p>A description of the task that is shown to an agent in the Contact Control Panel (CCP).</p>\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"ClientToken\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>\",\
+          \"idempotencyToken\":true\
+        }\
+      }\
+    },\
+    \"StartTaskContactResponse\":{\
       \"type\":\"structure\",\
       \"members\":{\
         \"ContactId\":{\
@@ -5224,6 +5728,11 @@
       \"exception\":true\
     },\
     \"Timestamp\":{\"type\":\"timestamp\"},\
+    \"URI\":{\
+      \"type\":\"string\",\
+      \"max\":2000,\
+      \"min\":1\
+    },\
     \"Unit\":{\
       \"type\":\"string\",\
       \"enum\":[\
@@ -5494,7 +6003,7 @@
         },\
         \"QueueConfigs\":{\
           \"shape\":\"RoutingProfileQueueConfigList\",\
-          \"documentation\":\"<p>The queues to be updated for this routing profile.</p>\"\
+          \"documentation\":\"<p>The queues to be updated for this routing profile. Queues must first be associated to the routing profile. You can do this using AssociateRoutingProfileQueues.</p>\"\
         }\
       }\
     },\
@@ -5671,6 +6180,37 @@
           \"locationName\":\"InstanceId\"\
         }\
       }\
+    },\
+    \"UseCase\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"UseCaseId\":{\
+          \"shape\":\"UseCaseId\",\
+          \"documentation\":\"<p>The identifier for the use case.</p>\"\
+        },\
+        \"UseCaseArn\":{\
+          \"shape\":\"ARN\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) for the use case.</p>\"\
+        },\
+        \"UseCaseType\":{\
+          \"shape\":\"UseCaseType\",\
+          \"documentation\":\"<p>The type of use case to associate to the AppIntegration association. Each AppIntegration association can have only one of each use case type.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Contains the use case.</p>\"\
+    },\
+    \"UseCaseId\":{\
+      \"type\":\"string\",\
+      \"max\":200,\
+      \"min\":1\
+    },\
+    \"UseCaseSummaryList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"UseCase\"}\
+    },\
+    \"UseCaseType\":{\
+      \"type\":\"string\",\
+      \"enum\":[\"RULES_EVALUATION\"]\
     },\
     \"User\":{\
       \"type\":\"structure\",\
