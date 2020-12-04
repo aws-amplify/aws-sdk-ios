@@ -31,7 +31,7 @@ To get started with the AWS SDK for iOS, check out the [Developer Guide for iOS]
 To use the AWS SDK for iOS, you will need the following installed on your development machine:
 
 * Xcode 11.0 or later
-* Most SDKs require iOS 8 or later. AWSCognitoAuth, AWSMobileClient, and AWSTranscribeStreaming require iOS 9.
+* iOS 9 or later
 
 ## Include the SDK for iOS in an Existing Application
 
@@ -208,7 +208,6 @@ When we release a new version of the SDK, you can pick up the changes as describ
     import AWSDynamoDB
     import AWSSQS
     import AWSSNS
-    import AWSCognito
     ```
         
 4. Make a call to the AWS services.
@@ -259,26 +258,20 @@ When we release a new version of the SDK, you can pick up the changes as describ
     @import AWSDynamoDB;
     @import AWSSQS;
     @import AWSSNS;
-    @import AWSCognito;
     ```
 
 4. Make a call to the AWS services.
 
     ```objective-c
-    AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-    AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-    uploadRequest.bucket = yourBucket;
-    uploadRequest.key = yourKey;
-    uploadRequest.body = yourDataURL;
-    uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-    
-    [[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+    AWSSNS *sns = [AWSSNS defaultSNS];
+    AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
+    [[sns listTopics:listTopicsInput] continueWithBlock:^id(AWSTask *task) {
         // Do something with the response
         return nil;
     }];
     ```
 
-**Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3TransferManager` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
+**Note**: Most of the service client classes have a singleton method to get a default client. The naming convention is `+ defaultSERVICENAME` (e.g. `+ defaultS3SNS` in the above code snippet). This singleton method creates a service client with `defaultServiceConfiguration`, which you set up in step 5, and maintains a strong reference to the client.
 
 ## Working with AWSTask
 

@@ -466,7 +466,6 @@ A significant portion of the AWS SDK for iOS is Objective-C code which has been 
 - `AWSPinpointAnalyticsClient`
 - `AWSPollySynthesizeSpeechURLBuilder`
 - `AWSTranscribeStreamingService`
-- `AWSMobileAnalyticsEventClient`
 
 You could go into any of these files and start adding new interfaces you see in the generated files to these higher level clients or fixing bugs as this is mostly likely where they would occur since it is not code generated code based off of models given to us by the service teams themselves.
 

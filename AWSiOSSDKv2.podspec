@@ -39,10 +39,6 @@ Pod::Spec.new do |s|
     sub.dependency 'AWSCloudWatch', '2.19.1'
   end
 
-  s.subspec 'AWSCognito' do |sub|
-    sub.dependency 'AWSCognito', '2.19.1'
-  end
-
   s.subspec 'AWSComprehend' do |sub|
     sub.dependency 'AWSComprehend', '2.19.1'
   end
@@ -100,11 +96,6 @@ Pod::Spec.new do |s|
 
   s.subspec 'AWSMachineLearning' do |sub|
     sub.dependency 'AWSMachineLearning', '2.19.1'
-  end
-
-  # Deprecated--this will be removed in an upcoming release
-  s.subspec 'MobileAnalytics' do |sub|
-    sub.dependency 'AWSMobileAnalytics', '2.19.1'
   end
 
   s.subspec 'Pinpoint' do |sub|
