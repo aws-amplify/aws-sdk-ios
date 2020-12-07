@@ -92,12 +92,6 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat2;
 - (NSString *)aws_stringWithURLEncodingPath;
 - (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
 
-/// Deprecated. This method will be removed in an upcoming version of the SDK.
-- (NSString *)aws_md5String DEPRECATED_MSG_ATTRIBUTE("This method will be removed in an upcoming version of the SDK.");
-
-/// Deprecated. This method will be removed in an upcoming version of the SDK.
-- (NSString *)aws_md5StringLittleEndian DEPRECATED_MSG_ATTRIBUTE("This method will be removed in an upcoming version of the SDK.");
-
 - (BOOL)aws_isVirtualHostedStyleCompliant;
 
 - (AWSRegionType)aws_regionTypeValue;

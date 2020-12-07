@@ -67,12 +67,6 @@
 
     inputString = @"abcDefg";
     XCTAssertFalse([inputString aws_isVirtualHostedStyleCompliant]);
-
-    inputString = @"Some random input";
-    XCTAssertEqualObjects([inputString aws_md5String], @"07d2d230c1227ff3d0004abb395e8bf2");
-
-    inputString = @"Some random input";
-    XCTAssertEqualObjects([inputString aws_md5StringLittleEndian], @"cba39458a339ee8fe133ae72974471a1");
 }
 
 - (void)testCategoryNSJSONSerialization {

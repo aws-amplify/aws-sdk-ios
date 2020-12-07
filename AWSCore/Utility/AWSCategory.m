@@ -427,30 +427,6 @@ static NSTimeInterval _clockskew = 0.0;
     return result?result:self;
 }
 
-- (NSString *)aws_md5String {
-    NSData *dataString = [self dataUsingEncoding:NSUTF8StringEncoding];
-    unsigned char digestArray[CC_MD5_DIGEST_LENGTH];
-    CC_MD5([dataString bytes], (CC_LONG)[dataString length], digestArray);
-
-    NSMutableString *md5String = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
-        [md5String appendFormat:@"%02x", digestArray[i]];
-    }
-    return md5String;
-}
-
-- (NSString *)aws_md5StringLittleEndian {
-    NSData *dataString = [self dataUsingEncoding:NSUTF16LittleEndianStringEncoding];
-    unsigned char digestArray[CC_MD5_DIGEST_LENGTH];
-    CC_MD5([dataString bytes], (CC_LONG)[dataString length], digestArray);
-
-    NSMutableString *md5String = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
-    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
-        [md5String appendFormat:@"%02x", digestArray[i]];
-    }
-    return md5String;
-}
-
 - (BOOL)aws_isDNSBucketName {
     if ([self length] < 3 || [self length] > 63) {
         return NO;
