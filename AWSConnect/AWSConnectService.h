@@ -338,7 +338,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createContactFlow:(AWSConnectCreateContactFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateContactFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>
  
  @param request A container for the necessary parameters to execute the CreateInstance service method.
 
@@ -350,7 +350,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateInstanceResponse *> *)createInstance:(AWSConnectCreateInstanceRequest *)request;
 
 /**
- <p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage (such as Amazon S3, or Kinesis) or allow for any configurations on features such as Contact Lens for Amazon Connect. </p>
  
  @param request A container for the necessary parameters to execute the CreateInstance service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -361,6 +361,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectCreateInstanceResponse
  */
 - (void)createInstance:(AWSConnectCreateInstanceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateInstanceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Create an AppIntegration association with anAmazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateIntegrationAssociationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCreateIntegrationAssociationRequest
+ @see AWSConnectCreateIntegrationAssociationResponse
+ */
+- (AWSTask<AWSConnectCreateIntegrationAssociationResponse *> *)createIntegrationAssociation:(AWSConnectCreateIntegrationAssociationRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Create an AppIntegration association with anAmazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateIntegrationAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCreateIntegrationAssociationRequest
+ @see AWSConnectCreateIntegrationAssociationResponse
+ */
+- (void)createIntegrationAssociation:(AWSConnectCreateIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateIntegrationAssociationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a new routing profile.</p>
@@ -386,6 +411,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectCreateRoutingProfileResponse
  */
 - (void)createRoutingProfile:(AWSConnectCreateRoutingProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateRoutingProfileResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a use case for an AppIntegration association.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateUseCase service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateUseCaseResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCreateUseCaseRequest
+ @see AWSConnectCreateUseCaseResponse
+ */
+- (AWSTask<AWSConnectCreateUseCaseResponse *> *)createUseCase:(AWSConnectCreateUseCaseRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a use case for an AppIntegration association.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateUseCase service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectCreateUseCaseRequest
+ @see AWSConnectCreateUseCaseResponse
+ */
+- (void)createUseCase:(AWSConnectCreateUseCaseRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateUseCaseResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a user account for the specified Amazon Connect instance.</p><p>For information about how to create user accounts using the Amazon Connect console, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/user-management.html">Add Users</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -438,7 +488,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createUserHierarchyGroup:(AWSConnectCreateUserHierarchyGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateUserHierarchyGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the Amazon Connect instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes the Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteInstance service method.
 
@@ -449,7 +499,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteInstance:(AWSConnectDeleteInstanceRequest *)request;
 
 /**
- <p>Deletes the Amazon Connect instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes the Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the DeleteInstance service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -458,6 +508,50 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteInstanceRequest
  */
 - (void)deleteInstance:(AWSConnectDeleteInstanceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteIntegrationAssociationRequest
+ */
+- (AWSTask *)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an AppIntegration association from an Amazon Connect instance. The association must not have any use cases associated with it.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteIntegrationAssociation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteIntegrationAssociationRequest
+ */
+- (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a use case from an AppIntegration association.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteUseCase service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteUseCaseRequest
+ */
+- (AWSTask *)deleteUseCase:(AWSConnectDeleteUseCaseRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a use case from an AppIntegration association.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteUseCase service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDeleteUseCaseRequest
+ */
+- (void)deleteUseCase:(AWSConnectDeleteUseCaseRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a user account from the specified Amazon Connect instance.</p><p>For information about what happens to a user's data when their account is deleted, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/delete-users.html">Delete Users from Your Amazon Connect Instance</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
@@ -1011,7 +1105,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listHoursOfOperations:(AWSConnectListHoursOfOperationsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListHoursOfOperationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a paginated list of all attribute types for the given instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all attribute types for the given instance.</p>
  
  @param request A container for the necessary parameters to execute the ListInstanceAttributes service method.
 
@@ -1023,7 +1117,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListInstanceAttributesResponse *> *)listInstanceAttributes:(AWSConnectListInstanceAttributesRequest *)request;
 
 /**
- <p>Returns a paginated list of all attribute types for the given instance.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all attribute types for the given instance.</p>
  
  @param request A container for the necessary parameters to execute the ListInstanceAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1036,7 +1130,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listInstanceAttributes:(AWSConnectListInstanceAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListInstanceAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a paginated list of storage configs for the identified instance and resource type.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of storage configs for the identified instance and resource type.</p>
  
  @param request A container for the necessary parameters to execute the ListInstanceStorageConfigs service method.
 
@@ -1048,7 +1142,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListInstanceStorageConfigsResponse *> *)listInstanceStorageConfigs:(AWSConnectListInstanceStorageConfigsRequest *)request;
 
 /**
- <p>Returns a paginated list of storage configs for the identified instance and resource type.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of storage configs for the identified instance and resource type.</p>
  
  @param request A container for the necessary parameters to execute the ListInstanceStorageConfigs service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1061,7 +1155,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listInstanceStorageConfigs:(AWSConnectListInstanceStorageConfigsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListInstanceStorageConfigsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>
  
  @param request A container for the necessary parameters to execute the ListInstances service method.
 
@@ -1073,7 +1167,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListInstancesResponse *> *)listInstances:(AWSConnectListInstancesRequest *)request;
 
 /**
- <p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Return a list of instances which are in active state, creation-in-progress state, and failed state. Instances that aren't successfully created (they are in a failed state) are returned only for 24 hours after the CreateInstance API was invoked.</p>
  
  @param request A container for the necessary parameters to execute the ListInstances service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1084,6 +1178,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectListInstancesResponse
  */
 - (void)listInstances:(AWSConnectListInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListInstancesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides summary information about the AppIntegration associations for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListIntegrationAssociationsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListIntegrationAssociationsRequest
+ @see AWSConnectListIntegrationAssociationsResponse
+ */
+- (AWSTask<AWSConnectListIntegrationAssociationsResponse *> *)listIntegrationAssociations:(AWSConnectListIntegrationAssociationsRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides summary information about the AppIntegration associations for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListIntegrationAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListIntegrationAssociationsRequest
+ @see AWSConnectListIntegrationAssociationsResponse
+ */
+- (void)listIntegrationAssociations:(AWSConnectListIntegrationAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListIntegrationAssociationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns a paginated list of all the Lambda functions that show up in the drop-down options in the relevant contact flow blocks.</p>
@@ -1336,6 +1455,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listTagsForResource:(AWSConnectListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>List the use cases. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListUseCases service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListUseCasesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListUseCasesRequest
+ @see AWSConnectListUseCasesResponse
+ */
+- (AWSTask<AWSConnectListUseCasesResponse *> *)listUseCases:(AWSConnectListUseCasesRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>List the use cases. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListUseCases service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListUseCasesRequest
+ @see AWSConnectListUseCasesResponse
+ */
+- (void)listUseCases:(AWSConnectListUseCasesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListUseCasesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Provides summary information about the hierarchy groups for the specified Amazon Connect instance.</p><p>For more information about agent hierarchies, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/agent-hierarchy.html">Set Up Agent Hierarchies</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListUserHierarchyGroups service method.
@@ -1484,6 +1628,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectStartOutboundVoiceContactResponse
  */
 - (void)startOutboundVoiceContact:(AWSConnectStartOutboundVoiceContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartOutboundVoiceContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Initiates a contact flow to start a new task.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartTaskContact service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectStartTaskContactResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectStartTaskContactRequest
+ @see AWSConnectStartTaskContactResponse
+ */
+- (AWSTask<AWSConnectStartTaskContactResponse *> *)startTaskContact:(AWSConnectStartTaskContactRequest *)request;
+
+/**
+ <p>Initiates a contact flow to start a new task.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartTaskContact service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectStartTaskContactRequest
+ @see AWSConnectStartTaskContactResponse
+ */
+- (void)startTaskContact:(AWSConnectStartTaskContactRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectStartTaskContactResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Ends the specified contact.</p>
@@ -1674,7 +1843,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the value for the specified attribute type.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the value for the specified attribute type.</p>
  
  @param request A container for the necessary parameters to execute the UpdateInstanceAttribute service method.
 
@@ -1685,7 +1854,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateInstanceAttribute:(AWSConnectUpdateInstanceAttributeRequest *)request;
 
 /**
- <p>Updates the value for the specified attribute type.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the value for the specified attribute type.</p>
  
  @param request A container for the necessary parameters to execute the UpdateInstanceAttribute service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1696,7 +1865,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateInstanceAttribute:(AWSConnectUpdateInstanceAttributeRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  
  @param request A container for the necessary parameters to execute the UpdateInstanceStorageConfig service method.
 
@@ -1707,7 +1876,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request;
 
 /**
- <p>Updates an existing configuration for a resource type. This API is idempotent.</p>
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates an existing configuration for a resource type. This API is idempotent.</p>
  
  @param request A container for the necessary parameters to execute the UpdateInstanceStorageConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
