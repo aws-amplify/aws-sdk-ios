@@ -21,7 +21,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
 @implementation AWSSageMakerRuntimeInvokeEndpointInput
 
 + (BOOL)supportsSecureCoding {
-    return YES;
+    return NO;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -31,6 +31,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
              @"contentType" : @"ContentType",
              @"customAttributes" : @"CustomAttributes",
              @"endpointName" : @"EndpointName",
+             @"inferenceId" : @"InferenceId",
              @"targetModel" : @"TargetModel",
              @"targetVariant" : @"TargetVariant",
              };
@@ -41,7 +42,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
 @implementation AWSSageMakerRuntimeInvokeEndpointOutput
 
 + (BOOL)supportsSecureCoding {
-    return YES;
+    return NO;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
