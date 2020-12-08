@@ -381,15 +381,6 @@ jobs:
 
       - when:
           condition:
-            equal: [ << parameters.scheme >>, "AWSMobileAnalytics" ]
-          steps:
-            - run:
-                name: Additional AWSMobileAnalytics test targets
-                command: |
-                  xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:AWSMobileAnalyticsLegacyTests | tee "artifacts/integ-test-AWSMobileAnalyticsLegacyTests.log" | xcpretty --simple --color --report junit
-
-      - when:
-          condition:
             equal: [ << parameters.scheme >>, "AWSMobileClient" ]
           steps:
             - run:
@@ -718,7 +709,6 @@ all_integ_test_requires: &all_integ_test_requires
     - integ_test_AWSMobileClient
     - integ_test_AWSAutoScaling
     - integ_test_AWSCloudWatch
-    - integ_test_AWSCognito
     - integ_test_AWSComprehend
     - integ_test_AWSCore
     - integ_test_AWSDynamoDB
@@ -730,7 +720,6 @@ all_integ_test_requires: &all_integ_test_requires
     - integ_test_AWSKinesisVideoSignaling
     - integ_test_AWSLambda
     - integ_test_AWSLex
-    - integ_test_AWSMobileAnalytics
     - integ_test_AWSPinpoint
     - integ_test_AWSPolly
     - integ_test_AWSRekognition
@@ -807,16 +796,6 @@ workflows:
       - unit_test:
           scheme: AWSCognitoIdentityProvider
           name: unit_test_AWSCognitoIdentityProvider
-          requires:
-            - build
-            - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
-
-      - unit_test:
-          scheme: AWSCognito
-          name: unit_test_AWSCognito
           requires:
             - build
             - build_test_host_apps
@@ -987,16 +966,6 @@ workflows:
       - unit_test:
           scheme: AWSMachineLearning
           name: unit_test_AWSMachineLearning
-          requires:
-            - build
-            - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
-
-      - unit_test:
-          scheme: AWSMobileAnalytics
-          name: unit_test_AWSMobileAnalytics
           requires:
             - build
             - build_test_host_apps
@@ -1186,17 +1155,6 @@ workflows:
                 - main
 
       - integ_test:
-          scheme: AWSCognito
-          name: integ_test_AWSCognito
-          requires:
-            - unit_test_AWSCognito
-          filters:
-            branches:
-              only:
-                - develop
-                - main
-
-      - integ_test:
           scheme: AWSComprehend
           name: integ_test_AWSComprehend
           requires:
@@ -1311,17 +1269,6 @@ workflows:
           name: integ_test_AWSLex
           requires:
             - unit_test_AWSLex
-          filters:
-            branches:
-              only:
-                - develop
-                - main
-
-      - integ_test:
-          scheme: AWSMobileAnalytics
-          name: integ_test_AWSMobileAnalytics
-          requires:
-            - unit_test_AWSMobileAnalytics
           filters:
             branches:
               only:

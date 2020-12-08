@@ -82,16 +82,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE5604171C6BC8DF00B4E00B"
-               BuildableName = "AWSCognitoUnitTests.xctest"
-               BlueprintName = "AWSCognitoUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A7ACCA320B115BC00DDBEC1"
                BuildableName = "AWSComprehendUnitTests.xctest"
                BlueprintName = "AWSComprehendUnitTests"
@@ -255,16 +245,6 @@
                BlueprintIdentifier = "CE5604801C6BC94D00B4E00B"
                BuildableName = "AWSMachineLearningUnitTests.xctest"
                BlueprintName = "AWSMachineLearningUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE56048F1C6BC96500B4E00B"
-               BuildableName = "AWSMobileAnalyticsUnitTests.xctest"
-               BlueprintName = "AWSMobileAnalyticsUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>

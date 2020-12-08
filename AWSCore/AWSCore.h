@@ -67,7 +67,6 @@ FOUNDATION_EXPORT const unsigned char AWSCoreVersionString[] DEPRECATED_MSG_ATTR
 #import "AWSGZIP.h"
 #import "AWSFMDB.h"
 #import "AWSKSReachability.h"
-#import "AWSTMCache.h"
 #import "AWSUICKeyChainStore.h"
 
 #import "AWSSTS.h"

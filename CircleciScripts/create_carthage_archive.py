@@ -8,7 +8,6 @@ EXCLUDE_FROM_CARTHAGE = [
     # This isn't a real framework
     "AWSiOSSDKv2",
     # Legacy frameworks not built or packaged
-    "AWSCognitoSync",
     "AWSAuth",
 ]
 

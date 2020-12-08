@@ -2,6 +2,14 @@
 
 ## Unreleased
 
+### Breaking Changes
+
+AWS Mobile SDK for iOS has removed these deprecated clients:
+
+- `AWSCognito` (Amazon Cognito Sync) - Use [`Amplify DataStore`](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios) for data synchronization.
+- `AWSMobileAnalytics` - Use [`Amplify Analytics`](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios) for analytics.
+- `AWSS3TransferManager` - Use [`Amplify Storage`](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios) for uploads and downloads with Amazon S3.
+
 ### Bug fixes
 
 - **Amazon Cognito**
