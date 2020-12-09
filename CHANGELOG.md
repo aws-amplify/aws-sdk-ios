@@ -19,7 +19,7 @@
 ### Bug fixes
 
 - **Amazon Cognito**
-  - Remove cached AWS Credentials when token expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
+  - Remove cached AWS Credentials when tokens expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
 
 ### Misc. Updates
 
