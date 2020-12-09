@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.19.1 Docs</a> (81% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.20.0 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -179,6 +179,12 @@
                 <a href="../Classes/AWSComprehendDescribeEntityRecognizerResponse.html">AWSComprehendDescribeEntityRecognizerResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendDescribeKeyPhrasesDetectionJobRequest.html">AWSComprehendDescribeKeyPhrasesDetectionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -320,6 +326,12 @@
                 <a href="../Classes/AWSComprehendEntityTypesListItem.html">AWSComprehendEntityTypesListItem</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendEventsDetectionJobFilter.html">AWSComprehendEventsDetectionJobFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendEventsDetectionJobProperties.html">AWSComprehendEventsDetectionJobProperties</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendInputDataConfig.html">AWSComprehendInputDataConfig</a>
               </li>
               <li class="nav-group-task">
@@ -366,6 +378,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendListEntityRecognizersResponse.html">AWSComprehendListEntityRecognizersResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendListKeyPhrasesDetectionJobsRequest.html">AWSComprehendListKeyPhrasesDetectionJobsRequest</a>
@@ -449,6 +467,12 @@
                 <a href="../Classes/AWSComprehendStartEntitiesDetectionJobResponse.html">AWSComprehendStartEntitiesDetectionJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendStartKeyPhrasesDetectionJobRequest.html">AWSComprehendStartKeyPhrasesDetectionJobRequest</a>
               </li>
               <li class="nav-group-task">
@@ -483,6 +507,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendStopEntitiesDetectionJobResponse.html">AWSComprehendStopEntitiesDetectionJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendStopKeyPhrasesDetectionJobRequest.html">AWSComprehendStopKeyPhrasesDetectionJobRequest</a>
@@ -3593,6 +3623,151 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)describeEventsDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-describeEventsDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeEventsDetectionJob:">-describeEventsDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the status and details of an events detection job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeEventsDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeEventsDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)describeEventsDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeEventsDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeEventsDetectionJob:completionHandler:">-describeEventsDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets the status and details of an events detection job.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendDescribeEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">describeEventsDetectionJob</span><span class="p">:</span>
+        <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+             <span class="nf">completionHandler</span><span class="p">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                     <span class="n"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                     <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobRequest.html">AWSComprehendDescribeEventsDetectionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSComprehendDescribeEventsDetectionJobResponse.html">AWSComprehendDescribeEventsDetectionJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeEventsDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)describeKeyPhrasesDetectionJob:"></a>
                     <a name="//apple_ref/objc/Method/-describeKeyPhrasesDetectionJob:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)describeKeyPhrasesDetectionJob:">-describeKeyPhrasesDetectionJob:<wbr></a>
@@ -5892,6 +6067,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)listEventsDetectionJobs:"></a>
+                    <a name="//apple_ref/objc/Method/-listEventsDetectionJobs:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)listEventsDetectionJobs:">-listEventsDetectionJobs:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a list of the events detection jobs that you have submitted.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListEventsDetectionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListEventsDetectionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listEventsDetectionJobs</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEventsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListEventsDetectionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInvalidFilter</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)listEventsDetectionJobs:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listEventsDetectionJobs:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)listEventsDetectionJobs:completionHandler:">-listEventsDetectionJobs:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Gets a list of the events detection jobs that you have submitted.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListEventsDetectionJobsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendListEventsDetectionJobsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listEventsDetectionJobs</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listEventsDetectionJobs</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsRequest.html">AWSComprehendListEventsDetectionJobsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSComprehendListEventsDetectionJobsResponse.html">AWSComprehendListEventsDetectionJobsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListEventsDetectionJobs service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorInvalidFilter</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)listKeyPhrasesDetectionJobs:"></a>
                     <a name="//apple_ref/objc/Method/-listKeyPhrasesDetectionJobs:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)listKeyPhrasesDetectionJobs:">-listKeyPhrasesDetectionJobs:<wbr></a>
@@ -7052,6 +7371,150 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)startEventsDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-startEventsDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)startEventsDetectionJob:">-startEventsDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts an asynchronous event detection job for a collection of documents.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">startEventsDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartEventsDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)startEventsDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-startEventsDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)startEventsDetectionJob:completionHandler:">-startEventsDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Starts an asynchronous event detection job for a collection of documents.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStartEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">startEventsDetectionJob</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+              <span class="nf">completionHandler</span><span class="p">:</span>
+                  <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                      <span class="n"><a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                      <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">startEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobRequest.html">AWSComprehendStartEventsDetectionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSComprehendStartEventsDetectionJobResponse.html">AWSComprehendStartEventsDetectionJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StartEventsDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTooManyRequests</code>, <code>AWSComprehendErrorKmsKeyValidation</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSComprehend(im)startKeyPhrasesDetectionJob:"></a>
                     <a name="//apple_ref/objc/Method/-startKeyPhrasesDetectionJob:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSComprehend(im)startKeyPhrasesDetectionJob:">-startKeyPhrasesDetectionJob:<wbr></a>
@@ -7895,6 +8358,150 @@
                               <td>
                                 <div>
                                   <p>A container for the necessary parameters to execute the StopEntitiesDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)stopEventsDetectionJob:"></a>
+                    <a name="//apple_ref/objc/Method/-stopEventsDetectionJob:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)stopEventsDetectionJob:">-stopEventsDetectionJob:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops an events detection job in progress.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">stopEventsDetectionJob</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StopEventsDetectionJob service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorJobNotFound</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)stopEventsDetectionJob:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-stopEventsDetectionJob:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)stopEventsDetectionJob:completionHandler:">-stopEventsDetectionJob:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Stops an events detection job in progress.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopEventsDetectionJobRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendStopEventsDetectionJobResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">stopEventsDetectionJob</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+             <span class="nf">completionHandler</span><span class="p">:</span>
+                 <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                     <span class="n"><a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                     <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">stopEventsDetectionJob</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobRequest.html">AWSComprehendStopEventsDetectionJobRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSComprehendStopEventsDetectionJobResponse.html">AWSComprehendStopEventsDetectionJobResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the StopEventsDetectionJob service method.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9072,7 +9679,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
