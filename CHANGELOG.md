@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.20.0
+
 ### Breaking Changes
 
 - **Removed deprecated clients** AWS Mobile SDK for iOS has removed these deprecated clients ([PR #3281](https://github.com/aws-amplify/aws-sdk-ios/pull/3281)):
@@ -15,7 +19,7 @@
 ### Bug fixes
 
 - **Amazon Cognito**
-  - Remove cached AWS Credentials when token expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
+  - Remove cached AWS Credentials when tokens expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
 
 ### Misc. Updates
 
