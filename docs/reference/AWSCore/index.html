@@ -16,7 +16,7 @@
     <a title="AWSCore  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.19.1 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.20.0 Docs</a> (44% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -498,15 +498,6 @@
                 <a href="Classes/AWSSynchronizedMutableDictionary.html">AWSSynchronizedMutableDictionary</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AWSTMCache.html">AWSTMCache</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/AWSTask.html">AWSTask</a>
               </li>
               <li class="nav-group-task">
@@ -956,24 +947,6 @@
                 <a href="Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingUploadProgressBlock">AWSNetworkingUploadProgressBlock</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Type%20Definitions.html#/c:AWSGeneric.h@T@AWSVoid">AWSVoid</a>
               </li>
             </ul>
@@ -1042,7 +1015,7 @@
 
 <ul>
 <li>Xcode 11.0 or later</li>
-<li>Most SDKs require iOS 8 or later. AWSCognitoAuth, AWSMobileClient, and AWSTranscribeStreaming require iOS 9.</li>
+<li>iOS 9 or later</li>
 </ul>
 <h2 id='include-the-sdk-for-ios-in-an-existing-application' class='heading'>Include the SDK for iOS in an Existing Application</h2>
 
@@ -1218,7 +1191,6 @@ Output Files: Empty
 <span class="kd">import</span> <span class="kt">AWSDynamoDB</span>
 <span class="kd">import</span> <span class="kt">AWSSQS</span>
 <span class="kd">import</span> <span class="kt">AWSSNS</span>
-<span class="kd">import</span> <span class="kt">AWSCognito</span>
 </code></pre></li>
 <li><p>Make a call to the AWS services.</p>
 <pre class="highlight swift"><code><span class="k">let</span> <span class="nv">dynamoDB</span> <span class="o">=</span> <span class="kt">AWSDynamoDB</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span>
@@ -1259,24 +1231,18 @@ AWSServiceManager.defaultServiceManager.defaultServiceConfiguration = configurat
 @import AWSDynamoDB;
 @import AWSSQS;
 @import AWSSNS;
-@import AWSCognito;
 </code></pre></li>
 <li><p>Make a call to the AWS services.</p>
-<pre class="highlight plaintext"><code>AWSS3TransferManager *transferManager = [AWSS3TransferManager defaultS3TransferManager];
-AWSS3TransferManagerUploadRequest *uploadRequest = [AWSS3TransferManagerUploadRequest new];
-uploadRequest.bucket = yourBucket;
-uploadRequest.key = yourKey;
-uploadRequest.body = yourDataURL;
-uploadRequest.contentLength = [NSNumber numberWithUnsignedLongLong:fileSize];
-
-[[transferManager upload:uploadRequest] continueWithBlock:^id(AWSTask *task) {
+<pre class="highlight plaintext"><code>AWSSNS *sns = [AWSSNS defaultSNS];
+AWSSNSListTopicsInput *listTopicsInput = [AWSSNSListTopicsInput new];
+[[sns listTopics:listTopicsInput] continueWithBlock:^id(AWSTask *task) {
     // Do something with the response
     return nil;
 }];
 </code></pre></li>
 </ol>
 
-<p><strong>Note</strong>: Most of the service client classes have a singleton method to get a default client. The naming convention is <code>+ defaultSERVICENAME</code> (e.g. <code>+ defaultS3TransferManager</code> in the above code snippet). This singleton method creates a service client with <code>defaultServiceConfiguration</code>, which you set up in step 5, and maintains a strong reference to the client.</p>
+<p><strong>Note</strong>: Most of the service client classes have a singleton method to get a default client. The naming convention is <code>+ defaultSERVICENAME</code> (e.g. <code>+ defaultS3SNS</code> in the above code snippet). This singleton method creates a service client with <code>defaultServiceConfiguration</code>, which you set up in step 5, and maintains a strong reference to the client.</p>
 <h2 id='working-with-awstask' class='heading'>Working with AWSTask</h2>
 
 <p>The SDK returns <code><a href="Classes/AWSTask.html">AWSTask</a></code> objects when operating on asynchronous operations to avoid blocking the UI thread.</p>
@@ -1365,7 +1331,7 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

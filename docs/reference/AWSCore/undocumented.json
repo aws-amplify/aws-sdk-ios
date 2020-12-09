@@ -4775,69 +4775,6 @@
       "warning": "undocumented"
     },
     {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMCache.h",
-      "line": 23,
-      "symbol": "AWSTMCacheBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMCache.h",
-      "line": 24,
-      "symbol": "AWSTMCacheObjectBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMCache.h",
-      "line": 26,
-      "symbol": "AWSTMCache",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMDiskCache.h",
-      "line": 31,
-      "symbol": "AWSTMDiskCacheBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMDiskCache.h",
-      "line": 32,
-      "symbol": "AWSTMDiskCacheObjectBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMDiskCache.h",
-      "line": 34,
-      "symbol": "AWSTMDiskCache",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMMemoryCache.h",
-      "line": 22,
-      "symbol": "AWSTMMemoryCacheBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMMemoryCache.h",
-      "line": 23,
-      "symbol": "AWSTMMemoryCacheObjectBlock",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/TMCache/AWSTMMemoryCache.h",
-      "line": 25,
-      "symbol": "AWSTMMemoryCache",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
-      "warning": "undocumented"
-    },
-    {
       "file": "/Users/distiller/project/AWSCore/UICKeyChainStore/AWSUICKeyChainStore.h",
       "line": 33,
       "symbol": "AWSUICKeyChainStoreErrorDomain",
@@ -6204,28 +6141,28 @@
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 101,
+      "line": 95,
       "symbol": "NSString(AWS).-aws_isVirtualHostedStyleCompliant",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 103,
+      "line": 97,
       "symbol": "NSString(AWS).-aws_regionTypeValue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 107,
+      "line": 101,
       "symbol": "NSFileManager(AWS)",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.category",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Utility/AWSCategory.h",
-      "line": 109,
+      "line": 103,
       "symbol": "NSFileManager(AWS).-aws_atomicallyCopyItemAtURL:toURL:backupItemName:error:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"

@@ -17,7 +17,7 @@
     <a title="Type Definitions  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSCore 2.19.1 Docs</a> (47% documented)</p>
+        <p><a href="index.html">AWSCore 2.20.0 Docs</a> (44% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCore.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -499,15 +499,6 @@
                 <a href="Classes/AWSSynchronizedMutableDictionary.html">AWSSynchronizedMutableDictionary</a>
               </li>
               <li class="nav-group-task">
-                <a href="Classes/AWSTMCache.html">AWSTMCache</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Classes/AWSTask.html">AWSTask</a>
               </li>
               <li class="nav-group-task">
@@ -957,24 +948,6 @@
                 <a href="Type%20Definitions.html#/c:AWSNetworking.h@T@AWSNetworkingUploadProgressBlock">AWSNetworkingUploadProgressBlock</a>
               </li>
               <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
-              </li>
-              <li class="nav-group-task">
-                <a href="Type%20Definitions.html#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
-              </li>
-              <li class="nav-group-task">
                 <a href="Type%20Definitions.html#/c:AWSGeneric.h@T@AWSVoid">AWSVoid</a>
               </li>
             </ul>
@@ -1329,204 +1302,12 @@
                     </section>
                   </div>
                 </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMCache.h@T@AWSTMCacheBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMCacheBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMCache.h@T@AWSTMCacheBlock">AWSTMCacheBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMCacheBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMCache.html">AWSTMCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMCacheBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMCache.html">AWSTMCache</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMCache.h@T@AWSTMCacheObjectBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMCacheObjectBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMCache.h@T@AWSTMCacheObjectBlock">AWSTMCacheObjectBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMCacheObjectBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMCache.html">AWSTMCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">id</span> <span class="n">object</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMCacheObjectBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMCache.html">AWSTMCache</a></span><span class="p">?,</span> <span class="kt">String</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMDiskCacheBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheBlock">AWSTMDiskCacheBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMDiskCacheBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMDiskCacheBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMDiskCacheObjectBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMDiskCache.h@T@AWSTMDiskCacheObjectBlock">AWSTMDiskCacheObjectBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMDiskCacheObjectBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">id</span> <span class="o">&lt;</span><span class="n">NSCoding</span><span class="o">&gt;</span> <span class="n">object</span><span class="p">,</span> <span class="n">NSURL</span> <span class="o">*</span><span class="n">fileURL</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMDiskCacheObjectBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMDiskCache.html">AWSTMDiskCache</a></span><span class="p">?,</span> <span class="kt">String</span><span class="p">?,</span> <span class="kt">NSCoding</span><span class="p">?,</span> <span class="kt">URL</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMMemoryCacheBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheBlock">AWSTMMemoryCacheBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMMemoryCacheBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMMemoryCacheBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a></span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock"></a>
-                    <a name="//apple_ref/objc/Type/AWSTMMemoryCacheObjectBlock" class="dashAnchor"></a>
-                    <a class="token" href="#/c:AWSTMMemoryCache.h@T@AWSTMMemoryCacheObjectBlock">AWSTMMemoryCacheObjectBlock</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>Undocumented</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">typedef</span> <span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">AWSTMMemoryCacheObjectBlock</span><span class="p">)(</span><span class="n"><a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a></span> <span class="o">*</span><span class="n">cache</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">key</span><span class="p">,</span> <span class="n">id</span> <span class="n">object</span><span class="p">)</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">typealias</span> <span class="kt">AWSTMMemoryCacheObjectBlock</span> <span class="o">=</span> <span class="p">(</span><span class="kt"><a href="Classes/AWSTMMemoryCache.html">AWSTMMemoryCache</a></span><span class="p">?,</span> <span class="kt">String</span><span class="p">?,</span> <span class="kt">Any</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
