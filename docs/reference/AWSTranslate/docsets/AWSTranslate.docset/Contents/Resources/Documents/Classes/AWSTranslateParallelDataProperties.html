@@ -1,0 +1,797 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>AWSTranslateParallelDataProperties Class Reference</title>
+    <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
+    <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
+    <meta charset='utf-8'>
+    <script src="../js/jquery.min.js" defer></script>
+    <script src="../js/jazzy.js" defer></script>
+    
+    <script src="../js/lunr.min.js" defer></script>
+    <script src="../js/typeahead.jquery.js" defer></script>
+    <script src="../js/jazzy.search.js" defer></script>
+  </head>
+  <body>
+    <a name="//apple_ref/objc/Class/AWSTranslateParallelDataProperties" class="dashAnchor"></a>
+    <a title="AWSTranslateParallelDataProperties Class Reference"></a>
+    <header>
+      <div class="content-wrapper">
+        <p><a href="../index.html">AWSTranslate 2.20.0 Docs</a> (77% documented)</p>
+        <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
+        <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
+        <p class="header-right">
+          <form role="search" action="../search.json">
+            <input type="text" placeholder="Search documentation" data-typeahead>
+          </form>
+        </p>
+      </div>
+    </header>
+    <div class="content-wrapper">
+      <p id="breadcrumbs">
+        <a href="../index.html">AWSTranslate Reference</a>
+        <img id="carat" src="../img/carat.png" />
+        AWSTranslateParallelDataProperties Class Reference
+      </p>
+    </div>
+    <div class="content-wrapper">
+      <nav class="sidebar">
+        <ul class="nav-groups">
+          <li class="nav-group-name">
+            <a href="../Classes.html">Classes</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslate.html">AWSTranslate</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateAppliedTerminology.html">AWSTranslateAppliedTerminology</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDeleteParallelDataResponse.html">AWSTranslateDeleteParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDeleteTerminologyRequest.html">AWSTranslateDeleteTerminologyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDescribeTextTranslationJobRequest.html">AWSTranslateDescribeTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDescribeTextTranslationJobResponse.html">AWSTranslateDescribeTextTranslationJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateEncryptionKey.html">AWSTranslateEncryptionKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetParallelDataResponse.html">AWSTranslateGetParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetTerminologyRequest.html">AWSTranslateGetTerminologyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetTerminologyResponse.html">AWSTranslateGetTerminologyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateImportTerminologyRequest.html">AWSTranslateImportTerminologyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateImportTerminologyResponse.html">AWSTranslateImportTerminologyResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateInputDataConfig.html">AWSTranslateInputDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTerminologiesRequest.html">AWSTranslateListTerminologiesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTerminologiesResponse.html">AWSTranslateListTerminologiesResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTextTranslationJobsRequest.html">AWSTranslateListTextTranslationJobsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListTextTranslationJobsResponse.html">AWSTranslateListTextTranslationJobsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateOutputDataConfig.html">AWSTranslateOutputDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataConfig.html">AWSTranslateParallelDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataDataLocation.html">AWSTranslateParallelDataDataLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataProperties.html">AWSTranslateParallelDataProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateResources.html">AWSTranslateResources</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStartTextTranslationJobRequest.html">AWSTranslateStartTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStartTextTranslationJobResponse.html">AWSTranslateStartTextTranslationJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStopTextTranslationJobRequest.html">AWSTranslateStopTextTranslationJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateStopTextTranslationJobResponse.html">AWSTranslateStopTextTranslationJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTerm.html">AWSTranslateTerm</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTerminologyData.html">AWSTranslateTerminologyData</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTerminologyDataLocation.html">AWSTranslateTerminologyDataLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTerminologyProperties.html">AWSTranslateTerminologyProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTextTranslationJobFilter.html">AWSTranslateTextTranslationJobFilter</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTextTranslationJobProperties.html">AWSTranslateTextTranslationJobProperties</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTranslateTextRequest.html">AWSTranslateTranslateTextRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateUpdateParallelDataResponse.html">AWSTranslateUpdateParallelDataResponse</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Constants.html">Constants</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranslateSDKVersion">AWSTranslateSDKVersion</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranslateVersionNumber">AWSTranslateVersionNumber</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Constants.html#/c:@AWSTranslateVersionString">AWSTranslateVersionString</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-group-name">
+            <a href="../Enums.html">Enumerations</a>
+            <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateEncryptionKeyType.html">AWSTranslateEncryptionKeyType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateErrorType.html">AWSTranslateErrorType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateJobStatus.html">AWSTranslateJobStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateMergeStrategy.html">AWSTranslateMergeStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateParallelDataFormat.html">AWSTranslateParallelDataFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateTerminologyDataFormat.html">AWSTranslateTerminologyDataFormat</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+      <article class="main-content">
+        <section>
+          <section class="section">
+            <h1>AWSTranslateParallelDataProperties</h1>
+              <div class="declaration">
+                <div class="language">
+                  <p class="aside-title">Objective-C</p>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranslateParallelDataProperties</span></code></pre>
+
+                </div>
+                <div class="language">
+                  <p class="aside-title">Swift</p>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranslateParallelDataProperties</span></code></pre>
+
+                </div>
+              </div>
+            <p>The properties of a parallel data resource.</p>
+
+          </section>
+          <section class="section task-group-section">
+            <div class="task-group">
+              <ul>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)arn"></a>
+                    <a name="//apple_ref/objc/Property/arn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)arn">arn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The Amazon Resource Name (ARN) of the parallel data resource.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">arn</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">arn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)createdAt"></a>
+                    <a name="//apple_ref/objc/Property/createdAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)createdAt">createdAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time at which the parallel data resource was created.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">createdAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">createdAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)detail"></a>
+                    <a name="//apple_ref/objc/Property/detail" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)detail">detail</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The description assigned to the parallel data resource.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">detail</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">detail</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)encryptionKey"></a>
+                    <a name="//apple_ref/objc/Property/encryptionKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)encryptionKey">encryptionKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The encryption key used to encrypt this object.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranslateEncryptionKey.html">AWSTranslateEncryptionKey</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">encryptionKey</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encryptionKey</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateEncryptionKey.html">AWSTranslateEncryptionKey</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)failedRecordCount"></a>
+                    <a name="//apple_ref/objc/Property/failedRecordCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)failedRecordCount">failedRecordCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of records unsuccessfully imported from the parallel data input file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">failedRecordCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">failedRecordCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)importedDataSize"></a>
+                    <a name="//apple_ref/objc/Property/importedDataSize" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)importedDataSize">importedDataSize</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of UTF-8 characters that Amazon Translate imported from the parallel data input file. This number includes only the characters in your translation examples. It does not include characters that are used to format your file. For example, if you provided a Translation Memory Exchange (.tmx) file, this number does not include the tags.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">importedDataSize</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">importedDataSize</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)importedRecordCount"></a>
+                    <a name="//apple_ref/objc/Property/importedRecordCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)importedRecordCount">importedRecordCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of records successfully imported from the parallel data input file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">importedRecordCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">importedRecordCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)lastUpdatedAt"></a>
+                    <a name="//apple_ref/objc/Property/lastUpdatedAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)lastUpdatedAt">lastUpdatedAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time at which the parallel data resource was last updated.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">lastUpdatedAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">lastUpdatedAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)latestUpdateAttemptAt"></a>
+                    <a name="//apple_ref/objc/Property/latestUpdateAttemptAt" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)latestUpdateAttemptAt">latestUpdateAttemptAt</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The time that the most recent update was attempted.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDate</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">latestUpdateAttemptAt</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">latestUpdateAttemptAt</span><span class="p">:</span> <span class="kt">Date</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)latestUpdateAttemptStatus"></a>
+                    <a name="//apple_ref/objc/Property/latestUpdateAttemptStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)latestUpdateAttemptStatus">latestUpdateAttemptStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of the most recent update attempt for the parallel data resource.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a></span> <span class="n">latestUpdateAttemptStatus</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">latestUpdateAttemptStatus</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)message"></a>
+                    <a name="//apple_ref/objc/Property/message" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)message">message</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Additional information from Amazon Translate about the parallel data resource. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">message</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">message</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)name">name</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The custom name assigned to the parallel data resource.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)parallelDataConfig"></a>
+                    <a name="//apple_ref/objc/Property/parallelDataConfig" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)parallelDataConfig">parallelDataConfig</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies the format and S3 location of the parallel data input file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSTranslateParallelDataConfig.html">AWSTranslateParallelDataConfig</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">parallelDataConfig</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parallelDataConfig</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateParallelDataConfig.html">AWSTranslateParallelDataConfig</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)skippedRecordCount"></a>
+                    <a name="//apple_ref/objc/Property/skippedRecordCount" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)skippedRecordCount">skippedRecordCount</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The number of items in the input file that Amazon Translate skipped when you created or updated the parallel data resource. For example, Amazon Translate skips empty records, empty target texts, and empty lines.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">skippedRecordCount</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">skippedRecordCount</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)sourceLanguageCode"></a>
+                    <a name="//apple_ref/objc/Property/sourceLanguageCode" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)sourceLanguageCode">sourceLanguageCode</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The source language of the translations in the parallel data file.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sourceLanguageCode</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sourceLanguageCode</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)status"></a>
+                    <a name="//apple_ref/objc/Property/status" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)status">status</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The status of the parallel data resource. When the parallel data is ready for you to use, the status is <code>ACTIVE</code>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a></span> <span class="n">status</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslateParallelDataProperties(py)targetLanguageCodes"></a>
+                    <a name="//apple_ref/objc/Property/targetLanguageCodes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslateParallelDataProperties(py)targetLanguageCodes">targetLanguageCodes</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The language codes for the target languages available in the parallel data file. All possible target languages are returned as an array.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">targetLanguageCodes</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">targetLanguageCodes</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </section>
+        </section>
+        <section id="footer">
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+        </section>
+      </article>
+    </div>
+  </body>
+</div>
+</html>

@@ -17,7 +17,7 @@
     <a title="AWSTranslate Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTranslate 2.19.1 Docs</a> (75% documented)</p>
+        <p><a href="../index.html">AWSTranslate 2.20.0 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTranslate.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -47,6 +47,18 @@
                 <a href="../Classes/AWSTranslateAppliedTerminology.html">AWSTranslateAppliedTerminology</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateDeleteParallelDataResponse.html">AWSTranslateDeleteParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateDeleteTerminologyRequest.html">AWSTranslateDeleteTerminologyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -57,6 +69,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateEncryptionKey.html">AWSTranslateEncryptionKey</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateGetParallelDataResponse.html">AWSTranslateGetParallelDataResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateGetTerminologyRequest.html">AWSTranslateGetTerminologyRequest</a>
@@ -77,6 +95,12 @@
                 <a href="../Classes/AWSTranslateJobDetails.html">AWSTranslateJobDetails</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateListTerminologiesRequest.html">AWSTranslateListTerminologiesRequest</a>
               </li>
               <li class="nav-group-task">
@@ -90,6 +114,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateOutputDataConfig.html">AWSTranslateOutputDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataConfig.html">AWSTranslateParallelDataConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataDataLocation.html">AWSTranslateParallelDataDataLocation</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateParallelDataProperties.html">AWSTranslateParallelDataProperties</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateResources.html">AWSTranslateResources</a>
@@ -130,6 +163,12 @@
               <li class="nav-group-task">
                 <a href="../Classes/AWSTranslateTranslateTextResponse.html">AWSTranslateTranslateTextResponse</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSTranslateUpdateParallelDataResponse.html">AWSTranslateUpdateParallelDataResponse</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -163,6 +202,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateMergeStrategy.html">AWSTranslateMergeStrategy</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateParallelDataFormat.html">AWSTranslateParallelDataFormat</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTranslateParallelDataStatus.html">AWSTranslateParallelDataStatus</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSTranslateTerminologyDataFormat.html">AWSTranslateTerminologyDataFormat</a>
@@ -556,6 +601,292 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)createParallelData:"></a>
+                    <a name="//apple_ref/objc/Method/-createParallelData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)createParallelData:">-createParallelData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateCreateParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateCreateParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">createParallelData</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)createParallelData:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createParallelData:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)createParallelData:completionHandler:">-createParallelData:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a parallel data resource in Amazon Translate by importing an input file from Amazon S3. Parallel data files contain examples of source phrases and their translations from your translation memory. By adding parallel data, you can influence the style, tone, and word choice in your translation output.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateCreateParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateCreateParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">createParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateCreateParallelDataRequest.html">AWSTranslateCreateParallelDataRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranslateCreateParallelDataResponse.html">AWSTranslateCreateParallelDataResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)deleteParallelData:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteParallelData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)deleteParallelData:">-deleteParallelData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a parallel data resource in Amazon Translate.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateDeleteParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateDeleteParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteParallelData</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateDeleteParallelDataResponse.html">AWSTranslateDeleteParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)deleteParallelData:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteParallelData:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)deleteParallelData:completionHandler:">-deleteParallelData:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes a parallel data resource in Amazon Translate.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateDeleteParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateDeleteParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">deleteParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateDeleteParallelDataResponse.html">AWSTranslateDeleteParallelDataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateDeleteParallelDataRequest.html">AWSTranslateDeleteParallelDataRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranslateDeleteParallelDataResponse.html">AWSTranslateDeleteParallelDataResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSTranslate(im)deleteTerminology:"></a>
                     <a name="//apple_ref/objc/Method/-deleteTerminology:" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSTranslate(im)deleteTerminology:">-deleteTerminology:<wbr></a>
@@ -820,6 +1151,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)getParallelData:"></a>
+                    <a name="//apple_ref/objc/Method/-getParallelData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)getParallelData:">-getParallelData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides information about a parallel data resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateGetParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateGetParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">getParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateGetParallelDataResponse.html">AWSTranslateGetParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)getParallelData:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-getParallelData:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)getParallelData:completionHandler:">-getParallelData:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides information about a parallel data resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateGetParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateGetParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">getParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+      <span class="nf">completionHandler</span><span class="p">:</span>
+          <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateGetParallelDataResponse.html">AWSTranslateGetParallelDataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                             <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">getParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateGetParallelDataRequest.html">AWSTranslateGetParallelDataRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranslateGetParallelDataResponse.html">AWSTranslateGetParallelDataResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the GetParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1103,6 +1575,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)listParallelData:"></a>
+                    <a name="//apple_ref/objc/Method/-listParallelData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)listParallelData:">-listParallelData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)listParallelData:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listParallelData:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)listParallelData:completionHandler:">-listParallelData:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Provides a list of your parallel data resources in Amazon Translate.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateListParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                              <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateListParallelDataRequest.html">AWSTranslateListParallelDataRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranslateListParallelDataResponse.html">AWSTranslateListParallelDataResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1827,12 +2440,155 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)updateParallelData:"></a>
+                    <a name="//apple_ref/objc/Method/-updateParallelData:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)updateParallelData:">-updateParallelData:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates a previously created parallel data resource by importing a new input file from Amazon S3.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUpdateParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUpdateParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateParallelData</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSTranslateUpdateParallelDataResponse.html">AWSTranslateUpdateParallelDataResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSTranslate(im)updateParallelData:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateParallelData:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSTranslate(im)updateParallelData:completionHandler:">-updateParallelData:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates a previously created parallel data resource by importing a new input file from Amazon S3.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUpdateParallelDataRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSTranslateUpdateParallelDataResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span>
+    <span class="nf">updateParallelData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+     <span class="nf">completionHandler</span><span class="p">:</span>
+         <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSTranslateUpdateParallelDataResponse.html">AWSTranslateUpdateParallelDataResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                            <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateParallelData</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSTranslateUpdateParallelDataRequest.html">AWSTranslateUpdateParallelDataRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSTranslateUpdateParallelDataResponse.html">AWSTranslateUpdateParallelDataResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateParallelData service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSTranslateErrorDomain">AWSTranslateErrorDomain</a></code> domain and the following error code: <code>AWSTranslateErrorConcurrentModification</code>, <code>AWSTranslateErrorInvalidParameterValue</code>, <code>AWSTranslateErrorInvalidRequest</code>, <code>AWSTranslateErrorLimitExceeded</code>, <code>AWSTranslateErrorTooManyRequests</code>, <code>AWSTranslateErrorConflict</code>, <code>AWSTranslateErrorResourceNotFound</code>, <code>AWSTranslateErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
