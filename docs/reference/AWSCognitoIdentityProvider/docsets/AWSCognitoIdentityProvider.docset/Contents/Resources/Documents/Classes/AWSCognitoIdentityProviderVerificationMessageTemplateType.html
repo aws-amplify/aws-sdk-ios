@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderVerificationMessageTemplateType Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.19.1 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.20.0 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -336,6 +336,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderCustomDomainConfigType.html">AWSCognitoIdentityProviderCustomDomainConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType.html">AWSCognitoIdentityProviderCustomEmailLambdaVersionConfigType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType.html">AWSCognitoIdentityProviderCustomSMSLambdaVersionConfigType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderDeleteGroupRequest.html">AWSCognitoIdentityProviderDeleteGroupRequest</a>
@@ -975,6 +981,12 @@
                 <a href="../Enums/AWSCognitoIdentityProviderCompromisedCredentialsEventActionType.html">AWSCognitoIdentityProviderCompromisedCredentialsEventActionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType.html">AWSCognitoIdentityProviderCustomEmailSenderLambdaVersionType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType.html">AWSCognitoIdentityProviderCustomSMSSenderLambdaVersionType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSCognitoIdentityProviderDefaultEmailOptionType.html">AWSCognitoIdentityProviderDefaultEmailOptionType</a>
               </li>
               <li class="nav-group-task">
@@ -1155,7 +1167,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The email message template.</p>
+                        <p>The email message template. EmailMessage is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER. </p>
 
                       </div>
                       <div class="declaration">
@@ -1187,7 +1199,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The email message template for sending a confirmation link to the user.</p>
+                        <p>The email message template for sending a confirmation link to the user. EmailMessageByLink is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
 
                       </div>
                       <div class="declaration">
@@ -1219,7 +1231,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The subject line for the email message template.</p>
+                        <p>The subject line for the email message template. EmailSubject is allowed only if <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount">EmailSendingAccount</a> is DEVELOPER. </p>
 
                       </div>
                       <div class="declaration">
@@ -1251,7 +1263,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The subject line for the email message template for sending a confirmation link to the user.</p>
+                        <p>The subject line for the email message template for sending a confirmation link to the user. EmailSubjectByLink is allowed only <a href="https://docs.aws.amazon.com/cognito-user-identity-pools/latest/APIReference/API_EmailConfigurationType.html#CognitoUserPools-Type-EmailConfigurationType-EmailSendingAccount"> EmailSendingAccount</a> is DEVELOPER.</p>
 
                       </div>
                       <div class="declaration">
@@ -1307,7 +1319,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
