@@ -17,7 +17,7 @@
     <a title="AWSEC2CreateImageRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.19.1 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.20.0 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -3086,6 +3086,9 @@
                 <a href="../Classes/AWSEC2PrincipalIdFormat.html">AWSEC2PrincipalIdFormat</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2PrivateDnsDetails.html">AWSEC2PrivateDnsDetails</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2PrivateDnsNameConfiguration.html">AWSEC2PrivateDnsNameConfiguration</a>
               </li>
               <li class="nav-group-task">
@@ -4751,7 +4754,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the &lsquo;No Reboot&rsquo; option is set, Amazon EC2 doesn&rsquo;t shut down the instance before creating the image. When this option is used, file system integrity on the created image can&rsquo;t be guaranteed.</p>
+                        <p>By default, Amazon EC2 attempts to shut down and reboot the instance before creating the image. If the <code>No Reboot</code> option is set, Amazon EC2 doesn&rsquo;t shut down the instance before creating the image. When this option is used, file system integrity on the created image can&rsquo;t be guaranteed.</p>
 
                       </div>
                       <div class="declaration">
@@ -4770,12 +4773,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSEC2CreateImageRequest(py)tagSpecifications"></a>
+                    <a name="//apple_ref/objc/Property/tagSpecifications" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSEC2CreateImageRequest(py)tagSpecifications">tagSpecifications</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The tags to apply to the AMI and snapshots on creation. You can tag the AMI, the snapshots, or both.</p><ul><li><p>To tag the AMI, the value for <code>ResourceType</code> must be <code>image</code>.</p></li><li><p>To tag the snapshots that are created of the root volume and of other EBS volumes that are attached to the instance, the value for <code>ResourceType</code> must be <code>snapshot</code>. The same tag is applied to all of the snapshots that are created.</p></li></ul><p>If you specify other values for <code>ResourceType</code>, the request fails.</p><p>To tag an AMI or snapshot after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>. </p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSEC2TagSpecification.html">AWSEC2TagSpecification</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">tagSpecifications</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">tagSpecifications</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSEC2TagSpecification.html">AWSEC2TagSpecification</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
