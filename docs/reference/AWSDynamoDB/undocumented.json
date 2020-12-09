@@ -73,1560 +73,1721 @@
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 30,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorExportConflict",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorDuplicateItem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 31,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorExportNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorExportConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 32,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorGlobalTableAlreadyExists",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorExportNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 33,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorGlobalTableNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorGlobalTableAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 34,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorIdempotentParameterMismatch",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorGlobalTableNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 35,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorIndexNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorIdempotentParameterMismatch",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 36,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInternalServer",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorIndexNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 37,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInvalidExportTime",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInternalServer",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 38,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInvalidRestoreTime",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInvalidExportTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 39,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorItemCollectionSizeLimitExceeded",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorInvalidRestoreTime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 40,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorLimitExceeded",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorItemCollectionSizeLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 41,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorPointInTimeRecoveryUnavailable",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 42,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorProvisionedThroughputExceeded",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorPointInTimeRecoveryUnavailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 43,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorReplicaAlreadyExists",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 44,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorReplicaNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorReplicaAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 45,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorRequestLimitExceeded",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorReplicaNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 46,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorResourceInUse",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorRequestLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 47,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorResourceNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorResourceInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 48,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableAlreadyExists",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 49,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableInUse",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableAlreadyExists",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 50,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableNotFound",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableInUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 51,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTransactionCanceled",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTableNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 52,
-      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTransactionConflict",
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTransactionCanceled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 53,
+      "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTransactionConflict",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 54,
       "symbol": "AWSDynamoDBErrorType.AWSDynamoDBErrorTransactionInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 56,
+      "line": 57,
       "symbol": "AWSDynamoDBAttributeAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 56,
+      "line": 57,
       "symbol": "AWSDynamoDBAttributeAction",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 57,
+      "line": 58,
       "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 58,
+      "line": 59,
       "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionAdd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 59,
+      "line": 60,
       "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionPut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 60,
+      "line": 61,
       "symbol": "AWSDynamoDBAttributeAction.AWSDynamoDBAttributeActionDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 63,
+      "line": 64,
       "symbol": "AWSDynamoDBBackupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 63,
+      "line": 64,
       "symbol": "AWSDynamoDBBackupStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 64,
+      "line": 65,
       "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 65,
+      "line": 66,
       "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 66,
+      "line": 67,
       "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusDeleted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 67,
+      "line": 68,
       "symbol": "AWSDynamoDBBackupStatus.AWSDynamoDBBackupStatusAvailable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 70,
+      "line": 71,
       "symbol": "AWSDynamoDBBackupType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 70,
+      "line": 71,
       "symbol": "AWSDynamoDBBackupType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 71,
+      "line": 72,
       "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 72,
+      "line": 73,
       "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 73,
+      "line": 74,
       "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 74,
+      "line": 75,
       "symbol": "AWSDynamoDBBackupType.AWSDynamoDBBackupTypeAwsBackup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 77,
+      "line": 78,
       "symbol": "AWSDynamoDBBackupTypeFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 77,
+      "line": 78,
       "symbol": "AWSDynamoDBBackupTypeFilter",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 78,
+      "line": 79,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 79,
+      "line": 80,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 80,
+      "line": 81,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterSystem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 81,
+      "line": 82,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterAwsBackup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 82,
+      "line": 83,
       "symbol": "AWSDynamoDBBackupTypeFilter.AWSDynamoDBBackupTypeFilterAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 85,
-      "symbol": "AWSDynamoDBBillingMode",
+      "line": 86,
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 85,
-      "symbol": "AWSDynamoDBBillingMode",
+      "line": 86,
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 86,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 87,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeProvisioned",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 88,
-      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModePayPerRequest",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumConditionalCheckFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 89,
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 90,
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumRequestLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 91,
-      "symbol": "AWSDynamoDBComparisonOperator",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 91,
-      "symbol": "AWSDynamoDBComparisonOperator",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumValidationError",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 92,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorUnknown",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumProvisionedThroughputExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 93,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorEQ",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumTransactionConflict",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 94,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNE",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumThrottlingError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 95,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorIN",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumInternalServerError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 96,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLE",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumResourceNotFound",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 97,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLT",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 98,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGE",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 99,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGT",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 100,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBetween",
+      "symbol": "AWSDynamoDBBatchStatementErrorCodeEnum.AWSDynamoDBBatchStatementErrorCodeEnumDuplicateItem",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 101,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotNull",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBBillingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 101,
+      "symbol": "AWSDynamoDBBillingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 102,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNull",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 103,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorContains",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModeProvisioned",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 104,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotContains",
+      "symbol": "AWSDynamoDBBillingMode.AWSDynamoDBBillingModePayPerRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 105,
-      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBeginsWith",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 108,
-      "symbol": "AWSDynamoDBConditionalOperator",
+      "line": 107,
+      "symbol": "AWSDynamoDBComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 108,
-      "symbol": "AWSDynamoDBConditionalOperator",
+      "line": 107,
+      "symbol": "AWSDynamoDBComparisonOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 108,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 109,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorUnknown",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorEQ",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 110,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorAnd",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 111,
-      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorOr",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorIN",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 112,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 113,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorLT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 114,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 114,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGE",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 115,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusUnknown",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorGT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 116,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusEnabled",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBetween",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 117,
-      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusDisabled",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotNull",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 118,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNull",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 119,
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorContains",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 120,
-      "symbol": "AWSDynamoDBContributorInsightsAction",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 120,
-      "symbol": "AWSDynamoDBContributorInsightsAction",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorNotContains",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 121,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionUnknown",
+      "symbol": "AWSDynamoDBComparisonOperator.AWSDynamoDBComparisonOperatorBeginsWith",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 122,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionEnable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 123,
-      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionDisable",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 126,
-      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "line": 124,
+      "symbol": "AWSDynamoDBConditionalOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 126,
-      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "line": 124,
+      "symbol": "AWSDynamoDBConditionalOperator",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 125,
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 126,
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorAnd",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 127,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 128,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 129,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabled",
+      "symbol": "AWSDynamoDBConditionalOperator.AWSDynamoDBConditionalOperatorOr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 130,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 130,
+      "symbol": "AWSDynamoDBContinuousBackupsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 131,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabled",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 132,
-      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusFailed",
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 135,
-      "symbol": "AWSDynamoDBExportFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 135,
-      "symbol": "AWSDynamoDBExportFormat",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 133,
+      "symbol": "AWSDynamoDBContinuousBackupsStatus.AWSDynamoDBContinuousBackupsStatusDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 136,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBContributorInsightsAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 136,
+      "symbol": "AWSDynamoDBContributorInsightsAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 137,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatDynamodbJson",
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 138,
-      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatIon",
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionEnable",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 141,
-      "symbol": "AWSDynamoDBExportStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 141,
-      "symbol": "AWSDynamoDBExportStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 139,
+      "symbol": "AWSDynamoDBContributorInsightsAction.AWSDynamoDBContributorInsightsActionDisable",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 142,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 142,
+      "symbol": "AWSDynamoDBContributorInsightsStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 143,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusInProgress",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 144,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusCompleted",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 145,
-      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusFailed",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 146,
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 147,
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 148,
-      "symbol": "AWSDynamoDBGlobalTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 148,
-      "symbol": "AWSDynamoDBGlobalTableStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 149,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 150,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusCreating",
+      "symbol": "AWSDynamoDBContributorInsightsStatus.AWSDynamoDBContributorInsightsStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 151,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBDestinationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 151,
+      "symbol": "AWSDynamoDBDestinationStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 152,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusDeleting",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 153,
-      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUpdating",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 154,
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 155,
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 156,
-      "symbol": "AWSDynamoDBIndexStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 156,
-      "symbol": "AWSDynamoDBIndexStatus",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 157,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 158,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusCreating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 159,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUpdating",
+      "symbol": "AWSDynamoDBDestinationStatus.AWSDynamoDBDestinationStatusEnableFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 160,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusDeleting",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 161,
-      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 164,
-      "symbol": "AWSDynamoDBKeyType",
+      "symbol": "AWSDynamoDBExportFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 164,
-      "symbol": "AWSDynamoDBKeyType",
+      "line": 160,
+      "symbol": "AWSDynamoDBExportFormat",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 165,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeUnknown",
+      "line": 161,
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 162,
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatDynamodbJson",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 163,
+      "symbol": "AWSDynamoDBExportFormat.AWSDynamoDBExportFormatIon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 166,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeHash",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 167,
-      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeRange",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 170,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "symbol": "AWSDynamoDBExportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 170,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "line": 166,
+      "symbol": "AWSDynamoDBExportStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 171,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusUnknown",
+      "line": 167,
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 172,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusEnabled",
+      "line": 168,
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 169,
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusCompleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 170,
+      "symbol": "AWSDynamoDBExportStatus.AWSDynamoDBExportStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 173,
-      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusDisabled",
+      "symbol": "AWSDynamoDBGlobalTableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 173,
+      "symbol": "AWSDynamoDBGlobalTableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 174,
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 175,
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 176,
-      "symbol": "AWSDynamoDBProjectionType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 176,
-      "symbol": "AWSDynamoDBProjectionType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 177,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeUnknown",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 178,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeAll",
+      "symbol": "AWSDynamoDBGlobalTableStatus.AWSDynamoDBGlobalTableStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 179,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeKeysOnly",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 180,
-      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeInclude",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 183,
-      "symbol": "AWSDynamoDBReplicaStatus",
+      "line": 181,
+      "symbol": "AWSDynamoDBIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 183,
-      "symbol": "AWSDynamoDBReplicaStatus",
+      "line": 181,
+      "symbol": "AWSDynamoDBIndexStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 182,
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 183,
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 184,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUnknown",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 185,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreating",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusDeleting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 186,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreationFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 187,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUpdating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 188,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusDeleting",
+      "symbol": "AWSDynamoDBIndexStatus.AWSDynamoDBIndexStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 189,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 189,
+      "symbol": "AWSDynamoDBKeyType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 190,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusRegionDisabled",
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 191,
-      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials",
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeHash",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 194,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 194,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 192,
+      "symbol": "AWSDynamoDBKeyType.AWSDynamoDBKeyTypeRange",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 195,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 195,
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 196,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityIndexes",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 197,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityTotal",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 198,
-      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityNone",
+      "symbol": "AWSDynamoDBPointInTimeRecoveryStatus.AWSDynamoDBPointInTimeRecoveryStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 201,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol": "AWSDynamoDBProjectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 201,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
+      "symbol": "AWSDynamoDBProjectionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 202,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsUnknown",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 203,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsSize",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 204,
-      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsNone",
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeKeysOnly",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 207,
-      "symbol": "AWSDynamoDBReturnValue",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 207,
-      "symbol": "AWSDynamoDBReturnValue",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 205,
+      "symbol": "AWSDynamoDBProjectionType.AWSDynamoDBProjectionTypeInclude",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 208,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBReplicaStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 208,
+      "symbol": "AWSDynamoDBReplicaStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 209,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueNone",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 210,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllOld",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 211,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedOld",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusCreationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 212,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllNew",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 213,
-      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedNew",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 214,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 215,
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusRegionDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 216,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 216,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 217,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 218,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld",
+      "symbol": "AWSDynamoDBReplicaStatus.AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 219,
-      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureNone",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 219,
+      "symbol": "AWSDynamoDBReturnConsumedCapacity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 220,
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 221,
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityIndexes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 222,
-      "symbol": "AWSDynamoDBS3SseAlgorithm",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 222,
-      "symbol": "AWSDynamoDBS3SseAlgorithm",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityTotal",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 223,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmUnknown",
+      "symbol": "AWSDynamoDBReturnConsumedCapacity.AWSDynamoDBReturnConsumedCapacityNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 224,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmAES256",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 225,
-      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmKms",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 228,
-      "symbol": "AWSDynamoDBSSEStatus",
+      "line": 226,
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 228,
-      "symbol": "AWSDynamoDBSSEStatus",
+      "line": 226,
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 227,
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 228,
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsSize",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 229,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 230,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 231,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabled",
+      "symbol": "AWSDynamoDBReturnItemCollectionMetrics.AWSDynamoDBReturnItemCollectionMetricsNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 232,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabling",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBReturnValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 232,
+      "symbol": "AWSDynamoDBReturnValue",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 233,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabled",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 234,
-      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUpdating",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 235,
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllOld",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 236,
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedOld",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 237,
-      "symbol": "AWSDynamoDBSSEType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 237,
-      "symbol": "AWSDynamoDBSSEType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueAllNew",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 238,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeUnknown",
+      "symbol": "AWSDynamoDBReturnValue.AWSDynamoDBReturnValueUpdatedNew",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 239,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeAES256",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 240,
-      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeKms",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 243,
-      "symbol": "AWSDynamoDBScalarAttributeType",
+      "line": 241,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 243,
-      "symbol": "AWSDynamoDBScalarAttributeType",
+      "line": 241,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 242,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 243,
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 244,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 245,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeS",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 246,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeN",
+      "symbol": "AWSDynamoDBReturnValuesOnConditionCheckFailure.AWSDynamoDBReturnValuesOnConditionCheckFailureNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 247,
-      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeB",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 250,
-      "symbol": "AWSDynamoDBSelect",
+      "symbol": "AWSDynamoDBS3SseAlgorithm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 250,
-      "symbol": "AWSDynamoDBSelect",
+      "line": 247,
+      "symbol": "AWSDynamoDBS3SseAlgorithm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 251,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectUnknown",
+      "line": 248,
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 252,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllAttributes",
+      "line": 249,
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmAES256",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 250,
+      "symbol": "AWSDynamoDBS3SseAlgorithm.AWSDynamoDBS3SseAlgorithmKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 253,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllProjectedAttributes",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBSSEStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 253,
+      "symbol": "AWSDynamoDBSSEStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 254,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectSpecificAttributes",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 255,
-      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectCount",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 256,
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 257,
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 258,
-      "symbol": "AWSDynamoDBStreamViewType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 258,
-      "symbol": "AWSDynamoDBStreamViewType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusDisabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 259,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 260,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewImage",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 261,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeOldImage",
+      "symbol": "AWSDynamoDBSSEStatus.AWSDynamoDBSSEStatusUpdating",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 262,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewAndOldImages",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 263,
-      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeKeysOnly",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 266,
-      "symbol": "AWSDynamoDBTableStatus",
+      "symbol": "AWSDynamoDBSSEType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 266,
-      "symbol": "AWSDynamoDBTableStatus",
+      "line": 262,
+      "symbol": "AWSDynamoDBSSEType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 267,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUnknown",
+      "line": 263,
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 264,
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeAES256",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 265,
+      "symbol": "AWSDynamoDBSSEType.AWSDynamoDBSSETypeKms",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 268,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusCreating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSDynamoDBScalarAttributeType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 268,
+      "symbol": "AWSDynamoDBScalarAttributeType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 269,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUpdating",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 270,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusDeleting",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeS",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 271,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusActive",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 272,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusInaccessibleEncryptionCredentials",
+      "symbol": "AWSDynamoDBScalarAttributeType.AWSDynamoDBScalarAttributeTypeB",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 273,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchiving",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 274,
-      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchived",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 277,
-      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "line": 275,
+      "symbol": "AWSDynamoDBSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 277,
-      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "line": 275,
+      "symbol": "AWSDynamoDBSelect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 276,
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 277,
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllAttributes",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 278,
-      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusUnknown",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectAllProjectedAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 279,
-      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabling",
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectSpecificAttributes",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
       "line": 280,
+      "symbol": "AWSDynamoDBSelect.AWSDynamoDBSelectCount",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 283,
+      "symbol": "AWSDynamoDBStreamViewType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 283,
+      "symbol": "AWSDynamoDBStreamViewType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 284,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 285,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 286,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeOldImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 287,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeNewAndOldImages",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 288,
+      "symbol": "AWSDynamoDBStreamViewType.AWSDynamoDBStreamViewTypeKeysOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 291,
+      "symbol": "AWSDynamoDBTableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 291,
+      "symbol": "AWSDynamoDBTableStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 292,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 293,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 294,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusUpdating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 295,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusDeleting",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 296,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusActive",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 297,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusInaccessibleEncryptionCredentials",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 298,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchiving",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 299,
+      "symbol": "AWSDynamoDBTableStatus.AWSDynamoDBTableStatusArchived",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 302,
+      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 302,
+      "symbol": "AWSDynamoDBTimeToLiveStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 303,
+      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 304,
+      "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
+      "line": 305,
       "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusDisabling",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 281,
+      "line": 306,
       "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusEnabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSDynamoDB/AWSDynamoDBModel.h",
-      "line": 282,
+      "line": 307,
       "symbol": "AWSDynamoDBTimeToLiveStatus.AWSDynamoDBTimeToLiveStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
