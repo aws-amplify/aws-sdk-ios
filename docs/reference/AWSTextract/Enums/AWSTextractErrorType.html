@@ -17,7 +17,7 @@
     <a title="AWSTextractErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSTextract 2.19.1 Docs</a> (66% documented)</p>
+        <p><a href="../index.html">AWSTextract 2.20.0 Docs</a> (65% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSTextract.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -173,6 +173,9 @@
               <li class="nav-group-task">
                 <a href="../Enums/AWSTextractSelectionStatus.html">AWSTextractSelectionStatus</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSTextractTextType.html">AWSTextractTextType</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -193,6 +196,7 @@
     <span class="n">AWSTextractErrorIdempotentParameterMismatch</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInternalServer</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInvalidJobId</span><span class="p">,</span>
+    <span class="n">AWSTextractErrorInvalidKMSKey</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInvalidParameter</span><span class="p">,</span>
     <span class="n">AWSTextractErrorInvalidS3Object</span><span class="p">,</span>
     <span class="n">AWSTextractErrorLimitExceeded</span><span class="p">,</span>
@@ -473,6 +477,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSTextractErrorType@AWSTextractErrorInvalidKMSKey"></a>
+                    <a name="//apple_ref/objc/Case/AWSTextractErrorInvalidKMSKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTextractErrorType@AWSTextractErrorInvalidKMSKey">AWSTextractErrorInvalidKMSKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTextractErrorInvalidKMSKey</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidKMSKey</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSTextractErrorType@AWSTextractErrorInvalidParameter"></a>
                     <a name="//apple_ref/objc/Case/AWSTextractErrorInvalidParameter" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSTextractErrorType@AWSTextractErrorInvalidParameter">AWSTextractErrorInvalidParameter</a>
@@ -495,7 +531,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameter</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidParameter</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -527,7 +563,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidS3Object</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">invalidS3Object</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -559,7 +595,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">limitExceeded</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
 
                         </div>
                       </div>
@@ -591,7 +627,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedThroughputExceeded</span> <span class="o">=</span> <span class="mi">11</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">provisionedThroughputExceeded</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
 
                         </div>
                       </div>
@@ -623,7 +659,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">12</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
 
                         </div>
                       </div>
@@ -655,7 +691,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedDocument</span> <span class="o">=</span> <span class="mi">13</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedDocument</span> <span class="o">=</span> <span class="mi">14</span></code></pre>
 
                         </div>
                       </div>
@@ -667,7 +703,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

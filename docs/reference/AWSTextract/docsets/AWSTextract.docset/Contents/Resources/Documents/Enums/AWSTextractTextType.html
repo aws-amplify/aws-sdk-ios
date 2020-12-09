@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTextractSelectionStatus Enumeration Reference</title>
+    <title>AWSTextractTextType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/AWSTextractSelectionStatus" class="dashAnchor"></a>
-    <a title="AWSTextractSelectionStatus Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTextractTextType" class="dashAnchor"></a>
+    <a title="AWSTextractTextType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTextract 2.20.0 Docs</a> (65% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTextract Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSTextractSelectionStatus Enumeration Reference
+        AWSTextractTextType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -183,20 +183,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTextractSelectionStatus</h1>
+            <h1>AWSTextractTextType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTextractSelectionStatus</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AWSTextractSelectionStatusUnknown</span><span class="p">,</span>
-    <span class="n">AWSTextractSelectionStatusSelected</span><span class="p">,</span>
-    <span class="n">AWSTextractSelectionStatusNotSelected</span><span class="p">,</span>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTextractTextType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTextractTextTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTextractTextTypeHandwriting</span><span class="p">,</span>
+    <span class="n">AWSTextractTextTypePrinted</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractSelectionStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTextractTextType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
@@ -209,9 +209,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusUnknown"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractSelectionStatusUnknown" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusUnknown">AWSTextractSelectionStatusUnknown</a>
+                    <a name="/c:@E@AWSTextractTextType@AWSTextractTextTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTextractTextTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTextractTextType@AWSTextractTextTypeUnknown">AWSTextractTextTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -226,7 +226,7 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractSelectionStatusUnknown</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTextractTextTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
@@ -241,9 +241,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusSelected"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractSelectionStatusSelected" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusSelected">AWSTextractSelectionStatusSelected</a>
+                    <a name="/c:@E@AWSTextractTextType@AWSTextractTextTypeHandwriting"></a>
+                    <a name="//apple_ref/objc/Case/AWSTextractTextTypeHandwriting" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTextractTextType@AWSTextractTextTypeHandwriting">AWSTextractTextTypeHandwriting</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -258,12 +258,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractSelectionStatusSelected</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTextractTextTypeHandwriting</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">selected</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">handwriting</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
@@ -273,9 +273,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusNotSelected"></a>
-                    <a name="//apple_ref/objc/Case/AWSTextractSelectionStatusNotSelected" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSTextractSelectionStatus@AWSTextractSelectionStatusNotSelected">AWSTextractSelectionStatusNotSelected</a>
+                    <a name="/c:@E@AWSTextractTextType@AWSTextractTextTypePrinted"></a>
+                    <a name="//apple_ref/objc/Case/AWSTextractTextTypePrinted" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTextractTextType@AWSTextractTextTypePrinted">AWSTextractTextTypePrinted</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -290,12 +290,12 @@
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSTextractSelectionStatusNotSelected</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTextractTextTypePrinted</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">notSelected</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">printed</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
