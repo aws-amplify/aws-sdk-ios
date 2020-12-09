@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSLexSentimentResponse Class Reference</title>
+    <title>AWSLexActiveContext Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSLexSentimentResponse" class="dashAnchor"></a>
-    <a title="AWSLexSentimentResponse Class Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSLexActiveContext" class="dashAnchor"></a>
+    <a title="AWSLexActiveContext Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSLex 2.20.0 Docs</a> (58% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSLex Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSLexSentimentResponse Class Reference
+        AWSLexActiveContext Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -239,20 +239,22 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSLexSentimentResponse</h1>
+            <h1>AWSLexActiveContext</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexSentimentResponse</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexActiveContext</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexSentimentResponse</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexActiveContext</span></code></pre>
 
                 </div>
               </div>
-            <p>The sentiment expressed in an utterance.</p><p>When the bot is configured to send utterances to Amazon Comprehend for sentiment analysis, this field structure contains the result of the analysis.</p>
+            <p>A context is a variable that contains information about the current state of the conversation between a user and Amazon Lex. Context can be set automatically by Amazon Lex when an intent is fulfilled, or it can be set at runtime using the <code>PutContent</code>, <code>PutText</code>, or <code>PutSession</code> operation.</p>
+
+<p>Required parameters: [name, timeToLive, parameters]</p>
 
           </section>
           <section class="section task-group-section">
@@ -261,9 +263,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLexSentimentResponse(py)sentimentLabel"></a>
-                    <a name="//apple_ref/objc/Property/sentimentLabel" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLexSentimentResponse(py)sentimentLabel">sentimentLabel</a>
+                    <a name="/c:objc(cs)AWSLexActiveContext(py)name"></a>
+                    <a name="//apple_ref/objc/Property/name" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexActiveContext(py)name">name</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -271,19 +273,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The inferred sentiment that Amazon Comprehend has the highest confidence in.</p>
+                        <p>The name of the context.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sentimentLabel</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">name</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sentimentLabel</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">name</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -293,9 +295,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSLexSentimentResponse(py)sentimentScore"></a>
-                    <a name="//apple_ref/objc/Property/sentimentScore" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSLexSentimentResponse(py)sentimentScore">sentimentScore</a>
+                    <a name="/c:objc(cs)AWSLexActiveContext(py)parameters"></a>
+                    <a name="//apple_ref/objc/Property/parameters" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexActiveContext(py)parameters">parameters</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -303,19 +305,51 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The likelihood that the sentiment was correctly inferred.</p>
+                        <p>State variables for the current context. You can use these values as default values for slots in subsequent events.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">sentimentScore</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">parameters</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">sentimentScore</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">parameters</span><span class="p">:</span> <span class="p">[</span><span class="kt">String</span> <span class="p">:</span> <span class="kt">String</span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexActiveContext(py)timeToLive"></a>
+                    <a name="//apple_ref/objc/Property/timeToLive" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexActiveContext(py)timeToLive">timeToLive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The length of time or number of turns that a context remains active.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSLexActiveContextTimeToLive.html">AWSLexActiveContextTimeToLive</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">timeToLive</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">timeToLive</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLexActiveContextTimeToLive.html">AWSLexActiveContextTimeToLive</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>

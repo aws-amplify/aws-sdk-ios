@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLex 2.19.1 Docs</a> (56% documented)</p>
+        <p><a href="index.html">AWSLex 2.20.0 Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLex.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -42,6 +42,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="Classes/AWSLex.html">AWSLex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLexActiveContext.html">AWSLexActiveContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLexActiveContextTimeToLive.html">AWSLexActiveContextTimeToLive</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLexAudioPlayer.html">AWSLexAudioPlayer</a>
@@ -793,6 +799,74 @@ AVAudioSessionRouteChangeNotification.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexAudioPlayer</span> <span class="p">:</span> <span class="kt">NSObject</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexActiveContext"></a>
+                    <a name="//apple_ref/objc/Class/AWSLexActiveContext" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexActiveContext">AWSLexActiveContext</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A context is a variable that contains information about the current state of the conversation between a user and Amazon Lex. Context can be set automatically by Amazon Lex when an intent is fulfilled, or it can be set at runtime using the <code>PutContent</code>, <code>PutText</code>, or <code>PutSession</code> operation.</p>
+
+<p>Required parameters: [name, timeToLive, parameters]</p>
+
+                        <a href="Classes/AWSLexActiveContext.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexActiveContext</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexActiveContext</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexActiveContextTimeToLive"></a>
+                    <a name="//apple_ref/objc/Class/AWSLexActiveContextTimeToLive" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexActiveContextTimeToLive">AWSLexActiveContextTimeToLive</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The length of time or number of turns that a context remains active.</p>
+
+                        <a href="Classes/AWSLexActiveContextTimeToLive.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLexActiveContextTimeToLive</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLexActiveContextTimeToLive</span></code></pre>
 
                         </div>
                       </div>
@@ -1598,7 +1672,7 @@ AVAudioSessionRouteChangeNotification.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

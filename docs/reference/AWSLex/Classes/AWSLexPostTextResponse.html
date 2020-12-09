@@ -17,7 +17,7 @@
     <a title="AWSLexPostTextResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLex 2.19.1 Docs</a> (56% documented)</p>
+        <p><a href="../index.html">AWSLex 2.20.0 Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLex.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -42,6 +42,12 @@
             <ul class="nav-group-tasks">
               <li class="nav-group-task">
                 <a href="../Classes/AWSLex.html">AWSLex</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexActiveContext.html">AWSLexActiveContext</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLexActiveContextTimeToLive.html">AWSLexActiveContextTimeToLive</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLexAudioPlayer.html">AWSLexAudioPlayer</a>
@@ -254,6 +260,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLexPostTextResponse(py)activeContexts"></a>
+                    <a name="//apple_ref/objc/Property/activeContexts" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostTextResponse(py)activeContexts">activeContexts</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>A list of active contexts for the session. A context can be set when an intent is fulfilled or by calling the <code>PostContent</code>, <code>PostText</code>, or <code>PutSession</code> operation.</p><p>You can use a context to control the intents that can follow up an intent, or to modify the operation of your application.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSArray</span><span class="o">&lt;</span><span class="n"><a href="../Classes/AWSLexActiveContext.html">AWSLexActiveContext</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">activeContexts</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">activeContexts</span><span class="p">:</span> <span class="p">[</span><span class="kt"><a href="../Classes/AWSLexActiveContext.html">AWSLexActiveContext</a></span><span class="p">]?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLexPostTextResponse(py)alternativeIntents"></a>
                     <a name="//apple_ref/objc/Property/alternativeIntents" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLexPostTextResponse(py)alternativeIntents">alternativeIntents</a>
@@ -296,7 +334,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p><p>If you have enabled the new natural language understanding (NLU) model, you can use this to determine if the improvement is due to changes to the bot or changes to the NLU.</p><p>For more information about enabling the new NLU, see the <a href="https://docs.aws.amazon.com/lex/latest/dg/API_PutBot.html#lex-PutBot-request-enableModelImprovements">enableModelImprovements</a> parameter of the <code>PutBot</code> operation.</p>
+                        <p>The version of the bot that responded to the conversation. You can use this information to help determine if one version of a bot is performing better than another version.</p>
 
                       </div>
                       <div class="declaration">
@@ -456,7 +494,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user&rsquo;s intent. The score is between 0.0 and 1.0. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence Scores</a>.</p><p>The score is a relative score, not an absolute score. The score may change based on improvements to the Amazon Lex natural language understanding (NLU) model.</p>
+                        <p>Provides a score that indicates how confident Amazon Lex is that the returned intent is the one that matches the user&rsquo;s intent. The score is between 0.0 and 1.0. For more information, see <a href="https://docs.aws.amazon.com/lex/latest/dg/confidence-scores.html">Confidence Scores</a>.</p><p>The score is a relative score, not an absolute score. The score may change based on improvements to Amazon Lex.</p>
 
                       </div>
                       <div class="declaration">
@@ -672,7 +710,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-11-12)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-09)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
