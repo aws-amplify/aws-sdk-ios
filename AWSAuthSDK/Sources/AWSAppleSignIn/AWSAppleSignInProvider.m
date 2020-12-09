@@ -113,10 +113,10 @@ static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
     [controller performRequests];
 }
 
-- (void)authorizationController:(ASAuthorizationController *)controller
+(void)authorizationController:(ASAuthorizationController *)controller
    didCompleteWithAuthorization:(ASAuthorization *)authorization {
-    ASAuthorizationAppleIDCredential *credentials = [authorization credential];
-    NSData *idTokenData = [credentials identityToken];
+    self.credential = [authorization credential];
+    NSData *idTokenData = [self.credential identityToken];
     if (idTokenData != nil) {
         self.idToken = [[NSString alloc] initWithData:idTokenData encoding:NSUTF8StringEncoding];
         [[AWSSignInManager sharedInstance] completeLogin];
