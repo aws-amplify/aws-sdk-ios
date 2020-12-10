@@ -200,6 +200,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)acceptReservedInstancesExchangeQuote:(AWSEC2AcceptReservedInstancesExchangeQuoteRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AcceptReservedInstancesExchangeQuoteResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
+ 
+ @param request A container for the necessary parameters to execute the AcceptTransitGatewayMulticastDomainAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult`.
+ 
+ @see AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest
+ @see AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult
+ */
+- (AWSTask<AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult *> *)acceptTransitGatewayMulticastDomainAssociations:(AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest *)request;
+
+/**
+ <p>Accepts a request to associate subnets with a transit gateway multicast domain.</p>
+ 
+ @param request A container for the necessary parameters to execute the AcceptTransitGatewayMulticastDomainAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest
+ @see AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult
+ */
+- (void)acceptTransitGatewayMulticastDomainAssociations:(AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Accepts a transit gateway peering attachment request. The peering attachment must be in the <code>pendingAcceptance</code> state.</p>
  
  @param request A container for the necessary parameters to execute the AcceptTransitGatewayPeeringAttachment service method.
@@ -1804,6 +1829,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)createNetworkAclEntry:(AWSEC2CreateNetworkAclEntryRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Creates a path to analyze for reachability.</p><p>Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateNetworkInsightsPath service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateNetworkInsightsPathResult`.
+ 
+ @see AWSEC2CreateNetworkInsightsPathRequest
+ @see AWSEC2CreateNetworkInsightsPathResult
+ */
+- (AWSTask<AWSEC2CreateNetworkInsightsPathResult *> *)createNetworkInsightsPath:(AWSEC2CreateNetworkInsightsPathRequest *)request;
+
+/**
+ <p>Creates a path to analyze for reachability.</p><p>Reachability Analyzer enables you to analyze and debug network reachability between two resources in your virtual private cloud (VPC). For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/">What is Reachability Analyzer</a>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateNetworkInsightsPath service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateNetworkInsightsPathRequest
+ @see AWSEC2CreateNetworkInsightsPathResult
+ */
+- (void)createNetworkInsightsPath:(AWSEC2CreateNetworkInsightsPathRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateNetworkInsightsPathResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a network interface in the specified subnet.</p><p>For more information about network interfaces, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-eni.html">Elastic Network Interfaces</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateNetworkInterface service method.
@@ -2224,6 +2274,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateTransitGatewayResult
  */
 - (void)createTransitGateway:(AWSEC2CreateTransitGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p><p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayConnect service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayConnectResult`.
+ 
+ @see AWSEC2CreateTransitGatewayConnectRequest
+ @see AWSEC2CreateTransitGatewayConnectResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayConnectResult *> *)createTransitGatewayConnect:(AWSEC2CreateTransitGatewayConnectRequest *)request;
+
+/**
+ <p>Creates a Connect attachment from a specified transit gateway attachment. A Connect attachment is a GRE-based tunnel attachment that you can use to establish a connection between a transit gateway and an appliance.</p><p>A Connect attachment uses an existing VPC or AWS Direct Connect attachment as the underlying transport mechanism. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayConnect service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayConnectRequest
+ @see AWSEC2CreateTransitGatewayConnectResult
+ */
+- (void)createTransitGatewayConnect:(AWSEC2CreateTransitGatewayConnectRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayConnectResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a Connect peer for a specified transit gateway Connect attachment between a transit gateway and an appliance.</p><p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayConnectPeer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateTransitGatewayConnectPeerResult`.
+ 
+ @see AWSEC2CreateTransitGatewayConnectPeerRequest
+ @see AWSEC2CreateTransitGatewayConnectPeerResult
+ */
+- (AWSTask<AWSEC2CreateTransitGatewayConnectPeerResult *> *)createTransitGatewayConnectPeer:(AWSEC2CreateTransitGatewayConnectPeerRequest *)request;
+
+/**
+ <p>Creates a Connect peer for a specified transit gateway Connect attachment between a transit gateway and an appliance.</p><p>The peer address and transit gateway address must be the same IP address family (IPv4 or IPv6).</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/tgw/tgw-connect.html#tgw-connect-peer">Connect peers</a> in the <i>Transit Gateways Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateTransitGatewayConnectPeer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateTransitGatewayConnectPeerRequest
+ @see AWSEC2CreateTransitGatewayConnectPeerResult
+ */
+- (void)createTransitGatewayConnectPeer:(AWSEC2CreateTransitGatewayConnectPeerRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateTransitGatewayConnectPeerResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a multicast domain using the specified transit gateway.</p><p>The transit gateway must be in the available state before you create a domain. Use <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeTransitGateways.html">DescribeTransitGateways</a> to see the state of transit gateway.</p>
@@ -3055,6 +3155,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteNetworkAclEntry:(AWSEC2DeleteNetworkAclEntryRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the specified network insights analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteNetworkInsightsAnalysisResult`.
+ 
+ @see AWSEC2DeleteNetworkInsightsAnalysisRequest
+ @see AWSEC2DeleteNetworkInsightsAnalysisResult
+ */
+- (AWSTask<AWSEC2DeleteNetworkInsightsAnalysisResult *> *)deleteNetworkInsightsAnalysis:(AWSEC2DeleteNetworkInsightsAnalysisRequest *)request;
+
+/**
+ <p>Deletes the specified network insights analysis.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteNetworkInsightsAnalysisRequest
+ @see AWSEC2DeleteNetworkInsightsAnalysisResult
+ */
+- (void)deleteNetworkInsightsAnalysis:(AWSEC2DeleteNetworkInsightsAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteNetworkInsightsAnalysisResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified path.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsPath service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteNetworkInsightsPathResult`.
+ 
+ @see AWSEC2DeleteNetworkInsightsPathRequest
+ @see AWSEC2DeleteNetworkInsightsPathResult
+ */
+- (AWSTask<AWSEC2DeleteNetworkInsightsPathResult *> *)deleteNetworkInsightsPath:(AWSEC2DeleteNetworkInsightsPathRequest *)request;
+
+/**
+ <p>Deletes the specified path.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteNetworkInsightsPath service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteNetworkInsightsPathRequest
+ @see AWSEC2DeleteNetworkInsightsPathResult
+ */
+- (void)deleteNetworkInsightsPath:(AWSEC2DeleteNetworkInsightsPathRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteNetworkInsightsPathResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified network interface. You must detach the network interface before you can delete it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteNetworkInterface service method.
@@ -3426,6 +3576,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DeleteTransitGatewayResult
  */
 - (void)deleteTransitGateway:(AWSEC2DeleteTransitGatewayRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayConnect service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayConnectResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayConnectRequest
+ @see AWSEC2DeleteTransitGatewayConnectResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayConnectResult *> *)deleteTransitGatewayConnect:(AWSEC2DeleteTransitGatewayConnectRequest *)request;
+
+/**
+ <p>Deletes the specified Connect attachment. You must first delete any Connect peers for the attachment.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayConnect service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayConnectRequest
+ @see AWSEC2DeleteTransitGatewayConnectResult
+ */
+- (void)deleteTransitGatewayConnect:(AWSEC2DeleteTransitGatewayConnectRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayConnectResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified Connect peer.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayConnectPeer service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteTransitGatewayConnectPeerResult`.
+ 
+ @see AWSEC2DeleteTransitGatewayConnectPeerRequest
+ @see AWSEC2DeleteTransitGatewayConnectPeerResult
+ */
+- (AWSTask<AWSEC2DeleteTransitGatewayConnectPeerResult *> *)deleteTransitGatewayConnectPeer:(AWSEC2DeleteTransitGatewayConnectPeerRequest *)request;
+
+/**
+ <p>Deletes the specified Connect peer.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteTransitGatewayConnectPeer service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteTransitGatewayConnectPeerRequest
+ @see AWSEC2DeleteTransitGatewayConnectPeerResult
+ */
+- (void)deleteTransitGatewayConnectPeer:(AWSEC2DeleteTransitGatewayConnectPeerRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteTransitGatewayConnectPeerResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes the specified transit gateway multicast domain.</p>
@@ -5435,6 +5635,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)describeNetworkAcls:(AWSEC2DescribeNetworkAclsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkAclsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Describes one or more of your network insights analyses.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAnalyses service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInsightsAnalysesResult`.
+ 
+ @see AWSEC2DescribeNetworkInsightsAnalysesRequest
+ @see AWSEC2DescribeNetworkInsightsAnalysesResult
+ */
+- (AWSTask<AWSEC2DescribeNetworkInsightsAnalysesResult *> *)describeNetworkInsightsAnalyses:(AWSEC2DescribeNetworkInsightsAnalysesRequest *)request;
+
+/**
+ <p>Describes one or more of your network insights analyses.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsAnalyses service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeNetworkInsightsAnalysesRequest
+ @see AWSEC2DescribeNetworkInsightsAnalysesResult
+ */
+- (void)describeNetworkInsightsAnalyses:(AWSEC2DescribeNetworkInsightsAnalysesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkInsightsAnalysesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more of your paths.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsPaths service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeNetworkInsightsPathsResult`.
+ 
+ @see AWSEC2DescribeNetworkInsightsPathsRequest
+ @see AWSEC2DescribeNetworkInsightsPathsResult
+ */
+- (AWSTask<AWSEC2DescribeNetworkInsightsPathsResult *> *)describeNetworkInsightsPaths:(AWSEC2DescribeNetworkInsightsPathsRequest *)request;
+
+/**
+ <p>Describes one or more of your paths.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeNetworkInsightsPaths service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeNetworkInsightsPathsRequest
+ @see AWSEC2DescribeNetworkInsightsPathsResult
+ */
+- (void)describeNetworkInsightsPaths:(AWSEC2DescribeNetworkInsightsPathsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeNetworkInsightsPathsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Describes a network interface attribute. You can specify only one attribute at a time.</p>
  
  @param request A container for the necessary parameters to execute the DescribeNetworkInterfaceAttribute service method.
@@ -6233,6 +6483,56 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeTransitGatewayAttachmentsResult
  */
 - (void)describeTransitGatewayAttachments:(AWSEC2DescribeTransitGatewayAttachmentsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayAttachmentsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more Connect peers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayConnectPeers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayConnectPeersResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayConnectPeersRequest
+ @see AWSEC2DescribeTransitGatewayConnectPeersResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayConnectPeersResult *> *)describeTransitGatewayConnectPeers:(AWSEC2DescribeTransitGatewayConnectPeersRequest *)request;
+
+/**
+ <p>Describes one or more Connect peers.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayConnectPeers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayConnectPeersRequest
+ @see AWSEC2DescribeTransitGatewayConnectPeersResult
+ */
+- (void)describeTransitGatewayConnectPeers:(AWSEC2DescribeTransitGatewayConnectPeersRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayConnectPeersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes one or more Connect attachments.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayConnects service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeTransitGatewayConnectsResult`.
+ 
+ @see AWSEC2DescribeTransitGatewayConnectsRequest
+ @see AWSEC2DescribeTransitGatewayConnectsResult
+ */
+- (AWSTask<AWSEC2DescribeTransitGatewayConnectsResult *> *)describeTransitGatewayConnects:(AWSEC2DescribeTransitGatewayConnectsRequest *)request;
+
+/**
+ <p>Describes one or more Connect attachments.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeTransitGatewayConnects service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeTransitGatewayConnectsRequest
+ @see AWSEC2DescribeTransitGatewayConnectsResult
+ */
+- (void)describeTransitGatewayConnects:(AWSEC2DescribeTransitGatewayConnectsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeTransitGatewayConnectsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes one or more transit gateway multicast domains.</p>
@@ -9531,6 +9831,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)registerTransitGatewayMulticastGroupSources:(AWSEC2RegisterTransitGatewayMulticastGroupSourcesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RegisterTransitGatewayMulticastGroupSourcesResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
+ 
+ @param request A container for the necessary parameters to execute the RejectTransitGatewayMulticastDomainAssociations service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult`.
+ 
+ @see AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest
+ @see AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult
+ */
+- (AWSTask<AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult *> *)rejectTransitGatewayMulticastDomainAssociations:(AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest *)request;
+
+/**
+ <p>Rejects a request to associate cross-account subnets with a transit gateway multicast domain.</p>
+ 
+ @param request A container for the necessary parameters to execute the RejectTransitGatewayMulticastDomainAssociations service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest
+ @see AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult
+ */
+- (void)rejectTransitGatewayMulticastDomainAssociations:(AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Rejects a transit gateway peering attachment request.</p>
  
  @param request A container for the necessary parameters to execute the RejectTransitGatewayPeeringAttachment service method.
@@ -10327,6 +10652,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2StartInstancesResult
  */
 - (void)startInstances:(AWSEC2StartInstancesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2StartInstancesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartNetworkInsightsAnalysis service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2StartNetworkInsightsAnalysisResult`.
+ 
+ @see AWSEC2StartNetworkInsightsAnalysisRequest
+ @see AWSEC2StartNetworkInsightsAnalysisResult
+ */
+- (AWSTask<AWSEC2StartNetworkInsightsAnalysisResult *> *)startNetworkInsightsAnalysis:(AWSEC2StartNetworkInsightsAnalysisRequest *)request;
+
+/**
+ <p>Starts analyzing the specified path. If the path is reachable, the operation returns the shortest feasible path.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartNetworkInsightsAnalysis service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2StartNetworkInsightsAnalysisRequest
+ @see AWSEC2StartNetworkInsightsAnalysisResult
+ */
+- (void)startNetworkInsightsAnalysis:(AWSEC2StartNetworkInsightsAnalysisRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2StartNetworkInsightsAnalysisResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Initiates the verification process to prove that the service provider owns the private DNS name domain for the endpoint service.</p><p>The service provider must successfully perform the verification before the consumer can use the name to access the service.</p><p>Before the service provider runs this command, they must add a record to the DNS server. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/endpoint-services-dns-validation.html#add-dns-txt-record">Adding a TXT Record to Your Domain's DNS Server </a> in the <i>Amazon VPC User Guide</i>.</p>
