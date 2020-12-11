@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- **AWSCore**
+  - Remove deprecated iOS 8 API from UICKeyChainStore. ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245)) Thanks @1mash0!
 
 ## 2.20.0
 
