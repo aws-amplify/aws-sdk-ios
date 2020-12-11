@@ -2275,7 +2275,7 @@ didCompleteWithError:(NSError *)error {
                 if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.longLongValue ) {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
-                    
+                    AWSDDLogDebug(@"%@", errorMessage);
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
                                                                          forKey:@"Message"];
                     
