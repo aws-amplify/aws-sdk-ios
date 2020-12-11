@@ -1950,7 +1950,7 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
     }
     
     //Compose the request.
-    for(int i = 1; i <= [uploadTask.completedPartsSet count]; i++) {
+    for(int i = 1; i <= [tempDictionary count]; i++) {
         AWSS3TransferUtilityUploadSubTask *subTask = [tempDictionary objectForKey: [NSNumber numberWithInt:i]];
         AWSS3CompletedPart *completedPart = [AWSS3CompletedPart new];
         completedPart.partNumber = subTask.partNumber;
@@ -2432,7 +2432,12 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     
         //Calculate the total sent so far
         int64_t totalSentSoFar = 0;
-        for (AWSS3TransferUtilityUploadSubTask *aSubTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
+        //Create a new Dictionary with the partNumber as the Key
+        NSMutableDictionary *completedPartsByPartNumber = [NSMutableDictionary new];
+        for(AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
+            [completedPartsByPartNumber setObject:subTask forKey:subTask.partNumber];
+        }
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [completedPartsByPartNumber allValues]) {
             totalSentSoFar += aSubTask.totalBytesExpectedToSend;
         }
         for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.inProgressPartsDictionary allValues]) {
