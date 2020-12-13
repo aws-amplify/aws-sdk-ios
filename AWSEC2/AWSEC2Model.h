@@ -68,6 +68,13 @@ typedef NS_ENUM(NSInteger, AWSEC2AllowsMultipleInstanceTypes) {
     AWSEC2AllowsMultipleInstanceTypesOff,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2AnalysisStatus) {
+    AWSEC2AnalysisStatusUnknown,
+    AWSEC2AnalysisStatusRunning,
+    AWSEC2AnalysisStatusSucceeded,
+    AWSEC2AnalysisStatusFailed,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ApplianceModeSupportValue) {
     AWSEC2ApplianceModeSupportValueUnknown,
     AWSEC2ApplianceModeSupportValueEnable,
@@ -110,6 +117,12 @@ typedef NS_ENUM(NSInteger, AWSEC2AttachmentStatus) {
     AWSEC2AttachmentStatusDetached,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2AutoAcceptSharedAssociationsValue) {
+    AWSEC2AutoAcceptSharedAssociationsValueUnknown,
+    AWSEC2AutoAcceptSharedAssociationsValueEnable,
+    AWSEC2AutoAcceptSharedAssociationsValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2AutoAcceptSharedAttachmentsValue) {
     AWSEC2AutoAcceptSharedAttachmentsValueUnknown,
     AWSEC2AutoAcceptSharedAttachmentsValueEnable,
@@ -146,6 +159,12 @@ typedef NS_ENUM(NSInteger, AWSEC2BatchState) {
     AWSEC2BatchStateCancelledRunning,
     AWSEC2BatchStateCancelledTerminating,
     AWSEC2BatchStateModifying,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2BgpStatus) {
+    AWSEC2BgpStatusUnknown,
+    AWSEC2BgpStatusUp,
+    AWSEC2BgpStatusDown,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2BundleTaskState) {
@@ -607,6 +626,12 @@ typedef NS_ENUM(NSInteger, AWSEC2IamInstanceProfileAssociationState) {
     AWSEC2IamInstanceProfileAssociationStateDisassociated,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2Igmpv2SupportValue) {
+    AWSEC2Igmpv2SupportValueUnknown,
+    AWSEC2Igmpv2SupportValueEnable,
+    AWSEC2Igmpv2SupportValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ImageAttributeName) {
     AWSEC2ImageAttributeNameUnknown,
     AWSEC2ImageAttributeNameDescription,
@@ -936,6 +961,9 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeG3_8xlarge,
     AWSEC2InstanceTypeG3_16xlarge,
     AWSEC2InstanceTypeG3S_xlarge,
+    AWSEC2InstanceTypeG4Ad_4xlarge,
+    AWSEC2InstanceTypeG4Ad_8xlarge,
+    AWSEC2InstanceTypeG4Ad_16xlarge,
     AWSEC2InstanceTypeG4Dn_xlarge,
     AWSEC2InstanceTypeG4Dn_2xlarge,
     AWSEC2InstanceTypeG4Dn_4xlarge,
@@ -1361,6 +1389,17 @@ typedef NS_ENUM(NSInteger, AWSEC2ProductCodeValues) {
     AWSEC2ProductCodeValuesMarketplace,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2Protocols) {
+    AWSEC2ProtocolsUnknown,
+    AWSEC2ProtocolsTcp,
+    AWSEC2ProtocolsUdp,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2ProtocolValue) {
+    AWSEC2ProtocolValueUnknown,
+    AWSEC2ProtocolValueGre,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2RIProductDescription) {
     AWSEC2RIProductDescriptionUnknown,
     AWSEC2RIProductDescriptionLinuxUNIX,
@@ -1451,6 +1490,8 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeNatgateway,
     AWSEC2ResourceTypeNetworkACL,
     AWSEC2ResourceTypeNetworkInterface,
+    AWSEC2ResourceTypeNetworkInsightsAnalysis,
+    AWSEC2ResourceTypeNetworkInsightsPath,
     AWSEC2ResourceTypePlacementGroup,
     AWSEC2ResourceTypeReservedInstances,
     AWSEC2ResourceTypeRouteTable,
@@ -1464,6 +1505,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeTrafficMirrorTarget,
     AWSEC2ResourceTypeTransitGateway,
     AWSEC2ResourceTypeTransitGatewayAttachment,
+    AWSEC2ResourceTypeTransitGatewayConnectPeer,
     AWSEC2ResourceTypeTransitGatewayMulticastDomain,
     AWSEC2ResourceTypeTransitGatewayRouteTable,
     AWSEC2ResourceTypeVolume,
@@ -1590,6 +1632,12 @@ typedef NS_ENUM(NSInteger, AWSEC2State) {
     AWSEC2StateExpired,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2StaticSourcesSupportValue) {
+    AWSEC2StaticSourcesSupportValueUnknown,
+    AWSEC2StaticSourcesSupportValueEnable,
+    AWSEC2StaticSourcesSupportValueDisable,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2Status) {
     AWSEC2StatusUnknown,
     AWSEC2StatusMoveInProgress,
@@ -1706,6 +1754,7 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayAttachmentResourceType) {
     AWSEC2TransitGatewayAttachmentResourceTypeVPC,
     AWSEC2TransitGatewayAttachmentResourceTypeVpn,
     AWSEC2TransitGatewayAttachmentResourceTypeDirectConnectGateway,
+    AWSEC2TransitGatewayAttachmentResourceTypeConnect,
     AWSEC2TransitGatewayAttachmentResourceTypePeering,
     AWSEC2TransitGatewayAttachmentResourceTypeTgwPeering,
 };
@@ -1727,12 +1776,23 @@ typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayAttachmentState) {
     AWSEC2TransitGatewayAttachmentStateFailing,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayConnectPeerState) {
+    AWSEC2TransitGatewayConnectPeerStateUnknown,
+    AWSEC2TransitGatewayConnectPeerStatePending,
+    AWSEC2TransitGatewayConnectPeerStateAvailable,
+    AWSEC2TransitGatewayConnectPeerStateDeleting,
+    AWSEC2TransitGatewayConnectPeerStateDeleted,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayMulitcastDomainAssociationState) {
     AWSEC2TransitGatewayMulitcastDomainAssociationStateUnknown,
+    AWSEC2TransitGatewayMulitcastDomainAssociationStatePendingAcceptance,
     AWSEC2TransitGatewayMulitcastDomainAssociationStateAssociating,
     AWSEC2TransitGatewayMulitcastDomainAssociationStateAssociated,
     AWSEC2TransitGatewayMulitcastDomainAssociationStateDisassociating,
     AWSEC2TransitGatewayMulitcastDomainAssociationStateDisassociated,
+    AWSEC2TransitGatewayMulitcastDomainAssociationStateRejected,
+    AWSEC2TransitGatewayMulitcastDomainAssociationStateFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2TransitGatewayMulticastDomainState) {
@@ -1967,6 +2027,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 @class AWSEC2AcceptReservedInstancesExchangeQuoteRequest;
 @class AWSEC2AcceptReservedInstancesExchangeQuoteResult;
+@class AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest;
+@class AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult;
 @class AWSEC2AcceptTransitGatewayPeeringAttachmentRequest;
 @class AWSEC2AcceptTransitGatewayPeeringAttachmentResult;
 @class AWSEC2AcceptTransitGatewayVpcAttachmentRequest;
@@ -1987,6 +2049,14 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AllocateHostsRequest;
 @class AWSEC2AllocateHostsResult;
 @class AWSEC2AllowedPrincipal;
+@class AWSEC2AlternatePathHint;
+@class AWSEC2AnalysisAclRule;
+@class AWSEC2AnalysisComponent;
+@class AWSEC2AnalysisLoadBalancerListener;
+@class AWSEC2AnalysisLoadBalancerTarget;
+@class AWSEC2AnalysisPacketHeader;
+@class AWSEC2AnalysisRouteTableRoute;
+@class AWSEC2AnalysisSecurityGroupRule;
 @class AWSEC2ApplySecurityGroupsToClientVpnTargetNetworkRequest;
 @class AWSEC2ApplySecurityGroupsToClientVpnTargetNetworkResult;
 @class AWSEC2AssignIpv6AddressesRequest;
@@ -2154,6 +2224,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateNetworkAclEntryRequest;
 @class AWSEC2CreateNetworkAclRequest;
 @class AWSEC2CreateNetworkAclResult;
+@class AWSEC2CreateNetworkInsightsPathRequest;
+@class AWSEC2CreateNetworkInsightsPathResult;
 @class AWSEC2CreateNetworkInterfacePermissionRequest;
 @class AWSEC2CreateNetworkInterfacePermissionResult;
 @class AWSEC2CreateNetworkInterfaceRequest;
@@ -2184,7 +2256,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateTrafficMirrorSessionResult;
 @class AWSEC2CreateTrafficMirrorTargetRequest;
 @class AWSEC2CreateTrafficMirrorTargetResult;
+@class AWSEC2CreateTransitGatewayConnectPeerRequest;
+@class AWSEC2CreateTransitGatewayConnectPeerResult;
+@class AWSEC2CreateTransitGatewayConnectRequest;
+@class AWSEC2CreateTransitGatewayConnectRequestOptions;
+@class AWSEC2CreateTransitGatewayConnectResult;
 @class AWSEC2CreateTransitGatewayMulticastDomainRequest;
+@class AWSEC2CreateTransitGatewayMulticastDomainRequestOptions;
 @class AWSEC2CreateTransitGatewayMulticastDomainResult;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentRequest;
 @class AWSEC2CreateTransitGatewayPeeringAttachmentResult;
@@ -2257,6 +2335,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteNatGatewayResult;
 @class AWSEC2DeleteNetworkAclEntryRequest;
 @class AWSEC2DeleteNetworkAclRequest;
+@class AWSEC2DeleteNetworkInsightsAnalysisRequest;
+@class AWSEC2DeleteNetworkInsightsAnalysisResult;
+@class AWSEC2DeleteNetworkInsightsPathRequest;
+@class AWSEC2DeleteNetworkInsightsPathResult;
 @class AWSEC2DeleteNetworkInterfacePermissionRequest;
 @class AWSEC2DeleteNetworkInterfacePermissionResult;
 @class AWSEC2DeleteNetworkInterfaceRequest;
@@ -2279,6 +2361,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteTrafficMirrorSessionResult;
 @class AWSEC2DeleteTrafficMirrorTargetRequest;
 @class AWSEC2DeleteTrafficMirrorTargetResult;
+@class AWSEC2DeleteTransitGatewayConnectPeerRequest;
+@class AWSEC2DeleteTransitGatewayConnectPeerResult;
+@class AWSEC2DeleteTransitGatewayConnectRequest;
+@class AWSEC2DeleteTransitGatewayConnectResult;
 @class AWSEC2DeleteTransitGatewayMulticastDomainRequest;
 @class AWSEC2DeleteTransitGatewayMulticastDomainResult;
 @class AWSEC2DeleteTransitGatewayPeeringAttachmentRequest;
@@ -2439,6 +2525,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeNatGatewaysResult;
 @class AWSEC2DescribeNetworkAclsRequest;
 @class AWSEC2DescribeNetworkAclsResult;
+@class AWSEC2DescribeNetworkInsightsAnalysesRequest;
+@class AWSEC2DescribeNetworkInsightsAnalysesResult;
+@class AWSEC2DescribeNetworkInsightsPathsRequest;
+@class AWSEC2DescribeNetworkInsightsPathsResult;
 @class AWSEC2DescribeNetworkInterfaceAttributeRequest;
 @class AWSEC2DescribeNetworkInterfaceAttributeResult;
 @class AWSEC2DescribeNetworkInterfacePermissionsRequest;
@@ -2503,6 +2593,10 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeTrafficMirrorTargetsResult;
 @class AWSEC2DescribeTransitGatewayAttachmentsRequest;
 @class AWSEC2DescribeTransitGatewayAttachmentsResult;
+@class AWSEC2DescribeTransitGatewayConnectPeersRequest;
+@class AWSEC2DescribeTransitGatewayConnectPeersResult;
+@class AWSEC2DescribeTransitGatewayConnectsRequest;
+@class AWSEC2DescribeTransitGatewayConnectsResult;
 @class AWSEC2DescribeTransitGatewayMulticastDomainsRequest;
 @class AWSEC2DescribeTransitGatewayMulticastDomainsResult;
 @class AWSEC2DescribeTransitGatewayPeeringAttachmentsRequest;
@@ -2627,6 +2721,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnclaveOptions;
 @class AWSEC2EnclaveOptionsRequest;
 @class AWSEC2EventInformation;
+@class AWSEC2Explanation;
 @class AWSEC2ExportClientVpnClientCertificateRevocationListRequest;
 @class AWSEC2ExportClientVpnClientCertificateRevocationListResult;
 @class AWSEC2ExportClientVpnClientConfigurationRequest;
@@ -2943,6 +3038,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2NetworkAclEntry;
 @class AWSEC2NetworkCardInfo;
 @class AWSEC2NetworkInfo;
+@class AWSEC2NetworkInsightsAnalysis;
+@class AWSEC2NetworkInsightsPath;
 @class AWSEC2NetworkInterface;
 @class AWSEC2NetworkInterfaceAssociation;
 @class AWSEC2NetworkInterfaceAttachment;
@@ -2954,6 +3051,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LatestDhcpConfiguration;
 @class AWSEC2OnDemandOptions;
 @class AWSEC2OnDemandOptionsRequest;
+@class AWSEC2PathComponent;
 @class AWSEC2PciId;
 @class AWSEC2PeeringAttachmentStatus;
 @class AWSEC2PeeringConnectionOptions;
@@ -3016,6 +3114,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2RegisterTransitGatewayMulticastGroupMembersResult;
 @class AWSEC2RegisterTransitGatewayMulticastGroupSourcesRequest;
 @class AWSEC2RegisterTransitGatewayMulticastGroupSourcesResult;
+@class AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest;
+@class AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult;
 @class AWSEC2RejectTransitGatewayPeeringAttachmentRequest;
 @class AWSEC2RejectTransitGatewayPeeringAttachmentResult;
 @class AWSEC2RejectTransitGatewayVpcAttachmentRequest;
@@ -3138,6 +3238,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2StaleSecurityGroup;
 @class AWSEC2StartInstancesRequest;
 @class AWSEC2StartInstancesResult;
+@class AWSEC2StartNetworkInsightsAnalysisRequest;
+@class AWSEC2StartNetworkInsightsAnalysisResult;
 @class AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest;
 @class AWSEC2StartVpcEndpointServicePrivateDnsVerificationResult;
 @class AWSEC2StateReason;
@@ -3177,12 +3279,19 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayAssociation;
 @class AWSEC2TransitGatewayAttachment;
 @class AWSEC2TransitGatewayAttachmentAssociation;
+@class AWSEC2TransitGatewayAttachmentBgpConfiguration;
 @class AWSEC2TransitGatewayAttachmentPropagation;
+@class AWSEC2TransitGatewayConnect;
+@class AWSEC2TransitGatewayConnectOptions;
+@class AWSEC2TransitGatewayConnectPeer;
+@class AWSEC2TransitGatewayConnectPeerConfiguration;
+@class AWSEC2TransitGatewayConnectRequestBgpOptions;
 @class AWSEC2TransitGatewayMulticastDeregisteredGroupMembers;
 @class AWSEC2TransitGatewayMulticastDeregisteredGroupSources;
 @class AWSEC2TransitGatewayMulticastDomain;
 @class AWSEC2TransitGatewayMulticastDomainAssociation;
 @class AWSEC2TransitGatewayMulticastDomainAssociations;
+@class AWSEC2TransitGatewayMulticastDomainOptions;
 @class AWSEC2TransitGatewayMulticastGroup;
 @class AWSEC2TransitGatewayMulticastRegisteredGroupMembers;
 @class AWSEC2TransitGatewayMulticastRegisteredGroupSources;
@@ -3286,6 +3395,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the successful exchange.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable exchangeId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AcceptTransitGatewayMulticastDomainAssociationsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+/**
+ <p>The ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayMulticastDomainId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AcceptTransitGatewayMulticastDomainAssociationsResult : AWSModel
+
+
+/**
+ <p>Describes the multicast domain associations.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainAssociations * _Nullable associations;
 
 @end
 
@@ -3767,6 +3917,255 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The type of principal.</p>
  */
 @property (nonatomic, assign) AWSEC2PrincipalType principalType;
+
+@end
+
+/**
+ <p>Describes an potential intermediate component of a feasible path.</p>
+ */
+@interface AWSEC2AlternatePathHint : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the component.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable componentArn;
+
+/**
+ <p>The ID of the component.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable componentId;
+
+@end
+
+/**
+ <p>Describes a network access control (ACL) rule.</p>
+ */
+@interface AWSEC2AnalysisAclRule : AWSModel
+
+
+/**
+ <p>The IPv4 address range, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>Indicates whether the rule is an outbound rule.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable egress;
+
+/**
+ <p>The range of ports.</p>
+ */
+@property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
+
+/**
+ <p>The protocol.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>Indicates whether to allow or deny traffic that matches the rule.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ruleAction;
+
+/**
+ <p>The rule number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable ruleNumber;
+
+@end
+
+/**
+ <p>Describes a path component.</p>
+ */
+@interface AWSEC2AnalysisComponent : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the component.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The ID of the component.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+@end
+
+/**
+ <p>Describes a load balancer listener.</p>
+ */
+@interface AWSEC2AnalysisLoadBalancerListener : AWSModel
+
+
+/**
+ <p>[Classic Load Balancers] The back-end port for the listener.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable instancePort;
+
+/**
+ <p>The port on which the load balancer is listening.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerPort;
+
+@end
+
+/**
+ <p>Describes a load balancer target.</p>
+ */
+@interface AWSEC2AnalysisLoadBalancerTarget : AWSModel
+
+
+/**
+ <p>The IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable address;
+
+/**
+ <p>The Availability Zone.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable availabilityZone;
+
+/**
+ <p>Information about the instance.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable instance;
+
+/**
+ <p>The port on which the target is listening.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+@end
+
+/**
+ <p>Describes a header. Reflects any changes made by a component as traffic passes through. The fields of an inbound header are null except for the first component of a path.</p>
+ */
+@interface AWSEC2AnalysisPacketHeader : AWSModel
+
+
+/**
+ <p>The destination addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable destinationAddresses;
+
+/**
+ <p>The destination port ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable destinationPortRanges;
+
+/**
+ <p>The protocol.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>The source addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable sourceAddresses;
+
+/**
+ <p>The source port ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable sourcePortRanges;
+
+@end
+
+/**
+ <p>Describes a route table route.</p>
+ */
+@interface AWSEC2AnalysisRouteTableRoute : AWSModel
+
+
+/**
+ <p>The destination IPv4 address, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationCidr;
+
+/**
+ <p>The prefix of the AWS service.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationPrefixListId;
+
+/**
+ <p>The ID of an egress-only internet gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable egressOnlyInternetGatewayId;
+
+/**
+ <p>The ID of the gateway, such as an internet gateway or virtual private gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable gatewayId;
+
+/**
+ <p>The ID of the instance, such as a NAT instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The ID of a NAT gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable natGatewayId;
+
+/**
+ <p>The ID of a network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
+
+/**
+ <p>Describes how the route was created. The following are possible values:</p><ul><li><p><code>CreateRouteTable</code> - The route was automatically created when the route table was created.</p></li><li><p><code>CreateRoute</code> - The route was manually added to the route table.</p></li><li><p><code>EnableVgwRoutePropagation</code> - The route was propagated by route propagation.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable origin;
+
+/**
+ <p>The ID of a transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of a VPC peering connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
+
+@end
+
+/**
+ <p>Describes a security group rule.</p>
+ */
+@interface AWSEC2AnalysisSecurityGroupRule : AWSModel
+
+
+/**
+ <p>The IPv4 address range, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cidr;
+
+/**
+ <p>The direction. The following are possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable direction;
+
+/**
+ <p>The port range.</p>
+ */
+@property (nonatomic, strong) AWSEC2PortRange * _Nullable portRange;
+
+/**
+ <p>The prefix list ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable prefixListId;
+
+/**
+ <p>The protocol name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable protocols;
+
+/**
+ <p>The security group ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityGroupId;
 
 @end
 
@@ -8053,6 +8452,72 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2CreateNetworkInsightsPathRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The AWS resource that is the destination of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destination;
+
+/**
+ <p>The IP address of the AWS resource that is the destination of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationIp;
+
+/**
+ <p>The destination port.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable destinationPort;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2Protocols protocols;
+
+/**
+ <p>The AWS resource that is the source of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>The IP address of the AWS resource that is the source of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceIp;
+
+/**
+ <p>The tags to add to the path.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateNetworkInsightsPathResult : AWSModel
+
+
+/**
+ <p>Information about the path.</p>
+ */
+@property (nonatomic, strong) AWSEC2NetworkInsightsPath * _Nullable networkInsightsPath;
+
+@end
+
+/**
  <p>Contains the parameters for CreateNetworkInterfacePermission.</p>
  Required parameters: [NetworkInterfaceId, Permission]
  */
@@ -8909,6 +9374,117 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2CreateTransitGatewayConnectPeerRequest : AWSRequest
+
+
+/**
+ <p>The BGP options for the Connect peer.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnectRequestBgpOptions * _Nullable bgpOptions;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The range of inside IP addresses that are used for BGP peering. You must specify a size /29 IPv4 CIDR block from the <code>169.254.0.0/16</code> range. The first address from the range must be configured on the appliance as the BGP IP address. You can also optionally specify a size /125 IPv6 CIDR block from the <code>fd00::/8</code> range.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable insideCidrBlocks;
+
+/**
+ <p>The peer IP address (GRE outer IP address) on the appliance side of the Connect peer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerAddress;
+
+/**
+ <p>The tags to apply to the Connect peer.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The peer IP address (GRE outer IP address) on the transit gateway side of the Connect peer, which must be specified from a transit gateway CIDR block. If not specified, Amazon automatically assigns the first available IP address from the transit gateway CIDR block.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAddress;
+
+/**
+ <p>The ID of the Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayConnectPeerResult : AWSModel
+
+
+/**
+ <p>Information about the Connect peer.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnectPeer * _Nullable transitGatewayConnectPeer;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayConnectRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The Connect attachment options.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateTransitGatewayConnectRequestOptions * _Nullable options;
+
+/**
+ <p>The tags to apply to the Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The ID of the transit gateway attachment. You can specify a VPC attachment or a AWS Direct Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
+
+@end
+
+/**
+ <p>The options for a Connect attachment.</p>
+ Required parameters: [Protocol]
+ */
+@interface AWSEC2CreateTransitGatewayConnectRequestOptions : AWSModel
+
+
+/**
+ <p>The tunnel protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2ProtocolValue protocols;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateTransitGatewayConnectResult : AWSModel
+
+
+/**
+ <p>Information about the Connect attachment.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnect * _Nullable transitGatewayConnect;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2CreateTransitGatewayMulticastDomainRequest : AWSRequest
 
 
@@ -8916,6 +9492,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The options for the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) AWSEC2CreateTransitGatewayMulticastDomainRequestOptions * _Nullable options;
 
 /**
  <p>The tags for the transit gateway multicast domain.</p>
@@ -8926,6 +9507,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the transit gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+@end
+
+/**
+ <p>The options for the transit gateway multicast domain.</p>
+ */
+@interface AWSEC2CreateTransitGatewayMulticastDomainRequestOptions : AWSModel
+
+
+/**
+ <p>Indicates whether to automatically accept cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, assign) AWSEC2AutoAcceptSharedAssociationsValue autoAcceptSharedAssociations;
+
+/**
+ <p>Specify whether to enable Internet Group Management Protocol (IGMP) version 2 for the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, assign) AWSEC2Igmpv2SupportValue igmpv2Support;
+
+/**
+ <p>Specify whether to enable support for statically configuring multicast group sources for a domain.</p>
+ */
+@property (nonatomic, assign) AWSEC2StaticSourcesSupportValue staticSourcesSupport;
 
 @end
 
@@ -9217,7 +9821,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2DnsSupportValue dnsSupport;
 
 /**
- <p>Enable or disable IPv6 support.</p>
+ <p>Enable or disable IPv6 support. The default is <code>disable</code>.</p>
  */
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
 
@@ -10532,6 +11136,68 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2DeleteNetworkInsightsAnalysisRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the network insights analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsAnalysisId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteNetworkInsightsAnalysisResult : AWSModel
+
+
+/**
+ <p>The ID of the network insights analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsAnalysisId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteNetworkInsightsPathRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteNetworkInsightsPathResult : AWSModel
+
+
+/**
+ <p>The ID of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+@end
+
+/**
  <p>Contains the parameters for DeleteNetworkInterfacePermission.</p>
  Required parameters: [NetworkInterfacePermissionId]
  */
@@ -10926,6 +11592,68 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the deleted Traffic Mirror target.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable trafficMirrorTargetId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayConnectPeerRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Connect peer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayConnectPeerId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayConnectPeerResult : AWSModel
+
+
+/**
+ <p>Information about the deleted Connect peer.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnectPeer * _Nullable transitGatewayConnectPeer;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayConnectRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteTransitGatewayConnectResult : AWSModel
+
+
+/**
+ <p>Information about the deleted Connect attachment.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnect * _Nullable transitGatewayConnect;
 
 @end
 
@@ -14556,6 +15284,123 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ 
+ */
+@interface AWSEC2DescribeNetworkInsightsAnalysesRequest : AWSRequest
+
+
+/**
+ <p>The time when the network insights analyses ended.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable analysisEndTime;
+
+/**
+ <p>The time when the network insights analyses started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable analysisStartTime;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters. The following are possible values:</p><ul><li><p>PathFound - A Boolean value that indicates whether a feasible path is found.</p></li><li><p>Status - The status of the analysis (running | succeeded | failed).</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The ID of the network insights analyses. You must specify either analysis IDs or a path ID.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInsightsAnalysisIds;
+
+/**
+ <p>The ID of the path. You must specify either a path ID or analysis IDs.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeNetworkInsightsAnalysesResult : AWSModel
+
+
+/**
+ <p>Information about the network insights analyses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NetworkInsightsAnalysis *> * _Nullable networkInsightsAnalyses;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeNetworkInsightsPathsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The filters. The following are possible values:</p><ul><li><p>Destination - The ID of the resource.</p></li><li><p>DestinationPort - The destination port.</p></li><li><p>Name - The path name.</p></li><li><p>Protocol - The protocol.</p></li><li><p>Source - The ID of the resource.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The IDs of the paths.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable networkInsightsPathIds;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeNetworkInsightsPathsResult : AWSModel
+
+
+/**
+ <p>Information about the paths.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2NetworkInsightsPath *> * _Nullable networkInsightsPaths;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
  <p>Contains the parameters for DescribeNetworkInterfaceAttribute.</p>
  Required parameters: [NetworkInterfaceId]
  */
@@ -16152,7 +16997,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code>).</p></li><li><p><code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>association.state</code> - The state of the association (<code>associating</code> | <code>associated</code> | <code>disassociating</code>).</p></li><li><p><code>association.transit-gateway-route-table-id</code> - The ID of the route table for the transit gateway.</p></li><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-owner-id</code> - The ID of the AWS account that owns the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> | <code>connect</code>.</p></li><li><p><code>state</code> - The state of the attachment. Valid values are <code>available</code> | <code>deleted</code> | <code>deleting</code> | <code>failed</code> | <code>failing</code> | <code>initiatingRequest</code> | <code>modifying</code> | <code>pendingAcceptance</code> | <code>pending</code> | <code>rollingBack</code> | <code>rejected</code> | <code>rejecting</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transit-gateway-owner-id</code> - The ID of the AWS account that owns the transit gateway.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -16188,6 +17033,108 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the attachments.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TransitGatewayAttachment *> * _Nullable transitGatewayAttachments;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayConnectPeersRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>state</code> - The state of the Connect peer (<code>pending</code> | <code>available</code> | <code>deleting</code> | <code>deleted</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li><li><p><code>transit-gateway-connect-peer-id</code> - The ID of the Connect peer.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the Connect peers.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayConnectPeerIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayConnectPeersResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the Connect peers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayConnectPeer *> * _Nullable transitGatewayConnectPeers;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayConnectsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>options.protocol</code> - The tunnel protocol (<code>gre</code>).</p></li><li><p><code>state</code> - The state of the attachment (<code>initiating</code> | <code>initiatingRequest</code> | <code>pendingAcceptance</code> | <code>rollingBack</code> | <code>pending</code> | <code>available</code> | <code>modifying</code> | <code>deleting</code> | <code>deleted</code> | <code>failed</code> | <code>rejected</code> | <code>rejecting</code> | <code>failing</code>).</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the Connect attachment.</p></li><li><p><code>transit-gateway-id</code> - The ID of the transit gateway.</p></li><li><p><code>transport-transit-gateway-attachment-id</code> - The ID of the transit gateway attachment from which the Connect attachment was created.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The IDs of the attachments.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayAttachmentIds;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTransitGatewayConnectsResult : AWSModel
+
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the Connect attachments.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayConnect *> * _Nullable transitGatewayConnects;
 
 @end
 
@@ -18911,6 +19858,239 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes an explanation code for an unreachable path. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+ */
+@interface AWSEC2Explanation : AWSModel
+
+
+/**
+ <p>The network ACL.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable acl;
+
+/**
+ <p>The network ACL rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisAclRule * _Nullable aclRule;
+
+/**
+ <p>The IPv4 address, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable address;
+
+/**
+ <p>The IPv4 addresses, in CIDR notation.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable addresses;
+
+/**
+ <p>The resource to which the component is attached.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable attachedTo;
+
+/**
+ <p>The Availability Zones.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable availabilityZones;
+
+/**
+ <p>The CIDR ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable cidrs;
+
+/**
+ <p>The listener for a Classic Load Balancer.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisLoadBalancerListener * _Nullable classicLoadBalancerListener;
+
+/**
+ <p>The component.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable component;
+
+/**
+ <p>The customer gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable customerGateway;
+
+/**
+ <p>The destination.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable destination;
+
+/**
+ <p>The destination VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable destinationVpc;
+
+/**
+ <p>The direction. The following are possible values:</p><ul><li><p>egress</p></li><li><p>ingress</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable direction;
+
+/**
+ <p>The load balancer listener.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable elasticLoadBalancerListener;
+
+/**
+ <p>The explanation code.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable explanationCode;
+
+/**
+ <p>The route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable ingressRouteTable;
+
+/**
+ <p>The internet gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable internetGateway;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the load balancer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable loadBalancerArn;
+
+/**
+ <p>The listener port of the load balancer.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerListenerPort;
+
+/**
+ <p>The target.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisLoadBalancerTarget * _Nullable loadBalancerTarget;
+
+/**
+ <p>The target group.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable loadBalancerTargetGroup;
+
+/**
+ <p>The target groups.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AnalysisComponent *> * _Nullable loadBalancerTargetGroups;
+
+/**
+ <p>The target port.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable loadBalancerTargetPort;
+
+/**
+ <p>The missing component.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable missingComponent;
+
+/**
+ <p>The NAT gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable natGateway;
+
+/**
+ <p>The network interface.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable networkInterface;
+
+/**
+ <p>The packet field.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable packetField;
+
+/**
+ <p>The port.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable port;
+
+/**
+ <p>The port ranges.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PortRange *> * _Nullable portRanges;
+
+/**
+ <p>The prefix list.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable prefixList;
+
+/**
+ <p>The protocols.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable protocols;
+
+/**
+ <p>The route table.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable routeTable;
+
+/**
+ <p>The route table route.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisRouteTableRoute * _Nullable routeTableRoute;
+
+/**
+ <p>The security group.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable securityGroup;
+
+/**
+ <p>The security group rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisSecurityGroupRule * _Nullable securityGroupRule;
+
+/**
+ <p>The security groups.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AnalysisComponent *> * _Nullable securityGroups;
+
+/**
+ <p>The source VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable sourceVpc;
+
+/**
+ <p>The state.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable state;
+
+/**
+ <p>The subnet.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnet;
+
+/**
+ <p>The route table for the subnet.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnetRouteTable;
+
+/**
+ <p>The component VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpc;
+
+/**
+ <p>The VPC endpoint.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpcEndpoint;
+
+/**
+ <p>The VPC peering connection.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpcPeeringConnection;
+
+/**
+ <p>The VPN connection.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpnConnection;
+
+/**
+ <p>The VPN gateway.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpnGateway;
+
+@end
+
+/**
  
  */
 @interface AWSEC2ExportClientVpnClientCertificateRevocationListRequest : AWSRequest
@@ -20856,7 +22036,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> | <code>connect</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -20907,7 +22087,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>resource-id</code> - The ID of the resource.</p></li><li><p><code>resource-type</code> - The resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> | <code>connect</code>.</p></li><li><p><code>transit-gateway-attachment-id</code> - The ID of the attachment.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -26944,6 +28124,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>Adds IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable addTransitGatewayCidrBlocks;
+
+/**
  <p>The ID of the default association route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable associationDefaultRouteTableId;
@@ -26972,6 +28157,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the default propagation route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable propagationDefaultRouteTableId;
+
+/**
+ <p>Removes CIDR blocks for the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable removeTransitGatewayCidrBlocks;
 
 /**
  <p>Enable or disable Equal Cost Multipath Protocol support.</p>
@@ -28197,6 +29387,137 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>Describes a network insights analysis.</p>
+ */
+@interface AWSEC2NetworkInsightsAnalysis : AWSModel
+
+
+/**
+ <p>Potential intermediate components.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AlternatePathHint *> * _Nullable alternatePathHints;
+
+/**
+ <p>The explanations. For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/reachability/explanation-codes.html">Reachability Analyzer explanation codes</a>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Explanation *> * _Nullable explanations;
+
+/**
+ <p>The Amazon Resource Names (ARN) of the AWS resources that the path must traverse.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable filterInArns;
+
+/**
+ <p>The components in the path from source to destination.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PathComponent *> * _Nullable forwardPathComponents;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the network insights analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsAnalysisArn;
+
+/**
+ <p>The ID of the network insights analysis.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsAnalysisId;
+
+/**
+ <p>The ID of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+/**
+ <p>Indicates whether the destination is reachable from the source.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable networkPathFound;
+
+/**
+ <p>The components in the path from destination to source.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2PathComponent *> * _Nullable returnPathComponents;
+
+/**
+ <p>The time the analysis started.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startDate;
+
+/**
+ <p>The status of the network insights analysis.</p>
+ */
+@property (nonatomic, assign) AWSEC2AnalysisStatus status;
+
+/**
+ <p>The status message, if the status is <code>failed</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statusMessage;
+
+/**
+ <p>The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Describes a path.</p>
+ */
+@interface AWSEC2NetworkInsightsPath : AWSModel
+
+
+/**
+ <p>The time stamp when the path was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdDate;
+
+/**
+ <p>The AWS resource that is the destination of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destination;
+
+/**
+ <p>The IP address of the AWS resource that is the destination of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationIp;
+
+/**
+ <p>The destination port.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable destinationPort;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathArn;
+
+/**
+ <p>The ID of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+/**
+ <p>The protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2Protocols protocols;
+
+/**
+ <p>The AWS resource that is the source of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable source;
+
+/**
+ <p>The IP address of the AWS resource that is the source of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceIp;
+
+/**
+ <p>The tags associated with the path.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
  <p>Describes a network interface.</p>
  */
 @interface AWSEC2NetworkInterface : AWSModel
@@ -28606,6 +29927,69 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates that the fleet uses a single instance type to launch all On-Demand Instances in the fleet. Supported only for fleets of type <code>instant</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable singleInstanceType;
+
+@end
+
+/**
+ <p>Describes a path component.</p>
+ */
+@interface AWSEC2PathComponent : AWSModel
+
+
+/**
+ <p>The network ACL rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisAclRule * _Nullable aclRule;
+
+/**
+ <p>The component.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable component;
+
+/**
+ <p>The destination VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable destinationVpc;
+
+/**
+ <p>The inbound header.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisPacketHeader * _Nullable inboundHeader;
+
+/**
+ <p>The outbound header.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisPacketHeader * _Nullable outboundHeader;
+
+/**
+ <p>The route table route.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisRouteTableRoute * _Nullable routeTableRoute;
+
+/**
+ <p>The security group rule.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisSecurityGroupRule * _Nullable securityGroupRule;
+
+/**
+ <p>The sequence number.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable sequenceNumber;
+
+/**
+ <p>The source VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable sourceVpc;
+
+/**
+ <p>The subnet.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable subnet;
+
+/**
+ <p>The component VPC.</p>
+ */
+@property (nonatomic, strong) AWSEC2AnalysisComponent * _Nullable vpc;
 
 @end
 
@@ -29946,6 +31330,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the transit gateway multicast group sources.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayMulticastRegisteredGroupSources * _Nullable registeredMulticastGroupSources;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2RejectTransitGatewayMulticastDomainAssociationsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The IDs of the subnets to associate with the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+/**
+ <p>The ID of the transit gateway attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayMulticastDomainId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2RejectTransitGatewayMulticastDomainAssociationsResult : AWSModel
+
+
+/**
+ <p>Describes the multicast domain associations.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainAssociations * _Nullable associations;
 
 @end
 
@@ -32976,7 +34401,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-type</code> - The attachment resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code>.</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p></li><li><p><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p></li></ul>
+ <p>One or more filters. The possible values are:</p><ul><li><p><code>attachment.transit-gateway-attachment-id</code>- The id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-id</code> - The resource id of the transit gateway attachment.</p></li><li><p><code>attachment.resource-type</code> - The attachment resource type. Valid values are <code>vpc</code> | <code>vpn</code> | <code>direct-connect-gateway</code> | <code>peering</code> | <code>connect</code>.</p></li><li><p><code>prefix-list-id</code> - The ID of the prefix list.</p></li><li><p><code>route-search.exact-match</code> - The exact match of the specified filter.</p></li><li><p><code>route-search.longest-prefix-match</code> - The longest prefix that matches the route.</p></li><li><p><code>route-search.subnet-of-match</code> - The routes with a subnet that match the specified CIDR filter.</p></li><li><p><code>route-search.supernet-of-match</code> - The routes with a CIDR that encompass the CIDR filter. For example, if you have 10.0.1.0/29 and 10.0.1.0/31 routes in your route table and you specify supernet-of-match as 10.0.1.0/30, then the result returns 10.0.1.0/29.</p></li><li><p><code>state</code> - The state of the route (<code>active</code> | <code>blackhole</code>).</p></li><li><p><code>type</code> - The type of route (<code>propagated</code> | <code>static</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -34397,6 +35822,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2StartNetworkInsightsAnalysisRequest : AWSRequest
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The Amazon Resource Names (ARN) of the resources that the path must traverse.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable filterInArns;
+
+/**
+ <p>The ID of the path.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable networkInsightsPathId;
+
+/**
+ <p>The tags to apply.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2StartNetworkInsightsAnalysisResult : AWSModel
+
+
+/**
+ <p>Information about the network insights analysis.</p>
+ */
+@property (nonatomic, strong) AWSEC2NetworkInsightsAnalysis * _Nullable networkInsightsAnalysis;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2StartVpcEndpointServicePrivateDnsVerificationRequest : AWSRequest
 
 
@@ -34746,7 +36217,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>route-table</code> | <code>security-group</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-connect-peer</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 
@@ -35434,6 +36905,39 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The BGP configuration information.</p>
+ */
+@interface AWSEC2TransitGatewayAttachmentBgpConfiguration : AWSModel
+
+
+/**
+ <p>The BGP status.</p>
+ */
+@property (nonatomic, assign) AWSEC2BgpStatus bgpStatus;
+
+/**
+ <p>The interior BGP peer IP address for the appliance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerAddress;
+
+/**
+ <p>The peer Autonomous System Number (ASN).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable peerAsn;
+
+/**
+ <p>The interior BGP peer IP address for the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAddress;
+
+/**
+ <p>The transit gateway Autonomous System Number (ASN).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable transitGatewayAsn;
+
+@end
+
+/**
  <p>Describes a propagation route table.</p>
  */
 @interface AWSEC2TransitGatewayAttachmentPropagation : AWSModel
@@ -35448,6 +36952,146 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the propagation route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayRouteTableId;
+
+@end
+
+/**
+ <p>Describes a transit gateway Connect attachment.</p>
+ */
+@interface AWSEC2TransitGatewayConnect : AWSModel
+
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The Connect attachment options.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnectOptions * _Nullable options;
+
+/**
+ <p>The state of the attachment.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayAttachmentState state;
+
+/**
+ <p>The tags for the attachment.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the transit gateway.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The ID of the attachment from which the Connect attachment was created.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transportTransitGatewayAttachmentId;
+
+@end
+
+/**
+ <p>Describes the Connect attachment options.</p>
+ */
+@interface AWSEC2TransitGatewayConnectOptions : AWSModel
+
+
+/**
+ <p>The tunnel protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2ProtocolValue protocols;
+
+@end
+
+/**
+ <p>Describes a transit gateway Connect peer.</p>
+ */
+@interface AWSEC2TransitGatewayConnectPeer : AWSModel
+
+
+/**
+ <p>The Connect peer details.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayConnectPeerConfiguration * _Nullable connectPeerConfiguration;
+
+/**
+ <p>The creation time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationTime;
+
+/**
+ <p>The state of the Connect peer.</p>
+ */
+@property (nonatomic, assign) AWSEC2TransitGatewayConnectPeerState state;
+
+/**
+ <p>The tags for the Connect peer.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the Connect attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAttachmentId;
+
+/**
+ <p>The ID of the Connect peer.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayConnectPeerId;
+
+@end
+
+/**
+ <p>Describes the Connect peer details.</p>
+ */
+@interface AWSEC2TransitGatewayConnectPeerConfiguration : AWSModel
+
+
+/**
+ <p>The BGP configuration details.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TransitGatewayAttachmentBgpConfiguration *> * _Nullable bgpConfigurations;
+
+/**
+ <p>The range of interior BGP peer IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable insideCidrBlocks;
+
+/**
+ <p>The Connect peer IP address on the appliance side of the tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable peerAddress;
+
+/**
+ <p>The tunnel protocol.</p>
+ */
+@property (nonatomic, assign) AWSEC2ProtocolValue protocols;
+
+/**
+ <p>The Connect peer IP address on the transit gateway side of the tunnel.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayAddress;
+
+@end
+
+/**
+ <p>The BGP options for the Connect attachment.</p>
+ */
+@interface AWSEC2TransitGatewayConnectRequestBgpOptions : AWSModel
+
+
+/**
+ <p>The peer Autonomous System Number (ASN).</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable peerAsn;
 
 @end
 
@@ -35509,6 +37153,16 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
 
 /**
+ <p>The options for the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) AWSEC2TransitGatewayMulticastDomainOptions * _Nullable options;
+
+/**
+ <p> The ID of the AWS account that owns the transit gateway multiicast domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ownerId;
+
+/**
  <p>The state of the transit gateway multicast domain.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayMulticastDomainState state;
@@ -35522,6 +37176,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the transit gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayId;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable transitGatewayMulticastDomainArn;
 
 /**
  <p>The ID of the transit gateway multicast domain.</p>
@@ -35540,6 +37199,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p> The ID of the AWS account that owns the transit gateway multicast domain association resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceOwnerId;
 
 /**
  <p>The type of resource, for example a VPC attachment.</p>
@@ -35570,6 +37234,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
 /**
+ <p> The ID of the AWS account that owns the resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceOwnerId;
+
+/**
  <p>The type of resource, for example a VPC attachment.</p>
  */
 @property (nonatomic, assign) AWSEC2TransitGatewayAttachmentResourceType resourceType;
@@ -35588,6 +37257,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the transit gateway multicast domain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable transitGatewayMulticastDomainId;
+
+@end
+
+/**
+ <p>Describes the options for a transit gateway multicast domain.</p>
+ */
+@interface AWSEC2TransitGatewayMulticastDomainOptions : AWSModel
+
+
+/**
+ <p>Indicates whether to automatically cross-account subnet associations that are associated with the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, assign) AWSEC2AutoAcceptSharedAssociationsValue autoAcceptSharedAssociations;
+
+/**
+ <p>Indicates whether Internet Group Management Protocol (IGMP) version 2 is turned on for the transit gateway multicast domain.</p>
+ */
+@property (nonatomic, assign) AWSEC2Igmpv2SupportValue igmpv2Support;
+
+/**
+ <p>Indicates whether support for statically configuring transit gateway multicast group sources is turned on.</p>
+ */
+@property (nonatomic, assign) AWSEC2StaticSourcesSupportValue staticSourcesSupport;
 
 @end
 
@@ -35626,6 +37318,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the resource.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceId;
+
+/**
+ <p> The ID of the AWS account that owns the transit gateway multicast domain group resource.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceOwnerId;
 
 /**
  <p>The type of resource, for example a VPC attachment.</p>
@@ -35740,6 +37437,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the default propagation route table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable propagationDefaultRouteTableId;
+
+/**
+ <p>The transit gateway CIDR blocks.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayCidrBlocks;
 
 /**
  <p>Indicates whether Equal Cost Multipath Protocol support is enabled.</p>
@@ -35920,6 +37622,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether multicast is enabled on the transit gateway</p>
  */
 @property (nonatomic, assign) AWSEC2MulticastSupportValue multicastSupport;
+
+/**
+ <p>One or more IPv4 or IPv6 CIDR blocks for the transit gateway. Must be a size /24 CIDR block or larger for IPv4, or a size /64 CIDR block or larger for IPv6.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable transitGatewayCidrBlocks;
 
 /**
  <p>Enable or disable Equal Cost Multipath Protocol support. Enabled by default.</p>
