@@ -1104,7 +1104,7 @@
           \"documentation\":\"<p>The IDs of the instances. You can specify up to 20 instances.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         }\
       }\
@@ -1122,7 +1122,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"TargetGroupARNs\":{\
@@ -1144,7 +1144,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"LoadBalancerNames\":{\
@@ -1282,7 +1282,7 @@
     \"AutoScalingGroupMinSize\":{\"type\":\"integer\"},\
     \"AutoScalingGroupNames\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"ResourceName\"}\
+      \"member\":{\"shape\":\"XmlStringMaxLen255\"}\
     },\
     \"AutoScalingGroupNamesType\":{\
       \"type\":\"structure\",\
@@ -1396,8 +1396,7 @@
     },\
     \"AvailabilityZones\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"XmlStringMaxLen255\"},\
-      \"min\":1\
+      \"member\":{\"shape\":\"XmlStringMaxLen255\"}\
     },\
     \"BatchDeleteScheduledActionAnswer\":{\
       \"type\":\"structure\",\
@@ -1416,7 +1415,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScheduledActionNames\":{\
@@ -1442,7 +1441,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScheduledUpdateGroupActions\":{\
@@ -1568,7 +1567,7 @@
           \"documentation\":\"<p>The name of the Auto Scaling group. This name must be unique per Region per account.</p>\"\
         },\
         \"LaunchConfigurationName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the launch configuration to use to launch instances. </p> <p>Conditional: You must specify either a launch template (<code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>) or a launch configuration (<code>LaunchConfigurationName</code> or <code>InstanceId</code>).</p>\"\
         },\
         \"LaunchTemplate\":{\
@@ -1785,7 +1784,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ForceDelete\":{\
@@ -1811,7 +1810,7 @@
           \"documentation\":\"<p>The name of the lifecycle hook.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         }\
       }\
@@ -1824,11 +1823,11 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"TopicARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.</p>\"\
         }\
       }\
@@ -1838,7 +1837,7 @@
       \"required\":[\"PolicyName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"PolicyName\":{\
@@ -1855,11 +1854,11 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScheduledActionName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the action to delete.</p>\"\
         }\
       }\
@@ -1988,7 +1987,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"LifecycleHookNames\":{\
@@ -2002,7 +2001,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"NextToken\":{\
@@ -2033,7 +2032,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"NextToken\":{\
@@ -2107,7 +2106,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"PolicyNames\":{\
@@ -2136,7 +2135,7 @@
           \"documentation\":\"<p>The activity IDs of the desired scaling activities. You can specify up to 50 IDs. If you omit this parameter, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"MaxRecords\":{\
@@ -2153,7 +2152,7 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScheduledActionNames\":{\
@@ -2225,7 +2224,7 @@
           \"documentation\":\"<p>The IDs of the instances. You can specify up to 20 instances.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ShouldDecrementDesiredCapacity\":{\
@@ -2247,7 +2246,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"TargetGroupARNs\":{\
@@ -2269,7 +2268,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"LoadBalancerNames\":{\
@@ -2283,7 +2282,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"Metrics\":{\
@@ -2332,7 +2331,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"Metrics\":{\
@@ -2384,7 +2383,7 @@
           \"documentation\":\"<p>The IDs of the instances. You can specify up to 20 instances.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ShouldDecrementDesiredCapacity\":{\
@@ -2399,7 +2398,7 @@
       \"required\":[\"PolicyName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"PolicyName\":{\
@@ -2438,7 +2437,7 @@
           \"documentation\":\"<p>The IDs of the instances. You can specify up to 20 instances.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         }\
       }\
@@ -2816,14 +2815,14 @@
       \"required\":[\"LaunchConfigurationName\"],\
       \"members\":{\
         \"LaunchConfigurationName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the launch configuration.</p>\"\
         }\
       }\
     },\
     \"LaunchConfigurationNames\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"ResourceName\"}\
+      \"member\":{\"shape\":\"XmlStringMaxLen255\"}\
     },\
     \"LaunchConfigurationNamesType\":{\
       \"type\":\"structure\",\
@@ -2930,7 +2929,7 @@
           \"documentation\":\"<p>The name of the lifecycle hook.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group for the lifecycle hook.</p>\"\
         },\
         \"LifecycleTransition\":{\
@@ -2938,11 +2937,11 @@
           \"documentation\":\"<p>The state of the EC2 instance to which to attach the lifecycle hook. The following are possible values:</p> <ul> <li> <p>autoscaling:EC2_INSTANCE_LAUNCHING</p> </li> <li> <p>autoscaling:EC2_INSTANCE_TERMINATING</p> </li> </ul>\"\
         },\
         \"NotificationTargetARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"NotificationTargetResourceName\",\
           \"documentation\":\"<p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.</p>\"\
         },\
         \"RoleARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target.</p>\"\
         },\
         \"NotificationMetadata\":{\
@@ -3001,7 +3000,7 @@
           \"documentation\":\"<p>The ARN of the target that Amazon EC2 Auto Scaling sends notifications to when an instance is in the transition state for the lifecycle hook. The notification target can be either an SQS queue or an SNS topic.</p>\"\
         },\
         \"RoleARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p>\"\
         }\
       },\
@@ -3203,11 +3202,11 @@
       \"type\":\"structure\",\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"TopicARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.</p>\"\
         },\
         \"NotificationType\":{\
@@ -3223,7 +3222,7 @@
     },\
     \"NotificationTargetResourceName\":{\
       \"type\":\"string\",\
-      \"max\":1600,\
+      \"max\":255,\
       \"min\":0,\
       \"pattern\":\"[\\\\u0020-\\\\uD7FF\\\\uE000-\\\\uFFFD\\\\uD800\\\\uDC00-\\\\uDBFF\\\\uDFFF\\\\r\\\\n\\\\t]*\"\
     },\
@@ -3334,7 +3333,7 @@
           \"documentation\":\"<p>The name of the lifecycle hook.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"LifecycleTransition\":{\
@@ -3342,7 +3341,7 @@
           \"documentation\":\"<p>The instance state to which you want to attach the lifecycle hook. The valid values are:</p> <ul> <li> <p>autoscaling:EC2_INSTANCE_LAUNCHING</p> </li> <li> <p>autoscaling:EC2_INSTANCE_TERMINATING</p> </li> </ul> <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>\"\
         },\
         \"RoleARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The ARN of the IAM role that allows the Auto Scaling group to publish to the specified notification target, for example, an Amazon SNS topic or an Amazon SQS queue.</p> <p>Required for new lifecycle hooks, but optional when updating existing hooks.</p>\"\
         },\
         \"NotificationTargetARN\":{\
@@ -3372,11 +3371,11 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"TopicARN\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon Simple Notification Service (Amazon SNS) topic.</p>\"\
         },\
         \"NotificationTypes\":{\
@@ -3393,7 +3392,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"PolicyName\":{\
@@ -3454,7 +3453,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScheduledActionName\":{\
@@ -3690,7 +3689,7 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ScalingProcesses\":{\
@@ -3701,7 +3700,7 @@
     },\
     \"ScheduledActionNames\":{\
       \"type\":\"list\",\
-      \"member\":{\"shape\":\"ResourceName\"}\
+      \"member\":{\"shape\":\"XmlStringMaxLen255\"}\
     },\
     \"ScheduledActionsType\":{\
       \"type\":\"structure\",\
@@ -3830,7 +3829,7 @@
       ],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"DesiredCapacity\":{\
@@ -3882,7 +3881,7 @@
           \"documentation\":\"<p>One or more instance IDs. You can specify up to 50 instances.</p>\"\
         },\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"ProtectedFromScaleIn\":{\
@@ -4107,11 +4106,11 @@
       \"required\":[\"AutoScalingGroupName\"],\
       \"members\":{\
         \"AutoScalingGroupName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the Auto Scaling group.</p>\"\
         },\
         \"LaunchConfigurationName\":{\
-          \"shape\":\"ResourceName\",\
+          \"shape\":\"XmlStringMaxLen255\",\
           \"documentation\":\"<p>The name of the launch configuration. If you specify <code>LaunchConfigurationName</code> in your update request, you can't specify <code>LaunchTemplate</code> or <code>MixedInstancesPolicy</code>.</p>\"\
         },\
         \"LaunchTemplate\":{\
