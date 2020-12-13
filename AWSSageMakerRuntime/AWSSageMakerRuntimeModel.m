@@ -21,7 +21,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
 @implementation AWSSageMakerRuntimeInvokeEndpointInput
 
 + (BOOL)supportsSecureCoding {
-    return NO;
+    return YES;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
@@ -42,7 +42,7 @@ NSString *const AWSSageMakerRuntimeErrorDomain = @"com.amazonaws.AWSSageMakerRun
 @implementation AWSSageMakerRuntimeInvokeEndpointOutput
 
 + (BOOL)supportsSecureCoding {
-    return NO;
+    return YES;
 }
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
