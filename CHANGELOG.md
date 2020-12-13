@@ -2,7 +2,12 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSSageMakerRuntime
 
 ## 2.20.0
 
