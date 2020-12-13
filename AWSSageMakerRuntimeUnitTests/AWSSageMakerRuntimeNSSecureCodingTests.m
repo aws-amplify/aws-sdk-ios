@@ -27,11 +27,11 @@
 @implementation AWSSageMakerRuntimeNSSecureCodingTests
 
 - (void) test_AWSSageMakerRuntimeInvokeEndpointInput {
-    [self validateClassDoesNotSupportSecureCoding:[AWSSageMakerRuntimeInvokeEndpointInput class]];
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimeInvokeEndpointInput class]];
 }
 
 - (void) test_AWSSageMakerRuntimeInvokeEndpointOutput {
-    [self validateClassDoesNotSupportSecureCoding:[AWSSageMakerRuntimeInvokeEndpointOutput class]];
+    [self validateSecureCodingForClass:[AWSSageMakerRuntimeInvokeEndpointOutput class]];
 }
 
 @end
