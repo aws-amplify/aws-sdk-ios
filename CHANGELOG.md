@@ -12,6 +12,11 @@
 - **AWSCore**
   - Remove deprecated iOS 8 API from UICKeyChainStore. Thanks @1mash0! ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245))
 
+### Bug fixes
+
+- **AWSS3TransferUtility**
+  - fix: S3TransferUtility uniquely identify completedParts (See [Issue #3173](https://github.com/aws-amplify/aws-sdk-ios/issues/3173), [PR #3282](https://github.com/aws-amplify/aws-sdk-ios/pull/3282))
+  
 ## 2.20.0
 
 ### Breaking Changes
