@@ -33,6 +33,12 @@ API_AVAILABLE(ios(13.0))
  */
 - (void)setViewControllerForAppleSignIn:(UIViewController *)signInViewController;
 
+/**
+ Provides access to the ASAuthorizationAppleIDCredential
+ Only upon initial SIWA, Apple returns name and email (if requested by scope) in the ASAuthorizationAppleIDCredential
+ */
+@property (strong, atomic) ASAuthorizationAppleIDCredential *credential;
+
 @end
 
 NS_ASSUME_NONNULL_END

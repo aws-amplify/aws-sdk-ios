@@ -16,7 +16,14 @@
 
 - **AWSS3TransferUtility**
   - fix: S3TransferUtility uniquely identify completedParts (See [Issue #3173](https://github.com/aws-amplify/aws-sdk-ios/issues/3173), [PR #3282](https://github.com/aws-amplify/aws-sdk-ios/pull/3282))
-  
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSSageMakerRuntime
+
 ## 2.20.0
 
 ### Breaking Changes

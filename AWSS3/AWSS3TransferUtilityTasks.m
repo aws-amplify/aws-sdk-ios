@@ -78,7 +78,7 @@
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property (strong, atomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
-@property (strong, atomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *completedPartsDictionary;
+@property (strong, atomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property (strong, atomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
 @property int retryCount;
 @property int partNumber;
@@ -242,7 +242,7 @@
         _progress = [NSProgress new];
         _waitingPartsDictionary = [NSMutableDictionary new];
         _inProgressPartsDictionary = [NSMutableDictionary new];
-        _completedPartsDictionary = [NSMutableDictionary new];
+        _completedPartsSet = [NSMutableSet new];
     }
     return self;
 }
