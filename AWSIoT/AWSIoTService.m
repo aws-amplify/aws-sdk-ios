@@ -553,6 +553,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCancelDetectMitigationActionsTaskResponse *> *)cancelDetectMitigationActionsTask:(AWSIoTCancelDetectMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/detect/mitigationactions/tasks/{taskId}/cancel"
+                  targetPrefix:@""
+                 operationName:@"CancelDetectMitigationActionsTask"
+                   outputClass:[AWSIoTCancelDetectMitigationActionsTaskResponse class]];
+}
+
+- (void)cancelDetectMitigationActionsTask:(AWSIoTCancelDetectMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTCancelDetectMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self cancelDetectMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCancelDetectMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTCancelDetectMitigationActionsTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCancelJobResponse *> *)cancelJob:(AWSIoTCancelJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -726,6 +749,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTCreateCertificateFromCsrResponse *response, NSError *error))completionHandler {
     [[self createCertificateFromCsr:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCertificateFromCsrResponse *> * _Nonnull task) {
         AWSIoTCreateCertificateFromCsrResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTCreateCustomMetricResponse *> *)createCustomMetric:(AWSIoTCreateCustomMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/custom-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"CreateCustomMetric"
+                   outputClass:[AWSIoTCreateCustomMetricResponse class]];
+}
+
+- (void)createCustomMetric:(AWSIoTCreateCustomMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateCustomMetricResponse *response, NSError *error))completionHandler {
+    [[self createCustomMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateCustomMetricResponse *> * _Nonnull task) {
+        AWSIoTCreateCustomMetricResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1349,6 +1395,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDeleteCustomMetricResponse *> *)deleteCustomMetric:(AWSIoTDeleteCustomMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/custom-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"DeleteCustomMetric"
+                   outputClass:[AWSIoTDeleteCustomMetricResponse class]];
+}
+
+- (void)deleteCustomMetric:(AWSIoTDeleteCustomMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTDeleteCustomMetricResponse *response, NSError *error))completionHandler {
+    [[self deleteCustomMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDeleteCustomMetricResponse *> * _Nonnull task) {
+        AWSIoTDeleteCustomMetricResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -2085,6 +2154,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTDescribeCustomMetricResponse *> *)describeCustomMetric:(AWSIoTDescribeCustomMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/custom-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"DescribeCustomMetric"
+                   outputClass:[AWSIoTDescribeCustomMetricResponse class]];
+}
+
+- (void)describeCustomMetric:(AWSIoTDescribeCustomMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeCustomMetricResponse *response, NSError *error))completionHandler {
+    [[self describeCustomMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeCustomMetricResponse *> * _Nonnull task) {
+        AWSIoTDescribeCustomMetricResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTDescribeDefaultAuthorizerResponse *> *)describeDefaultAuthorizer:(AWSIoTDescribeDefaultAuthorizerRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -2098,6 +2190,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeDefaultAuthorizerResponse *response, NSError *error))completionHandler {
     [[self describeDefaultAuthorizer:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeDefaultAuthorizerResponse *> * _Nonnull task) {
         AWSIoTDescribeDefaultAuthorizerResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeDetectMitigationActionsTaskResponse *> *)describeDetectMitigationActionsTask:(AWSIoTDescribeDetectMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/detect/mitigationactions/tasks/{taskId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeDetectMitigationActionsTask"
+                   outputClass:[AWSIoTDescribeDetectMitigationActionsTaskResponse class]];
+}
+
+- (void)describeDetectMitigationActionsTask:(AWSIoTDescribeDetectMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeDetectMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self describeDetectMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeDetectMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTDescribeDetectMitigationActionsTaskResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2650,6 +2765,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTGetBehaviorModelTrainingSummariesResponse *> *)getBehaviorModelTrainingSummaries:(AWSIoTGetBehaviorModelTrainingSummariesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/behavior-model-training/summaries"
+                  targetPrefix:@""
+                 operationName:@"GetBehaviorModelTrainingSummaries"
+                   outputClass:[AWSIoTGetBehaviorModelTrainingSummariesResponse class]];
+}
+
+- (void)getBehaviorModelTrainingSummaries:(AWSIoTGetBehaviorModelTrainingSummariesRequest *)request
+     completionHandler:(void (^)(AWSIoTGetBehaviorModelTrainingSummariesResponse *response, NSError *error))completionHandler {
+    [[self getBehaviorModelTrainingSummaries:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTGetBehaviorModelTrainingSummariesResponse *> * _Nonnull task) {
+        AWSIoTGetBehaviorModelTrainingSummariesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -3244,6 +3382,75 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListCertificatesByCAResponse *response, NSError *error))completionHandler {
     [[self listCertificatesByCA:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListCertificatesByCAResponse *> * _Nonnull task) {
         AWSIoTListCertificatesByCAResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListCustomMetricsResponse *> *)listCustomMetrics:(AWSIoTListCustomMetricsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/custom-metrics"
+                  targetPrefix:@""
+                 operationName:@"ListCustomMetrics"
+                   outputClass:[AWSIoTListCustomMetricsResponse class]];
+}
+
+- (void)listCustomMetrics:(AWSIoTListCustomMetricsRequest *)request
+     completionHandler:(void (^)(AWSIoTListCustomMetricsResponse *response, NSError *error))completionHandler {
+    [[self listCustomMetrics:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListCustomMetricsResponse *> * _Nonnull task) {
+        AWSIoTListCustomMetricsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListDetectMitigationActionsExecutionsResponse *> *)listDetectMitigationActionsExecutions:(AWSIoTListDetectMitigationActionsExecutionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/detect/mitigationactions/executions"
+                  targetPrefix:@""
+                 operationName:@"ListDetectMitigationActionsExecutions"
+                   outputClass:[AWSIoTListDetectMitigationActionsExecutionsResponse class]];
+}
+
+- (void)listDetectMitigationActionsExecutions:(AWSIoTListDetectMitigationActionsExecutionsRequest *)request
+     completionHandler:(void (^)(AWSIoTListDetectMitigationActionsExecutionsResponse *response, NSError *error))completionHandler {
+    [[self listDetectMitigationActionsExecutions:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListDetectMitigationActionsExecutionsResponse *> * _Nonnull task) {
+        AWSIoTListDetectMitigationActionsExecutionsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListDetectMitigationActionsTasksResponse *> *)listDetectMitigationActionsTasks:(AWSIoTListDetectMitigationActionsTasksRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/detect/mitigationactions/tasks"
+                  targetPrefix:@""
+                 operationName:@"ListDetectMitigationActionsTasks"
+                   outputClass:[AWSIoTListDetectMitigationActionsTasksResponse class]];
+}
+
+- (void)listDetectMitigationActionsTasks:(AWSIoTListDetectMitigationActionsTasksRequest *)request
+     completionHandler:(void (^)(AWSIoTListDetectMitigationActionsTasksResponse *response, NSError *error))completionHandler {
+    [[self listDetectMitigationActionsTasks:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListDetectMitigationActionsTasksResponse *> * _Nonnull task) {
+        AWSIoTListDetectMitigationActionsTasksResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -4444,6 +4651,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTStartDetectMitigationActionsTaskResponse *> *)startDetectMitigationActionsTask:(AWSIoTStartDetectMitigationActionsTaskRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/detect/mitigationactions/tasks/{taskId}"
+                  targetPrefix:@""
+                 operationName:@"StartDetectMitigationActionsTask"
+                   outputClass:[AWSIoTStartDetectMitigationActionsTaskResponse class]];
+}
+
+- (void)startDetectMitigationActionsTask:(AWSIoTStartDetectMitigationActionsTaskRequest *)request
+     completionHandler:(void (^)(AWSIoTStartDetectMitigationActionsTaskResponse *response, NSError *error))completionHandler {
+    [[self startDetectMitigationActionsTask:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTStartDetectMitigationActionsTaskResponse *> * _Nonnull task) {
+        AWSIoTStartDetectMitigationActionsTaskResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTStartOnDemandAuditTaskResponse *> *)startOnDemandAuditTask:(AWSIoTStartOnDemandAuditTaskRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -4758,6 +4988,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTUpdateCustomMetricResponse *> *)updateCustomMetric:(AWSIoTUpdateCustomMetricRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPATCH
+                     URLString:@"/custom-metric/{metricName}"
+                  targetPrefix:@""
+                 operationName:@"UpdateCustomMetric"
+                   outputClass:[AWSIoTUpdateCustomMetricResponse class]];
+}
+
+- (void)updateCustomMetric:(AWSIoTUpdateCustomMetricRequest *)request
+     completionHandler:(void (^)(AWSIoTUpdateCustomMetricResponse *response, NSError *error))completionHandler {
+    [[self updateCustomMetric:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTUpdateCustomMetricResponse *> * _Nonnull task) {
+        AWSIoTUpdateCustomMetricResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;

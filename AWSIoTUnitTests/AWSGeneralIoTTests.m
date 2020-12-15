@@ -581,6 +581,54 @@ static id mockNetworking = nil;
     [AWSIoT removeIoTForKey:key];
 }
 
+- (void)testCancelDetectMitigationActionsTask {
+    NSString *key = @"testCancelDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] cancelDetectMitigationActionsTask:[AWSIoTCancelDetectMitigationActionsTaskRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testCancelDetectMitigationActionsTaskCompletionHandler {
+    NSString *key = @"testCancelDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] cancelDetectMitigationActionsTask:[AWSIoTCancelDetectMitigationActionsTaskRequest new] completionHandler:^(AWSIoTCancelDetectMitigationActionsTaskResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
 - (void)testCancelJob {
     NSString *key = @"testCancelJob";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -951,6 +999,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSIoT IoTForKey:key] createCertificateFromCsr:[AWSIoTCreateCertificateFromCsrRequest new] completionHandler:^(AWSIoTCreateCertificateFromCsrResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testCreateCustomMetric {
+    NSString *key = @"testCreateCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] createCustomMetric:[AWSIoTCreateCustomMetricRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testCreateCustomMetricCompletionHandler {
+    NSString *key = @"testCreateCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] createCustomMetric:[AWSIoTCreateCustomMetricRequest new] completionHandler:^(AWSIoTCreateCustomMetricResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -2249,6 +2345,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testDeleteCustomMetric {
+    NSString *key = @"testDeleteCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] deleteCustomMetric:[AWSIoTDeleteCustomMetricRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testDeleteCustomMetricCompletionHandler {
+    NSString *key = @"testDeleteCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] deleteCustomMetric:[AWSIoTDeleteCustomMetricRequest new] completionHandler:^(AWSIoTDeleteCustomMetricResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -3788,6 +3932,54 @@ static id mockNetworking = nil;
     [AWSIoT removeIoTForKey:key];
 }
 
+- (void)testDescribeCustomMetric {
+    NSString *key = @"testDescribeCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] describeCustomMetric:[AWSIoTDescribeCustomMetricRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testDescribeCustomMetricCompletionHandler {
+    NSString *key = @"testDescribeCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] describeCustomMetric:[AWSIoTDescribeCustomMetricRequest new] completionHandler:^(AWSIoTDescribeCustomMetricResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
 - (void)testDescribeDefaultAuthorizer {
     NSString *key = @"testDescribeDefaultAuthorizer";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -3823,6 +4015,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSIoT IoTForKey:key] describeDefaultAuthorizer:[AWSIoTDescribeDefaultAuthorizerRequest new] completionHandler:^(AWSIoTDescribeDefaultAuthorizerResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testDescribeDetectMitigationActionsTask {
+    NSString *key = @"testDescribeDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] describeDetectMitigationActionsTask:[AWSIoTDescribeDetectMitigationActionsTaskRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testDescribeDetectMitigationActionsTaskCompletionHandler {
+    NSString *key = @"testDescribeDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] describeDetectMitigationActionsTask:[AWSIoTDescribeDetectMitigationActionsTaskRequest new] completionHandler:^(AWSIoTDescribeDetectMitigationActionsTaskResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -4975,6 +5215,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testGetBehaviorModelTrainingSummaries {
+    NSString *key = @"testGetBehaviorModelTrainingSummaries";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] getBehaviorModelTrainingSummaries:[AWSIoTGetBehaviorModelTrainingSummariesRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testGetBehaviorModelTrainingSummariesCompletionHandler {
+    NSString *key = @"testGetBehaviorModelTrainingSummaries";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] getBehaviorModelTrainingSummaries:[AWSIoTGetBehaviorModelTrainingSummariesRequest new] completionHandler:^(AWSIoTGetBehaviorModelTrainingSummariesResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -6219,6 +6507,150 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSIoT IoTForKey:key] listCertificatesByCA:[AWSIoTListCertificatesByCARequest new] completionHandler:^(AWSIoTListCertificatesByCAResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListCustomMetrics {
+    NSString *key = @"testListCustomMetrics";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] listCustomMetrics:[AWSIoTListCustomMetricsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListCustomMetricsCompletionHandler {
+    NSString *key = @"testListCustomMetrics";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] listCustomMetrics:[AWSIoTListCustomMetricsRequest new] completionHandler:^(AWSIoTListCustomMetricsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListDetectMitigationActionsExecutions {
+    NSString *key = @"testListDetectMitigationActionsExecutions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] listDetectMitigationActionsExecutions:[AWSIoTListDetectMitigationActionsExecutionsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListDetectMitigationActionsExecutionsCompletionHandler {
+    NSString *key = @"testListDetectMitigationActionsExecutions";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] listDetectMitigationActionsExecutions:[AWSIoTListDetectMitigationActionsExecutionsRequest new] completionHandler:^(AWSIoTListDetectMitigationActionsExecutionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListDetectMitigationActionsTasks {
+    NSString *key = @"testListDetectMitigationActionsTasks";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] listDetectMitigationActionsTasks:[AWSIoTListDetectMitigationActionsTasksRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testListDetectMitigationActionsTasksCompletionHandler {
+    NSString *key = @"testListDetectMitigationActionsTasks";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] listDetectMitigationActionsTasks:[AWSIoTListDetectMitigationActionsTasksRequest new] completionHandler:^(AWSIoTListDetectMitigationActionsTasksResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -8722,6 +9154,54 @@ static id mockNetworking = nil;
     [AWSIoT removeIoTForKey:key];
 }
 
+- (void)testStartDetectMitigationActionsTask {
+    NSString *key = @"testStartDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] startDetectMitigationActionsTask:[AWSIoTStartDetectMitigationActionsTaskRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testStartDetectMitigationActionsTaskCompletionHandler {
+    NSString *key = @"testStartDetectMitigationActionsTask";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] startDetectMitigationActionsTask:[AWSIoTStartDetectMitigationActionsTaskRequest new] completionHandler:^(AWSIoTStartDetectMitigationActionsTaskResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
 - (void)testStartOnDemandAuditTask {
     NSString *key = @"testStartOnDemandAuditTask";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -9383,6 +9863,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testUpdateCustomMetric {
+    NSString *key = @"testUpdateCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSIoT IoTForKey:key] updateCustomMetric:[AWSIoTUpdateCustomMetricRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSIoT removeIoTForKey:key];
+}
+
+- (void)testUpdateCustomMetricCompletionHandler {
+    NSString *key = @"testUpdateCustomMetric";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSIoT registerIoTWithConfiguration:configuration forKey:key];
+
+    AWSIoT *awsClient = [AWSIoT IoTForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSIoT IoTForKey:key] updateCustomMetric:[AWSIoTUpdateCustomMetricRequest new] completionHandler:^(AWSIoTUpdateCustomMetricResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
