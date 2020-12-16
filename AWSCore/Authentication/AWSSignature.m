@@ -338,7 +338,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSString *scope = [NSString stringWithFormat:@"%@/%@/%@/%@",
                        dateStamp,
                        self.endpoint.regionName,
-                       self.endpoint.serviceName,
+                       self.endpoint.signingName,
                        AWSSignatureV4Terminator];
     NSString *signingCredentials = [NSString stringWithFormat:@"%@/%@",
                                     credentials.accessKey,
@@ -354,7 +354,7 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
     NSData *kSigning  = [AWSSignatureV4Signer getV4DerivedKey:credentials.secretKey
                                                          date:dateStamp
                                                        region:self.endpoint.regionName
-                                                      service:self.endpoint.serviceName];
+                                                      service:self.endpoint.signingName];
     NSData *signature = [AWSSignatureSignerUtility sha256HMacWithData:[stringToSign dataUsingEncoding:NSUTF8StringEncoding]
                                                               withKey:kSigning];
 

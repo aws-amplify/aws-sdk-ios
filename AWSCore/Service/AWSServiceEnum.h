@@ -292,6 +292,10 @@ typedef NS_ENUM(NSInteger, AWSServiceType) {
      *  Amazon Translate
      */
     AWSServiceTranslate NS_SWIFT_NAME(Translate),
+    /**
+     *  Amazon Location
+     */
+    AWSServiceLocation NS_SWIFT_NAME(Location),
     
 };
 
