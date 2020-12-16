@@ -406,6 +406,29 @@
 		18F938D21DE5148E00034221 /* AWSLexVoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */; };
 		18F938D41DE5193F00034221 /* AWSGeneralLexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */; };
 		18F938D71DE520C500034221 /* AWSLexClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D61DE520C500034221 /* AWSLexClientTests.m */; };
+		2109E2C2254745210057043C /* AWSLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; };
+		2109E2C9254745210057043C /* AWSLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109E2C8254745210057043C /* AWSLocationTests.m */; };
+		2109E2CE254745210057043C /* AWSLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; };
+		2109E2CF254745210057043C /* AWSLocation.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		2109E4C9254754E10057043C /* AWSLocation.h in Headers */ = {isa = PBXBuildFile; fileRef = 2109E4C2254754E00057043C /* AWSLocation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2109E4CA254754E10057043C /* AWSLocationService.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109E4C3254754E00057043C /* AWSLocationService.m */; };
+		2109E4CB254754E10057043C /* AWSLocationModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109E4C4254754E00057043C /* AWSLocationModel.m */; };
+		2109E4CC254754E10057043C /* AWSLocationResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 2109E4C5254754E00057043C /* AWSLocationResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2109E4CD254754E10057043C /* AWSLocationModel.h in Headers */ = {isa = PBXBuildFile; fileRef = 2109E4C6254754E10057043C /* AWSLocationModel.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2109E4CE254754E10057043C /* AWSLocationService.h in Headers */ = {isa = PBXBuildFile; fileRef = 2109E4C7254754E10057043C /* AWSLocationService.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		2109E4CF254754E10057043C /* AWSLocationResources.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109E4C8254754E10057043C /* AWSLocationResources.m */; };
+		2109E5502547557A0057043C /* AWSLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; };
+		2109E89E254756FA0057043C /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		2109E917254757290057043C /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
+		2109E918254757900057043C /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
+		2109EAFB254758FB0057043C /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		2109EBEC254759960057043C /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		2109ECDD254759FC0057043C /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		2109ED5625475A2C0057043C /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
+		2109ED5725475A340057043C /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */; };
+		2109EDD025475AD30057043C /* AWSNSSecureCodingTestBase.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */; };
+		2109EDD325475B3D0057043C /* AWSGeneralLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109EDD125475B3C0057043C /* AWSGeneralLocationTests.m */; };
+		2109EDD425475B3D0057043C /* AWSLocationNSSecureCodingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109EDD225475B3D0057043C /* AWSLocationNSSecureCodingTests.m */; };
 		211166FF2399C24900902FC1 /* AWSKinesisVideoSignaling.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 211166F62399C24900902FC1 /* AWSKinesisVideoSignaling.framework */; };
 		211167132399C37300902FC1 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		2111671C2399C5BF00902FC1 /* AWSKinesisVideoSignalingResources.h in Headers */ = {isa = PBXBuildFile; fileRef = 211167142399C5BB00902FC1 /* AWSKinesisVideoSignalingResources.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1406,6 +1429,41 @@
 			proxyType = 1;
 			remoteGlobalIDString = 181154751E201403008F184C;
 			remoteInfo = AWSAllTestsHost;
+		};
+		1811549F1E2014A0008F184C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
+		2109E2C3254745210057043C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2109E2B8254745210057043C;
+			remoteInfo = AWSLocation;
+		};
+		2109E2C5254745210057043C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 181154751E201403008F184C;
+			remoteInfo = AWSAllTestsHost;
+		};
+		2109E2CC254745210057043C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2109E2B8254745210057043C;
+			remoteInfo = AWSLocation;
+		};
+		2109E5512547557A0057043C /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 2109E2B8254745210057043C;
+			remoteInfo = AWSLocation;
 		};
 		211167022399C24900902FC1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -2480,6 +2538,7 @@
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
+				2109E2CF254745210057043C /* AWSLocation.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -2730,6 +2789,23 @@
 		18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexVoiceButton.m; sourceTree = "<group>"; };
 		18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLexTests.m; sourceTree = "<group>"; };
 		18F938D61DE520C500034221 /* AWSLexClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexClientTests.m; sourceTree = "<group>"; };
+		2109E2B9254745210057043C /* AWSLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2109E2BC254745210057043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2109E2C1254745210057043C /* AWSLocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLocationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2109E2C8254745210057043C /* AWSLocationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSLocationTests.m; sourceTree = "<group>"; };
+		2109E2CA254745210057043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2109E4C2254754E00057043C /* AWSLocation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLocation.h; sourceTree = "<group>"; };
+		2109E4C3254754E00057043C /* AWSLocationService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLocationService.m; sourceTree = "<group>"; };
+		2109E4C4254754E00057043C /* AWSLocationModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLocationModel.m; sourceTree = "<group>"; };
+		2109E4C5254754E00057043C /* AWSLocationResources.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLocationResources.h; sourceTree = "<group>"; };
+		2109E4C6254754E10057043C /* AWSLocationModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLocationModel.h; sourceTree = "<group>"; };
+		2109E4C7254754E10057043C /* AWSLocationService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLocationService.h; sourceTree = "<group>"; };
+		2109E4C8254754E10057043C /* AWSLocationResources.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLocationResources.m; sourceTree = "<group>"; };
+		2109E54B2547557A0057043C /* AWSLocationUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLocationUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		2109E54F2547557A0057043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2109EA0A254757F00057043C /* AWSLocationTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		2109EDD125475B3C0057043C /* AWSGeneralLocationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLocationTests.m; sourceTree = "<group>"; };
+		2109EDD225475B3D0057043C /* AWSLocationNSSecureCodingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLocationNSSecureCodingTests.m; sourceTree = "<group>"; };
 		211166F62399C24900902FC1 /* AWSKinesisVideoSignaling.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSKinesisVideoSignaling.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		211166F92399C24900902FC1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		211166FE2399C24900902FC1 /* AWSKinesisVideoSignalingTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSKinesisVideoSignalingTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -3665,6 +3741,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2109E2CE254745210057043C /* AWSLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -3799,6 +3876,36 @@
 				FA1C5B3A2539EA1900DBC24C /* AWSNSSecureCodingTestBase.framework in Frameworks */,
 				FA0F7436251A8E6700519DDC /* AWSTestResources.framework in Frameworks */,
 				183BD9481D8B0040004B2659 /* libOCMock.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2B6254745210057043C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109EAFB254758FB0057043C /* AWSCore.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2BE254745210057043C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109ED5725475A340057043C /* AWSTestResources.framework in Frameworks */,
+				2109ED5625475A2C0057043C /* AWSCore.framework in Frameworks */,
+				2109E2C2254745210057043C /* AWSLocation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E5482547557A0057043C /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109EDD025475AD30057043C /* AWSNSSecureCodingTestBase.framework in Frameworks */,
+				2109ECDD254759FC0057043C /* AWSTestResources.framework in Frameworks */,
+				2109EBEC254759960057043C /* AWSCore.framework in Frameworks */,
+				2109E917254757290057043C /* libOCMock.a in Frameworks */,
+				2109E5502547557A0057043C /* AWSLocation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -5117,6 +5224,41 @@
 			path = AWSLexUnitTests;
 			sourceTree = "<group>";
 		};
+		2109E2BA254745210057043C /* AWSLocation */ = {
+			isa = PBXGroup;
+			children = (
+				2109E4C2254754E00057043C /* AWSLocation.h */,
+				2109E4C6254754E10057043C /* AWSLocationModel.h */,
+				2109E4C4254754E00057043C /* AWSLocationModel.m */,
+				2109E4C5254754E00057043C /* AWSLocationResources.h */,
+				2109E4C8254754E10057043C /* AWSLocationResources.m */,
+				2109E4C7254754E10057043C /* AWSLocationService.h */,
+				2109E4C3254754E00057043C /* AWSLocationService.m */,
+				2109E2BC254745210057043C /* Info.plist */,
+			);
+			path = AWSLocation;
+			sourceTree = "<group>";
+		};
+		2109E2C7254745210057043C /* AWSLocationTests */ = {
+			isa = PBXGroup;
+			children = (
+				2109E2C8254745210057043C /* AWSLocationTests.m */,
+				2109E2CA254745210057043C /* Info.plist */,
+				2109EA0A254757F00057043C /* AWSLocationTests-Bridging-Header.h */,
+			);
+			path = AWSLocationTests;
+			sourceTree = "<group>";
+		};
+		2109E54C2547557A0057043C /* AWSLocationUnitTests */ = {
+			isa = PBXGroup;
+			children = (
+				2109EDD125475B3C0057043C /* AWSGeneralLocationTests.m */,
+				2109EDD225475B3D0057043C /* AWSLocationNSSecureCodingTests.m */,
+				2109E54F2547557A0057043C /* Info.plist */,
+			);
+			path = AWSLocationUnitTests;
+			sourceTree = "<group>";
+		};
 		211166F72399C24900902FC1 /* AWSKinesisVideoSignaling */ = {
 			isa = PBXGroup;
 			children = (
@@ -5444,6 +5586,9 @@
 				185111CC1D78F03B0009F5C3 /* AWSLex */,
 				185111D81D78F03B0009F5C3 /* AWSLexTests */,
 				18F572521D8A08FB0068546F /* AWSLexUnitTests */,
+				2109E2BA254745210057043C /* AWSLocation */,
+				2109E2C7254745210057043C /* AWSLocationTests */,
+				2109E54C2547557A0057043C /* AWSLocationUnitTests */,
 				181270C21E8EB53A00174785 /* AWSLogs */,
 				181270CF1E8EB53A00174785 /* AWSLogsUnitTests */,
 				CE9DE7101C6A7A680060793F /* AWSMachineLearning */,
@@ -5603,6 +5748,9 @@
 				211167282399C83600902FC1 /* AWSKinesisVideoSignalingUnitTests.xctest */,
 				FAD9DD1F245CD135003F84D0 /* AWSTestResources.framework */,
 				FA1C57E42539E80C00DBC24C /* AWSNSSecureCodingTestBase.framework */,
+				2109E2B9254745210057043C /* AWSLocation.framework */,
+				2109E2C1254745210057043C /* AWSLocationTests.xctest */,
+				2109E54B2547557A0057043C /* AWSLocationUnitTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -7181,6 +7329,17 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		2109E2B4254745210057043C /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109E4CE254754E10057043C /* AWSLocationService.h in Headers */,
+				2109E4CC254754E10057043C /* AWSLocationResources.h in Headers */,
+				2109E4CD254754E10057043C /* AWSLocationModel.h in Headers */,
+				2109E4C9254754E10057043C /* AWSLocation.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		211166F12399C24900902FC1 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -7833,6 +7992,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				2109E2CD254745210057043C /* PBXTargetDependency */,
 			);
 			name = AWSAllTestsHost;
 			productName = AWSAllTestsHost;
@@ -8063,6 +8223,61 @@
 			name = AWSLexUnitTests;
 			productName = AWSDeepSenseUnitTests;
 			productReference = 18F572511D8A08FB0068546F /* AWSLexUnitTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2109E2B8254745210057043C /* AWSLocation */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2109E2D4254745220057043C /* Build configuration list for PBXNativeTarget "AWSLocation" */;
+			buildPhases = (
+				2109E2B4254745210057043C /* Headers */,
+				2109E2B5254745210057043C /* Sources */,
+				2109E2B6254745210057043C /* Frameworks */,
+				2109E2B7254745210057043C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = AWSLocation;
+			productName = AWSLocation;
+			productReference = 2109E2B9254745210057043C /* AWSLocation.framework */;
+			productType = "com.apple.product-type.framework";
+		};
+		2109E2C0254745210057043C /* AWSLocationTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2109E2D5254745220057043C /* Build configuration list for PBXNativeTarget "AWSLocationTests" */;
+			buildPhases = (
+				2109E2BD254745210057043C /* Sources */,
+				2109E2BE254745210057043C /* Frameworks */,
+				2109E2BF254745210057043C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2109E2C4254745210057043C /* PBXTargetDependency */,
+				2109E2C6254745210057043C /* PBXTargetDependency */,
+			);
+			name = AWSLocationTests;
+			productName = AWSLocationTests;
+			productReference = 2109E2C1254745210057043C /* AWSLocationTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		2109E54A2547557A0057043C /* AWSLocationUnitTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 2109E5532547557A0057043C /* Build configuration list for PBXNativeTarget "AWSLocationUnitTests" */;
+			buildPhases = (
+				2109E5472547557A0057043C /* Sources */,
+				2109E5482547557A0057043C /* Frameworks */,
+				2109E5492547557A0057043C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				2109E5522547557A0057043C /* PBXTargetDependency */,
+			);
+			name = AWSLocationUnitTests;
+			productName = AWSLocationUnitTests;
+			productReference = 2109E54B2547557A0057043C /* AWSLocationUnitTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 		211166F52399C24900902FC1 /* AWSKinesisVideoSignaling */ = {
@@ -9637,6 +9852,19 @@
 					18F572501D8A08FB0068546F = {
 						CreatedOnToolsVersion = 7.3.1;
 					};
+					2109E2B8254745210057043C = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+					};
+					2109E2C0254745210057043C = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = 181154751E201403008F184C;
+					};
+					2109E54A2547557A0057043C = {
+						CreatedOnToolsVersion = 12.1;
+						ProvisioningStyle = Automatic;
+					};
 					211166F52399C24900902FC1 = {
 						CreatedOnToolsVersion = 11.2.1;
 						ProvisioningStyle = Automatic;
@@ -10025,6 +10253,9 @@
 				185111CA1D78F03B0009F5C3 /* AWSLex */,
 				185111D31D78F03B0009F5C3 /* AWSLexTests */,
 				18F572501D8A08FB0068546F /* AWSLexUnitTests */,
+				2109E2B8254745210057043C /* AWSLocation */,
+				2109E2C0254745210057043C /* AWSLocationTests */,
+				2109E54A2547557A0057043C /* AWSLocationUnitTests */,
 				181270C01E8EB53900174785 /* AWSLogs */,
 				181270C81E8EB53A00174785 /* AWSLogsUnitTests */,
 				CE9DE70E1C6A7A680060793F /* AWSMachineLearning */,
@@ -10247,6 +10478,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		18F5724F1D8A08FB0068546F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2B7254745210057043C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2BF254745210057043C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E5492547557A0057043C /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -11164,6 +11416,35 @@
 				18F938D41DE5193F00034221 /* AWSGeneralLexTests.m in Sources */,
 				FAB5DC45253A3818002ECF1D /* AWSLexNSSecureCodingTests.m in Sources */,
 				183BD9471D8B0030004B2659 /* AWSTestUtility.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2B5254745210057043C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109E4CF254754E10057043C /* AWSLocationResources.m in Sources */,
+				2109E4CB254754E10057043C /* AWSLocationModel.m in Sources */,
+				2109E4CA254754E10057043C /* AWSLocationService.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E2BD254745210057043C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109E918254757900057043C /* AWSTestUtility.m in Sources */,
+				2109E2C9254745210057043C /* AWSLocationTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		2109E5472547557A0057043C /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				2109EDD425475B3D0057043C /* AWSLocationNSSecureCodingTests.m in Sources */,
+				2109E89E254756FA0057043C /* AWSTestUtility.m in Sources */,
+				2109EDD325475B3D0057043C /* AWSGeneralLocationTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -12183,6 +12464,31 @@
 			isa = PBXTargetDependency;
 			target = 181154751E201403008F184C /* AWSAllTestsHost */;
 			targetProxy = 1811549B1E20149B008F184C /* PBXContainerItemProxy */;
+		};
+		181154A01E2014A0008F184C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = 1811549F1E2014A0008F184C /* PBXContainerItemProxy */;
+		};
+		2109E2C4254745210057043C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2109E2B8254745210057043C /* AWSLocation */;
+			targetProxy = 2109E2C3254745210057043C /* PBXContainerItemProxy */;
+		};
+		2109E2C6254745210057043C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 181154751E201403008F184C /* AWSAllTestsHost */;
+			targetProxy = 2109E2C5254745210057043C /* PBXContainerItemProxy */;
+		};
+		2109E2CD254745210057043C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2109E2B8254745210057043C /* AWSLocation */;
+			targetProxy = 2109E2CC254745210057043C /* PBXContainerItemProxy */;
+		};
+		2109E5522547557A0057043C /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 2109E2B8254745210057043C /* AWSLocation */;
+			targetProxy = 2109E5512547557A0057043C /* PBXContainerItemProxy */;
 		};
 		211167032399C24900902FC1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
@@ -13507,6 +13813,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAllTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -13523,6 +13830,7 @@
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = AWSAllTestsHost/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.sdk.ios.AWSAllTestsHost;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
@@ -13975,6 +14283,179 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLexUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+		2109E2D0254745220057043C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.18.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2109E2D1254745220057043C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocation/Info.plist;
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				MARKETING_VERSION = 2.18.0;
+				MTL_FAST_MATH = YES;
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
+				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		2109E2D2254745220057043C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
+			};
+			name = Debug;
+		};
+		2109E2D3254745220057043C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocationTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/AWSAllTestsHost.app/AWSAllTestsHost";
+			};
+			name = Release;
+		};
+		2109E5542547557A0057043C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocationUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		2109E5552547557A0057043C /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CODE_SIGN_STYLE = Automatic;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				INFOPLIST_FILE = AWSLocationUnitTests/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"${inherited}",
+					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
+				);
+				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationUnitTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
@@ -17672,6 +18153,33 @@
 			buildConfigurations = (
 				18F5725A1D8A08FB0068546F /* Debug */,
 				18F5725B1D8A08FB0068546F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2109E2D4254745220057043C /* Build configuration list for PBXNativeTarget "AWSLocation" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2109E2D0254745220057043C /* Debug */,
+				2109E2D1254745220057043C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2109E2D5254745220057043C /* Build configuration list for PBXNativeTarget "AWSLocationTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2109E2D2254745220057043C /* Debug */,
+				2109E2D3254745220057043C /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		2109E5532547557A0057043C /* Build configuration list for PBXNativeTarget "AWSLocationUnitTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2109E5542547557A0057043C /* Debug */,
+				2109E5552547557A0057043C /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
