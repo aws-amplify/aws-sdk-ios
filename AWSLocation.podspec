@@ -13,5 +13,5 @@ Pod::Spec.new do |s|
                      :tag => s.version}
   s.requires_arc = true
   s.dependency 'AWSCore', '2.20.0'
-  s.source_files = 'AWSLocation/*.{h,m}'
+  s.source_files = 'AWSLocation/*.{h,m}', 'AWSLocation/AWSLocationTracker/**/*.swift'
 end
