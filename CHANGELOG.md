@@ -25,6 +25,7 @@
   - AWSAutoScaling
   - AWSEC2
   - AWSSageMakerRuntime
+  - AWSLambda
 
 ## 2.20.0
 
