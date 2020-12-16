@@ -126,20 +126,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE5604171C6BC8DF00B4E00B"
-               BuildableName = "AWSCognitoUnitTests.xctest"
-               BlueprintName = "AWSCognitoUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "9A7ACCA320B115BC00DDBEC1"
                BuildableName = "AWSComprehendUnitTests.xctest"
                BlueprintName = "AWSComprehendUnitTests"
@@ -378,20 +364,6 @@
             buildForAnalyzing = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE56048F1C6BC96500B4E00B"
-               BuildableName = "AWSMobileAnalyticsUnitTests.xctest"
-               BlueprintName = "AWSMobileAnalyticsUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "NO"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "18798F981DEF9EF800BC419B"
                BuildableName = "AWSPinpointUnitTests.xctest"
                BlueprintName = "AWSPinpointUnitTests"
@@ -605,20 +577,6 @@
                BlueprintIdentifier = "CE9DEB5F1C6A9F3D0060793F"
                BuildableName = "AWSCloudWatch.framework"
                BlueprintName = "AWSCloudWatch"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DEABC1C6A7FDF0060793F"
-               BuildableName = "AWSCognito.framework"
-               BlueprintName = "AWSCognito"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -899,20 +857,6 @@
                BlueprintIdentifier = "CE9DE70E1C6A7A680060793F"
                BuildableName = "AWSMachineLearning.framework"
                BlueprintName = "AWSMachineLearning"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </BuildActionEntry>
-         <BuildActionEntry
-            buildForTesting = "YES"
-            buildForRunning = "YES"
-            buildForProfiling = "NO"
-            buildForArchiving = "NO"
-            buildForAnalyzing = "YES">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DE73D1C6A7AE30060793F"
-               BuildableName = "AWSMobileAnalytics.framework"
-               BlueprintName = "AWSMobileAnalytics"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -1217,26 +1161,6 @@
                BlueprintIdentifier = "CEA316BF1C93A415002A9F58"
                BuildableName = "AWSCognitoIdentityProviderUnitTests.xctest"
                BlueprintName = "AWSCognitoIdentityProviderUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DEAC51C6A7FDF0060793F"
-               BuildableName = "AWSCognitoTests.xctest"
-               BlueprintName = "AWSCognitoTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE5604171C6BC8DF00B4E00B"
-               BuildableName = "AWSCognitoUnitTests.xctest"
-               BlueprintName = "AWSCognitoUnitTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -1564,36 +1488,6 @@
             skipped = "NO">
             <BuildableReference
                BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9E501A1C72C19800B60FD7"
-               BuildableName = "AWSMobileAnalyticsLegacyTests.xctest"
-               BlueprintName = "AWSMobileAnalyticsLegacyTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE9DE7461C6A7AE40060793F"
-               BuildableName = "AWSMobileAnalyticsTests.xctest"
-               BlueprintName = "AWSMobileAnalyticsTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
-               BlueprintIdentifier = "CE56048F1C6BC96500B4E00B"
-               BuildableName = "AWSMobileAnalyticsUnitTests.xctest"
-               BlueprintName = "AWSMobileAnalyticsUnitTests"
-               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
-            </BuildableReference>
-         </TestableReference>
-         <TestableReference
-            skipped = "NO">
-            <BuildableReference
-               BuildableIdentifier = "primary"
                BlueprintIdentifier = "18798F861DEF9EA900BC419B"
                BuildableName = "AWSPinpointTests.xctest"
                BlueprintName = "AWSPinpointTests"
@@ -1866,6 +1760,15 @@
       savedToolIdentifier = ""
       useCustomWorkingDirectory = "NO"
       debugDocumentVersioning = "YES">
+      <MacroExpansion>
+         <BuildableReference
+            BuildableIdentifier = "primary"
+            BlueprintIdentifier = "CE9DEB1D1C6A81160060793F"
+            BuildableName = "AWSAPIGateway.framework"
+            BlueprintName = "AWSAPIGateway"
+            ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+         </BuildableReference>
+      </MacroExpansion>
    </ProfileAction>
    <AnalyzeAction
       buildConfiguration = "Debug">

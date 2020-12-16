@@ -26,7 +26,7 @@
 @implementation AWSS3Tests
 
 NSUInteger const AWSS3Test256KB = 1024 * 256;
-NSUInteger const AWSS3TestsTransferManagerMinimumPartSize = 5 * 1024 * 1024;
+NSUInteger const AWSS3TestsMinimumPartSize = 5 * 1024 * 1024;
 NSString *AWSS3TestBucketNamePrefix = nil;
 
 static NSURL *tempLargeURL = nil;
@@ -1274,7 +1274,7 @@ static NSMutableArray<NSString *> *testBucketsCreated;
     __block NSString *uploadId = @"";
     __block NSString *resultETag = @"";
 
-    NSUInteger partCount = ceil((double)[testData length] / AWSS3TestsTransferManagerMinimumPartSize);
+    NSUInteger partCount = ceil((double)[testData length] / AWSS3TestsMinimumPartSize);
     NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:partCount];
     for (int32_t i = 0; i < partCount; i++) {
         [completedParts addObject:[NSNull null]];
@@ -1293,8 +1293,8 @@ static NSMutableArray<NSString *> *testBucketsCreated;
         NSMutableArray *partUploadTasks = [NSMutableArray arrayWithCapacity:partCount];
 
         for (int32_t i = 1; i < partCount + 1; i++) {
-            NSUInteger dataLength = i == partCount ? [testData length] - ((i - 1) * AWSS3TestsTransferManagerMinimumPartSize) : AWSS3TestsTransferManagerMinimumPartSize;
-            NSData *partData = [testData subdataWithRange:NSMakeRange((i - 1) * AWSS3TestsTransferManagerMinimumPartSize, dataLength)];
+            NSUInteger dataLength = i == partCount ? [testData length] - ((i - 1) * AWSS3TestsMinimumPartSize) : AWSS3TestsMinimumPartSize;
+            NSData *partData = [testData subdataWithRange:NSMakeRange((i - 1) * AWSS3TestsMinimumPartSize, dataLength)];
 
             AWSS3UploadPartRequest *uploadPartRequest = [AWSS3UploadPartRequest new];
             uploadPartRequest.bucket = testBucketNameGeneral;

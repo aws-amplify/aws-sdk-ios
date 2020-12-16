@@ -2,10 +2,44 @@
 
 ## Unreleased
 
+### New Features
+
+- **AWSAppleSignIn**
+  - Add ASAuthorizationAppleIDCredential as property of AWSAppleSignInProvider. Thanks @BillBunting! (See [Issue #3143](https://github.com/aws-amplify/aws-sdk-ios/pull/3143), [PR #3291](https://github.com/aws-amplify/aws-sdk-ios/pull/3291)
+
+### Misc. Updates
+
+- **AWSCore**
+  - Remove deprecated iOS 8 API from UICKeyChainStore. Thanks @1mash0! ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245))
+
+### Bug fixes
+
+- **AWSS3TransferUtility**
+  - fix: S3TransferUtility uniquely identify completedParts (See [Issue #3173](https://github.com/aws-amplify/aws-sdk-ios/issues/3173), [PR #3282](https://github.com/aws-amplify/aws-sdk-ios/pull/3282))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSSageMakerRuntime
+
+## 2.20.0
+
+### Breaking Changes
+
+- **Removed deprecated clients** AWS Mobile SDK for iOS has removed these deprecated clients ([PR #3281](https://github.com/aws-amplify/aws-sdk-ios/pull/3281)):
+  - `AWSCognito` (Amazon Cognito Sync) - Use [`Amplify DataStore`](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios) for data synchronization.
+  - `AWSMobileAnalytics` - Use [`Amplify Analytics`](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios) for analytics.
+  - `AWSS3TransferManager` - Use [`Amplify Storage`](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios) for uploads and downloads with Amazon S3.
+
+- **AWSCore**
+  - Removed deprecated MD5-related extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. ([PR #3283](https://github.com/aws-amplify/aws-sdk-ios/pull/3283))
+
 ### Bug fixes
 
 - **Amazon Cognito**
-  - Remove cached AWS Credentials when token expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
+  - Remove cached AWS Credentials when tokens expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
 
 ### Misc. Updates
 

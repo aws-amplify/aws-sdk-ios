@@ -107,7 +107,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
-@property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *completedPartsDictionary;
+@property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
 @property int retryCount;
 @property int partNumber;
@@ -582,7 +582,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             }
             //Check if the subTask is is already completed. If it is, add it to the completed parts list, update the progress object and go to the next iteration of the loop
             if (subTask.status== AWSS3TransferUtilityTransferStatusCompleted ) {
-                [multiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(sessionTaskID)];
+                [multiPartUploadTask.completedPartsSet addObject:subTask];
                 continue;
             }
             
@@ -1941,17 +1941,16 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
 
 - (AWSTask *)callFinishMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask {
     
-    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:[uploadTask.completedPartsDictionary count]];
+    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:[uploadTask.completedPartsSet count]];
     NSMutableDictionary *tempDictionary = [NSMutableDictionary new];
     
     //Create a new Dictionary with the partNumber as the Key
-    for(id key in uploadTask.completedPartsDictionary) {
-        AWSS3TransferUtilityUploadSubTask *subTask = [uploadTask.completedPartsDictionary objectForKey:key];
+    for(AWSS3TransferUtilityUploadSubTask *subTask in uploadTask.completedPartsSet) {
         [tempDictionary setObject:subTask forKey:subTask.partNumber];
     }
     
     //Compose the request.
-    for(int i = 1; i <= [uploadTask.completedPartsDictionary count]; i++) {
+    for(int i = 1; i <= [tempDictionary count]; i++) {
         AWSS3TransferUtilityUploadSubTask *subTask = [tempDictionary objectForKey: [NSNumber numberWithInt:i]];
         AWSS3CompletedPart *completedPart = [AWSS3CompletedPart new];
         completedPart.partNumber = subTask.partNumber;
@@ -2226,7 +2225,7 @@ didCompleteWithError:(NSError *)error {
             subTask.eTag = (NSString *) HTTPResponse.allHeaderFields[@"ETAG"];
             
             //Add it to completed parts and remove it from remaining parts.
-            [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(subTask.taskIdentifier)];
+            [transferUtilityMultiPartUploadTask.completedPartsSet addObject:subTask];
             [transferUtilityMultiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(subTask.taskIdentifier)];
             //Update progress
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.completedUnitCount - subTask.totalBytesSent + subTask.totalBytesExpectedToSend;
@@ -2269,14 +2268,14 @@ didCompleteWithError:(NSError *)error {
                 
                 //Validate that all the content has been uploaded.
                 int64_t totalBytesSent = 0;
-                for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.completedPartsDictionary allValues]) {
+                for (AWSS3TransferUtilityUploadSubTask *aSubTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
                     totalBytesSent += aSubTask.totalBytesExpectedToSend;
                 }
                 
                 if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.longLongValue ) {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
-                    
+                    AWSDDLogDebug(@"%@", errorMessage);
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
                                                                          forKey:@"Message"];
                     
@@ -2433,7 +2432,12 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     
         //Calculate the total sent so far
         int64_t totalSentSoFar = 0;
-        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.completedPartsDictionary allValues]) {
+        //Create a new Dictionary with the partNumber as the Key
+        NSMutableDictionary *completedPartsByPartNumber = [NSMutableDictionary new];
+        for(AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
+            [completedPartsByPartNumber setObject:subTask forKey:subTask.partNumber];
+        }
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [completedPartsByPartNumber allValues]) {
             totalSentSoFar += aSubTask.totalBytesExpectedToSend;
         }
         for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.inProgressPartsDictionary allValues]) {
