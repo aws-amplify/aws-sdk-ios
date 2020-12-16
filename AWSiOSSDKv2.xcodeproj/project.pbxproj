@@ -406,6 +406,7 @@
 		18F938D21DE5148E00034221 /* AWSLexVoiceButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */; };
 		18F938D41DE5193F00034221 /* AWSGeneralLexTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */; };
 		18F938D71DE520C500034221 /* AWSLexClientTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 18F938D61DE520C500034221 /* AWSLexClientTests.m */; };
+		2108E65C255E3F4F00308647 /* Array+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2108E65B255E3F4F00308647 /* Array+Extension.swift */; };
 		2109E2C2254745210057043C /* AWSLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; };
 		2109E2C9254745210057043C /* AWSLocationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2109E2C8254745210057043C /* AWSLocationTests.m */; };
 		2109E2CE254745210057043C /* AWSLocation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2109E2B9254745210057043C /* AWSLocation.framework */; };
@@ -444,10 +445,30 @@
 		211167352399CD0600902FC1 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		211167392399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */; };
 		2111673C2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */; };
+		21607DE425547FB00012FE96 /* AWSLocationTrackerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21607DE325547FB00012FE96 /* AWSLocationTrackerTests.swift */; };
+		217100032551B09100FAB22F /* TrackingListener.swift in Sources */ = {isa = PBXBuildFile; fileRef = 217100022551B09100FAB22F /* TrackingListener.swift */; };
+		2171007D2551B0AD00FAB22F /* TrackingPublishedEvent.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171007C2551B0AD00FAB22F /* TrackingPublishedEvent.swift */; };
+		2171067E255335E600FAB22F /* AWSLocationTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171067D255335E600FAB22F /* AWSLocationTrackerDelegate.swift */; };
 		2171EB6A254C721E00FAB22F /* AWSTimestampSerialization.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */; };
 		2171EBE0254C725C00FAB22F /* AWSTimestampSerialization.h in Headers */ = {isa = PBXBuildFile; fileRef = 2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		2171ECCE254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */; };
+		2171F4BC254CB28700FAB22F /* AWSLocationTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F4BB254CB28600FAB22F /* AWSLocationTracker.swift */; };
+		2171F6A3254CB37200FAB22F /* AtomicValue.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F6A2254CB37200FAB22F /* AtomicValue.swift */; };
+		2171F795254CB37C00FAB22F /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F794254CB37C00FAB22F /* RepeatingTimer.swift */; };
+		2171F80F254CB4FC00FAB22F /* AtomicValue+RangeReplaceableCollection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F80E254CB4FC00FAB22F /* AtomicValue+RangeReplaceableCollection.swift */; };
+		2171F902254CB58700FAB22F /* AWSLocationAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F901254CB58700FAB22F /* AWSLocationAdapter.swift */; };
+		2171F97C254CB59F00FAB22F /* AWSLocationBehavior.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171F97B254CB59F00FAB22F /* AWSLocationBehavior.swift */; };
+		2171FAD4254CBE6200FAB22F /* TrackerOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171FAD3254CBE6200FAB22F /* TrackerOptions.swift */; };
+		2171FD53254CC2CB00FAB22F /* AWSLocationTrackerLogger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171FD52254CC2CB00FAB22F /* AWSLocationTrackerLogger.swift */; };
+		2171FF892551AAB300FAB22F /* TrackingError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2171FF882551AAB300FAB22F /* TrackingError.swift */; };
 		21BBD1EB239D556B00DDF1F7 /* AWSKinesisVideo.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1778554320F9A72800D083BB /* AWSKinesisVideo.framework */; };
+		21C490F32558E0B4006BBE5D /* EmitLocationsOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C490F22558E0B4006BBE5D /* EmitLocationsOperation.swift */; };
+		21C493A7255B4A65006BBE5D /* EmitLocationsOperationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C493A6255B4A65006BBE5D /* EmitLocationsOperationTests.swift */; };
+		21C4949A255B4D4F006BBE5D /* MockAWSLocation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C49499255B4D4F006BBE5D /* MockAWSLocation.swift */; };
+		21C4958C255C3D13006BBE5D /* CLLocation+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C4958B255C3D13006BBE5D /* CLLocation+Extension.swift */; };
+		21C49B31255C54C2006BBE5D /* CLLocation+ExtensionTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C49B30255C54C2006BBE5D /* CLLocation+ExtensionTests.swift */; };
+		21C49C23255C6165006BBE5D /* MockAWSLocationTrackerDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21C49C22255C6165006BBE5D /* MockAWSLocationTrackerDelegate.swift */; };
+		21E97D472558DBFF004C98D6 /* AsynchronousOperation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */; };
 		95CEF9F423BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */; };
 		95CEF9F623BFFCB4006D4663 /* AWSSRWebSocket+TranscribeStreaming.h in Headers */ = {isa = PBXBuildFile; fileRef = 95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */; settings = {ATTRIBUTES = (Private, ); }; };
 		95DED99023B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h in Headers */ = {isa = PBXBuildFile; fileRef = 95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2789,6 +2810,7 @@
 		18F938C11DE5148E00034221 /* AWSLexVoiceButton.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexVoiceButton.m; sourceTree = "<group>"; };
 		18F938D31DE5193F00034221 /* AWSGeneralLexTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralLexTests.m; sourceTree = "<group>"; };
 		18F938D61DE520C500034221 /* AWSLexClientTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLexClientTests.m; sourceTree = "<group>"; };
+		2108E65B255E3F4F00308647 /* Array+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Array+Extension.swift"; sourceTree = "<group>"; };
 		2109E2B9254745210057043C /* AWSLocation.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSLocation.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2109E2BC254745210057043C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2109E2C1254745210057043C /* AWSLocationTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSLocationTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -2822,9 +2844,30 @@
 		211167372399CE8400902FC1 /* AWSKinesisVideoSignalingTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSKinesisVideoSignalingTests-Bridging-Header.h"; sourceTree = "<group>"; };
 		211167382399D25000902FC1 /* AWSGeneralKinesisVideoSignalingTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralKinesisVideoSignalingTests.m; sourceTree = "<group>"; };
 		2111673B2399D82100902FC1 /* AWSKinesisVideoSignalingIntegrationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSKinesisVideoSignalingIntegrationTests.swift; sourceTree = "<group>"; };
+		21607DE325547FB00012FE96 /* AWSLocationTrackerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTrackerTests.swift; sourceTree = "<group>"; };
+		21607F4F255480080012FE96 /* AWSLocationUnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSLocationUnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		217100022551B09100FAB22F /* TrackingListener.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingListener.swift; sourceTree = "<group>"; };
+		2171007C2551B0AD00FAB22F /* TrackingPublishedEvent.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingPublishedEvent.swift; sourceTree = "<group>"; };
+		2171067D255335E600FAB22F /* AWSLocationTrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTrackerDelegate.swift; sourceTree = "<group>"; };
 		2171EB68254C71ED00FAB22F /* AWSTimestampSerialization.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTimestampSerialization.h; sourceTree = "<group>"; };
 		2171EB69254C721E00FAB22F /* AWSTimestampSerialization.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSTimestampSerialization.m; sourceTree = "<group>"; };
 		2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSURLRequestSerilizationTests.m; sourceTree = "<group>"; };
+		2171F4BB254CB28600FAB22F /* AWSLocationTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTracker.swift; sourceTree = "<group>"; };
+		2171F6A2254CB37200FAB22F /* AtomicValue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AtomicValue.swift; sourceTree = "<group>"; };
+		2171F794254CB37C00FAB22F /* RepeatingTimer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
+		2171F80E254CB4FC00FAB22F /* AtomicValue+RangeReplaceableCollection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "AtomicValue+RangeReplaceableCollection.swift"; sourceTree = "<group>"; };
+		2171F901254CB58700FAB22F /* AWSLocationAdapter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationAdapter.swift; sourceTree = "<group>"; };
+		2171F97B254CB59F00FAB22F /* AWSLocationBehavior.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationBehavior.swift; sourceTree = "<group>"; };
+		2171FAD3254CBE6200FAB22F /* TrackerOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackerOptions.swift; sourceTree = "<group>"; };
+		2171FD52254CC2CB00FAB22F /* AWSLocationTrackerLogger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSLocationTrackerLogger.swift; sourceTree = "<group>"; };
+		2171FF882551AAB300FAB22F /* TrackingError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackingError.swift; sourceTree = "<group>"; };
+		21C490F22558E0B4006BBE5D /* EmitLocationsOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitLocationsOperation.swift; sourceTree = "<group>"; };
+		21C493A6255B4A65006BBE5D /* EmitLocationsOperationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmitLocationsOperationTests.swift; sourceTree = "<group>"; };
+		21C49499255B4D4F006BBE5D /* MockAWSLocation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAWSLocation.swift; sourceTree = "<group>"; };
+		21C4958B255C3D13006BBE5D /* CLLocation+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+Extension.swift"; sourceTree = "<group>"; };
+		21C49B30255C54C2006BBE5D /* CLLocation+ExtensionTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CLLocation+ExtensionTests.swift"; sourceTree = "<group>"; };
+		21C49C22255C6165006BBE5D /* MockAWSLocationTrackerDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockAWSLocationTrackerDelegate.swift; sourceTree = "<group>"; };
+		21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AsynchronousOperation.swift; sourceTree = "<group>"; };
 		95CEF9F223BEC583006D4663 /* AWSSRWebSocket+TranscribeStreaming.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSSRWebSocket+TranscribeStreaming.h"; sourceTree = "<group>"; };
 		95CEF9F323BFF67D006D4663 /* AWSTranscribeStreamingClientWebSocketProviderTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSTranscribeStreamingClientWebSocketProviderTests.swift; sourceTree = "<group>"; };
 		95DED98F23B1ACD500F7D354 /* AWSTranscribeStreamingWebSocketProvider.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSTranscribeStreamingWebSocketProvider.h; sourceTree = "<group>"; };
@@ -5234,6 +5277,7 @@
 				2109E4C8254754E10057043C /* AWSLocationResources.m */,
 				2109E4C7254754E10057043C /* AWSLocationService.h */,
 				2109E4C3254754E00057043C /* AWSLocationService.m */,
+				2171F5AD254CB31800FAB22F /* AWSLocationTracker */,
 				2109E2BC254745210057043C /* Info.plist */,
 			);
 			path = AWSLocation;
@@ -5252,6 +5296,7 @@
 		2109E54C2547557A0057043C /* AWSLocationUnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				21607DE125547F860012FE96 /* AWSLocationTracker */,
 				2109EDD125475B3C0057043C /* AWSGeneralLocationTests.m */,
 				2109EDD225475B3D0057043C /* AWSLocationNSSecureCodingTests.m */,
 				2109E54F2547557A0057043C /* Info.plist */,
@@ -5294,12 +5339,88 @@
 			path = AWSKinesisVideoSignalingUnitTests;
 			sourceTree = "<group>";
 		};
+		21607DE125547F860012FE96 /* AWSLocationTracker */ = {
+			isa = PBXGroup;
+			children = (
+				21607DE325547FB00012FE96 /* AWSLocationTrackerTests.swift */,
+				21607F4F255480080012FE96 /* AWSLocationUnitTests-Bridging-Header.h */,
+				21C493A6255B4A65006BBE5D /* EmitLocationsOperationTests.swift */,
+				21C49498255B4D3B006BBE5D /* Mocks */,
+				21C49B2F255C54AC006BBE5D /* Support */,
+			);
+			path = AWSLocationTracker;
+			sourceTree = "<group>";
+		};
 		2171ECCC254C76E800FAB22F /* Serialization */ = {
 			isa = PBXGroup;
 			children = (
 				2171ECCD254C76FE00FAB22F /* AWSURLRequestSerilizationTests.m */,
 			);
 			path = Serialization;
+			sourceTree = "<group>";
+		};
+		2171F5AD254CB31800FAB22F /* AWSLocationTracker */ = {
+			isa = PBXGroup;
+			children = (
+				2171F4BB254CB28600FAB22F /* AWSLocationTracker.swift */,
+				2171067D255335E600FAB22F /* AWSLocationTrackerDelegate.swift */,
+				2171F900254CB57400FAB22F /* Dependency */,
+				21C490F22558E0B4006BBE5D /* EmitLocationsOperation.swift */,
+				21C496F5255C3E8D006BBE5D /* Support */,
+				2171FAD3254CBE6200FAB22F /* TrackerOptions.swift */,
+				2171FF882551AAB300FAB22F /* TrackingError.swift */,
+				217100022551B09100FAB22F /* TrackingListener.swift */,
+				2171007C2551B0AD00FAB22F /* TrackingPublishedEvent.swift */,
+				2171F6A1254CB35600FAB22F /* Utils */,
+			);
+			path = AWSLocationTracker;
+			sourceTree = "<group>";
+		};
+		2171F6A1254CB35600FAB22F /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				2171F6A2254CB37200FAB22F /* AtomicValue.swift */,
+				2171F80E254CB4FC00FAB22F /* AtomicValue+RangeReplaceableCollection.swift */,
+				2171F794254CB37C00FAB22F /* RepeatingTimer.swift */,
+				21E97D462558DBFF004C98D6 /* AsynchronousOperation.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		2171F900254CB57400FAB22F /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				2171F901254CB58700FAB22F /* AWSLocationAdapter.swift */,
+				2171F97B254CB59F00FAB22F /* AWSLocationBehavior.swift */,
+			);
+			path = Dependency;
+			sourceTree = "<group>";
+		};
+		21C49498255B4D3B006BBE5D /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				21C49499255B4D4F006BBE5D /* MockAWSLocation.swift */,
+				21C49C22255C6165006BBE5D /* MockAWSLocationTrackerDelegate.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		21C496F5255C3E8D006BBE5D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				2171FD52254CC2CB00FAB22F /* AWSLocationTrackerLogger.swift */,
+				21C4958B255C3D13006BBE5D /* CLLocation+Extension.swift */,
+				2108E65B255E3F4F00308647 /* Array+Extension.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		21C49B2F255C54AC006BBE5D /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				21C49B30255C54C2006BBE5D /* CLLocation+ExtensionTests.swift */,
+			);
+			path = Support;
 			sourceTree = "<group>";
 		};
 		9A7ACC2120B0E85000DDBEC1 /* AWSTranslate */ = {
@@ -9854,6 +9975,7 @@
 					};
 					2109E2B8254745210057043C = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 						ProvisioningStyle = Automatic;
 					};
 					2109E2C0254745210057043C = {
@@ -9863,6 +9985,7 @@
 					};
 					2109E54A2547557A0057043C = {
 						CreatedOnToolsVersion = 12.1;
+						LastSwiftMigration = 1210;
 						ProvisioningStyle = Automatic;
 					};
 					211166F52399C24900902FC1 = {
@@ -11426,6 +11549,25 @@
 				2109E4CF254754E10057043C /* AWSLocationResources.m in Sources */,
 				2109E4CB254754E10057043C /* AWSLocationModel.m in Sources */,
 				2109E4CA254754E10057043C /* AWSLocationService.m in Sources */,
+				21C490F32558E0B4006BBE5D /* EmitLocationsOperation.swift in Sources */,
+				2171F6A3254CB37200FAB22F /* AtomicValue.swift in Sources */,
+				2171F902254CB58700FAB22F /* AWSLocationAdapter.swift in Sources */,
+				2171FD53254CC2CB00FAB22F /* AWSLocationTrackerLogger.swift in Sources */,
+				21E97D472558DBFF004C98D6 /* AsynchronousOperation.swift in Sources */,
+				2171FF892551AAB300FAB22F /* TrackingError.swift in Sources */,
+				217100032551B09100FAB22F /* TrackingListener.swift in Sources */,
+				2171F97C254CB59F00FAB22F /* AWSLocationBehavior.swift in Sources */,
+				2109E4CF254754E10057043C /* AWSLocationResources.m in Sources */,
+				21C4958C255C3D13006BBE5D /* CLLocation+Extension.swift in Sources */,
+				2171067E255335E600FAB22F /* AWSLocationTrackerDelegate.swift in Sources */,
+				2108E65C255E3F4F00308647 /* Array+Extension.swift in Sources */,
+				2109E4CB254754E10057043C /* AWSLocationModel.m in Sources */,
+				2109E4CA254754E10057043C /* AWSLocationService.m in Sources */,
+				2171FAD4254CBE6200FAB22F /* TrackerOptions.swift in Sources */,
+				2171007D2551B0AD00FAB22F /* TrackingPublishedEvent.swift in Sources */,
+				2171F80F254CB4FC00FAB22F /* AtomicValue+RangeReplaceableCollection.swift in Sources */,
+				2171F795254CB37C00FAB22F /* RepeatingTimer.swift in Sources */,
+				2171F4BC254CB28700FAB22F /* AWSLocationTracker.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -11445,6 +11587,12 @@
 				2109EDD425475B3D0057043C /* AWSLocationNSSecureCodingTests.m in Sources */,
 				2109E89E254756FA0057043C /* AWSTestUtility.m in Sources */,
 				2109EDD325475B3D0057043C /* AWSGeneralLocationTests.m in Sources */,
+				21C493A7255B4A65006BBE5D /* EmitLocationsOperationTests.swift in Sources */,
+				21C4949A255B4D4F006BBE5D /* MockAWSLocation.swift in Sources */,
+				21C49B31255C54C2006BBE5D /* CLLocation+ExtensionTests.swift in Sources */,
+				21C49C23255C6165006BBE5D /* MockAWSLocationTrackerDelegate.swift in Sources */,
+				2109EDD325475B3D0057043C /* AWSGeneralLocationTests.m in Sources */,
+				21607DE425547FB00012FE96 /* AWSLocationTrackerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -13805,6 +13953,7 @@
 		1811548B1E201404008F184C /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -13822,6 +13971,7 @@
 		1811548C1E201404008F184C /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
@@ -14292,6 +14442,7 @@
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_WEAK = YES;
 				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
 				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
@@ -14310,9 +14461,12 @@
 				MARKETING_VERSION = 2.18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
+				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -14428,6 +14582,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
@@ -14455,6 +14610,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocationUnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
