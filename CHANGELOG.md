@@ -9,10 +9,6 @@
 - **AWSLocation**
   - Add AWSLocation SDK (See [PR #3311](https://github.com/aws-amplify/aws-sdk-ios/pull/3311))
   - Add AWSLocationTracker client (See [PR #3314](https://github.com/aws-amplify/aws-sdk-ios/pull/3314))
-### Misc. Updates
-
-- **AWSCore**
-  - Remove deprecated iOS 8 API from UICKeyChainStore. Thanks @1mash0! ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245))
 
 ### Bug fixes
 
@@ -21,6 +17,8 @@
 
 ### Misc. Updates
 
+- **AWSCore**
+  - Remove deprecated iOS 8 API from UICKeyChainStore. Thanks @1mash0! ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245))
 - Model updates for the following services
   - AWSAutoScaling
   - AWSEC2
