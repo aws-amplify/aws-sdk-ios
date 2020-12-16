@@ -65,11 +65,21 @@ typedef NS_ENUM(NSInteger, AWSLambdaCodeSigningPolicy) {
     AWSLambdaCodeSigningPolicyEnforce,
 };
 
+typedef NS_ENUM(NSInteger, AWSLambdaEndPointType) {
+    AWSLambdaEndPointTypeUnknown,
+    AWSLambdaEndPointTypeKafkaBootstrapServers,
+};
+
 typedef NS_ENUM(NSInteger, AWSLambdaEventSourcePosition) {
     AWSLambdaEventSourcePositionUnknown,
     AWSLambdaEventSourcePositionTrimHorizon,
     AWSLambdaEventSourcePositionLatest,
     AWSLambdaEventSourcePositionAtTimestamp,
+};
+
+typedef NS_ENUM(NSInteger, AWSLambdaFunctionResponseType) {
+    AWSLambdaFunctionResponseTypeUnknown,
+    AWSLambdaFunctionResponseTypeReportBatchItemFailures,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaFunctionVersion) {
@@ -154,6 +164,10 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
 typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
     AWSLambdaSourceAccessTypeUnknown,
     AWSLambdaSourceAccessTypeBasicAuth,
+    AWSLambdaSourceAccessTypeVpcSubnet,
+    AWSLambdaSourceAccessTypeVpcSecurityGroup,
+    AWSLambdaSourceAccessTypeSaslScram512Auth,
+    AWSLambdaSourceAccessTypeSaslScram256Auth,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -305,6 +319,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @class AWSLambdaPutProvisionedConcurrencyConfigResponse;
 @class AWSLambdaRemoveLayerVersionPermissionRequest;
 @class AWSLambdaRemovePermissionRequest;
+@class AWSLambdaSelfManagedEventSource;
 @class AWSLambdaSourceAccessConfiguration;
 @class AWSLambdaTagResourceRequest;
 @class AWSLambdaTracingConfig;
@@ -704,7 +719,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -734,7 +749,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
+
+/**
+ <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -759,7 +779,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
 /**
- <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ <p>The Self-Managed Apache Kafka cluster to send records.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
@@ -774,9 +799,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSDate * _Nullable startingPositionTimestamp;
 
 /**
- <p> (MSK) The name of the Kafka topic. </p>
+ <p>The name of the Kafka topic.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
+
+/**
+ <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
 @end
 
@@ -1150,6 +1180,11 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
+ <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
+
+/**
  <p>The date that the event source mapping was last updated, or its state changed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastModified;
@@ -1160,7 +1195,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
 /**
- <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+ <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -1185,7 +1220,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable queues;
 
 /**
- <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+ */
+@property (nonatomic, strong) AWSLambdaSelfManagedEventSource * _Nullable selfManagedEventSource;
+
+/**
+ <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
@@ -1210,9 +1250,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable stateTransitionReason;
 
 /**
- <p> (MSK) The name of the Kafka topic to consume. </p>
+ <p>The name of the Kafka topic.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
+
+/**
+ <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
 /**
  <p>The identifier of the event source mapping.</p>
@@ -1927,7 +1972,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Configuration values that override the container image Dockerfile. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images-settings.html">Override Container settings</a>. </p>
+ <p>Configuration values that override the container image Dockerfile settings. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container settings</a>. </p>
  */
 @interface AWSLambdaImageConfig : AWSModel
 
@@ -3071,18 +3116,31 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p>
+ <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+ */
+@interface AWSLambdaSelfManagedEventSource : AWSModel
+
+
+/**
+ <p>The list of bootstrap servers for your Kafka brokers in the following format: <code>"KAFKA_BOOTSTRAP_SERVERS": ["abc.xyz.com:xxxx","abc2.xyz.com:xxxx"]</code>.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable endpoints;
+
+@end
+
+/**
+ <p>You can specify the authentication protocol, or the VPC components to secure access to your event source.</p>
  */
 @interface AWSLambdaSourceAccessConfiguration : AWSModel
 
 
 /**
- <p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The ARN of your secret key used for SASL SCRAM-256 authentication of your Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The ARN of your secret key used for SASL SCRAM-512 authentication of your Kafka brokers.</p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
 /**
- <p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ <p>The value for your chosen configuration in <code>Type</code>. For example: <code>"URI": "arn:aws:secretsmanager:us-east-1:01234567890:secret:MyBrokerSecretName"</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable URI;
 
@@ -3236,7 +3294,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. Max 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
+ <p>The maximum number of items to retrieve in a single batch.</p><ul><li><p><b>Amazon Kinesis</b> - Default 100. Max 10,000.</p></li><li><p><b>Amazon DynamoDB Streams</b> - Default 100. Max 1,000.</p></li><li><p><b>Amazon Simple Queue Service</b> - Default 10. For standard queues the max is 10,000. For FIFO queues the max is 10.</p></li><li><p><b>Amazon Managed Streaming for Apache Kafka</b> - Default 100. Max 10,000.</p></li><li><p><b>Self-Managed Apache Kafka</b> - Default 100. Max 10,000.</p></li></ul>
  */
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
@@ -3261,7 +3319,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams) The maximum amount of time to gather records before invoking the function, in seconds.</p>
+ <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
+
+/**
+ <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
@@ -3281,9 +3344,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
 /**
- <p> (MQ) The Secrets Manager secret that stores your broker credentials. To store your secret, use the following format: <code> { "username": "your username", "password": "your password" }</code></p><p>To reference the secret, use the following format: <code>[ { "Type": "BASIC_AUTH", "URI": "secretARN" } ]</code></p><p>The value of <code>Type</code> is always <code>BASIC_AUTH</code>. To encrypt the secret, you can use customer or service managed keys. When using a customer managed KMS key, the Lambda execution role requires <code>kms:Decrypt</code> permissions.</p>
+ <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
+
+/**
+ <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
 /**
  <p>The identifier of the event source mapping.</p>

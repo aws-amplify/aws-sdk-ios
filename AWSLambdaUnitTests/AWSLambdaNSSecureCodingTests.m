@@ -128,6 +128,7 @@
 - (void) test_AWSLambdaPutProvisionedConcurrencyConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemoveLayerVersionPermissionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaRemovePermissionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLambdaSelfManagedEventSource API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaSourceAccessConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLambdaTracingConfig API_AVAILABLE(ios(11));
@@ -581,6 +582,10 @@
 
 - (void) test_AWSLambdaRemovePermissionRequest {
     [self validateSecureCodingForClass:[AWSLambdaRemovePermissionRequest class]];
+}
+
+- (void) test_AWSLambdaSelfManagedEventSource {
+    [self validateSecureCodingForClass:[AWSLambdaSelfManagedEventSource class]];
 }
 
 - (void) test_AWSLambdaSourceAccessConfiguration {

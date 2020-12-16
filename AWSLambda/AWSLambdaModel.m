@@ -327,20 +327,27 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"enabled" : @"Enabled",
              @"eventSourceArn" : @"EventSourceArn",
              @"functionName" : @"FunctionName",
+             @"functionResponseTypes" : @"FunctionResponseTypes",
              @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              @"topics" : @"Topics",
+             @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              };
 }
 
 + (NSValueTransformer *)destinationConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaDestinationConfig class]];
+}
+
++ (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedEventSource class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
@@ -828,6 +835,7 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"destinationConfig" : @"DestinationConfig",
              @"eventSourceArn" : @"EventSourceArn",
              @"functionArn" : @"FunctionArn",
+             @"functionResponseTypes" : @"FunctionResponseTypes",
              @"lastModified" : @"LastModified",
              @"lastProcessingResult" : @"LastProcessingResult",
              @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
@@ -835,12 +843,14 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"queues" : @"Queues",
+             @"selfManagedEventSource" : @"SelfManagedEventSource",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
              @"startingPosition" : @"StartingPosition",
              @"startingPositionTimestamp" : @"StartingPositionTimestamp",
              @"state" : @"State",
              @"stateTransitionReason" : @"StateTransitionReason",
              @"topics" : @"Topics",
+             @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              @"UUID" : @"UUID",
              };
 }
@@ -855,6 +865,10 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
     }];
+}
+
++ (NSValueTransformer *)selfManagedEventSourceJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSLambdaSelfManagedEventSource class]];
 }
 
 + (NSValueTransformer *)sourceAccessConfigurationsJSONTransformer {
@@ -2990,6 +3004,20 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
 
 @end
 
+@implementation AWSLambdaSelfManagedEventSource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endpoints" : @"Endpoints",
+             };
+}
+
+@end
+
 @implementation AWSLambdaSourceAccessConfiguration
 
 + (BOOL)supportsSecureCoding {
@@ -3008,11 +3036,31 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"BASIC_AUTH"] == NSOrderedSame) {
             return @(AWSLambdaSourceAccessTypeBasicAuth);
         }
+        if ([value caseInsensitiveCompare:@"VPC_SUBNET"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeVpcSubnet);
+        }
+        if ([value caseInsensitiveCompare:@"VPC_SECURITY_GROUP"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeVpcSecurityGroup);
+        }
+        if ([value caseInsensitiveCompare:@"SASL_SCRAM_512_AUTH"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeSaslScram512Auth);
+        }
+        if ([value caseInsensitiveCompare:@"SASL_SCRAM_256_AUTH"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeSaslScram256Auth);
+        }
         return @(AWSLambdaSourceAccessTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
             case AWSLambdaSourceAccessTypeBasicAuth:
                 return @"BASIC_AUTH";
+            case AWSLambdaSourceAccessTypeVpcSubnet:
+                return @"VPC_SUBNET";
+            case AWSLambdaSourceAccessTypeVpcSecurityGroup:
+                return @"VPC_SECURITY_GROUP";
+            case AWSLambdaSourceAccessTypeSaslScram512Auth:
+                return @"SASL_SCRAM_512_AUTH";
+            case AWSLambdaSourceAccessTypeSaslScram256Auth:
+                return @"SASL_SCRAM_256_AUTH";
             default:
                 return nil;
         }
@@ -3200,11 +3248,13 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
              @"destinationConfig" : @"DestinationConfig",
              @"enabled" : @"Enabled",
              @"functionName" : @"FunctionName",
+             @"functionResponseTypes" : @"FunctionResponseTypes",
              @"maximumBatchingWindowInSeconds" : @"MaximumBatchingWindowInSeconds",
              @"maximumRecordAgeInSeconds" : @"MaximumRecordAgeInSeconds",
              @"maximumRetryAttempts" : @"MaximumRetryAttempts",
              @"parallelizationFactor" : @"ParallelizationFactor",
              @"sourceAccessConfigurations" : @"SourceAccessConfigurations",
+             @"tumblingWindowInSeconds" : @"TumblingWindowInSeconds",
              @"UUID" : @"UUID",
              };
 }
