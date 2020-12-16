@@ -8,7 +8,7 @@
   - Add ASAuthorizationAppleIDCredential as property of AWSAppleSignInProvider. Thanks @BillBunting! (See [Issue #3143](https://github.com/aws-amplify/aws-sdk-ios/pull/3143), [PR #3291](https://github.com/aws-amplify/aws-sdk-ios/pull/3291))
 - **AWSLocation**
   - Add AWSLocation SDK (See [PR #3311](https://github.com/aws-amplify/aws-sdk-ios/pull/3311))
-
+  - Add AWSLocationTracker client (See [PR #3314](https://github.com/aws-amplify/aws-sdk-ios/pull/3314))
 ### Misc. Updates
 
 - **AWSCore**
