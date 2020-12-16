@@ -36,7 +36,8 @@
                   signOutUriQueryParameters:(NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
                     tokenUriQueryParameters:(NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
                          isProviderExternal:(BOOL) isProviderExternal
-               cognitoUserPoolServiceConfig:(nullable AWSServiceConfiguration *) serviceConfig;
+               cognitoUserPoolServiceConfig:(nullable AWSServiceConfiguration *) serviceConfig
+                       signInPrivateSession:(BOOL)isSignInPrivateSession;
 
 @end
 
@@ -57,7 +58,41 @@
           signOutUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
             tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
        userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration {
+    return [self initWithAppClientId:appClientId
+                     appClientSecret:appClientSecret
+                              scopes:scopes
+                   signInRedirectUri:signInRedirectUri
+                  signOutRedirectUri:signOutRedirectUri
+                           webDomain:webDomain
+                    identityProvider:identityProvider
+                       idpIdentifier:idpIdentifier
+                           signInUri:signInUri
+                          signOutUri:signOutUri
+                           tokensUri:tokensUri
+            signInUriQueryParameters:signInUriQueryParameters
+           signOutUriQueryParameters:signOutUriQueryParameters
+             tokenUriQueryParameters:tokenUriQueryParameters
+        userPoolServiceConfiguration:serviceConfiguration
+                signInPrivateSession:NO];
     
+}
+
+- (instancetype)initWithAppClientId:(NSString *) appClientId
+                    appClientSecret:(nullable NSString *)appClientSecret
+                             scopes:(NSSet<NSString *> *) scopes
+                  signInRedirectUri:(NSString *) signInRedirectUri
+                 signOutRedirectUri:(NSString *) signOutRedirectUri
+                          webDomain:(NSString *) webDomain
+                   identityProvider:(nullable NSString *)identityProvider
+                      idpIdentifier:(nullable NSString *)idpIdentifier
+                          signInUri:(nullable NSString *) signInUri
+                         signOutUri:(nullable NSString *) signOutUri
+                          tokensUri:(nullable NSString *) tokensUri
+           signInUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signInUriQueryParameters
+          signOutUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
+            tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
+       userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration
+               signInPrivateSession:(BOOL)signInPrivateSession {
     BOOL isProviderExternal = YES;
     if (signInUri == nil && signOutUri == nil && tokensUri == nil) {
         isProviderExternal = NO;
@@ -80,7 +115,8 @@
                    signOutUriQueryParameters:signOutUriQueryParameters
                      tokenUriQueryParameters:tokenUriQueryParameters
                           isProviderExternal:isProviderExternal
-                cognitoUserPoolServiceConfig:serviceConfiguration];
+                cognitoUserPoolServiceConfig:serviceConfiguration
+                        signInPrivateSession:signInPrivateSession];
 }
 
 @end

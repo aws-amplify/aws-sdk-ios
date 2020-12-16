@@ -15,6 +15,9 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+#if __has_include(<AuthenticationServices/AuthenticationServices.h>)
+#import <AuthenticationServices/AuthenticationServices.h>
+#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -104,6 +107,9 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  */
 + (void)removeCognitoAuthForKey:(NSString *)key;
 
+- (void)getSessionWithWebUI:(nonnull ASPresentationAnchor) anchor
+                 completion:(nullable AWSCognitoAuthGetSessionBlock) completion API_AVAILABLE(ios(13));
+
 /**
  Get a session with id, access and refresh tokens.
  @param vc viewController to display the UI on if needed during sign in.
@@ -116,6 +122,9 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  @param completion completion block to invoke on completion
  */
 - (void)getSession: (nullable AWSCognitoAuthGetSessionBlock) completion;
+
+- (void) signOutWithWebUI:(nonnull ASPresentationAnchor) anchor
+               completion:(AWSCognitoAuthSignOutBlock)completion API_AVAILABLE(ios(13));
 
 /**
  Sign out locally and from the server.
