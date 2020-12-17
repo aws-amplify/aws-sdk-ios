@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.21.0
+
 ### New Features
 
 - **AWSAppleSignIn**
