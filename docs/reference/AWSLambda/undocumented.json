@@ -395,818 +395,902 @@
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 68,
-      "symbol": "AWSLambdaEventSourcePosition",
+      "symbol": "AWSLambdaEndPointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 68,
-      "symbol": "AWSLambdaEventSourcePosition",
+      "symbol": "AWSLambdaEndPointType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 69,
-      "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionUnknown",
+      "symbol": "AWSLambdaEndPointType.AWSLambdaEndPointTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 70,
+      "symbol": "AWSLambdaEndPointType.AWSLambdaEndPointTypeKafkaBootstrapServers",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 73,
+      "symbol": "AWSLambdaEventSourcePosition",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 73,
+      "symbol": "AWSLambdaEventSourcePosition",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 74,
+      "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 75,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionTrimHorizon",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 71,
+      "line": 76,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionLatest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 72,
+      "line": 77,
       "symbol": "AWSLambdaEventSourcePosition.AWSLambdaEventSourcePositionAtTimestamp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 75,
-      "symbol": "AWSLambdaFunctionVersion",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 75,
-      "symbol": "AWSLambdaFunctionVersion",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 76,
-      "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 77,
-      "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionAll",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 80,
-      "symbol": "AWSLambdaInvocationType",
+      "symbol": "AWSLambdaFunctionResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 80,
-      "symbol": "AWSLambdaInvocationType",
+      "symbol": "AWSLambdaFunctionResponseType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 81,
-      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeUnknown",
+      "symbol": "AWSLambdaFunctionResponseType.AWSLambdaFunctionResponseTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 82,
-      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeEvent",
+      "symbol": "AWSLambdaFunctionResponseType.AWSLambdaFunctionResponseTypeReportBatchItemFailures",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 83,
-      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeRequestResponse",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 84,
-      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeDryRun",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 87,
-      "symbol": "AWSLambdaLastUpdateStatus",
+      "line": 85,
+      "symbol": "AWSLambdaFunctionVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 87,
-      "symbol": "AWSLambdaLastUpdateStatus",
+      "line": 85,
+      "symbol": "AWSLambdaFunctionVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 88,
-      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusUnknown",
+      "line": 86,
+      "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 89,
-      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusSuccessful",
+      "line": 87,
+      "symbol": "AWSLambdaFunctionVersion.AWSLambdaFunctionVersionAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 90,
-      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 91,
-      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusInProgress",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 94,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode",
+      "symbol": "AWSLambdaInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 94,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode",
+      "line": 90,
+      "symbol": "AWSLambdaInvocationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 95,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeUnknown",
+      "line": 91,
+      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 96,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeEniLimitExceeded",
+      "line": 92,
+      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeEvent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 93,
+      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeRequestResponse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 94,
+      "symbol": "AWSLambdaInvocationType.AWSLambdaInvocationTypeDryRun",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 97,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInsufficientRolePermissions",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLambdaLastUpdateStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 97,
+      "symbol": "AWSLambdaLastUpdateStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 98,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidConfiguration",
+      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 99,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInternalError",
+      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusSuccessful",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 100,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses",
+      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 101,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 102,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 103,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeImageDeleted",
+      "symbol": "AWSLambdaLastUpdateStatus.AWSLambdaLastUpdateStatusInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 104,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 105,
-      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidImage",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 108,
-      "symbol": "AWSLambdaLogType",
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 108,
-      "symbol": "AWSLambdaLogType",
+      "line": 104,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 105,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 106,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeEniLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 107,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInsufficientRolePermissions",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 108,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidConfiguration",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 109,
-      "symbol": "AWSLambdaLogType.AWSLambdaLogTypeUnknown",
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 110,
-      "symbol": "AWSLambdaLogType.AWSLambdaLogTypeNone",
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeSubnetOutOfIPAddresses",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 111,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidSubnet",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 112,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidSecurityGroup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 113,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeImageDeleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 114,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeImageAccessDenied",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 115,
+      "symbol": "AWSLambdaLastUpdateStatusReasonCode.AWSLambdaLastUpdateStatusReasonCodeInvalidImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 118,
+      "symbol": "AWSLambdaLogType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 118,
+      "symbol": "AWSLambdaLogType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 119,
+      "symbol": "AWSLambdaLogType.AWSLambdaLogTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 120,
+      "symbol": "AWSLambdaLogType.AWSLambdaLogTypeNone",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 121,
       "symbol": "AWSLambdaLogType.AWSLambdaLogTypeTail",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 114,
+      "line": 124,
       "symbol": "AWSLambdaPackageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 114,
+      "line": 124,
       "symbol": "AWSLambdaPackageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 115,
+      "line": 125,
       "symbol": "AWSLambdaPackageType.AWSLambdaPackageTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 116,
+      "line": 126,
       "symbol": "AWSLambdaPackageType.AWSLambdaPackageTypeZip",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 117,
+      "line": 127,
       "symbol": "AWSLambdaPackageType.AWSLambdaPackageTypeImage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 120,
+      "line": 130,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 120,
+      "line": 130,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 121,
+      "line": 131,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 122,
+      "line": 132,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 123,
+      "line": 133,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumReady",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 124,
+      "line": 134,
       "symbol": "AWSLambdaProvisionedConcurrencyStatusEnum.AWSLambdaProvisionedConcurrencyStatusEnumFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 127,
+      "line": 137,
       "symbol": "AWSLambdaRuntime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 127,
+      "line": 137,
       "symbol": "AWSLambdaRuntime",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 128,
+      "line": 138,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 129,
+      "line": 139,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 130,
+      "line": 140,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs43",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 131,
+      "line": 141,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs610",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 132,
+      "line": 142,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs810",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 133,
+      "line": 143,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs10X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 134,
+      "line": 144,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs12X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 135,
+      "line": 145,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeJava8",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 136,
+      "line": 146,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeJava8Al2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 137,
+      "line": 147,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeJava11",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 138,
+      "line": 148,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython27",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 139,
+      "line": 149,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython36",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 140,
+      "line": 150,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython37",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 141,
+      "line": 151,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimePython38",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 142,
+      "line": 152,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore10",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 143,
+      "line": 153,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore20",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 144,
+      "line": 154,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore21",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 145,
+      "line": 155,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeDotnetcore31",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 146,
+      "line": 156,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeNodejs43Edge",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 147,
+      "line": 157,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeGo1X",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 148,
+      "line": 158,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeRuby25",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 149,
+      "line": 159,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeRuby27",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 150,
+      "line": 160,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeProvided",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 151,
+      "line": 161,
       "symbol": "AWSLambdaRuntime.AWSLambdaRuntimeProvidedAl2",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 154,
+      "line": 164,
       "symbol": "AWSLambdaSourceAccessType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 154,
+      "line": 164,
       "symbol": "AWSLambdaSourceAccessType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 155,
+      "line": 165,
       "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 156,
+      "line": 166,
       "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeBasicAuth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 159,
-      "symbol": "AWSLambdaState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 159,
-      "symbol": "AWSLambdaState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 160,
-      "symbol": "AWSLambdaState.AWSLambdaStateUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 161,
-      "symbol": "AWSLambdaState.AWSLambdaStatePending",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 162,
-      "symbol": "AWSLambdaState.AWSLambdaStateActive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 163,
-      "symbol": "AWSLambdaState.AWSLambdaStateInactive",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 164,
-      "symbol": "AWSLambdaState.AWSLambdaStateFailed",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 167,
-      "symbol": "AWSLambdaStateReasonCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 167,
-      "symbol": "AWSLambdaStateReasonCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeVpcSubnet",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 168,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeUnknown",
+      "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeVpcSecurityGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 169,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeIdle",
+      "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeSaslScram512Auth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 170,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeCreating",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 171,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeRestoring",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 172,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeEniLimitExceeded",
+      "symbol": "AWSLambdaSourceAccessType.AWSLambdaSourceAccessTypeSaslScram256Auth",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 173,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInsufficientRolePermissions",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSLambdaState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 173,
+      "symbol": "AWSLambdaState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 174,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidConfiguration",
+      "symbol": "AWSLambdaState.AWSLambdaStateUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 175,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInternalError",
+      "symbol": "AWSLambdaState.AWSLambdaStatePending",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 176,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeSubnetOutOfIPAddresses",
+      "symbol": "AWSLambdaState.AWSLambdaStateActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 177,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidSubnet",
+      "symbol": "AWSLambdaState.AWSLambdaStateInactive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 178,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidSecurityGroup",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 179,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeImageDeleted",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 180,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeImageAccessDenied",
+      "symbol": "AWSLambdaState.AWSLambdaStateFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 181,
-      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidImage",
+      "symbol": "AWSLambdaStateReasonCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 181,
+      "symbol": "AWSLambdaStateReasonCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 182,
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 183,
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeIdle",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 184,
-      "symbol": "AWSLambdaThrottleReason",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 184,
-      "symbol": "AWSLambdaThrottleReason",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeCreating",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 185,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonUnknown",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeRestoring",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 186,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonConcurrentInvocationLimitExceeded",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeEniLimitExceeded",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 187,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonFunctionInvocationRateLimitExceeded",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInsufficientRolePermissions",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 188,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 189,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInternalError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 190,
-      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonCallerRateLimitExceeded",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeSubnetOutOfIPAddresses",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 191,
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidSubnet",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 192,
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidSecurityGroup",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 193,
-      "symbol": "AWSLambdaTracingMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 193,
-      "symbol": "AWSLambdaTracingMode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeImageDeleted",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 194,
-      "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModeUnknown",
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeImageAccessDenied",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
       "line": 195,
+      "symbol": "AWSLambdaStateReasonCode.AWSLambdaStateReasonCodeInvalidImage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 198,
+      "symbol": "AWSLambdaThrottleReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 198,
+      "symbol": "AWSLambdaThrottleReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 199,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 200,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonConcurrentInvocationLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 201,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonFunctionInvocationRateLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 202,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionConcurrentInvocationLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 203,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonReservedFunctionInvocationRateLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 204,
+      "symbol": "AWSLambdaThrottleReason.AWSLambdaThrottleReasonCallerRateLimitExceeded",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 207,
+      "symbol": "AWSLambdaTracingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 207,
+      "symbol": "AWSLambdaTracingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 208,
+      "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
+      "line": 209,
       "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModeActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLambda/AWSLambdaModel.h",
-      "line": 196,
+      "line": 210,
       "symbol": "AWSLambdaTracingMode.AWSLambdaTracingModePassThrough",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
