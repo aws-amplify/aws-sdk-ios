@@ -31,6 +31,7 @@ class VersionBumper:
         "AWSKinesisVideoSignaling",
         "AWSLambda",
         "AWSLex",
+        "AWSLocation",
         "AWSLogs",
         "AWSMachineLearning",
         "AWSPinpoint",
