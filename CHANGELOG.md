@@ -1,3 +1,13 @@
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
+---AWSKMS
+---AWSEC2
+---AWSSQS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
