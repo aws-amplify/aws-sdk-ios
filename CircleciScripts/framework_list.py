@@ -34,6 +34,7 @@ grouped_frameworks = [
         "AWSKinesisVideoSignaling",
         "AWSLambda",
         "AWSLex",
+        "AWSLocation",
         "AWSLogs",
         "AWSMachineLearning",
         "AWSPinpoint",
