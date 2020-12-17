@@ -14,6 +14,7 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <AuthenticationServices/AuthenticationServices.h>
 #import <AWSAuthCore/AWSSignInProvider.h>
 
 NS_ASSUME_NONNULL_BEGIN
