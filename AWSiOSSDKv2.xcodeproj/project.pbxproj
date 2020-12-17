@@ -1451,13 +1451,6 @@
 			remoteGlobalIDString = 181154751E201403008F184C;
 			remoteInfo = AWSAllTestsHost;
 		};
-		1811549F1E2014A0008F184C /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 181154751E201403008F184C;
-			remoteInfo = AWSAllTestsHost;
-		};
 		2109E2C3254745210057043C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CE0D41541C6A66A9006B91B5 /* Project object */;
@@ -12613,11 +12606,6 @@
 			target = 181154751E201403008F184C /* AWSAllTestsHost */;
 			targetProxy = 1811549B1E20149B008F184C /* PBXContainerItemProxy */;
 		};
-		181154A01E2014A0008F184C /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 181154751E201403008F184C /* AWSAllTestsHost */;
-			targetProxy = 1811549F1E2014A0008F184C /* PBXContainerItemProxy */;
-		};
 		2109E2C4254745210057043C /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 2109E2B8254745210057043C /* AWSLocation */;
@@ -14497,6 +14485,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
+				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
