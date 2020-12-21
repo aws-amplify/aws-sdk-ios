@@ -1347,7 +1347,6 @@
 		17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSCognitoAuth+Extensions.m"; sourceTree = "<group>"; };
 		6BB7BF2E23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSMobileClient-Mixed-Swift.h"; sourceTree = "<group>"; };
 		B402CD3F2580672F0020B83B /* AWSMobileClientXCF.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSMobileClientXCF.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		B402CD40258067300020B83B /* AWSMobileClient copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "AWSMobileClient copy-Info.plist"; path = "/Users/royji/workplace/iOS/aws-sdk-ios/AWSAuthSDK/AWSMobileClient copy-Info.plist"; sourceTree = "<absolute>"; };
 		B402D00725815C550020B83B /* AWSMobileClientXCF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSMobileClientXCF.h; sourceTree = "<group>"; };
 		B402D0D225815D690020B83B /* AWSMobileClientXCF-Mixed-Swift.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSMobileClientXCF-Mixed-Swift.h"; sourceTree = "<group>"; };
 		B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AWSMobileClientUserDetails.swift; sourceTree = "<group>"; };
@@ -1366,6 +1365,7 @@
 		B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityUserPool+Extension.h"; sourceTree = "<group>"; };
 		B41F676E233D523B0060FDEE /* DropInUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUIUserPoolViewController.swift; sourceTree = "<group>"; };
 		B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSDropInUIUserPoolTests.swift; sourceTree = "<group>"; };
+		B45C9A0C258C328F00EC78B6 /* AWSMobileClientXCF.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = AWSMobileClientXCF.plist; path = Sources/AWSMobileClient/AWSMobileClientXCF.plist; sourceTree = SOURCE_ROOT; };
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		B49C889E24B38746009739FC /* AWSAppleSignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSAppleSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1600,22 +1600,22 @@
 		170AD3D52195663C004E1E88 /* Internal */ = {
 			isa = PBXGroup;
 			children = (
-				17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */,
-				17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */,
+				B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */,
+				B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */,
 				177B8AD921E52C730051068F /* AWSCognitoAuth_Internal.h */,
 				177B8ADA21E52C730051068F /* AWSCognitoAuth.h */,
 				177B8AD721E52C720051068F /* AWSCognitoAuth.m */,
+				17F4F74E21F6B0750068B553 /* AWSCognitoAuth+Extensions.h */,
+				17F4F74F21F6B0750068B553 /* AWSCognitoAuth+Extensions.m */,
 				177B8ADB21E52C730051068F /* AWSCognitoAuthUICKeyChainStore.h */,
 				177B8AD821E52C730051068F /* AWSCognitoAuthUICKeyChainStore.m */,
-				B5FC69091FAFA1D0004790CB /* _AWSMobileClient.m */,
-				B5FC69031FAFA1AA004790CB /* _AWSMobileClient.h */,
-				B4C8E3A72306056A0064C158 /* JSONHelper.swift */,
-				B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */,
 				B4F4C8692321CB6B001C87CD /* AWSCognitoCredentialsProvider+Extension.h */,
-				B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */,
 				B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */,
 				6BB7BF2E23E5E8FB0026E789 /* AWSMobileClient-Mixed-Swift.h */,
+				B4031B78230F044A009EB524 /* AWSMobileClientUserDetails.swift */,
 				B402D0D225815D690020B83B /* AWSMobileClientXCF-Mixed-Swift.h */,
+				B4B74C052332E3EB0024326F /* AWSUserPoolCustomAuthHandler.swift */,
+				B4C8E3A72306056A0064C158 /* JSONHelper.swift */,
 			);
 			path = Internal;
 			sourceTree = "<group>";
@@ -1666,7 +1666,6 @@
 				177B8AE721E81B7D0051068F /* AWSAuthSDKTestAppUITests */,
 				175869A11EF8899700F1452C /* Products */,
 				176375031F3287580086588B /* Frameworks */,
-				B402CD40258067300020B83B /* AWSMobileClient copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -2066,6 +2065,7 @@
 			children = (
 				170AD3D52195663C004E1E88 /* Internal */,
 				B5FC69041FAFA1AA004790CB /* Info.plist */,
+				B45C9A0C258C328F00EC78B6 /* AWSMobileClientXCF.plist */,
 				17D61F822166C784009B2B9C /* AWSMobileResults.swift */,
 				17D61FA6216BBC59009B2B9C /* AWSMobileClient.swift */,
 				179E0AD021656F3200E1F877 /* AWSMobileClientExtensions.swift */,
@@ -4322,7 +4322,7 @@
 					"USE_XCF=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = "AWSMobileClient copy-Info.plist";
+				INFOPLIST_FILE = Sources/AWSMobileClient/AWSMobileClientXCF.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -4362,7 +4362,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "USE_XCF=1";
-				INFOPLIST_FILE = "AWSMobileClient copy-Info.plist";
+				INFOPLIST_FILE = Sources/AWSMobileClient/AWSMobileClientXCF.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
