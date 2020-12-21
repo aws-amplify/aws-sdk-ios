@@ -24,15 +24,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantErrorDomain;
 typedef NS_ENUM(NSInteger, AWSConnectParticipantErrorType) {
     AWSConnectParticipantErrorUnknown,
     AWSConnectParticipantErrorAccessDenied,
+    AWSConnectParticipantErrorConflict,
     AWSConnectParticipantErrorInternalServer,
+    AWSConnectParticipantErrorServiceQuotaExceeded,
     AWSConnectParticipantErrorThrottling,
     AWSConnectParticipantErrorValidation,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectParticipantArtifactStatus) {
+    AWSConnectParticipantArtifactStatusUnknown,
+    AWSConnectParticipantArtifactStatusApproved,
+    AWSConnectParticipantArtifactStatusRejected,
+    AWSConnectParticipantArtifactStatusInProgress,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectParticipantChatItemType) {
     AWSConnectParticipantChatItemTypeUnknown,
+    AWSConnectParticipantChatItemTypeTyping,
+    AWSConnectParticipantChatItemTypeParticipantJoined,
+    AWSConnectParticipantChatItemTypeParticipantLeft,
+    AWSConnectParticipantChatItemTypeChatEnded,
+    AWSConnectParticipantChatItemTypeTransferSucceeded,
+    AWSConnectParticipantChatItemTypeTransferFailed,
     AWSConnectParticipantChatItemTypeMessage,
     AWSConnectParticipantChatItemTypeEvent,
+    AWSConnectParticipantChatItemTypeAttachment,
     AWSConnectParticipantChatItemTypeConnectionAck,
 };
 
@@ -61,11 +77,16 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
     AWSConnectParticipantSortKeyAscending,
 };
 
+@class AWSConnectParticipantAttachmentItem;
+@class AWSConnectParticipantCompleteAttachmentUploadRequest;
+@class AWSConnectParticipantCompleteAttachmentUploadResponse;
 @class AWSConnectParticipantConnectionCredentials;
 @class AWSConnectParticipantCreateParticipantConnectionRequest;
 @class AWSConnectParticipantCreateParticipantConnectionResponse;
 @class AWSConnectParticipantDisconnectParticipantRequest;
 @class AWSConnectParticipantDisconnectParticipantResponse;
+@class AWSConnectParticipantGetAttachmentRequest;
+@class AWSConnectParticipantGetAttachmentResponse;
 @class AWSConnectParticipantGetTranscriptRequest;
 @class AWSConnectParticipantGetTranscriptResponse;
 @class AWSConnectParticipantItem;
@@ -73,8 +94,70 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @class AWSConnectParticipantSendEventResponse;
 @class AWSConnectParticipantSendMessageRequest;
 @class AWSConnectParticipantSendMessageResponse;
+@class AWSConnectParticipantStartAttachmentUploadRequest;
+@class AWSConnectParticipantStartAttachmentUploadResponse;
 @class AWSConnectParticipantStartPosition;
+@class AWSConnectParticipantUploadMetadata;
 @class AWSConnectParticipantWebsocket;
+
+/**
+ <p>The case-insensitive input to indicate standard MIME type that describes the format of the file that will be uploaded.</p>
+ */
+@interface AWSConnectParticipantAttachmentItem : AWSModel
+
+
+/**
+ <p>A unique identifier for the attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentId;
+
+/**
+ <p>A case-sensitive name of the attachment being uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentName;
+
+/**
+ <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contentType;
+
+/**
+ <p>Status of the attachment.</p>
+ */
+@property (nonatomic, assign) AWSConnectParticipantArtifactStatus status;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectParticipantCompleteAttachmentUploadRequest : AWSRequest
+
+
+/**
+ <p>A list of unique identifiers for the attachments.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable attachmentIds;
+
+/**
+ <p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The authentication token associated with the participant's connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectionToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectParticipantCompleteAttachmentUploadResponse : AWSModel
+
+
+@end
 
 /**
  <p>Connection credentials. </p>
@@ -101,7 +184,7 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 
 
 /**
- <p>Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContactResponse.html">StartChatContact</a> API response.</p>
+ <p>This is a header parameter.</p><p>The Participant Token as obtained from <a href="https://docs.aws.amazon.com/connect/latest/APIReference/API_StartChatContact.html">StartChatContact</a> API response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable participantToken;
 
@@ -153,6 +236,42 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
  */
 @interface AWSConnectParticipantDisconnectParticipantResponse : AWSModel
 
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectParticipantGetAttachmentRequest : AWSRequest
+
+
+/**
+ <p>A unique identifier for the attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentId;
+
+/**
+ <p>The authentication token associated with the participant's connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectionToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectParticipantGetAttachmentResponse : AWSModel
+
+
+/**
+ <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+/**
+ <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable urlExpiry;
 
 @end
 
@@ -232,6 +351,11 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
  <p>The time when the message or event was sent.</p><p>It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable absoluteTime;
+
+/**
+ <p>Provides information about the attachments.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectParticipantAttachmentItem *> * _Nullable attachments;
 
 /**
  <p>The content of the message or event.</p>
@@ -363,6 +487,57 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
 @end
 
 /**
+ 
+ */
+@interface AWSConnectParticipantStartAttachmentUploadRequest : AWSRequest
+
+
+/**
+ <p>A case-sensitive name of the attachment being uploaded.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentName;
+
+/**
+ <p>The size of the attachment in bytes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable attachmentSizeInBytes;
+
+/**
+ <p>A unique case sensitive identifier to support idempotency of request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The authentication token associated with the participant's connection.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable connectionToken;
+
+/**
+ <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contentType;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectParticipantStartAttachmentUploadResponse : AWSModel
+
+
+/**
+ <p>A unique identifier for the attachment.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable attachmentId;
+
+/**
+ <p>Fields to be used while uploading the attachment.</p>
+ */
+@property (nonatomic, strong) AWSConnectParticipantUploadMetadata * _Nullable uploadMetadata;
+
+@end
+
+/**
  <p>A filtering option for where to start. For example, if you sent 100 messages, start with message 50. </p>
  */
 @interface AWSConnectParticipantStartPosition : AWSModel
@@ -382,6 +557,29 @@ typedef NS_ENUM(NSInteger, AWSConnectParticipantSortKey) {
  <p>The start position of the most recent message where you want to start. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable mostRecent;
+
+@end
+
+/**
+ <p>Fields to be used while uploading the attachment.</p>
+ */
+@interface AWSConnectParticipantUploadMetadata : AWSModel
+
+
+/**
+ <p>The headers to be provided while uploading the file to the URL.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable headersToInclude;
+
+/**
+ <p>The pre-signed URL using which file would be downloaded from Amazon S3 by the API caller.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable url;
+
+/**
+ <p>The expiration time of the URL in ISO timestamp. It's specified in ISO 8601 format: yyyy-MM-ddThh:mm:ss.SSSZ. For example, 2019-11-08T02:41:28.172Z.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable urlExpiry;
 
 @end
 
