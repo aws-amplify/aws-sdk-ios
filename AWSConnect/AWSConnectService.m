@@ -494,6 +494,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectCreateQuickConnectResponse *> *)createQuickConnect:(AWSConnectCreateQuickConnectRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/quick-connects/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateQuickConnect"
+                   outputClass:[AWSConnectCreateQuickConnectResponse class]];
+}
+
+- (void)createQuickConnect:(AWSConnectCreateQuickConnectRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateQuickConnectResponse *response, NSError *error))completionHandler {
+    [[self createQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateQuickConnectResponse *> * _Nonnull task) {
+        AWSConnectCreateQuickConnectResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectCreateRoutingProfileResponse *> *)createRoutingProfile:(AWSConnectCreateRoutingProfileRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -620,6 +643,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteIntegrationAssociation:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/quick-connects/{InstanceId}/{QuickConnectId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteQuickConnect"
+                   outputClass:nil];
+}
+
+- (void)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -778,6 +823,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeInstanceStorageConfigResponse *response, NSError *error))completionHandler {
     [[self describeInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeInstanceStorageConfigResponse *> * _Nonnull task) {
         AWSConnectDescribeInstanceStorageConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeQuickConnectResponse *> *)describeQuickConnect:(AWSConnectDescribeQuickConnectRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/quick-connects/{InstanceId}/{QuickConnectId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeQuickConnect"
+                   outputClass:[AWSConnectDescribeQuickConnectResponse class]];
+}
+
+- (void)describeQuickConnect:(AWSConnectDescribeQuickConnectRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeQuickConnectResponse *response, NSError *error))completionHandler {
+    [[self describeQuickConnect:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeQuickConnectResponse *> * _Nonnull task) {
+        AWSConnectDescribeQuickConnectResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1380,6 +1448,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectListQuickConnectsResponse *> *)listQuickConnects:(AWSConnectListQuickConnectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/quick-connects/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"ListQuickConnects"
+                   outputClass:[AWSConnectListQuickConnectsResponse class]];
+}
+
+- (void)listQuickConnects:(AWSConnectListQuickConnectsRequest *)request
+     completionHandler:(void (^)(AWSConnectListQuickConnectsResponse *response, NSError *error))completionHandler {
+    [[self listQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListQuickConnectsResponse *> * _Nonnull task) {
+        AWSConnectListQuickConnectsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectListRoutingProfileQueuesResponse *> *)listRoutingProfileQueues:(AWSConnectListRoutingProfileQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -1893,6 +1984,50 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQuickConnectConfig:(AWSConnectUpdateQuickConnectConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/quick-connects/{InstanceId}/{QuickConnectId}/config"
+                  targetPrefix:@""
+                 operationName:@"UpdateQuickConnectConfig"
+                   outputClass:nil];
+}
+
+- (void)updateQuickConnectConfig:(AWSConnectUpdateQuickConnectConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQuickConnectConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQuickConnectName:(AWSConnectUpdateQuickConnectNameRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/quick-connects/{InstanceId}/{QuickConnectId}/name"
+                  targetPrefix:@""
+                 operationName:@"UpdateQuickConnectName"
+                   outputClass:nil];
+}
+
+- (void)updateQuickConnectName:(AWSConnectUpdateQuickConnectNameRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQuickConnectName:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
