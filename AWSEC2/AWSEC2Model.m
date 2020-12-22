@@ -405,6 +405,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
              @"dryRun" : @"DryRun",
              @"networkBorderGroup" : @"NetworkBorderGroup",
              @"publicIpv4Pool" : @"PublicIpv4Pool",
+             @"tagSpecifications" : @"TagSpecifications",
              };
 }
 
@@ -427,6 +428,10 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
                 return nil;
         }
     }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
 }
 
 @end
