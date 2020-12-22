@@ -47884,6 +47884,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"iops" : @"Iops",
+             @"multiAttachEnabled" : @"MultiAttachEnabled",
              @"size" : @"Size",
              @"throughput" : @"Throughput",
              @"volumeId" : @"VolumeId",
@@ -77862,6 +77863,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"endTime" : @"EndTime",
              @"modificationState" : @"ModificationState",
              @"originalIops" : @"OriginalIops",
+             @"originalMultiAttachEnabled" : @"OriginalMultiAttachEnabled",
              @"originalSize" : @"OriginalSize",
              @"originalThroughput" : @"OriginalThroughput",
              @"originalVolumeType" : @"OriginalVolumeType",
@@ -77869,6 +77871,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"startTime" : @"StartTime",
              @"statusMessage" : @"StatusMessage",
              @"targetIops" : @"TargetIops",
+             @"targetMultiAttachEnabled" : @"TargetMultiAttachEnabled",
              @"targetSize" : @"TargetSize",
              @"targetThroughput" : @"TargetThroughput",
              @"targetVolumeType" : @"TargetVolumeType",

@@ -9917,7 +9917,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is supported with <code>io1</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
 
@@ -28375,6 +28375,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
 /**
+ <p>Specifies whether to enable Amazon EBS Multi-Attach. If you enable Multi-Attach, you can attach the volume to up to 16 <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances"> Nitro-based instances</a> in the same Availability Zone. This parameter is supported with <code>io1</code> and <code>io2</code> volumes only. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ebs-volumes-multi.html"> Amazon EBS Multi-Attach</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable multiAttachEnabled;
+
+/**
  <p>The target size of the volume, in GiB. The target volume size must be greater than or equal to the existing size of the volume.</p><p>The following are the supported volumes sizes for each volume type:</p><ul><li><p><code>gp2</code> and <code>gp3</code>: 1-16,384</p></li><li><p><code>io1</code> and <code>io2</code>: 4-16,384</p></li><li><p><code>st1</code> and <code>sc1</code>: 125-16,384</p></li><li><p><code>standard</code>: 1-1,024</p></li></ul><p>Default: If no size is specified, the existing size is retained.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable size;
@@ -38574,6 +38579,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable originalIops;
 
 /**
+ <p>The original setting for Amazon EBS Multi-Attach.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable originalMultiAttachEnabled;
+
+/**
  <p>The original size of the volume, in GiB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable originalSize;
@@ -38607,6 +38617,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The target IOPS rate of the volume.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable targetIops;
+
+/**
+ <p>The target setting for Amazon EBS Multi-Attach.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable targetMultiAttachEnabled;
 
 /**
  <p>The target size of the volume, in GiB.</p>
