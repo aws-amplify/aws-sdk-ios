@@ -1,18 +1,16 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSKMS
----AWSEC2
----AWSSQS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- **AWSIoT**
+  - The `generateCSRForCertificate` method now uses SHA256 to sign Certificate Signing Requests. (See [PR #3345](https://github.com/aws-amplify/aws-sdk-ios/pull/3345))
+
+- Model updates for the following services
+  - AWSEC2
+  - AWSKMS
+  - AWSSQS
 
 ## 2.21.0
 
