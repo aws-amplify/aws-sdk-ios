@@ -1,16 +1,14 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSConnect
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSEC2
+  - AWSIoT
 
 ## 2.21.0
 
