@@ -422,6 +422,13 @@ typedef NS_ENUM(NSInteger, AWSConnectQueueType) {
     AWSConnectQueueTypeAgent,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectQuickConnectType) {
+    AWSConnectQuickConnectTypeUnknown,
+    AWSConnectQuickConnectTypeUser,
+    AWSConnectQuickConnectTypeQueue,
+    AWSConnectQuickConnectTypePhoneNumber,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectReferenceType) {
     AWSConnectReferenceTypeUnknown,
     AWSConnectReferenceTypeUrl,
@@ -496,6 +503,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateInstanceResponse;
 @class AWSConnectCreateIntegrationAssociationRequest;
 @class AWSConnectCreateIntegrationAssociationResponse;
+@class AWSConnectCreateQuickConnectRequest;
+@class AWSConnectCreateQuickConnectResponse;
 @class AWSConnectCreateRoutingProfileRequest;
 @class AWSConnectCreateRoutingProfileResponse;
 @class AWSConnectCreateUseCaseRequest;
@@ -510,6 +519,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCurrentMetricResult;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
+@class AWSConnectDeleteQuickConnectRequest;
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
@@ -521,6 +531,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDescribeInstanceResponse;
 @class AWSConnectDescribeInstanceStorageConfigRequest;
 @class AWSConnectDescribeInstanceStorageConfigResponse;
+@class AWSConnectDescribeQuickConnectRequest;
+@class AWSConnectDescribeQuickConnectResponse;
 @class AWSConnectDescribeRoutingProfileRequest;
 @class AWSConnectDescribeRoutingProfileResponse;
 @class AWSConnectDescribeUserHierarchyGroupRequest;
@@ -590,6 +602,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListPromptsResponse;
 @class AWSConnectListQueuesRequest;
 @class AWSConnectListQueuesResponse;
+@class AWSConnectListQuickConnectsRequest;
+@class AWSConnectListQuickConnectsResponse;
 @class AWSConnectListRoutingProfileQueuesRequest;
 @class AWSConnectListRoutingProfileQueuesResponse;
 @class AWSConnectListRoutingProfilesRequest;
@@ -608,11 +622,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListUsersResponse;
 @class AWSConnectMediaConcurrency;
 @class AWSConnectParticipantDetails;
+@class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectProblemDetail;
 @class AWSConnectPromptSummary;
+@class AWSConnectQueueQuickConnectConfig;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
+@class AWSConnectQuickConnect;
+@class AWSConnectQuickConnectConfig;
+@class AWSConnectQuickConnectSummary;
 @class AWSConnectReference;
 @class AWSConnectResumeContactRecordingRequest;
 @class AWSConnectResumeContactRecordingResponse;
@@ -647,6 +666,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactFlowNameRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
+@class AWSConnectUpdateQuickConnectConfigRequest;
+@class AWSConnectUpdateQuickConnectNameRequest;
 @class AWSConnectUpdateRoutingProfileConcurrencyRequest;
 @class AWSConnectUpdateRoutingProfileDefaultOutboundQueueRequest;
 @class AWSConnectUpdateRoutingProfileNameRequest;
@@ -662,6 +683,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUser;
 @class AWSConnectUserIdentityInfo;
 @class AWSConnectUserPhoneConfig;
+@class AWSConnectUserQuickConnectConfig;
 @class AWSConnectUserSummary;
 @class AWSConnectVoiceRecordingConfiguration;
 
@@ -1088,6 +1110,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateQuickConnectRequest : AWSRequest
+
+
+/**
+ <p>The description of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>Configuration settings for the quick connect.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateQuickConnectResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the quick connect. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectARN;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateRoutingProfileRequest : AWSRequest
 
 
@@ -1420,6 +1493,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDeleteQuickConnectRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDeleteUseCaseRequest : AWSRequest
 
 
@@ -1597,6 +1688,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A valid storage type.</p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStorageConfig * _Nullable storageConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeQuickConnectRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeQuickConnectResponse : AWSModel
+
+
+/**
+ <p>Information about the quick connect.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnect * _Nullable quickConnect;
 
 @end
 
@@ -3156,6 +3278,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListQuickConnectsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximimum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectTypes;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListQuickConnectsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the quick connects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQuickConnectSummary *> * _Nullable quickConnectSummaryList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListRoutingProfileQueuesRequest : AWSRequest
 
 
@@ -3511,6 +3679,20 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Contains information about a phone number for a quick connect.</p>
+ Required parameters: [PhoneNumber]
+ */
+@interface AWSConnectPhoneNumberQuickConnectConfig : AWSModel
+
+
+/**
+ <p>The phone number in E.164 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+@end
+
+/**
  <p>Contains summary information about a phone number for a contact center.</p>
  */
 @interface AWSConnectPhoneNumberSummary : AWSModel
@@ -3580,6 +3762,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Contains information about a queue for a quick connect. The contact flow must be of type Transfer to Queue.</p>
+ Required parameters: [QueueId, ContactFlowId]
+ */
+@interface AWSConnectQueueQuickConnectConfig : AWSModel
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
  <p>Contains information about a queue resource for which metrics are returned.</p>
  */
 @interface AWSConnectQueueReference : AWSModel
@@ -3622,6 +3823,101 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The type of queue.</p>
  */
 @property (nonatomic, assign) AWSConnectQueueType queueType;
+
+@end
+
+/**
+ <p>Contains information about a quick connect.</p>
+ */
+@interface AWSConnectQuickConnect : AWSModel
+
+
+/**
+ <p>The description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The name of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectARN;
+
+/**
+ <p>Contains information about the quick connect.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ <p>Contains configuration settings for a quick connect.</p>
+ Required parameters: [QuickConnectType]
+ */
+@interface AWSConnectQuickConnectConfig : AWSModel
+
+
+/**
+ <p>The phone configuration. This is required only if QuickConnectType is PHONE_NUMBER.</p>
+ */
+@property (nonatomic, strong) AWSConnectPhoneNumberQuickConnectConfig * _Nullable phoneConfig;
+
+/**
+ <p>The queue configuration. This is required only if QuickConnectType is QUEUE.</p>
+ */
+@property (nonatomic, strong) AWSConnectQueueQuickConnectConfig * _Nullable queueConfig;
+
+/**
+ <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE). </p>
+ */
+@property (nonatomic, assign) AWSConnectQuickConnectType quickConnectType;
+
+/**
+ <p>The user configuration. This is required only if QuickConnectType is USER.</p>
+ */
+@property (nonatomic, strong) AWSConnectUserQuickConnectConfig * _Nullable userConfig;
+
+@end
+
+/**
+ <p>Contains summary information about a quick connect.</p>
+ */
+@interface AWSConnectQuickConnectSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The type of quick connect. In the Amazon Connect console, when you create a quick connect, you are prompted to assign one of the following types: Agent (USER), External (PHONE_NUMBER), or Queue (QUEUE).</p>
+ */
+@property (nonatomic, assign) AWSConnectQuickConnectType quickConnectType;
 
 @end
 
@@ -4390,6 +4686,57 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateQuickConnectConfigRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>Information about the configuration settings for the quick connect.</p>
+ */
+@property (nonatomic, strong) AWSConnectQuickConnectConfig * _Nullable quickConnectConfig;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateQuickConnectNameRequest : AWSRequest
+
+
+/**
+ <p>The description of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier for the quick connect.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable quickConnectId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateRoutingProfileConcurrencyRequest : AWSRequest
 
 
@@ -4770,6 +5117,25 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The phone type.</p>
  */
 @property (nonatomic, assign) AWSConnectPhoneType phoneType;
+
+@end
+
+/**
+ <p>Contains information about the quick connect configuration settings for a user. The contact flow must be of type Transfer to Agent.</p>
+ Required parameters: [UserId, ContactFlowId]
+ */
+@interface AWSConnectUserQuickConnectConfig : AWSModel
+
+
+/**
+ <p>The identifier of the contact flow.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+/**
+ <p>The identifier of the user.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable userId;
 
 @end
 
