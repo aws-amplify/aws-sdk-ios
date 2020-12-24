@@ -175,7 +175,32 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 + (void)removeConnectParticipantForKey:(NSString *)key;
 
 /**
- <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until the they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p>
+ <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p>
+ 
+ @param request A container for the necessary parameters to execute the CompleteAttachmentUpload service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantCompleteAttachmentUploadResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorServiceQuotaExceeded`, `AWSConnectParticipantErrorConflict`.
+ 
+ @see AWSConnectParticipantCompleteAttachmentUploadRequest
+ @see AWSConnectParticipantCompleteAttachmentUploadResponse
+ */
+- (AWSTask<AWSConnectParticipantCompleteAttachmentUploadResponse *> *)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request;
+
+/**
+ <p>Allows you to confirm that the attachment has been uploaded using the pre-signed URL provided in StartAttachmentUpload API. </p>
+ 
+ @param request A container for the necessary parameters to execute the CompleteAttachmentUpload service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorServiceQuotaExceeded`, `AWSConnectParticipantErrorConflict`.
+ 
+ @see AWSConnectParticipantCompleteAttachmentUploadRequest
+ @see AWSConnectParticipantCompleteAttachmentUploadResponse
+ */
+- (void)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantCompleteAttachmentUploadResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateParticipantConnection service method.
 
@@ -187,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantCreateParticipantConnectionResponse *> *)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request;
 
 /**
- <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until the they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p>
+ <p>Creates the participant's connection. Note that ParticipantToken is used for invoking this API instead of ConnectionToken.</p><p>The participant token is valid for the lifetime of the participant – until they are part of a contact.</p><p>The response URL for <code>WEBSOCKET</code> Type has a connect expiry timeout of 100s. Clients must manually connect to the returned websocket URL and subscribe to the desired topic. </p><p>For chat, you need to publish the following on the established websocket connection:</p><p><code>{"topic":"aws/subscribe","content":{"topics":["aws/chat"]}}</code></p><p>Upon websocket URL expiry, as specified in the response ConnectionExpiry parameter, clients need to call this API again to obtain a new websocket URL and perform the same steps as before.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the CreateParticipantConnection service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantCreateParticipantConnectionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the DisconnectParticipant service method.
 
@@ -212,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantDisconnectParticipantResponse *> *)disconnectParticipant:(AWSConnectParticipantDisconnectParticipantRequest *)request;
 
 /**
- <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Disconnects a participant. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the DisconnectParticipant service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -225,7 +250,32 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)disconnectParticipant:(AWSConnectParticipantDisconnectParticipantRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantDisconnectParticipantResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAttachment service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantGetAttachmentResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`.
+ 
+ @see AWSConnectParticipantGetAttachmentRequest
+ @see AWSConnectParticipantGetAttachmentResponse
+ */
+- (AWSTask<AWSConnectParticipantGetAttachmentResponse *> *)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request;
+
+/**
+ <p>Provides a pre-signed URL for download of a completed attachment. This is an asynchronous API for use with active contacts.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetAttachment service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`.
+ 
+ @see AWSConnectParticipantGetAttachmentRequest
+ @see AWSConnectParticipantGetAttachmentResponse
+ */
+- (void)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantGetAttachmentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves a transcript of the session, including details about any attachments. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
 
@@ -237,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantGetTranscriptResponse *> *)getTranscript:(AWSConnectParticipantGetTranscriptRequest *)request;
 
 /**
- <p>Retrieves a transcript of the session. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Retrieves a transcript of the session, including details about any attachments. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetTranscript service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -250,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)getTranscript:(AWSConnectParticipantGetTranscriptRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantGetTranscriptResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendEvent service method.
 
@@ -262,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantSendEventResponse *> *)sendEvent:(AWSConnectParticipantSendEventRequest *)request;
 
 /**
- <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Sends an event. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p>
  
  @param request A container for the necessary parameters to execute the SendEvent service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +325,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (void)sendEvent:(AWSConnectParticipantSendEventRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantSendEventResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
 
@@ -287,7 +337,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
 - (AWSTask<AWSConnectParticipantSendMessageResponse *> *)sendMessage:(AWSConnectParticipantSendMessageRequest *)request;
 
 /**
- <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p>
+ <p>Sends a message. Note that ConnectionToken is used for invoking this API instead of ParticipantToken.</p><note><p>The Amazon Connect Participant Service APIs do not use <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">Signature Version 4 authentication</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the SendMessage service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -298,6 +348,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectParticipantSDKVersion;
  @see AWSConnectParticipantSendMessageResponse
  */
 - (void)sendMessage:(AWSConnectParticipantSendMessageRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantSendMessageResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartAttachmentUpload service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectParticipantStartAttachmentUploadResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectParticipantStartAttachmentUploadRequest
+ @see AWSConnectParticipantStartAttachmentUploadResponse
+ */
+- (AWSTask<AWSConnectParticipantStartAttachmentUploadResponse *> *)startAttachmentUpload:(AWSConnectParticipantStartAttachmentUploadRequest *)request;
+
+/**
+ <p>Provides a pre-signed Amazon S3 URL in response for uploading the file directly to S3.</p>
+ 
+ @param request A container for the necessary parameters to execute the StartAttachmentUpload service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectParticipantErrorDomain` domain and the following error code: `AWSConnectParticipantErrorAccessDenied`, `AWSConnectParticipantErrorInternalServer`, `AWSConnectParticipantErrorThrottling`, `AWSConnectParticipantErrorValidation`, `AWSConnectParticipantErrorServiceQuotaExceeded`.
+ 
+ @see AWSConnectParticipantStartAttachmentUploadRequest
+ @see AWSConnectParticipantStartAttachmentUploadResponse
+ */
+- (void)startAttachmentUpload:(AWSConnectParticipantStartAttachmentUploadRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectParticipantStartAttachmentUploadResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 

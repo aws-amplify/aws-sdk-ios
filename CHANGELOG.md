@@ -4,11 +4,16 @@
 
 ### Misc. Updates
 
+- **AWSIoT**
+  - The `generateCSRForCertificate` method now uses SHA256 to sign Certificate Signing Requests. (See [PR #3345](https://github.com/aws-amplify/aws-sdk-ios/pull/3345))
+
 - Model updates for the following services
   - AWSConnect
   - AWSConnectParticipant
   - AWSEC2
   - AWSIoT
+  - AWSKMS
+  - AWSSQS
 
 ## 2.21.0
 

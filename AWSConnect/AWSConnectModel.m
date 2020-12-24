@@ -637,6 +637,43 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectCreateQuickConnectRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"quickConnectConfig" : @"QuickConnectConfig",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)quickConnectConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQuickConnectConfig class]];
+}
+
+@end
+
+@implementation AWSConnectCreateQuickConnectResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"quickConnectARN" : @"QuickConnectARN",
+             @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
+@end
+
 @implementation AWSConnectCreateRoutingProfileRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1025,6 +1062,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDeleteQuickConnectRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
+@end
+
 @implementation AWSConnectDeleteUseCaseRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1286,6 +1338,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)storageConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectInstanceStorageConfig class]];
+}
+
+@end
+
+@implementation AWSConnectDescribeQuickConnectRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeQuickConnectResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"quickConnect" : @"QuickConnect",
+             };
+}
+
++ (NSValueTransformer *)quickConnectJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQuickConnect class]];
 }
 
 @end
@@ -3106,6 +3191,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListQuickConnectsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"quickConnectTypes" : @"QuickConnectTypes",
+             };
+}
+
+@end
+
+@implementation AWSConnectListQuickConnectsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"quickConnectSummaryList" : @"QuickConnectSummaryList",
+             };
+}
+
++ (NSValueTransformer *)quickConnectSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQuickConnectSummary class]];
+}
+
+@end
+
 @implementation AWSConnectListRoutingProfileQueuesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3431,6 +3552,20 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"displayName" : @"DisplayName",
+             };
+}
+
+@end
+
+@implementation AWSConnectPhoneNumberQuickConnectConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"phoneNumber" : @"PhoneNumber",
              };
 }
 
@@ -4701,6 +4836,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectQueueQuickConnectConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowId" : @"ContactFlowId",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
 @implementation AWSConnectQueueReference
 
 + (BOOL)supportsSecureCoding {
@@ -4746,6 +4896,127 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return @"STANDARD";
             case AWSConnectQueueTypeAgent:
                 return @"AGENT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectQuickConnect
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"quickConnectARN" : @"QuickConnectARN",
+             @"quickConnectConfig" : @"QuickConnectConfig",
+             @"quickConnectId" : @"QuickConnectId",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)quickConnectConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQuickConnectConfig class]];
+}
+
+@end
+
+@implementation AWSConnectQuickConnectConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"phoneConfig" : @"PhoneConfig",
+             @"queueConfig" : @"QueueConfig",
+             @"quickConnectType" : @"QuickConnectType",
+             @"userConfig" : @"UserConfig",
+             };
+}
+
++ (NSValueTransformer *)phoneConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectPhoneNumberQuickConnectConfig class]];
+}
+
++ (NSValueTransformer *)queueConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQueueQuickConnectConfig class]];
+}
+
++ (NSValueTransformer *)quickConnectTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"QUEUE"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypeQueue);
+        }
+        if ([value caseInsensitiveCompare:@"PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypePhoneNumber);
+        }
+        return @(AWSConnectQuickConnectTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectQuickConnectTypeUser:
+                return @"USER";
+            case AWSConnectQuickConnectTypeQueue:
+                return @"QUEUE";
+            case AWSConnectQuickConnectTypePhoneNumber:
+                return @"PHONE_NUMBER";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)userConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectUserQuickConnectConfig class]];
+}
+
+@end
+
+@implementation AWSConnectQuickConnectSummary
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"identifier" : @"Id",
+             @"name" : @"Name",
+             @"quickConnectType" : @"QuickConnectType",
+             };
+}
+
++ (NSValueTransformer *)quickConnectTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"USER"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypeUser);
+        }
+        if ([value caseInsensitiveCompare:@"QUEUE"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypeQueue);
+        }
+        if ([value caseInsensitiveCompare:@"PHONE_NUMBER"] == NSOrderedSame) {
+            return @(AWSConnectQuickConnectTypePhoneNumber);
+        }
+        return @(AWSConnectQuickConnectTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectQuickConnectTypeUser:
+                return @"USER";
+            case AWSConnectQuickConnectTypeQueue:
+                return @"QUEUE";
+            case AWSConnectQuickConnectTypePhoneNumber:
+                return @"PHONE_NUMBER";
             default:
                 return nil;
         }
@@ -5478,6 +5749,43 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectUpdateQuickConnectConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"quickConnectConfig" : @"QuickConnectConfig",
+             @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
++ (NSValueTransformer *)quickConnectConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQuickConnectConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateQuickConnectNameRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"quickConnectId" : @"QuickConnectId",
+             };
+}
+
+@end
+
 @implementation AWSConnectUpdateRoutingProfileConcurrencyRequest
 
 + (BOOL)supportsSecureCoding {
@@ -5787,6 +6095,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectUserQuickConnectConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"contactFlowId" : @"ContactFlowId",
+             @"userId" : @"UserId",
+             };
 }
 
 @end

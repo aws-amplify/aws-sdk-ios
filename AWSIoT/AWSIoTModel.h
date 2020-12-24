@@ -167,6 +167,13 @@ typedef NS_ENUM(NSInteger, AWSIoTAwsJobAbortCriteriaFailureType) {
     AWSIoTAwsJobAbortCriteriaFailureTypeAll,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTBehaviorCriteriaType) {
+    AWSIoTBehaviorCriteriaTypeUnknown,
+    AWSIoTBehaviorCriteriaTypeStatic,
+    AWSIoTBehaviorCriteriaTypeStatistical,
+    AWSIoTBehaviorCriteriaTypeMachineLearning,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTCACertificateStatus) {
     AWSIoTCACertificateStatusUnknown,
     AWSIoTCACertificateStatusActive,
@@ -216,6 +223,23 @@ typedef NS_ENUM(NSInteger, AWSIoTComparisonOperator) {
     AWSIoTComparisonOperatorNotInCidrSet,
     AWSIoTComparisonOperatorInPortSet,
     AWSIoTComparisonOperatorNotInPortSet,
+    AWSIoTComparisonOperatorInSet,
+    AWSIoTComparisonOperatorNotInSet,
+};
+
+typedef NS_ENUM(NSInteger, AWSIoTConfidenceLevel) {
+    AWSIoTConfidenceLevelUnknown,
+    AWSIoTConfidenceLevelLow,
+    AWSIoTConfidenceLevelMedium,
+    AWSIoTConfidenceLevelHigh,
+};
+
+typedef NS_ENUM(NSInteger, AWSIoTCustomMetricType) {
+    AWSIoTCustomMetricTypeUnknown,
+    AWSIoTCustomMetricTypeStringList,
+    AWSIoTCustomMetricTypeIpAddressList,
+    AWSIoTCustomMetricTypeNumberList,
+    AWSIoTCustomMetricTypeNumber,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTDayOfWeek) {
@@ -227,6 +251,22 @@ typedef NS_ENUM(NSInteger, AWSIoTDayOfWeek) {
     AWSIoTDayOfWeekThu,
     AWSIoTDayOfWeekFri,
     AWSIoTDayOfWeekSat,
+};
+
+typedef NS_ENUM(NSInteger, AWSIoTDetectMitigationActionExecutionStatus) {
+    AWSIoTDetectMitigationActionExecutionStatusUnknown,
+    AWSIoTDetectMitigationActionExecutionStatusInProgress,
+    AWSIoTDetectMitigationActionExecutionStatusSuccessful,
+    AWSIoTDetectMitigationActionExecutionStatusFailed,
+    AWSIoTDetectMitigationActionExecutionStatusSkipped,
+};
+
+typedef NS_ENUM(NSInteger, AWSIoTDetectMitigationActionsTaskStatus) {
+    AWSIoTDetectMitigationActionsTaskStatusUnknown,
+    AWSIoTDetectMitigationActionsTaskStatusInProgress,
+    AWSIoTDetectMitigationActionsTaskStatusSuccessful,
+    AWSIoTDetectMitigationActionsTaskStatusFailed,
+    AWSIoTDetectMitigationActionsTaskStatusCanceled,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTDeviceCertificateUpdateAction) {
@@ -359,6 +399,13 @@ typedef NS_ENUM(NSInteger, AWSIoTMitigationActionType) {
     AWSIoTMitigationActionTypePublishFindingToSns,
 };
 
+typedef NS_ENUM(NSInteger, AWSIoTModelStatus) {
+    AWSIoTModelStatusUnknown,
+    AWSIoTModelStatusPendingBuild,
+    AWSIoTModelStatusActive,
+    AWSIoTModelStatusExpired,
+};
+
 typedef NS_ENUM(NSInteger, AWSIoTOTAUpdateStatus) {
     AWSIoTOTAUpdateStatusUnknown,
     AWSIoTOTAUpdateStatusCreatePending,
@@ -449,6 +496,7 @@ typedef NS_ENUM(NSInteger, AWSIoTTopicRuleDestinationStatus) {
     AWSIoTTopicRuleDestinationStatusInProgress,
     AWSIoTTopicRuleDestinationStatusDisabled,
     AWSIoTTopicRuleDestinationStatusError,
+    AWSIoTTopicRuleDestinationStatusDeleting,
 };
 
 typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
@@ -505,6 +553,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTAwsJobTimeoutConfig;
 @class AWSIoTBehavior;
 @class AWSIoTBehaviorCriteria;
+@class AWSIoTBehaviorModelTrainingSummary;
 @class AWSIoTBillingGroupMetadata;
 @class AWSIoTBillingGroupProperties;
 @class AWSIoTCACertificate;
@@ -514,6 +563,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTCancelAuditTaskRequest;
 @class AWSIoTCancelAuditTaskResponse;
 @class AWSIoTCancelCertificateTransferRequest;
+@class AWSIoTCancelDetectMitigationActionsTaskRequest;
+@class AWSIoTCancelDetectMitigationActionsTaskResponse;
 @class AWSIoTCancelJobExecutionRequest;
 @class AWSIoTCancelJobRequest;
 @class AWSIoTCancelJobResponse;
@@ -539,6 +590,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTCreateBillingGroupResponse;
 @class AWSIoTCreateCertificateFromCsrRequest;
 @class AWSIoTCreateCertificateFromCsrResponse;
+@class AWSIoTCreateCustomMetricRequest;
+@class AWSIoTCreateCustomMetricResponse;
 @class AWSIoTCreateDimensionRequest;
 @class AWSIoTCreateDimensionResponse;
 @class AWSIoTCreateDomainConfigurationRequest;
@@ -592,6 +645,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDeleteCACertificateRequest;
 @class AWSIoTDeleteCACertificateResponse;
 @class AWSIoTDeleteCertificateRequest;
+@class AWSIoTDeleteCustomMetricRequest;
+@class AWSIoTDeleteCustomMetricResponse;
 @class AWSIoTDeleteDimensionRequest;
 @class AWSIoTDeleteDimensionResponse;
 @class AWSIoTDeleteDomainConfigurationRequest;
@@ -651,8 +706,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDescribeCACertificateResponse;
 @class AWSIoTDescribeCertificateRequest;
 @class AWSIoTDescribeCertificateResponse;
+@class AWSIoTDescribeCustomMetricRequest;
+@class AWSIoTDescribeCustomMetricResponse;
 @class AWSIoTDescribeDefaultAuthorizerRequest;
 @class AWSIoTDescribeDefaultAuthorizerResponse;
+@class AWSIoTDescribeDetectMitigationActionsTaskRequest;
+@class AWSIoTDescribeDetectMitigationActionsTaskResponse;
 @class AWSIoTDescribeDimensionRequest;
 @class AWSIoTDescribeDimensionResponse;
 @class AWSIoTDescribeDomainConfigurationRequest;
@@ -696,6 +755,10 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDetachSecurityProfileResponse;
 @class AWSIoTDetachThingPrincipalRequest;
 @class AWSIoTDetachThingPrincipalResponse;
+@class AWSIoTDetectMitigationActionExecution;
+@class AWSIoTDetectMitigationActionsTaskStatistics;
+@class AWSIoTDetectMitigationActionsTaskSummary;
+@class AWSIoTDetectMitigationActionsTaskTarget;
 @class AWSIoTDisableTopicRuleRequest;
 @class AWSIoTDomainConfigurationSummary;
 @class AWSIoTDynamoDBAction;
@@ -710,6 +773,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTField;
 @class AWSIoTFileLocation;
 @class AWSIoTFirehoseAction;
+@class AWSIoTGetBehaviorModelTrainingSummariesRequest;
+@class AWSIoTGetBehaviorModelTrainingSummariesResponse;
 @class AWSIoTGetCardinalityRequest;
 @class AWSIoTGetCardinalityResponse;
 @class AWSIoTGetEffectivePoliciesRequest;
@@ -759,6 +824,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTJobExecutionsRolloutConfig;
 @class AWSIoTJobProcessDetails;
 @class AWSIoTJobSummary;
+@class AWSIoTKafkaAction;
 @class AWSIoTKeyPair;
 @class AWSIoTKinesisAction;
 @class AWSIoTLambdaAction;
@@ -786,6 +852,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTListCertificatesByCAResponse;
 @class AWSIoTListCertificatesRequest;
 @class AWSIoTListCertificatesResponse;
+@class AWSIoTListCustomMetricsRequest;
+@class AWSIoTListCustomMetricsResponse;
+@class AWSIoTListDetectMitigationActionsExecutionsRequest;
+@class AWSIoTListDetectMitigationActionsExecutionsResponse;
+@class AWSIoTListDetectMitigationActionsTasksRequest;
+@class AWSIoTListDetectMitigationActionsTasksResponse;
 @class AWSIoTListDimensionsRequest;
 @class AWSIoTListDimensionsResponse;
 @class AWSIoTListDomainConfigurationsRequest;
@@ -863,6 +935,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTLogTarget;
 @class AWSIoTLogTargetConfiguration;
 @class AWSIoTLoggingOptionsPayload;
+@class AWSIoTMachineLearningDetectionConfig;
 @class AWSIoTMetricDimension;
 @class AWSIoTMetricToRetain;
 @class AWSIoTMetricValue;
@@ -930,6 +1003,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTSqsAction;
 @class AWSIoTStartAuditMitigationActionsTaskRequest;
 @class AWSIoTStartAuditMitigationActionsTaskResponse;
+@class AWSIoTStartDetectMitigationActionsTaskRequest;
+@class AWSIoTStartDetectMitigationActionsTaskResponse;
 @class AWSIoTStartOnDemandAuditTaskRequest;
 @class AWSIoTStartOnDemandAuditTaskResponse;
 @class AWSIoTStartSigningJobParameter;
@@ -991,6 +1066,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTUpdateCACertificateParams;
 @class AWSIoTUpdateCACertificateRequest;
 @class AWSIoTUpdateCertificateRequest;
+@class AWSIoTUpdateCustomMetricRequest;
+@class AWSIoTUpdateCustomMetricResponse;
 @class AWSIoTUpdateDeviceCertificateParams;
 @class AWSIoTUpdateDimensionRequest;
 @class AWSIoTUpdateDimensionResponse;
@@ -1027,6 +1104,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTValidateSecurityProfileBehaviorsResponse;
 @class AWSIoTValidationError;
 @class AWSIoTViolationEvent;
+@class AWSIoTViolationEventAdditionalInfo;
+@class AWSIoTViolationEventOccurrenceRange;
+@class AWSIoTVpcDestinationConfiguration;
+@class AWSIoTVpcDestinationProperties;
+@class AWSIoTVpcDestinationSummary;
 
 /**
  <p>The criteria that determine when and how a job abort takes place.</p>
@@ -1152,6 +1234,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTIotSiteWiseAction * _Nullable iotSiteWise;
 
 /**
+ <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+ */
+@property (nonatomic, strong) AWSIoTKafkaAction * _Nullable kafka;
+
+/**
  <p>Write data to an Amazon Kinesis stream.</p>
  */
 @property (nonatomic, strong) AWSIoTKinesisAction * _Nullable kinesis;
@@ -1205,7 +1292,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The behavior which is being violated.</p>
+ <p>The behavior that is being violated.</p>
  */
 @property (nonatomic, strong) AWSIoTBehavior * _Nullable behavior;
 
@@ -1215,12 +1302,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSDate * _Nullable lastViolationTime;
 
 /**
- <p>The value of the metric (the measurement) which caused the most recent violation.</p>
+ <p>The value of the metric (the measurement) that caused the most recent violation.</p>
  */
 @property (nonatomic, strong) AWSIoTMetricValue * _Nullable lastViolationValue;
 
 /**
- <p>The security profile whose behavior is in violation.</p>
+ <p>The security profile with the behavior is in violation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable securityProfileName;
 
@@ -1228,6 +1315,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The name of the thing responsible for the active violation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable thingName;
+
+/**
+ <p> The details of a violation event. </p>
+ */
+@property (nonatomic, strong) AWSIoTViolationEventAdditionalInfo * _Nullable violationEventAdditionalInfo;
 
 /**
  <p>The ID of the active violation.</p>
@@ -1326,12 +1418,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic things groups.</p>
+ <p>Specifies if this mitigation action can move the things that triggered the mitigation action even if they are part of one or more dynamic thing groups.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable overrideDynamicGroups;
 
 /**
- <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you cannot add a thing to more than one group in the same hierarchy.</p>
+ <p>The list of groups to which you want to add the things that triggered the mitigation action. You can add a thing to a maximum of 10 groups, but you can't add a thing to more than one group in the same hierarchy.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable thingGroupNames;
 
@@ -1345,7 +1437,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The ARN of the notification target to which alerts are sent.</p>
+ <p>The Amazon Resource Name (ARN) of the notification target to which alerts are sent.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable alertTargetArn;
 
@@ -2185,14 +2277,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable metric;
 
 /**
- <p>The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric only to MQTT topics whose name match the pattern specified in the dimension.</p>
+ <p>The dimension for a metric in your behavior. For example, using a <code>TOPIC_FILTER</code> dimension, you can narrow down the scope of the metric to only MQTT topics where the name matches the pattern specified in the dimension. This can't be used with custom metrics.</p>
  */
 @property (nonatomic, strong) AWSIoTMetricDimension * _Nullable metricDimension;
 
 /**
- <p>The name you have given to the behavior.</p>
+ <p>The name you've given to the behavior.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p> Suppresses alerts. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable suppressAlerts;
 
 @end
 
@@ -2203,7 +2300,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>).</p>
+ <p>The operator that relates the thing measured (<code>metric</code>) to the criteria (containing a <code>value</code> or <code>statisticalThreshold</code>). Valid operators include:</p><ul><li><p><code>string-list</code>: <code>in-set</code> and <code>not-in-set</code></p></li><li><p><code>number-list</code>: <code>in-set</code> and <code>not-in-set</code></p></li><li><p><code>ip-address-list</code>: <code>in-cidr-set</code> and <code>not-in-cidr-set</code></p></li><li><p><code>number</code>: <code>less-than</code>, <code>less-than-equals</code>, <code>greater-than</code>, and <code>greater-than-equals</code></p></li></ul>
  */
 @property (nonatomic, assign) AWSIoTComparisonOperator comparisonOperator;
 
@@ -2218,12 +2315,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable consecutiveDatapointsToClear;
 
 /**
- <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria which have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank.</p>
+ <p>Use this to specify the time duration over which the behavior is evaluated, for those criteria that have a time dimension (for example, <code>NUM_MESSAGES_SENT</code>). For a <code>statisticalThreshhold</code> metric comparison, measurements from all devices are accumulated over this time duration before being used to calculate percentiles, and later, measurements from an individual device are also accumulated over this time duration before being given a percentile rank. Cannot be used with list-based metric datatypes.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationSeconds;
 
 /**
- <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
+ <p> The configuration of an ML Detect </p>
+ */
+@property (nonatomic, strong) AWSIoTMachineLearningDetectionConfig * _Nullable mlDetectionConfig;
+
+/**
+ <p>A statistical ranking (percentile)that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
  */
 @property (nonatomic, strong) AWSIoTStatisticalThreshold * _Nullable statisticalThreshold;
 
@@ -2231,6 +2333,44 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The value to be compared with the <code>metric</code>.</p>
  */
 @property (nonatomic, strong) AWSIoTMetricValue * _Nullable value;
+
+@end
+
+/**
+ <p> The summary of an ML Detect behavior model. </p>
+ */
+@interface AWSIoTBehaviorModelTrainingSummary : AWSModel
+
+
+/**
+ <p> The name of the behavior. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable behaviorName;
+
+/**
+ <p> The percentage of datapoints collected. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable datapointsCollectionPercentage;
+
+/**
+ <p> The date the model was last refreshed. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModelRefreshDate;
+
+/**
+ <p> The status of the behavior model. </p>
+ */
+@property (nonatomic, assign) AWSIoTModelStatus modelStatus;
+
+/**
+ <p> The name of the security profile. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileName;
+
+/**
+ <p> The date a training model started collecting data. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable trainingDataCollectionStartDate;
 
 @end
 
@@ -2404,6 +2544,27 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the certificate. (The last part of the certificate ARN contains the certificate ID.)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable certificateId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCancelDetectMitigationActionsTaskRequest : AWSRequest
+
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCancelDetectMitigationActionsTaskResponse : AWSModel
+
 
 @end
 
@@ -3009,6 +3170,57 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 /**
  
  */
+@interface AWSIoTCreateCustomMetricRequest : AWSRequest
+
+
+/**
+ <p>Each custom metric must have a unique client request token. If you try to create a new custom metric that already exists with a different token, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> Field represents a friendly name in the console for the custom metric; it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated once defined.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p> The name of the custom metric. This will be used in the metric report submitted from the device/thing. Shouldn't begin with <code>aws:</code>. Cannot be updated once defined.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p> The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>. </p>
+ */
+@property (nonatomic, assign) AWSIoTCustomMetricType metricType;
+
+/**
+ <p> Metadata that can be used to manage the custom metric. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCreateCustomMetricResponse : AWSModel
+
+
+/**
+ <p> The Amazon Resource Number (ARN) of the custom metric, e.g. <code>arn:<i>aws-partition</i>:iot:<i>region</i>:<i>accountId</i>:custommetric/<i>metricName</i></code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricArn;
+
+/**
+ <p> The name of the custom metric to be used in the metric report. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+@end
+
+/**
+ 
+ */
 @interface AWSIoTCreateDimensionRequest : AWSRequest
 
 
@@ -3046,7 +3258,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The ARN (Amazon resource name) of the created dimension.</p>
+ <p>The Amazon Resource Name (ARN) of the created dimension.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -3793,17 +4005,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.</p>
+ <p>The day of the month on which the scheduled audit takes place. This can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to <code>MONTHLY</code>. If days 29 to 31 are specified, and the month doesn't have that many days, the audit takes place on the <code>LAST</code> day of the month.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dayOfMonth;
 
 /**
- <p>The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
+ <p>The day of the week on which the scheduled audit takes place, either <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the <code>frequency</code> parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTDayOfWeek dayOfWeek;
 
 /**
- <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY" or "MONTHLY". The start time of each audit is determined by the system.</p>
+ <p>How often the scheduled audit takes place, either <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code> or <code>MONTHLY</code>. The start time of each audit is determined by the system.</p>
  */
 @property (nonatomic, assign) AWSIoTAuditFrequency frequency;
 
@@ -3844,12 +4056,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p><i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></p><p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+ <p><i>Please use <a>CreateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></p><p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalMetricsToRetain;
 
 /**
- <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+ <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTMetricToRetain *> * _Nullable additionalMetricsToRetainV2;
 
@@ -4319,6 +4531,27 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Forces the deletion of a certificate if it is inactive and is not attached to an IoT thing.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable forceDelete;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDeleteCustomMetricRequest : AWSRequest
+
+
+/**
+ <p> The name of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDeleteCustomMetricResponse : AWSModel
+
 
 @end
 
@@ -5210,6 +5443,57 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 /**
  
  */
+@interface AWSIoTDescribeCustomMetricRequest : AWSRequest
+
+
+/**
+ <p> The name of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeCustomMetricResponse : AWSModel
+
+
+/**
+ <p> The creation date of the custom metric in milliseconds since epoch. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p> Field represents a friendly name in the console for the custom metric; doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p> The time the custom metric was last modified in milliseconds since epoch. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p> The Amazon Resource Number (ARN) of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricArn;
+
+/**
+ <p> The name of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p> The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>. </p>
+ */
+@property (nonatomic, assign) AWSIoTCustomMetricType metricType;
+
+@end
+
+/**
+ 
+ */
 @interface AWSIoTDescribeDefaultAuthorizerRequest : AWSRequest
 
 
@@ -5225,6 +5509,32 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The default authorizer's description.</p>
  */
 @property (nonatomic, strong) AWSIoTAuthorizerDescription * _Nullable authorizerDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeDetectMitigationActionsTaskRequest : AWSRequest
+
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeDetectMitigationActionsTaskResponse : AWSModel
+
+
+/**
+ <p> The description of a task. </p>
+ */
+@property (nonatomic, strong) AWSIoTDetectMitigationActionsTaskSummary * _Nullable taskSummary;
 
 @end
 
@@ -5248,7 +5558,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The ARN (Amazon resource name) for the dimension.</p>
+ <p>The Amazon Resource Name (ARN) for the dimension.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -5729,17 +6039,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The day of the month on which the scheduled audit takes place. Will be "1" through "31" or "LAST". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.</p>
+ <p>The day of the month on which the scheduled audit takes place. This is will be <code>1</code> through <code>31</code> or <code>LAST</code>. If days <code>29</code>-<code>31</code> are specified, and the month does not have that many days, the audit takes place on the <code>LAST</code> day of the month.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dayOfMonth;
 
 /**
- <p>The day of the week on which the scheduled audit takes place. One of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT".</p>
+ <p>The day of the week on which the scheduled audit takes place, either one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTDayOfWeek dayOfWeek;
 
 /**
- <p>How often the scheduled audit takes place. One of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.</p>
+ <p>How often the scheduled audit takes place, either one of <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system.</p>
  */
 @property (nonatomic, assign) AWSIoTAuditFrequency frequency;
 
@@ -6222,6 +6532,163 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p> Describes which mitigation actions should be executed. </p>
+ */
+@interface AWSIoTDetectMitigationActionExecution : AWSModel
+
+
+/**
+ <p> The friendly name that uniquely identifies the mitigation action. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable actionName;
+
+/**
+ <p> The error code of a mitigation action. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable errorCode;
+
+/**
+ <p> The date a mitigation action ended. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable executionEndDate;
+
+/**
+ <p> The date a mitigation action was started. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable executionStartDate;
+
+/**
+ <p> The message of a mitigation action. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p> The status of a mitigation action. </p>
+ */
+@property (nonatomic, assign) AWSIoTDetectMitigationActionExecutionStatus status;
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+/**
+ <p> The name of the thing. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable thingName;
+
+/**
+ <p> The unique identifier of the violation. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable violationId;
+
+@end
+
+/**
+ <p> The statistics of a mitigation action task. </p>
+ */
+@interface AWSIoTDetectMitigationActionsTaskStatistics : AWSModel
+
+
+/**
+ <p> The actions that were performed. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable actionsExecuted;
+
+/**
+ <p> The actions that failed. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable actionsFailed;
+
+/**
+ <p> The actions that were skipped. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable actionsSkipped;
+
+@end
+
+/**
+ <p> The summary of the mitigation action tasks. </p>
+ */
+@interface AWSIoTDetectMitigationActionsTaskSummary : AWSModel
+
+
+/**
+ <p> The definition of the actions. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTMitigationAction *> * _Nullable actionsDefinition;
+
+/**
+ <p> Includes only active violations. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable onlyActiveViolationsIncluded;
+
+/**
+ <p> Includes suppressed alerts. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable suppressedAlertsIncluded;
+
+/**
+ <p> Specifies the ML Detect findings to which the mitigation actions are applied. </p>
+ */
+@property (nonatomic, strong) AWSIoTDetectMitigationActionsTaskTarget * _Nullable target;
+
+/**
+ <p> The date the task ended. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable taskEndTime;
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+/**
+ <p> The date the task started. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable taskStartTime;
+
+/**
+ <p> The statistics of a mitigation action task. </p>
+ */
+@property (nonatomic, strong) AWSIoTDetectMitigationActionsTaskStatistics * _Nullable taskStatistics;
+
+/**
+ <p> The status of the task. </p>
+ */
+@property (nonatomic, assign) AWSIoTDetectMitigationActionsTaskStatus taskStatus;
+
+/**
+ <p> Specifies the time period of which violation events occurred between. </p>
+ */
+@property (nonatomic, strong) AWSIoTViolationEventOccurrenceRange * _Nullable violationEventOccurrenceRange;
+
+@end
+
+/**
+ <p> The target of a mitigation action task. </p>
+ */
+@interface AWSIoTDetectMitigationActionsTaskTarget : AWSModel
+
+
+/**
+ <p> The name of the behavior. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable behaviorName;
+
+/**
+ <p> The name of the security profile. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileName;
+
+/**
+ <p> The unique identifiers of the violations. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable violationIds;
+
+@end
+
+/**
  <p>The input for the DisableTopicRuleRequest operation.</p>
  Required parameters: [ruleName]
  */
@@ -6401,12 +6868,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>Specifies the types of information to be logged.</p>
+ <p>Specifies the type of information to be logged.</p>
  */
 @property (nonatomic, assign) AWSIoTLogLevel logLevel;
 
 /**
- <p>The ARN of the IAM role used for logging.</p>
+ <p>The Amazon Resource Name (ARN) of the IAM role used for logging.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArnForLogging;
 
@@ -6543,6 +7010,47 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>A character separator that will be used to separate records written to the Firehose stream. Valid values are: '\n' (newline), '\t' (tab), '\r\n' (Windows newline), ',' (comma).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable separator;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTGetBehaviorModelTrainingSummariesRequest : AWSRequest
+
+
+/**
+ <p> The maximum number of results to return at one time. The default is 25. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p> The token for the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> The name of the security profile. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable securityProfileName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTGetBehaviorModelTrainingSummariesResponse : AWSModel
+
+
+/**
+ <p> A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> A list of all ML Detect behaviors and their model status for a given Security Profile. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTBehaviorModelTrainingSummary *> * _Nullable summaries;
 
 @end
 
@@ -7637,6 +8145,40 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p>Send messages to an Amazon Managed Streaming for Apache Kafka (Amazon MSK) or self-managed Apache Kafka cluster.</p>
+ Required parameters: [destinationArn, topic, clientProperties]
+ */
+@interface AWSIoTKafkaAction : AWSModel
+
+
+/**
+ <p>Properties of the Apache Kafka producer client.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable clientProperties;
+
+/**
+ <p>The ARN of Kafka action's VPC <code>TopicRuleDestination</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationArn;
+
+/**
+ <p>The Kafka message key.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable key;
+
+/**
+ <p>The Kafka message partition.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable partition;
+
+/**
+ <p>The Kafka topic for messages to be sent to the Kafka broker.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable topic;
+
+@end
+
+/**
  <p>Describes a key pair.</p>
  */
 @interface AWSIoTKeyPair : AWSModel
@@ -7697,6 +8239,16 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  */
 @interface AWSIoTListActiveViolationsRequest : AWSRequest
 
+
+/**
+ <p> The criteria for a behavior. </p>
+ */
+@property (nonatomic, assign) AWSIoTBehaviorCriteriaType behaviorCriteriaType;
+
+/**
+ <p> A list of all suppressed alerts. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable listSuppressedAlerts;
 
 /**
  <p>The maximum number of results to return at one time.</p>
@@ -8282,6 +8834,149 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The marker for the next set of results, or null if there are no additional results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextMarker;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListCustomMetricsRequest : AWSRequest
+
+
+/**
+ <p> The maximum number of results to return at one time. The default is 25. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p> The token for the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListCustomMetricsResponse : AWSModel
+
+
+/**
+ <p> The name of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable metricNames;
+
+/**
+ <p> A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListDetectMitigationActionsExecutionsRequest : AWSRequest
+
+
+/**
+ <p> The end of the time period for which ML Detect mitigation actions executions are returned. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p> The maximum number of results to return at one time. The default is 25. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p> The token for the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+/**
+ <p> The name of the thing whose mitigation actions are listed. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable thingName;
+
+/**
+ <p> The unique identifier of the violation. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable violationId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListDetectMitigationActionsExecutionsResponse : AWSModel
+
+
+/**
+ <p> List of actions executions. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTDetectMitigationActionExecution *> * _Nullable actionsExecutions;
+
+/**
+ <p> A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListDetectMitigationActionsTasksRequest : AWSRequest
+
+
+/**
+ <p> The end of the time period for which ML Detect mitigation actions tasks are returned. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The maximum number of results to return at one time. The default is 25.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p> The token for the next set of results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> A filter to limit results to those found after the specified time. You must specify either the startTime and endTime or the taskId, but not both. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListDetectMitigationActionsTasksResponse : AWSModel
+
+
+/**
+ <p> A token that can be used to retrieve the next set of results, or <code>null</code> if there are no additional results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> The collection of ML Detect mitigation tasks that matched the filter criteria. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTDetectMitigationActionsTaskSummary *> * _Nullable tasks;
 
 @end
 
@@ -9090,7 +9785,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>A filter to limit results to the security profiles that use the defined dimension.</p>
+ <p>A filter to limit results to the security profiles that use the defined dimension. Cannot be used with <code>metricName</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable dimensionName;
 
@@ -9098,6 +9793,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The maximum number of results to return at one time.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p> The name of the custom metric. Cannot be used with <code>dimensionName</code>. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
 
 /**
  <p>The token for the next set of results.</p>
@@ -9818,9 +10518,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
+ <p> The criteria for a behavior. </p>
+ */
+@property (nonatomic, assign) AWSIoTBehaviorCriteriaType behaviorCriteriaType;
+
+/**
  <p>The end time for the alerts to be listed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p> A list of all suppressed alerts. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable listSuppressedAlerts;
 
 /**
  <p>The maximum number of results to return at one time.</p>
@@ -9924,6 +10634,20 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ <p> The configuration of an ML Detect Security Profile. </p>
+ Required parameters: [confidenceLevel]
+ */
+@interface AWSIoTMachineLearningDetectionConfig : AWSModel
+
+
+/**
+ <p> The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. </p>
+ */
+@property (nonatomic, assign) AWSIoTConfidenceLevel confidenceLevel;
+
+@end
+
+/**
  <p>The dimension of a metric.</p>
  Required parameters: [dimensionName]
  */
@@ -9955,7 +10679,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable metric;
 
 /**
- <p>The dimension of a metric.</p>
+ <p>The dimension of a metric. This can't be used with custom metrics.</p>
  */
 @property (nonatomic, strong) AWSIoTMetricDimension * _Nullable metricDimension;
 
@@ -9978,9 +10702,24 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSNumber * _Nullable count;
 
 /**
+ <p> The numeral value of a metric. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable number;
+
+/**
+ <p> The numeral values of a metric. </p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable numbers;
+
+/**
  <p>If the <code>comparisonOperator</code> calls for a set of ports, use this to specify that set to be compared with the <code>metric</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable ports;
+
+/**
+ <p> The string values of a metric. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable strings;
 
 @end
 
@@ -10052,7 +10791,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTEnableIoTLoggingParams * _Nullable enableIoTLoggingParams;
 
 /**
- <p>Parameters to define a mitigation action that publishes findings to Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
+ <p>Parameters to define a mitigation action that publishes findings to Amazon Simple Notification Service (Amazon SNS. You can implement your own custom actions in response to the Amazon SNS messages.</p>
  */
 @property (nonatomic, strong) AWSIoTPublishFindingToSnsParams * _Nullable publishFindingToSnsParams;
 
@@ -11208,7 +11947,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
- <p>The name you have given to the security profile.</p>
+ <p>The name you've given to the security profile.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -11486,7 +12225,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
 /**
- <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a speecific set of findings.</p>
+ <p>Specifies the audit findings to which the mitigation actions are applied. You can apply them to a type of audit check, to all findings from an audit, or to a specific set of findings.</p>
  */
 @property (nonatomic, strong) AWSIoTAuditMitigationActionsTaskTarget * _Nullable target;
 
@@ -11505,6 +12244,62 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 /**
  <p>The unique identifier for the audit mitigation task. This matches the <code>taskId</code> that you specified in the request.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTStartDetectMitigationActionsTaskRequest : AWSRequest
+
+
+/**
+ <p> The actions to be performed when a device has unexpected behavior. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable actions;
+
+/**
+ <p> Each mitigation action task must have a unique client request token. If you try to create a new task with the same token as a task that already exists, an exception occurs. If you omit this value, AWS SDKs will automatically generate a unique client request. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> Specifies to list only active violations. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeOnlyActiveViolations;
+
+/**
+ <p> Specifies to include suppressed alerts. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeSuppressedAlerts;
+
+/**
+ <p> Specifies the ML Detect findings to which the mitigation actions are applied. </p>
+ */
+@property (nonatomic, strong) AWSIoTDetectMitigationActionsTaskTarget * _Nullable target;
+
+/**
+ <p> The unique identifier of the task. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable taskId;
+
+/**
+ <p> Specifies the time period of which violation events occurred between. </p>
+ */
+@property (nonatomic, strong) AWSIoTViolationEventOccurrenceRange * _Nullable violationEventOccurrenceRange;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTStartDetectMitigationActionsTaskResponse : AWSModel
+
+
+/**
+ <p> The unique identifier of the task. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable taskId;
 
@@ -11601,13 +12396,13 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
- <p>A statistical ranking (percentile) which indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
+ <p>A statistical ranking (percentile) that indicates a threshold value by which a behavior is determined to be in compliance or in violation of the behavior.</p>
  */
 @interface AWSIoTStatisticalThreshold : AWSModel
 
 
 /**
- <p>The percentile which resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.</p>
+ <p>The percentile that resolves to a threshold value by which compliance with a behavior is determined. Metrics are collected over the specified period (<code>durationSeconds</code>) from all reporting devices in your account and statistical ranks are calculated. Then, the measurements from a device are collected over the same period. If the accumulated measurements from the device fall above or below (<code>comparisonOperator</code>) the value associated with the percentile specified, then the device is considered to be in compliance with the behavior, otherwise a violation occurs.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statistic;
 
@@ -12509,9 +13304,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
+ <p>The date and time when the topic rule destination was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
  <p>Properties of the HTTP URL.</p>
  */
 @property (nonatomic, strong) AWSIoTHttpUrlDestinationProperties * _Nullable httpUrlProperties;
+
+/**
+ <p>The date and time when the topic rule destination was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
 /**
  <p>The status of the topic rule destination. Valid values are:</p><dl><dt>IN_PROGRESS</dt><dd><p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p></dd><dt>ENABLED</dt><dd><p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p></dd><dt>DISABLED</dt><dd><p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p></dd><dt>ERROR</dt><dd><p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p></dd></dl>
@@ -12522,6 +13327,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Additional details or reason why the topic rule destination is in the current status.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusReason;
+
+/**
+ <p>Properties of the virtual private cloud (VPC) connection.</p>
+ */
+@property (nonatomic, strong) AWSIoTVpcDestinationProperties * _Nullable vpcProperties;
 
 @end
 
@@ -12535,6 +13345,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>Configuration of the HTTP URL.</p>
  */
 @property (nonatomic, strong) AWSIoTHttpUrlDestinationConfiguration * _Nullable httpUrlConfiguration;
+
+/**
+ <p>Configuration of the virtual private cloud (VPC) connection.</p>
+ */
+@property (nonatomic, strong) AWSIoTVpcDestinationConfiguration * _Nullable vpcConfiguration;
 
 @end
 
@@ -12550,9 +13365,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable arn;
 
 /**
+ <p>The date and time when the topic rule destination was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
  <p>Information about the HTTP URL.</p>
  */
 @property (nonatomic, strong) AWSIoTHttpUrlDestinationSummary * _Nullable httpUrlSummary;
+
+/**
+ <p>The date and time when the topic rule destination was last updated.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
 
 /**
  <p>The status of the topic rule destination. Valid values are:</p><dl><dt>IN_PROGRESS</dt><dd><p>A topic rule destination was created but has not been confirmed. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p></dd><dt>ENABLED</dt><dd><p>Confirmation was completed, and traffic to this destination is allowed. You can set <code>status</code> to <code>DISABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p></dd><dt>DISABLED</dt><dd><p>Confirmation was completed, and traffic to this destination is not allowed. You can set <code>status</code> to <code>ENABLED</code> by calling <code>UpdateTopicRuleDestination</code>.</p></dd><dt>ERROR</dt><dd><p>Confirmation could not be completed, for example if the confirmation timed out. You can call <code>GetTopicRuleDestination</code> for details about the error. You can set <code>status</code> to <code>IN_PROGRESS</code> by calling <code>UpdateTopicRuleDestination</code>. Calling <code>UpdateTopicRuleDestination</code> causes a new confirmation challenge to be sent to your confirmation endpoint.</p></dd></dl>
@@ -12563,6 +13388,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The reason the topic rule destination is in the current status.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable statusReason;
+
+/**
+ <p>Information about the virtual private cloud (VPC) connection.</p>
+ */
+@property (nonatomic, strong) AWSIoTVpcDestinationSummary * _Nullable vpcDestinationSummary;
 
 @end
 
@@ -12741,7 +13571,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are currently enabled.</p><p>Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.</p><p>You cannot disable a check if it is used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.</p><p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required and must specify at least one enabled check.</p>
+ <p>Specifies which audit checks are enabled and disabled for this account. Use <code>DescribeAccountAuditConfiguration</code> to see the list of all checks, including those that are currently enabled.</p><p>Some data collection might start immediately when certain checks are enabled. When a check is disabled, any data collected so far in relation to the check is deleted.</p><p>You cannot disable a check if it's used by any scheduled audit. You must first delete the check from the scheduled audit or delete the scheduled audit itself.</p><p>On the first call to <code>UpdateAccountAuditConfiguration</code>, this parameter is required and must specify at least one enabled check.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSIoTAuditCheckConfiguration *> * _Nullable auditCheckConfigurations;
 
@@ -12751,7 +13581,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSIoTAuditNotificationTarget *> * _Nullable auditNotificationTargetConfigurations;
 
 /**
- <p>The ARN of the role that grants permission to AWS IoT to access information about your devices, policies, certificates and other items as required when performing an audit.</p>
+ <p>The Amazon Resource Name (ARN) of the role that grants permission to AWS IoT to access information about your devices, policies, certificates, and other items as required when performing an audit.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable roleArn;
 
@@ -12901,7 +13731,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The action that you want to apply to the CA cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+ <p>The action that you want to apply to the CA certificate. The only supported value is <code>DEACTIVATE</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTCACertificateUpdateAction action;
 
@@ -12961,6 +13791,62 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
+ 
+ */
+@interface AWSIoTUpdateCustomMetricRequest : AWSRequest
+
+
+/**
+ <p> Field represents a friendly name in the console for the custom metric, it doesn't have to be unique. Don't use this name as the metric identifier in the device metric report. Can be updated. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p> The name of the custom metric. Cannot be updated. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTUpdateCustomMetricResponse : AWSModel
+
+
+/**
+ <p> The creation date of the custom metric in milliseconds since epoch. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable creationDate;
+
+/**
+ <p> A friendly name in the console for the custom metric </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable displayName;
+
+/**
+ <p> The time the custom metric was last modified in milliseconds since epoch. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastModifiedDate;
+
+/**
+ <p> The Amazon Resource Number (ARN) of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricArn;
+
+/**
+ <p> The name of the custom metric. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable metricName;
+
+/**
+ <p> The type of the custom metric. Types include <code>string-list</code>, <code>ip-address-list</code>, <code>number-list</code>, and <code>number</code>. </p>
+ */
+@property (nonatomic, assign) AWSIoTCustomMetricType metricType;
+
+@end
+
+/**
  <p>Parameters to define a mitigation action that changes the state of the device certificate to inactive.</p>
  Required parameters: [action]
  */
@@ -12968,7 +13854,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The action that you want to apply to the device cerrtificate. The only supported value is <code>DEACTIVATE</code>.</p>
+ <p>The action that you want to apply to the device certificate. The only supported value is <code>DEACTIVATE</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTDeviceCertificateUpdateAction action;
 
@@ -12999,7 +13885,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The ARN (Amazon resource name) of the created dimension.</p>
+ <p>The Amazon Resource Name (ARN)of the created dimension.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -13224,7 +14110,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The friendly name for the mitigation action. You can't change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and re-create the mitigation action with the new name.</p>
+ <p>The friendly name for the mitigation action. You cannot change the name by using <code>UpdateMitigationAction</code>. Instead, you must delete and recreate the mitigation action with the new name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable actionName;
 
@@ -13357,17 +14243,17 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The day of the month on which the scheduled audit takes place. Can be "1" through "31" or "LAST". This field is required if the "frequency" parameter is set to "MONTHLY". If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.</p>
+ <p>The day of the month on which the scheduled audit takes place. This can be <code>1</code> through <code>31</code> or <code>LAST</code>. This field is required if the <code>frequency</code> parameter is set to <code>MONTHLY</code>. If days 29-31 are specified, and the month does not have that many days, the audit takes place on the "LAST" day of the month.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable dayOfMonth;
 
 /**
- <p>The day of the week on which the scheduled audit takes place. Can be one of "SUN", "MON", "TUE", "WED", "THU", "FRI", or "SAT". This field is required if the "frequency" parameter is set to "WEEKLY" or "BIWEEKLY".</p>
+ <p>The day of the week on which the scheduled audit takes place. This can be one of <code>SUN</code>, <code>MON</code>, <code>TUE</code>, <code>WED</code>, <code>THU</code>, <code>FRI</code>, or <code>SAT</code>. This field is required if the "frequency" parameter is set to <code>WEEKLY</code> or <code>BIWEEKLY</code>.</p>
  */
 @property (nonatomic, assign) AWSIoTDayOfWeek dayOfWeek;
 
 /**
- <p>How often the scheduled audit takes place. Can be one of "DAILY", "WEEKLY", "BIWEEKLY", or "MONTHLY". The start time of each audit is determined by the system.</p>
+ <p>How often the scheduled audit takes place, either <code>DAILY</code>, <code>WEEKLY</code>, <code>BIWEEKLY</code>, or <code>MONTHLY</code>. The start time of each audit is determined by the system.</p>
  */
 @property (nonatomic, assign) AWSIoTAuditFrequency frequency;
 
@@ -13403,12 +14289,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p><i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></p><p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here.</p>
+ <p><i>Please use <a>UpdateSecurityProfileRequest$additionalMetricsToRetainV2</a> instead.</i></p><p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's <code>behaviors</code>, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalMetricsToRetain;
 
 /**
- <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+ <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTMetricToRetain *> * _Nullable additionalMetricsToRetainV2;
 
@@ -13466,7 +14352,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable additionalMetricsToRetain;
 
 /**
- <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here.</p>
+ <p>A list of metrics whose data is retained (stored). By default, data is retained for any metric used in the profile's behaviors, but it is also retained for any metric specified here. Can be used with custom metrics; cannot be used with dimensions.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTMetricToRetain *> * _Nullable additionalMetricsToRetainV2;
 
@@ -13759,7 +14645,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 
 
 /**
- <p>The behavior which was violated.</p>
+ <p>The behavior that was violated.</p>
  */
 @property (nonatomic, strong) AWSIoTBehavior * _Nullable behavior;
 
@@ -13779,6 +14665,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable thingName;
 
 /**
+ <p> The details of a violation event. </p>
+ */
+@property (nonatomic, strong) AWSIoTViolationEventAdditionalInfo * _Nullable violationEventAdditionalInfo;
+
+/**
  <p>The time the violation event occurred.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable violationEventTime;
@@ -13792,6 +14683,123 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the violation event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable violationId;
+
+@end
+
+/**
+ <p> The details of a violation event. </p>
+ */
+@interface AWSIoTViolationEventAdditionalInfo : AWSModel
+
+
+/**
+ <p> The sensitivity of anomalous behavior evaluation. Can be <code>Low</code>, <code>Medium</code>, or <code>High</code>. </p>
+ */
+@property (nonatomic, assign) AWSIoTConfidenceLevel confidenceLevel;
+
+@end
+
+/**
+ <p> Specifies the time period of which violation events occurred between. </p>
+ Required parameters: [startTime, endTime]
+ */
+@interface AWSIoTViolationEventOccurrenceRange : AWSModel
+
+
+/**
+ <p> The end date and time of a time period in which violation events occurred. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p> The start date and time of a time period in which violation events occurred. </p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
+ <p>The configuration information for a virtual private cloud (VPC) destination.</p>
+ Required parameters: [subnetIds, vpcId, roleArn]
+ */
+@interface AWSIoTVpcDestinationConfiguration : AWSModel
+
+
+/**
+ <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The security groups of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
+
+/**
+ <p>The subnet IDs of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+/**
+ <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
+
+@end
+
+/**
+ <p>The properties of a virtual private cloud (VPC) destination.</p>
+ */
+@interface AWSIoTVpcDestinationProperties : AWSModel
+
+
+/**
+ <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The security groups of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
+
+/**
+ <p>The subnet IDs of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+/**
+ <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
+
+@end
+
+/**
+ <p>The summary of a virtual private cloud (VPC) destination.</p>
+ */
+@interface AWSIoTVpcDestinationSummary : AWSModel
+
+
+/**
+ <p>The ARN of a role that has permission to create and attach to elastic network interfaces (ENIs).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable roleArn;
+
+/**
+ <p>The security groups of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroups;
+
+/**
+ <p>The subnet IDs of the VPC destination.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable subnetIds;
+
+/**
+ <p>The ID of the VPC.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable vpcId;
 
 @end
 

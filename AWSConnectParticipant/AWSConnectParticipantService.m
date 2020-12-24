@@ -40,7 +40,9 @@ static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
                             @"AccessDeniedException" : @(AWSConnectParticipantErrorAccessDenied),
+                            @"ConflictException" : @(AWSConnectParticipantErrorConflict),
                             @"InternalServerException" : @(AWSConnectParticipantErrorInternalServer),
+                            @"ServiceQuotaExceededException" : @(AWSConnectParticipantErrorServiceQuotaExceeded),
                             @"ThrottlingException" : @(AWSConnectParticipantErrorThrottling),
                             @"ValidationException" : @(AWSConnectParticipantErrorValidation),
                             };
@@ -277,6 +279,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask<AWSConnectParticipantCompleteAttachmentUploadResponse *> *)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/participant/complete-attachment-upload"
+                  targetPrefix:@""
+                 operationName:@"CompleteAttachmentUpload"
+                   outputClass:[AWSConnectParticipantCompleteAttachmentUploadResponse class]];
+}
+
+- (void)completeAttachmentUpload:(AWSConnectParticipantCompleteAttachmentUploadRequest *)request
+     completionHandler:(void (^)(AWSConnectParticipantCompleteAttachmentUploadResponse *response, NSError *error))completionHandler {
+    [[self completeAttachmentUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantCompleteAttachmentUploadResponse *> * _Nonnull task) {
+        AWSConnectParticipantCompleteAttachmentUploadResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectParticipantCreateParticipantConnectionResponse *> *)createParticipantConnection:(AWSConnectParticipantCreateParticipantConnectionRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -313,6 +338,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectParticipantDisconnectParticipantResponse *response, NSError *error))completionHandler {
     [[self disconnectParticipant:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantDisconnectParticipantResponse *> * _Nonnull task) {
         AWSConnectParticipantDisconnectParticipantResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectParticipantGetAttachmentResponse *> *)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/participant/attachment"
+                  targetPrefix:@""
+                 operationName:@"GetAttachment"
+                   outputClass:[AWSConnectParticipantGetAttachmentResponse class]];
+}
+
+- (void)getAttachment:(AWSConnectParticipantGetAttachmentRequest *)request
+     completionHandler:(void (^)(AWSConnectParticipantGetAttachmentResponse *response, NSError *error))completionHandler {
+    [[self getAttachment:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantGetAttachmentResponse *> * _Nonnull task) {
+        AWSConnectParticipantGetAttachmentResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -382,6 +430,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectParticipantSendMessageResponse *response, NSError *error))completionHandler {
     [[self sendMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantSendMessageResponse *> * _Nonnull task) {
         AWSConnectParticipantSendMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectParticipantStartAttachmentUploadResponse *> *)startAttachmentUpload:(AWSConnectParticipantStartAttachmentUploadRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/participant/start-attachment-upload"
+                  targetPrefix:@""
+                 operationName:@"StartAttachmentUpload"
+                   outputClass:[AWSConnectParticipantStartAttachmentUploadResponse class]];
+}
+
+- (void)startAttachmentUpload:(AWSConnectParticipantStartAttachmentUploadRequest *)request
+     completionHandler:(void (^)(AWSConnectParticipantStartAttachmentUploadResponse *response, NSError *error))completionHandler {
+    [[self startAttachmentUpload:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectParticipantStartAttachmentUploadResponse *> * _Nonnull task) {
+        AWSConnectParticipantStartAttachmentUploadResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
