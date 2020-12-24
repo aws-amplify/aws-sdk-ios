@@ -19,11 +19,16 @@
 
 @interface AWSConnectParticipantNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSConnectParticipantAttachmentItem API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantCompleteAttachmentUploadRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantCompleteAttachmentUploadResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantConnectionCredentials API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantCreateParticipantConnectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantCreateParticipantConnectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDisconnectParticipantRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDisconnectParticipantResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantGetAttachmentRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantGetAttachmentResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantGetTranscriptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantGetTranscriptResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantItem API_AVAILABLE(ios(11));
@@ -31,12 +36,27 @@
 - (void) test_AWSConnectParticipantSendEventResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantSendMessageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantSendMessageResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantStartAttachmentUploadRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantStartAttachmentUploadResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantStartPosition API_AVAILABLE(ios(11));
+- (void) test_AWSConnectParticipantUploadMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantWebsocket API_AVAILABLE(ios(11));
 
 @end
 
 @implementation AWSConnectParticipantNSSecureCodingTests
+
+- (void) test_AWSConnectParticipantAttachmentItem {
+    [self validateSecureCodingForClass:[AWSConnectParticipantAttachmentItem class]];
+}
+
+- (void) test_AWSConnectParticipantCompleteAttachmentUploadRequest {
+    [self validateSecureCodingForClass:[AWSConnectParticipantCompleteAttachmentUploadRequest class]];
+}
+
+- (void) test_AWSConnectParticipantCompleteAttachmentUploadResponse {
+    [self validateSecureCodingForClass:[AWSConnectParticipantCompleteAttachmentUploadResponse class]];
+}
 
 - (void) test_AWSConnectParticipantConnectionCredentials {
     [self validateSecureCodingForClass:[AWSConnectParticipantConnectionCredentials class]];
@@ -56,6 +76,14 @@
 
 - (void) test_AWSConnectParticipantDisconnectParticipantResponse {
     [self validateSecureCodingForClass:[AWSConnectParticipantDisconnectParticipantResponse class]];
+}
+
+- (void) test_AWSConnectParticipantGetAttachmentRequest {
+    [self validateSecureCodingForClass:[AWSConnectParticipantGetAttachmentRequest class]];
+}
+
+- (void) test_AWSConnectParticipantGetAttachmentResponse {
+    [self validateSecureCodingForClass:[AWSConnectParticipantGetAttachmentResponse class]];
 }
 
 - (void) test_AWSConnectParticipantGetTranscriptRequest {
@@ -86,8 +114,20 @@
     [self validateSecureCodingForClass:[AWSConnectParticipantSendMessageResponse class]];
 }
 
+- (void) test_AWSConnectParticipantStartAttachmentUploadRequest {
+    [self validateSecureCodingForClass:[AWSConnectParticipantStartAttachmentUploadRequest class]];
+}
+
+- (void) test_AWSConnectParticipantStartAttachmentUploadResponse {
+    [self validateSecureCodingForClass:[AWSConnectParticipantStartAttachmentUploadResponse class]];
+}
+
 - (void) test_AWSConnectParticipantStartPosition {
     [self validateSecureCodingForClass:[AWSConnectParticipantStartPosition class]];
+}
+
+- (void) test_AWSConnectParticipantUploadMetadata {
+    [self validateSecureCodingForClass:[AWSConnectParticipantUploadMetadata class]];
 }
 
 - (void) test_AWSConnectParticipantWebsocket {
