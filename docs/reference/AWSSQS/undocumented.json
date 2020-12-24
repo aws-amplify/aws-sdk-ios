@@ -407,6 +407,20 @@
       "warning": "undocumented"
     },
     {
+      "file": "/Users/distiller/project/AWSSQS/AWSSQSModel.h",
+      "line": 81,
+      "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameDeduplicationScope",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSSQS/AWSSQSModel.h",
+      "line": 82,
+      "symbol": "AWSSQSQueueAttributeName.AWSSQSQueueAttributeNameFifoThroughputLimit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
       "file": "/Users/distiller/project/AWSSQS/AWSSQSResources.h",
       "line": 18,
       "symbol": "AWSSQSResources",
