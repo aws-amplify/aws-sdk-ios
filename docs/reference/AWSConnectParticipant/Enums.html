@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnectParticipant 2.21.0 Docs</a> (64% documented)</p>
+        <p><a href="index.html">AWSConnectParticipant 2.21.1 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -44,6 +44,15 @@
                 <a href="Classes/AWSConnectParticipant.html">AWSConnectParticipant</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantAttachmentItem.html">AWSConnectParticipantAttachmentItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantCompleteAttachmentUploadRequest.html">AWSConnectParticipantCompleteAttachmentUploadRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes.html#/c:objc(cs)AWSConnectParticipantCompleteAttachmentUploadResponse">AWSConnectParticipantCompleteAttachmentUploadResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantConnectionCredentials.html">AWSConnectParticipantConnectionCredentials</a>
               </li>
               <li class="nav-group-task">
@@ -57,6 +66,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantGetAttachmentRequest.html">AWSConnectParticipantGetAttachmentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantGetAttachmentResponse.html">AWSConnectParticipantGetAttachmentResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a>
@@ -83,7 +98,16 @@
                 <a href="Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantStartAttachmentUploadRequest.html">AWSConnectParticipantStartAttachmentUploadRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantStartAttachmentUploadResponse.html">AWSConnectParticipantStartAttachmentUploadResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantStartPosition.html">AWSConnectParticipantStartPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectParticipantUploadMetadata.html">AWSConnectParticipantUploadMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectParticipantWebsocket.html">AWSConnectParticipantWebsocket</a>
@@ -110,6 +134,9 @@
           <li class="nav-group-name">
             <a href="Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectParticipantArtifactStatus.html">AWSConnectParticipantArtifactStatus</a>
+              </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectParticipantChatItemType.html">AWSConnectParticipantChatItemType</a>
               </li>
@@ -166,7 +193,9 @@
                           <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantErrorType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSConnectParticipantErrorUnknown</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorAccessDenied</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantErrorConflict</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorInternalServer</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantErrorServiceQuotaExceeded</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorThrottling</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantErrorValidation</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
@@ -175,6 +204,44 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantErrorType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantArtifactStatus"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectParticipantArtifactStatus" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantArtifactStatus">AWSConnectParticipantArtifactStatus</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectParticipantArtifactStatus.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantArtifactStatus</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectParticipantArtifactStatusUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantArtifactStatusApproved</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantArtifactStatusRejected</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantArtifactStatusInProgress</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantArtifactStatus</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -204,8 +271,15 @@
                           <p class="aside-title">Objective-C</p>
                           <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantChatItemType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSConnectParticipantChatItemTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTyping</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeParticipantJoined</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeParticipantLeft</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeChatEnded</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTransferSucceeded</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTransferFailed</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeMessage</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeEvent</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeAttachment</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeConnectionAck</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
@@ -373,7 +447,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-17)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

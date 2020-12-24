@@ -17,7 +17,7 @@
     <a title="AWSConnectParticipantChatItemType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnectParticipant 2.21.0 Docs</a> (64% documented)</p>
+        <p><a href="../index.html">AWSConnectParticipant 2.21.1 Docs</a> (66% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnectParticipant.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -44,6 +44,15 @@
                 <a href="../Classes/AWSConnectParticipant.html">AWSConnectParticipant</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantAttachmentItem.html">AWSConnectParticipantAttachmentItem</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantCompleteAttachmentUploadRequest.html">AWSConnectParticipantCompleteAttachmentUploadRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSConnectParticipantCompleteAttachmentUploadResponse">AWSConnectParticipantCompleteAttachmentUploadResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantConnectionCredentials.html">AWSConnectParticipantConnectionCredentials</a>
               </li>
               <li class="nav-group-task">
@@ -57,6 +66,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSConnectParticipantDisconnectParticipantResponse">AWSConnectParticipantDisconnectParticipantResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantGetAttachmentRequest.html">AWSConnectParticipantGetAttachmentRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantGetAttachmentResponse.html">AWSConnectParticipantGetAttachmentResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantGetTranscriptRequest.html">AWSConnectParticipantGetTranscriptRequest</a>
@@ -83,7 +98,16 @@
                 <a href="../Classes/AWSConnectParticipantSendMessageResponse.html">AWSConnectParticipantSendMessageResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantStartAttachmentUploadRequest.html">AWSConnectParticipantStartAttachmentUploadRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantStartAttachmentUploadResponse.html">AWSConnectParticipantStartAttachmentUploadResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantStartPosition.html">AWSConnectParticipantStartPosition</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectParticipantUploadMetadata.html">AWSConnectParticipantUploadMetadata</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectParticipantWebsocket.html">AWSConnectParticipantWebsocket</a>
@@ -110,6 +134,9 @@
           <li class="nav-group-name">
             <a href="../Enums.html">Enumerations</a>
             <ul class="nav-group-tasks">
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectParticipantArtifactStatus.html">AWSConnectParticipantArtifactStatus</a>
+              </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectParticipantChatItemType.html">AWSConnectParticipantChatItemType</a>
               </li>
@@ -141,8 +168,15 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantChatItemType</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSConnectParticipantChatItemTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTyping</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeParticipantJoined</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeParticipantLeft</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeChatEnded</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTransferSucceeded</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeTransferFailed</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeMessage</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeEvent</span><span class="p">,</span>
+    <span class="n">AWSConnectParticipantChatItemTypeAttachment</span><span class="p">,</span>
     <span class="n">AWSConnectParticipantChatItemTypeConnectionAck</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
@@ -194,6 +228,198 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTyping"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeTyping" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTyping">AWSConnectParticipantChatItemTypeTyping</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeTyping</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">typing</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantJoined"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantJoined" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantJoined">AWSConnectParticipantChatItemTypeParticipantJoined</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantJoined</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantJoined</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantLeft"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeParticipantLeft" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeParticipantLeft">AWSConnectParticipantChatItemTypeParticipantLeft</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeParticipantLeft</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">participantLeft</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeChatEnded"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeChatEnded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeChatEnded">AWSConnectParticipantChatItemTypeChatEnded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeChatEnded</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">chatEnded</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTransferSucceeded"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeTransferSucceeded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTransferSucceeded">AWSConnectParticipantChatItemTypeTransferSucceeded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeTransferSucceeded</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transferSucceeded</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTransferFailed"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeTransferFailed" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeTransferFailed">AWSConnectParticipantChatItemTypeTransferFailed</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeTransferFailed</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">transferFailed</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessage"></a>
                     <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeMessage" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeMessage">AWSConnectParticipantChatItemTypeMessage</a>
@@ -216,7 +442,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">message</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">message</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -248,7 +474,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">event</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">event</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeAttachment"></a>
+                    <a name="//apple_ref/objc/Case/AWSConnectParticipantChatItemTypeAttachment" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectParticipantChatItemType@AWSConnectParticipantChatItemTypeAttachment">AWSConnectParticipantChatItemTypeAttachment</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantChatItemTypeAttachment</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">attachment</span> <span class="o">=</span> <span class="mi">9</span></code></pre>
 
                         </div>
                       </div>
@@ -280,7 +538,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionAck</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">connectionAck</span> <span class="o">=</span> <span class="mi">10</span></code></pre>
 
                         </div>
                       </div>
@@ -292,7 +550,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-17)</p>
+          <p>&copy; 2020 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2020-12-24)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

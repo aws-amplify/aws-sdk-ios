@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSConnectParticipantScanDirection Enumeration Reference</title>
+    <title>AWSConnectParticipantStartAttachmentUploadRequest Class Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Enum/AWSConnectParticipantScanDirection" class="dashAnchor"></a>
-    <a title="AWSConnectParticipantScanDirection Enumeration Reference"></a>
+    <a name="//apple_ref/objc/Class/AWSConnectParticipantStartAttachmentUploadRequest" class="dashAnchor"></a>
+    <a title="AWSConnectParticipantStartAttachmentUploadRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSConnectParticipant 2.21.1 Docs</a> (66% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSConnectParticipant Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSConnectParticipantScanDirection Enumeration Reference
+        AWSConnectParticipantStartAttachmentUploadRequest Class Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -162,25 +162,20 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSConnectParticipantScanDirection</h1>
+            <h1>AWSConnectParticipantStartAttachmentUploadRequest</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectParticipantScanDirection</span><span class="p">)</span> <span class="p">{</span>
-    <span class="n">AWSConnectParticipantScanDirectionUnknown</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantScanDirectionForward</span><span class="p">,</span>
-    <span class="n">AWSConnectParticipantScanDirectionBackward</span><span class="p">,</span>
-<span class="p">}</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSConnectParticipantStartAttachmentUploadRequest</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectParticipantScanDirection</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSConnectParticipantStartAttachmentUploadRequest</span></code></pre>
 
                 </div>
               </div>
-            <p>Undocumented</p>
-
+            
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -188,9 +183,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionUnknown"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantScanDirectionUnknown" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionUnknown">AWSConnectParticipantScanDirectionUnknown</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)attachmentName"></a>
+                    <a name="//apple_ref/objc/Property/attachmentName" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)attachmentName">attachmentName</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -198,19 +193,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A case-sensitive name of the attachment being uploaded.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantScanDirectionUnknown</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">attachmentName</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">attachmentName</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -220,9 +215,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionForward"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantScanDirectionForward" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionForward">AWSConnectParticipantScanDirectionForward</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)attachmentSizeInBytes"></a>
+                    <a name="//apple_ref/objc/Property/attachmentSizeInBytes" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)attachmentSizeInBytes">attachmentSizeInBytes</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -230,19 +225,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>The size of the attachment in bytes.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantScanDirectionForward</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">attachmentSizeInBytes</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">forward</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">attachmentSizeInBytes</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -252,9 +247,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionBackward"></a>
-                    <a name="//apple_ref/objc/Case/AWSConnectParticipantScanDirectionBackward" class="dashAnchor"></a>
-                    <a class="token" href="#/c:@E@AWSConnectParticipantScanDirection@AWSConnectParticipantScanDirectionBackward">AWSConnectParticipantScanDirectionBackward</a>
+                    <a name="/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)clientToken"></a>
+                    <a name="//apple_ref/objc/Property/clientToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)clientToken">clientToken</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -262,19 +257,83 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Undocumented</p>
+                        <p>A unique case sensitive identifier to support idempotency of request.</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="n">AWSConnectParticipantScanDirectionBackward</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">clientToken</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">backward</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">clientToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)connectionToken"></a>
+                    <a name="//apple_ref/objc/Property/connectionToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)connectionToken">connectionToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The authentication token associated with the participant&rsquo;s connection.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">connectionToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">connectionToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)contentType"></a>
+                    <a name="//apple_ref/objc/Property/contentType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnectParticipantStartAttachmentUploadRequest(py)contentType">contentType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the MIME file type of the attachment. For a list of supported file types, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">contentType</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">contentType</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
