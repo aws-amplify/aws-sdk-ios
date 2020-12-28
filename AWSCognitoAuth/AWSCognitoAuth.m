@@ -575,26 +575,6 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     }
 }
 
-
-- (void)launchSFAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(11.0)) {
-    self.sfAuthenticationSessionAvailable = YES;
-    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
-    self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:url
-                                                    callbackURLScheme:callbackURLScheme
-                                                    completionHandler:^(NSURL * _Nullable url,
-                                                                        NSError * _Nullable error) {
-        if (url) {
-            [self processURL:url forRedirection:NO];
-        } else {
-            if (error.code != SFAuthenticationErrorCanceledLogin) {
-                [self signOutLocallyAndClearLastKnownUser];
-            }
-            [self dismissSafariViewControllerAndCompleteSignOut:error];
-        }
-    }];
-    [self.sfAuthSession start];
-}
-
 - (void)launchASWebAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(13.0)) {
     NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
     self.asAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:url
@@ -627,6 +607,25 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     } else {
         [self signOutSFSafariVC:presentingViewController url:url];
     }
+}
+
+- (void)launchSFAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(11.0)) {
+    self.sfAuthenticationSessionAvailable = YES;
+    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
+    self.sfAuthSession = [[SFAuthenticationSession alloc] initWithURL:url
+                                                    callbackURLScheme:callbackURLScheme
+                                                    completionHandler:^(NSURL * _Nullable url,
+                                                                        NSError * _Nullable error) {
+        if (url) {
+            [self processURL:url forRedirection:NO];
+        } else {
+            if (error.code != SFAuthenticationErrorCanceledLogin) {
+                [self signOutLocallyAndClearLastKnownUser];
+            }
+            [self dismissSafariViewControllerAndCompleteSignOut:error];
+        }
+    }];
+    [self.sfAuthSession start];
 }
 
 - (void)signOutSFSafariVC: (UIViewController *) vc

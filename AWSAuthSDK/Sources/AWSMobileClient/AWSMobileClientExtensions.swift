@@ -505,24 +505,6 @@ extension AWSMobileClient {
         }
     }
     
-    private func hostedUILegacySignOut(completionHandler: @escaping ((Error?) -> Void)) {
-        AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
-            self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
-        }
-    }
-    
-    private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,
-                                 completionHandler: @escaping ((Error?) -> Void)) {
-        if #available(iOS 13, *) {
-            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut(withWebUI: presentationAnchor) { (error) in
-                self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
-            }
-        } else {
-            // Fallback on earlier versions
-            self.hostedUILegacySignOut(completionHandler: completionHandler)
-        }
-    }
-    
     private func handleHostedUISignOutResult(_ error: Error?, completionHandler: @escaping ((Error?) -> Void)) {
         if (error != nil) {
             completionHandler(AWSMobileClientError.makeMobileClientError(from: error!))
@@ -593,6 +575,24 @@ extension AWSMobileClient {
         }
         signOut()
         completionHandler(nil)
+    }
+    
+    private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,
+                                 completionHandler: @escaping ((Error?) -> Void)) {
+        if #available(iOS 13, *) {
+            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut(withWebUI: presentationAnchor) { (error) in
+                self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
+            }
+        } else {
+            // Fallback on earlier versions
+            self.hostedUILegacySignOut(completionHandler: completionHandler)
+        }
+    }
+    
+    private func hostedUILegacySignOut(completionHandler: @escaping ((Error?) -> Void)) {
+        AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
+            self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
+        }
     }
     
     /// Signs out the current logged in user and clears the local keychain store.

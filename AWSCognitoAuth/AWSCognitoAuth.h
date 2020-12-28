@@ -15,9 +15,7 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#if __has_include(<AuthenticationServices/AuthenticationServices.h>)
 #import <AuthenticationServices/AuthenticationServices.h>
-#endif
 
 NS_ASSUME_NONNULL_BEGIN
 
