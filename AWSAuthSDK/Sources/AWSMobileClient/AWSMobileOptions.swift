@@ -92,6 +92,7 @@ public struct HostedUIOptions {
     let tokenURIQueryParameters: [String: String]?
     let signOutURIQueryParameters: [String: String]?
     
+    let signInPrivateSession: Bool
     
     /// Initializer for hosted UI options.
     ///
@@ -111,7 +112,8 @@ public struct HostedUIOptions {
                 federationProviderName: String? = nil,
                 signInURIQueryParameters: [String: String]? = nil,
                 tokenURIQueryParameters: [String: String]? = nil,
-                signOutURIQueryParameters: [String: String]? = nil) {
+                signOutURIQueryParameters: [String: String]? = nil,
+                signInPrivateSession: Bool = false) {
         self.disableFederation = disableFederation
         self.scopes = scopes
         if let identityProvider = identityProvider {
@@ -129,6 +131,7 @@ public struct HostedUIOptions {
         self.signInURIQueryParameters = signInURIQueryParameters
         self.tokenURIQueryParameters = tokenURIQueryParameters
         self.signOutURIQueryParameters = signOutURIQueryParameters
+        self.signInPrivateSession = signInPrivateSession
     }
 }
 

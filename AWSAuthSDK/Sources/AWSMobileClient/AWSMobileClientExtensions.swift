@@ -505,24 +505,55 @@ extension AWSMobileClient {
         }
     }
     
+    private func handleHostedUISignOutResult(_ error: Error?, completionHandler: @escaping ((Error?) -> Void)) {
+        if (error != nil) {
+            completionHandler(AWSMobileClientError.makeMobileClientError(from: error!))
+        } else {
+            // If the token is successfully invalidated, we clear tokens locally and perform signout flow.
+            self.signOut()
+            completionHandler(nil)
+        }
+    }
+    
+    
+    /// Asynchronous signout method which requires network activity. Based on the options specified in `SignOutOptions`, appropriate tasks will be performed.
+    ///
+    /// - Parameters:
+    ///   - options: SignOutOptions which specify actions.
+    ///   - presentationAnchor: If you have
+    ///   - completionHandler: completion handler for success or error callback.
+    @available(iOS 13, *)
+    public func signOut(presentationAnchor: ASPresentationAnchor,
+                        options: SignOutOptions = SignOutOptions(),
+                        completionHandler: @escaping ((Error?) -> Void)) {
+        internalSignOut(presentationAnchor: presentationAnchor,
+                        options: options,
+                        completionHandler: completionHandler)
+    }
+    
+    
     /// Asynchronous signout method which requires network activity. Based on the options specified in `SignOutOptions`, appropriate tasks will be performed.
     ///
     /// - Parameters:
     ///   - options: SignOutOptions which specify actions.
     ///   - completionHandler: completion handler for success or error callback.
-    public func signOut(options: SignOutOptions = SignOutOptions(), completionHandler: @escaping ((Error?) -> Void)) {
-        // If using hosted UI, we need to launch SFSafariVC or SFAuthSession to invalidate token
+    public func signOut(options: SignOutOptions = SignOutOptions(),
+                        completionHandler: @escaping ((Error?) -> Void)) {
+        internalSignOut(presentationAnchor: nil,
+                        options: options,
+                        completionHandler: completionHandler)
+    }
+
+    private func internalSignOut(presentationAnchor: ASPresentationAnchor? = nil,
+                                 options: SignOutOptions = SignOutOptions(),
+                        completionHandler: @escaping ((Error?) -> Void)) {
+        // If using hosted UI, we need to launch SFSafariVC/SFAuthSession/ASWebAuthenticationSession to invalidate token
         if federationProvider == .hostedUI {
             if options.invalidateTokens {
-                AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
-                    // If there is an error invalidating tokens, we return error to the developer.
-                    if (error != nil) {
-                        completionHandler(AWSMobileClientError.makeMobileClientError(from: error!))
-                    } else {
-                        // If the token is successfully invalidated, we clear tokens locally and perform signout flow.
-                        self.signOut()
-                        completionHandler(nil)
-                    }
+                if let anchor = presentationAnchor {
+                    self.hostedUISignOut(presentationAnchor: anchor, completionHandler: completionHandler)
+                } else {
+                    self.hostedUILegacySignOut(completionHandler: completionHandler)
                 }
             }
             return
@@ -544,6 +575,24 @@ extension AWSMobileClient {
         }
         signOut()
         completionHandler(nil)
+    }
+    
+    private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,
+                                 completionHandler: @escaping ((Error?) -> Void)) {
+        if #available(iOS 13, *) {
+            AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut(withWebUI: presentationAnchor) { (error) in
+                self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
+            }
+        } else {
+            // Fallback on earlier versions
+            self.hostedUILegacySignOut(completionHandler: completionHandler)
+        }
+    }
+    
+    private func hostedUILegacySignOut(completionHandler: @escaping ((Error?) -> Void)) {
+        AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey).signOut { (error) in
+            self.handleHostedUISignOutResult(error, completionHandler: completionHandler)
+        }
     }
     
     /// Signs out the current logged in user and clears the local keychain store.

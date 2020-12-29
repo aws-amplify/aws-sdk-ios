@@ -33,7 +33,8 @@ NS_ASSUME_NONNULL_BEGIN
            signInUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signInUriQueryParameters
           signOutUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
             tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
-       userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration;
+       userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration
+               signInPrivateSession:(BOOL)signInPrivateSession;
 
 @end
 
