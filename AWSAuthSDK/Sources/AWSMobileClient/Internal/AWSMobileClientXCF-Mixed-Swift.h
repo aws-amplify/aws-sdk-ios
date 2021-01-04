@@ -17,8 +17,8 @@
 // This workaround allows for this package to be compiled as a static lib
 // or dynamic framework
 // https://github.com/CocoaPods/CocoaPods/issues/7594
-#if __has_include("AWSMobileClient-Swift.h")
-#import "AWSMobileClient-Swift.h"
+#if __has_include("AWSMobileClientXCF-Swift.h")
+#import "AWSMobileClientXCF-Swift.h"
 #else
 #import <AWSMobileClientXCF/AWSMobileClientXCF-Swift.h>
 #endif
