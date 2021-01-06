@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
 
 ## 2.21.1
 
@@ -18,7 +21,6 @@
   - AWSIoT
   - AWSKMS
   - AWSSQS
-  - AWSAutoScaling
 
 ## 2.21.0
 
