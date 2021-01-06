@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSAutoScaling
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -26,6 +18,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSIoT
   - AWSKMS
   - AWSSQS
+  - AWSAutoScaling
 
 ## 2.21.0
 
