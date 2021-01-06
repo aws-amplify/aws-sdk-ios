@@ -146,7 +146,9 @@ final public class AWSMobileClient: _AWSMobileClient {
     
     public var deviceOperations: DeviceOperations = DeviceOperations.sharedInstance
     
-    /// Returns the username of the logged in user, nil otherwise.
+    /// Returns the username attribute of the access token for the current logged in user,  nil otherwise.
+    /// Note that the value stored may vary depending on how sign-in was performed.
+    /// @see https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-using-tokens-with-identity-providers.html#amazon-cognito-user-pools-using-the-access-token
     public var username: String? {
         return self.userpoolOpsHelper.currentActiveUser?.username
     }
