@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### New Features
+
+- AWSMobileClient
+  - Add support for ASWebAuthenticationSession [PR #3310](https://github.com/aws-amplify/aws-sdk-ios/pull/3310)
+
 ### Misc. Updates
 
 - Model updates for the following services
