@@ -2,93 +2,107 @@
   "warnings": [
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 22,
+      "line": 23,
       "symbol": "AWSCognitoAuthSDKVersion",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.constant",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 45,
+      "line": 46,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 45,
+      "line": 46,
       "symbol": "AWSCognitoAuthClientErrorType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 46,
+      "line": 47,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 47,
+      "line": 48,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorUserCanceledOperation",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 48,
+      "line": 49,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorLoadingPageFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 49,
+      "line": 50,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorBadRequest",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 50,
+      "line": 51,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorSecurityFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 51,
+      "line": 52,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientInvalidAuthenticationDelegate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 52,
+      "line": 53,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientNoIdTokenIssued",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 53,
+      "line": 54,
       "symbol": "AWSCognitoAuthClientErrorType.AWSCognitoAuthClientErrorExpiredRefreshToken",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 56,
+      "line": 57,
       "symbol": "AWSCognitoAuthGetSessionBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 57,
+      "line": 58,
       "symbol": "AWSCognitoAuthSignOutBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
+      "line": 108,
+      "symbol": "AWSCognitoAuth.-getSessionWithWebUI:completion:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
+      "line": 124,
+      "symbol": "AWSCognitoAuth.-signOutWithWebUI:completion:",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     }
   ],
