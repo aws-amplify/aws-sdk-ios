@@ -53,6 +53,7 @@ class VersionBumper:
         "AWSAuthSDK/Sources/AWSFacebookSignIn",
         "AWSAuthSDK/Sources/AWSGoogleSignIn",
         "AWSAuthSDK/Sources/AWSMobileClient",
+        "AWSAuthSDK/Sources/AWSMobileClientXCF",
         "AWSAuthSDK/Sources/AWSUserPoolsSignIn",
     ]
 

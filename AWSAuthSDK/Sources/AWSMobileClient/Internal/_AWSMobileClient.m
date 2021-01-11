@@ -15,7 +15,11 @@
 
 #import "_AWSMobileClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
-#import "AWSMobileClient-Mixed-Swift.h"
+#ifdef USE_XCF
+    #import "AWSMobileClientXCF-Mixed-Swift.h"
+#else
+    #import "AWSMobileClient-Mixed-Swift.h"
+#endif
 #import "AWSCognitoAuth.h"
 
 @interface AWSCognitoCredentialsProvider()

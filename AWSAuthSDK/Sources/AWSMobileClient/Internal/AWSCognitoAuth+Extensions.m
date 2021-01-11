@@ -14,7 +14,11 @@
 //
 
 #import <Foundation/Foundation.h>
-#import <AWSMobileClient/AWSCognitoAuth.h>
+#ifdef USE_XCF
+    #import "AWSMobileClientXCF-Mixed-Swift.h"
+#else
+    #import "AWSMobileClient-Mixed-Swift.h"
+#endif
 #import <AWSCore/AWSCore.h>
 
 @interface AWSCognitoAuthConfiguration()

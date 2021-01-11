@@ -13,9 +13,8 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSMobileClient/AWSCognitoAuth.h>
-
 NS_ASSUME_NONNULL_BEGIN
+@class AWSCognitoAuthConfiguration;
 
 @interface AWSCognitoAuthConfiguration(Extension)
 
