@@ -71,8 +71,15 @@ voiceActivityDetectorConfiguration:(BFVADConfig *)vadConfig;
 /**
  * Marks the BFAudioSource as having stopped and stops any recording
  * processes required underneath.
- */
+*/
 - (void)stop;
+
+/**
+ * Marks the BFAudioSource as having stopped and stops any recording
+ * processes required underneath.
+ * @param completionHandler The completion handler to call when recording has stopped.
+ */
+- (void)stopWithCompletionHandler:(void (^)(void))completionHandler;
 
 /**
  * Gives the length of a buffer given the audio encoding of the audio source
