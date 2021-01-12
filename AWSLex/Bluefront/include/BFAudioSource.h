@@ -71,7 +71,7 @@ voiceActivityDetectorConfiguration:(BFVADConfig *)vadConfig;
 /**
  * Marks the BFAudioSource as having stopped and stops any recording
  * processes required underneath.
-*/
+ */
 - (void)stop;
 
 /**
