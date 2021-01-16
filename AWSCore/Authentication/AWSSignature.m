@@ -324,6 +324,11 @@ NSString *const AWSSignatureV4Terminator = @"aws4_request";
         query = [NSString stringWithFormat:@""];
     }
 
+    NSCharacterSet* querySet = [[NSCharacterSet characterSetWithCharactersInString:@"!*'\();:@+$,%#[] "] invertedSet];
+    // consider moving this to AWSCategory.m
+    // named something like: - (NSString *)aws_stringWithURLEncodingQuery
+    query = [query stringByAddingPercentEncodingWithAllowedCharacters:querySet];
+
     NSString *contentSha256 = [AWSSignatureSignerUtility hexEncode:[[NSString alloc] initWithData:[AWSSignatureSignerUtility hash:request.HTTPBody] encoding:NSASCIIStringEncoding]];
 
     NSString *canonicalRequest = [AWSSignatureV4Signer getCanonicalizedRequest:request.HTTPMethod
