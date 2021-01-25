@@ -409,32 +409,27 @@ jobs:
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
             echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} --name "$tagname" -d -
 
-  build_carthage:
+  build_xcframeworks:
     macos:
-      xcode: "12.1.0"
+      xcode: "12.3.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
       - pre_start_simulator
       - update_brew
       - run:
-          name: Upgrade Carthage
+          name: Build XCFrameworks
           command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
-      - run:
-          name: Build Carthage
-          command: |
-            # Build Carthage via this script to workaround lipo error due to multiple architectures in same file
-            bash ./CircleciScripts/carthage-build.sh --no-skip-current --platform iOS | tee buildout.txt
+            python3 ./CircleciScripts/create_xcframeworks.py
           no_output_timeout: 100m
       - save_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
           paths:
-            - Carthage
+            - xcframeworks
 
   release_carthage:
     macos:
-      xcode: "12.1.0"
+      xcode: "12.3.0"
     steps:
       - skip_job_unless_required
       - checkout_with_cache
@@ -443,12 +438,8 @@ jobs:
       - run:
           name: Install github-release
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
-      - run:
-          name: Upgrade Carthage
-          command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
       - restore_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
       - run:
           name: Create Carthage archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
@@ -549,13 +540,13 @@ jobs:
       - set_environment_variables
       - configure_aws
       - restore_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
       - run:
           name: Make directory structure
           command: |
             mkdir -p "$sdkNameWithVersion"
-            mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
-            rm -rf "Carthage/Build"
+            mv "xcframeworks/output/XCF/" "$sdkNameWithVersion/frameworks"
+            rm -rf "xcframeworks/output/XCF/"
       - run:
           name: Copy SDK resource files
           command: |
@@ -1429,7 +1420,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - build_carthage:
+      - build_xcframeworks:
           requires:
             - build
           filters:
@@ -1439,7 +1430,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_ios_s3:
           requires:
-            - build_carthage
+            - build_xcframeworks
           filters:
             branches:
               ignore: /.*/
@@ -1478,7 +1469,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_carthage:
           requires:
-            - build_carthage
+            - build_xcframeworks
             - add_doc_tag
           filters:
             branches:
