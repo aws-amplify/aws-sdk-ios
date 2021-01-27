@@ -112,7 +112,9 @@ Carthage supports XCFrameworks in Xcode 12 or above. Follow the steps below to c
 
 4. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the Carthage/Build folder on disk.
 
-Building platform-specific framework bundles (Xcode 11 and below)
+#### Frameworks with "fat libraries" (not recommended)
+
+To build platform-specific framework bundles with multiple architectures in the binary, (Xcode 11 and below)
 
 1. Install the latest version of [Carthage](https://github.com/Carthage/Carthage#installing-carthage).
 
