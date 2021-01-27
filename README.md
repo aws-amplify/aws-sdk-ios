@@ -155,7 +155,8 @@ Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. 
 1. Download the [latest SDK](https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.22.1, the download link is [https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip](https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip).
 > Note: If you are using version < 2.22.1 please refer to the section below where frameworks are added.
 
-4. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.
+2. Uncompress the ZIP file
+3. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.
 
 #### Legacy framework setup
 
