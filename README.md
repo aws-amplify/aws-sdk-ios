@@ -208,7 +208,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 ### Frameworks
 
-1. In Xcode's **Project Navigator**, type "AWS" to find the AWS frameworks that were manually added to your project.  Manually select all of the AWS frameworks and hit **delete** on your keyboard. Then select **Move to Trash**. 
+1. In Xcode's **Project Navigator**, type "AWS" to find the AWS Frameworks or XCFrameworks that you manually added to your project. Select all of the AWS Frameworks and hit **Delete** on your keyboard. Then select **Move to Trash**. 
 
 2. Follow the installation process above to include the new version of the SDK.
 
