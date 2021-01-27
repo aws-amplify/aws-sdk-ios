@@ -95,7 +95,7 @@ For a complete list of our pods, check out the .podspec files in the root direct
 
 ### Carthage
 
-Carthage support XCFrameworks for XCode 12 or above follow the steps below to build a platform-independent xcframeworks:
+Carthage support XCFrameworks for Xcode 12 or above. Follow the steps below to consume the AWS SDK for iOS using XCFrameworks:
 
 1. Install the Carthage directly from source, support for XCode 12+ is not fully released in [Carthage](https://github.com/Carthage/Carthage#installing-carthage). 
 
