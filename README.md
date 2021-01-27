@@ -49,7 +49,7 @@ You should use ONE and only one of these ways to import the AWS Mobile SDK. Impo
         
         import AWSMobileClientXCF
 
-and use the it inside without the `XCF` suffix.
+and use it your app code without the `XCF` suffix.
 
         AWSMobileClient.default.initialize() 
 
