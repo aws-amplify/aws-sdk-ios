@@ -4,6 +4,12 @@
 
 -Features for next release
 
+### Misc. Updates
+ - AWSMobileClient
+    - Created a new target named `AWSMobileClientXCF` to support building AWSMobileClient as an XCFramework. [PR #3334](https://github.com/aws-amplify/aws-sdk-ios/pull/3334)
+ - AWSLex
+    - Updated the AWSLex with the latest version of libBlueAudioSourceiOS and added arm64 iphonesimulator into Excluded Architecture. [PR #3365](https://github.com/aws-amplify/aws-sdk-ios/pull/3365)
+
 ## 2.22.0
 
 ### New Features
