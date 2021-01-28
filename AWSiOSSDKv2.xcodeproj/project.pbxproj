@@ -530,6 +530,8 @@
 		B4A4E03322B423C700379396 /* AWSGeneralSageMakerRuntimeTests.m in Sources */ = {isa = PBXBuildFile; fileRef = B4A4E03222B423C700379396 /* AWSGeneralSageMakerRuntimeTests.m */; };
 		B4A4E03422B425A300379396 /* AWSTestUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = CEB8EF2E1C6A69A00098B15B /* AWSTestUtility.m */; };
 		B4A4E03522B425C900379396 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CEB8EF551C6A6A2E0098B15B /* libOCMock.a */; };
+		B4B8C4BF25ACC10F0054E723 /* AWSLexConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */; };
+		B4B8C61325ACC1270054E723 /* AWSLexConfig.xcconfig in Resources */ = {isa = PBXBuildFile; fileRef = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */; };
 		B4D61CCC23285D8C007E7A12 /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CE0D416D1C6A66E5006B91B5 /* AWSCore.framework */; };
 		B4D61CD523285DF5007E7A12 /* AWSConnectParticipant.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D61CCD23285DF3007E7A12 /* AWSConnectParticipant.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		B4D61CD623285DF5007E7A12 /* AWSConnectParticipantService.h in Headers */ = {isa = PBXBuildFile; fileRef = B4D61CCE23285DF4007E7A12 /* AWSConnectParticipantService.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -2930,6 +2932,7 @@
 		B4A4E02722B4233B00379396 /* AWSSageMakerRuntimeUnitTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSSageMakerRuntimeUnitTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4A4E02B22B4233B00379396 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B4A4E03222B423C700379396 /* AWSGeneralSageMakerRuntimeTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSGeneralSageMakerRuntimeTests.m; sourceTree = "<group>"; };
+		B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xcconfig; path = AWSLexConfig.xcconfig; sourceTree = "<group>"; };
 		B4D61CAF23285D16007E7A12 /* AWSConnectParticipant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSConnectParticipant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B4D61CCD23285DF3007E7A12 /* AWSConnectParticipant.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSConnectParticipant.h; sourceTree = "<group>"; };
 		B4D61CCE23285DF4007E7A12 /* AWSConnectParticipantService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSConnectParticipantService.h; sourceTree = "<group>"; };
@@ -5523,6 +5526,14 @@
 			path = AWSSageMakerRuntimeUnitTests;
 			sourceTree = "<group>";
 		};
+		B4B8C4BD25ACC10E0054E723 /* XcodeConfiguration */ = {
+			isa = PBXGroup;
+			children = (
+				B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */,
+			);
+			path = XcodeConfiguration;
+			sourceTree = "<group>";
+		};
 		B4D61CB023285D16007E7A12 /* AWSConnectParticipant */ = {
 			isa = PBXGroup;
 			children = (
@@ -5747,6 +5758,7 @@
 				9A7ACC4F20B0FF1000DDBEC1 /* AWSTranslateUnitTests */,
 				17E6B467209BB99A0079B286 /* Frameworks */,
 				CE0D415E1C6A66AA006B91B5 /* Products */,
+				B4B8C4BD25ACC10E0054E723 /* XcodeConfiguration */,
 			);
 			sourceTree = "<group>";
 		};
@@ -10526,6 +10538,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B8C61325ACC1270054E723 /* AWSLexConfig.xcconfig in Resources */,
 				B52FBE921F17414A000F0C00 /* Media.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -10681,6 +10694,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B4B8C4BF25ACC10F0054E723 /* AWSLexConfig.xcconfig in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -14044,6 +14058,7 @@
 		};
 		185111DC1D78F03B0009F5C3 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
@@ -14069,6 +14084,7 @@
 		};
 		185111DD1D78F03B0009F5C3 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B4B8C4BE25ACC10E0054E723 /* AWSLexConfig.xcconfig */;
 			buildSettings = {
 				APPLICATION_EXTENSION_API_ONLY = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "";
