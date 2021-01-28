@@ -13,9 +13,9 @@ EXCLUDE_FROM_XCFRAMEWORK = [
     "AWSMobileClient",
 ]
 
-IOS_DEVICE_ARCHIVE_PATH = "./output/iOS/"
-IOS_SIMULATOR_ARCHIVE_PATH = "./output/Simulator/"
-XCFRAMEWORK_PATH = "./output/XCF/"
+IOS_DEVICE_ARCHIVE_PATH = "./xcframeworks/output/iOS/"
+IOS_SIMULATOR_ARCHIVE_PATH = "./xcframeworks/output/Simulator/"
+XCFRAMEWORK_PATH = "./xcframeworks/output/XCF/"
 
 def is_framework_included(framework):
     return framework not in EXCLUDE_FROM_XCFRAMEWORK
