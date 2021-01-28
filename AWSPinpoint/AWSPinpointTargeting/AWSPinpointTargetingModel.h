@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -44,6 +44,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingAttributeType) {
     AWSPinpointTargetingAttributeTypeUnknown,
     AWSPinpointTargetingAttributeTypeInclusive,
     AWSPinpointTargetingAttributeTypeExclusive,
+    AWSPinpointTargetingAttributeTypeContains,
+    AWSPinpointTargetingAttributeTypeBefore,
+    AWSPinpointTargetingAttributeTypeAfter,
+    AWSPinpointTargetingAttributeTypeOn,
+    AWSPinpointTargetingAttributeTypeBetween,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingCampaignStatus) {
@@ -1769,7 +1774,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 
 
 /**
- <p>The type of segment dimension to use. Valid values are: INCLUSIVE, endpoints that match the criteria are included in the segment; and, EXCLUSIVE, endpoints that match the criteria are excluded from the segment.</p>
+ <p>The type of segment dimension to use. Valid values are: <ul><li>INCLUSIVE - endpoints that have attributes matching the values are included in the segment.</li><li>EXCLUSIVE - endpoints that have attributes matching the values are excluded in the segment.</li><li>CONTAINS - endpoints that have attributes' substrings match the values are included in the segment.</li><li>BEFORE - endpoints with attributes read as ISO_INSTANT datetimes before the value are included in the segment.</li><li>AFTER - endpoints with attributes read as ISO_INSTANT datetimes after the value are included in the segment.</li><li>ON - endpoints with attributes read as ISO_INSTANT dates on the value are included in the segment. Time is ignored in this comparison.</li><li>BETWEEN - endpoints with attributes read as ISO_INSTANT datetimes between the values are included in the segment.</li></p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingAttributeType attributeType;
 

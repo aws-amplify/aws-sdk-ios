@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -767,6 +767,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"EXCLUSIVE"] == NSOrderedSame) {
             return @(AWSPinpointTargetingAttributeTypeExclusive);
         }
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeContains);
+        }
+        if ([value caseInsensitiveCompare:@"BEFORE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeBefore);
+        }
+        if ([value caseInsensitiveCompare:@"AFTER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeAfter);
+        }
+        if ([value caseInsensitiveCompare:@"ON"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeOn);
+        }
+        if ([value caseInsensitiveCompare:@"BETWEEN"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeBetween);
+        }
         return @(AWSPinpointTargetingAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -774,6 +789,16 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"INCLUSIVE";
             case AWSPinpointTargetingAttributeTypeExclusive:
                 return @"EXCLUSIVE";
+            case AWSPinpointTargetingAttributeTypeContains:
+                return @"CONTAINS";
+            case AWSPinpointTargetingAttributeTypeBefore:
+                return @"BEFORE";
+            case AWSPinpointTargetingAttributeTypeAfter:
+                return @"AFTER";
+            case AWSPinpointTargetingAttributeTypeOn:
+                return @"ON";
+            case AWSPinpointTargetingAttributeTypeBetween:
+                return @"BETWEEN";
             default:
                 return nil;
         }
