@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -301,17 +301,17 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 @property (nonatomic, strong) NSString * _Nullable aliasName;
 
 /**
- <p>Date and time that the alias was most recently created in the account and Region. Formatted as Unix time.</p>
+ 
  */
 @property (nonatomic, strong) NSDate * _Nullable creationDate;
 
 /**
- <p>Date and time that the alias was most recently associated with a CMK in the account and Region. Formatted as Unix time.</p>
+ 
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedDate;
 
 /**
- <p>String that contains the key identifier of the CMK associated with the alias.</p>
+ <p>String that contains the key identifier referred to by the alias.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable targetKeyId;
 
@@ -473,7 +473,7 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>The unique identifier for the grant.</p><p>You can use the <code>GrantId</code> in a subsequent <a>RetireGrant</a> or <a>RevokeGrant</a> operation.</p>
+ <p>The unique identifier for the grant.</p><p>You can use the <code>GrantId</code> in a <a>ListGrants</a>, <a>RetireGrant</a>, or <a>RevokeGrant</a> operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable grantId;
 
@@ -1603,7 +1603,17 @@ typedef NS_ENUM(NSInteger, AWSKMSWrappingKeySpec) {
 
 
 /**
- <p>A unique identifier for the customer master key (CMK).</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
+ <p>Returns only the grant with the specified grant ID. The grant ID uniquely identifies the grant. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable grantId;
+
+/**
+ <p>Returns only grants where the specified principal is the grantee principal for the grant.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable granteePrincipal;
+
+/**
+ <p>Returns only grants for the specified customer master key (CMK). This parameter is required.</p><p>Specify the key ID or the Amazon Resource Name (ARN) of the CMK. To specify a CMK in a different AWS account, you must use the key ARN.</p><p>For example:</p><ul><li><p>Key ID: <code>1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li><li><p>Key ARN: <code>arn:aws:kms:us-east-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab</code></p></li></ul><p>To get the key ID and key ARN for a CMK, use <a>ListKeys</a> or <a>DescribeKey</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyId;
 
