@@ -1,16 +1,22 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSIoT
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+### Misc. Updates
+
+ - **AWSMobileClient**
+    - Created a new target named `AWSMobileClientXCF` to support building AWSMobileClient as an XCFramework. [PR #3334](https://github.com/aws-amplify/aws-sdk-ios/pull/3334)
+ - **AWSLex**
+    - Updated the AWSLex with the latest version of libBlueAudioSourceiOS and added arm64 iphonesimulator into Excluded Architecture. [PR #3365](https://github.com/aws-amplify/aws-sdk-ios/pull/3365)
+- Model updates for the following services
+  - AWSCognitoIdentity
+  - AWSEC2
+  - AWSIoT
+  - AWSKMS
+  - AWSPinpoint
+  - AWSSNS
 
 ## 2.22.0
 
