@@ -454,6 +454,27 @@
 			remoteGlobalIDString = B5345D0E1F366AFA009C1041;
 			remoteInfo = AWSAuthUI;
 		};
+		B4BD3DB325C381DD00AA9034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2109E2B9254745210057043C;
+			remoteInfo = AWSLocation;
+		};
+		B4BD3DB525C381DD00AA9034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2109E2C1254745210057043C;
+			remoteInfo = AWSLocationTests;
+		};
+		B4BD3DB725C381DD00AA9034 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 2109E54B2547557A0057043C;
+			remoteInfo = AWSLocationUnitTests;
+		};
 		B4C8E48C23073CCA0064C158 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -943,34 +964,6 @@
 			proxyType = 2;
 			remoteGlobalIDString = CE5604811C6BC94D00B4E00B;
 			remoteInfo = AWSMachineLearningUnitTests;
-		};
-		B55D57751F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE9DE73E1C6A7AE30060793F;
-			remoteInfo = AWSAnalytics;
-		};
-		B55D57771F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE9DE7471C6A7AE40060793F;
-			remoteInfo = AWSAnalyticsTests;
-		};
-		B55D57791F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE9E501B1C72C19800B60FD7;
-			remoteInfo = AWSAnalyticsLegacyTests;
-		};
-		B55D577B1F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CE5604901C6BC96500B4E00B;
-			remoteInfo = AWSAnalyticsUnitTests;
 		};
 		B55D577F1F44EC3F005A0E56 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -1967,6 +1960,9 @@
 				B55D57661F44EC3F005A0E56 /* AWSLex.framework */,
 				B55D57681F44EC3F005A0E56 /* AWSLexTests.xctest */,
 				B55D576A1F44EC3F005A0E56 /* AWSLexUnitTests.xctest */,
+				B4BD3DB425C381DD00AA9034 /* AWSLocation.framework */,
+				B4BD3DB625C381DD00AA9034 /* AWSLocationTests.xctest */,
+				B4BD3DB825C381DD00AA9034 /* AWSLocationUnitTests.xctest */,
 				B55D576C1F44EC3F005A0E56 /* AWSLogs.framework */,
 				B55D576E1F44EC3F005A0E56 /* AWSLogsUnitTests.xctest */,
 				B55D57701F44EC3F005A0E56 /* AWSMachineLearning.framework */,
@@ -2657,6 +2653,27 @@
 			fileType = wrapper.framework;
 			path = AWSNSSecureCodingTestBase.framework;
 			remoteRef = B402CDB3258067300020B83B /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4BD3DB425C381DD00AA9034 /* AWSLocation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSLocation.framework;
+			remoteRef = B4BD3DB325C381DD00AA9034 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4BD3DB625C381DD00AA9034 /* AWSLocationTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSLocationTests.xctest;
+			remoteRef = B4BD3DB525C381DD00AA9034 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		B4BD3DB825C381DD00AA9034 /* AWSLocationUnitTests.xctest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = AWSLocationUnitTests.xctest;
+			remoteRef = B4BD3DB725C381DD00AA9034 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		B4C8E48D23073CCA0064C158 /* AWSConnect.framework */ = {
@@ -4244,7 +4261,7 @@
 					"USE_XCF=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = Sources/AWSMobileClient/AWSMobileClientXCF.plist;
+				INFOPLIST_FILE = Sources/AWSMobileClientXCF/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
@@ -4284,7 +4301,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_PREPROCESSOR_DEFINITIONS = "USE_XCF=1";
-				INFOPLIST_FILE = Sources/AWSMobileClient/AWSMobileClientXCF.plist;
+				INFOPLIST_FILE = Sources/AWSMobileClientXCF/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
