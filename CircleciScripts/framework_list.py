@@ -20,7 +20,6 @@ grouped_frameworks = [
         "AWSAPIGateway",
         "AWSAutoScaling",
         "AWSCloudWatch",
-        "AWSCognito",
         "AWSComprehend",
         "AWSConnect",
         "AWSConnectParticipant",
@@ -35,9 +34,9 @@ grouped_frameworks = [
         "AWSKinesisVideoSignaling",
         "AWSLambda",
         "AWSLex",
+        "AWSLocation",
         "AWSLogs",
         "AWSMachineLearning",
-        "AWSMobileAnalytics",
         "AWSPinpoint",
         "AWSPolly",
         "AWSRekognition",
@@ -53,8 +52,6 @@ grouped_frameworks = [
         "AWSTranslate",
     ],
     [
-        # Depends only on AWSCognito service-api framework
-        "AWSCognitoSync",
         # Depends on AWSCore and AWSAuthCore
         "AWSAuthUI",
         # Depends only on AWSAuthCore (and possibly external Pods, but nothing else
