@@ -5,19 +5,6 @@
 version: 2.1
 
 commands:
-  early_return_for_forked_prs:
-    description: >-
-      If this build is from a fork, stop executing the current job and return success.
-      This is useful to avoid steps that will fail due to missing credentials.
-    steps:
-      - run:
-          name: skip left steps and return immediately from current job if current build is from a forked PR
-          command: |
-            if [ -n "$CIRCLE_PR_NUMBER" ]; then
-              echo "Nothing to do for forked PRs, so marking this step successful"
-              circleci step halt
-            fi
-
   update_brew:
     description: >-
       Update Homebrew
@@ -27,6 +14,7 @@ commands:
           command: |
             HOMEBREW_LOGS=~/homebrew-logs
             HOMEBREW_TEMP=~/homebrew-temp
+            brew upgrade
             brew update
 
   set_environment_variables:
@@ -159,7 +147,7 @@ commands:
           command: |
             bash CircleciScripts/pre_start_simulator.sh
 
-  skip_test_job:
+  skip_test_job_by_commit_message:
     description: >-
       Check if the test job can be skipped
     steps:
@@ -186,41 +174,6 @@ commands:
                  circleci step halt
               fi
             fi
-      - run:
-          name: Skip the test job if this was merged from develop by CircleCI
-          command: |
-            skipflag=$(echo "${SKIPTEST_FOR_MAIN}") | tr '[:upper:]' '[:lower:]'
-            commitmessage=$(git log --format=%B -n 1 ${CIRCLE_SHA1})
-            if [ "$skipflag" == "true" ] && [[ "$commitmessage" =~ .*"[Merge develop to main by circleci]".* ]]
-            then
-               echo "This is merged from develop by CircleCI. Skip the test job"
-               circleci step halt
-            fi
-
-  override_test_job:
-    description: >-
-      Skip the test job if previously tested, or if the environment variable OVERRIDE_TEST is TRUE
-    steps:
-      - run:
-          name: Skip test if the commit is already tested
-          command: |
-            echo "${TESTED_COMMITID}:${CIRCLE_SHA1}"
-            skipflag=$(echo "${SKIPTESTEDCHANGE}" | tr '[:upper:]' '[:lower:]')
-            if [ "${TESTED_COMMITID}" == "${CIRCLE_SHA1}" ] && [ "${skipflag}" != "true" ]
-            then
-              echo "Skipping test as the change ${CIRCLE_SHA1} has already been tested"
-              circleci step halt
-            fi
-      - run:
-          name: Skip test if OVERRIDE_TEST flag is set
-          command: |
-              echo "override_test_variable_name=$override_test_variable_name"
-              override_test_value=$(eval "echo $"${override_test_variable_name}"")
-              override_test_value=$(echo "${override_test_value}" | tr '[:upper:]' '[:lower:]')
-              if [ "${override_test_value}" == "true" ]; then
-                echo "project environment variable OVERRIDE_TEST is set with TRUE, skip all tests"
-                circleci step halt
-              fi
 
   skip_job_unless_required:
     description: >-
@@ -238,209 +191,203 @@ commands:
                 circleci step halt
               fi
 
+  build_for_testing:
+    parameters:
+      project:
+        type: string
+      scheme:
+        type: string
+    steps:
+      # This will restore cached values for dynamically generated resources
+      # like testconfiguration.json, but it will be overwritten in the 'build'
+      # step with fresh values
+      - restore_cache:
+          keys:
+            - v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}
+      - run:
+          name: Build << parameters.scheme >> for testing
+          command: xcodebuild build-for-testing -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data | tee "artifacts/build-<< parameters.scheme >>.log" | xcpretty
+      - save_cache:
+          key: v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}
+          paths:
+            - testing_derived_data
+
+  make_artifacts_directory:
+    steps:
+      - run:
+          name: Make artifacts directory
+          command: mkdir -p "artifacts"
+
+  upload_artifacts:
+    steps:
+      - store_artifacts:
+          path: artifacts
+
+  checkout_with_cache:
+    # Workaround for https://discuss.circleci.com/t/checkout-fails-on-git-tags-when-git-directory-is-already-present/22437/5
+    steps:
+      - restore_cache:
+          keys:
+            - v1-source-{{ .Revision }}
+      - run: 
+          name: Fetch tag from origin if present
+          command: |
+            if [ -n "$CIRCLE_TAG" ] ; then
+              git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
+            fi
+      - checkout
+
 jobs:
   build:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
+      - run:
+          name: Git GC
+          command: git gc
+      - save_cache:
+          key: v1-source-{{ .Revision }}
+          paths:
+            - ".git"
       - set_environment_variables
       - pre_start_simulator
+      - make_artifacts_directory
       - run:
           name: Build sdk
           command: |
-            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
-            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}"
+            xcodebuild build -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-AWSiOSSDKv2.log" | xcpretty
+            xcodebuild build -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSAuthSDKAllTargets -sdk iphonesimulator -destination "${destination}" | tee "artifacts/build-AWSAuthSDK.log" | xcpretty
+      - upload_artifacts
 
-  unittest:
+  build_test_host_apps:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
-      - set_environment_variables
-      - override_test_job
       - skip_job_unless_required
-      - checkout
-      - skip_test_job
+      - checkout_with_cache
+      - set_environment_variables
       - pre_start_simulator
-      - run:
-          name: Build SDK
-          command: xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}"
-      - run :
-          name: Run unit tests
-          command: bash CircleciScripts/run_unittests.sh "test_result" "${destination}"
-      - run:
-          name : Check unit test result
-          command : bash CircleciScripts/check_test_result.sh "test_result"
-      - store_artifacts:
-          path: test_result
+      - make_artifacts_directory
+      - build_for_testing:
+          project: AWSiOSSDKv2.xcodeproj
+          scheme: AWSAllTestsHost
+      - build_for_testing:
+          project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+          scheme: AWSAuthSDKTestApp
+      - upload_artifacts
 
-  pre_integrationtest:
+  unit_test:
     macos:
-      xcode: "12.0.0"
-    environment:
-      TERM: xterm-256color
+      xcode: "12.1.0"
+    parameters:
+      project:
+        default: "AWSiOSSDKv2.xcodeproj"
+        type: string
+      scheme:
+        type: string
+    description: Run non-integration tests for << parameters.scheme >>
     steps:
       - skip_job_unless_required
+      - checkout_with_cache
       - set_environment_variables
-      - override_test_job
+      - pre_start_simulator
+      - make_artifacts_directory
+
+      - when:
+          condition:
+            equal: [ << parameters.project >>, "AWSAuthSDK/AWSAuthSDK.xcodeproj" ]
+          steps:
+            - restore_cache:
+                key: v1-testing-derived-data-AWSAuthSDKTestApp-{{ .Revision }}
+
+      - restore_cache:
+          key: v1-testing-derived-data-AWSAllTestsHost-{{ .Revision }}
+
+      # After this step, the cache key
+      # 'v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}'
+      # will include derived data for both
+      # the specified scheme AND AWSAllTestsHost (and AWSAuthSDKTestApp if the
+      # project is AWSAuthSDK)
+      - build_for_testing:
+          project: << parameters.project >>
+          scheme: << parameters.scheme >>
       - run:
-          name: Get override test variable name
+          name: Run unit tests for << parameters.scheme >>
           command: |
-            echo "override_test_variable_name=$override_test_variable_name"
-      - run:
-          name: Reset OVERRIDE_TEST environment variable
-          command: |
-            override_test_value=$(eval "echo $"${override_test_variable_name}"")
-            if ! [ -z "$override_test_value" ]
-            then
-               echo "reset ${override_test_variable_name} value"
-              parameters='{"name":"'${override_test_variable_name}'","value":"FALSE"}'
-              curl -X POST \
-                -H "Content-type: application/json" \
-                -H "Accept: application/json" \
-                -d "$parameters" \
-                "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
-            fi
-      - checkout
+            xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:"<< parameters.scheme >>UnitTests" | tee "artifacts/unit-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+
+      - when:
+          condition:
+            equal: [ << parameters.scheme >>, "AWSCore" ]
+          steps:
+            - run:
+                name: Additional AWSCore unit test targets
+                command: |
+                  xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:AWSCoreServiceConfigurationTest -only-testing:AWSCoreConfigurationTest | tee "artifacts/unit-test-AWSCore-additional-config-tests.log" | xcpretty --simple --color --report junit
+
+      - store_test_results:
+          path: build/reports
+      - upload_artifacts
+
+  integ_test:
+    macos:
+      xcode: "12.1.0"
+    parameters:
+      project:
+        default: "AWSiOSSDKv2.xcodeproj"
+        type: string
+      scheme:
+        type: string
+    description: Run integration tests for << parameters.scheme >>
+    steps:
+      - skip_job_unless_required
+      - checkout_with_cache
+      - skip_test_job_by_commit_message
       - set_environment_variables
+      - pre_start_simulator
+      - make_artifacts_directory
+
+      # Restore the cached derived data from previous jobs, which will include
+      # the target under test, as well as the host apps
+      - restore_cache:
+          key: v1-testing-derived-data-<< parameters.scheme >>-{{ .Revision }}
+
       - run:
           name: Generate testconfiguration.json
           command: bash Scripts/generate-test-config.sh -p ios -v
-      - pre_start_simulator
-      - run:
-          name: Build SDK
-          command: |
-            xcodebuild build-for-testing -project AWSiOSSDKv2.xcodeproj -scheme AWSAllTests -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSiOSSDKv2
-            xcodebuild build-for-testing -project AWSAuthSDK/AWSAuthSDK.xcodeproj -scheme AWSMobileClient -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./build_result/AWSAuthSDK
-      - save_cache:
-          key: build_result-{{ .Revision }}
-          paths:
-            - build_result
 
-  post_integrationtest:
-    macos:
-      xcode: "12.0.0"
-    steps:
-      #TODO need check why multiple key does not work here
-      - skip_job_unless_required
-      - override_test_job
-      - restore_cache:
-          key: test_result-{{ .Revision }}-AWSMobileClient
-      - restore_cache:
-          key: test_result-{{ .Revision }}-AutoScaling
-      - restore_cache:
-          key: test_result-{{ .Revision }}-CloudWatch
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Cognito
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Comprehend
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Core
-      - restore_cache:
-          key: test_result-{{ .Revision }}-DynamoDB
-      - restore_cache:
-          key: test_result-{{ .Revision }}-EC2
-      - restore_cache:
-          key: test_result-{{ .Revision }}-ElasticLoadBalancing
-      - restore_cache:
-          key: test_result-{{ .Revision }}-IoT
-      - restore_cache:
-          key: test_result-{{ .Revision }}-KMS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Kinesis
-      - restore_cache:
-          key: test_result-{{ .Revision }}-KinesisVideoSignaling
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Lambda
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Lex
-      - restore_cache:
-          key: test_result-{{ .Revision }}-MobileAnalytics
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Pinpoint
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Polly
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Rekognition
-      - restore_cache:
-          key: test_result-{{ .Revision }}-S3
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SES
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SNS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-SQS
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Textract
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Transcribe
-      - restore_cache:
-          key: test_result-{{ .Revision }}-TranscribeStreaming
-      - restore_cache:
-          key: test_result-{{ .Revision }}-Translate
-      - store_artifacts:
-          path: integration_test_result
-      - run:
-          name: set environment variables
-          command: |
-            parameters='{"name":"TESTED_COMMITID","value":"'${CIRCLE_SHA1}'"}'
-            curl -X POST \
-              -H "Content-type: application/json" \
-              -H "Accept: application/json" \
-              -d "$parameters" \
-              "https://circleci.com/api/v1.1/project/github/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}/envvar?circle-token=${CIRCLE_API_USER_TOKEN}"
+      # Rebuilding uses the cached derived data and new testconfiguration to
+      # quickly generate a new artifact to be tested
+      - build_for_testing:
+          project: << parameters.project >>
+          scheme: << parameters.scheme >>
 
-  integrationtest:
-    description: Run integration tests
-    parameters:
-      groupname:
-        default: stable_testList
-        type: string
-    macos:
-      xcode: "12.0.0"
-    steps:
-      - set_environment_variables
-      - override_test_job
-      - skip_job_unless_required
-      - early_return_for_forked_prs
-      - checkout
-      - skip_test_job
-      - pre_start_simulator
-      - restore_cache:
-          key: build_result-{{ .Revision }}
       - run:
-          name: Install JSON parser
-          command: pip3 install demjson
-      - run :
-          name: Run integration tests
+          name: Run integration tests for << parameters.scheme >>
           command: |
-            mkdir integration_test_result
-            python3 CircleciScripts/run_integrationtests.py CircleciScripts/IntegrationTestsConfiguration.json "integration_test_result" "<< parameters.groupname >>" "${destination}" "./build_result"
-      - run:
-          name : Check integration test result
-          command : |
-            echo "testresult=$testresult"
-            if [ "$testresult" == "0" ]
-            then
-                echo "test succeed!"
-            else
-                echo "There are test failures"
-                exit 1
-            fi
-      - store_artifacts:
-          path: integration_test_result
-      - save_cache:
-          key: test_result-{{ .Revision }}-{{ .Environment.CIRCLE_JOB }}
-          paths:
-            - integration_test_result
+            xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:"<< parameters.scheme >>Tests" | tee "artifacts/integ-test-<< parameters.scheme >>.log" | xcpretty --simple --color --report junit
+
+      - when:
+          condition:
+            equal: [ << parameters.scheme >>, "AWSMobileClient" ]
+          steps:
+            - run:
+                name: Additional AWSMobileClient test targets
+                command: |
+                  xcodebuild test-without-building -project << parameters.project >> -scheme << parameters.scheme >> -sdk iphonesimulator -destination "${destination}" -derivedDataPath ./testing_derived_data -only-testing:AWSMobileClientCustomAuthTests | tee "artifacts/integ-test-AWSMobileClientCustomAuthTests.log" | xcpretty --simple --color --report junit
+
+      - store_test_results:
+          path: build/reports
+      - upload_artifacts
 
   release_tag:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - update_brew
       - run:
           name: Install github-release
@@ -452,46 +399,37 @@ jobs:
             tagname="AWS SDK for iOS "${CIRCLE_TAG}
             echo "$tagdescription" | github-release release -s ${GITHUB_TOKEN} -u ${CIRCLE_PROJECT_USERNAME} -r ${CIRCLE_PROJECT_REPONAME} -t ${CIRCLE_TAG} --name "$tagname" -d -
 
-  build_carthage:
+  build_xcframeworks:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.3.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - pre_start_simulator
       - update_brew
       - run:
-          name: Upgrade Carthage
+          name: Build XCFrameworks
           command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
-      - run:
-          name: Build Carthage
-          command: |
-            # Build Carthage via this script to workaround lipo error due to multiple architectures in same file
-            bash ./CircleciScripts/carthage-build.sh --no-skip-current --platform iOS | tee buildout.txt
+            python3 ./CircleciScripts/create_xcframeworks.py
           no_output_timeout: 100m
       - save_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
           paths:
-            - Carthage
+            - xcframeworks
 
   release_carthage:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.3.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - pre_start_simulator
       - update_brew
       - run:
           name: Install github-release
           command: HOMEBREW_NO_AUTO_UPDATE=1 brew install github-release
-      - run:
-          name: Upgrade Carthage
-          command: |
-            HOMEBREW_NO_AUTO_UPDATE=1 brew upgrade carthage
       - restore_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
       - run:
           name: Create Carthage archive
           command: python3 ./CircleciScripts/create_carthage_archive.py
@@ -502,14 +440,14 @@ jobs:
 
   release_cocoapods:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - run:
           # Note that this invocation of cocoapods_release requires at least
           # CocoaPods 1.9.3, and cocoalpods-trunk 1.5.0, since it uses the
-          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 12.0.0 Xcode
+          # `--synchronous` flag. CocoaPods 1.9.3 comes with the 12.1.0 Xcode
           # image, but just to be safe, we'll manually update cocoapods-trunk
           name: Update cocoapods-trunk to support --synchronous flag
           command: gem update cocoapods-trunk
@@ -520,10 +458,10 @@ jobs:
 
   release_docs:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - run:
           name: Install jazzy
           command: |
@@ -550,10 +488,10 @@ jobs:
 
   add_doc_tag:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - run:
           name: Add documentation tags to gh-pages
           command: |
@@ -564,12 +502,12 @@ jobs:
 
   bump_ios_sampleapp_version:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
       - quit_for_nominorversion
-      - checkout
+      - checkout_with_cache
       - run:
           name: Checkout repository for bump version
           command: |
@@ -577,84 +515,28 @@ jobs:
             echo "export SAMPLE_APPS_REPO_ACCOUNT=$SAMPLE_APPS_REPO_ACCOUNT" >> $BASH_ENV
             git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
       - run:
-          name: Update version
-          command:
-            python3 CircleciScripts/bump_iossample_version.py "$(pwd)/aws-sdk-ios-samples" $release_version
-      - run:
           name: Build projects
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
-      - run:
-          name: Stage changes
-          command: |
-            cd aws-sdk-ios-samples
-            git config --local user.name "AWS"
-            gitstatus=$(git status)
-            echo $gitstatus
-            if [[ $gitstatus == *"Changes not staged for commit:"* ]]; then
-              git add .
-            else
-              echo "No changes for sample application bump version"
-              circleci step halt
-            fi
-      - run:
-          name: Check in changes
-          command: |
-            cd aws-sdk-ios-samples
-            git status
-            git config --local user.name "AWS"
-            git commit -m "Update sample app dependency to ${release_version}"
-            git push -q https://${GITHUB_BUMPVERSION_TOKEN}@github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git
-
-  bump_ios_amplifydocs_version:
-    macos:
-      xcode: "12.0.0"
-    steps:
-      - skip_job_unless_required
-      - set_environment_variables
-      - quit_for_nominorversion
-      - checkout
-      - run:
-          name: Set environment variables
-          command: |
-            bumpversion_repo_user=aws-amplify
-            bumpversion_repo_name=docs
-            minorversion=$(echo $release_version | sed "s/\([0-9]*.[0-9]*\).[0-9]*/\1/")
-            echo ${minorversion}
-            bump_version_message="Update iOS docs to ${release_version}"
-            bump_version_pr_title="Update iOS docs to ${release_version}"
-            echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
-            echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
-            echo "export minorversion=$minorversion" >> $BASH_ENV
-            echo "export bump_version_message='${bump_version_message}'" >> $BASH_ENV
-            echo "export bump_version_pr_title='${bump_version_pr_title}'" >> $BASH_ENV
-            echo "bump_version_pr_title:$bump_version_pr_title"
-      - bump_version_pre
-      - run:
-          name: Bump docs version
-          command:
-            python3 CircleciScripts/bump_iosdocs_version.py "$(pwd)/${bumpversion_repo_name}/ios" $release_version
-      - bump_version_post
-
   release_ios_s3:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     environment:
       TERM: xterm-256color
     steps:
       - skip_job_unless_required
-      - checkout
+      - checkout_with_cache
       - update_brew
       - set_environment_variables
       - configure_aws
       - restore_cache:
-          key: carthage_build_result-{{ .Revision }}
+          key: build_xcframeworks-result-{{ .Revision }}
       - run:
           name: Make directory structure
           command: |
             mkdir -p "$sdkNameWithVersion"
-            mv "Carthage/Build/iOS" "$sdkNameWithVersion/frameworks"
-            rm -rf "Carthage/Build"
+            mv "xcframeworks/output/XCF/" "$sdkNameWithVersion/frameworks"
+            rm -rf "xcframeworks/output/XCF/"
       - run:
           name: Copy SDK resource files
           command: |
@@ -682,11 +564,11 @@ jobs:
 
   bump_sdk_version:
     macos:
-      xcode: "12.0.0"
+      xcode: "12.1.0"
     steps:
       - skip_job_unless_required
       - set_environment_variables
-      - checkout
+      - checkout_with_cache
       - run:
           name: Install JSON parser
           command: sudo pip3 install demjson
@@ -720,7 +602,7 @@ jobs:
 
             bump_version_message="[bump version $release_version]"
             bump_version_pr_title="bump iOS sdk version to ${release_version}"
-            target_branch=develop
+            target_branch=main
             echo "export bumpversion_repo_user=$bumpversion_repo_user" >> $BASH_ENV
             echo "export bumpversion_repo_name=$bumpversion_repo_name" >> $BASH_ENV
             echo "export release_version=$release_version" >> $BASH_ENV
@@ -735,41 +617,6 @@ jobs:
             cp -R ${bumpversion_repo_name}/CircleciScripts/ CircleciScripts/
             python3 CircleciScripts/bump_sdk_version.py "$(pwd)/${bumpversion_repo_name}" $release_version
       - bump_version_post
-
-  merge_to_main:
-    docker:
-      - image: circleci/android:api-27-alpha
-    environment:
-      JVM_OPTS: -Xmx1024m
-    steps:
-      - skip_job_unless_required
-      - checkout
-      - set_environment_variables
-      - run:
-          name: Merge change to main
-          command: |
-            git config --local user.name AWS
-            git checkout main
-            git fetch origin
-            git reset origin/main
-            git checkout .
-            git clean -fd .
-            commitlog=$(git log main -20)
-            currentcommit="${CIRCLE_SHA1}"
-            echo "currentcommit=$currentcommit"
-            echo "$commitlog"
-            if [[ "$commitlog" =~ .*"commit $currentcommit".* ]]
-            then
-               echo "The change is already merged"
-            else
-              echo "Merging change from develop to main"
-              currentcommit="${CIRCLE_SHA1}"
-              lastcommitmessage=$(git log --format=%B -n 1 ${currentcommit})
-
-              git merge develop --no-edit --commit -m "[Merge develop to main by circleci] $lastcommitmessage"
-              echo "push change"
-              git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
-            fi
 
   prepare_release_sdk:
     docker:
@@ -797,10 +644,39 @@ jobs:
       - run:
           name: Create pull request
           command: |
-            target_branch="develop"
+            target_branch="main"
             title=${CIRCLE_BRANCH}
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
+
+all_integ_test_requires: &all_integ_test_requires
+  requires:
+    - build
+    - integ_test_AWSMobileClient
+    - integ_test_AWSAutoScaling
+    - integ_test_AWSCloudWatch
+    - integ_test_AWSComprehend
+    - integ_test_AWSCore
+    - integ_test_AWSDynamoDB
+    - integ_test_AWSEC2
+    - integ_test_AWSElasticLoadBalancing
+    - integ_test_AWSIoT
+    - integ_test_AWSKMS
+    - integ_test_AWSKinesis
+    - integ_test_AWSKinesisVideoSignaling
+    - integ_test_AWSLambda
+    - integ_test_AWSLex
+    - integ_test_AWSPinpoint
+    - integ_test_AWSPolly
+    - integ_test_AWSRekognition
+    - integ_test_AWSS3
+    - integ_test_AWSSES
+    - integ_test_AWSSNS
+    - integ_test_AWSSQS
+    - integ_test_AWSTextract
+    - integ_test_AWSTranscribe
+    - integ_test_AWSTranscribeStreaming
+    - integ_test_AWSTranslate
 
 workflows:
   version: 2
@@ -818,370 +694,642 @@ workflows:
           filters:
             branches:
               ignore: bump_sdk_version
-      - unittest:
-          requires:
-            - build
+      - build_test_host_apps:
           filters:
             branches:
               ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSAPIGateway
+          name: unit_test_AWSAPIGateway
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSAutoScaling
+          name: unit_test_AWSAutoScaling
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSCloudWatch
+          name: unit_test_AWSCloudWatch
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSCognitoAuth
+          name: unit_test_AWSCognitoAuth
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSCognitoIdentityProvider
+          name: unit_test_AWSCognitoIdentityProvider
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSComprehend
+          name: unit_test_AWSComprehend
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSConnect
+          name: unit_test_AWSConnect
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSConnectParticipant
+          name: unit_test_AWSConnectParticipant
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSCore
+          name: unit_test_AWSCore
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSDynamoDB
+          name: unit_test_AWSDynamoDB
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSEC2
+          name: unit_test_AWSEC2
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSElasticLoadBalancing
+          name: unit_test_AWSElasticLoadBalancing
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSIoT
+          name: unit_test_AWSIoT
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKMS
+          name: unit_test_AWSKMS
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesis
+          name: unit_test_AWSKinesis
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesisVideo
+          name: unit_test_AWSKinesisVideo
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesisVideoArchivedMedia
+          name: unit_test_AWSKinesisVideoArchivedMedia
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSKinesisVideoSignaling
+          name: unit_test_AWSKinesisVideoSignaling
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSLambda
+          name: unit_test_AWSLambda
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSLex
+          name: unit_test_AWSLex
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSLogs
+          name: unit_test_AWSLogs
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSMachineLearning
+          name: unit_test_AWSMachineLearning
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+          scheme: AWSMobileClient
+          name: unit_test_AWSMobileClient
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSPinpoint
+          name: unit_test_AWSPinpoint
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSPolly
+          name: unit_test_AWSPolly
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSRekognition
+          name: unit_test_AWSRekognition
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSS3
+          name: unit_test_AWSS3
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSSES
+          name: unit_test_AWSSES
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSSNS
+          name: unit_test_AWSSNS
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSSQS
+          name: unit_test_AWSSQS
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSSageMakerRuntime
+          name: unit_test_AWSSageMakerRuntime
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSSimpleDB
+          name: unit_test_AWSSimpleDB
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSTextract
+          name: unit_test_AWSTextract
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSTranscribe
+          name: unit_test_AWSTranscribe
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSTranscribeStreaming
+          name: unit_test_AWSTranscribeStreaming
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSTranslate
+          name: unit_test_AWSTranslate
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+      
+      - unit_test:
+          scheme: AWSLocation
+          name: unit_test_AWSLocation
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
       - create_pullrequest_for_modelupdate:
           filters:
             branches:
               only:
                 - /^models-update-.+$/
-      - pre_integrationtest:
+
+      - integ_test:
+          project: AWSAuthSDK/AWSAuthSDK.xcodeproj
+          scheme: AWSMobileClient
+          name: integ_test_AWSMobileClient
+          requires:
+            - unit_test_AWSMobileClient
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: AutoScaling
-          groupname: AutoScaling
+      - integ_test:
+          scheme: AWSAutoScaling
+          name: integ_test_AWSAutoScaling
           requires:
-            - pre_integrationtest
+            - unit_test_AWSAutoScaling
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: AWSMobileClient
-          groupname: AWSMobileClient
+      - integ_test:
+          scheme: AWSCloudWatch
+          name: integ_test_AWSCloudWatch
           requires:
-            - pre_integrationtest
+            - unit_test_AWSCloudWatch
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: CloudWatch
-          groupname: CloudWatch
+      - integ_test:
+          scheme: AWSComprehend
+          name: integ_test_AWSComprehend
           requires:
-            - pre_integrationtest
+            - unit_test_AWSComprehend
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Cognito
-          groupname: Cognito
+      - integ_test:
+          scheme: AWSCore
+          name: integ_test_AWSCore
           requires:
-            - pre_integrationtest
+            - unit_test_AWSCore
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Comprehend
-          groupname: Comprehend
+      - integ_test:
+          scheme: AWSDynamoDB
+          name: integ_test_AWSDynamoDB
           requires:
-            - pre_integrationtest
+            - unit_test_AWSDynamoDB
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Core
-          groupname: Core
+      - integ_test:
+          scheme: AWSEC2
+          name: integ_test_AWSEC2
           requires:
-            - pre_integrationtest
+            - unit_test_AWSEC2
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: DynamoDB
-          groupname: DynamoDB
+      - integ_test:
+          scheme: AWSElasticLoadBalancing
+          name: integ_test_AWSElasticLoadBalancing
           requires:
-            - pre_integrationtest
+            - unit_test_AWSElasticLoadBalancing
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: EC2
-          groupname: EC2
+      - integ_test:
+          scheme: AWSIoT
+          name: integ_test_AWSIoT
           requires:
-            - pre_integrationtest
+            - unit_test_AWSIoT
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: ElasticLoadBalancing
-          groupname: ElasticLoadBalancing
+      - integ_test:
+          scheme: AWSKMS
+          name: integ_test_AWSKMS
           requires:
-            - pre_integrationtest
+            - unit_test_AWSKMS
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: IoT
-          groupname: IoT
+      - integ_test:
+          scheme: AWSKinesis
+          name: integ_test_AWSKinesis
           requires:
-            - pre_integrationtest
+            - unit_test_AWSKinesis
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Kinesis
-          groupname: Kinesis
+      - integ_test:
+          scheme: AWSKinesisVideoSignaling
+          name: integ_test_AWSKinesisVideoSignaling
           requires:
-            - pre_integrationtest
+            - unit_test_AWSKinesisVideoSignaling
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: KinesisVideoSignaling
-          groupname: KinesisVideoSignaling
+      - integ_test:
+          scheme: AWSLambda
+          name: integ_test_AWSLambda
           requires:
-            - pre_integrationtest
+            - unit_test_AWSLambda
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: KMS
-          groupname: KMS
+      - integ_test:
+          scheme: AWSLex
+          name: integ_test_AWSLex
           requires:
-            - pre_integrationtest
+            - unit_test_AWSLex
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Lambda
-          groupname: Lambda
+      - integ_test:
+          scheme: AWSPinpoint
+          name: integ_test_AWSPinpoint
           requires:
-            - pre_integrationtest
+            - unit_test_AWSPinpoint
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Lex
-          groupname: Lex
+      - integ_test:
+          scheme: AWSPolly
+          name: integ_test_AWSPolly
           requires:
-            - pre_integrationtest
+            - unit_test_AWSPolly
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: MobileAnalytics
-          groupname: MobileAnalytics
+      - integ_test:
+          scheme: AWSRekognition
+          name: integ_test_AWSRekognition
           requires:
-            - pre_integrationtest
+            - unit_test_AWSRekognition
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Pinpoint
-          groupname: Pinpoint
+      - integ_test:
+          scheme: AWSS3
+          name: integ_test_AWSS3
           requires:
-            - pre_integrationtest
+            - unit_test_AWSS3
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Polly
-          groupname: Polly
+      - integ_test:
+          scheme: AWSSES
+          name: integ_test_AWSSES
           requires:
-            - pre_integrationtest
+            - unit_test_AWSSES
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Rekognition
-          groupname: Rekognition
+      - integ_test:
+          scheme: AWSSNS
+          name: integ_test_AWSSNS
           requires:
-            - pre_integrationtest
+            - unit_test_AWSSNS
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: S3
-          groupname: S3
+      - integ_test:
+          scheme: AWSSQS
+          name: integ_test_AWSSQS
           requires:
-            - pre_integrationtest
+            - unit_test_AWSSQS
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: SES
-          groupname: SES
+      - integ_test:
+          scheme: AWSTextract
+          name: integ_test_AWSTextract
           requires:
-            - pre_integrationtest
+            - unit_test_AWSTextract
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: SNS
-          groupname: SNS
+      - integ_test:
+          scheme: AWSTranscribe
+          name: integ_test_AWSTranscribe
           requires:
-            - pre_integrationtest
+            - unit_test_AWSTranscribe
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: SQS
-          groupname: SQS
+      - integ_test:
+          scheme: AWSTranscribeStreaming
+          name: integ_test_AWSTranscribeStreaming
           requires:
-            - pre_integrationtest
+            - unit_test_AWSTranscribeStreaming
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: Transcribe
-          groupname: Transcribe
+      - integ_test:
+          scheme: AWSTranslate
+          name: integ_test_AWSTranslate
           requires:
-            - pre_integrationtest
+            - unit_test_AWSTranslate
           filters:
             branches:
               only:
                 - main
-                - develop
 
-      - integrationtest:
-          name: TranscribeStreaming
-          groupname: TranscribeStreaming
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - main
-                - develop
 
-      - integrationtest:
-          name: Translate
-          groupname: Translate
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - main
-                - develop
-
-      - integrationtest:
-          name: Textract
-          groupname: Textract
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              only:
-                - main
-                - develop
-
-      - post_integrationtest:
-          requires:
-            - AWSMobileClient
-            - AutoScaling
-            - CloudWatch
-            - Cognito
-            - Comprehend
-            - Core
-            - DynamoDB
-            - EC2
-            - ElasticLoadBalancing
-            - IoT
-            - KMS
-            - Kinesis
-            - KinesisVideoSignaling
-            - Lambda
-            - Lex
-            - MobileAnalytics
-            - Pinpoint
-            - Polly
-            - Rekognition
-            - S3
-            - SES
-            - SNS
-            - SQS
-            - Textract
-            - Transcribe
-            - TranscribeStreaming
-            - Translate
-          filters:
-            branches:
-              only:
-                - main
-                - develop
-
-      - merge_to_main:
-          requires:
-            - build
-            - unittest
-            - post_integrationtest
-          filters:
-            branches:
-              only:
-                - develop
       - prepare_release_sdk:
-          requires:
-            - build
-            - unittest
-            - post_integrationtest
+          <<: *all_integ_test_requires
           filters:
             branches:
               only:
@@ -1195,7 +1343,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - unittest:
+      - build_xcframeworks:
           requires:
             - build
           filters:
@@ -1203,339 +1351,15 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - pre_integrationtest:
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: AWSMobileClient
-          groupname: AWSMobileClient
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: SQS
-          groupname: SQS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: MobileAnalytics
-          groupname: MobileAnalytics
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Rekognition
-          groupname: Rekognition
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: SES
-          groupname: SES
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: SNS
-          groupname: SNS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: CloudWatch
-          groupname: CloudWatch
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: AutoScaling
-          groupname: AutoScaling
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Translate
-          groupname: Translate
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Transcribe
-          groupname: Transcribe
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: TranscribeStreaming
-          groupname: TranscribeStreaming
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Polly
-          groupname: Polly
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Cognito
-          groupname: Cognito
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Comprehend
-          groupname: Comprehend
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Core
-          groupname: Core
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Kinesis
-          groupname: Kinesis
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: KinesisVideoSignaling
-          groupname: KinesisVideoSignaling
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: KMS
-          groupname: KMS
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: ElasticLoadBalancing
-          groupname: ElasticLoadBalancing
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: EC2
-          groupname: EC2
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Lambda
-          groupname: Lambda
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Lex
-          groupname: Lex
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: IoT
-          groupname: IoT
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Pinpoint
-          groupname: Pinpoint
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: S3
-          groupname: S3
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: DynamoDB
-          groupname: DynamoDB
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - integrationtest:
-          name: Textract
-          groupname: Textract
-          requires:
-            - pre_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - post_integrationtest:
-          requires:
-            - AWSMobileClient
-            - AutoScaling
-            - CloudWatch
-            - Cognito
-            - Comprehend
-            - Core
-            - DynamoDB
-            - EC2
-            - ElasticLoadBalancing
-            - IoT
-            - KMS
-            - Kinesis
-            - KinesisVideoSignaling
-            - Lambda
-            - Lex
-            - MobileAnalytics
-            - Pinpoint
-            - Polly
-            - Rekognition
-            - S3
-            - SES
-            - SNS
-            - SQS
-            - Textract
-            - Transcribe
-            - TranscribeStreaming
-            - Translate
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - build_carthage:
-          requires:
-            - unittest
-            - post_integrationtest
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_ios_s3:
           requires:
-            - build_carthage
-            - unittest
-            - post_integrationtest
+            - build_xcframeworks
           filters:
             branches:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_tag:
-          requires:
-            - unittest
-            - post_integrationtest
           filters:
             branches:
               ignore: /.*/
@@ -1558,19 +1382,9 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - bump_ios_amplifydocs_version:
-          requires:
-            - release_tag
-            - release_ios_s3
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
             - add_doc_tag
-            - bump_ios_amplifydocs_version
           filters:
             branches:
               ignore: /.*/
@@ -1578,9 +1392,8 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_carthage:
           requires:
-            - build_carthage
+            - build_xcframeworks
             - add_doc_tag
-            - bump_ios_amplifydocs_version
           filters:
             branches:
               ignore: /.*/
