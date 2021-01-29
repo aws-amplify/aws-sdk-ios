@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.22.1
+
 - Features for next release
 
 ### Misc. Updates
