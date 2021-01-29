@@ -2,6 +2,14 @@
 #
 # Check https://circleci.com/docs/2.0/ios-migrating-from-1-2/ for more details
 #
+
+################################################################################
+# NOTE: If you make changes to this file, evaluate whether they also need to be
+# made in the .circleci/config.yml files in the bump_sdk_version and gh-pages
+# branches. The gh-pages config is quite straightforward and probably won't
+# need the changes, but the bump_sdk_version branch has more build logic in it.
+################################################################################
+
 version: 2.1
 
 commands:
