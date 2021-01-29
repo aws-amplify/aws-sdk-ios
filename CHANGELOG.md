@@ -6,8 +6,6 @@
 
 ## 2.22.1
 
-- Features for next release
-
 ### Misc. Updates
 
 - **AWSMobileClient**
