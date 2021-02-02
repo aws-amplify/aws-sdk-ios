@@ -526,6 +526,7 @@ jobs:
           name: Build projects
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
+  
   release_ios_s3:
     macos:
       xcode: "12.1.0"
@@ -544,7 +545,7 @@ jobs:
           command: |
             mkdir -p "$sdkNameWithVersion"
             mv "xcframeworks/output/XCF/" "$sdkNameWithVersion/frameworks"
-            rm -rf "xcframeworks/output/XCF/"
+            rm -rf "xcframeworks/output/"
       - run:
           name: Copy SDK resource files
           command: |
@@ -696,6 +697,7 @@ workflows:
             branches:
               only:
                 - bump_sdk_version
+  
   build_and_test:
     jobs:
       - build:
