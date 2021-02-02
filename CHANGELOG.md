@@ -6,9 +6,9 @@
 
 ## 2.22.1
 
-Binary versions of the AWS Mobile SDK are now distributed as XCFrameworks. Please refer to the [setup instructions](https://github.com/aws-amplify/aws-sdk-ios#setup) for guidance on installing XCFrameworks from Carthage or standalone binaries.
-
 ### Misc. Updates
+
+Binary versions of the AWS Mobile SDK are now distributed as XCFrameworks. Please refer to the [setup instructions](https://github.com/aws-amplify/aws-sdk-ios#setup) for guidance on installing XCFrameworks from Carthage or standalone binaries.
 
 - **AWSMobileClient**
   - Created a new target named `AWSMobileClientXCF` to support building AWSMobileClient as an XCFramework. [PR #3334](https://github.com/aws-amplify/aws-sdk-ios/pull/3334)
