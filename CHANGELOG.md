@@ -6,6 +6,8 @@
 
 ## 2.22.1
 
+Added support for XCFramework, please refer the instruction for installation [here](https://github.com/aws-amplify/aws-sdk-ios#setup).
+
 ### Misc. Updates
 
 - **AWSMobileClient**
