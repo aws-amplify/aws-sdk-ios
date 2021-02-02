@@ -6,7 +6,7 @@
 
 ## 2.22.1
 
-Added support for XCFramework, please refer the instruction for installation [here](https://github.com/aws-amplify/aws-sdk-ios#setup).
+Binary versions of the AWS Mobile SDK are now distributed as XCFrameworks. Please refer to the [setup instructions](https://github.com/aws-amplify/aws-sdk-ios#setup) for guidance on installing XCFrameworks from Carthage or standalone binaries.
 
 ### Misc. Updates
 
