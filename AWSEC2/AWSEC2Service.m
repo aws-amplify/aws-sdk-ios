@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -26,7 +26,7 @@
 #import "AWSEC2Serializer.h"
 
 static NSString *const AWSInfoEC2 = @"EC2";
-NSString *const AWSEC2SDKVersion = @"2.22.0";
+NSString *const AWSEC2SDKVersion = @"2.22.1";
 
 
 @interface AWSEC2ResponseSerializer : AWSXMLResponseSerializer
@@ -3980,6 +3980,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeAddressesResult *response, NSError *error))completionHandler {
     [[self describeAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeAddressesResult *> * _Nonnull task) {
         AWSEC2DescribeAddressesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeAddressesAttributeResult *> *)describeAddressesAttribute:(AWSEC2DescribeAddressesAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeAddressesAttribute"
+                   outputClass:[AWSEC2DescribeAddressesAttributeResult class]];
+}
+
+- (void)describeAddressesAttribute:(AWSEC2DescribeAddressesAttributeRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeAddressesAttributeResult *response, NSError *error))completionHandler {
+    [[self describeAddressesAttribute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeAddressesAttributeResult *> * _Nonnull task) {
+        AWSEC2DescribeAddressesAttributeResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -8007,6 +8030,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2ModifyAddressAttributeResult *> *)modifyAddressAttribute:(AWSEC2ModifyAddressAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyAddressAttribute"
+                   outputClass:[AWSEC2ModifyAddressAttributeResult class]];
+}
+
+- (void)modifyAddressAttribute:(AWSEC2ModifyAddressAttributeRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyAddressAttributeResult *response, NSError *error))completionHandler {
+    [[self modifyAddressAttribute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyAddressAttributeResult *> * _Nonnull task) {
+        AWSEC2ModifyAddressAttributeResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2ModifyAvailabilityZoneGroupResult *> *)modifyAvailabilityZoneGroup:(AWSEC2ModifyAvailabilityZoneGroupRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -9593,6 +9639,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2RequestSpotInstancesResult *response, NSError *error))completionHandler {
     [[self requestSpotInstances:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2RequestSpotInstancesResult *> * _Nonnull task) {
         AWSEC2RequestSpotInstancesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ResetAddressAttributeResult *> *)resetAddressAttribute:(AWSEC2ResetAddressAttributeRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ResetAddressAttribute"
+                   outputClass:[AWSEC2ResetAddressAttributeResult class]];
+}
+
+- (void)resetAddressAttribute:(AWSEC2ResetAddressAttributeRequest *)request
+     completionHandler:(void (^)(AWSEC2ResetAddressAttributeResult *response, NSError *error))completionHandler {
+    [[self resetAddressAttribute:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ResetAddressAttributeResult *> * _Nonnull task) {
+        AWSEC2ResetAddressAttributeResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
