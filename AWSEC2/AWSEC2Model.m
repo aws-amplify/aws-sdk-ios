@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -2436,6 +2436,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"instancePlatform" : @"InstancePlatform",
              @"instanceType" : @"InstanceType",
              @"ownerId" : @"OwnerId",
+             @"startDate" : @"StartDate",
              @"state" : @"State",
              @"tags" : @"Tags",
              @"tenancy" : @"Tenancy",
@@ -2564,6 +2565,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
             default:
                 return nil;
         }
+    }];
+}
+
++ (NSValueTransformer *)startDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3846,6 +3855,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"clientToken" : @"ClientToken",
              @"detail" : @"Description",
+             @"destinationOutpostArn" : @"DestinationOutpostArn",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
              @"kmsKeyId" : @"KmsKeyId",
@@ -3880,6 +3890,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"destinationOutpostArn" : @"DestinationOutpostArn",
              @"destinationRegion" : @"DestinationRegion",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
@@ -7824,6 +7835,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"outpostArn" : @"OutpostArn",
              @"tagSpecifications" : @"TagSpecifications",
              @"volumeId" : @"VolumeId",
              };
@@ -7847,6 +7859,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"instanceSpecification" : @"InstanceSpecification",
+             @"outpostArn" : @"OutpostArn",
              @"tagSpecifications" : @"TagSpecifications",
              };
 }
@@ -21586,6 +21599,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"kmsKeyId" : @"KmsKeyId",
+             @"outpostArn" : @"OutpostArn",
              @"snapshotId" : @"SnapshotId",
              @"throughput" : @"Throughput",
              @"volumeSize" : @"VolumeSize",
@@ -46098,6 +46112,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accept" : @"Accept",
              @"capacityReservationId" : @"CapacityReservationId",
              @"dryRun" : @"DryRun",
              @"endDate" : @"EndDate",
@@ -67961,6 +67976,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"encrypted" : @"Encrypted",
              @"kmsKeyId" : @"KmsKeyId",
+             @"outpostArn" : @"OutpostArn",
              @"ownerAlias" : @"OwnerAlias",
              @"ownerId" : @"OwnerId",
              @"progress" : @"Progress",
@@ -68072,6 +68088,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"detail" : @"Description",
              @"encrypted" : @"Encrypted",
+             @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
              @"progress" : @"Progress",
              @"snapshotId" : @"SnapshotId",
