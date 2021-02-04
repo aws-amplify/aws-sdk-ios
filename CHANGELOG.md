@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- **AWSMobileClientXCF**
+  - Added convenience init method for SignInUIOptions to fix a run time error in AWSMobileClientXCF. [PR #3411](https://github.com/aws-amplify/aws-sdk-ios/pull/3411)
+
 ## 2.22.1
 
 ### Misc. Updates
