@@ -35,6 +35,15 @@ import Foundation
         self.primaryColor = primaryColor
         self.disableSignUpButton = disableSignUpButton
     }
+    
+    public override convenience init() {
+        self.init(canCancel: false,
+                  logoImage: nil,
+                  backgroundColor: nil,
+                  secondaryBackgroundColor: nil,
+                  primaryColor: .systemBlue,
+                  disableSignUpButton: false)
+    }
 }
 
 /// Signout options to change the default behavior.
