@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -7838,6 +7838,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSEC2 EC2ForKey:key] describeAddresses:[AWSEC2DescribeAddressesRequest new] completionHandler:^(AWSEC2DescribeAddressesResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testDescribeAddressesAttribute {
+    NSString *key = @"testDescribeAddressesAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSEC2 EC2ForKey:key] describeAddressesAttribute:[AWSEC2DescribeAddressesAttributeRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testDescribeAddressesAttributeCompletionHandler {
+    NSString *key = @"testDescribeAddressesAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSEC2 EC2ForKey:key] describeAddressesAttribute:[AWSEC2DescribeAddressesAttributeRequest new] completionHandler:^(AWSEC2DescribeAddressesAttributeResult* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -16243,6 +16291,54 @@ static id mockNetworking = nil;
     [AWSEC2 removeEC2ForKey:key];
 }
 
+- (void)testModifyAddressAttribute {
+    NSString *key = @"testModifyAddressAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSEC2 EC2ForKey:key] modifyAddressAttribute:[AWSEC2ModifyAddressAttributeRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testModifyAddressAttributeCompletionHandler {
+    NSString *key = @"testModifyAddressAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSEC2 EC2ForKey:key] modifyAddressAttribute:[AWSEC2ModifyAddressAttributeRequest new] completionHandler:^(AWSEC2ModifyAddressAttributeResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
 - (void)testModifyAvailabilityZoneGroup {
     NSString *key = @"testModifyAvailabilityZoneGroup";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -19576,6 +19672,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSEC2 EC2ForKey:key] requestSpotInstances:[AWSEC2RequestSpotInstancesRequest new] completionHandler:^(AWSEC2RequestSpotInstancesResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testResetAddressAttribute {
+    NSString *key = @"testResetAddressAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSEC2 EC2ForKey:key] resetAddressAttribute:[AWSEC2ResetAddressAttributeRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSEC2 removeEC2ForKey:key];
+}
+
+- (void)testResetAddressAttributeCompletionHandler {
+    NSString *key = @"testResetAddressAttribute";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSEC2 registerEC2WithConfiguration:configuration forKey:key];
+
+    AWSEC2 *awsClient = [AWSEC2 EC2ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSEC2 EC2ForKey:key] resetAddressAttribute:[AWSEC2ResetAddressAttributeRequest new] completionHandler:^(AWSEC2ResetAddressAttributeResult* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

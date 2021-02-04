@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -354,6 +354,27 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2AddressAttribute
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allocationId" : @"AllocationId",
+             @"ptrRecord" : @"PtrRecord",
+             @"ptrRecordUpdate" : @"PtrRecordUpdate",
+             @"publicIp" : @"PublicIp",
+             };
+}
+
++ (NSValueTransformer *)ptrRecordUpdateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2PtrUpdateStatus class]];
 }
 
 @end
@@ -2436,6 +2457,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"instancePlatform" : @"InstancePlatform",
              @"instanceType" : @"InstanceType",
              @"ownerId" : @"OwnerId",
+             @"startDate" : @"StartDate",
              @"state" : @"State",
              @"tags" : @"Tags",
              @"tenancy" : @"Tenancy",
@@ -2564,6 +2586,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
             default:
                 return nil;
         }
+    }];
+}
+
++ (NSValueTransformer *)startDateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
@@ -3846,6 +3876,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"clientToken" : @"ClientToken",
              @"detail" : @"Description",
+             @"destinationOutpostArn" : @"DestinationOutpostArn",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
              @"kmsKeyId" : @"KmsKeyId",
@@ -3880,6 +3911,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"detail" : @"Description",
+             @"destinationOutpostArn" : @"DestinationOutpostArn",
              @"destinationRegion" : @"DestinationRegion",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
@@ -7824,6 +7856,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"outpostArn" : @"OutpostArn",
              @"tagSpecifications" : @"TagSpecifications",
              @"volumeId" : @"VolumeId",
              };
@@ -7847,6 +7880,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"instanceSpecification" : @"InstanceSpecification",
+             @"outpostArn" : @"OutpostArn",
              @"tagSpecifications" : @"TagSpecifications",
              };
 }
@@ -11200,6 +11234,59 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)accountAttributesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AccountAttribute class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeAddressesAttributeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allocationIds" : @"AllocationIds",
+             @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)attributeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"domain-name"] == NSOrderedSame) {
+            return @(AWSEC2AddressAttributeNameDomainName);
+        }
+        return @(AWSEC2AddressAttributeNameUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2AddressAttributeNameDomainName:
+                return @"domain-name";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2DescribeAddressesAttributeResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"addresses" : @"Addresses",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)addressesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2AddressAttribute class]];
 }
 
 @end
@@ -21586,6 +21673,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"kmsKeyId" : @"KmsKeyId",
+             @"outpostArn" : @"OutpostArn",
              @"snapshotId" : @"SnapshotId",
              @"throughput" : @"Throughput",
              @"volumeSize" : @"VolumeSize",
@@ -46039,6 +46127,40 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ModifyAddressAttributeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allocationId" : @"AllocationId",
+             @"domainName" : @"DomainName",
+             @"dryRun" : @"DryRun",
+             };
+}
+
+@end
+
+@implementation AWSEC2ModifyAddressAttributeResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"address" : @"Address",
+             };
+}
+
++ (NSValueTransformer *)addressJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AddressAttribute class]];
+}
+
+@end
+
 @implementation AWSEC2ModifyAvailabilityZoneGroupRequest
 
 + (BOOL)supportsSecureCoding {
@@ -46098,6 +46220,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"accept" : @"Accept",
              @"capacityReservationId" : @"CapacityReservationId",
              @"dryRun" : @"DryRun",
              @"endDate" : @"EndDate",
@@ -50311,6 +50434,22 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     } reverseBlock:^id(NSDate *date) {
 return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
+}
+
+@end
+
+@implementation AWSEC2PtrUpdateStatus
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"reason" : @"Reason",
+             @"status" : @"Status",
+             @"value" : @"Value",
+             };
 }
 
 @end
@@ -62201,6 +62340,56 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ResetAddressAttributeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"allocationId" : @"AllocationId",
+             @"attribute" : @"Attribute",
+             @"dryRun" : @"DryRun",
+             };
+}
+
++ (NSValueTransformer *)attributeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"domain-name"] == NSOrderedSame) {
+            return @(AWSEC2AddressAttributeNameDomainName);
+        }
+        return @(AWSEC2AddressAttributeNameUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2AddressAttributeNameDomainName:
+                return @"domain-name";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2ResetAddressAttributeResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"address" : @"Address",
+             };
+}
+
++ (NSValueTransformer *)addressJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2AddressAttribute class]];
+}
+
+@end
+
 @implementation AWSEC2ResetEbsDefaultKmsKeyIdRequest
 
 + (BOOL)supportsSecureCoding {
@@ -67961,6 +68150,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"encrypted" : @"Encrypted",
              @"kmsKeyId" : @"KmsKeyId",
+             @"outpostArn" : @"OutpostArn",
              @"ownerAlias" : @"OwnerAlias",
              @"ownerId" : @"OwnerId",
              @"progress" : @"Progress",
@@ -68072,6 +68262,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"detail" : @"Description",
              @"encrypted" : @"Encrypted",
+             @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
              @"progress" : @"Progress",
              @"snapshotId" : @"SnapshotId",
