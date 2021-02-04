@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.22.2
+
+-Features for next release
+
 ### Misc. Updates
 
 - **AWSMobileClientXCF**
