@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -273,6 +273,7 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
              @"identityId" : @"IdentityId",
              @"identityPoolId" : @"IdentityPoolId",
              @"logins" : @"Logins",
+             @"principalTags" : @"PrincipalTags",
              @"tokenDuration" : @"TokenDuration",
              };
 }
@@ -319,6 +320,38 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
 	return @{
              @"identityId" : @"IdentityId",
              @"token" : @"Token",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetPrincipalTagAttributeMapInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"identityProviderName" : @"IdentityProviderName",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentityGetPrincipalTagAttributeMapResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"identityProviderName" : @"IdentityProviderName",
+             @"principalTags" : @"PrincipalTags",
+             @"useDefaults" : @"UseDefaults",
              };
 }
 
@@ -711,6 +744,40 @@ NSString *const AWSCognitoIdentityErrorDomain = @"com.amazonaws.AWSCognitoIdenti
     } reverseBlock:^id(id mapMTLDictionary) {
         return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
     }];
+}
+
+@end
+
+@implementation AWSCognitoIdentitySetPrincipalTagAttributeMapInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"identityProviderName" : @"IdentityProviderName",
+             @"principalTags" : @"PrincipalTags",
+             @"useDefaults" : @"UseDefaults",
+             };
+}
+
+@end
+
+@implementation AWSCognitoIdentitySetPrincipalTagAttributeMapResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"identityPoolId" : @"IdentityPoolId",
+             @"identityProviderName" : @"IdentityProviderName",
+             @"principalTags" : @"PrincipalTags",
+             @"useDefaults" : @"UseDefaults",
+             };
 }
 
 @end
