@@ -45,6 +45,15 @@ There are three ways to integrate the AWS Mobile SDK for iOS into your own proje
 
 You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.
 
+> Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), the module `AWSMobileClient` is named as `AWSMobileClientXCF` to work around a [Swift issue](https://bugs.swift.org/browse/SR-11704). To use `AWSMobileClient`, import it as:
+        
+        import AWSMobileClientXCF
+
+and use it your app code without the `XCF` suffix.
+
+        AWSMobileClient.default.initialize() 
+
+
 ### CocoaPods
 
 1. The AWS Mobile SDK for iOS is available through [CocoaPods](http://cocoapods.org). If you have not installed CocoaPods, install CocoaPods by running the command:
@@ -86,6 +95,27 @@ For a complete list of our pods, check out the .podspec files in the root direct
 
 ### Carthage
 
+
+#### XCFrameworks (recommended)
+
+Carthage supports XCFrameworks in Xcode 12 or above. Follow the steps below to consume the AWS SDK for iOS using XCFrameworks:
+
+1. Install Carthage 0.37.0 or greater. (Carthage does not expect to support [XCFramework support until 0.37.0](https://github.com/Carthage/Carthage/releases/tag/0.36.1).) If it is not yet available, [install Carthage](https://github.com/Carthage/Carthage#installing-carthage) directly from source.
+
+2. Add the following to your `Cartfile`:
+
+        github "aws-amplify/aws-sdk-ios"
+
+3. Then run the following command:
+    
+        $ carthage update --use-xcframeworks
+
+4. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the Carthage/Build folder on disk.
+
+#### Frameworks with "fat libraries" (not recommended)
+
+To build platform-specific framework bundles with multiple architectures in the binary, (Xcode 11 and below)
+
 1. Install the latest version of [Carthage](https://github.com/Carthage/Carthage#installing-carthage).
 
 2. Add the following to your `Cartfile`:
@@ -123,7 +153,20 @@ For a complete list of our pods, check out the .podspec files in the root direct
 
 ### Frameworks
 
-1. Download the [latest SDK](https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.10.2, the download link is [https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip](https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip).
+#### XCFramework setup
+
+Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. Follow the steps below to install XCFramework.
+
+1. Download the [latest SDK](https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.22.1, the download link is [https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip](https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip).
+> Note: If you are using version < 2.22.1 please refer to the "Legacy framework setup" section below.
+
+2. Uncompress the ZIP file
+3. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.
+
+#### Legacy framework setup
+
+1. Download the required SDK using `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.10.2, the download link is [https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip](https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip).
+> Note: If you are using version > 2.22.0 please refer to the "XCFramework setup" section above. 
 
 2. With your project open in Xcode, select your **Target**. Under **General** tab, find **Embedded Binaries** and then click the **+** button.
 
@@ -170,14 +213,7 @@ When we release a new version of the SDK, you can pick up the changes as describ
 
 ### Frameworks
 
-1. In Xcode's **Project Navigator**, type "AWS" to find the AWS frameworks that were manually added to your project.  Manually select all of the AWS frameworks and hit **delete** on your keyboard. Then select **Move to Trash**.  If you were following the example from above which uses AWSMobileClient and AWSPinpoint, you would remove:
-
-    * `AWSAuthCore.framework`
-    * `AWSCognitoIdentityProvider.framework`
-    * `AWSCognitoIdentityProviderASF.framework`
-    * `AWSCore.framework`
-    * `AWSMobileClient.framework`
-    * `AWSPinpoint.framework`
+1. In Xcode's **Project Navigator**, type "AWS" to find the AWS Frameworks or XCFrameworks that you manually added to your project. Select all of the AWS Frameworks and hit **Delete** on your keyboard. Then select **Move to Trash**. 
 
 2. Follow the installation process above to include the new version of the SDK.
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (void)addTags:(AWSElasticLoadBalancingAddTagsInput *)request completionHandler:(void (^ _Nullable)(AWSElasticLoadBalancingAddTagsOutput * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer. or Gateway Load Balancer.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your Gateway Load Balancers</a></p></li></ul><p>This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.</p>
+ <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your Gateway Load Balancers</a></p></li></ul><p>This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.</p>
  
  @param request A container for the necessary parameters to execute the CreateListener service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSElasticLoadBalancingSDKVersion;
 - (AWSTask<AWSElasticLoadBalancingCreateListenerOutput *> *)createListener:(AWSElasticLoadBalancingCreateListenerInput *)request;
 
 /**
- <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer. or Gateway Load Balancer.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your Gateway Load Balancers</a></p></li></ul><p>This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.</p>
+ <p>Creates a listener for the specified Application Load Balancer, Network Load Balancer, or Gateway Load Balancer.</p><p>For more information, see the following:</p><ul><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-listeners.html">Listeners for your Application Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/network/load-balancer-listeners.html">Listeners for your Network Load Balancers</a></p></li><li><p><a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/gateway/gateway-listeners.html">Listeners for your Gateway Load Balancers</a></p></li></ul><p>This operation is idempotent, which means that it completes at most one time. If you attempt to create multiple listeners with the same settings, each call succeeds.</p>
  
  @param request A container for the necessary parameters to execute the CreateListener service method.
  @param completionHandler The completion handler to call when the load request is complete.

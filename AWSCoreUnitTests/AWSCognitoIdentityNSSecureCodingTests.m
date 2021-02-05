@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -37,6 +37,8 @@
 - (void) test_AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityGetOpenIdTokenInput API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityGetOpenIdTokenResponse API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityGetPrincipalTagAttributeMapInput API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityGetPrincipalTagAttributeMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityIdentityDescription API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityIdentityPool API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityIdentityPoolShortDescription API_AVAILABLE(ios(11));
@@ -54,6 +56,8 @@
 - (void) test_AWSCognitoIdentityRoleMapping API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityRulesConfigurationType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentitySetIdentityPoolRolesInput API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentitySetPrincipalTagAttributeMapInput API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentitySetPrincipalTagAttributeMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityTagResourceInput API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityUnlinkDeveloperIdentityInput API_AVAILABLE(ios(11));
@@ -138,6 +142,14 @@
     [self validateSecureCodingForClass:[AWSCognitoIdentityGetOpenIdTokenResponse class]];
 }
 
+- (void) test_AWSCognitoIdentityGetPrincipalTagAttributeMapInput {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityGetPrincipalTagAttributeMapInput class]];
+}
+
+- (void) test_AWSCognitoIdentityGetPrincipalTagAttributeMapResponse {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityGetPrincipalTagAttributeMapResponse class]];
+}
+
 - (void) test_AWSCognitoIdentityIdentityDescription {
     [self validateSecureCodingForClass:[AWSCognitoIdentityIdentityDescription class]];
 }
@@ -204,6 +216,14 @@
 
 - (void) test_AWSCognitoIdentitySetIdentityPoolRolesInput {
     [self validateSecureCodingForClass:[AWSCognitoIdentitySetIdentityPoolRolesInput class]];
+}
+
+- (void) test_AWSCognitoIdentitySetPrincipalTagAttributeMapInput {
+    [self validateSecureCodingForClass:[AWSCognitoIdentitySetPrincipalTagAttributeMapInput class]];
+}
+
+- (void) test_AWSCognitoIdentitySetPrincipalTagAttributeMapResponse {
+    [self validateSecureCodingForClass:[AWSCognitoIdentitySetPrincipalTagAttributeMapResponse class]];
 }
 
 - (void) test_AWSCognitoIdentityTagResourceInput {

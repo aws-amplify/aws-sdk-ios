@@ -6,7 +6,7 @@
 
 set -x
 
-SDK_VERSION="2.22.0"
+SDK_VERSION="2.22.2"
 
 GITHUB_DOC_ROOT=https://aws-amplify.github.io
 GITHUB_SOURCE_ROOT=https://github.com/aws-amplify/aws-sdk-ios
@@ -79,6 +79,7 @@ OBJC_SDK_LIST=$(find $SOURCE_ROOT ${SOURCE_ROOT}/AWSAuthSDK/Sources -type d -max
   -not -name "*Test*" \
   -not -name "AWSAuthSDK" \
   -not -name "AWSMobileClient" \
+  -not -name "AWSMobileClientXCF" \
   | sort
 )
 
