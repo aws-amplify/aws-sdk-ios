@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,6 +24,7 @@
 - (void) test_AWSConnectAssociateInstanceStorageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLambdaFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLexBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateSecurityKeyResponse API_AVAILABLE(ios(11));
@@ -37,6 +38,8 @@
 - (void) test_AWSConnectCreateInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateIntegrationAssociationResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateQueueRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQuickConnectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateQuickConnectResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateRoutingProfileRequest API_AVAILABLE(ios(11));
@@ -59,12 +62,16 @@
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeHoursOfOperationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeHoursOfOperationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceAttributeResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeInstanceStorageConfigResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeQueueRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeQueueResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQuickConnectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeQuickConnectResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeRoutingProfileRequest API_AVAILABLE(ios(11));
@@ -80,6 +87,7 @@
 - (void) test_AWSConnectDisassociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLambdaFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLexBotRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisassociateQueueQuickConnectsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateSecurityKeyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectEncryptionConfig API_AVAILABLE(ios(11));
@@ -102,7 +110,10 @@
 - (void) test_AWSConnectHistoricalMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHistoricalMetricResult API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHoursOfOperation API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHoursOfOperationConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectHoursOfOperationSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectHoursOfOperationTimeSlice API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstance API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceStatusReason API_AVAILABLE(ios(11));
 - (void) test_AWSConnectInstanceStorageConfig API_AVAILABLE(ios(11));
@@ -134,6 +145,8 @@
 - (void) test_AWSConnectListPhoneNumbersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPromptsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListPromptsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListQueueQuickConnectsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListQueueQuickConnectsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListQueuesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListQueuesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListQuickConnectsRequest API_AVAILABLE(ios(11));
@@ -155,11 +168,13 @@
 - (void) test_AWSConnectListUsersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListUsersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectMediaConcurrency API_AVAILABLE(ios(11));
+- (void) test_AWSConnectOutboundCallerConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectParticipantDetails API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPhoneNumberSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectProblemDetail API_AVAILABLE(ios(11));
 - (void) test_AWSConnectPromptSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectQueue API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueQuickConnectConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueReference API_AVAILABLE(ios(11));
 - (void) test_AWSConnectQueueSummary API_AVAILABLE(ios(11));
@@ -200,6 +215,11 @@
 - (void) test_AWSConnectUpdateContactFlowNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateQueueHoursOfOperationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateQueueMaxContactsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateQueueNameRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateQueueOutboundCallerConfigRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateQueueStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQuickConnectConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQuickConnectNameRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateRoutingProfileConcurrencyRequest API_AVAILABLE(ios(11));
@@ -243,6 +263,10 @@
 
 - (void) test_AWSConnectAssociateLexBotRequest {
     [self validateSecureCodingForClass:[AWSConnectAssociateLexBotRequest class]];
+}
+
+- (void) test_AWSConnectAssociateQueueQuickConnectsRequest {
+    [self validateSecureCodingForClass:[AWSConnectAssociateQueueQuickConnectsRequest class]];
 }
 
 - (void) test_AWSConnectAssociateRoutingProfileQueuesRequest {
@@ -295,6 +319,14 @@
 
 - (void) test_AWSConnectCreateIntegrationAssociationResponse {
     [self validateSecureCodingForClass:[AWSConnectCreateIntegrationAssociationResponse class]];
+}
+
+- (void) test_AWSConnectCreateQueueRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateQueueRequest class]];
+}
+
+- (void) test_AWSConnectCreateQueueResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateQueueResponse class]];
 }
 
 - (void) test_AWSConnectCreateQuickConnectRequest {
@@ -385,6 +417,14 @@
     [self validateSecureCodingForClass:[AWSConnectDescribeContactFlowResponse class]];
 }
 
+- (void) test_AWSConnectDescribeHoursOfOperationRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeHoursOfOperationRequest class]];
+}
+
+- (void) test_AWSConnectDescribeHoursOfOperationResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeHoursOfOperationResponse class]];
+}
+
 - (void) test_AWSConnectDescribeInstanceAttributeRequest {
     [self validateSecureCodingForClass:[AWSConnectDescribeInstanceAttributeRequest class]];
 }
@@ -407,6 +447,14 @@
 
 - (void) test_AWSConnectDescribeInstanceStorageConfigResponse {
     [self validateSecureCodingForClass:[AWSConnectDescribeInstanceStorageConfigResponse class]];
+}
+
+- (void) test_AWSConnectDescribeQueueRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeQueueRequest class]];
+}
+
+- (void) test_AWSConnectDescribeQueueResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeQueueResponse class]];
 }
 
 - (void) test_AWSConnectDescribeQuickConnectRequest {
@@ -467,6 +515,10 @@
 
 - (void) test_AWSConnectDisassociateLexBotRequest {
     [self validateSecureCodingForClass:[AWSConnectDisassociateLexBotRequest class]];
+}
+
+- (void) test_AWSConnectDisassociateQueueQuickConnectsRequest {
+    [self validateSecureCodingForClass:[AWSConnectDisassociateQueueQuickConnectsRequest class]];
 }
 
 - (void) test_AWSConnectDisassociateRoutingProfileQueuesRequest {
@@ -557,8 +609,20 @@
     [self validateSecureCodingForClass:[AWSConnectHistoricalMetricResult class]];
 }
 
+- (void) test_AWSConnectHoursOfOperation {
+    [self validateSecureCodingForClass:[AWSConnectHoursOfOperation class]];
+}
+
+- (void) test_AWSConnectHoursOfOperationConfig {
+    [self validateSecureCodingForClass:[AWSConnectHoursOfOperationConfig class]];
+}
+
 - (void) test_AWSConnectHoursOfOperationSummary {
     [self validateSecureCodingForClass:[AWSConnectHoursOfOperationSummary class]];
+}
+
+- (void) test_AWSConnectHoursOfOperationTimeSlice {
+    [self validateSecureCodingForClass:[AWSConnectHoursOfOperationTimeSlice class]];
 }
 
 - (void) test_AWSConnectInstance {
@@ -685,6 +749,14 @@
     [self validateSecureCodingForClass:[AWSConnectListPromptsResponse class]];
 }
 
+- (void) test_AWSConnectListQueueQuickConnectsRequest {
+    [self validateSecureCodingForClass:[AWSConnectListQueueQuickConnectsRequest class]];
+}
+
+- (void) test_AWSConnectListQueueQuickConnectsResponse {
+    [self validateSecureCodingForClass:[AWSConnectListQueueQuickConnectsResponse class]];
+}
+
 - (void) test_AWSConnectListQueuesRequest {
     [self validateSecureCodingForClass:[AWSConnectListQueuesRequest class]];
 }
@@ -769,6 +841,10 @@
     [self validateSecureCodingForClass:[AWSConnectMediaConcurrency class]];
 }
 
+- (void) test_AWSConnectOutboundCallerConfig {
+    [self validateSecureCodingForClass:[AWSConnectOutboundCallerConfig class]];
+}
+
 - (void) test_AWSConnectParticipantDetails {
     [self validateSecureCodingForClass:[AWSConnectParticipantDetails class]];
 }
@@ -787,6 +863,10 @@
 
 - (void) test_AWSConnectPromptSummary {
     [self validateSecureCodingForClass:[AWSConnectPromptSummary class]];
+}
+
+- (void) test_AWSConnectQueue {
+    [self validateSecureCodingForClass:[AWSConnectQueue class]];
 }
 
 - (void) test_AWSConnectQueueQuickConnectConfig {
@@ -947,6 +1027,26 @@
 
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateInstanceStorageConfigRequest class]];
+}
+
+- (void) test_AWSConnectUpdateQueueHoursOfOperationRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateQueueHoursOfOperationRequest class]];
+}
+
+- (void) test_AWSConnectUpdateQueueMaxContactsRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateQueueMaxContactsRequest class]];
+}
+
+- (void) test_AWSConnectUpdateQueueNameRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateQueueNameRequest class]];
+}
+
+- (void) test_AWSConnectUpdateQueueOutboundCallerConfigRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateQueueOutboundCallerConfigRequest class]];
+}
+
+- (void) test_AWSConnectUpdateQueueStatusRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateQueueStatusRequest class]];
 }
 
 - (void) test_AWSConnectUpdateQuickConnectConfigRequest {

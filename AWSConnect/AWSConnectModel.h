@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -128,6 +128,17 @@ typedef NS_ENUM(NSInteger, AWSConnectHistoricalMetricName) {
     AWSConnectHistoricalMetricNameInteractionTime,
     AWSConnectHistoricalMetricNameInteractionAndHoldTime,
     AWSConnectHistoricalMetricNameServiceLevel,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectHoursOfOperationDays) {
+    AWSConnectHoursOfOperationDaysUnknown,
+    AWSConnectHoursOfOperationDaysSunday,
+    AWSConnectHoursOfOperationDaysMonday,
+    AWSConnectHoursOfOperationDaysTuesday,
+    AWSConnectHoursOfOperationDaysWednesday,
+    AWSConnectHoursOfOperationDaysThursday,
+    AWSConnectHoursOfOperationDaysFriday,
+    AWSConnectHoursOfOperationDaysSaturday,
 };
 
 typedef NS_ENUM(NSInteger, AWSConnectInstanceAttributeType) {
@@ -416,6 +427,12 @@ typedef NS_ENUM(NSInteger, AWSConnectPhoneType) {
     AWSConnectPhoneTypeDeskPhone,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectQueueStatus) {
+    AWSConnectQueueStatusUnknown,
+    AWSConnectQueueStatusEnabled,
+    AWSConnectQueueStatusDisabled,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectQueueType) {
     AWSConnectQueueTypeUnknown,
     AWSConnectQueueTypeStandard,
@@ -490,6 +507,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectAssociateInstanceStorageConfigResponse;
 @class AWSConnectAssociateLambdaFunctionRequest;
 @class AWSConnectAssociateLexBotRequest;
+@class AWSConnectAssociateQueueQuickConnectsRequest;
 @class AWSConnectAssociateRoutingProfileQueuesRequest;
 @class AWSConnectAssociateSecurityKeyRequest;
 @class AWSConnectAssociateSecurityKeyResponse;
@@ -503,6 +521,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCreateInstanceResponse;
 @class AWSConnectCreateIntegrationAssociationRequest;
 @class AWSConnectCreateIntegrationAssociationResponse;
+@class AWSConnectCreateQueueRequest;
+@class AWSConnectCreateQueueResponse;
 @class AWSConnectCreateQuickConnectRequest;
 @class AWSConnectCreateQuickConnectResponse;
 @class AWSConnectCreateRoutingProfileRequest;
@@ -525,12 +545,16 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDeleteUserRequest;
 @class AWSConnectDescribeContactFlowRequest;
 @class AWSConnectDescribeContactFlowResponse;
+@class AWSConnectDescribeHoursOfOperationRequest;
+@class AWSConnectDescribeHoursOfOperationResponse;
 @class AWSConnectDescribeInstanceAttributeRequest;
 @class AWSConnectDescribeInstanceAttributeResponse;
 @class AWSConnectDescribeInstanceRequest;
 @class AWSConnectDescribeInstanceResponse;
 @class AWSConnectDescribeInstanceStorageConfigRequest;
 @class AWSConnectDescribeInstanceStorageConfigResponse;
+@class AWSConnectDescribeQueueRequest;
+@class AWSConnectDescribeQueueResponse;
 @class AWSConnectDescribeQuickConnectRequest;
 @class AWSConnectDescribeQuickConnectResponse;
 @class AWSConnectDescribeRoutingProfileRequest;
@@ -546,6 +570,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectDisassociateInstanceStorageConfigRequest;
 @class AWSConnectDisassociateLambdaFunctionRequest;
 @class AWSConnectDisassociateLexBotRequest;
+@class AWSConnectDisassociateQueueQuickConnectsRequest;
 @class AWSConnectDisassociateRoutingProfileQueuesRequest;
 @class AWSConnectDisassociateSecurityKeyRequest;
 @class AWSConnectEncryptionConfig;
@@ -568,7 +593,10 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectHistoricalMetric;
 @class AWSConnectHistoricalMetricData;
 @class AWSConnectHistoricalMetricResult;
+@class AWSConnectHoursOfOperation;
+@class AWSConnectHoursOfOperationConfig;
 @class AWSConnectHoursOfOperationSummary;
+@class AWSConnectHoursOfOperationTimeSlice;
 @class AWSConnectInstance;
 @class AWSConnectInstanceStatusReason;
 @class AWSConnectInstanceStorageConfig;
@@ -600,6 +628,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListPhoneNumbersResponse;
 @class AWSConnectListPromptsRequest;
 @class AWSConnectListPromptsResponse;
+@class AWSConnectListQueueQuickConnectsRequest;
+@class AWSConnectListQueueQuickConnectsResponse;
 @class AWSConnectListQueuesRequest;
 @class AWSConnectListQueuesResponse;
 @class AWSConnectListQuickConnectsRequest;
@@ -621,11 +651,13 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectListUsersRequest;
 @class AWSConnectListUsersResponse;
 @class AWSConnectMediaConcurrency;
+@class AWSConnectOutboundCallerConfig;
 @class AWSConnectParticipantDetails;
 @class AWSConnectPhoneNumberQuickConnectConfig;
 @class AWSConnectPhoneNumberSummary;
 @class AWSConnectProblemDetail;
 @class AWSConnectPromptSummary;
+@class AWSConnectQueue;
 @class AWSConnectQueueQuickConnectConfig;
 @class AWSConnectQueueReference;
 @class AWSConnectQueueSummary;
@@ -666,6 +698,11 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUpdateContactFlowNameRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
+@class AWSConnectUpdateQueueHoursOfOperationRequest;
+@class AWSConnectUpdateQueueMaxContactsRequest;
+@class AWSConnectUpdateQueueNameRequest;
+@class AWSConnectUpdateQueueOutboundCallerConfigRequest;
+@class AWSConnectUpdateQueueStatusRequest;
 @class AWSConnectUpdateQuickConnectConfigRequest;
 @class AWSConnectUpdateQuickConnectNameRequest;
 @class AWSConnectUpdateRoutingProfileConcurrencyRequest;
@@ -780,6 +817,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectAssociateQueueQuickConnectsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>The quick connects to associate with this queue.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectAssociateRoutingProfileQueuesRequest : AWSRequest
 
 
@@ -862,7 +922,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable content;
 
 /**
- <p>The type of the content. Supported types are text/plain.</p>
+ <p>The type of the content. Supported types are text and plain.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contentType;
 
@@ -1017,7 +1077,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectDirectoryType identityManagementType;
 
 /**
- <p>Whether your contact center handles incoming contacts.</p>
+ <p>Your contact center handles incoming contacts.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable inboundCallsEnabled;
 
@@ -1027,7 +1087,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceAlias;
 
 /**
- <p>Whether your contact center allows outbound calls.</p>
+ <p>Your contact center allows outbound calls.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable outboundCallsEnabled;
 
@@ -1110,6 +1170,72 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateQueueRequest : AWSRequest
+
+
+/**
+ <p>The description of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxContacts;
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+ */
+@property (nonatomic, strong) AWSConnectOutboundCallerConfig * _Nullable outboundCallerConfig;
+
+/**
+ <p>The quick connects available to agents who are working the queue.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateQueueResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueArn;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateQuickConnectRequest : AWSRequest
 
 
@@ -1180,7 +1306,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The channels agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
+ <p>The channels that agents can handle in the Contact Control Panel (CCP) for this routing profile.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectMediaConcurrency *> * _Nullable mediaConcurrencies;
 
@@ -1190,7 +1316,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable name;
 
 /**
- <p>The inbound queues associated with the routing profile. If no queue is added, the agent can only make outbound calls.</p>
+ <p>The inbound queues associated with the routing profile. If no queue is added, the agent can make only outbound calls.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectRoutingProfileQueueConfig *> * _Nullable queueConfigs;
 
@@ -1601,6 +1727,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDescribeHoursOfOperationRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeHoursOfOperationResponse : AWSModel
+
+
+/**
+ <p>The hours of operation.</p>
+ */
+@property (nonatomic, strong) AWSConnectHoursOfOperation * _Nullable hoursOfOperation;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDescribeInstanceAttributeRequest : AWSRequest
 
 
@@ -1688,6 +1845,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>A valid storage type.</p>
  */
 @property (nonatomic, strong) AWSConnectInstanceStorageConfig * _Nullable storageConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeQueueRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeQueueResponse : AWSModel
+
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) AWSConnectQueue * _Nullable queue;
 
 @end
 
@@ -1944,6 +2132,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDisassociateQueueQuickConnectsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>The quick connects to disassociate from the queue.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable quickConnectIds;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDisassociateRoutingProfileQueuesRequest : AWSRequest
 
 
@@ -2077,7 +2288,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2169,7 +2380,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2460,6 +2671,72 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Information about of the hours of operation.</p>
+ */
+@interface AWSConnectHoursOfOperation : AWSModel
+
+
+/**
+ <p>Configuration information for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationConfig *> * _Nullable config;
+
+/**
+ <p>The description for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationArn;
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The name for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The time zone for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
+
+@end
+
+/**
+ <p>Contains information about the hours of operation.</p>
+ */
+@interface AWSConnectHoursOfOperationConfig : AWSModel
+
+
+/**
+ <p>The day that the hours of operation applies to.</p>
+ */
+@property (nonatomic, assign) AWSConnectHoursOfOperationDays day;
+
+/**
+ <p>The end time that your contact center is closes.</p>
+ */
+@property (nonatomic, strong) AWSConnectHoursOfOperationTimeSlice * _Nullable endTime;
+
+/**
+ <p>The start time that your contact center is open.</p>
+ */
+@property (nonatomic, strong) AWSConnectHoursOfOperationTimeSlice * _Nullable startTime;
+
+@end
+
+/**
  <p>Contains summary information about hours of operation for a contact center.</p>
  */
 @interface AWSConnectHoursOfOperationSummary : AWSModel
@@ -2479,6 +2756,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the hours of operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ <p>The start time or end time for an hours of operation.</p>
+ */
+@interface AWSConnectHoursOfOperationTimeSlice : AWSModel
+
+
+/**
+ <p>The hours.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable hours;
+
+/**
+ <p>The minutes.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minutes;
 
 @end
 
@@ -2581,7 +2876,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) AWSConnectKinesisVideoStreamConfig * _Nullable kinesisVideoStreamConfig;
 
 /**
- <p>The S3 configuration.</p>
+ <p>The S3 bucket configuration.</p>
  */
 @property (nonatomic, strong) AWSConnectS3Config * _Nullable s3Config;
 
@@ -2694,7 +2989,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Configuration information of a Kinesis Firehose delivery stream.</p>
+ <p>Configuration information of a Kinesis Data Firehose delivery stream.</p>
  Required parameters: [FirehoseArn]
  */
 @interface AWSConnectKinesisFirehoseConfig : AWSModel
@@ -2752,7 +3047,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Region the Amazon Lex bot was created in.</p>
+ <p>The Region that the Amazon Lex bot was created in.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lexRegion;
 
@@ -2775,7 +3070,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2821,7 +3116,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2862,7 +3157,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2903,7 +3198,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2944,7 +3239,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -2985,7 +3280,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3026,7 +3321,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3067,7 +3362,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3108,7 +3403,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3126,7 +3421,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The the names and regions of the Amazon Lex bots associated with the specified instance.</p>
+ <p>The names and Regions of the Amazon Lex bots associated with the specified instance.</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectLexBot *> * _Nullable lexBots;
 
@@ -3149,7 +3444,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3232,6 +3527,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectListQueueQuickConnectsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListQueueQuickConnectsResponse : AWSModel
+
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>Information about the quick connects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectQuickConnectSummary *> * _Nullable quickConnectSummaryList;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectListQueuesRequest : AWSRequest
 
 
@@ -3241,7 +3582,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3287,7 +3628,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3333,7 +3674,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3379,7 +3720,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3420,7 +3761,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3461,7 +3802,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3534,7 +3875,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable integrationAssociationId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3575,7 +3916,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3616,7 +3957,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The maximimum number of results to return per page.</p>
+ <p>The maximum number of results to return per page.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
@@ -3661,6 +4002,29 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The number of contacts an agent can have on a channel simultaneously.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable concurrency;
+
+@end
+
+/**
+ <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+ */
+@interface AWSConnectOutboundCallerConfig : AWSModel
+
+
+/**
+ <p>The caller ID name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outboundCallerIdName;
+
+/**
+ <p>The caller ID number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outboundCallerIdNumberId;
+
+/**
+ <p>The outbound whisper flow to be used during an outbound call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outboundFlowId;
 
 @end
 
@@ -3762,6 +4126,59 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
+ <p>Contains information about a queue.</p>
+ */
+@interface AWSConnectQueue : AWSModel
+
+
+/**
+ <p>The description of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxContacts;
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+ */
+@property (nonatomic, strong) AWSConnectOutboundCallerConfig * _Nullable outboundCallerConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueArn;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>The status of the queue.</p>
+ */
+@property (nonatomic, assign) AWSConnectQueueStatus status;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  <p>Contains information about a queue for a quick connect. The contact flow must be of type Transfer to Queue.</p>
  Required parameters: [QueueId, ContactFlowId]
  */
@@ -3774,7 +4191,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
 
 /**
- <p>The identifier of the queue.</p>
+ <p>The identifier for the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueId;
 
@@ -3900,7 +4317,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>The Amazon Resource Name (ARN).</p>
+ <p>The Amazon Resource Name (ARN) of the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable arn;
 
@@ -3910,7 +4327,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable identifier;
 
 /**
- <p>The name.</p>
+ <p>The name of the quick connect.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
 
@@ -3934,7 +4351,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectReferenceType types;
 
 /**
- <p>A formatted URL that will be shown to an agent in the Contact Control Panel (CCP)</p>
+ <p>A formatted URL that displays to an agent in the Contact Control Panel (CCP)</p>
  */
 @property (nonatomic, strong) NSString * _Nullable value;
 
@@ -4071,7 +4488,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable queueArn;
 
 /**
- <p>The identifier of the queue.</p>
+ <p>The identifier for the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueId;
 
@@ -4095,7 +4512,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectChannel channel;
 
 /**
- <p>The identifier of the queue.</p>
+ <p>The identifier for the queue.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable queueId;
 
@@ -4125,7 +4542,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @end
 
 /**
- <p>Information about the S3 storage type.</p>
+ <p>Information about the Amazon Simple Storage Service (Amazon S3) storage type.</p>
  Required parameters: [BucketName, BucketPrefix]
  */
 @interface AWSConnectS3Config : AWSModel
@@ -4142,7 +4559,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable bucketPrefix;
 
 /**
- <p>The S3 encryption configuration.</p>
+ <p>The Amazon S3 encryption configuration.</p>
  */
 @property (nonatomic, strong) AWSConnectEncryptionConfig * _Nullable encryptionConfig;
 
@@ -4201,7 +4618,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 
 /**
- <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes, and can be accessed in contact flows just like any other contact attributes. </p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
+ <p>A custom key-value pair using an attribute map. The attributes are standard Amazon Connect attributes. They can be accessed in contact flows just like any other contact attributes. </p><p>There can be up to 32,768 UTF-8 bytes across all key-value pairs per contact. Attribute keys can include only alphanumeric, dash, and underscore characters.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -4277,7 +4694,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>Who is being recorded.</p>
+ <p>The person being recorded.</p>
  */
 @property (nonatomic, strong) AWSConnectVoiceRecordingConfiguration * _Nullable voiceRecordingConfiguration;
 
@@ -4686,6 +5103,126 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateQueueHoursOfOperationRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateQueueMaxContactsRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of contacts that can be in the queue before it is considered full.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxContacts;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateQueueNameRequest : AWSRequest
+
+
+/**
+ <p>The description of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateQueueOutboundCallerConfigRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The outbound caller ID name, number, and outbound whisper flow.</p>
+ */
+@property (nonatomic, strong) AWSConnectOutboundCallerConfig * _Nullable outboundCallerConfig;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateQueueStatusRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the Amazon Connect instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The identifier for the queue.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable queueId;
+
+/**
+ <p>The status of the queue.</p>
+ */
+@property (nonatomic, assign) AWSConnectQueueStatus status;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateQuickConnectConfigRequest : AWSRequest
 
 
@@ -4746,7 +5283,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The channels agents can handle in the Contact Control Panel (CCP).</p>
+ <p>The channels that agents can handle in the Contact Control Panel (CCP).</p>
  */
 @property (nonatomic, strong) NSArray<AWSConnectMediaConcurrency *> * _Nullable mediaConcurrencies;
 

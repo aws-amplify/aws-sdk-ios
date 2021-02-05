@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -380,6 +380,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)associateQueueQuickConnects:(AWSConnectAssociateQueueQuickConnectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/associate-quick-connects"
+                  targetPrefix:@""
+                 operationName:@"AssociateQueueQuickConnects"
+                   outputClass:nil];
+}
+
+- (void)associateQueueQuickConnects:(AWSConnectAssociateQueueQuickConnectsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateQueueQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)associateRoutingProfileQueues:(AWSConnectAssociateRoutingProfileQueuesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -484,6 +506,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectCreateIntegrationAssociationResponse *response, NSError *error))completionHandler {
     [[self createIntegrationAssociation:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateIntegrationAssociationResponse *> * _Nonnull task) {
         AWSConnectCreateIntegrationAssociationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectCreateQueueResponse *> *)createQueue:(AWSConnectCreateQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/queues/{InstanceId}"
+                  targetPrefix:@""
+                 operationName:@"CreateQueue"
+                   outputClass:[AWSConnectCreateQueueResponse class]];
+}
+
+- (void)createQueue:(AWSConnectCreateQueueRequest *)request
+     completionHandler:(void (^)(AWSConnectCreateQueueResponse *response, NSError *error))completionHandler {
+    [[self createQueue:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectCreateQueueResponse *> * _Nonnull task) {
+        AWSConnectCreateQueueResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -764,6 +809,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSConnectDescribeHoursOfOperationResponse *> *)describeHoursOfOperation:(AWSConnectDescribeHoursOfOperationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/hours-of-operations/{InstanceId}/{HoursOfOperationId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeHoursOfOperation"
+                   outputClass:[AWSConnectDescribeHoursOfOperationResponse class]];
+}
+
+- (void)describeHoursOfOperation:(AWSConnectDescribeHoursOfOperationRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeHoursOfOperationResponse *response, NSError *error))completionHandler {
+    [[self describeHoursOfOperation:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeHoursOfOperationResponse *> * _Nonnull task) {
+        AWSConnectDescribeHoursOfOperationResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectDescribeInstanceResponse *> *)describeInstance:(AWSConnectDescribeInstanceRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodGET
@@ -823,6 +891,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectDescribeInstanceStorageConfigResponse *response, NSError *error))completionHandler {
     [[self describeInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeInstanceStorageConfigResponse *> * _Nonnull task) {
         AWSConnectDescribeInstanceStorageConfigResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectDescribeQueueResponse *> *)describeQueue:(AWSConnectDescribeQueueRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/queues/{InstanceId}/{QueueId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeQueue"
+                   outputClass:[AWSConnectDescribeQueueResponse class]];
+}
+
+- (void)describeQueue:(AWSConnectDescribeQueueRequest *)request
+     completionHandler:(void (^)(AWSConnectDescribeQueueResponse *response, NSError *error))completionHandler {
+    [[self describeQueue:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectDescribeQueueResponse *> * _Nonnull task) {
+        AWSConnectDescribeQueueResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1026,6 +1117,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)disassociateLexBot:(AWSConnectDisassociateLexBotRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self disassociateLexBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)disassociateQueueQuickConnects:(AWSConnectDisassociateQueueQuickConnectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/disassociate-quick-connects"
+                  targetPrefix:@""
+                 operationName:@"DisassociateQueueQuickConnects"
+                   outputClass:nil];
+}
+
+- (void)disassociateQueueQuickConnects:(AWSConnectDisassociateQueueQuickConnectsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateQueueQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1415,6 +1528,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListPromptsResponse *response, NSError *error))completionHandler {
     [[self listPrompts:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListPromptsResponse *> * _Nonnull task) {
         AWSConnectListPromptsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListQueueQuickConnectsResponse *> *)listQueueQuickConnects:(AWSConnectListQueueQuickConnectsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/queues/{InstanceId}/{QueueId}/quick-connects"
+                  targetPrefix:@""
+                 operationName:@"ListQueueQuickConnects"
+                   outputClass:[AWSConnectListQueueQuickConnectsResponse class]];
+}
+
+- (void)listQueueQuickConnects:(AWSConnectListQueueQuickConnectsRequest *)request
+     completionHandler:(void (^)(AWSConnectListQueueQuickConnectsResponse *response, NSError *error))completionHandler {
+    [[self listQueueQuickConnects:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListQueueQuickConnectsResponse *> * _Nonnull task) {
+        AWSConnectListQueueQuickConnectsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1984,6 +2120,116 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)updateInstanceStorageConfig:(AWSConnectUpdateInstanceStorageConfigRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self updateInstanceStorageConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQueueHoursOfOperation:(AWSConnectUpdateQueueHoursOfOperationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/hours-of-operation"
+                  targetPrefix:@""
+                 operationName:@"UpdateQueueHoursOfOperation"
+                   outputClass:nil];
+}
+
+- (void)updateQueueHoursOfOperation:(AWSConnectUpdateQueueHoursOfOperationRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQueueHoursOfOperation:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQueueMaxContacts:(AWSConnectUpdateQueueMaxContactsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/max-contacts"
+                  targetPrefix:@""
+                 operationName:@"UpdateQueueMaxContacts"
+                   outputClass:nil];
+}
+
+- (void)updateQueueMaxContacts:(AWSConnectUpdateQueueMaxContactsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQueueMaxContacts:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQueueName:(AWSConnectUpdateQueueNameRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/name"
+                  targetPrefix:@""
+                 operationName:@"UpdateQueueName"
+                   outputClass:nil];
+}
+
+- (void)updateQueueName:(AWSConnectUpdateQueueNameRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQueueName:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQueueOutboundCallerConfig:(AWSConnectUpdateQueueOutboundCallerConfigRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/outbound-caller-config"
+                  targetPrefix:@""
+                 operationName:@"UpdateQueueOutboundCallerConfig"
+                   outputClass:nil];
+}
+
+- (void)updateQueueOutboundCallerConfig:(AWSConnectUpdateQueueOutboundCallerConfigRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQueueOutboundCallerConfig:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)updateQueueStatus:(AWSConnectUpdateQueueStatusRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/queues/{InstanceId}/{QueueId}/status"
+                  targetPrefix:@""
+                 operationName:@"UpdateQueueStatus"
+                   outputClass:nil];
+}
+
+- (void)updateQueueStatus:(AWSConnectUpdateQueueStatusRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self updateQueueStatus:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
