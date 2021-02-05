@@ -39,6 +39,11 @@ typedef NS_ENUM(NSInteger, AWSEC2ActivityStatus) {
     AWSEC2ActivityStatusFulfilled,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2AddressAttributeName) {
+    AWSEC2AddressAttributeNameUnknown,
+    AWSEC2AddressAttributeNameDomainName,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2Affinity) {
     AWSEC2AffinityUnknown,
     AWSEC2AffinityDefault,
@@ -2051,6 +2056,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ActiveInstance;
 @class AWSEC2AddPrefixListEntry;
 @class AWSEC2Address;
+@class AWSEC2AddressAttribute;
 @class AWSEC2AdvertiseByoipCidrRequest;
 @class AWSEC2AdvertiseByoipCidrResult;
 @class AWSEC2AllocateAddressRequest;
@@ -2413,6 +2419,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeregisterTransitGatewayMulticastGroupSourcesResult;
 @class AWSEC2DescribeAccountAttributesRequest;
 @class AWSEC2DescribeAccountAttributesResult;
+@class AWSEC2DescribeAddressesAttributeRequest;
+@class AWSEC2DescribeAddressesAttributeResult;
 @class AWSEC2DescribeAddressesRequest;
 @class AWSEC2DescribeAddressesResult;
 @class AWSEC2DescribeAggregateIdFormatRequest;
@@ -2954,6 +2962,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2LocalGatewayVirtualInterfaceGroup;
 @class AWSEC2ManagedPrefixList;
 @class AWSEC2MemoryInfo;
+@class AWSEC2ModifyAddressAttributeRequest;
+@class AWSEC2ModifyAddressAttributeResult;
 @class AWSEC2ModifyAvailabilityZoneGroupRequest;
 @class AWSEC2ModifyAvailabilityZoneGroupResult;
 @class AWSEC2ModifyCapacityReservationRequest;
@@ -3101,6 +3111,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ProvisionByoipCidrRequest;
 @class AWSEC2ProvisionByoipCidrResult;
 @class AWSEC2ProvisionedBandwidth;
+@class AWSEC2PtrUpdateStatus;
 @class AWSEC2PublicIpv4Pool;
 @class AWSEC2PublicIpv4PoolRange;
 @class AWSEC2Purchase;
@@ -3165,6 +3176,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ReservedInstancesModification;
 @class AWSEC2ReservedInstancesModificationResult;
 @class AWSEC2ReservedInstancesOffering;
+@class AWSEC2ResetAddressAttributeRequest;
+@class AWSEC2ResetAddressAttributeResult;
 @class AWSEC2ResetEbsDefaultKmsKeyIdRequest;
 @class AWSEC2ResetEbsDefaultKmsKeyIdResult;
 @class AWSEC2ResetFpgaImageAttributeRequest;
@@ -3730,6 +3743,34 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Any tags assigned to the Elastic IP address.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>The attributes associated with an Elastic IP address.</p>
+ */
+@interface AWSEC2AddressAttribute : AWSModel
+
+
+/**
+ <p>[EC2-VPC] The allocation ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>The pointer (PTR) record for the IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable ptrRecord;
+
+/**
+ <p>The updated PTR record for the IP address.</p>
+ */
+@property (nonatomic, strong) AWSEC2PtrUpdateStatus * _Nullable ptrRecordUpdate;
+
+/**
+ <p>The public IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable publicIp;
 
 @end
 
@@ -6964,6 +7005,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the AMI. Only specify this parameter when copying an AMI from an AWS Region to an Outpost. The AMI must be in the Region of the destination Outpost. You cannot copy an AMI from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-amis"> Copying AMIs from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationOutpostArn;
+
+/**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
@@ -7018,6 +7064,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A description for the EBS snapshot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the Outpost to which to copy the snapshot. Only specify this parameter when copying a snapshot from an AWS Region to an Outpost. The snapshot must be in the Region for the destination Outpost. You cannot copy a snapshot from an Outpost to a Region, from one Outpost to another, or within the same Outpost.</p><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#copy-snapshots"> Copying snapshots from an AWS Region to an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationOutpostArn;
 
 /**
  <p>The destination Region to use in the <code>PresignedUrl</code> parameter of a snapshot copy operation. This parameter is only valid for specifying the destination Region in a <code>PresignedUrl</code> parameter, where it is required.</p><p>The snapshot copy is sent to the regional endpoint that you sent the HTTP request to (for example, <code>ec2.us-east-1.amazonaws.com</code>). With the AWS CLI, this is specified using the <code>--region</code> parameter or the default Region in your AWS configuration file.</p>
@@ -7698,7 +7749,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2OnDemandOptionsRequest * _Nullable onDemandOptions;
 
 /**
- <p>Indicates whether EC2 Fleet should replace unhealthy instances.</p>
+ <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable replaceUnhealthyInstances;
 
@@ -8948,6 +8999,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create a local snapshot.</p><ul><li><p>To create a snapshot of a volume in a Region, omit this parameter. The snapshot is created in the same Region as the volume.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot in the Region, omit this parameter. The snapshot is created in the Region for the Outpost.</p></li><li><p>To create a snapshot of a volume on an Outpost and store the snapshot on an Outpost, specify the ARN of the destination Outpost. The snapshot must be created on the same Outpost as the volume.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-snapshot"> Creating local snapshots from volumes on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostArn;
+
+/**
  <p>The tags to apply to the snapshot during creation.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
@@ -8984,6 +9040,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The instance to specify which volumes should be included in the snapshots.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceSpecification * _Nullable instanceSpecification;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS Outpost on which to create the local snapshots.</p><ul><li><p>To create snapshots from an instance in a Region, omit this parameter. The snapshots are created in the same Region as the instance.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots in the Region, omit this parameter. The snapshots are created in the Region for the Outpost.</p></li><li><p>To create snapshots from an instance on an Outpost and store the snapshots on an Outpost, specify the ARN of the destination Outpost. The snapshots must be created on the same Outpost as the instance.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#create-multivol-snapshot"> Creating multi-volume local snapshots from instances on an Outpost</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
  <p>Tags to apply to every snapshot specified by the instance.</p>
@@ -10042,7 +10103,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
 /**
- <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p><p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC attributes.</p><p>Default: <code>true</code></p>
+ <p>(Interface endpoint) Indicates whether to associate a private hosted zone with the specified VPC. The private hosted zone contains a record set for the default public DNS name for the service for the Region (for example, <code>kinesis.us-east-1.amazonaws.com</code>), which resolves to the private IP addresses of the endpoint network interfaces in the VPC. This enables you to make requests to the default public DNS name for the service instead of the public DNS names that are automatically generated by the VPC endpoint service.</p><p>To use a private hosted zone, you must set the following VPC attributes to <code>true</code>: <code>enableDnsHostnames</code> and <code>enableDnsSupport</code>. Use <a>ModifyVpcAttribute</a> to set the VPC attributes.</p><important><p>Private DNS is not supported for Amazon S3 interface endpoints.</p></important><p>Default: <code>true</code> for supported endpoints</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable privateDnsEnabled;
 
@@ -12336,6 +12397,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeAddressesAttributeRequest : AWSRequest
+
+
+/**
+ <p>[EC2-VPC] The allocation IDs.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable allocationIds;
+
+/**
+ <p>The attribute of the IP address.</p>
+ */
+@property (nonatomic, assign) AWSEC2AddressAttributeName attribute;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeAddressesAttributeResult : AWSModel
+
+
+/**
+ <p>Information about the IP addresses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2AddressAttribute *> * _Nullable addresses;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeAddressesRequest : AWSRequest
 
 
@@ -14082,7 +14194,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable executableUsers;
 
 /**
- <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the EBS volume is encrypted.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code>). This is not the user-configured AWS account alias set using the IAM console. We recommend that you use the related parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use the related parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
+ <p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the EBS volume is encrypted.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the AWS account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -19194,6 +19306,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
+ <p>The ARN of the Outpost on which the snapshot is stored.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostArn;
+
+/**
  <p>The ID of the snapshot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
@@ -20646,7 +20763,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) AWSEC2OnDemandOptions * _Nullable onDemandOptions;
 
 /**
- <p>Indicates whether EC2 Fleet should replace unhealthy instances.</p>
+ <p>Indicates whether EC2 Fleet should replace unhealthy Spot Instances. Supported only for fleets of type <code>maintain</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/manage-ec2-fleet.html#ec2-fleet-health-checks">EC2 Fleet health checks</a> in the <i>Amazon EC2 User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable replaceUnhealthyInstances;
 
@@ -25224,7 +25341,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, assign) AWSEC2PermissionGroup group;
 
 /**
- <p>The AWS account ID.</p>
+ <p>The AWS account ID.</p><p>Constraints: Up to 10 000 account IDs can be specified in a single request.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
 
@@ -26838,6 +26955,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The size of the memory, in MiB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable sizeInMiB;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyAddressAttributeRequest : AWSRequest
+
+
+/**
+ <p>[EC2-VPC] The allocation ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>The domain name to modify for the IP address.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable domainName;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyAddressAttributeResult : AWSModel
+
+
+/**
+ <p>Information about the Elastic IP address.</p>
+ */
+@property (nonatomic, strong) AWSEC2AddressAttribute * _Nullable address;
 
 @end
 
@@ -28526,7 +28679,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable policyDocument;
 
 /**
- <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p>
+ <p>(Interface endpoint) Indicates whether a private hosted zone is associated with the VPC.</p><important><p>Private DNS is not supported for Amazon S3 interface endpoints.</p></important>
  */
 @property (nonatomic, strong) NSNumber * _Nullable privateDnsEnabled;
 
@@ -30793,6 +30946,29 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The status of an updated pointer (PTR) record for an Elastic IP address.</p>
+ */
+@interface AWSEC2PtrUpdateStatus : AWSModel
+
+
+/**
+ <p>The reason for the PTR record update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable reason;
+
+/**
+ <p>The status of the PTR record update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable status;
+
+/**
+ <p>The value for the PTR record update.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable value;
+
+@end
+
+/**
  <p>Describes an IPv4 address pool.</p>
  */
 @interface AWSEC2PublicIpv4Pool : AWSModel
@@ -31162,7 +31338,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable billingProducts;
 
 /**
- <p>The block device mapping entries.</p>
+ <p>The block device mapping entries.</p><p>If you create an AMI on an Outpost, then all backing snapshots must be on the same Outpost or in the Region of that Outpost. AMIs on an Outpost that include local snapshots can be used to launch instances on the same Outpost only. For more information, <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html#ami"> Amazon EBS local snapshots on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2BlockDeviceMapping *> * _Nullable blockDeviceMappings;
 
@@ -32742,6 +32918,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The usage price of the Reserved Instance, per hour.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable usagePrice;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ResetAddressAttributeRequest : AWSRequest
+
+
+/**
+ <p>[EC2-VPC] The allocation ID.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable allocationId;
+
+/**
+ <p>The attribute of the IP address.</p>
+ */
+@property (nonatomic, assign) AWSEC2AddressAttributeName attribute;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ResetAddressAttributeResult : AWSModel
+
+
+/**
+ <p>Information about the IP address.</p>
+ */
+@property (nonatomic, strong) AWSEC2AddressAttribute * _Nullable address;
 
 @end
 
@@ -34794,6 +35006,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
+ <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostArn;
+
+/**
  <p>The AWS owner alias, from an Amazon-maintained list (<code>amazon</code>). This is not the user-configured AWS account alias set using the IAM console.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerAlias;
@@ -34946,6 +35163,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether the snapshot is encrypted.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
+
+/**
+ <p>The ARN of the AWS Outpost on which the snapshot is stored. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshots-outposts.html">EBS Local Snapshot on Outposts</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
  <p>Account id used when creating this snapshot.</p>

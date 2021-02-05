@@ -36,6 +36,7 @@
 - (void) test_AWSEC2ActiveInstance API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AddPrefixListEntry API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Address API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AddressAttribute API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdvertiseByoipCidrRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AdvertiseByoipCidrResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AllocateAddressRequest API_AVAILABLE(ios(11));
@@ -398,6 +399,8 @@
 - (void) test_AWSEC2DeregisterTransitGatewayMulticastGroupSourcesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAccountAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAccountAttributesResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAddressesAttributeRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeAddressesAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAddressesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAddressesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeAggregateIdFormatRequest API_AVAILABLE(ios(11));
@@ -939,6 +942,8 @@
 - (void) test_AWSEC2LocalGatewayVirtualInterfaceGroup API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ManagedPrefixList API_AVAILABLE(ios(11));
 - (void) test_AWSEC2MemoryInfo API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyAddressAttributeRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ModifyAddressAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyAvailabilityZoneGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyAvailabilityZoneGroupResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyCapacityReservationRequest API_AVAILABLE(ios(11));
@@ -1086,6 +1091,7 @@
 - (void) test_AWSEC2ProvisionByoipCidrRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ProvisionByoipCidrResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ProvisionedBandwidth API_AVAILABLE(ios(11));
+- (void) test_AWSEC2PtrUpdateStatus API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PublicIpv4Pool API_AVAILABLE(ios(11));
 - (void) test_AWSEC2PublicIpv4PoolRange API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Purchase API_AVAILABLE(ios(11));
@@ -1150,6 +1156,8 @@
 - (void) test_AWSEC2ReservedInstancesModification API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReservedInstancesModificationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ReservedInstancesOffering API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ResetAddressAttributeRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2ResetAddressAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ResetEbsDefaultKmsKeyIdRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ResetEbsDefaultKmsKeyIdResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ResetFpgaImageAttributeRequest API_AVAILABLE(ios(11));
@@ -1425,6 +1433,10 @@
 
 - (void) test_AWSEC2Address {
     [self validateSecureCodingForClass:[AWSEC2Address class]];
+}
+
+- (void) test_AWSEC2AddressAttribute {
+    [self validateSecureCodingForClass:[AWSEC2AddressAttribute class]];
 }
 
 - (void) test_AWSEC2AdvertiseByoipCidrRequest {
@@ -2873,6 +2885,14 @@
 
 - (void) test_AWSEC2DescribeAccountAttributesResult {
     [self validateSecureCodingForClass:[AWSEC2DescribeAccountAttributesResult class]];
+}
+
+- (void) test_AWSEC2DescribeAddressesAttributeRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAddressesAttributeRequest class]];
+}
+
+- (void) test_AWSEC2DescribeAddressesAttributeResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeAddressesAttributeResult class]];
 }
 
 - (void) test_AWSEC2DescribeAddressesRequest {
@@ -5039,6 +5059,14 @@
     [self validateSecureCodingForClass:[AWSEC2MemoryInfo class]];
 }
 
+- (void) test_AWSEC2ModifyAddressAttributeRequest {
+    [self validateSecureCodingForClass:[AWSEC2ModifyAddressAttributeRequest class]];
+}
+
+- (void) test_AWSEC2ModifyAddressAttributeResult {
+    [self validateSecureCodingForClass:[AWSEC2ModifyAddressAttributeResult class]];
+}
+
 - (void) test_AWSEC2ModifyAvailabilityZoneGroupRequest {
     [self validateSecureCodingForClass:[AWSEC2ModifyAvailabilityZoneGroupRequest class]];
 }
@@ -5627,6 +5655,10 @@
     [self validateSecureCodingForClass:[AWSEC2ProvisionedBandwidth class]];
 }
 
+- (void) test_AWSEC2PtrUpdateStatus {
+    [self validateSecureCodingForClass:[AWSEC2PtrUpdateStatus class]];
+}
+
 - (void) test_AWSEC2PublicIpv4Pool {
     [self validateSecureCodingForClass:[AWSEC2PublicIpv4Pool class]];
 }
@@ -5881,6 +5913,14 @@
 
 - (void) test_AWSEC2ReservedInstancesOffering {
     [self validateSecureCodingForClass:[AWSEC2ReservedInstancesOffering class]];
+}
+
+- (void) test_AWSEC2ResetAddressAttributeRequest {
+    [self validateSecureCodingForClass:[AWSEC2ResetAddressAttributeRequest class]];
+}
+
+- (void) test_AWSEC2ResetAddressAttributeResult {
+    [self validateSecureCodingForClass:[AWSEC2ResetAddressAttributeResult class]];
 }
 
 - (void) test_AWSEC2ResetEbsDefaultKmsKeyIdRequest {
