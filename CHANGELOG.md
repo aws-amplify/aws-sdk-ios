@@ -1,16 +1,17 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSElasticLoadBalancing
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSLambda
+  - AWSLocation
 
 ## 2.22.0
 
