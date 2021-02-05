@@ -4,6 +4,15 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSLambda
+  - AWSLocation
+
 ## 2.22.2
 
 -Features for next release
