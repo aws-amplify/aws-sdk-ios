@@ -79,7 +79,6 @@ static NSDictionary<NSString *,NSString *> *lexicons;
 
 - (void)tearDown {
     [super tearDown];
-    [self deleteLexicon];
 }
 
 - (void)setUpLexicon {
@@ -96,16 +95,6 @@ static NSDictionary<NSString *,NSString *> *lexicons;
             return nil;
         }] waitUntilFinished];
     }
-}
-
-- (void)deleteLexicon {
-    AWSPolly *polly = [AWSPolly defaultPolly];
-    for (NSString *lexiconName in lexicons) {
-        AWSPollyDeleteLexiconInput *input = [AWSPollyDeleteLexiconInput new];
-        input.name = lexiconName;
-        [polly deleteLexicon:input];
-    }
-    
 }
 
 - (void)testSynthesizeIntoAudioStream {
@@ -269,8 +258,6 @@ static NSDictionary<NSString *,NSString *> *lexicons;
     [request setLexiconNames:@[w2cLexiconName, w3cLexiconName]]; // W3C will be spoken as World Wide Web Consortium.
     
     AWSPolly *Polly = [AWSPolly defaultPolly];
-    // wait for lexicons to be ready for usage
-    sleep(20);
     [[[Polly synthesizeSpeech:request] continueWithBlock:^id _Nullable(AWSTask<AWSPollySynthesizeSpeechOutput *> * _Nonnull task) {
         XCTAssertNil(task.error);
         XCTAssertNotNil(task.result);
