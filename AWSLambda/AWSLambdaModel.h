@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -142,6 +142,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaRuntime) {
     AWSLambdaRuntimeNodejs810,
     AWSLambdaRuntimeNodejs10X,
     AWSLambdaRuntimeNodejs12X,
+    AWSLambdaRuntimeNodejs14X,
     AWSLambdaRuntimeJava8,
     AWSLambdaRuntimeJava8Al2,
     AWSLambdaRuntimeJava11,
@@ -804,7 +805,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -857,7 +858,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
- <p>Configuration values that override the container image Dockerfile.</p>
+ <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
  */
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
@@ -1255,7 +1256,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -1972,7 +1973,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Configuration values that override the container image Dockerfile settings. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container settings</a>. </p>
+ <p>Configuration values that override the container image Dockerfile settings. See <a href="https://docs.aws.amazon.com/lambda/latest/dg/images-create.html#images-parms">Container settings</a>. </p>
  */
 @interface AWSLambdaImageConfig : AWSModel
 
@@ -3135,7 +3136,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The ARN of your secret key used for SASL SCRAM-256 authentication of your Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The ARN of your secret key used for SASL SCRAM-512 authentication of your Kafka brokers.</p></li></ul>
+ <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3349,7 +3350,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>(Streams) The duration of a processing window in seconds. The range is between 1 second up to 15 minutes.</p>
+ <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -3450,7 +3451,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
- <p>Configuration values that override the container image Dockerfile.</p>
+ <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
  */
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 

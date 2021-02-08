@@ -30,6 +30,25 @@ voiceActivityDetectorConfiguration:(BFVADConfig *)vadConfig
                 allowAudioPlayback:(BOOL)allowAudioPlayback;
 
 /**
+ * Initializes the audio recorder with an encoder, a voice activity detector
+ * given the configuration and allows audio session to be defined to either allow or
+ * disallow playback from phone speakers during recording.
+ *
+ * @param encoding the encoding to use for the audio, either Opus or 16-bit LPCM.
+ * @param vadConfig the configuration of the voice activity detection used. Set to nil
+ * for no voice activity detection to be run on the audio samples.
+ * @param allowAudioPlayback if set to YES then this flag will not stop the sound coming
+ * out of the speakers before recording. Useful for VoIP applications.
+ * @param manageAVAudioSessionActive if set to NO then the BFAudioRecordingOrchestrator will not
+ * control the activity state of the AVAudioSession. Defaults to YES. Useful if consumers wish to
+ * explicitly handle AVAudioSession activity states.
+ */
+- (id)initWithEncoding:(BFAudioEncoding)encoding
+voiceActivityDetectorConfiguration:(BFVADConfig *)vadConfig
+    allowAudioPlayback:(BOOL)allowAudioPlayback
+manageAVAudioSessionActive:(BOOL)manageAVAudioSessionActive;
+
+/**
  * Initializes the audio recorder with an encoder and a voice activity detector
  * given the configuration.
  *

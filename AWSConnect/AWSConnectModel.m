@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -138,6 +138,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)lexBotJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexBot class]];
+}
+
+@end
+
+@implementation AWSConnectAssociateQueueQuickConnectsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             @"quickConnectIds" : @"QuickConnectIds",
+             };
 }
 
 @end
@@ -632,6 +648,46 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"integrationAssociationArn" : @"IntegrationAssociationArn",
              @"integrationAssociationId" : @"IntegrationAssociationId",
+             };
+}
+
+@end
+
+@implementation AWSConnectCreateQueueRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"instanceId" : @"InstanceId",
+             @"maxContacts" : @"MaxContacts",
+             @"name" : @"Name",
+             @"outboundCallerConfig" : @"OutboundCallerConfig",
+             @"quickConnectIds" : @"QuickConnectIds",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)outboundCallerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectOutboundCallerConfig class]];
+}
+
+@end
+
+@implementation AWSConnectCreateQueueResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queueArn" : @"QueueArn",
+             @"queueId" : @"QueueId",
              };
 }
 
@@ -1156,6 +1212,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDescribeHoursOfOperationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"instanceId" : @"InstanceId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeHoursOfOperationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hoursOfOperation" : @"HoursOfOperation",
+             };
+}
+
++ (NSValueTransformer *)hoursOfOperationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHoursOfOperation class]];
+}
+
+@end
+
 @implementation AWSConnectDescribeInstanceAttributeRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1338,6 +1427,39 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)storageConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectInstanceStorageConfig class]];
+}
+
+@end
+
+@implementation AWSConnectDescribeQueueRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
+@implementation AWSConnectDescribeQueueResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queue" : @"Queue",
+             };
+}
+
++ (NSValueTransformer *)queueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectQueue class]];
 }
 
 @end
@@ -1649,6 +1771,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"botName" : @"BotName",
              @"instanceId" : @"InstanceId",
              @"lexRegion" : @"LexRegion",
+             };
+}
+
+@end
+
+@implementation AWSConnectDisassociateQueueQuickConnectsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             @"quickConnectIds" : @"QuickConnectIds",
              };
 }
 
@@ -2348,6 +2486,100 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectHoursOfOperation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"config" : @"Config",
+             @"detail" : @"Description",
+             @"hoursOfOperationArn" : @"HoursOfOperationArn",
+             @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"name" : @"Name",
+             @"tags" : @"Tags",
+             @"timeZone" : @"TimeZone",
+             };
+}
+
++ (NSValueTransformer *)configJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectHoursOfOperationConfig class]];
+}
+
+@end
+
+@implementation AWSConnectHoursOfOperationConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"day" : @"Day",
+             @"endTime" : @"EndTime",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)dayJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SUNDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysSunday);
+        }
+        if ([value caseInsensitiveCompare:@"MONDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysMonday);
+        }
+        if ([value caseInsensitiveCompare:@"TUESDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysTuesday);
+        }
+        if ([value caseInsensitiveCompare:@"WEDNESDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysWednesday);
+        }
+        if ([value caseInsensitiveCompare:@"THURSDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysThursday);
+        }
+        if ([value caseInsensitiveCompare:@"FRIDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysFriday);
+        }
+        if ([value caseInsensitiveCompare:@"SATURDAY"] == NSOrderedSame) {
+            return @(AWSConnectHoursOfOperationDaysSaturday);
+        }
+        return @(AWSConnectHoursOfOperationDaysUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectHoursOfOperationDaysSunday:
+                return @"SUNDAY";
+            case AWSConnectHoursOfOperationDaysMonday:
+                return @"MONDAY";
+            case AWSConnectHoursOfOperationDaysTuesday:
+                return @"TUESDAY";
+            case AWSConnectHoursOfOperationDaysWednesday:
+                return @"WEDNESDAY";
+            case AWSConnectHoursOfOperationDaysThursday:
+                return @"THURSDAY";
+            case AWSConnectHoursOfOperationDaysFriday:
+                return @"FRIDAY";
+            case AWSConnectHoursOfOperationDaysSaturday:
+                return @"SATURDAY";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHoursOfOperationTimeSlice class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectHoursOfOperationTimeSlice class]];
+}
+
+@end
+
 @implementation AWSConnectHoursOfOperationSummary
 
 + (BOOL)supportsSecureCoding {
@@ -2359,6 +2591,21 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"arn" : @"Arn",
              @"identifier" : @"Id",
              @"name" : @"Name",
+             };
+}
+
+@end
+
+@implementation AWSConnectHoursOfOperationTimeSlice
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hours" : @"Hours",
+             @"minutes" : @"Minutes",
              };
 }
 
@@ -3155,6 +3402,42 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectListQueueQuickConnectsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
+@implementation AWSConnectListQueueQuickConnectsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"quickConnectSummaryList" : @"QuickConnectSummaryList",
+             };
+}
+
++ (NSValueTransformer *)quickConnectSummaryListJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectQuickConnectSummary class]];
+}
+
+@end
+
 @implementation AWSConnectListQueuesRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3539,6 +3822,22 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSConnectOutboundCallerConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"outboundCallerIdName" : @"OutboundCallerIdName",
+             @"outboundCallerIdNumberId" : @"OutboundCallerIdNumberId",
+             @"outboundFlowId" : @"OutboundFlowId",
+             };
 }
 
 @end
@@ -4836,6 +5135,53 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectQueue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"maxContacts" : @"MaxContacts",
+             @"name" : @"Name",
+             @"outboundCallerConfig" : @"OutboundCallerConfig",
+             @"queueArn" : @"QueueArn",
+             @"queueId" : @"QueueId",
+             @"status" : @"Status",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)outboundCallerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectOutboundCallerConfig class]];
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSConnectQueueStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSConnectQueueStatusDisabled);
+        }
+        return @(AWSConnectQueueStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectQueueStatusEnabled:
+                return @"ENABLED";
+            case AWSConnectQueueStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSConnectQueueQuickConnectConfig
 
 + (BOOL)supportsSecureCoding {
@@ -5745,6 +6091,112 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 + (NSValueTransformer *)storageConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectInstanceStorageConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateQueueHoursOfOperationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"hoursOfOperationId" : @"HoursOfOperationId",
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateQueueMaxContactsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"maxContacts" : @"MaxContacts",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateQueueNameRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"instanceId" : @"InstanceId",
+             @"name" : @"Name",
+             @"queueId" : @"QueueId",
+             };
+}
+
+@end
+
+@implementation AWSConnectUpdateQueueOutboundCallerConfigRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"outboundCallerConfig" : @"OutboundCallerConfig",
+             @"queueId" : @"QueueId",
+             };
+}
+
++ (NSValueTransformer *)outboundCallerConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectOutboundCallerConfig class]];
+}
+
+@end
+
+@implementation AWSConnectUpdateQueueStatusRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"queueId" : @"QueueId",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ENABLED"] == NSOrderedSame) {
+            return @(AWSConnectQueueStatusEnabled);
+        }
+        if ([value caseInsensitiveCompare:@"DISABLED"] == NSOrderedSame) {
+            return @(AWSConnectQueueStatusDisabled);
+        }
+        return @(AWSConnectQueueStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectQueueStatusEnabled:
+                return @"ENABLED";
+            case AWSConnectQueueStatusDisabled:
+                return @"DISABLED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
