@@ -29,7 +29,7 @@
 
 +(BOOL) dataWritingEnabled {
 #if DEBUG
-    return NO;
+    return YES;
 #else
     return NO;
 #endif
