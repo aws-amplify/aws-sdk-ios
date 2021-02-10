@@ -100,6 +100,16 @@ typedef NS_ERROR_ENUM(FBSDKLoginErrorDomain, FBSDKLoginError)
     The login response was missing a valid challenge string.
   */
   FBSDKLoginErrorBadChallengeString,
+
+  /**
+    The ID token returned in login response was invalid
+  */
+  FBSDKLoginErrorInvalidIDToken,
+
+  /**
+   A current access token was required and not provided
+   */
+  FBSDKLoginErrorMissingAccessToken,
 } NS_SWIFT_NAME(LoginError);
 
 /**

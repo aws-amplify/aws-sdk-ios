@@ -18,17 +18,12 @@
 
 #import <UIKit/UIKit.h>
 
-#if TARGET_OS_TV
- #ifndef DEVICE_SHARING_DEPRECATED
-  #define DEVICE_SHARING_DEPRECATED DEPRECATED_MSG_ATTRIBUTE("Sharing from devices will no longer work as of Nov 2nd 2020")
- #endif
-#endif
-
 #ifdef BUCK
 
  #import <FBSDKCoreKit/FBSDKAccessToken.h>
  #import <FBSDKCoreKit/FBSDKAppEvents.h>
  #import <FBSDKCoreKit/FBSDKApplicationDelegate.h>
+ #import <FBSDKCoreKit/FBSDKAuthenticationToken.h>
  #import <FBSDKCoreKit/FBSDKButton.h>
  #import <FBSDKCoreKit/FBSDKConstants.h>
  #import <FBSDKCoreKit/FBSDKCopying.h>
@@ -43,6 +38,7 @@
   #import <FBSDKCoreKit/FBSDKAppLink.h>
   #import <FBSDKCoreKit/FBSDKAppLinkNavigation.h>
   #import <FBSDKCoreKit/FBSDKAppLinkResolver.h>
+  #import <FBSDKCoreKit/FBSDKAppLinkResolverRequestBuilder.h>
   #import <FBSDKCoreKit/FBSDKAppLinkResolving.h>
   #import <FBSDKCoreKit/FBSDKAppLinkReturnToRefererController.h>
   #import <FBSDKCoreKit/FBSDKAppLinkReturnToRefererView.h>
@@ -65,6 +61,7 @@
  #import "FBSDKAccessToken.h"
  #import "FBSDKAppEvents.h"
  #import "FBSDKApplicationDelegate.h"
+ #import "FBSDKAuthenticationToken.h"
  #import "FBSDKButton.h"
  #import "FBSDKConstants.h"
  #import "FBSDKCopying.h"
@@ -79,6 +76,7 @@
   #import "FBSDKAppLink.h"
   #import "FBSDKAppLinkNavigation.h"
   #import "FBSDKAppLinkResolver.h"
+  #import "FBSDKAppLinkResolverRequestBuilder.h"
   #import "FBSDKAppLinkResolving.h"
   #import "FBSDKAppLinkReturnToRefererController.h"
   #import "FBSDKAppLinkReturnToRefererView.h"
@@ -98,5 +96,5 @@
 
 #endif
 
-#define FBSDK_VERSION_STRING @"8.0.0"
-#define FBSDK_TARGET_PLATFORM_VERSION @"v8.0"
+#define FBSDK_VERSION_STRING @"9.0.1"
+#define FBSDK_TARGET_PLATFORM_VERSION @"v9.0"

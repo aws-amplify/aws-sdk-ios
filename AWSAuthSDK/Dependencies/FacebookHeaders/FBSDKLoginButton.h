@@ -58,7 +58,7 @@ typedef NS_ENUM(NSUInteger, FBSDKLoginButtonTooltipBehavior)
 /**
   A button that initiates a log in or log out flow upon tapping.
 
- `FBSDKLoginButton` works with `[FBSDKAccessToken currentAccessToken]` to
+ `FBSDKLoginButton` works with `FBSDKProfile.currentProfile` to
   determine what to display, and automatically starts authentication when tapped (i.e.,
   you do not need to manually subscribe action targets).
 
@@ -98,6 +98,15 @@ NS_SWIFT_NAME(FBLoginButton)
   Gets or sets the desired tooltip color style.
  */
 @property (assign, nonatomic) FBSDKTooltipColorStyle tooltipColorStyle;
+/**
+  Gets or sets the desired tracking preference to use for login attempts. Defaults to `.enabled`
+ */
+@property (assign, nonatomic) FBSDKLoginTracking loginTracking;
+/**
+  Gets or sets an optional nonce to use for login attempts. A valid nonce must be a non-empty string without whitespace.
+ An invalid nonce will not be set. Instead, default unique nonces will be used for login attempts.
+ */
+@property (copy, nonatomic, nullable) NSString *nonce;
 
 @end
 

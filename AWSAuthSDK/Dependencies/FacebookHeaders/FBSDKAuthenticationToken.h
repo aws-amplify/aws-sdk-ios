@@ -16,37 +16,44 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import "TargetConditionals.h"
-
-#if !TARGET_OS_TV
-
 #import <Foundation/Foundation.h>
+
+#import "FBSDKCopying.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Represent a referral code used in the referral process
+ Represent an AuthenticationToken used for a login attempt
 */
-NS_SWIFT_NAME(ReferralCode)
-@interface FBSDKReferralCode : NSObject
+NS_SWIFT_NAME(AuthenticationToken)
+@interface FBSDKAuthenticationToken : NSObject<FBSDKCopying, NSSecureCoding>
 
 - (instancetype)init NS_UNAVAILABLE;
 + (instancetype)new NS_UNAVAILABLE;
 
 /**
- The string value of the referral code
-*/
-@property NSString *value;
+  The "global" authentication token that represents the currently logged in user.
+
+ The `currentAuthenticationToken` represents the authentication token of the
+ current user and can be used by a client to verify an authentication attempt.
+ */
+@property (class, nonatomic, copy, nullable) FBSDKAuthenticationToken *currentAuthenticationToken;
 
 /**
- Initializes a new instance if the referral code is valid. Otherwise returns nil.
- A code is valid if it is non-empty and contains only alphanumeric characters.
- @param string the raw string referral code
-*/
-+ (nullable instancetype)initWithString:(NSString *)string;
+ The raw token string from the authentication response
+ */
+@property (nonatomic, copy, readonly) NSString *tokenString;
+
+/**
+ The nonce from the decoded authentication response
+ */
+@property (nonatomic, copy, readonly) NSString *nonce;
+
+/**
+  The graph domain where the user is authenticated.
+ */
+@property (nonatomic, copy, readonly) NSString *graphDomain;
 
 @end
 
 NS_ASSUME_NONNULL_END
-
-#endif

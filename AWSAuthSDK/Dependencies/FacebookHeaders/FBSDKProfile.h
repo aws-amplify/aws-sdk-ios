@@ -22,6 +22,7 @@
 
 #import "FBSDKProfilePictureView.h"
 
+@class FBSDKAuthenticationTokenClaims;
 @class FBSDKProfile;
 
 NS_ASSUME_NONNULL_BEGIN
@@ -109,7 +110,30 @@ NS_SWIFT_NAME(Profile)
                       lastName:(nullable NSString *)lastName
                           name:(nullable NSString *)name
                        linkURL:(nullable NSURL *)linkURL
-                   refreshDate:(nullable NSDate *)refreshDate NS_DESIGNATED_INITIALIZER;
+                   refreshDate:(nullable NSDate *)refreshDate;
+
+/**
+  initializes a new instance.
+ @param userID the user ID
+ @param firstName the user's first name
+ @param middleName the user's middle name
+ @param lastName the user's last name
+ @param name the user's complete name
+ @param linkURL the link for this profile
+ @param refreshDate the optional date this profile was fetched. Defaults to [NSDate date].
+ @param imageURL an optional URL to use for fetching a user's profile image
+ @param email the user's email
+ */
+- (instancetype)initWithUserID:(NSString *)userID
+                     firstName:(nullable NSString *)firstName
+                    middleName:(nullable NSString *)middleName
+                      lastName:(nullable NSString *)lastName
+                          name:(nullable NSString *)name
+                       linkURL:(nullable NSURL *)linkURL
+                   refreshDate:(nullable NSDate *)refreshDate
+                      imageURL:(nullable NSURL *)imageURL
+                         email:(nullable NSString *)email
+NS_DESIGNATED_INITIALIZER;
 
 /**
  The current profile instance and posts the appropriate notification
@@ -145,6 +169,8 @@ NS_SWIFT_NAME(current);
 /**
   A URL to the user's profile.
 
+  IMPORTANT: This field will only be populated if your user has granted your application the 'user_link' permission
+
  Consider using `FBSDKAppLinkResolver` to resolve this
  to an app link to link directly to the user's profile in the Facebook app.
  */
@@ -154,6 +180,16 @@ NS_SWIFT_NAME(current);
   The last time the profile data was fetched.
  */
 @property (nonatomic, readonly) NSDate *refreshDate;
+/**
+  A URL to use for fetching a user's profile image.
+ */
+@property (nonatomic, readonly, nullable) NSURL *imageURL;
+/**
+  The user's email.
+
+ IMPORTANT: This field will only be populated if your user has granted your application the 'email' permission.
+ */
+@property (nonatomic, copy, readonly, nullable) NSString *email;
 
 /**
   Indicates if `currentProfile` will automatically observe `FBSDKAccessTokenDidChangeNotification` notifications

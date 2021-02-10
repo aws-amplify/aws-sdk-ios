@@ -22,6 +22,7 @@
 #import "FBSDKDeviceLoginCodeInfo.h"
 #import "FBSDKDeviceLoginManager.h"
 #import "FBSDKDeviceLoginManagerResult.h"
+#import "FBSDKLoginConfiguration.h"
 #import "FBSDKLoginConstants.h"
 
 #if !TARGET_OS_TV
