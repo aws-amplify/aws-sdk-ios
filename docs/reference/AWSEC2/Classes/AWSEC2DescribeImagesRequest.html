@@ -17,7 +17,7 @@
     <a title="AWSEC2DescribeImagesRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.22.0 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.22.3 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -93,6 +93,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2Address.html">AWSEC2Address</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2AddressAttribute.html">AWSEC2AddressAttribute</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2AdvertiseByoipCidrRequest.html">AWSEC2AdvertiseByoipCidrRequest</a>
@@ -1161,6 +1164,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeAccountAttributesResult.html">AWSEC2DescribeAccountAttributesResult</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeAddressesAttributeRequest.html">AWSEC2DescribeAddressesAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeAddressesAttributeResult.html">AWSEC2DescribeAddressesAttributeResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeAddressesRequest.html">AWSEC2DescribeAddressesRequest</a>
@@ -2789,6 +2798,12 @@
                 <a href="../Classes/AWSEC2MemoryInfo.html">AWSEC2MemoryInfo</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAddressAttributeRequest.html">AWSEC2ModifyAddressAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifyAddressAttributeResult.html">AWSEC2ModifyAddressAttributeResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ModifyAvailabilityZoneGroupRequest.html">AWSEC2ModifyAvailabilityZoneGroupRequest</a>
               </li>
               <li class="nav-group-task">
@@ -3227,6 +3242,9 @@
                 <a href="../Classes/AWSEC2ProvisionedBandwidth.html">AWSEC2ProvisionedBandwidth</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2PtrUpdateStatus.html">AWSEC2PtrUpdateStatus</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2PublicIpv4Pool.html">AWSEC2PublicIpv4Pool</a>
               </li>
               <li class="nav-group-task">
@@ -3435,6 +3453,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ReservedInstancesOffering.html">AWSEC2ReservedInstancesOffering</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ResetAddressAttributeRequest.html">AWSEC2ResetAddressAttributeRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ResetAddressAttributeResult.html">AWSEC2ResetAddressAttributeResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ResetEbsDefaultKmsKeyIdRequest.html">AWSEC2ResetEbsDefaultKmsKeyIdRequest</a>
@@ -4078,6 +4102,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2ActivityStatus.html">AWSEC2ActivityStatus</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSEC2AddressAttributeName.html">AWSEC2AddressAttributeName</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSEC2Affinity.html">AWSEC2Affinity</a>
@@ -4829,7 +4856,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the EBS volume is encrypted.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias, from an Amazon-maintained list (<code>amazon</code> | <code>aws-marketplace</code>). This is not the user-configured AWS account alias set using the IAM console. We recommend that you use the related parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use the related parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul></p>
+                        <p><p>The filters.</p><ul><li><p><code>architecture</code> - The image architecture (<code>i386</code> | <code>x86_64</code> | <code>arm64</code>).</p></li><li><p><code>block-device-mapping.delete-on-termination</code> - A Boolean value that indicates whether the Amazon EBS volume is deleted on instance termination.</p></li><li><p><code>block-device-mapping.device-name</code> - The device name specified in the block device mapping (for example, <code>/dev/sdh</code> or <code>xvdh</code>).</p></li><li><p><code>block-device-mapping.snapshot-id</code> - The ID of the snapshot used for the EBS volume.</p></li><li><p><code>block-device-mapping.volume-size</code> - The volume size of the EBS volume, in GiB.</p></li><li><p><code>block-device-mapping.volume-type</code> - The volume type of the EBS volume (<code>gp2</code> | <code>io1</code> | <code>io2</code> | <code>st1 </code>| <code>sc1</code> | <code>standard</code>).</p></li><li><p><code>block-device-mapping.encrypted</code> - A Boolean that indicates whether the EBS volume is encrypted.</p></li><li><p><code>description</code> - The description of the image (provided during image creation).</p></li><li><p><code>ena-support</code> - A Boolean that indicates whether enhanced networking with ENA is enabled.</p></li><li><p><code>hypervisor</code> - The hypervisor type (<code>ovm</code> | <code>xen</code>).</p></li><li><p><code>image-id</code> - The ID of the image.</p></li><li><p><code>image-type</code> - The image type (<code>machine</code> | <code>kernel</code> | <code>ramdisk</code>).</p></li><li><p><code>is-public</code> - A Boolean that indicates whether the image is public.</p></li><li><p><code>kernel-id</code> - The kernel ID.</p></li><li><p><code>manifest-location</code> - The location of the image manifest.</p></li><li><p><code>name</code> - The name of the AMI (provided during image creation).</p></li><li><p><code>owner-alias</code> - The owner alias (<code>amazon</code> | <code>aws-marketplace</code>). The valid aliases are defined in an Amazon-maintained list. This is not the AWS account alias that can be set using the IAM console. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>owner-id</code> - The AWS account ID of the owner. We recommend that you use the <b>Owner</b> request parameter instead of this filter.</p></li><li><p><code>platform</code> - The platform. To only list Windows-based AMIs, use <code>windows</code>.</p></li><li><p><code>product-code</code> - The product code.</p></li><li><p><code>product-code.type</code> - The type of the product code (<code>devpay</code> | <code>marketplace</code>).</p></li><li><p><code>ramdisk-id</code> - The RAM disk ID.</p></li><li><p><code>root-device-name</code> - The device name of the root device volume (for example, <code>/dev/sda1</code>).</p></li><li><p><code>root-device-type</code> - The type of the root device volume (<code>ebs</code> | <code>instance-store</code>).</p></li><li><p><code>state</code> - The state of the image (<code>available</code> | <code>pending</code> | <code>failed</code>).</p></li><li><p><code>state-reason-code</code> - The reason code for the state change.</p></li><li><p><code>state-reason-message</code> - The message for the state change.</p></li><li><p><code>sriov-net-support</code> - A value of <code>simple</code> indicates that enhanced networking with the Intel 82599 VF interface is enabled.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>virtualization-type</code> - The virtualization type (<code>paravirtual</code> | <code>hvm</code>).</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -4917,7 +4944,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-01-07)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-02-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
