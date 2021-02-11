@@ -110,7 +110,7 @@ Carthage supports XCFrameworks in Xcode 12 or above. Follow the steps below to c
     
         $ carthage update --use-xcframeworks --no-use-binaries
 
-> As of Carthate 0.37.0, prebuilt binary framework is not supported with xcframework, as mentioned in the release changelog - https://github.com/Carthage/Carthage/releases/tag/0.37.0
+> As of Carthage 0.37.0, prebuilt binaries using XCFrameworks are not supported, as mentioned in the Carthage release notes - https://github.com/Carthage/Carthage/releases/tag/0.37.0
 
 4. On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the Carthage/Build folder on disk.
 
