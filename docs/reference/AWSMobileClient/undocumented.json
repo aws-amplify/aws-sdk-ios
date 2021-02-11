@@ -79,42 +79,49 @@
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 146,
+      "line": 39,
+      "symbol": "SignInUIOptions.init()",
+      "symbol_kind": "source.lang.swift.decl.function.method.instance",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
+      "line": 155,
       "symbol": "IdentityProvider.facebook",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 147,
+      "line": 156,
       "symbol": "IdentityProvider.google",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 148,
+      "line": 157,
       "symbol": "IdentityProvider.twitter",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 149,
+      "line": 158,
       "symbol": "IdentityProvider.amazon",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 150,
+      "line": 159,
       "symbol": "IdentityProvider.developer",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAuthSDK/Sources/AWSMobileClient/AWSMobileOptions.swift",
-      "line": 151,
+      "line": 160,
       "symbol": "IdentityProvider.apple",
       "symbol_kind": "source.lang.swift.decl.enumelement",
       "warning": "undocumented"
