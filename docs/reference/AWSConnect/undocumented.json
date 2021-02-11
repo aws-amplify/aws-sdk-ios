@@ -724,2365 +724,2470 @@
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 133,
-      "symbol": "AWSConnectInstanceAttributeType",
+      "symbol": "AWSConnectHoursOfOperationDays",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 133,
-      "symbol": "AWSConnectInstanceAttributeType",
+      "symbol": "AWSConnectHoursOfOperationDays",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 134,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeUnknown",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 135,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeInboundCalls",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysSunday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 136,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeOutboundCalls",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysMonday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 137,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeContactflowLogs",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysTuesday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 138,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeContactLens",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysWednesday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 139,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeAutoResolveBestVoices",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysThursday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 140,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeUseCustomTtsVoices",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysFriday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 141,
-      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeEarlyMedia",
+      "symbol": "AWSConnectHoursOfOperationDays.AWSConnectHoursOfOperationDaysSaturday",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 144,
-      "symbol": "AWSConnectInstanceStatus",
+      "symbol": "AWSConnectInstanceAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 144,
-      "symbol": "AWSConnectInstanceStatus",
+      "symbol": "AWSConnectInstanceAttributeType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 145,
-      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusUnknown",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 146,
-      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusCreationInProgress",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeInboundCalls",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 147,
-      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusActive",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeOutboundCalls",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 148,
-      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusCreationFailed",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeContactflowLogs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 149,
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeContactLens",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 150,
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeAutoResolveBestVoices",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 151,
-      "symbol": "AWSConnectInstanceStorageResourceType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 151,
-      "symbol": "AWSConnectInstanceStorageResourceType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeUseCustomTtsVoices",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 152,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 153,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeChatTranscripts",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 154,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeCallRecordings",
+      "symbol": "AWSConnectInstanceAttributeType.AWSConnectInstanceAttributeTypeEarlyMedia",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 155,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeScheduledReports",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectInstanceStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 155,
+      "symbol": "AWSConnectInstanceStatus",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 156,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeMediaStreams",
+      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 157,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeContactTraceRecords",
+      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusCreationInProgress",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 158,
-      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeAgentEvents",
+      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusActive",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 161,
-      "symbol": "AWSConnectIntegrationType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 161,
-      "symbol": "AWSConnectIntegrationType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 159,
+      "symbol": "AWSConnectInstanceStatus.AWSConnectInstanceStatusCreationFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 162,
-      "symbol": "AWSConnectIntegrationType.AWSConnectIntegrationTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 163,
-      "symbol": "AWSConnectIntegrationType.AWSConnectIntegrationTypeEvent",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 166,
-      "symbol": "AWSConnectPhoneNumberCountryCode",
+      "symbol": "AWSConnectInstanceStorageResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 166,
-      "symbol": "AWSConnectPhoneNumberCountryCode",
+      "line": 162,
+      "symbol": "AWSConnectInstanceStorageResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 163,
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 164,
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeChatTranscripts",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 165,
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeCallRecordings",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 166,
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeScheduledReports",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 167,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUnknown",
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeMediaStreams",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 168,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAf",
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeContactTraceRecords",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 169,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAl",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 170,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDz",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 171,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAs",
+      "symbol": "AWSConnectInstanceStorageResourceType.AWSConnectInstanceStorageResourceTypeAgentEvents",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 172,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAd",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectIntegrationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 172,
+      "symbol": "AWSConnectIntegrationType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 173,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAo",
+      "symbol": "AWSConnectIntegrationType.AWSConnectIntegrationTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 174,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAi",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 175,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAq",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 176,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAg",
+      "symbol": "AWSConnectIntegrationType.AWSConnectIntegrationTypeEvent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 177,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAr",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectPhoneNumberCountryCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 177,
+      "symbol": "AWSConnectPhoneNumberCountryCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 178,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 179,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 180,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 181,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 182,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 183,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 184,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 185,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 186,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBb",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAq",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 187,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 188,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 189,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 190,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBj",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 191,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 192,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 193,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 194,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 195,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 196,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 197,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 198,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 199,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 200,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 201,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBf",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 202,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 203,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 204,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 205,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 206,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCv",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 207,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 208,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCf",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 209,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 210,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 211,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 212,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCx",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 213,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 214,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 215,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 216,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 217,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 218,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 219,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 220,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 221,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 222,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 223,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 224,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 225,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDj",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 226,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 227,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 228,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 229,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 230,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 231,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSv",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 232,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGq",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 233,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 234,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 235,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 236,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 237,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 238,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFj",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 239,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 240,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 241,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePf",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 242,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 243,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGq",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 244,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGE",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 245,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 246,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 247,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 248,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 249,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 250,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 251,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 252,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGT",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 253,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 254,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 255,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 256,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeDe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 257,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 258,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 259,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 260,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 261,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 262,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIN",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 263,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeId",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 264,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 265,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIq",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 266,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 267,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 268,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 269,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 270,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 271,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeHu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 272,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJp",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 273,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIN",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 274,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeId",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 275,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 276,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIq",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 277,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 278,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 279,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 280,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeIt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 281,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLv",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 282,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLb",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 283,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 284,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 285,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeJo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 286,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 287,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLT",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 288,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 289,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 290,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 291,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 292,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 293,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 294,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMv",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 295,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 296,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 297,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 298,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLT",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 299,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 300,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeYt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 301,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMx",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 302,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 303,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 304,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 305,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 306,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 307,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 308,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 309,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 310,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 311,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeYt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 312,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 313,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNp",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeFm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 314,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 315,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 316,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 317,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 318,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 319,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNE",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 320,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 321,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 322,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKp",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 323,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMp",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 324,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 325,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeOm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 326,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 327,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 328,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 329,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 330,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNE",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 331,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 332,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 333,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 334,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMp",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 335,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeNo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 336,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeOm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 337,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeQa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 338,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 339,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 340,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 341,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 342,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 343,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 344,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 345,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 346,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 347,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMf",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 348,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeQa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 349,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 350,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeWs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 351,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 352,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRu",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 353,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 354,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeBl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 355,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 356,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 357,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSl",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 358,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeMf",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 359,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSx",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodePm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 360,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 361,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeWs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 362,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSb",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 363,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 364,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 365,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 366,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeRs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 367,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 368,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSd",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 369,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 370,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSj",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSx",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 371,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 372,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 373,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 374,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 375,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 376,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTj",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeKr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 377,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEs",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 378,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeLk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 379,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSd",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 380,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTk",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 381,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTo",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 382,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTt",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 383,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 384,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTr",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeCh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 385,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeSy",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 386,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTc",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 387,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTv",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTj",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 388,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVi",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 389,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUg",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 390,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 391,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 392,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGb",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTo",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 393,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUs",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTt",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 394,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUy",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 395,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUz",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTr",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 396,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVu",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 397,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVa",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTc",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 398,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeTv",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 399,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVn",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVi",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 400,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeWf",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 401,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEh",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 402,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeYe",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeAe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 403,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZm",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeGb",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 404,
-      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZw",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUs",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 405,
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 406,
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeUz",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 407,
-      "symbol": "AWSConnectPhoneNumberType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 407,
-      "symbol": "AWSConnectPhoneNumberType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVu",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 408,
-      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeUnknown",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVa",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 409,
-      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeTollFree",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVe",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 410,
-      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeDid",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeVn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 411,
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeWf",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 412,
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeEh",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 413,
-      "symbol": "AWSConnectPhoneType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 413,
-      "symbol": "AWSConnectPhoneType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeYe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 414,
-      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeUnknown",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZm",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 415,
-      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeSoftPhone",
+      "symbol": "AWSConnectPhoneNumberCountryCode.AWSConnectPhoneNumberCountryCodeZw",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 416,
-      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeDeskPhone",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 419,
-      "symbol": "AWSConnectQueueType",
+      "line": 418,
+      "symbol": "AWSConnectPhoneNumberType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 419,
-      "symbol": "AWSConnectQueueType",
+      "line": 418,
+      "symbol": "AWSConnectPhoneNumberType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 419,
+      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 420,
-      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeUnknown",
+      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeTollFree",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 421,
-      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeStandard",
+      "symbol": "AWSConnectPhoneNumberType.AWSConnectPhoneNumberTypeDid",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 422,
-      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeAgent",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 425,
-      "symbol": "AWSConnectQuickConnectType",
+      "line": 424,
+      "symbol": "AWSConnectPhoneType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 425,
-      "symbol": "AWSConnectQuickConnectType",
+      "line": 424,
+      "symbol": "AWSConnectPhoneType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 425,
+      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 426,
-      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeUnknown",
+      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeSoftPhone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 427,
-      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeUser",
+      "symbol": "AWSConnectPhoneType.AWSConnectPhoneTypeDeskPhone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 428,
-      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeQueue",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 429,
-      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypePhoneNumber",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 432,
-      "symbol": "AWSConnectReferenceType",
+      "line": 430,
+      "symbol": "AWSConnectQueueStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 432,
-      "symbol": "AWSConnectReferenceType",
+      "line": 430,
+      "symbol": "AWSConnectQueueStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 431,
+      "symbol": "AWSConnectQueueStatus.AWSConnectQueueStatusUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 432,
+      "symbol": "AWSConnectQueueStatus.AWSConnectQueueStatusEnabled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 433,
-      "symbol": "AWSConnectReferenceType.AWSConnectReferenceTypeUnknown",
+      "symbol": "AWSConnectQueueStatus.AWSConnectQueueStatusDisabled",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 434,
-      "symbol": "AWSConnectReferenceType.AWSConnectReferenceTypeUrl",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 437,
-      "symbol": "AWSConnectResourceType",
+      "line": 436,
+      "symbol": "AWSConnectQueueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 437,
-      "symbol": "AWSConnectResourceType",
+      "line": 436,
+      "symbol": "AWSConnectQueueType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 437,
+      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 438,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeUnknown",
+      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeStandard",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 439,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeContact",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 440,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeContactFlow",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 441,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeInstance",
+      "symbol": "AWSConnectQueueType.AWSConnectQueueTypeAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 442,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeParticipant",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectQuickConnectType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 442,
+      "symbol": "AWSConnectQuickConnectType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 443,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeHierarchyLevel",
+      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 444,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeHierarchyGroup",
+      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 445,
-      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeUser",
+      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypeQueue",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 448,
-      "symbol": "AWSConnectSourceType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 448,
-      "symbol": "AWSConnectSourceType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "line": 446,
+      "symbol": "AWSConnectQuickConnectType.AWSConnectQuickConnectTypePhoneNumber",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 449,
-      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectReferenceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 449,
+      "symbol": "AWSConnectReferenceType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 450,
-      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeSalesforce",
+      "symbol": "AWSConnectReferenceType.AWSConnectReferenceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 451,
-      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeZendesk",
+      "symbol": "AWSConnectReferenceType.AWSConnectReferenceTypeUrl",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 454,
-      "symbol": "AWSConnectStatistic",
+      "symbol": "AWSConnectResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 454,
-      "symbol": "AWSConnectStatistic",
+      "symbol": "AWSConnectResourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 455,
-      "symbol": "AWSConnectStatistic.AWSConnectStatisticUnknown",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 456,
-      "symbol": "AWSConnectStatistic.AWSConnectStatisticSum",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeContact",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 457,
-      "symbol": "AWSConnectStatistic.AWSConnectStatisticMax",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeContactFlow",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 458,
-      "symbol": "AWSConnectStatistic.AWSConnectStatisticAvg",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeInstance",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 459,
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeParticipant",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 460,
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeHierarchyLevel",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 461,
-      "symbol": "AWSConnectStorageType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 461,
-      "symbol": "AWSConnectStorageType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeHierarchyGroup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 462,
-      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 463,
-      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeS3",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 464,
-      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisVideoStream",
+      "symbol": "AWSConnectResourceType.AWSConnectResourceTypeUser",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 465,
-      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisStream",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 466,
-      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisFirehose",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 469,
-      "symbol": "AWSConnectUnit",
+      "symbol": "AWSConnectSourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 469,
-      "symbol": "AWSConnectUnit",
+      "line": 465,
+      "symbol": "AWSConnectSourceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 470,
-      "symbol": "AWSConnectUnit.AWSConnectUnitUnknown",
+      "line": 466,
+      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 467,
+      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeSalesforce",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 468,
+      "symbol": "AWSConnectSourceType.AWSConnectSourceTypeZendesk",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 471,
-      "symbol": "AWSConnectUnit.AWSConnectUnitSeconds",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSConnectStatistic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 471,
+      "symbol": "AWSConnectStatistic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 472,
-      "symbol": "AWSConnectUnit.AWSConnectUnitCount",
+      "symbol": "AWSConnectStatistic.AWSConnectStatisticUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 473,
-      "symbol": "AWSConnectUnit.AWSConnectUnitPercent",
+      "symbol": "AWSConnectStatistic.AWSConnectStatisticSum",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 476,
-      "symbol": "AWSConnectUseCaseType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "line": 474,
+      "symbol": "AWSConnectStatistic.AWSConnectStatisticMax",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 476,
-      "symbol": "AWSConnectUseCaseType",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 477,
-      "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeUnknown",
+      "line": 475,
+      "symbol": "AWSConnectStatistic.AWSConnectStatisticAvg",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 478,
-      "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeRulesEvaluation",
+      "symbol": "AWSConnectStorageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 478,
+      "symbol": "AWSConnectStorageType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 479,
+      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 480,
+      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeS3",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 481,
-      "symbol": "AWSConnectVoiceRecordingTrack",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 481,
-      "symbol": "AWSConnectVoiceRecordingTrack",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisVideoStream",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 482,
-      "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackUnknown",
+      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisStream",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
       "line": 483,
+      "symbol": "AWSConnectStorageType.AWSConnectStorageTypeKinesisFirehose",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 486,
+      "symbol": "AWSConnectUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 486,
+      "symbol": "AWSConnectUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 487,
+      "symbol": "AWSConnectUnit.AWSConnectUnitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 488,
+      "symbol": "AWSConnectUnit.AWSConnectUnitSeconds",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 489,
+      "symbol": "AWSConnectUnit.AWSConnectUnitCount",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 490,
+      "symbol": "AWSConnectUnit.AWSConnectUnitPercent",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 493,
+      "symbol": "AWSConnectUseCaseType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 493,
+      "symbol": "AWSConnectUseCaseType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 494,
+      "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 495,
+      "symbol": "AWSConnectUseCaseType.AWSConnectUseCaseTypeRulesEvaluation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 498,
+      "symbol": "AWSConnectVoiceRecordingTrack",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 498,
+      "symbol": "AWSConnectVoiceRecordingTrack",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 499,
+      "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
+      "line": 500,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackFromAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 484,
+      "line": 501,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackToAgent",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSConnect/AWSConnectModel.h",
-      "line": 485,
+      "line": 502,
       "symbol": "AWSConnectVoiceRecordingTrack.AWSConnectVoiceRecordingTrackAll",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
