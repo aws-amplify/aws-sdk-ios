@@ -17,7 +17,7 @@
     <a title="AWSKMS Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.22.0 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.22.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -4802,7 +4802,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets a list of all grants for the specified customer master key (CMK).</p><note><p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might represent several different grantee principals.</p></note><p><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.</p><p><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a> (key policy)</p><p><b>Related operations:</b></p><ul><li><p><a>CreateGrant</a></p></li><li><p><a>ListRetirableGrants</a></p></li><li><p><a>RetireGrant</a></p></li><li><p><a>RevokeGrant</a></p></li></ul></p>
+                        <p><p>Gets a list of all grants for the specified customer master key (CMK). </p><p>You must specify the CMK in all requests. You can filter the grant list by grant ID or grantee principal.</p><note><p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might represent several different grantee principals.</p></note><p><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.</p><p><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a> (key policy)</p><p><b>Related operations:</b></p><ul><li><p><a>CreateGrant</a></p></li><li><p><a>ListRetirableGrants</a></p></li><li><p><a>RetireGrant</a></p></li><li><p><a>RevokeGrant</a></p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKMSListGrantsRequest</p>
@@ -4848,7 +4848,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSKMSListGrantsResponse.html">AWSKMSListGrantsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a></code> domain and the following error code: <code>AWSKMSErrorNotFound</code>, <code>AWSKMSErrorDependencyTimeout</code>, <code>AWSKMSErrorInvalidMarker</code>, <code>AWSKMSErrorInvalidArn</code>, <code>AWSKMSErrorKMSInternal</code>, <code>AWSKMSErrorKMSInvalidState</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSKMSListGrantsResponse.html">AWSKMSListGrantsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a></code> domain and the following error code: <code>AWSKMSErrorNotFound</code>, <code>AWSKMSErrorDependencyTimeout</code>, <code>AWSKMSErrorInvalidMarker</code>, <code>AWSKMSErrorInvalidGrantId</code>, <code>AWSKMSErrorInvalidArn</code>, <code>AWSKMSErrorKMSInternal</code>, <code>AWSKMSErrorKMSInvalidState</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -4866,7 +4866,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets a list of all grants for the specified customer master key (CMK).</p><note><p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might represent several different grantee principals.</p></note><p><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.</p><p><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a> (key policy)</p><p><b>Related operations:</b></p><ul><li><p><a>CreateGrant</a></p></li><li><p><a>ListRetirableGrants</a></p></li><li><p><a>RetireGrant</a></p></li><li><p><a>RevokeGrant</a></p></li></ul></p>
+                        <p><p>Gets a list of all grants for the specified customer master key (CMK). </p><p>You must specify the CMK in all requests. You can filter the grant list by grant ID or grantee principal.</p><note><p>The <code>GranteePrincipal</code> field in the <code>ListGrants</code> response usually contains the user or role designated as the grantee principal in the grant. However, when the grantee principal in the grant is an AWS service, the <code>GranteePrincipal</code> field contains the <a href="https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_principal.html#principal-services">service principal</a>, which might represent several different grantee principals.</p></note><p><b>Cross-account use</b>: Yes. To perform this operation on a CMK in a different AWS account, specify the key ARN in the value of the <code>KeyId</code> parameter.</p><p><b>Required permissions</b>: <a href="https://docs.aws.amazon.com/kms/latest/developerguide/kms-api-permissions-reference.html">kms:ListGrants</a> (key policy)</p><p><b>Related operations:</b></p><ul><li><p><a>CreateGrant</a></p></li><li><p><a>ListRetirableGrants</a></p></li><li><p><a>RetireGrant</a></p></li><li><p><a>RevokeGrant</a></p></li></ul></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSKMSListGrantsRequest</p>
@@ -4919,7 +4919,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a></code> domain and the following error code: <code>AWSKMSErrorNotFound</code>, <code>AWSKMSErrorDependencyTimeout</code>, <code>AWSKMSErrorInvalidMarker</code>, <code>AWSKMSErrorInvalidArn</code>, <code>AWSKMSErrorKMSInternal</code>, <code>AWSKMSErrorKMSInvalidState</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSKMSErrorDomain">AWSKMSErrorDomain</a></code> domain and the following error code: <code>AWSKMSErrorNotFound</code>, <code>AWSKMSErrorDependencyTimeout</code>, <code>AWSKMSErrorInvalidMarker</code>, <code>AWSKMSErrorInvalidGrantId</code>, <code>AWSKMSErrorInvalidArn</code>, <code>AWSKMSErrorKMSInternal</code>, <code>AWSKMSErrorKMSInvalidState</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -7112,7 +7112,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-01-07)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-02-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
