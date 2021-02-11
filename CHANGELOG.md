@@ -9,7 +9,6 @@
 - **Cognito**
   - fix(Cognito): Use given vc for signout via SafariViewController. Thanks @kateinoigakukun! (See [PR #3402](https://github.com/aws-amplify/aws-sdk-ios/pull/3402))
 
-
 ### Misc. Updates
 
 - Model updates for the following services
