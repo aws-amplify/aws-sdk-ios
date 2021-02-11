@@ -4,6 +4,10 @@
 
 -Features for next release
 
+## 2.22.3
+
+-Features for next release
+
 ### Bug fixes
 
 - **Cognito**
