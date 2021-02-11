@@ -516,7 +516,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 
 - (void) signOut: (UIViewController *) vc completion: (AWSCognitoAuthSignOutBlock) completion {
     self.presentationAnchor = nil;
-    [self enqueueSignOut:nil completion:completion];
+    [self enqueueSignOut:vc completion:completion];
 }
 
 - (void) signOutWithWebUI:(ASPresentationAnchor) anchor completion:(AWSCognitoAuthSignOutBlock) completion {
