@@ -16,7 +16,7 @@
     <a title="AWSMachineLearning  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSMachineLearning 2.22.0 Docs</a> (81% documented)</p>
+        <p><a href="index.html">AWSMachineLearning 2.22.3 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -380,6 +380,16 @@
 </ul>
 
 <p>You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.</p>
+
+<blockquote>
+<p>Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), the module <code>AWSMobileClient</code> is named as <code>AWSMobileClientXCF</code> to work around a <a href="https://bugs.swift.org/browse/SR-11704">Swift issue</a>. To use <code>AWSMobileClient</code>, import it as:</p>
+</blockquote>
+<pre class="highlight plaintext"><code>    import AWSMobileClientXCF
+</code></pre>
+
+<p>and use it your app code without the <code>XCF</code> suffix.</p>
+<pre class="highlight plaintext"><code>    AWSMobileClient.default.initialize() 
+</code></pre>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <ol>
@@ -419,6 +429,30 @@ clang: error: linker command failed with exit code 1 (use -v to see invocation)
 </code></pre></li>
 </ol>
 <h3 id='carthage' class='heading'>Carthage</h3>
+<h4 id='xcframeworks-recommended' class='heading'>XCFrameworks (recommended)</h4>
+
+<p>Carthage supports XCFrameworks in Xcode 12 or above. Follow the steps below to consume the AWS SDK for iOS using XCFrameworks:</p>
+
+<ol>
+<li><p>Install Carthage 0.37.0 or greater.</p></li>
+<li><p>Add the following to your <code>Cartfile</code>:</p>
+<pre class="highlight plaintext"><code>github "aws-amplify/aws-sdk-ios"
+</code></pre></li>
+<li><p>Then run the following command:</p>
+<pre class="highlight plaintext"><code>$ carthage update --use-xcframeworks --no-use-binaries
+</code></pre></li>
+</ol>
+
+<blockquote>
+<p>As of Carthage 0.37.0, prebuilt binaries using XCFrameworks are not supported, as mentioned in the Carthage release notes - <a href="https://github.com/Carthage/Carthage/releases/tag/0.37.0">https://github.com/Carthage/Carthage/releases/tag/0.37.0</a></p>
+</blockquote>
+
+<ol>
+<li>On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the Carthage/Build folder on disk.</li>
+</ol>
+<h4 id='frameworks-with-quot-fat-libraries-quot-not-recommended' class='heading'>Frameworks with &ldquo;fat libraries&rdquo; (not recommended)</h4>
+
+<p>To build platform-specific framework bundles with multiple architectures in the binary, (Xcode 11 and below)</p>
 
 <ol>
 <li><p>Install the latest version of <a href="https://github.com/Carthage/Carthage#installing-carthage">Carthage</a>.</p></li>
@@ -457,9 +491,27 @@ Output Files: Empty
 <p>Note: Currently, the AWS SDK for iOS builds the Carthage binaries using the latest released version of Xcode. To consume the pre-built binaries your Xcode version needs to be the same, else you have to build the frameworks on your machine by passing <code>--no-use-binaries</code> flag to <code>carthage update</code> command.</p>
 </blockquote>
 <h3 id='frameworks' class='heading'>Frameworks</h3>
+<h4 id='xcframework-setup' class='heading'>XCFramework setup</h4>
+
+<p>Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. Follow the steps below to install XCFramework.</p>
 
 <ol>
-<li><p>Download the <a href="https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.10.2, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip</a>.</p></li>
+<li><p>Download the <a href="https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.22.1, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip</a>.</p>
+
+<blockquote>
+<p>Note: If you are using version &lt; 2.22.1 please refer to the &ldquo;Legacy framework setup&rdquo; section below.</p>
+</blockquote></li>
+<li><p>Uncompress the ZIP file</p></li>
+<li><p>On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.</p></li>
+</ol>
+<h4 id='legacy-framework-setup' class='heading'>Legacy framework setup</h4>
+
+<ol>
+<li><p>Download the required SDK using <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.10.2, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.10.2.zip</a>.</p>
+
+<blockquote>
+<p>Note: If you are using version &gt; 2.22.0 please refer to the &ldquo;XCFramework setup&rdquo; section above. </p>
+</blockquote></li>
 <li><p>With your project open in Xcode, select your <strong>Target</strong>. Under <strong>General</strong> tab, find <strong>Embedded Binaries</strong> and then click the <strong>+</strong> button.</p></li>
 <li><p>Click the <strong>Add Other&hellip;</strong> button, navigate to the <code>AWS&lt;#ServiceName#&gt;.framework</code> files and select them. Check the <strong>Destination: Copy items if needed</strong> checkbox when prompted.  Add the frameworks that you need for you specific use case.  For example, if you are using AWSMobileClient and AWSPinpoint, you will want to add the following frameworks:</p></li>
 </ol>
@@ -508,18 +560,8 @@ Output Files: Empty
 <h3 id='frameworks' class='heading'>Frameworks</h3>
 
 <ol>
-<li>In Xcode&rsquo;s <strong>Project Navigator</strong>, type &ldquo;AWS&rdquo; to find the AWS frameworks that were manually added to your project.  Manually select all of the AWS frameworks and hit <strong>delete</strong> on your keyboard. Then select <strong>Move to Trash</strong>.  If you were following the example from above which uses AWSMobileClient and AWSPinpoint, you would remove:</li>
-</ol>
-<pre class="highlight plaintext"><code>* `AWSAuthCore.framework`
-* `AWSCognitoIdentityProvider.framework`
-* `AWSCognitoIdentityProviderASF.framework`
-* `AWSCore.framework`
-* `AWSMobileClient.framework`
-* `AWSPinpoint.framework`
-</code></pre>
-
-<ol>
-<li>Follow the installation process above to include the new version of the SDK.</li>
+<li><p>In Xcode&rsquo;s <strong>Project Navigator</strong>, type &ldquo;AWS&rdquo; to find the AWS Frameworks or XCFrameworks that you manually added to your project. Select all of the AWS Frameworks and hit <strong>Delete</strong> on your keyboard. Then select <strong>Move to Trash</strong>. </p></li>
+<li><p>Follow the installation process above to include the new version of the SDK.</p></li>
 </ol>
 <h2 id='getting-started-with-swift' class='heading'>Getting Started with Swift</h2>
 
@@ -681,7 +723,7 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-01-07)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-02-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
