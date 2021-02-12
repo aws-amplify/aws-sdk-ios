@@ -4,6 +4,11 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSElasticLoadBalancing
+
 ## 2.22.3
 
 ### Bug fixes
