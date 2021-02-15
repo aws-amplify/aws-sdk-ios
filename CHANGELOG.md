@@ -7,7 +7,7 @@
 ### Misc. Updates
 
 - **AWSAuthSDK**
-   - Upgrade Facebook SDK to 9.0.0 ([PR #xx](https://github.com/aws-amplify/aws-sdk-ios/pull/xxx))
+   - Upgrade Facebook SDK to 9.0.0 ([PR #3433](https://github.com/aws-amplify/aws-sdk-ios/pull/3433))
 
 - Model updates for the following services
   - AWSElasticLoadBalancing
