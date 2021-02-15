@@ -1182,6 +1182,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"body" : @"Body",
              @"messageType" : @"MessageType",
+             @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
              };
 }
@@ -5952,6 +5953,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageType" : @"MessageType",
+             @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
              };
 }
