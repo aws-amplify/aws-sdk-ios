@@ -7,7 +7,7 @@
 ### Breaking Changes
 
 - **AWSAuthSDK**
-   - Upgrade Facebook SDK to 9.0.0 ([PR #3433](https://github.com/aws-amplify/aws-sdk-ios/pull/3433)). Facebook SDK has removed automatic initialization of the SDK in v9.0.0. Follow the steps provided [here](https://developers.facebook.com/docs/ios/getting-started/#step-3--connect-the-app-delegate) to initialize the SDK during app setup.
+   - Upgrade Facebook SDK to 9.0.0 ([PR #3433](https://github.com/aws-amplify/aws-sdk-ios/pull/3433)). Facebook SDK has removed automatic initialization of the SDK in v9.0.0. Follow the steps provided [here](https://developers.facebook.com/docs/ios/getting-started/#step-3--connect-the-app-delegate) to initialize the Facebook SDK during app setup.
    Support for `limited` signin configuration will be added in a later release.
 
 ### Misc. Updates
