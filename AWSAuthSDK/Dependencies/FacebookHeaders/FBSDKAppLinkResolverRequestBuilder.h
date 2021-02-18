@@ -22,29 +22,26 @@
 
 #import <Foundation/Foundation.h>
 
+#import "FBSDKAppLinkResolving.h"
+#import "FBSDKGraphRequest.h"
 NS_ASSUME_NONNULL_BEGIN
 
 /**
- Represent a referral code used in the referral process
-*/
-NS_SWIFT_NAME(ReferralCode)
-@interface FBSDKReferralCode : NSObject
-
-- (instancetype)init NS_UNAVAILABLE;
-+ (instancetype)new NS_UNAVAILABLE;
+ Class responsible for generating the appropriate FBSDKGraphRequest for a given set of urls
+ */
+NS_SWIFT_NAME(AppLinkResolverRequestBuilder)
+@interface FBSDKAppLinkResolverRequestBuilder : NSObject
 
 /**
- The string value of the referral code
-*/
-@property NSString *value;
+ Generates the FBSDKGraphRequest
 
-/**
- Initializes a new instance if the referral code is valid. Otherwise returns nil.
- A code is valid if it is non-empty and contains only alphanumeric characters.
- @param string the raw string referral code
-*/
-+ (nullable instancetype)initWithString:(NSString *)string;
+ @param urls The URLs to build the requests for
+ */
+- (FBSDKGraphRequest* _Nonnull)requestForURLs:(NSArray<NSURL *> * _Nonnull)urls
+NS_EXTENSION_UNAVAILABLE_IOS("Not available in app extension");
 
+- (NSString* _Nullable)getIdiomSpecificField
+NS_EXTENSION_UNAVAILABLE_IOS("Not available in app extension");
 @end
 
 NS_ASSUME_NONNULL_END

@@ -171,6 +171,9 @@
 		B41F67E9233D56CB0060FDEE /* AWSAuthUI.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = B5345D0F1F366AFA009C1041 /* AWSAuthUI.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		B41F67EA233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; };
 		B41F67EB233D5ABE0060FDEE /* AWSUserPoolsSignIn.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 1750D0071F2D4DFA006D915E /* AWSUserPoolsSignIn.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		B433F93125D4656000ACA795 /* FBSDKAppLinkResolverRequestBuilder.h in Headers */ = {isa = PBXBuildFile; fileRef = B433F8C025D4656000ACA795 /* FBSDKAppLinkResolverRequestBuilder.h */; };
+		B433F93225D4656000ACA795 /* FBSDKAuthenticationToken.h in Headers */ = {isa = PBXBuildFile; fileRef = B433F92F25D4656000ACA795 /* FBSDKAuthenticationToken.h */; };
+		B433F93325D4656000ACA795 /* FBSDKLoginConfiguration.h in Headers */ = {isa = PBXBuildFile; fileRef = B433F93025D4656000ACA795 /* FBSDKLoginConfiguration.h */; };
 		B4682160233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */; };
 		B4682161233D19DF00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h in Headers */ = {isa = PBXBuildFile; fileRef = B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */; };
 		B49C891724B387C3009739FC /* AWSAppleSignIn.h in Headers */ = {isa = PBXBuildFile; fileRef = B49C891124B387C3009739FC /* AWSAppleSignIn.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -1337,6 +1340,9 @@
 		B412F65E23350A5000F1AC69 /* AWSCognitoIdentityUserPool+Extension.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSCognitoIdentityUserPool+Extension.h"; sourceTree = "<group>"; };
 		B41F676E233D523B0060FDEE /* DropInUIUserPoolViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropInUIUserPoolViewController.swift; sourceTree = "<group>"; };
 		B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSDropInUIUserPoolTests.swift; sourceTree = "<group>"; };
+		B433F8C025D4656000ACA795 /* FBSDKAppLinkResolverRequestBuilder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAppLinkResolverRequestBuilder.h; sourceTree = "<group>"; };
+		B433F92F25D4656000ACA795 /* FBSDKAuthenticationToken.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKAuthenticationToken.h; sourceTree = "<group>"; };
+		B433F93025D4656000ACA795 /* FBSDKLoginConfiguration.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKLoginConfiguration.h; sourceTree = "<group>"; };
 		B46820F6233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSUserPoolNewPasswordRequiredViewController.m; sourceTree = "<group>"; };
 		B468215F233D19DE00CB404D /* AWSUserPoolNewPasswordRequiredViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSUserPoolNewPasswordRequiredViewController.h; sourceTree = "<group>"; };
 		B49C889E24B38746009739FC /* AWSAppleSignIn.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = AWSAppleSignIn.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1741,11 +1747,13 @@
 				D8FAC274251D1B98005F9FC6 /* FBSDKAppLink.h */,
 				D8FAC276251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h */,
 				17B5A0E91F31A6B000857676 /* FBSDKAppLinkResolver.h */,
+				B433F8C025D4656000ACA795 /* FBSDKAppLinkResolverRequestBuilder.h */,
 				D8FAC278251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h */,
 				D8FAC27B251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererController.h */,
 				D8FAC27C251D1C0F005F9FC6 /* FBSDKAppLinkReturnToRefererView.h */,
 				D8FAC27A251D1C0F005F9FC6 /* FBSDKAppLinkTarget.h */,
 				17B5A0EA1F31A6B000857676 /* FBSDKAppLinkUtility.h */,
+				B433F92F25D4656000ACA795 /* FBSDKAuthenticationToken.h */,
 				17B5A0EB1F31A6B000857676 /* FBSDKButton.h */,
 				17B5A0EC1F31A6B000857676 /* FBSDKConstants.h */,
 				17B5A0ED1F31A6B000857676 /* FBSDKCopying.h */,
@@ -1761,6 +1769,7 @@
 				17B5A0F11F31A6B000857676 /* FBSDKGraphRequestConnection.h */,
 				17B5A0F21F31A6B000857676 /* FBSDKGraphRequestDataAttachment.h */,
 				17B5A0F31F31A6B000857676 /* FBSDKLoginButton.h */,
+				B433F93025D4656000ACA795 /* FBSDKLoginConfiguration.h */,
 				17B5A0F41F31A6B000857676 /* FBSDKLoginConstants.h */,
 				17B5A0F51F31A6B000857676 /* FBSDKLoginKit.h */,
 				17B5A0F61F31A6B000857676 /* FBSDKLoginManager.h */,
@@ -2084,6 +2093,7 @@
 				176375551F328D310086588B /* FBSDKLoginButton.h in Headers */,
 				D8FAC273251D1A87005F9FC6 /* FBSDKCoreKitImport.h in Headers */,
 				D8FAC277251D1BBB005F9FC6 /* FBSDKAppLinkNavigation.h in Headers */,
+				B433F93125D4656000ACA795 /* FBSDKAppLinkResolverRequestBuilder.h in Headers */,
 				D8FAC279251D1BF2005F9FC6 /* FBSDKAppLinkResolving.h in Headers */,
 				176375611F328D310086588B /* FBSDKTooltipView.h in Headers */,
 				1763755F1F328D310086588B /* FBSDKSettings.h in Headers */,
@@ -2106,6 +2116,7 @@
 				D8FAC287251D1D39005F9FC6 /* FBSDKDeviceLoginManager.h in Headers */,
 				176375491F328D310086588B /* FBSDKAppEvents.h in Headers */,
 				D8FAC289251D1D3D005F9FC6 /* FBSDKDeviceLoginManagerResult.h in Headers */,
+				B433F93325D4656000ACA795 /* FBSDKLoginConfiguration.h in Headers */,
 				1763754F1F328D310086588B /* FBSDKCopying.h in Headers */,
 				1763755C1F328D310086588B /* FBSDKMutableCopying.h in Headers */,
 				D8FAC28F251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h in Headers */,
@@ -2124,6 +2135,7 @@
 				1763754C1F328D310086588B /* FBSDKAppLinkUtility.h in Headers */,
 				D8FAC275251D1B98005F9FC6 /* FBSDKAppLink.h in Headers */,
 				176375481F328D310086588B /* FBSDKAccessToken.h in Headers */,
+				B433F93225D4656000ACA795 /* FBSDKAuthenticationToken.h in Headers */,
 				D81624582530FEDC00816418 /* FBSDKReferralCode.h in Headers */,
 				176375511F328D310086588B /* FBSDKGraphErrorRecoveryProcessor.h in Headers */,
 			);
