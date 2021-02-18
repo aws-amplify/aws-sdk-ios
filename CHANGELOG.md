@@ -14,6 +14,7 @@
 
 - Model updates for the following services
   - AWSElasticLoadBalancing
+  - AWSPinpointTargeting
   - AWSEC2
 
 ## 2.22.3
