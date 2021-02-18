@@ -86,13 +86,6 @@ NS_SWIFT_NAME(Settings)
 NS_SWIFT_NAME(jpegCompressionQuality);
 
 /**
- Controls sdk auto initailization.
- If not explicitly set, the default is true
- */
-@property (class, nonatomic, assign, getter=isAutoInitEnabled) BOOL autoInitEnabled
-DEPRECATED_MSG_ATTRIBUTE("Auto-initialization will be removed in the next major version release.");
-
-/**
  Controls the auto logging of basic app events, such as activateApp and deactivateApp.
  If not explicitly set, the default is true
  */
@@ -109,6 +102,12 @@ DEPRECATED_MSG_ATTRIBUTE("Auto-initialization will be removed in the next major 
  If not explicitly set, the default is true
  */
 @property (class, nonatomic, assign, getter=isAdvertiserIDCollectionEnabled) BOOL advertiserIDCollectionEnabled;
+
+/**
+ Controls the SKAdNetwork report
+ If not explicitly set, the default is true
+ */
+@property (class, nonatomic, assign, getter=isSKAdNetworkReportEnabled) BOOL SKAdNetworkReportEnabled;
 
 /**
  Whether data such as that generated through FBSDKAppEvents and sent to Facebook

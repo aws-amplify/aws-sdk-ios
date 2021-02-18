@@ -23,5 +23,4 @@
 
 // Even though this file is not available from projects using SPM,
 // it is available when building the packages themselves so we need to include this check.
-
 #import <FBSDKCoreKit.h>
