@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSPinpointTargeting
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -16,6 +8,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
   - AWSElasticLoadBalancing
+  - AWSPinpointTargeting
 
 ## 2.22.3
 
