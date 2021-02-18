@@ -4,6 +4,8 @@
 
 -Features for next release
 
+## 2.23.0
+
 ### Breaking Changes
 
 - **AWSAuthSDK**
