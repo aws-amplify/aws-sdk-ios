@@ -115,6 +115,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly) NSString *pinpointAppId;
 @property (nonatomic, readonly) BOOL shouldProvideCognitoValidationData;
 @property (nonatomic, readonly) BOOL migrationEnabled;
+@property (nonatomic, readonly, nullable) NSString *endpoint;
 
 - (instancetype)initWithClientId:(NSString *)clientId
                     clientSecret:(nullable NSString *)clientSecret
