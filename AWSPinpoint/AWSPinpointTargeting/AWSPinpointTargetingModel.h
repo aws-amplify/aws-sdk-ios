@@ -2285,6 +2285,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable body;
 
 /**
+ <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable entityId;
+
+/**
  <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;
@@ -2298,6 +2303,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The sender ID to display on recipients' devices when they receive the SMS message.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable senderId;
+
+/**
+ <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateId;
 
 @end
 
@@ -6998,6 +7008,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 
 
 /**
+ <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable entityId;
+
+/**
  <p>The SMS message type. Valid values are TRANSACTIONAL (for messages that are critical or time-sensitive, such as a one-time passwords) and PROMOTIONAL (for messsages that aren't critical or time-sensitive, such as marketing messages).</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingMessageType messageType;
@@ -7011,6 +7026,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The sender ID to display as the sender of the message on a recipient's device. Support for sender IDs varies by country or region. For more information, see <a href="https://docs.aws.amazon.com/pinpoint/latest/userguide/channels-sms-countries.html">Supported Countries and Regions</a> in the Amazon Pinpoint User Guide.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable senderId;
+
+/**
+ <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateId;
 
 @end
 
@@ -8283,6 +8303,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable body;
 
 /**
+ <p>The entity ID or Principal Entity (PE) id received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable entityId;
+
+/**
  <p>The SMS program name that you provided to AWS Support when you requested your dedicated number.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyword;
@@ -8311,6 +8336,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The message variables to use in the SMS message. You can override the default variables with individual address variables.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<NSString *> *> * _Nullable substitutions;
+
+/**
+ <p>The template ID received from the regulatory body for sending SMS in your country.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable templateId;
 
 @end
 
