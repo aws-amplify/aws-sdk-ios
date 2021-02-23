@@ -245,6 +245,7 @@
 		D8FAC28B251D1D78005F9FC6 /* FBSDKMeasurementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */; };
 		D8FAC28D251D1D8F005F9FC6 /* FBSDKURL.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */; };
 		D8FAC28F251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */; };
+		FA2545BD25E5C423006D77ED /* AWSMobileClientProxyTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA25453125E5C1D1006D77ED /* AWSMobileClientProxyTests.swift */; };
 		FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		FA5B0F11246A475500B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
 		FA5B0F12246A477D00B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
@@ -1412,6 +1413,7 @@
 		D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKMeasurementEvent.h; sourceTree = "<group>"; };
 		D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKURL.h; sourceTree = "<group>"; };
 		D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKWebViewAppLinkResolver.h; sourceTree = "<group>"; };
+		FA25453125E5C1D1006D77ED /* AWSMobileClientProxyTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientProxyTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1809,14 +1811,14 @@
 			isa = PBXGroup;
 			children = (
 				17CD4AA8218241AD00953483 /* Info.plist */,
-				B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */,
 				B4C8E4A92307447F0064C158 /* AWSMobileClientCredentialsTest.swift */,
 				B4C8E4A32307415C0064C158 /* AWSMobileClientDeviceTests.swift */,
 				B4C8E4A7230743780064C158 /* AWSMobileClientPasswordTests.swift */,
+				B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */,
 				B4C8E4A1230740200064C158 /* AWSMobileClientSignoutTests.swift */,
+				B4C8E49F23073D7B0064C158 /* AWSMobileClientTestBase.swift */,
 				17CD4AA6218241AD00953483 /* AWSMobileClientTests.swift */,
 				B4C8E4A5230742200064C158 /* AWSMobileClientUserAttributeTests.swift */,
-				B4031BE523105727009EB524 /* AWSMobileClientSignInTests.swift */,
 			);
 			path = AWSMobileClientTests;
 			sourceTree = "<group>";
@@ -1851,6 +1853,7 @@
 		B412F5EE2334783D00F1AC69 /* AWSMobileClientCustomAuthTests */ = {
 			isa = PBXGroup;
 			children = (
+				FA25453125E5C1D1006D77ED /* AWSMobileClientProxyTests.swift */,
 				B412F5EF2334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift */,
 				B412F5F02334783D00F1AC69 /* Info.plist */,
 			);
@@ -3602,6 +3605,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2545BD25E5C423006D77ED /* AWSMobileClientProxyTests.swift in Sources */,
 				B412F5EB2334468600F1AC69 /* AWSMobileClientTestBase.swift in Sources */,
 				B412F5F12334783D00F1AC69 /* AWSMobileClientCustomAuthTests.swift in Sources */,
 			);
