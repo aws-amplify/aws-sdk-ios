@@ -4,6 +4,14 @@
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+   - AWSPinpointTargeting
+   - AWSAutoScaling
+   - AWSConnect
+   - AWSSageMakerRuntime
+
 ## 2.23.0
 
 ### Breaking Changes
