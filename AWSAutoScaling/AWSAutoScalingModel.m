@@ -46,7 +46,9 @@ NSString *const AWSAutoScalingErrorDomain = @"com.amazonaws.AWSAutoScalingErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activityId" : @"ActivityId",
+             @"autoScalingGroupARN" : @"AutoScalingGroupARN",
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"autoScalingGroupState" : @"AutoScalingGroupState",
              @"cause" : @"Cause",
              @"detail" : @"Description",
              @"details" : @"Details",
@@ -1130,6 +1132,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"activityIds" : @"ActivityIds",
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"includeDeletedGroups" : @"IncludeDeletedGroups",
              @"maxRecords" : @"MaxRecords",
              @"nextToken" : @"NextToken",
              };

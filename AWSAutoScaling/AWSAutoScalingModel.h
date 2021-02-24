@@ -269,9 +269,19 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
 @property (nonatomic, strong) NSString * _Nullable activityId;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the Auto Scaling group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupARN;
+
+/**
  <p>The name of the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>The state of the Auto Scaling group, which is either <code>InService</code> or <code>Deleted</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupState;
 
 /**
  <p>The reason the activity began.</p>
@@ -1589,6 +1599,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingScalingActivityStatusCode) {
  <p>The name of the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>Indicates whether to include scaling activity from deleted Auto Scaling groups.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeDeletedGroups;
 
 /**
  <p>The maximum number of items to return with this call. The default value is <code>100</code> and the maximum value is <code>100</code>.</p>
