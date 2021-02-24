@@ -1181,9 +1181,11 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
+             @"entityId" : @"EntityId",
              @"messageType" : @"MessageType",
              @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
+             @"templateId" : @"TemplateId",
              };
 }
 
@@ -5952,9 +5954,11 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"entityId" : @"EntityId",
              @"messageType" : @"MessageType",
              @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
+             @"templateId" : @"TemplateId",
              };
 }
 
@@ -7238,12 +7242,14 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
+             @"entityId" : @"EntityId",
              @"keyword" : @"Keyword",
              @"mediaUrl" : @"MediaUrl",
              @"messageType" : @"MessageType",
              @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
              @"substitutions" : @"Substitutions",
+             @"templateId" : @"TemplateId",
              };
 }
 
