@@ -2027,7 +2027,7 @@
     },\
     \"Concurrency\":{\
       \"type\":\"integer\",\
-      \"max\":5,\
+      \"max\":10,\
       \"min\":1\
     },\
     \"ContactFlow\":{\
