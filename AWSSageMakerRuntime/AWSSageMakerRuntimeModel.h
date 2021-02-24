@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -67,6 +67,11 @@ typedef NS_ENUM(NSInteger, AWSSageMakerRuntimeErrorType) {
  <p>If you provide a value, it is added to the captured data when you enable data capture on the endpoint. For information about data capture, see <a href="https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html">Capture Data</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable inferenceId;
+
+/**
+ <p>If the endpoint hosts multiple containers and is configured to use direct invocation, this parameter specifies the host name of the container to invoke.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable targetContainerHostname;
 
 /**
  <p>The model to request for inference when invoking a multi-model endpoint.</p>

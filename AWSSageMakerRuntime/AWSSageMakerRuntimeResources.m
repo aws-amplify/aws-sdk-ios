@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -173,6 +173,12 @@
           \"location\":\"header\",\
           \"locationName\":\"X-Amzn-SageMaker-Target-Variant\"\
         },\
+        \"TargetContainerHostname\":{\
+          \"shape\":\"TargetContainerHostnameHeader\",\
+          \"documentation\":\"<p>If the endpoint hosts multiple containers and is configured to use direct invocation, this parameter specifies the host name of the container to invoke.</p>\",\
+          \"location\":\"header\",\
+          \"locationName\":\"X-Amzn-SageMaker-Target-Container-Hostname\"\
+        },\
         \"InferenceId\":{\
           \"shape\":\"InferenceId\",\
           \"documentation\":\"<p>If you provide a value, it is added to the captured data when you enable data capture on the endpoint. For information about data capture, see <a href=\\\"https://docs.aws.amazon.com/sagemaker/latest/dg/model-monitor-data-capture.html\\\">Capture Data</a>.</p>\",\
@@ -249,6 +255,11 @@
       \"synthetic\":true\
     },\
     \"StatusCode\":{\"type\":\"integer\"},\
+    \"TargetContainerHostnameHeader\":{\
+      \"type\":\"string\",\
+      \"max\":63,\
+      \"pattern\":\"^[a-zA-Z0-9](-*[a-zA-Z0-9])*\"\
+    },\
     \"TargetModelHeader\":{\
       \"type\":\"string\",\
       \"max\":1024,\
