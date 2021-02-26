@@ -26,7 +26,7 @@
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 - (void)setUp {
@@ -93,6 +93,7 @@
     
     [[[sns getEndpointAttributes:input] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidParameters Error but got nil");
+        XCTAssertEqualObjects(task.error.domain, AWSSNSErrorDomain);
         XCTAssertEqual(task.error.code, AWSSNSErrorInvalidParameter);
         XCTAssertTrue([@"InvalidParameter" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"Invalid parameter: EndpointArn Reason: An ARN must have at least 6 elements, not 1" isEqualToString:task.error.userInfo[@"Message"]]);
@@ -100,40 +101,4 @@
     }] waitUntilFinished];
 }
 
-
-//- (void)testCreatePlatformEndpointWithAttributes {
-//    AWSSNS *sns = [AWSSNS defaultSNS];
-//    XCTAssertNotNil(sns);
-//    
-//    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-//                                                                          ofType:@"json"];
-//    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-//                                                                    options:NSJSONReadingMutableContainers
-//                                                                      error:nil];
-//    NSString *platformApplicationArn = credentialsJson[@"snsTestAppArn"];
-//    
-//    if ([platformApplicationArn length] > 0) {
-//        
-//        AWSSNSCreatePlatformEndpointInput *createEndpointInput = [AWSSNSCreatePlatformEndpointInput new];
-//        createEndpointInput.platformApplicationArn = platformApplicationArn;
-//        createEndpointInput.token = @"0123456789";
-//        createEndpointInput.attributes  = @{@"Enabled":@"true"};
-//        
-//        [[[sns createPlatformEndpoint:createEndpointInput] continueWithBlock:^id(AWSTask *task) {
-//            if (task.error) {
-//                XCTFail(@"Error: [%@]", task.error);
-//            }
-//            
-//            if (task.result) {
-//                XCTAssertTrue([task.result isKindOfClass:[AWSSNSCreateEndpointResponse class]]);
-//                AWSSNSCreateEndpointResponse *response = task.result;
-//                XCTAssertNotNil(response.endpointArn, @"response endpointArn should not be nil!");
-//            }
-//            
-//            return nil;
-//        }] waitUntilFinished];
-//    } else {
-//        NSLog(@"Warning: can not get snsTestAppArn from credentials.json, you may need to update your credentials file");
-//    }
-//}
 @end

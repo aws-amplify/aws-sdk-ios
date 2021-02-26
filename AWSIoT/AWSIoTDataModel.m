@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,8 +20,13 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataDeleteThingShadowRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }
@@ -29,6 +34,10 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataDeleteThingShadowResponse
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -40,8 +49,13 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataGetThingShadowRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }
@@ -49,6 +63,10 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataGetThingShadowResponse
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -58,7 +76,43 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @end
 
+@implementation AWSIoTDataListNamedShadowsForThingRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"pageSize" : @"pageSize",
+             @"thingName" : @"thingName",
+             };
+}
+
+@end
+
+@implementation AWSIoTDataListNamedShadowsForThingResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"results" : @"results",
+             @"timestamp" : @"timestamp",
+             };
+}
+
+@end
+
 @implementation AWSIoTDataPublishRequest
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -72,9 +126,14 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 
 @implementation AWSIoTDataUpdateThingShadowRequest
 
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"payload" : @"payload",
+             @"shadowName" : @"shadowName",
              @"thingName" : @"thingName",
              };
 }
@@ -82,6 +141,10 @@ NSString *const AWSIoTDataErrorDomain = @"com.amazonaws.AWSIoTDataErrorDomain";
 @end
 
 @implementation AWSIoTDataUpdateThingShadowResponse
+
++ (BOOL)supportsSecureCoding {
+    return NO;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

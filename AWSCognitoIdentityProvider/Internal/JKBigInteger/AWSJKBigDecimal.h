@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "AWSJKBigInteger.h"
 
-@interface AWSJKBigDecimal : NSObject <NSCoding>
+@interface AWSJKBigDecimal : NSObject <NSSecureCoding>
 
 @property(nonatomic, retain)AWSJKBigInteger *bigInteger;
 @property(nonatomic, assign)NSUInteger figure;//小数位数

@@ -15,7 +15,11 @@
 
 #import "_AWSMobileClient.h"
 #import <AWSCognitoIdentityProvider/AWSCognitoIdentityProvider.h>
-#import <AWSMobileClient/AWSMobileClient-Swift.h>
+#ifdef USE_XCF
+    #import "AWSMobileClientXCF-Mixed-Swift.h"
+#else
+    #import "AWSMobileClient-Mixed-Swift.h"
+#endif
 #import "AWSCognitoAuth.h"
 
 @interface AWSCognitoCredentialsProvider()
@@ -50,8 +54,10 @@ static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
 static NSString *const AWSInfoFacebookPermissionsIdentifier = @"Permissions";
 static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 static NSString *const AWSInfoGooglePermissionsIdentifier = @"Permissions";
 
+Class AWSAppleSignInProviderClass;
 Class AWSFacebookSignInProviderClass;
 Class AWSGoogleSignInProviderClass;
 Class AWSCognitoUserPoolsSignInProviderClass;
@@ -64,14 +70,30 @@ Class AWSCognitoUserPoolsSignInProviderClass;
     static dispatch_once_t onceToken;
     dispatch_once(&onceToken, ^{
         _sharedMobileClient = [[_AWSMobileClient alloc] init];
-        _sharedMobileClient.isInitialized = NO;
-        _sharedMobileClient.signInProviderConfig = nil;
-        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
-        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
-        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
     });
     
     return _sharedMobileClient;
+}
+
+#pragma initializers
+
+- (instancetype)init {
+    self = [super init];
+    if (self) {
+        _isInitialized = NO;
+        _signInProviderConfig = nil;
+        AWSAppleSignInProviderClass = NSClassFromString(@"AWSAppleSignInProvider");
+        AWSFacebookSignInProviderClass = NSClassFromString(@"AWSFacebookSignInProvider");
+        AWSGoogleSignInProviderClass = NSClassFromString(@"AWSGoogleSignInProvider");
+        AWSCognitoUserPoolsSignInProviderClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
+    }
+    return self;
+}
+
+- (instancetype)initWithConfiguration:(NSDictionary<NSString *,id> *)config {
+    AWSDDLogDebug(@"AWSMobileClient initialized with custom configuration object...");
+    [AWSInfo configureDefaultAWSInfo:config];
+    return [self init];
 }
 
 #pragma mark AppDelegate Methods
@@ -130,8 +152,11 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
         NSMutableDictionary<NSString *, id> *parameters = [NSMutableDictionary new];
         parameters[@"logoImage"] = signInUIConfiguration.logoImage;
         parameters[@"backgroundColor"] = signInUIConfiguration.backgroundColor;
+        parameters[@"secondaryBackgroundColor"] = signInUIConfiguration.secondaryBackgroundColor;
+        parameters[@"primaryColor"] = signInUIConfiguration.primaryColor;
         parameters[@"navigationController"] = navController;
         parameters[@"canCancel"] = signInUIConfiguration.canCancel ? @"YES" : @"NO";
+        parameters[@"disableSignUpButton"] = signInUIConfiguration.disableSignUpButton ? @"YES" : @"NO";
         
         [NSClassFromString(@"AWSAuthUIViewController") performSelector:@selector(presentViewControllerWithConfig:completionHandler:)
                                                             withObject:(id)parameters
@@ -161,6 +186,9 @@ signInUIConfiguration:(SignInUIOptions *)signInUIConfiguration
     
     [self registerSignInProvider:AWSGoogleSignInProviderClass
         providerConfigurationKey:AWSInfoGoogleIdentifier];
+    
+    [self registerSignInProvider:AWSAppleSignInProviderClass
+        providerConfigurationKey:AWSInfoAppleIdentifier];
 }
 
 - (id)registerSignInProvider:(Class)providerClass

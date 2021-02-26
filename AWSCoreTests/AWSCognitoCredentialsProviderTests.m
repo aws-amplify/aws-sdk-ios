@@ -19,18 +19,19 @@
 #import "AWSCore.h"
 #import "AWSTestUtility.h"
 
-// FACEBOOK - tied to the aws-dr-mobile-test-android@amazon.com FB account
+NSString * AWSCognitoCredentialsProviderTestsIdentityPoolId = nil;
+NSString * AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId = nil;
 NSString * AWSCognitoCredentialsProviderTestsAccountID = nil;
 NSString * AWSCognitoCredentialsProviderTestsFacebookAppID = nil;
 NSString * AWSCognitoCredentialsProviderTestsFacebookAppSecret = nil;
 NSString * AWSCognitoCredentialsProviderTestsUnauthRoleArn = nil;
 NSString * AWSCognitoCredentialsProviderTestsAuthRoleArn = nil;
+NSString * WICProviderTestRoleArn = nil;
 
-NSString *_identityPoolIdAuth;
-NSString *_identityPoolIdUnauth;
 NSString *_facebookToken;
 NSString *_facebookAppToken;
 NSString *_facebookId;
+
 BOOL _identityChanged;
 
 @interface AWSTestFacebookIdentityProvider : NSObject<AWSIdentityProvider, AWSIdentityProviderManager>
@@ -113,15 +114,8 @@ BOOL _identityChanged;
                           identityPoolId:identityPoolId
                          useEnhancedFlow:NO
                  identityProviderManager:[AWSTestFakeIdentityProvider new]]) {
-        NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                              ofType:@"json"];
-        NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                        options:NSJSONReadingMutableContainers
-                                                                          error:nil];
-        AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                          secretKey:credentialsJson[@"secretKey"]];
-        AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:regionType
-                                                                             credentialsProvider:credentialsProvider];
+        [AWSTestUtility setupSessionCredentialsProvider];
+        AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
 
         [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
                                                               forKey:@"Default"];
@@ -171,7 +165,7 @@ BOOL _identityChanged;
 @end
 
 @interface AWSCognitoCredentialsProviderTests : XCTestCase
-
+@property AWSRegionType region;
 @end
 
 @implementation AWSCognitoCredentialsProviderTests
@@ -180,30 +174,23 @@ BOOL _identityChanged;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    AWSStaticCredentialsProvider *credentialsProvider = [[AWSStaticCredentialsProvider alloc] initWithAccessKey:credentialsJson[@"accessKey"]
-                                                                                                      secretKey:credentialsJson[@"secretKey"]];
-    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1
-                                                                         credentialsProvider:credentialsProvider];
-    // Static cib client that uses long term credentials
+    [AWSTestUtility setupSessionCredentialsProvider];
+    AWSServiceConfiguration *configuration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
     [AWSCognitoIdentity registerCognitoIdentityWithConfiguration:configuration
-                                                          forKey:@"Static"];
+                                                          forKey:@"Session"];
     
-    AWSCognitoCredentialsProviderTestsAccountID = credentialsJson[@"accountId"];
-    AWSCognitoCredentialsProviderTestsFacebookAppID = credentialsJson[@"facebookAppId"];
-    AWSCognitoCredentialsProviderTestsFacebookAppSecret = credentialsJson[@"facebookAppSecret"];
-    AWSCognitoCredentialsProviderTestsUnauthRoleArn = credentialsJson[@"unauthRoleArn"];
-    AWSCognitoCredentialsProviderTestsAuthRoleArn = credentialsJson[@"authRoleArn"];
+    NSDictionary *testConfig = [AWSTestUtility getIntegrationTestConfigurationForPackageId: @"core"];
+    AWSCognitoCredentialsProviderTestsIdentityPoolId = testConfig[@"identityPoolId"];
+    AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId = testConfig[@"unauthIdentityPoolId"];
+    AWSCognitoCredentialsProviderTestsFacebookAppID = testConfig[@"facebookAppId"];
+    AWSCognitoCredentialsProviderTestsFacebookAppSecret = testConfig[@"facebookAppSecret"];
+    AWSCognitoCredentialsProviderTestsUnauthRoleArn = testConfig[@"unauthRoleArn"];
+    AWSCognitoCredentialsProviderTestsAuthRoleArn = testConfig[@"authRoleArn"];
+    WICProviderTestRoleArn = testConfig[@"WICProviderTestRoleArn"];
+    
+    AWSCognitoCredentialsProviderTestsAccountID = [AWSTestUtility getAccountIdFromTestConfiguration];
 
-    //[AWSCognitoCredentialsProviderTests cleanupIdentityPools];
     [AWSCognitoCredentialsProviderTests createFBAccount];
-    [AWSCognitoCredentialsProviderTests createIdentityPools];
 }
 
 - (void)setUp {
@@ -213,57 +200,82 @@ BOOL _identityChanged;
                                                  name:AWSCognitoIdentityIdChangedNotification
                                                object:nil];
     _identityChanged = NO;
+    self.region = [AWSTestUtility getRegionFromTestConfiguration];
 }
 
 - (void)tearDown {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdAuth];
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId];
     [provider clearKeychain];
-    provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                          identityPoolId:_identityPoolIdUnauth];
-    [provider clearKeychain];
-
     [super tearDown];
 }
 
 + (void)tearDown {
     [AWSCognitoCredentialsProviderTests deleteFBAccount];
-    [AWSCognitoCredentialsProviderTests deleteIdentityPools];
 }
 
 #pragma mark - Tests
 
 - (void)testWICProvider {
-    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSWebIdentityCredentialsProvider *provider = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:self.region
                                                                                                      providerId:@"graph.facebook.com"
-                                                                                                        roleArn:@"arn:aws:iam::335750469596:role/WICProviderTestRole"
+                                                                                                        roleArn:WICProviderTestRoleArn
                                                                                                 roleSessionName:@"iOSTest-WICProvider"
                                                                                                webIdentityToken:_facebookToken];
-
+    
     [[[provider credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         XCTAssertNil(task.error);
-
+        
         AWSCredentials *credentials = task.result;
-
+        
         XCTAssertNotNil(credentials.accessKey);
         XCTAssertNotNil(credentials.secretKey);
         XCTAssertNotNil(credentials.sessionKey);
         XCTAssertNotNil(credentials.expiration);
-
+        
         XCTAssertNotNil(provider.webIdentityToken);
         XCTAssertNotNil(provider.roleArn);
         XCTAssertNotNil(provider.roleSessionName);
-
+        
         XCTAssertNotNil(provider.providerId);
         return nil;
     }] waitUntilFinished ];
 }
 
+- (void)testWICProviderKeychain{
+    AWSWebIdentityCredentialsProvider *provider1 = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                                     providerId:@"graph.facebook.com"
+                                                                                                        roleArn:WICProviderTestRoleArn
+                                                                                                roleSessionName:@"iOSTest-WICProvider"
+                                                                                               webIdentityToken:_facebookToken];
+    
+    __block AWSWebIdentityCredentialsProvider *provider2 = nil;
+
+    [[[[provider1 credentials] continueWithBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
+        provider2 = [[AWSWebIdentityCredentialsProvider alloc] initWithRegionType:self.region
+                                                                       providerId:@"graph.facebook.com"
+                                                                          roleArn:WICProviderTestRoleArn
+                                                                  roleSessionName:@"iOSTest-WICProvider"
+                                                                 webIdentityToken:_facebookToken];
+        
+        return [provider2 credentials];
+    }] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNil(task.error);
+        
+        AWSCredentials *credentials = task.result;
+        XCTAssertNotNil(credentials.accessKey);
+        XCTAssertNotNil(credentials.secretKey);
+        XCTAssertNotNil(credentials.sessionKey);
+        XCTAssertNotNil(credentials.expiration);
+        return nil;
+    }] waitUntilFinished];
+}
+
 - (void)testProvider {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                 identityProviderManager:identityProvider];
@@ -292,8 +304,8 @@ BOOL _identityChanged;
 
 - (void)testProviderEnhancedFlow {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                 identityProviderManager:identityProvider];
     [[[[provider credentials] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCredentials *> * _Nonnull task) {
         AWSCredentials *credentials = task.result;
@@ -321,8 +333,8 @@ BOOL _identityChanged;
 - (void)testProviderNotification {
     AWSTestFacebookIdentityProvider *identityProvider1 = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
     AWSTestFacebookIdentityProvider *identityProvider2 = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
-    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                          identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                          identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                            unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                              authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                  identityProviderManager:identityProvider1];
@@ -335,8 +347,8 @@ BOOL _identityChanged;
         provider1IdentityId = provider1.identityId;
 
         [provider1 clearKeychain];
-        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                               identityPoolId:_identityPoolIdAuth
+        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                               identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                 unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                   authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                       identityProviderManager:identityProvider2];
@@ -365,8 +377,8 @@ BOOL _identityChanged;
 
 - (void)testProviderKeychain {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
-    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                          identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                          identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                            unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                              authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                  identityProviderManager:identityProvider];
@@ -378,8 +390,8 @@ BOOL _identityChanged;
         XCTAssertNil(task.error);
         XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
 
-        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                               identityPoolId:_identityPoolIdAuth
+        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                               identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                 unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                   authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                       identityProviderManager:nil];
@@ -399,8 +411,8 @@ BOOL _identityChanged;
 
 - (void)testProviderFailure {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdUnauth
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                 identityProviderManager:identityProvider];
@@ -423,8 +435,8 @@ BOOL _identityChanged;
 #pragma mark - Enhanced Flow
 - (void)testEnhancedProvider {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                 identityProviderManager:identityProvider];
 
     [[[[provider credentials] continueWithSuccessBlock:^id(AWSTask *task) {
@@ -454,8 +466,8 @@ BOOL _identityChanged;
 - (void)testEnhancedProviderNotification {
     AWSTestFacebookIdentityProvider *identityProvider1 = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
     AWSTestFacebookIdentityProvider *identityProvider2 = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:NO];
-    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                          identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                          identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                  identityProviderManager:identityProvider1];
 
     __block AWSCognitoCredentialsProvider *provider2 = nil;
@@ -466,8 +478,8 @@ BOOL _identityChanged;
         provider1IdentityId = provider1.identityId;
 
         [provider1 clearKeychain];
-        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                               identityPoolId:_identityPoolIdAuth
+        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                               identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                       identityProviderManager:identityProvider2];
         return [provider2 getIdentityId];
     }] continueWithSuccessBlock:^id(AWSTask *task) {
@@ -493,8 +505,8 @@ BOOL _identityChanged;
 }
 
 - (void)testEnhancedProviderKeychain {
-    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                          identityPoolId:_identityPoolIdAuth
+    AWSCognitoCredentialsProvider *provider1 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                          identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId
                                                                                  identityProviderManager:[AWSTestFacebookIdentityProvider new]];
 
     __block AWSCognitoCredentialsProvider *provider2 = nil;
@@ -503,8 +515,8 @@ BOOL _identityChanged;
         XCTAssertNil(task.error);
         XCTAssertNotNil(provider1.identityId, @"Unable to get identityId");
 
-        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                               identityPoolId:_identityPoolIdAuth];
+        provider2 = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                               identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId];
         return [provider2 getIdentityId];
     }] continueWithSuccessBlock:^id _Nullable(AWSTask * _Nonnull task) {
         return [provider2 credentials];
@@ -527,8 +539,8 @@ BOOL _identityChanged;
 
 - (void)testEnhancedProviderFailure {
     AWSTestFacebookIdentityProvider *identityProvider = [[AWSTestFacebookIdentityProvider alloc] initWithLoggedIn:YES];
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                         identityPoolId:_identityPoolIdUnauth
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
+                                                                                         identityPoolId:AWSCognitoCredentialsProviderTestsUnauthIdentityPoolId
                                                                                 identityProviderManager:identityProvider];
 
     [[[[provider getIdentityId] continueWithSuccessBlock:^id(AWSTask *task) {
@@ -550,10 +562,10 @@ BOOL _identityChanged;
 #pragma mark - BYOI
 
 - (void)testBYOIProvider {
-    AWSFakeCognitoIdentityProvider *fakeIdentityProvider = [[AWSFakeCognitoIdentityProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                                       identityPoolId:_identityPoolIdAuth];
+    AWSFakeCognitoIdentityProvider *fakeIdentityProvider = [[AWSFakeCognitoIdentityProvider alloc] initWithRegionType:self.region
+                                                                                                       identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId];
 
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
                                                                                           unauthRoleArn:AWSCognitoCredentialsProviderTestsUnauthRoleArn
                                                                                             authRoleArn:AWSCognitoCredentialsProviderTestsAuthRoleArn
                                                                                        identityProvider:fakeIdentityProvider];
@@ -571,10 +583,10 @@ BOOL _identityChanged;
 }
 
 - (void)testBYOIProviderWithEnhancedFlow {
-    AWSFakeCognitoIdentityProvider *fakeIdentityProvider = [[AWSFakeCognitoIdentityProvider alloc] initWithRegionType:AWSRegionUSEast1
-                                                                                                       identityPoolId:_identityPoolIdAuth];
+    AWSFakeCognitoIdentityProvider *fakeIdentityProvider = [[AWSFakeCognitoIdentityProvider alloc] initWithRegionType:self.region
+                                                                                                       identityPoolId:AWSCognitoCredentialsProviderTestsIdentityPoolId];
 
-    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:AWSRegionUSEast1
+    AWSCognitoCredentialsProvider *provider = [[AWSCognitoCredentialsProvider alloc] initWithRegionType:self.region
                                                                                        identityProvider:fakeIdentityProvider];
 
     [[[provider credentials] continueWithBlock:^id(AWSTask *task) {
@@ -632,86 +644,6 @@ BOOL _identityChanged;
     [NSURLConnection sendSynchronousRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:deleteURI]]
                           returningResponse:nil
                                       error:nil];
-}
-
-+ (void)createIdentityPools {
-    NSMutableArray *tasks = [NSMutableArray new];
-
-    AWSCognitoIdentityCreateIdentityPoolInput *createPoolForAuthProvider = [AWSCognitoIdentityCreateIdentityPoolInput new];
-    createPoolForAuthProvider.identityPoolName = @"CIBiOSTestAuthProvider";
-    createPoolForAuthProvider.allowUnauthenticatedIdentities = @YES;
-    createPoolForAuthProvider.supportedLoginProviders = @{@"graph.facebook.com" : AWSCognitoCredentialsProviderTestsFacebookAppID};
-    createPoolForAuthProvider.developerProviderName = @"iostests.com";
-
-    [tasks addObject:[[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] createIdentityPool:createPoolForAuthProvider] continueWithSuccessBlock:^id(AWSTask *task) {
-        AWSCognitoIdentityIdentityPool *identityPool = task.result;
-        _identityPoolIdAuth = identityPool.identityPoolId;
-
-        AWSCognitoIdentitySetIdentityPoolRolesInput *setRoleInput = [AWSCognitoIdentitySetIdentityPoolRolesInput new];
-        setRoleInput.identityPoolId = identityPool.identityPoolId;
-        setRoleInput.roles = @{ @"unauthenticated": AWSCognitoCredentialsProviderTestsUnauthRoleArn,
-                                @"authenticated": AWSCognitoCredentialsProviderTestsAuthRoleArn};
-
-        return [[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] setIdentityPoolRoles:setRoleInput];
-    }]];
-
-    AWSCognitoIdentityCreateIdentityPoolInput *createPoolForUnauthProvider = [AWSCognitoIdentityCreateIdentityPoolInput new];
-    createPoolForUnauthProvider.identityPoolName = @"CIBiOSTUnauthProvider";
-    createPoolForUnauthProvider.allowUnauthenticatedIdentities = @YES;
-
-    [tasks addObject:[[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] createIdentityPool:createPoolForUnauthProvider] continueWithSuccessBlock:^id(AWSTask *task) {
-        AWSCognitoIdentityIdentityPool *identityPool = task.result;
-        _identityPoolIdUnauth = identityPool.identityPoolId;
-
-        AWSCognitoIdentitySetIdentityPoolRolesInput *setRoleInput = [AWSCognitoIdentitySetIdentityPoolRolesInput new];
-        setRoleInput.identityPoolId = identityPool.identityPoolId;
-        setRoleInput.roles = @{ @"unauthenticated": AWSCognitoCredentialsProviderTestsUnauthRoleArn,
-                                @"authenticated": AWSCognitoCredentialsProviderTestsAuthRoleArn};
-
-        return [[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] setIdentityPoolRoles:setRoleInput];
-    }]];
-
-    [[AWSTask taskForCompletionOfAllTasks:tasks] waitUntilFinished];
-
-    // sleep for 60 seconds becaue identity pool config is cached
-    [NSThread sleepForTimeInterval:60];
-}
-
-+ (void)deleteIdentityPools {
-    NSMutableArray *tasks = [NSMutableArray new];
-
-    AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForAuth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
-    deletePoolForAuth.identityPoolId = _identityPoolIdAuth;
-    [tasks addObject:[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] deleteIdentityPool:deletePoolForAuth]];
-
-    AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForUnauth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
-    deletePoolForUnauth.identityPoolId = _identityPoolIdUnauth;
-    [tasks addObject:[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] deleteIdentityPool:deletePoolForUnauth]];
-    
-    [[AWSTask taskForCompletionOfAllTasks:tasks] waitUntilFinished];
-}
-
-
-+ (void)cleanupIdentityPools {
-    AWSCognitoIdentityListIdentityPoolsInput *lpi = [AWSCognitoIdentityListIdentityPoolsInput new];
-    lpi.maxResults = [NSNumber numberWithInteger:60];
-    
-    [[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] listIdentityPools:lpi] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityListIdentityPoolsResponse *> * _Nonnull task) {
-        NSMutableArray *tasks = [NSMutableArray new];
-        for (AWSCognitoIdentityIdentityPoolShortDescription *object in task.result.identityPools) {
-            NSLog(@"Inspecting %@: %@", object.identityPoolName, object.identityPoolId);
-            if([object.identityPoolName containsString:@"CIBiOS"]){
-                AWSCognitoIdentityDeleteIdentityPoolInput *deletePoolForAuth = [AWSCognitoIdentityDeleteIdentityPoolInput new];
-                deletePoolForAuth.identityPoolId= object.identityPoolId;
-                NSLog(@"Deleting %@",object.identityPoolId);
-                [tasks addObject:[[AWSCognitoIdentity CognitoIdentityForKey:@"Static"] deleteIdentityPool:deletePoolForAuth]];
-            }
-        }
-        
-        [[AWSTask taskForCompletionOfAllTasks:tasks] waitUntilFinished];
-
-        return nil;
-    }];
 }
 
 - (void)identityIdDidChange:(NSNotification *)notification {

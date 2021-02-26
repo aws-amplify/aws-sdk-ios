@@ -90,7 +90,8 @@
 
 @property(atomic, assign) BOOL isMetricsEnabled;
 @property(atomic, assign) NSUInteger publishRetryThrottle;
-@property(atomic, strong) NSString *userMetaData;
+@property(atomic, copy) NSString *userMetaData;
+@property(atomic, copy) NSString *password;
 
 /**
  The client ID for the current connection; can be nil if not connected.

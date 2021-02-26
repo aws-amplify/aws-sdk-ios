@@ -134,7 +134,7 @@
         AWSCognitoIdentityIdentityPool *identityPool = task.result;
 
         AWSCognitoIdentityGetIdInput *getId = [AWSCognitoIdentityGetIdInput new];
-        getId.accountId = @"335750469596";
+        getId.accountId = [AWSTestUtility getAccountIdFromTestConfiguration];
         identityPoolId = identityPool.identityPoolId;
         getId.identityPoolId = identityPool.identityPoolId;
 

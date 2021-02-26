@@ -18,51 +18,44 @@ import AWSRekognition
 
 class AWSRekognitionTests: XCTestCase {
     
+    var rekognition: AWSRekognition!
+    let collectionId = "MyCollectionID"
+    
     override class func setUp() {
         super.setUp()
-        
-        //Setup Log level
-        AWSDDLog.sharedInstance.logLevel = .verbose
-        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
-        
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
-    
-    override func tearDown() {
-        // Put teardown code here. This method is called after the invocation of each test method in the class.
-        super.tearDown()
-    }
-    
-    func testFaceIndexSingleFace() {
-        let rekognition = AWSRekognition.default()
+
+    override func setUp() {
+        rekognition = AWSRekognition.default()
         let collectionRequest = AWSRekognitionCreateCollectionRequest()
-        collectionRequest?.collectionId = "MyCollectionID"
+        collectionRequest?.collectionId = collectionId
         rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
+            if let error = response.error as NSError? {
+                XCTAssertEqual(error.domain , AWSRekognitionErrorDomain)
+                XCTAssertEqual(error.code, AWSRekognitionErrorType.resourceAlreadyExists.rawValue)
+            } else {
                 XCTAssertNotNil(response.result)
                 if let result = response.result {
-                    print (result)
+                    print(result)
                 }
             }
             return nil
         }.waitUntilFinished()
-        
+    }
+    
+    func testFaceIndexSingleFace() {
         let faceRequest = AWSRekognitionIndexFacesRequest()
         let testBundle = Bundle(for: type(of: self))
         let fileURL = testBundle.url(forResource: "singleface", withExtension: "jpg")
         var data:Data?
         do {
-            
-            
             data = try Data(contentsOf:fileURL!)
             let image = AWSRekognitionImage()
             image?.bytes = data
             
             faceRequest!.image = image
-            faceRequest!.collectionId = "MyCollectionID"
+            faceRequest!.collectionId = collectionId
             
             rekognition.indexFaces(faceRequest!).continueWith { (response) -> Any? in
                 XCTAssertNil(response.error)
@@ -75,70 +68,41 @@ class AWSRekognitionTests: XCTestCase {
                 }
                 return nil
             }.waitUntilFinished()
-            
-        } catch  {
-            print("exception")
+        } catch {
+            XCTAssertNil(error)
         }
-        
     }
     
-    func testFaceIndexMultipeFaces() {
-        let rekognition = AWSRekognition.default()
-        let collectionRequest = AWSRekognitionCreateCollectionRequest()
-        collectionRequest?.collectionId = "MyCollectionID"
-        rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
+    func testFaceIndexMultipleFaces() {
+        let faceRequest = AWSRekognitionIndexFacesRequest()
+        let testBundle = Bundle(for: type(of: self))
+        let fileURL = testBundle.url(forResource: "family_thumb", withExtension: "jpg")
+        var data:Data?
+        do {
+            data = try Data(contentsOf:fileURL!)
+            let image = AWSRekognitionImage()
+            image?.bytes = data
+            
+            faceRequest!.image = image
+            faceRequest!.collectionId = collectionId
+            
+            rekognition.indexFaces(faceRequest!).continueWith { (response) -> Any? in
+                XCTAssertNil(response.error)
                 XCTAssertNotNil(response.result)
                 if let result = response.result {
-                    print (result)
+                    XCTAssertNotNil(result.faceRecords)
+                    if let fr = result.faceRecords {
+                        XCTAssertEqual(fr.count, 3)
+                    }
                 }
-            }
-            return nil
+                return nil
             }.waitUntilFinished()
-        
-        let faceRequest = AWSRekognitionIndexFacesRequest()
-        let image = AWSRekognitionImage()
-        let s3Object = AWSRekognitionS3Object()
-        s3Object?.bucket = "aws-sdk-ios-test-rekognition"
-        s3Object?.name = "family_thumb.jpg"
-        image?.s3Object = s3Object
-        
-        faceRequest!.image = image
-        faceRequest!.collectionId = "MyCollectionID"
-        
-        rekognition.indexFaces(faceRequest!).continueWith { (response) -> Any? in
-            XCTAssertNil(response.error)
-            XCTAssertNotNil(response.result)
-            if let result = response.result {
-                XCTAssertNotNil(result.faceRecords)
-                if let fr = result.faceRecords {
-                    XCTAssertEqual(fr.count, 3)
-                }
-            }
-            return nil
-            }.waitUntilFinished()
+        } catch {
+            XCTAssertNil(error)
+        }
     }
     
     func testFaceIndexNoFaces() {
-        let rekognition = AWSRekognition.default()
-        let collectionRequest = AWSRekognitionCreateCollectionRequest()
-        collectionRequest?.collectionId = "MyCollectionID"
-        rekognition.createCollection(collectionRequest!).continueWith { (response) -> Any? in
-            if let error = response.error {
-                XCTAssertEqual(error.localizedDescription, "The operation couldn’t be completed. (com.amazonaws.AWSRekognitionErrorDomain error 11.)")
-            }
-            else {
-                XCTAssertNotNil(response.result)
-                if let result = response.result {
-                    print (result)
-                }
-            }
-            return nil
-            }.waitUntilFinished()
-        
         let faceRequest = AWSRekognitionIndexFacesRequest()
         let testBundle = Bundle(for: type(of: self))
         let fileURL = testBundle.url(forResource: "city_thumb", withExtension: "jpg")
@@ -149,7 +113,7 @@ class AWSRekognitionTests: XCTestCase {
             image?.bytes = data
             
             faceRequest!.image = image
-            faceRequest!.collectionId = "MyCollectionID"
+            faceRequest!.collectionId = collectionId
             
             rekognition.indexFaces(faceRequest!).continueWith { (response) -> Any? in
                 XCTAssertNil(response.error)
@@ -161,10 +125,9 @@ class AWSRekognitionTests: XCTestCase {
                     }
                 }
                 return nil
-                }.waitUntilFinished()
-            
-        } catch  {
-            print("exception")
+            }.waitUntilFinished()
+        } catch {
+            XCTAssertNil(error)
         }
     }
 }

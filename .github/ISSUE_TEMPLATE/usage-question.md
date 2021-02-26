@@ -1,6 +1,9 @@
 ---
 name: Usage Question
 about: Ask a question about AWS iOS SDK usage
+title: ''
+labels: ''
+assignees: ''
 
 ---
 

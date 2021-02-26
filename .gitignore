@@ -19,18 +19,23 @@ src/aws-ios-sdk-*.zip
 xcuserdata
 *.xccheckout
 
+# Other IDEs
+.idea
+
 # Patched code #
 ######################
 *.bak
 
 # Built assets #
 ######################
-build
-builtFramework
 AWS*.framework
+build
+build_result/
+builtFramework
 
 # Stuff that can't be committed #
 ######################
+testconfiguration.json
 credentials.json
 Pods
 Podfile.lock

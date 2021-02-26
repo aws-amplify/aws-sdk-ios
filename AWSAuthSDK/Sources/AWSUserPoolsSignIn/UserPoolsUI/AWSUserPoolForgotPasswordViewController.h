@@ -23,6 +23,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIView *tableFormView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *forgotPasswordButton;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end
@@ -31,6 +32,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (weak, nonatomic) IBOutlet UIView *tableFormView;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UIButton *updatePasswordButton;
 @property (strong, nonatomic) id<AWSUIConfiguration> config;
 
 @end

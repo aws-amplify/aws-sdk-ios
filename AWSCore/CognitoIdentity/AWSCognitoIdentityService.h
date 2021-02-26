@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -172,7 +172,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)removeCognitoIdentityForKey:(NSString *)key;
 
 /**
- <p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for <code>SupportedLoginProviders</code> are as follows:</p><ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul><p>You must use AWS Developer credentials to call this API.</p>
+ <p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p><ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul><p>You must use AWS Developer credentials to call this API.</p>
  
  @param request A container for the necessary parameters to execute the CreateIdentityPool service method.
 
@@ -184,7 +184,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityIdentityPool *> *)createIdentityPool:(AWSCognitoIdentityCreateIdentityPoolInput *)request;
 
 /**
- <p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The limit on identity pools is 60 per account. The keys for <code>SupportedLoginProviders</code> are as follows:</p><ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul><p>You must use AWS Developer credentials to call this API.</p>
+ <p>Creates a new identity pool. The identity pool is a store of user identity information that is specific to your AWS account. The keys for <code>SupportedLoginProviders</code> are as follows:</p><ul><li><p>Facebook: <code>graph.facebook.com</code></p></li><li><p>Google: <code>accounts.google.com</code></p></li><li><p>Amazon: <code>www.amazon.com</code></p></li><li><p>Twitter: <code>api.twitter.com</code></p></li><li><p>Digits: <code>www.digits.com</code></p></li></ul><p>You must use AWS Developer credentials to call this API.</p>
  
  @param request A container for the necessary parameters to execute the CreateIdentityPool service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -369,7 +369,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)getIdentityPoolRoles:(AWSCognitoIdentityGetIdentityPoolRolesInput *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetIdentityPoolRolesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p><p>The OpenId token is valid for 10 minutes.</p><p>This is a public API. You do not need any credentials to call this API.</p>
+ <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p><p>The OpenID token is valid for 10 minutes.</p><p>This is a public API. You do not need any credentials to call this API.</p>
  
  @param request A container for the necessary parameters to execute the GetOpenIdToken service method.
 
@@ -381,7 +381,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityGetOpenIdTokenResponse *> *)getOpenIdToken:(AWSCognitoIdentityGetOpenIdTokenInput *)request;
 
 /**
- <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p><p>The OpenId token is valid for 10 minutes.</p><p>This is a public API. You do not need any credentials to call this API.</p>
+ <p>Gets an OpenID token, using a known Cognito ID. This known Cognito ID is returned by <a>GetId</a>. You can optionally add additional logins for the identity. Supplying multiple logins creates an implicit link.</p><p>The OpenID token is valid for 10 minutes.</p><p>This is a public API. You do not need any credentials to call this API.</p>
  
  @param request A container for the necessary parameters to execute the GetOpenIdToken service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -417,6 +417,31 @@ NS_ASSUME_NONNULL_BEGIN
  @see AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse
  */
 - (void)getOpenIdTokenForDeveloperIdentity:(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityInput *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPrincipalTagAttributeMap service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentityGetPrincipalTagAttributeMapResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ 
+ @see AWSCognitoIdentityGetPrincipalTagAttributeMapInput
+ @see AWSCognitoIdentityGetPrincipalTagAttributeMapResponse
+ */
+- (AWSTask<AWSCognitoIdentityGetPrincipalTagAttributeMapResponse *> *)getPrincipalTagAttributeMap:(AWSCognitoIdentityGetPrincipalTagAttributeMapInput *)request;
+
+/**
+ <p>Use <code>GetPrincipalTagAttributeMap</code> to list all mappings between <code>PrincipalTags</code> and user attributes.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetPrincipalTagAttributeMap service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ 
+ @see AWSCognitoIdentityGetPrincipalTagAttributeMapInput
+ @see AWSCognitoIdentityGetPrincipalTagAttributeMapResponse
+ */
+- (void)getPrincipalTagAttributeMap:(AWSCognitoIdentityGetPrincipalTagAttributeMapInput *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityGetPrincipalTagAttributeMapResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists the identities in an identity pool.</p><p>You must use AWS Developer credentials to call this API.</p>
@@ -566,7 +591,32 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)setIdentityPoolRoles:(AWSCognitoIdentitySetIdentityPoolRolesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p><p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p><p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p><p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
+ <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetPrincipalTagAttributeMap service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSCognitoIdentitySetPrincipalTagAttributeMapResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ 
+ @see AWSCognitoIdentitySetPrincipalTagAttributeMapInput
+ @see AWSCognitoIdentitySetPrincipalTagAttributeMapResponse
+ */
+- (AWSTask<AWSCognitoIdentitySetPrincipalTagAttributeMapResponse *> *)setPrincipalTagAttributeMap:(AWSCognitoIdentitySetPrincipalTagAttributeMapInput *)request;
+
+/**
+ <p>You can use this operation to use default (username and clientID) attribute or custom attribute mappings.</p>
+ 
+ @param request A container for the necessary parameters to execute the SetPrincipalTagAttributeMap service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSCognitoIdentityErrorDomain` domain and the following error code: `AWSCognitoIdentityErrorInvalidParameter`, `AWSCognitoIdentityErrorResourceNotFound`, `AWSCognitoIdentityErrorNotAuthorized`, `AWSCognitoIdentityErrorTooManyRequests`, `AWSCognitoIdentityErrorInternalError`.
+ 
+ @see AWSCognitoIdentitySetPrincipalTagAttributeMapInput
+ @see AWSCognitoIdentitySetPrincipalTagAttributeMapResponse
+ */
+- (void)setPrincipalTagAttributeMap:(AWSCognitoIdentitySetPrincipalTagAttributeMapInput *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentitySetPrincipalTagAttributeMapResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p><p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p><p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p><p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -578,7 +628,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityTagResourceResponse *> *)tagResource:(AWSCognitoIdentityTagResourceInput *)request;
 
 /**
- <p>Assigns a set of tags to an Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p><p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p><p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p><p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
+ <p>Assigns a set of tags to the specified Amazon Cognito identity pool. A tag is a label that you can use to categorize and manage identity pools in different ways, such as by purpose, owner, environment, or other criteria.</p><p>Each tag consists of a key and value, both of which you define. A key is a general category for more specific values. For example, if you have two versions of an identity pool, one for testing and another for production, you might assign an <code>Environment</code> tag key to both identity pools. The value of this key might be <code>Test</code> for one identity pool and <code>Production</code> for the other.</p><p>Tags are useful for cost tracking and access control. You can activate your tags so that they appear on the Billing and Cost Management console, where you can track the costs associated with your identity pools. In an IAM policy, you can constrain permissions for identity pools based on specific tags or tag values.</p><p>You can use this action up to 5 times per second, per account. An identity pool can have as many as 50 tags.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -635,7 +685,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)unlinkIdentity:(AWSCognitoIdentityUnlinkIdentityInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes the specified tags from an Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
+ <p>Removes the specified tags from the specified Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
 
@@ -647,7 +697,7 @@ NS_ASSUME_NONNULL_BEGIN
 - (AWSTask<AWSCognitoIdentityUntagResourceResponse *> *)untagResource:(AWSCognitoIdentityUntagResourceInput *)request;
 
 /**
- <p>Removes the specified tags from an Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
+ <p>Removes the specified tags from the specified Amazon Cognito identity pool. You can use this action up to 5 times per second, per account</p>
  
  @param request A container for the necessary parameters to execute the UntagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.

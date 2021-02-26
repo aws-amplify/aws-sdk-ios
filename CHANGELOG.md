@@ -1,11 +1,982 @@
 # AWS Mobile SDK for iOS CHANGELOG
 
-## 2.9.9
+## Unreleased
+
+-Features for next release
+
+### Misc. Updates
+
+- Model updates for the following services
+   - AWSPinpointTargeting
+   - AWSAutoScaling
+   - AWSConnect
+   - AWSSageMakerRuntime
+
+## 2.23.0
+
+### Breaking Changes
+
+- **AWSAuthSDK**
+   - Upgrade Facebook SDK to 9.0.0 ([PR #3433](https://github.com/aws-amplify/aws-sdk-ios/pull/3433)). Facebook SDK has removed automatic initialization of the SDK in v9.0.0. Follow the steps provided [here](https://developers.facebook.com/docs/ios/getting-started/#step-3--connect-the-app-delegate) to initialize the Facebook SDK during app setup.
+   Support for `limited` signin configuration will be added in a later release.
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSElasticLoadBalancing
+  - AWSPinpointTargeting
+  - AWSEC2
+
+## 2.22.3
+
+### Bug fixes
+
+- **Cognito**
+  - fix(Cognito): Use given vc for signout via SafariViewController. Thanks @kateinoigakukun! (See [PR #3402](https://github.com/aws-amplify/aws-sdk-ios/pull/3402))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSConnect
+  - AWSEC2
+  - AWSElasticLoadBalancing
+  - AWSLambda
+  - AWSLocation
+
+## 2.22.2
+
+### Misc. Updates
+
+- **AWSMobileClientXCF**
+  - Added convenience init method for SignInUIOptions to fix a run time error in AWSMobileClientXCF. [PR #3411](https://github.com/aws-amplify/aws-sdk-ios/pull/3411)
+
+## 2.22.1
+
+### Misc. Updates
+
+Binary versions of the AWS Mobile SDK are now distributed as XCFrameworks. Please refer to the [setup instructions](https://github.com/aws-amplify/aws-sdk-ios#setup) for guidance on installing XCFrameworks from Carthage or standalone binaries.
+
+- **AWSMobileClient**
+  - Created a new target named `AWSMobileClientXCF` to support building AWSMobileClient as an XCFramework. [PR #3334](https://github.com/aws-amplify/aws-sdk-ios/pull/3334)
+- **AWSLex**
+  - Updated the AWSLex with the latest version of libBlueAudioSourceiOS and added arm64 iphonesimulator into Excluded Architecture. [PR #3365](https://github.com/aws-amplify/aws-sdk-ios/pull/3365)
+- Model updates for the following services
+  - AWSCognitoIdentity
+  - AWSEC2
+  - AWSIoT
+  - AWSKMS
+  - AWSPinpoint
+  - AWSSNS
+
+## 2.22.0
+
+### New Features
+
+- AWSMobileClient
+  - Add support for ASWebAuthenticationSession [PR #3310](https://github.com/aws-amplify/aws-sdk-ios/pull/3310)
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+
+## 2.21.1
+
+### Misc. Updates
+
+- **AWSIoT**
+  - The `generateCSRForCertificate` method now uses SHA256 to sign Certificate Signing Requests. (See [PR #3345](https://github.com/aws-amplify/aws-sdk-ios/pull/3345))
+
+- Model updates for the following services
+  - AWSConnect
+  - AWSConnectParticipant
+  - AWSEC2
+  - AWSIoT
+  - AWSKMS
+  - AWSSQS
+
+## 2.21.0
+
+### New Features
+
+- **AWSAppleSignIn**
+  - Add ASAuthorizationAppleIDCredential as property of AWSAppleSignInProvider. Thanks @BillBunting! (See [Issue #3143](https://github.com/aws-amplify/aws-sdk-ios/pull/3143), [PR #3291](https://github.com/aws-amplify/aws-sdk-ios/pull/3291))
+- **AWSLocation**
+  - Add AWSLocation SDK (See [PR #3311](https://github.com/aws-amplify/aws-sdk-ios/pull/3311))
+  - Add AWSLocationTracker client (See [PR #3314](https://github.com/aws-amplify/aws-sdk-ios/pull/3314))
+
+### Bug fixes
+
+- **AWSS3TransferUtility**
+  - fix: S3TransferUtility uniquely identify completedParts (See [Issue #3173](https://github.com/aws-amplify/aws-sdk-ios/issues/3173), [PR #3282](https://github.com/aws-amplify/aws-sdk-ios/pull/3282))
+
+### Misc. Updates
+
+- **AWSCore**
+  - Remove deprecated iOS 8 API from UICKeyChainStore. Thanks @1mash0! ([Issue #3225](https://github.com/aws-amplify/aws-sdk-ios/issues/3225), [PR #3245](https://github.com/aws-amplify/aws-sdk-ios/pull/3245))
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSEC2
+  - AWSSageMakerRuntime
+  - AWSLambda
+
+## 2.20.0
+
+### Breaking Changes
+
+- **Removed deprecated clients** AWS Mobile SDK for iOS has removed these deprecated clients ([PR #3281](https://github.com/aws-amplify/aws-sdk-ios/pull/3281)):
+  - `AWSCognito` (Amazon Cognito Sync) - Use [`Amplify DataStore`](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios) for data synchronization.
+  - `AWSMobileAnalytics` - Use [`Amplify Analytics`](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios) for analytics.
+  - `AWSS3TransferManager` - Use [`Amplify Storage`](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios) for uploads and downloads with Amazon S3.
+
+- **AWSCore**
+  - Removed deprecated MD5-related extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. ([PR #3283](https://github.com/aws-amplify/aws-sdk-ios/pull/3283))
+
+### Bug fixes
+
+- **Amazon Cognito**
+  - Remove cached AWS Credentials when tokens expire (See [PR #3237](https://github.com/aws-amplify/aws-sdk-ios/pull/3237))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSPolly
+  - AWSIoT
+  - AWSElasticLoadBalancing
+  - AWSTextract
+  - AWSSNS
+  - AWSConnect
+  - AWSEC2
+  - AWSLex
+  - AWSAutoScaling
+  - AWSLambda
+  - AWSTranslate
+  - AWSDynamoDB
+  - AWSCognitoIdentity
+  - AWSComprehend
+  - AWSCognitoIdentityProvider
+
+## 2.19.1
+
+### Bug fixes
+
+- Fixed an issue where id token is not refreshed automatically for customers who set short custom expiration intervals (See [Issue #869](https://github.com/aws-amplify/amplify-ios/issues/869), [PR #3220](https://github.com/aws-amplify/aws-sdk-ios/pull/3220/))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSElasticLoadBalancing
+  - AWSEC2
+  - AWSDynamoDB
+  
+## 2.19.0
+
+### Breaking Changes
+- **Amazon Cognito**
+  - **Breaking Change** Custom auth now sets the correct `username` after a sign in flow. Before, if a user signed in with an alias (for example, an email) in a custom auth sign in flow, after a successful signIn, `AWSMobileClient.default().username` would return that entered alias. This has been fixed in this release to conform to the behavior in the standard SRP flow: instead of the returning the alias, `AWSMobileClient.default().username` will return the actual Cognito username of the user. (See [Issue #3194](https://github.com/aws-amplify/aws-sdk-ios/issues/3194), [PR #3198](https://github.com/aws-amplify/aws-sdk-ios/pull/3198))
+
+### Misc
+- AWS IoT: optimistic workaround for cleaning up nsoutputstream (See [Issue #2770](https://github.com/aws-amplify/aws-sdk-ios/issues/2770), [PR #3208](https://github.com/aws-amplify/aws-sdk-ios/pull/3208))
+- Build project with Xcode 12.1
+- Model updates for the following services
+  - Amazon DynamoDB
+  - AWS Auto Scaling
+  - Amazon EC2
+  - AWS IoT
+  - Amazon Lambda
+
+## 2.18.1
+
+### New Features
+- The following models now support `NSSecureCoding`
+  - Amazon EC2 ([PR #3150](https://github.com/aws-amplify/aws-sdk-ios/pull/3150))
+  - Amazon Elastic Load Balancing ([PR #3158](https://github.com/aws-amplify/aws-sdk-ios/pull/3158))
+  - AWS IoT ([PR #3153](https://github.com/aws-amplify/aws-sdk-ios/pull/3153)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
+    - `AWSIoTDataDeleteThingShadowResponse`
+    - `AWSIoTDataGetThingShadowResponse`
+    - `AWSIoTDataPublishRequest`
+    - `AWSIoTDataUpdateThingShadowRequest`
+    - `AWSIoTDataUpdateThingShadowResponse`
+  - Amazon Kinesis Data Streams ([PR #3163](https://github.com/aws-amplify/aws-sdk-ios/pull/3163))
+  - Amazon Kinesis Video Streams ([PR #3161](https://github.com/aws-amplify/aws-sdk-ios/pull/3161))
+  - Amazon Kinesis Video Streams Archived Media ([PR #3161](https://github.com/aws-amplify/aws-sdk-ios/pull/3161))
+  - Amazon Lambda ([PR #3154](https://github.com/aws-amplify/aws-sdk-ios/pull/3154)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
+    - `AWSLambdaInvocationRequest`
+    - `AWSLambdaInvocationResponse`
+  - Amazon Machine Learning ([PR #3162](https://github.com/aws-amplify/aws-sdk-ios/pull/3162))
+  - Amazon S3 ([PR #3145](https://github.com/aws-amplify/aws-sdk-ios/pull/3145)). Note that the following base request and response objects that include untyped (i.e., `id`) properties do not support `NSSecureCoding`. To support `NSSecureCoding` for those types, create a subclass of the base type, and override the appropriate `initWithCoder:` methods to provide a type-safe unarchiving method:
+    - `AWSS3GetObjectOutput`
+    - `AWSS3GetObjectTorrentOutput`
+    - `AWSS3PutObjectRequest`
+    - `AWSS3RecordsEvent`
+    - `AWSS3UploadPartRequest`
+  - Amazon Transcribe Streaming ([PR #3164](https://github.com/aws-amplify/aws-sdk-ios/pull/3164))
+- `AWSPinpointEndpointProfileUser` now supports adding user attributes (See [Issue #3086](https://github.com/aws-amplify/aws-sdk-ios/issues/3086), [PR #3142](https://github.com/aws-amplify/aws-sdk-ios/pull/3142))
+
+### Bug fixes
+- **AWSCore**
+  - Fixed link for `AWSTask` documentation (See [Issue #3171](https://github.com/aws-amplify/aws-sdk-ios/issues/3171), [PR #3177](https://github.com/aws-amplify/aws-sdk-ios/pull/3177))
+- **AWSMobileClient**
+  - Fix decoding claims that contain special characters ([PR #2928](https://github.com/aws-amplify/aws-sdk-ios/pull/2928)) Thanks @rolisanchez!
+  - Gracefully error out if idToken is not returned from service (See [Issue #2961](https://github.com/aws-amplify/aws-sdk-ios/issues/2961), [PR #3090](https://github.com/aws-amplify/aws-sdk-ios/pull/3090))
+  - Fixed cancel signout that takes the app into an inconsistent state (See [Issue #2886](https://github.com/aws-amplify/aws-sdk-ios/issues/2886), [PR #3190](https://github.com/aws-amplify/aws-sdk-ios/pull/3190))
+- **AWSPinpoint**
+  - End AWSPinpoint background task when app enters foreground (See [Issue #2651](https://github.com/aws-amplify/aws-sdk-ios/issues/2651), [PR #3084](https://github.com/aws-amplify/aws-sdk-ios/pull/3084))
+- **AWSS3TransferUtility**
+  - Register S3TransferUtility prior to async loading (See [Issue #2962](https://github.com/aws-amplify/aws-sdk-ios/issues/2962), [PR #3135](https://github.com/aws-amplify/aws-sdk-ios/pull/3135))
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Elastic Load Balancing (ELB)
+  - AWS IoT
+  - Amazon S3
+  - Amazon Simple Notification Service (SNS)
+  
+- Enhanced code generated model support
+  - Consider timestamp format for JSON protocol serialization ([PR #3182](https://github.com/aws-amplify/aws-sdk-ios/pull/3182))
+  - Support `listType` for url parameters ([PR #3186](https://github.com/aws-amplify/aws-sdk-ios/pull/3186))
+  - Use `hostPrefix` when available to prepend to endpoint ([PR #3183](https://github.com/aws-amplify/aws-sdk-ios/pull/3183))
+
+## 2.18.0
+
+### New Features
+- The following models now support `NSSecureCoding` ([PR #3127](https://github.com/aws-amplify/aws-sdk-ios/pull/3127)):
+  - AWS Auto Scaling
+  - Amazon CloudWatch Logs
+  - Amazon CloudWatch Monitoring
+  - Amazon Cognito Identity
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Connect
+  - Amazon Connect Participant Service
+  - Amazon DynamoDB
+  - Amazon Kinesis Firehose
+  - Amazon Kinesis Video Signaling
+  - AWS Key Management Service (KMS)
+  - Amazon Lex
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SageMaker
+  - Amazon Security Token Service (STS)
+  - Amazon Simple DB
+  - Amazon Simple Email Service (SES)
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Simple Queue Service (SQS)
+  - Amazon Textract
+  - Amazon Transcribe
+  - Amazon Translate
+
+### Misc. Updates
+- **AWSAuthSDK**
+  - Upgrade Facebook SDK to 8.0.0 ([PR #3082](https://github.com/aws-amplify/aws-sdk-ios/pull/3082))
+- Support Xcode 12.0.1 for Carthage build ([PR #3085](https://github.com/aws-amplify/aws-sdk-ios/pull/3085))
+- Model updates for the following services
+  - Amazon Connect
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon Elastic Load Balancing
+  - Amazon Pinpoint
+  - Amazon Rekognition
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Textract
+
+### Deprecation removal warning
+
+AWS Mobile SDK for iOS will remove these deprecated clients in December 2020:
+
+- `AWSCognito` (Amazon Cognito Sync) - Use [`Amplify DataStore`](https://docs.amplify.aws/lib/datastore/getting-started/q/platform/ios) for data synchronization.
+- `AWSMobileAnalytics` - Use [`Amplify Analytics`](https://docs.amplify.aws/lib/analytics/getting-started/q/platform/ios) for analytics.
+- `AWSS3TransferManager` - Use [`Amplify Storage`](https://docs.amplify.aws/lib/storage/getting-started/q/platform/ios) for uploads and downloads with Amazon S3.
+
+## 2.17.0
+
+### Bug fixes
+
+- Fixed build errors in Xcode 12. (See [Issue #2927](https://github.com/aws-amplify/aws-sdk-ios/issues/2927), [PR #3039](https://github.com/aws-amplify/aws-sdk-ios/pull/3039))
+
+### New features
+
+- **Amazon S3**
+  - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3.
+
+    Previously, the SDK constructed URLs for S3 requests with different rules depending on the region (e.g., calls to endpoints in us-east-1 would be made to `s3.amazonaws.com`, while calls to endpoints in some older regions would be constructed as `s3-<region>.amazonaws.com`, while calls to endpoints in newer regions would be constructed as `s3.<region>.amazonaws.com`). With this revision of the SDK, the base URL for **all** S3 operations to supported endpoints will be constructed as: `"s3" + "." + region name + ".amazonaws.com"`. See [PR #3008](https://github.com/aws-amplify/aws-sdk-ios/pull/3008).
+
+    In addition to this, the SDK now uses [virtual-host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access) for DNS-compliant bucket names. (See [issue #1535](https://github.com/aws-amplify/aws-sdk-ios/issues/1535), and [PR #2996](https://github.com/aws-amplify/aws-sdk-ios/pull/2996)).
+
+    Thus, this revision of the SDK will make most requests to endpoint URLs of the form: `<bucket>.s3.<region>.amazonaws.com`.
+
+    **Impact**
+
+    This change should be transparent to most customers. If you used the Amplify CLI to provision their S3 backend, and set up your SDKs with an `awsconfiguration.json` file or `amplifyconfiguration.json` file, you won't need to take any action. If you set up the S3 client manually using an AWSEndpoint initialized with `-[AWSEndpoint initWithRegion:service:useUnsafeURL:]`, you also won't need to take any action.
+
+    - This change may impact customers who manually set up their S3 SDK using URL-based initializers like `-[AWSEndpoint initWithRegion:service:URL:]`.
+    - This change may impact customers who have custom security setups in their app (such as SSL pinning or host validation), since the constructed host names are now different
+    - This change may impact customers who parse access logs in CloudTrail, since accesses will now be recorded using a different URL
+
+    **Limitations**
+
+    The AWS Mobile SDK for iOS automatically uses virtual host style URLs for operations made via the S3 SDK APIs, operations made via TransferUtility, and operations using transfer acceleration via TransferUtility. However, there are a few cases where the SDK will not use virtual host style URLs:
+    - When the client is configured with a custom endpoint, including custom endpoints to specify `dualstack` or FIPS-compliant endpoints
+    - When the specified bucket name is not DNS compliant
+    - When the specified bucket name contains a dot character (`"."`)
+    - When making a [`GetBucketLocation`](https://github.com/aws-amplify/aws-sdk-ios/blob/df5cb0b37d34759104512fd705a1c9e7e62a2517/AWSS3/AWSS3Service.h#L851) API call
+
+    **Resources**
+    - [Virtual host style addressing](https://docs.aws.amazon.com/AmazonS3/latest/dev/VirtualHosting.html#virtual-hosted-style-access)
+    - [Path-style deprecation](https://aws.amazon.com/blogs/aws/amazon-s3-path-deprecation-plan-the-rest-of-the-story/)
+
+### Breaking Changes
+- **Amazon S3**
+  - **Breaking Change** We have normalized URL construction for the AWSS3 SDK, and now support virtual host style (V2) URLs for S3 (see above)
+- **AWSCognitoIdentityProviderASF**
+  - **Breaking Change** The AWSCognitoIdentityProviderASF SDK no longer ships the `libAWSCognitoIdentityProviderASFBinary.a` static library. The `AWSCognitoIdentityProvider` SDK consumes ASF via the framework. Projects that rely on ASF should remove references to the static library. The AWSCognitoIdentityProviderASF SDK is now versioned the same as the overall SDK.
+
+### Misc. Updates
+- **AWSPinpoint**
+  - The SDK now uses [`NSSecureCoding`](https://developer.apple.com/documentation/foundation/nssecurecoding?language=objc) and version-appropriate methods of `NSKeyedUnarchiver` to encode and decode `AWSPinpointSession` and `AWSPinpointEndpointProfile`. ([PR #3031](https://github.com/aws-amplify/aws-sdk-ios/pull/3031))
+  - Deprecate handler argument in intercept notification ([PR #2910](https://github.com/aws-amplify/aws-sdk-ios/pull/2910))
+- **AWSAuthSDK**
+  - Upgrade Facebook SDK to 6.5.2 ([PR #2990](https://github.com/aws-amplify/aws-sdk-ios/pull/2990))
+- **Project**
+  - Refactored unit tests into separate "AWSAllUnitTests" aggregate target for easier execution
+  - Removed unused "Documentation" aggregate target. Documentation is generated in a pipeline build step and doesn't use an Xcode target.
+- Model updates for the following services
+  - Amazon Comprehend
+  - Amazon Connect
+  - Amazon EC2
+  - Amazon Elastic Load Balancing
+  - Amazon Security Token Service (STS)
+  - Amazon Simple Queue Service (SQS)
+  - Amazon Transcribe
+  - Amazon Translate
+
+## 2.16.0
+
+### Note for Xcode 12 support
+- All SDKs have been updated to support minimum iOS version 9.0, dropping support for iOS 8.0 in this release. Xcode 12 has dropped support for iOS 8 and requires setting your app's minimum supported version to 9.0 or greater to continue building on Xcode 12. ([PR #2981](https://github.com/aws-amplify/aws-sdk-ios/pull/2981))
+
+### Bug Fixes
+- **AWSiOT** 
+  - Backport crash fix into AWSSRWebSocket ([PR #2984](https://github.com/aws-amplify/aws-sdk-ios/pull/2984))
+
+### Misc. Updates
+- Model updates for the following services.
+  - **Breaking Change** Amazon EC2 - reverted a change that was mistakenly released in the previous model update ([PR #2986](https://github.com/aws-amplify/aws-sdk-ios/pull/2986))
+  - **Breaking Change** Amazon Elastic Load Balancing - updated to API version `2015-12-01` ([PR #2951](https://github.com/aws-amplify/aws-sdk-ios/pull/2951))
+
+## 2.15.3
+
+### Misc. Updates
+
+- Updated version for AWSCognitoIdentityProviderASF library to reconcile discrepancy between previous published version and license
+
+## 2.15.2
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon CloudWatch Logs
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Lambda
+  - Amazon Lex
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Transcribe
+
+- **AWSIoT**
+  - Improved IoT reconnection handling to reduce occurrences of crashes reported in [#2770](https://github.com/aws-amplify/aws-sdk-ios/issues/2770) and [#2939](https://github.com/aws-amplify/aws-sdk-ios/issues/2939). ([PR #2949](https://github.com/aws-amplify/aws-sdk-ios/pull/2949), [PR #2957](https://github.com/aws-amplify/aws-sdk-ios/pull/2957))
+
+- **AWSCore**
+  - Deprecated two MD5-related extensions to `NSString`: `aws_md5String` and `aws_md5StringLittleEndian`. These will be removed in an upcoming version of the SDK. ([PR #2964](https://github.com/aws-amplify/aws-sdk-ios/pull/2964))
+
+### Bug Fixes
+- **AWSLex**
+  - Replace PermissionBlock alias with block signature (See [PR #2868](https://github.com/aws-amplify/aws-sdk-ios/pull/2868))
+- **AWSMobileClient**
+  - Fixed an issue where the completion handler is not set before a status change is returned to the api. (See [PR #2948](https://github.com/aws-amplify/aws-sdk-ios/pull/2948))
+
+## 2.15.1
+
+### New features
+- **AWSMobileClient**
+  - Support ClientMetaData in verifyUserAttribute, resendSignUpCode, updateUserAttributes (See [PR #2872](https://github.com/aws-amplify/aws-sdk-ios/pull/2872))
+  - Pass clientMetadata for MFA confirmSignIn (See [PR #2890](https://github.com/aws-amplify/aws-sdk-ios/pull/2890))
+  - Pass clientMetadata for SignIn SRP_A, migration, customAuth auth flows (See [PR #2883](https://github.com/aws-amplify/aws-sdk-ios/pull/2883))
+  
+- **AWSIoT**
+  - Add username and password to MQTT ioTMQTTConfiguration for enhanced custom authorizer (See [PR #2856](https://github.com/aws-amplify/aws-sdk-ios/pull/2856), [PR #2875](https://github.com/aws-amplify/aws-sdk-ios/pull/2875))
+  
+### Bug Fixes
+- **AWSMobileClient**
+  - Serialized access to keychain on setData (See [PR #2900](https://github.com/aws-amplify/aws-sdk-ios/pull/2900))
+
+### Misc. Updates
+- Binary framework distributions via Carthage and S3 are now built using Xcode 11.6
+- Model updates for the following services
+  - AWS AutoScaling
+  - Amazon EC2
+  - Amazon Kinesis Data Firehose
+
+## 2.15.0
+
+### New features
+- **AWSAuthSDK**
+  - **Breaking Change** Updated AWSGoogleSignInProvider to GoogleSignIn Version 5.0.2. This change requires any app that uses GoogleSignIn to update the framework to version 5.0.2. (See [Issue #1993](https://github.com/aws-amplify/aws-sdk-ios/issues/1993) and [PR #2851](https://github.com/aws-amplify/aws-sdk-ios/pull/2851)) Thanks, [@cornr](https://github.com/cornr)!
+
+### Bug Fixes
+- **AWSMobileClient**
+  - Fixed drop-in ui button background issue [PR: #2852](https://github.com/aws-amplify/aws-sdk-ios/pull/2852)
+  - Crash while accessing user attributes/password when not signed in to Cognito User Pool [PR: #2866](https://github.com/aws-amplify/aws-sdk-ios/pull/2866)
+
+- **AWSPinpoint**
+  - Removed global event source attributes on session end [PR: #2858](https://github.com/aws-amplify/aws-sdk-ios/pull/2858)
+
+### Misc. Updates
+- Deprecated AWSiOSSDKv2 aggregate pod in favor of Amplify [PR: #2855](https://github.com/aws-amplify/aws-sdk-ios/pull/2855)
+- Model updates for the following services:
+  - Amazon EC2
+  - Amazon Connect
+  - Amazon Comprehend
+  - Amazon SNS
+
+## 2.14.2
+
+### Bug Fixes
+
+- **AWSAuthSDK**
+  - Fix import errors in AWSAppleSignIn, AWSAuth, AWSAuthCore
+
+## 2.14.1
+
+### New features
+- **AWSMobileClient**
+  - Add support for SignIn with Apple in DropInUI. See [PR: #2819](https://github.com/aws-amplify/aws-sdk-ios/pull/2819)
+
+## 2.14.0
+
+### Bug Fixes
+
+- **AWSCognitoIdentityProvider**
+  - **Breaking Change** Added `nullable` modifier to the return instance form the method `CognitoIdentityUserPoolForKey:`. See [PR: #2815](https://github.com/aws-amplify/aws-sdk-ios/pull/2815)
+
+## 2.13.6
+
+### Misc. Updates
+
+- Changed the repo's default branch to 'main'
+- Model updates for the following services:
+  - Amazon Autoscaling
+
+## 2.13.5
+
+### Bug Fixes
+
+- **Amazon Pinpoint**
+  - Fix issue where SDK is not respecting developer set OptOut value. Persist the developer set optOut in user defaults. See [PR: #2552](https://github.com/aws-amplify/aws-sdk-ios/pull/2552)
+
+- **AWSMobileClient**
+  - If the token expired while signed in using HostedUI, AWSMobileClient will now send the event signedOutUserPoolsTokenInvalid and the request that invoked the token fetch will wait till the user signin or signout or invoke release signin wait. In the previous implementation the requested operation will complete with error and user event listener was not invoked.
+    See [PR: #2739](https://github.com/aws-amplify/aws-sdk-ios/pull/2739)
+
+### Misc. Updates
+- Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon EC2
+  - AWS IoT
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Polly
+  - Amazon Rekognition
+  - Amazon SQS
+  - Amazon SageMaker
+
+## 2.13.4
+### New features
+- **Integration tests**
+    - AWS Mobile SDK for iOS integration tests are now provisioned from a CloudFormation stack created by [the new amplify-ci-support package](https://github.com/aws-amplify/amplify-ci-support). See [the README](LINK TBD) for details on how to provision your account to run integration tests.
+
+- **AWSMobileClient**
+    - Added api to fetch userSub for the loggedin user. [PR #2599](https://github.com/aws-amplify/aws-sdk-ios/pull/2599)
+
+### Bug Fixes
+- **AWSMobileClient**
+    - Crash in `releaseSignInWait` api due to over fulfilling a fetchlock. See [Issue #1278](https://github.com/aws-amplify/aws-sdk-ios/issues/1278) and [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
+    - Fix `releaseSignInWait` for custom Auth to clear the lock correctly. [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
+
+- **AWSCognitoIdentityProvider**
+    - Removed cyclic retry logic in custom auth delegate. See [Issue #2504](https://github.com/aws-amplify/aws-sdk-ios/issues/2504), [PR #2571](https://github.com/aws-amplify/aws-sdk-ios/pull/2571)
+
+### Misc. Updates
+- Model updates for the following services:
+  - AWS Lambda
+
+## 2.13.3
+
+### New features
+- **AWS Core**
+  - Added support for `af-south-1` - Africa (Cape Town) region
+  - Added support for `eu-south-1` - Europe (Milan) region
+
+### Bug Fixes
+- **Amazon Pinpoint**
+  - Fix Missing address issue related to apps which have enabled push notifications, is using the pinpoint SDK, but is not registering the token with the endpoint [PR: #2455](https://github.com/aws-amplify/aws-sdk-ios/pull/2455)
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Transcribe
+  - AWS Lambda
+
+## 2.13.2
+
+### New features
+- **AWSMobileClient** 
+  - Added IdentityProvider strings for Sign in with Apple: `IdentityProvider.apple`. See [Issue #1809](https://github.com/aws-amplify/aws-sdk-ios/issues/1809) and [PR #2425](https://github.com/aws-amplify/aws-sdk-ios/pull/2425).
+- **Amazon Pinpoint**
+  - Added support for adding custom demographic to pinpoint [PR: #2410](https://github.com/aws-amplify/aws-sdk-ios/pull/2410)
+  - Added support for Pinpoint Journey Push Notifications [PR: #2407](https://github.com/aws-amplify/aws-sdk-ios/pull/2407)
+
+### Bug Fixes
+- **AWSMobileClient** Persist scopes defined using `HostedUIOptions` across cognito auth sessions. Should not break existing calls to these functions. If the developer wishes to change the scopes, it is recommended that the users are forced to sign in to accept the permissions for new scopes. See [PR #2397](https://github.com/aws-amplify/aws-sdk-ios/pull/2397) [Issue #2357](https://github.com/aws-amplify/aws-sdk-ios/issues/2357) for more details
+
+### Misc. Updates
+- Update CI/CD system to build with Xcode 11.4 See [issue #2365](https://github.com/aws-amplify/aws-sdk-ios/issues/2365).
+- Model updates for the following services:
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Rekognition
+
+## 2.13.1
+
+### New features
+
+- **AWSMobileClient** Added an optional parameter `clientMetaData` to `signUp`, `confirmSignUp`, `forgotPassword` and `confirmForgotPassword`. Should not break existing calls to these functions. See [PR #2328](https://github.com/aws-amplify/aws-sdk-ios/pull/2328) [Issue #2299](https://github.com/aws-amplify/aws-sdk-ios/issues/2299) for more details
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Pinpoint
+  - Amazon Transcribe
+  - Amazon Cognito Identity Provider
+  - Amazon IoT
+
+## 2.13.0
+
+### Bug Fixes
+
+- **Breaking Change** Updated nullability flags for the `AWSSignatureSignerUtility`, `AWSSignatureV4Signer`, `AWSSignatureV2Signer` and `AWSS3ChunkedEncodingInputStream` classes. Methods in these classes will have new signatures in Swift code, and may require code changes in your app to consume. See [PR #2235](https://github.com/aws-amplify/aws-sdk-ios/pull/2235) for more details.
+
+- **Amazon S3**
+  - TransferUtility now properly cancels waiting parts when canceling a multipart upload. See [Issue #2280](https://github.com/aws-amplify/aws-sdk-ios/issues/2280), [PR #2288](https://github.com/aws-amplify/aws-sdk-ios/pull/2288/). Thanks, [@colinhumber](https://github.com/colinhumber)!
+
+### Misc. Updates
+
+- Model updates for the following services
+
+  - Amazon Autoscaling
+  - Amazon Cognito Identity Provider
+  - Amazon DynamoDB
+  - Amazon EC2
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Pinpoint
+  - Amazon Rekognition
+
+## 2.12.8
+
+This version has been deprecated. Please use the latest release.
+
+## 2.12.7
+
+### Bug Fixes
+
+- **Amazon IoT**
+  - Fixed a crash in AWSIoTManager when importing PKCS12 data with an incorrect passphrase. (See [#1166](https://github.com/aws-amplify/aws-sdk-ios/issues/1166))
+- **AWSMobileClient, Amazon Cognito Identity Provider**
+  - Fixed issue where users in a `FORCE_CHANGE_PASSWORD` flow are unable to update their password. We confirmed with the service team that we should not be sending back these parameters, and instead be sending an empty dictionary. (See [#2203](https://github.com/aws-amplify/aws-sdk-ios/issues/2203))
+- **AWSAuthUI**
+  - Fix crash on NewPasswordRequired flow when UIAlertView is presented on service error
+- **AWSMobileClient**
+  - Fixed issue where custom auth challenge task completion wasn't being reset to nil if user logged out before completing it (See [#2261](https://github.com/aws-amplify/aws-sdk-ios/issues/2261))
+- Include x86_64-apple-ios-simulator.swiftmodule files for binary releases (See [#2274](https://github.com/aws-amplify/aws-sdk-ios/issues/2274))
+
+### Misc. Updates
+  
+- **AWSEC2**
+  - Fix for hardcoded AMI in EC2 integration test that had been deprecated. Updated to hardcoded AMI that was created 01/2020.
+- **AWSMobileAnalytics**
+  - Updated podspec with `deprecated` and `deprecated_in_favor_of` attributes
+- Added workaround for `use_modular_headers!` inside of Podfile (experimental)
+- Model updates for the following services:
+  - Amazon EC2
+  - Amazon IoT
+  - AWS KMS
+  - AWS Lambda
+
+### Note for CocoaPods users
+
+The source code of the AWSiOSSDKV2.podspec at the 2.12.7 release tag includes a [subspec for AWSTranscribeStreaming](https://github.com/aws-amplify/aws-sdk-ios/blob/2.12.7/AWSiOSSDKv2.podspec#L152-L154). However, that subspec is not in the actual 2.12.7 release of the AWSiOSSDKv2 pod, since it requires iOS 9.0 or higher. Future releases will properly reflect that AWSTranscribeStreaming is not packaged as a subspec of AWSiOSSDKv2. Note that we don’t recommend using the AWSiOSSDKv2 pod, but rather importing individual pods.
+  
+## 2.12.6
+
+### Misc. Updates
+
+- **Amazon Transcribe Streaming**
+  - Made the event decoder classes public
+
+- Model updates for the following services
+  - Amazon CloudWatch Logs
+  - Amazon Comprehend
+  - Amazon EC2
+  - Amazon Translate
+
+## 2.12.5
+
+### New Features
+
+- **AWSMobileClient**
+  - confirmSignIn method now takes in `clientMetaData` as an argument. (See [pr #2209](https://github.com/aws-amplify/aws-sdk-ios/pull/2209) for more details.)
+
+### Bug Fixes
+
+- **AWSMobileClient**
+  - Fix an issue where the custom auth is not passing challenge parameters back to the callback. (See [issue #2148](https://github.com/aws-amplify/aws-sdk-ios/issues/2148) for more details.)
+
+### Misc. Updates
+
+- **AWSCore**
+  - Improved error handling on network requests by propagating errors encountered deserializing the NSURLSessionDelegate's response in the returned error's `userInfo` dictionary. If present, the response object's error will be under the new key `AWSResponseObjectErrorUserInfoKey`.  (See [issue #1062](https://github.com/aws-amplify/aws-sdk-ios/issues/1062) and [PR #2052](https://github.com/aws-amplify/aws-sdk-ios/pull/2052)).  Thanks @coredumped!
+
+- **Amazon Transcribe Streaming**
+   - The Amazon Transcribe streaming SDK can now be configured with a custom web socket provider that overrides the default web socket provider, Socket Rocket.
+
+- Model updates for the following services:
+  - Amazon EC2
+  - Amazon IoT
+  - Amazon Pinpoint
+  - Amazon Transcribe
+  
+- Updated copyright year throughout
+
+## 2.12.4
+
+### Deprecated release
+
+This release is deprecated due to errors. Please use 2.12.5 or greater.
+
+## 2.12.3
+
+### New Features
+- **Amazon Kinesis Video Signaling**
+  - Amazon Kinesis Video Signaling Channels supports GetIceServerConfig and SendAlexaOfferToMaster. See [Amazon Kinesis Video Signaling Channels Documentation](https://docs.aws.amazon.com/kinesisvideostreams/latest/dg/API_Operations_Amazon_Kinesis_Video_Signaling_Channels.html) for more details
+  
+### Misc. Updates
+
+- Model updates for the following services:
+  - Amazon Autoscaling
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon Kinesis Firehose
+  - Amazon IoT
+  - Amazon Kinesis Video Streams
+  - Amazon Kinesis Video Signaling
+  - AWS KMS
+  - AWS Lambda
+  - Amazon Lex
+  - Amazon Pinpoint
+  - Amazon Rekognition
+  - Amazon SageMaker
+  - Amazon Simple Notification Service (SNS)
+  - Amazon Security Token Service (STS)
+  - Amazon Transcribe
+
+## 2.12.2
+
+### New Features
+
+- **Amazon Connect Participant Service**
+  - Amazon Connect Participant Service Amazon Connect is a cloud-based contact center solution that makes it easy to set up and manage a customer contact center and provide reliable customer engagement at any scale. Amazon Connect enables customer contacts through voice or chat. The Amazon Connect Participant Service is used by chat participants, such as agents and customers. See [Amazon Connect Participant Service Documentation](https://aws.amazon.com/connect/) for more details.
+
+### Misc. Updates
+
+- Model updates for the following services
+
+  - Amazon CloudWatch Logs
+  - Amazon Cognito Identity
+  - Amazon Cognito Identity Provider
+  - Amazon Comprehend
+  - Amazon Connect
+    - Added a new api to support `CHAT` media in Connect. See [API reference](https://docs.aws.amazon.com/connect/latest/APIReference) for more details.
+  - Amazon DynamoDB
+  - Amazon EC2
+  - Amazon IoT
+  - Amazon Polly
+  - Amazon Security Token Service (STS)
+  - Amazon Transcribe
+
+## 2.12.1
+
+### New Features
+
+- **Amazon Polly**
+  - `AWSPollySynthesizeSpeechURLBuilder` now supports the ability to specify the engine (standard or neural) for a request.
+    See [the Amazon Polly documentation](https://docs.aws.amazon.com/polly/latest/dg/API_SynthesizeSpeech.html#polly-SynthesizeSpeech-request-Engine)
+    for a discussion of the Engine. See [Issue #1973](https://github.com/aws-amplify/aws-sdk-ios/issues/1973).
+
+- **AWS AuthUI**
+  - `AWSMobileClient` now supports the ability to hide sign up flow in the Drop-In UI. See [#1324](https://github.com/aws-amplify/aws-sdk-ios/pull/1324) for more details. Thanks @jamesingham!
+
+### Bug Fixes
+- **AWS AuthUI**
+  - Present sign-in modal fullscreen to avoid undesirable gap. See issue [#1963](https://github.com/aws-amplify/aws-sdk-ios/issues/1963). Thanks @BillBunting!
+- **AWS S3 TransferUtility**
+  - Fix a bug where the SDK crashes during uploading data to S3. See iseeu [#1994](https://github.com/aws-amplify/aws-sdk-ios/issues/1994).
+- **AWSFacebookSignIn**
+  - Fixes issues[#1516](https://github.com/aws-amplify/aws-sdk-ios/issues/1516) and [#1974](https://github.com/aws-amplify/aws-sdk-ios/issues/1974) from deprecated and old FBSDK. FBSDK has been updated to 5.8
+- **AWS IoT**
+  - IoT now propagates errors properly if it encounters a situation where the MQTT header is malformed
+
+
+### Misc. Updates
+
+- Model updates for the following services
+
+  - Amazon Cognito Identity Provider
+  - Amazon EC2
+  - Amazon Kinesis Firehose
+  - Amazon Lex
+  - Amazon Pinpoint
+
+## 2.12.0
+
+### New Features
+
+- **AWSMobileClient**
+  - DropIn UI now supports `FORCE_CHANGE_PASSWORD` UI flow. See issue [#1711](https://github.com/aws-amplify/aws-sdk-ios/issues/1711) for more details.
+  - AWSMobileClient now supports Cognito Custom Authentication flow. See relevant [cognito docs](https://docs.aws.amazon.com/cognito/latest/developerguide/amazon-cognito-user-pools-authentication-flow.html#amazon-cognito-user-pools-custom-authentication-flow) and [amplify docs](https://aws-amplify.github.io/docs/ios/authentication#customizing-authentication-flow) for details
+- **Amazon Transcribe Streaming**
+  - Amazon Transcribe streaming transcription enables you to send an audio stream and receive a stream of text in real time using WebSockets.
+    See [AWS Documentation](https://docs.aws.amazon.com/transcribe/latest/dg/websocket.html) for more information, and the
+    [integration test](https://github.com/aws-amplify/aws-sdk-ios/blob/main/AWSTranscribeStreamingTests/AWSTranscribeStreamingSwiftTests.swift)
+    for an example of usage.
+
+### Misc. Updates
+
+- **General SDK improvements**
+  - **Breaking Build Change** The AWS SDK for iOS now requires Xcode 11 or above to build
+
+### Bug Fixes
+
+- **AWSCognito**
+  - Fix an issue where token is not refreshed after update attribute is invoked. See [Issue #1733](https://github.com/aws-amplify/aws-sdk-ios/issues/1733) and [PR #1734](https://github.com/aws-amplify/aws-sdk-ios/pull/1734) for details. Thanks @JesusMartinAlonso!
+
+- **AWSMobileClient**
+  - Fixed an issue where the DropIn UI styles are inconsistent when dark mode is enabled on iOS 13. See [Issue #1953](https://github.com/aws-amplify/aws-sdk-ios/issues/1953) and [PR #1962](https://github.com/aws-amplify/aws-sdk-ios/pull/1962) for details. 
+
+- **Model updates for the following services**
+  - Amazon EC2
+  - Amazon Transcribe
+
+## 2.11.1
+
+### Bug Fixes
+
+- **AWSPinpoint**
+  - Fixed a bug retrieving APNS device tokens on iOS 13. See [Issue #1926](https://github.com/aws-amplify/aws-sdk-ios/pull/1926)
+
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon EC2
+    - NOTE: This model update includes a change to the mapping of certain service-emitted enum values. The symbols to which these values map
+      remains the same, but customers using older versions of the AWSEC2 SDK may wish to upgrade. Enum values affected:
+      - "deleted-running" is now "deleted_running"
+      - "deleted-terminating" is now "deleted_terminating"
+      - "pending-fulfillment" is now "pending_fulfillment"
+      - "pending-termination" is now "pending_termination"
+  - Amazon Simple Email Service
+- Removed redundant import of `AWSNetworking.h` from model service files. See [PR #1855](https://github.com/aws-amplify/aws-sdk-ios/pull/1855). Thanks @thii!
+
+## 2.11.0
+
+### New Features
+
+- **AWSCore**
+  - Added the option of passing the configuration as an in-memory object (i.e. `[String: Any]`/`NSDictionary`) instead of the default `awsconfiguration.json` through the new API `AWSInfo.configureDefaultAWSInfo(config: [String: Any])`.
+- **AWSMobileClient**
+  - Based on the ability to pass a custom configuration through an in-memory object described above, exposed a new initializer that accepts a custom configuration: `AWSMobileClient.init(configuration: [String: Any])`.
+    - Changed `AWSMobileClient.sharedInstance()` in favor of `AWSMobileClient.default()` since it better communicates the API intent. The `sharedInstance` is deprecated as of now and still available for backwards compatibility.
+    - Refer to [Issue #1649](https://github.com/aws-amplify/aws-sdk-ios/issues/1649) for the feature request details.
+  - When `AWSMobileClient.signOut` is called all existing credential fetch are cancelled.
+
+### Bug Fixes
+
+- **AWSPinpoint**
+  - The limit of "Maximum number events in a request" defined by the [Pinpoint service limits](https://docs.aws.amazon.com/pinpoint/latest/developerguide/limits.html#limits-events) (100 per request) is now enforced by the client. When recording more than 100 events the client will submit multiple batches of 100 to avoid a service failure. See [Issue #1680](https://github.com/aws-amplify/aws-sdk-ios/issues/1680) and [PR #1743](github.com/aws-amplify/aws-sdk-ios/pull/1743) for details.
+- **AWSMobileClient**
+  - Fixed a race condition where the confirm signIn callback becoming nil. See issues [#1248](https://github.com/aws-amplify/aws-sdk-ios/issues/1248) and
+    [#1686](https://github.com/aws-amplify/aws-sdk-ios/issues/1686), and [PR #1815](https://github.com/aws-amplify/aws-sdk-ios/pull/1815).
+  - Fix an issue where the signIn callback and user state listener callback are out of sync. See issues [#1700](https://github.com/aws-amplify/aws-sdk-ios/issues/1700) and 
+    [#1314](https://github.com/aws-amplify/aws-sdk-ios/issues/1314), and [PR #1822](https://github.com/aws-amplify/aws-sdk-ios/pull/1822).  
+- **Amazon S3**
+  - TransferUtility now properly reports progress on failed and restarted uploads. See [Issue #1512](https://github.com/aws-amplify/aws-sdk-ios/issues/1512), [PR #1813](https://github.com/aws-amplify/aws-sdk-ios/pull/1813).
+  - Fix an issue where getIdentity call fails without waiting. See PR [#1824](https://github.com/aws-amplify/aws-sdk-ios/pull/1824)
+  - Fix an issue with signUp API not returning the correct status back. See [#1469](https://github.com/aws-amplify/aws-sdk-ios/issues/1469) and PR [#1844](https://github.com/aws-amplify/aws-sdk-ios/pull/1844).
+- **AWSCore**
+  - Fixed a bug where credentials would be retrieved from the keychain instead of in-memory. See [#1554](https://github.com/aws-amplify/aws-sdk-ios/issues/1554)
+    and [#1691](https://github.com/aws-amplify/aws-sdk-ios/issues/1691). Thanks @phanchutoan!
+- **S3**
+  - Fixed issue with uploading large files in transferutility. See [#1836](https://github.com/aws-amplify/aws-sdk-ios/pull/1836). Thanks @benmckillop!
+
+### Misc. Updates
+
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Transcribe
+  - Amazon SQS
+  - Amazon Lambda
+
+- **AWSMobileClient**
+  * **Breaking API change** Removed deprecated methods inside AWSMobileClient. See PR [#1738](https://github.com/aws-amplify/aws-sdk-ios/pull/1738)
+
+## 2.10.3
+
+### Bug Fixes
+
+- **AWS Core**
+  - `-[AWSURLSessionManager invalidate]` now invokes `-[NSURLSession finishTasksAndInvalidate]` before releasing the underlying URLSession.
+    If you attempt to start a new task on the invalidated session, AWSNetworking will now throw an `AWSNetworkingErrorSessionInvalid` error.
+    (See [PR #1203](https://github.com/aws-amplify/aws-sdk-ios/pull/1203) and [PR #1556](https://github.com/aws-amplify/aws-sdk-ios/pull/1556)).
+    Thanks @jkennington and @jaetzold!
+
+- **AWSCognitoAuth**
+  - `delegate` property is now retained weakly
+
+- **AWSMobileClient**
+  - Fixes the crash during signout while setting error on completed task (See [Issue 1505](https://github.com/aws-amplify/aws-sdk-ios/issues/1505) and [Issue 1682](https://github.com/aws-amplify/aws-sdk-ios/issues/1682).)
+  - Fixed an issue where signOut callback is not called (See [Issue 1717](https://github.com/aws-amplify/aws-sdk-ios/issues/1717).)
+  - Code clean up on source and test files
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon EC2
+  - Amazon Lex
+  - Amazon Polly
+  - Amazon Rekognition
+  * Amazon Simple Queue Service (SQS)
+  - AWS IoT
+
+## 2.10.2
+
+### New Features
+
+- **Amazon Textract**
+  - Amazon Textract is a service that automatically extracts text and data from scanned documents. Amazon Textract goes beyond simple optical character
+    recognition (OCR) to also identify the contents of fields in forms and information stored in tables. See
+    [Amazon Textract Documentation](https://aws.amazon.com/textract/) for more details.
+
+## 2.10.1
+
+### New Features
+
+- **AWS Core**
+  - Added support for `me-south-1` - Middle East South (Bahrain) region.
+
+### Bug Fixes
+
+- **Amazon Kinesis**
+  - Fixed default value of `batchRecordsByteLimit`--the documented size is 512**KB**, but the code incorrectly set it to 512**MB**.
+    See [PR #1688](https://github.com/aws-amplify/aws-sdk-ios/pull/1688). Thanks @runlucky!
+- **Amazon Polly**
+  - Fixed error trying to use 'Zeina' voice with presigned URLs
+
+### Misc. Updates
+- Model updates for the following services
+  - Amazon CloudWatch Logs
+  - Amazon Comprehend
+  - Amazon EC2
+  - Amazon Pinpoint
+  - Amazon Security Token Service (STS)
+- Fix incorrect license specification in AWSCognitoIdentityProvider.podspec (See
+  [Issue #1684](https://github.com/aws-amplify/aws-sdk-ios/issues/1684), [PR #1699](https://github.com/aws-amplify/aws-sdk-ios/pull/1699).)
+
+## 2.10.0
+
+### New Features
+
+* **Amazon Connect**
+  * Amazon Connect is a self-service, cloud-based contact center service that makes it easy for any business to deliver better customer service at lower cost. Amazon Connect is based on the same contact center technology used by Amazon customer service associates around the world to power millions of customer conversations. The self-service graphical interface in Amazon Connect makes it easy for non-technical users to design contact flows, manage agents, and track performance metrics – no specialized skills required. There are no up-front payments or long-term commitments and no infrastructure to manage with Amazon Connect; customers pay by the minute for Amazon Connect usage plus any associated telephony services. See [Amazon Connect Documentation](https://aws.amazon.com/connect/) for more details.
+
+### Bug Fixes
+
+- **Amazon S3**
+  - Fixed a bug where errors in the presigned URL builder phase were not returned.
+    See [PR #1555](https://github.com/aws-amplify/aws-sdk-ios/pull/1555) for details.
+    Thanks @wfan9!
+
+### Misc. Updates
+- Fix include files to properly use the framework prefix for cross-framework includes. This fixes breakage when each framework is in a separate project
+  file, as when using the new `generate_multiple_pod_projects` feature in cocoapods 1.7.
+  See [PR #1540](https://github.com/aws-amplify/aws-sdk-ios/pull/1540) and [#1611](https://github.com/aws-amplify/aws-sdk-ios/pull/1611).
+  Thanks @hughescr and @colinhumber!
+- **AWSMobileClient**
+  - Added a `message` convenience property to AWSMobileClientError. See [#1268](https://github.com/aws-amplify/aws-sdk-ios/issues/1268) and
+    [PR #1270](https://github.com/aws-amplify/aws-sdk-ios/pull/1270). Thanks @medvedNick!
+
+- Model updates for the following services
+  - Amazon EC2
+    - **Breaking API Change**
+      - The AWSEC2 method `-[assignPrivateIpAddresses:]` now returns an `AWSTask<AWSEC2AssignPrivateIpAddressesResult *>` instead of an `AWSTask<nil>`.
+      - The first argument to the completion handler for the AWSEC2 method `-[assignPrivateIpAddresses:completionHandler]` is now a nullable
+      `AWSEC2AssignPrivateIpAddressesResult`, rather than a `nil`.
+  - Amazon Kinesis Video Streams
+
+## 2.9.10
+
+### New Features
+
+* **Amazon SageMaker**
+  * Amazon SageMaker provides every developer and data scientist with the ability to build, train, and deploy machine learning models quickly. Amazon SageMaker is a fully-managed service that covers the entire machine learning workflow to label and prepare your data, choose an algorithm, train the model, tune and optimize it for deployment, make predictions, and take action. Your models get to production faster with much less effort and lower cost. See [Amazon SageMaker Documentation](https://aws.amazon.com/sagemaker/) for more details.
+
+### Bug Fixes
+
+- **AWSCore**
+  - Fixed a bug where multiple values would be added to the 'host' header when using the V4 signer on a request that already included a 'host' header.
+- **Amazon S3**
+  - Fixed a bug where the multipart data/file upload crashes while upload is in progress. See [issue #1249](https://github.com/aws-amplify/aws-sdk-ios/issues/1249) for details.
+- **Amazon Kinesis**
+  - Fix modular imports when using CocoaPods 1.7. Thanks @igor-makarov! 
 
 ### Misc. Updates
 
 * Model updates for the following services
+  * Amazon CloudWatch Logs
+  * Amazon DynamoDB
+  * Amazon EC2
+  * Amazon Simple Email Service
+  * Amazon Pinpoint
+
+## 2.9.9
+
+### Bug Fixes
+
+* **AWS IoT**
+  * Added a check for the upper limit of `lengthMultiplier` used for calculation of remaning length of MQTT packets. See [PR #1595](https://github.com/aws-amplify/aws-sdk-ios/pull/1595), [issue #1398](https://github.com/aws-amplify/aws-sdk-ios/issues/1398).
+
+### Misc. Updates
+
+* Model updates for the following services
+  * Amazon Cognito Identity Provider
+  * Amazon Comprehend
+  * Amazon EC2
   * Amazon Security Token Service (STS)
+  * Amazon Transcribe
+  * AWS Lambda
 
 ## 2.9.8
 
@@ -687,7 +1658,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
   * Amazon Transcribe is an automatic speech recognition (ASR) service that makes it easy for developers to add speech to text capability to their applications.
 
 * **AWS IoT**
-  * Add new methods for `publish`, `subscribe` and `unsubscribe` which allow `ack` messages callback using `ackCallback` parameter. See [example.](https://github.com/aws/aws-sdk-ios/blob/master/AWSIoTTests/AWSIoTDataManagerTests.swift#L304)
+  * Add new methods for `publish`, `subscribe` and `unsubscribe` which allow `ack` messages callback using `ackCallback` parameter. See [example.](https://github.com/aws/aws-sdk-ios/blob/main/AWSIoTTests/AWSIoTDataManagerTests.swift#L304)
 
 ### Bug Fixes
 
@@ -824,7 +1795,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
   * Added support for `cn-northwest-1`(China - Ningxia) region.
 
 ### Misc. Updates
-	
+
 * **Amazon Pinpoint**
   * Improved the comment in `generateSessionIdWithContext` method in `AWSPinpointSessionClient`. [PR #777](https://github.com/aws/aws-sdk-ios/pull/777)
 
@@ -946,109 +1917,109 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ### New features
 
 * **AWS Auth SDK**
-	* Add new Auth SDK which provides login integration with Cognito User Pools, Facebook and Google.
+  * Add new Auth SDK which provides login integration with Cognito User Pools, Facebook and Google.
 
 * **Core**
-	* Add support for client configuration through `awsconfiguration.json`.
+  * Add support for client configuration through `awsconfiguration.json`.
 
 ## 2.6.0
 
 ### New feature
 
 * **AWS IoT**
-	* Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
-	* Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
-	* Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
+  * Add API to enable/disable auto-resubscribe topics. Clients can now control whether they want SDK to automatically resubscribe to previously subscribed topics after abnormal network disconnection.
+  * Add API to get current connection status to AWS IoT. Clients can now get the current connection status of the SDK.
+  * Add update/documents topic supoort for shadow operation. Clients now may let SDK subscribe to update/documents topic for shadow operations, so that they can get messages published on update/documents topic by AWS IoT.
 
 ### Enhancements
 
 * **Amazon S3**
-	* Introduce new `bucket` property in `AWSS3TransferUtilityConfiguration` which can be used to set a default bucket. The `bucket` property will be used when the upload / download methods are called without using `bucket` parameter.
-	* Allow setting custom endpoint for `S3PresignedURLBuilder` client. [Github Issue: #709](https://github.com/aws/aws-sdk-ios/issues/709)
+  * Introduce new `bucket` property in `AWSS3TransferUtilityConfiguration` which can be used to set a default bucket. The `bucket` property will be used when the upload / download methods are called without using `bucket` parameter.
+  * Allow setting custom endpoint for `S3PresignedURLBuilder` client. [Github Issue: #709](https://github.com/aws/aws-sdk-ios/issues/709)
 
 * **AWS IoT**
-	* **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
+  * **Breaking API change** Clients may need to customize all parameters in AWSIoTMqttConfiguration object when initializing it before connecting to AWS IoT.
 
 ### Bug fixes
 
 * **Core**
-	* Fixed issue where compilation would fail with Xcode 9. Github Issues: [#704](https://github.com/aws/aws-sdk-ios/issues/704), [#705](https://github.com/aws/aws-sdk-ios/issues/705), [#719](https://github.com/aws/aws-sdk-ios/issues/719), [#721](https://github.com/aws/aws-sdk-ios/issues/721)
+  * Fixed issue where compilation would fail with Xcode 9. Github Issues: [#704](https://github.com/aws/aws-sdk-ios/issues/704), [#705](https://github.com/aws/aws-sdk-ios/issues/705), [#719](https://github.com/aws/aws-sdk-ios/issues/719), [#721](https://github.com/aws/aws-sdk-ios/issues/721)
 
 * **Amazon API Gateway**
-	* Fixed bug where `rawResponse` field is always `nil` and inaccessible. [Github Issue: #631](https://github.com/aws/aws-sdk-ios/issues/631)
+  * Fixed bug where `rawResponse` field is always `nil` and inaccessible. [Github Issue: #631](https://github.com/aws/aws-sdk-ios/issues/631)
 
 * **Amazon Lex**
-	* Fixed [issue](https://forums.aws.amazon.com/thread.jspa?threadID=260137&tstart=0) where session attributes passed in to the `AWSLexInteractionKit` methods `textInTextOut` and `textInAudioOut` would be ignored in certain cases
-	* Fixed similar issue in `AWSLexInteractionKit` `startStreaming` method where attributes set in `sessionAttributesForSpeechInput` would be ignored in certain cases
+  * Fixed [issue](https://forums.aws.amazon.com/thread.jspa?threadID=260137&tstart=0) where session attributes passed in to the `AWSLexInteractionKit` methods `textInTextOut` and `textInAudioOut` would be ignored in certain cases
+  * Fixed similar issue in `AWSLexInteractionKit` `startStreaming` method where attributes set in `sessionAttributesForSpeechInput` would be ignored in certain cases
 
 ## 2.5.10
 
 ### Enhancements
 
 * **Amazon Pinpoint**
-	* Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
+  * Introduce 'didReceiveRemoteNotification:fetchCompletionHandler:shouldHandleNotificationDeepLink:' to 'AWSPinpointNotificationManager'. Introduces new parameter 'handleDeepLink', to optionally specify whether or not notification manager should attempt to open the remote notification deeplink, if present.
 
 * **Amazon Cognito Auth**
-	* Amazon Cognito Auth is now Generally Available.
+  * Amazon Cognito Auth is now Generally Available.
  
 ### Bug fixes
 
 * **Amazon Cognito Auth**
-	* Fix bug causing error messages not to be surfaced
-	* Fix bug causing refresh tokens not to work in all scenarios
+  * Fix bug causing error messages not to be surfaced
+  * Fix bug causing refresh tokens not to work in all scenarios
 
 * **AWS IoT**
-	* Fixed bug to improve stability of encoding and decoding MQTT packet thread.
-	* Add mutex to synchronize the buffer used for encoding messages.
+  * Fixed bug to improve stability of encoding and decoding MQTT packet thread.
+  * Add mutex to synchronize the buffer used for encoding messages.
  
 ## 2.5.9
 
 ### Bug fixes
 
 * **Amazon Lex**
-	* Fixed bug where an application consuming `Lex` cannot be signed and distributed [Github Issue #704](https://github.com/aws/aws-sdk-ios/issues/704)
+  * Fixed bug where an application consuming `Lex` cannot be signed and distributed [Github Issue #704](https://github.com/aws/aws-sdk-ios/issues/704)
 
 * **Amazon Pinpoint**
-	* Fixed bug where saving a session cause a crash. [Github Issue #580] (https://github.com/aws/aws-sdk-ios/issues/580)
-	* Removed all calls that blocked the main thread [Github Issue #614] (https://github.com/aws/aws-sdk-ios/issues/614)
+  * Fixed bug where saving a session cause a crash. [Github Issue #580] (https://github.com/aws/aws-sdk-ios/issues/580)
+  * Removed all calls that blocked the main thread [Github Issue #614] (https://github.com/aws/aws-sdk-ios/issues/614)
 
 * **AWS IoT**
-	* Moved encoding and decoding MQTT packet into background thread
-	* Moved websocket delegate methods (webSocketDidOpen:, webSocket:didFailWithError:, webSocket:didReceiveMessage:, webSocket:didCloseWithCode: ) into background thread
-	* Fixed bug where app receives duplicate "Disconnected" callback when previously connected to AWS IoT via websocket
-	* Fixed bug where reconnect timer incorrectly triggered after user disconnects
+  * Moved encoding and decoding MQTT packet into background thread
+  * Moved websocket delegate methods (webSocketDidOpen:, webSocket:didFailWithError:, webSocket:didReceiveMessage:, webSocket:didCloseWithCode: ) into background thread
+  * Fixed bug where app receives duplicate "Disconnected" callback when previously connected to AWS IoT via websocket
+  * Fixed bug where reconnect timer incorrectly triggered after user disconnects
 
 ## 2.5.8
 
 ### New Features
 * **Amazon Cognito Auth (Beta)**
-	* A new SDK that enables sign-up and sign-in for Amazon Cognito Your User Pools via a lightweight hosted ui.
+  * A new SDK that enables sign-up and sign-in for Amazon Cognito Your User Pools via a lightweight hosted ui.
 
 ### Enhancements
 
 * **Amazon Pinpoint**
-	* Introduce `isApplicationLevelOptOut` block to `AWSPinpointConfiguration`. Use this to configure whether or not client should receive push notifications, at an application level.
-	
+  * Introduce `isApplicationLevelOptOut` block to `AWSPinpointConfiguration`. Use this to configure whether or not client should receive push notifications, at an application level.
+  
 ### Bug fixes
 
 * **Amazon SNS**
     * Fixed error parsing for service responses. **Note:** This change also fixes error response parsing for `AutoScaling`, `CloudWatch`, `ELB`, `SES`, `SimpleDB`, `SQS` and `STS`. [Github Issue #676](https://github.com/aws/aws-sdk-ios/issues/676) and [Github Issue #671](https://github.com/aws/aws-sdk-ios/issues/671)
 
 * **Amazon Cognito Identity Provider**
-	* Fixed crash with AWSCognitoIdentityUserPool.calculateSecretHash when username contained non ASCII characters. [Github Issue #679](https://github.com/aws/aws-sdk-ios/issues/679)
+  * Fixed crash with AWSCognitoIdentityUserPool.calculateSecretHash when username contained non ASCII characters. [Github Issue #679](https://github.com/aws/aws-sdk-ios/issues/679)
 
 ### Misc changes
 
 * **AWS IoT**
-	* Deprecating default endpoint for AWSIoTDataService. Client should use custom endpoint when initializing AWSServiceConfiguration to be used for AWSIoTDataManager.
+  * Deprecating default endpoint for AWSIoTDataService. Client should use custom endpoint when initializing AWSServiceConfiguration to be used for AWSIoTDataManager.
 
 ## 2.5.7
 
 ### Enhancements
 
 * **Amazon Polly**
-	* Added support for new voice id - `Vicki`.
-	
+  * Added support for new voice id - `Vicki`.
+  
 ### Bug fixes
 
 * **SDK Core**
@@ -1063,11 +2034,11 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ### Enhancements
 
 * **AWS IoT**
-	* Updated AWS IoT to the latest API specifications.
+  * Updated AWS IoT to the latest API specifications.
 
 ### Bug fixes
 * **Amazon S3**
-	* Fixed bug where file paths with spaces were not correctly handled and caused upload failures. [Github Issue #634](https://github.com/aws/aws-sdk-ios/issues/634)
+  * Fixed bug where file paths with spaces were not correctly handled and caused upload failures. [Github Issue #634](https://github.com/aws/aws-sdk-ios/issues/634)
 * **AWS IoT**
     * Fixed bug where timer was not started on currentRunLoop.
 * **SDK Core**
@@ -1077,48 +2048,48 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 
 ### Bug fixes
 * **SDK Core**
-	* **Breaking API change** `doesAppRunInBackground` method is renamed to `awsDoesAppRunInBackground`. [GitHub Issue #643](https://github.com/aws/aws-sdk-ios/issues/643)
+  * **Breaking API change** `doesAppRunInBackground` method is renamed to `awsDoesAppRunInBackground`. [GitHub Issue #643](https://github.com/aws/aws-sdk-ios/issues/643)
 
 * **AWS IoT**
-	* Fixed bug which caused crash when shadow timer timeout is called after shadow is unregistered. [Github Issue #640](https://github.com/aws/aws-sdk-ios/issues/640)
+  * Fixed bug which caused crash when shadow timer timeout is called after shadow is unregistered. [Github Issue #640](https://github.com/aws/aws-sdk-ios/issues/640)
 
 ## 2.5.4
 
 ### New Features
 * **SDK Core**
-	* `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.
+  * `AWSLogger` is now deprecated. Suggested to use `AWSDDLog` for logging; SDK now uses `CocoaLumberjack` for logging.
 
 ### Enhancements
 * **Amazon Lex**
-	* Amazon Lex is now Generally Available.
-	* Added support for input transcripts.
-	
+  * Amazon Lex is now Generally Available.
+  * Added support for input transcripts.
+  
 * **Amazon Polly**
-	* Added support for requesting use of multiple Lexicons through `AWSPollySynthesizeSpeechURLBuilder`.
-	* Added support for speech marks.
-	
+  * Added support for requesting use of multiple Lexicons through `AWSPollySynthesizeSpeechURLBuilder`.
+  * Added support for speech marks.
+  
 * **Amazon Rekognition**
-	* Added support for moderation labels and age range estimation.
+  * Added support for moderation labels and age range estimation.
 
 ## 2.5.3
 ### New Features
 * **Amazon Cloud Watch Logs**
-	* Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
+  * Amazon CloudWatch is a monitoring service for AWS cloud resources and the applications you run on AWS. You can use Amazon CloudWatch to collect and track metrics, collect and monitor log files, and set alarms.
 
 ### Resolved Issues
 * **SDK Core**
-	* Added support for BasicSessionCredentials Provider [GitHub Issue #561](https://github.com/aws/aws-sdk-ios/issues/561) 
+  * Added support for BasicSessionCredentials Provider [GitHub Issue #561](https://github.com/aws/aws-sdk-ios/issues/561) 
 * **Amazon APIGateway**
-	* Support for Swift 3 in API Gateway code generation.
-	* Fixed Invalid bitcast AWSServiceConfiguration. [GitHub Issue #585](https://github.com/aws/aws-sdk-ios/issues/585)
+  * Support for Swift 3 in API Gateway code generation.
+  * Fixed Invalid bitcast AWSServiceConfiguration. [GitHub Issue #585](https://github.com/aws/aws-sdk-ios/issues/585)
 * **Amazon S3**
-	* Fixed issues which might cause compilation erros when using the SDK with C++ runtimes. [GitHub issue #613](https://github.com/aws/aws-sdk-ios/issues/613)
-	* Fixed crash when uploading file that does not exist through `AWSTransferUtility `. [GitHub issue #618](https://github.com/aws/aws-sdk-ios/issues/618)
+  * Fixed issues which might cause compilation erros when using the SDK with C++ runtimes. [GitHub issue #613](https://github.com/aws/aws-sdk-ios/issues/613)
+  * Fixed crash when uploading file that does not exist through `AWSTransferUtility `. [GitHub issue #618](https://github.com/aws/aws-sdk-ios/issues/618)
 * **Amazon Cognito Identity Provider**
-	* Fixed a bug in which the User Confirmation status was not getting set correctly in the sdk.
+  * Fixed a bug in which the User Confirmation status was not getting set correctly in the sdk.
 ### Enhancements
 * **Amazon Lex - beta**
-	* Use different images for `LexVoiceButton` to distinguish between when playing audio response vs when listening to audio.
+  * Use different images for `LexVoiceButton` to distinguish between when playing audio response vs when listening to audio.
 
 
 ## 2.5.2
@@ -1128,102 +2099,102 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 
 ### Breaking API Changes
 * **Amazon Cognito Identity Provider**
-	* Changed `AWSCognitoIdentityProviderSchemaAttributeType` property from `mutable` to `varying` for compatibility when used with C++. [Github Issue #597](https://github.com/aws/aws-sdk-ios/issues/597)
+  * Changed `AWSCognitoIdentityProviderSchemaAttributeType` property from `mutable` to `varying` for compatibility when used with C++. [Github Issue #597](https://github.com/aws/aws-sdk-ios/issues/597)
 
 ### Resolved Issues
 * **SDK Core**
-	* Fixed invalid chunk data signature. [Github Issue #592](https://github.com/aws/aws-sdk-ios/issues/592)
-	* Added us-east-2, eu-west-2, and ca-central-1 regions to `aws_regionTypeValue`.
+  * Fixed invalid chunk data signature. [Github Issue #592](https://github.com/aws/aws-sdk-ios/issues/592)
+  * Added us-east-2, eu-west-2, and ca-central-1 regions to `aws_regionTypeValue`.
 *  **Amazon Cognito Identity Provider**
-	*  Fixed bug which caused `deleteAttributes` to not delete the attributes specified by caller. The method no longer causes user logout.
-	*  Improved reliability of `registerDevice:deviceToken` with reduced `NotAuthorizedException` occurances.
+  *  Fixed bug which caused `deleteAttributes` to not delete the attributes specified by caller. The method no longer causes user logout.
+  *  Improved reliability of `registerDevice:deviceToken` with reduced `NotAuthorizedException` occurances.
 *  **Amazon Cognito Sync**
-	*  Fixed bug which caused possible deadlock during `synchronize` call.
+  *  Fixed bug which caused possible deadlock during `synchronize` call.
 *  **Amazon Lex - beta**
-	*  Added support to switch between audio outputs during conversation.
-	*  Removed unnecessary header search path in AWSLex.podspec.
+  *  Added support to switch between audio outputs during conversation.
+  *  Removed unnecessary header search path in AWSLex.podspec.
 * **AWS IoT**
-	* Fixed bug which caused shadow timer to not expire shadow operation. [Github Pull Request #601](https://github.com/aws/aws-sdk-ios/pull/601) [Github Issue #565](https://github.com/aws/aws-sdk-ios/issues/565)
+  * Fixed bug which caused shadow timer to not expire shadow operation. [Github Pull Request #601](https://github.com/aws/aws-sdk-ios/pull/601) [Github Issue #565](https://github.com/aws/aws-sdk-ios/issues/565)
 
 ### Enhancements
 * **Amazon Cognito Identity Provider**
-	* Added more error logging.
+  * Added more error logging.
 * **AWS IoT**
-	* Added more error logging and missing `NSURLNetworkServiceTypeCallSignaling` case handling.
+  * Added more error logging and missing `NSURLNetworkServiceTypeCallSignaling` case handling.
 * **AWS STS**
-	* Updated STS to the latest API specifications.
+  * Updated STS to the latest API specifications.
 * **Amazon S3**
-	* Updated S3 to the latest API specifications.
+  * Updated S3 to the latest API specifications.
 
 ## 2.5.1
 ### Resolved Issues
 * **SDK Core**
-	* Fix namespace collision with Bolts framework. [Github Issue #572](https://github.com/aws/aws-sdk-ios/issues/572)
-	* Fix a bug which caused bad memory access when no data is read from stream [Github Pull Request #582](https://github.com/aws/aws-sdk-ios/pull/582) [Github Issue #586](https://github.com/aws/aws-sdk-ios/issues/586)
+  * Fix namespace collision with Bolts framework. [Github Issue #572](https://github.com/aws/aws-sdk-ios/issues/572)
+  * Fix a bug which caused bad memory access when no data is read from stream [Github Pull Request #582](https://github.com/aws/aws-sdk-ios/pull/582) [Github Issue #586](https://github.com/aws/aws-sdk-ios/issues/586)
 * **Amazon Lex - Beta**
-	* Fix a bug which cutoff beginning of audio stream.
-	* Fix a bug which caused bad memory access during race conditions when in voice mode.
+  * Fix a bug which cutoff beginning of audio stream.
+  * Fix a bug which caused bad memory access during race conditions when in voice mode.
 
 ## 2.5.0
 ### General Updates
 * **All Services**
-	* Swift 3 documentation and naming definitions added. The naming definitions will affect all Swift users by changing method names. Please refer to the [blog](https://aws.amazon.com/blogs/mobile/aws-mobile-sdk-for-ios-version-2-5-0-improvements-and-changes-to-swift-support/) for more details on changes and how to upgrade from 2.4.X to 2.5.X.
+  * Swift 3 documentation and naming definitions added. The naming definitions will affect all Swift users by changing method names. Please refer to the [blog](https://aws.amazon.com/blogs/mobile/aws-mobile-sdk-for-ios-version-2-5-0-improvements-and-changes-to-swift-support/) for more details on changes and how to upgrade from 2.4.X to 2.5.X.
 * **SDK Core**
-	* For Swift, `AWSRegionType` and `AWSServiceType` enums do not follow the convention that uses lowercase at the beginning. Example: `.USEast1` and `.DynamoDB`
+  * For Swift, `AWSRegionType` and `AWSServiceType` enums do not follow the convention that uses lowercase at the beginning. Example: `.USEast1` and `.DynamoDB`
 * **Updated AWSTask**
-	* AWSTask has been updated to the latest version of the Bolts framework.
+  * AWSTask has been updated to the latest version of the Bolts framework.
 
 ### Breaking API Changes
 * **SDK Core**
-	* **AWSTask** no longer has `exception` property and affiliated methods due to Bolts update. This means that AWSTask will not handle exceptions and they will be thrown.
-	* **AWSCredentialsProvider**
-		* Removed deprecated property`login`. Please use `AWSIdentityProviderManager` to provide a valid logins dictionary to the credentials provider.
-		* Removed deprecated method `initWithRegionType:identityId:identityPoolId:logins:`. Please use `initWithRegionType:identityPoolId:identityProviderManager:`.
-		* Removed deprecated method `initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:`. Please use `initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:`.
-	* **AWSIdentityProvider**
-		* Removed deprecated enum `AWSCognitoLoginProviderKey`.
-		* `AWSCognitoCredentialsProviderHelperErrorType` enum entries changed to conform to convention.
-			* Please use `AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil` instead of `AWSCognitoCredentialsProviderHelperErrorIdentityIsNil`.
-			* Please use `AWSCognitoCredentialsProviderHelperErrorTypeTokenRefreshTimeout` instead of `AWSCognitoCredentialsProviderHelperErrorTokenRefreshTimeout`.
+  * **AWSTask** no longer has `exception` property and affiliated methods due to Bolts update. This means that AWSTask will not handle exceptions and they will be thrown.
+  * **AWSCredentialsProvider**
+    * Removed deprecated property`login`. Please use `AWSIdentityProviderManager` to provide a valid logins dictionary to the credentials provider.
+    * Removed deprecated method `initWithRegionType:identityId:identityPoolId:logins:`. Please use `initWithRegionType:identityPoolId:identityProviderManager:`.
+    * Removed deprecated method `initWithRegionType:identityId:accountId:identityPoolId:unauthRoleArn:authRoleArn:logins:`. Please use `initWithRegionType:identityPoolId:unauthRoleArn:authRoleArn:identityProviderManager:`.
+  * **AWSIdentityProvider**
+    * Removed deprecated enum `AWSCognitoLoginProviderKey`.
+    * `AWSCognitoCredentialsProviderHelperErrorType` enum entries changed to conform to convention.
+      * Please use `AWSCognitoCredentialsProviderHelperErrorTypeIdentityIsNil` instead of `AWSCognitoCredentialsProviderHelperErrorIdentityIsNil`.
+      * Please use `AWSCognitoCredentialsProviderHelperErrorTypeTokenRefreshTimeout` instead of `AWSCognitoCredentialsProviderHelperErrorTokenRefreshTimeout`.
 * **Amazon S3**
-	* **AWSS3TransferUtility** parameter name `completionHander` corrected to `completionHandler`. Afffected methods are `uploadData:bucket:key:contentType:expression:completionHander:`, `uploadFile:bucket:key:contentType:expression:completionHander:`, `downloadDataFromBucket:key:expression:completionHander:`, and `downloadToURL:bucket:key:expression:completionHander:`.
+  * **AWSS3TransferUtility** parameter name `completionHander` corrected to `completionHandler`. Afffected methods are `uploadData:bucket:key:contentType:expression:completionHander:`, `uploadFile:bucket:key:contentType:expression:completionHander:`, `downloadDataFromBucket:key:expression:completionHander:`, and `downloadToURL:bucket:key:expression:completionHander:`.
 * **Amazon Cognito**
-	* **AWSCognitoIdentityUser**
-		* Removed deprecated method `getSession:password:validationData:scopes:`. Please use `getSession:password:validationData`.
-		* Removed deprecated method `getSession:`. Please use `getSession` (no parameters).
+  * **AWSCognitoIdentityUser**
+    * Removed deprecated method `getSession:password:validationData:scopes:`. Please use `getSession:password:validationData`.
+    * Removed deprecated method `getSession:`. Please use `getSession` (no parameters).
 * **AWS IoT**
-	* **AWSIoTDataManager**
-		* Removed deprecated method `publishString:onTopic:`. Please use `publishString:onTopic:QoS:`.
-		* Removed deprecated method `publishString:qos:onTopic:`. Please use `publishString:onTopic:QoS:`.
-		* Removed deprecated method `publishData:onTopic`. Please use `publishData:onTopic:QoS:`.
-		* Removed deprecated method `publishData:qos:onTopic`. Please use `publishData:onTopic:QoS:`.
-		* Removed deprecated method `subscribeToTopic:qos:messageCallback`. Please use `registerWithShadow:eventCallback`.
+  * **AWSIoTDataManager**
+    * Removed deprecated method `publishString:onTopic:`. Please use `publishString:onTopic:QoS:`.
+    * Removed deprecated method `publishString:qos:onTopic:`. Please use `publishString:onTopic:QoS:`.
+    * Removed deprecated method `publishData:onTopic`. Please use `publishData:onTopic:QoS:`.
+    * Removed deprecated method `publishData:qos:onTopic`. Please use `publishData:onTopic:QoS:`.
+    * Removed deprecated method `subscribeToTopic:qos:messageCallback`. Please use `registerWithShadow:eventCallback`.
 * **AWS IoT, Amazon DynamoDB, Amazon Cognito**
-	* Type parameters specified for generic types where applicable.
+  * Type parameters specified for generic types where applicable.
 
 ### Resolved Issues
 * **SDK Core**
-	* Fix bug related to URL encoding [Github Issue 442](https://github.com/aws/aws-sdk-ios/issues/442)
+  * Fix bug related to URL encoding [Github Issue 442](https://github.com/aws/aws-sdk-ios/issues/442)
 * **Amazon Cognito Sync**
-	* Fix and repair datasets stuck with "No such SyncCount" errors during synchronize.
+  * Fix and repair datasets stuck with "No such SyncCount" errors during synchronize.
 
 ## 2.4.16
 ### New Features
 * **SDK Core**
-	* Introducing new AWS `EUWest2` - Europe (London) region, endpoint `eu-west-2`. 
+  * Introducing new AWS `EUWest2` - Europe (London) region, endpoint `eu-west-2`. 
 
 * **Amazon Rekognition**
-	* Amazon Rekognition is a service that makes it easy to add image analysis to your applications. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Rekognition’s API enables you to quickly add sophisticated deep learning-based visual search and image classification to your applications.
-	
+  * Amazon Rekognition is a service that makes it easy to add image analysis to your applications. With Rekognition, you can detect objects, scenes, and faces in images. You can also search and compare faces. Rekognition’s API enables you to quickly add sophisticated deep learning-based visual search and image classification to your applications.
+  
 ### Misc. Updates
 
 * **Amazon SQS**
- 	* Update SQS client to latest service model.
+  * Update SQS client to latest service model.
 
 ## 2.4.15
 ### New Features
 * **SDK Core**
-	* Introducing new AWS `CACentral1` - Canada (Central) region, endpoint `ca-central-1`. 
+  * Introducing new AWS `CACentral1` - Canada (Central) region, endpoint `ca-central-1`. 
     
 ### Resolved Issues
 
@@ -1233,8 +2204,8 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.14
 ### New Features
 * **Amazon Pinpoint**
-	* Amazon Pinpoint makes it easy to run targeted campaigns to improve user engagement. Pinpoint helps you understand your users behavior, define who to target, what messages to send, when to deliver them, and tracks the results of the campaigns.
-	
+  * Amazon Pinpoint makes it easy to run targeted campaigns to improve user engagement. Pinpoint helps you understand your users behavior, define who to target, what messages to send, when to deliver them, and tracks the results of the campaigns.
+  
 
 ## 2.4.13
 ### New Features
@@ -1252,8 +2223,8 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.12
 ### New Features
 * **Amazon Mobile Analytics**
-	*  Added support for setting custom max keystorage size. [Github Issue 500](https://github.com/aws/aws-sdk-ios/issues/500)
-	
+  *  Added support for setting custom max keystorage size. [Github Issue 500](https://github.com/aws/aws-sdk-ios/issues/500)
+  
 ### Resolved Issues
 
 * **Amazon API Gateway**
@@ -1269,7 +2240,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.11
 ### New Features
 * **SDK Core**
-	* Introducing new AWS `USEast2` (Ohio) region, endpoint `us-east-2`. 
+  * Introducing new AWS `USEast2` (Ohio) region, endpoint `us-east-2`. 
     
 ### Resolved Issues
 
@@ -1280,7 +2251,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.10
 ### New Features
 * **Amazon API Gateway**
-	* Added support for a custom API invoker method with configurable HTTP parameters.
+  * Added support for a custom API invoker method with configurable HTTP parameters.
 * **Amazon Cognito Identity Provider**
     * Added support for end user to set password and required attributes during initial authentication if they were created using AdminCreateUser. 
     
@@ -1319,7 +2290,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.7
 ### Resolved Issues
 * **Amazon Cognito Identity Provider**
-	* Fixed integration between Cognito Identity Provider and Cognito Identity. [#438](https://github.com/aws/aws-sdk-ios/issues/438)
+  * Fixed integration between Cognito Identity Provider and Cognito Identity. [#438](https://github.com/aws/aws-sdk-ios/issues/438)
 
 ## 2.4.6
 ### New Features  
@@ -1347,7 +2318,7 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ## 2.4.5
 ### New Features  
 * **SDK Core**
-	* Introducing new AWS region Asia Pacific (Mumbai) region, endpoint `ap-south-1`.     
+  * Introducing new AWS region Asia Pacific (Mumbai) region, endpoint `ap-south-1`.     
 
 ### Resolved Issues
 * **SDK Core**
@@ -1557,9 +2528,9 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 
 ### New Features
 * **Amazon DynamoDB**
- 	* Added support for Expressions syntax in DynamoDB Object Mapper.
+  * Added support for Expressions syntax in DynamoDB Object Mapper.
 * **Amazon S3**
- 	* Added support for Key Management Service (kms) in S3.
+  * Added support for Key Management Service (kms) in S3.
 
 ### Resolved Issues
 * **Amazon S3**
@@ -1570,9 +2541,9 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 
 ### Resolved Issues
 * **Amazon S3 PresignedURL**
-* 	*  Fixed an issue in which `getPreSignedURL` may incorrectly returns credentials error under certain circumstance.
-* 	**Amazon S3 Transfer Utility**
-* 	* Fixed an issue in which `AWSS3TransferUtility` does not execute a completion handler when an expression is not provided.
+*   *  Fixed an issue in which `getPreSignedURL` may incorrectly returns credentials error under certain circumstance.
+*   **Amazon S3 Transfer Utility**
+*   * Fixed an issue in which `AWSS3TransferUtility` does not execute a completion handler when an expression is not provided.
 
 ## 2.2.4
 
@@ -1597,8 +2568,8 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
     * Updated `AWSS3PreSignedURLBuilder` to use AWS Signature Version 4 for generating the pre-signed URLs.
     * Updated `AWSS3PreSignedURLBuilder` to accept additional request parameters to be included in pre-signed URLs.
 * **Amazon DynamoDB Object Mapper**
-	* Added support for Secondary Index Scan.
-	
+  * Added support for Secondary Index Scan.
+  
 ### Resolved Issues
 * **Amazon S3**
     * Fixed an issue where an empty directory cannot be created.
@@ -1607,8 +2578,8 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 
 ### New Features
 * **Amazon Mobile Analytics**
-	*  Updated the Amazon Mobile Analytics client APIs so that the developer needs to write fewer lines of code to initialize it.
-	*  Defaulted the SDK to send events over WAN.
+  *  Updated the Amazon Mobile Analytics client APIs so that the developer needs to write fewer lines of code to initialize it.
+  *  Defaulted the SDK to send events over WAN.
 
 ### Resolved Issues
 * **Amazon S3**
@@ -1714,9 +2685,9 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
     * Set the maximum `maxRetryCount` to 10.
     * Updated the copyright year from 2014 to 2015.
 * **Amazon S3**
-	* Fixed the Amazon S3 date format issue.
-	* Fixed a bug involving the potential for an invalid file URL to result in a crash.
-	* Fixed the operation name mismatch issue.
+  * Fixed the Amazon S3 date format issue.
+  * Fixed a bug involving the potential for an invalid file URL to result in a crash.
+  * Fixed the operation name mismatch issue.
 * **Amazon DynamoDB Object Mapper**
     * Fixed the `- save:` method (Update behavior) where the method failed to remove `nil` value attribute(s) from a table.
     * Fixed the silent failure issue with the `- save:` method.
@@ -1788,11 +2759,11 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ### Resolved Issues
 
 * **SDK Core**
- 	* A number of issues in the serializer are fixed.
- 	* AmazonCore is merged into AWSCore.
- 	* AWSEndpoint is moved to AWSServiceConfiguration.
-	* AWSCognitoCredentialsProvider invalidates credentials when logins map is updated.
-	* AWSWebIdentityCredentialsProvider takes into account the providerId.
+  * A number of issues in the serializer are fixed.
+  * AmazonCore is merged into AWSCore.
+  * AWSEndpoint is moved to AWSServiceConfiguration.
+  * AWSCognitoCredentialsProvider invalidates credentials when logins map is updated.
+  * AWSWebIdentityCredentialsProvider takes into account the providerId.
 * **Amazon Mobile Analytics** - The Mobile Analytics constructor is updated so that the developers do not have to manage instances of Mobile Analytics clients on their own.
 * **Amazon DynamoDB Object Mapper and Amazon S3 Transfer Manager** - The low-level clients are hidden from S3TransferManager and DynamoDBObjectMapper in order to simplify the high-level clients.
 
@@ -1807,8 +2778,8 @@ All documentation is now centralized at [https://aws-amplify.github.io/](https:/
 ### Resolved Issues
 * **Amazon Cognito Offline Sync** - The SDK queues sync requests made when device is offline. The sync operation is automatically executed when internet connectivity is recovered in the same app session. It also enables the ability to synchronize over WiFi only.
 * **Amazon Cognito Sync** - The update fixes the following Amazon Cognito client issues:
-	* An issue where deleted records may show up in the list of records.
-	* An issue where data synchronized from service would have the incorrect sync count locally.
+  * An issue where deleted records may show up in the list of records.
+  * An issue where data synchronized from service would have the incorrect sync count locally.
 * **Amazon Cognito Identity** - The update fixes an issue with AWSCognitoCredentialsProvider where it does not refresh the credentials properly under certain situations.
 * **Amazon S3** - The update fixes an issue with the serializer where it does not serialize the response under certain situations.
 * **Amazon SNS** - The update properly serializes the attributes property for AWSSNSCreatePlatformEndpointInput and AWSSNSCreatePlatformApplicationInput.

@@ -31,14 +31,14 @@ typedef void (^AWSSignInManagerCompletionBlock)(id result, NSError *error);
 
 @end
 
-@interface AWSGoogleSignInProvider() <GIDSignInDelegate, GIDSignInUIDelegate>
+@interface AWSGoogleSignInProvider() <GIDSignInDelegate>
 
 @property (atomic, strong) AWSTaskCompletionSource *taskCompletionSource;
 @property (nonatomic, strong) dispatch_semaphore_t semaphore;
 @property (nonatomic, strong) AWSExecutor *executor;
 @property (nonatomic, strong) UIViewController *signInViewController;
 @property (atomic, copy) AWSSignInManagerCompletionBlock completionHandler;
-@property (nonatomic, strong) id signInClient;
+@property (nonatomic, strong) GIDSignIn *signInClient;
 
 @end
 
@@ -91,10 +91,9 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
         _signInViewController = nil;
         
         _signInClient = [NSClassFromString(@"GIDSignIn") sharedInstance];
-        [self.signInClient setValue:self forKey:@"delegate"];
-        [self.signInClient setValue:self forKey:@"uiDelegate"];
-        [self.signInClient setValue:googleClientID forKey:@"clientID"];
-        [self.signInClient setValue:@[AWSGoogleSignInProviderClientScope, AWSGoogleSignInProviderOIDCScope] forKey:@"scopes"];
+        self.signInClient.delegate = self;
+        self.signInClient.clientID = googleClientID;
+        self.signInClient.scopes = @[AWSGoogleSignInProviderClientScope, AWSGoogleSignInProviderOIDCScope];
     }
     
     return self;
@@ -103,11 +102,22 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 #pragma mark - Hub user interface
 
 - (void)setScopes:(NSArray *)scopes {
-     [self.signInClient setValue:scopes forKey:@"scopes"];
+    self.signInClient.scopes = scopes;
 }
 
 - (void)setViewControllerForGoogleSignIn:(UIViewController *)signInViewController {
     self.signInViewController = signInViewController;
+}
+
+- (UIViewController *)signInViewController {
+    if (!_signInViewController) {
+        UIViewController *topMostViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
+        while (topMostViewController.presentedViewController) {
+            topMostViewController = topMostViewController.presentedViewController;
+        }
+        return topMostViewController;
+    }
+    return _signInViewController;
 }
 
 #pragma mark - AWSIdentityProvider
@@ -120,8 +130,8 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
     AWSTask *task = [AWSTask taskWithResult:nil];
     return [task continueWithExecutor:self.executor withBlock:^id _Nullable(AWSTask * _Nonnull task) {
         
-        NSString *idToken = [self.signInClient currentUser].authentication.idToken;
-        NSDate *idTokenExpirationDate = [self.signInClient currentUser].authentication.idTokenExpirationDate;
+        NSString *idToken = self.signInClient.currentUser.authentication.idToken;
+        NSDate *idTokenExpirationDate = self.signInClient.currentUser.authentication.idTokenExpirationDate;
         
         if (idToken
             // If the cached token expires within 10 min, tries refreshing a token.
@@ -139,8 +149,8 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
             }
         }
         
-        idToken = [self.signInClient currentUser].authentication.idToken;
-        idTokenExpirationDate = [self.signInClient currentUser].authentication.idTokenExpirationDate;
+        idToken = self.signInClient.currentUser.authentication.idToken;
+        idTokenExpirationDate = self.signInClient.currentUser.authentication.idTokenExpirationDate;
         
         if (idToken
             // If the cached token expires within 10 min, tries refreshing a token.
@@ -153,33 +163,33 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
         // See the `GIDSignInDelegate` section of this file.
         self.taskCompletionSource = [AWSTaskCompletionSource taskCompletionSource];
         dispatch_async(dispatch_get_main_queue(), ^{
-            [self.signInClient signInSilently];
+            [self signInSilently];
         });
         return self.taskCompletionSource.task;
     }];
 }
 
-#pragma mark -
+- (void)signInSilently {
+    [self.signInClient restorePreviousSignIn];
+}
+
+#pragma mark - AWSSignInProvider
 
 - (BOOL)isLoggedIn {
-    return [self.signInClient hasAuthInKeychain];
+    return [self.signInClient hasPreviousSignIn];
 }
 
 - (void)reloadSession {
     if ([self isLoggedIn]) {
-        [self.signInClient signInSilently];
+        [self signInSilently];
     }
-}
-
-- (void)completeLoginWithToken {
-    [[AWSSignInManager sharedInstance] completeLogin];
 }
 
 - (void)login:(AWSSignInManagerCompletionBlock)completionHandler {
     self.completionHandler = completionHandler;
+    self.signInClient.presentingViewController = self.signInViewController;
     [self.signInClient signIn];
 }
-
 
 - (void)logout {
     [self.signInClient disconnect];
@@ -215,9 +225,18 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
     }
 }
 
-#pragma mark - GIDSignInUIDelegate
+- (void)completeLoginWithToken {
+    [[AWSSignInManager sharedInstance] completeLogin];
+}
+
+#pragma mark - GIDSignInUIDelegate (Removed)
+
+/// These methods should never be called since GIDSignInUIDelegate no longer exists.
+/// However, we'll retain them in case there is some code path we're not aware of that
+/// invokes it.
 
 - (void)signInWillDispatch:(GIDSignIn *)signIn error:(NSError *)error {
+    AWSDDLogError(@"Error: Invoked removed GIDSignInUIDelegate method: %s", __func__);
     if (error) {
         AWSDDLogError(@"Error: %@", error);
     }
@@ -225,20 +244,12 @@ static NSString *const AWSInfoGoogleClientId = @"ClientId-iOS";
 
 - (void)signIn:(GIDSignIn *)signIn
 presentViewController:(UIViewController *)viewController {
-    
-    UIViewController *topMostViewController;
-    if (!self.signInViewController) {
-        topMostViewController = [UIApplication sharedApplication].keyWindow.rootViewController;
-        while (topMostViewController.presentedViewController) {
-            topMostViewController = topMostViewController.presentedViewController;
-        }
-    }
-    
-    [self.signInViewController ?: topMostViewController presentViewController:viewController animated:YES completion:nil];
+    AWSDDLogError(@"Error: Invoked removed GIDSignInUIDelegate method: %s", __func__);
 }
 
 - (void)signIn:(GIDSignIn *)signIn
 dismissViewController:(UIViewController *)viewController {
+    AWSDDLogError(@"Error: Invoked removed GIDSignInUIDelegate method: %s", __func__);
     [viewController dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -253,27 +264,23 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
                      openURL:(NSURL *)url
            sourceApplication:(NSString *)sourceApplication
                   annotation:(id)annotation {
-    return [self.signInClient handleURL:url
-            sourceApplication:sourceApplication
-                   annotation:annotation];
+    return [self.signInClient handleURL:url];
 }
 
 - (BOOL)application:(UIApplication *)app
             openURL:(NSURL *)url
             options:(NSDictionary *)options {
-    return [self.signInClient handleURL:url
-            sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                   annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
+    return [self.signInClient handleURL:url];
 }
 
 - (BOOL)application:(UIApplication *)application
             openURL:(NSURL *)url
   sourceApplication:(NSString *)sourceApplication
          annotation:(id)annotation {
-    return [self.signInClient handleURL:url
-            sourceApplication:sourceApplication
-                   annotation:annotation];
+    return [self.signInClient handleURL:url];
 }
+
+#pragma mark - Utilities
 
 - (BOOL)isConfigurationKeyPresent {
     

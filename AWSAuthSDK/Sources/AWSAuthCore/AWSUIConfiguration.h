@@ -17,15 +17,28 @@
 
 /**
  @property logoImage
- @brief The logo to be used on the Auth UI Screen
+ @brief The logo to be used on the Auth UI Screen.
  **/
 @property (nonatomic, nullable) UIImage *logoImage;
 
 /**
  @property backgroundColor
- @brief Gets the backgorund color of the sign in screen configured by the user
+ @brief The background color of the auth screens.
  **/
 @property (nonatomic, nullable) UIColor *backgroundColor;
+
+/**
+ @property secondaryBackgroundColor
+ @brief The secondary background color. It's applied to the bottom panel
+ of the auth screens.
+ */
+@property (nonatomic, nullable) UIColor *secondaryBackgroundColor;
+
+/**
+ @property primaryColor
+ @brief The view primary color used for highlighted elements (button background, links).
+ */
+@property (nonatomic, nullable) UIColor *primaryColor;
 
 /**
  @property fullScreenBackgroundColor

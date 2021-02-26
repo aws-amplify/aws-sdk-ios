@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSS3Service.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -28,7 +27,7 @@
 #import "AWSS3Serializer.h"
 
 static NSString *const AWSInfoS3 = @"S3";
-NSString *const AWSS3SDKVersion = @"2.9.8";
+NSString *const AWSS3SDKVersion = @"2.23.0";
 
 
 
@@ -464,6 +463,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteBucketMetricsConfiguration:(AWSS3DeleteBucketMetricsConfigurationRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteBucketMetricsConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteBucketOwnershipControls:(AWSS3DeleteBucketOwnershipControlsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/{Bucket}?ownershipControls"
+                  targetPrefix:@""
+                 operationName:@"DeleteBucketOwnershipControls"
+                   outputClass:nil];
+}
+
+- (void)deleteBucketOwnershipControls:(AWSS3DeleteBucketOwnershipControlsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteBucketOwnershipControls:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -942,6 +963,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSS3NotificationConfiguration *response, NSError *error))completionHandler {
     [[self getBucketNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3NotificationConfiguration *> * _Nonnull task) {
         AWSS3NotificationConfiguration *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSS3GetBucketOwnershipControlsOutput *> *)getBucketOwnershipControls:(AWSS3GetBucketOwnershipControlsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/{Bucket}?ownershipControls"
+                  targetPrefix:@""
+                 operationName:@"GetBucketOwnershipControls"
+                   outputClass:[AWSS3GetBucketOwnershipControlsOutput class]];
+}
+
+- (void)getBucketOwnershipControls:(AWSS3GetBucketOwnershipControlsRequest *)request
+     completionHandler:(void (^)(AWSS3GetBucketOwnershipControlsOutput *response, NSError *error))completionHandler {
+    [[self getBucketOwnershipControls:request] continueWithBlock:^id _Nullable(AWSTask<AWSS3GetBucketOwnershipControlsOutput *> * _Nonnull task) {
+        AWSS3GetBucketOwnershipControlsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1803,6 +1847,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)putBucketNotificationConfiguration:(AWSS3PutBucketNotificationConfigurationRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self putBucketNotificationConfiguration:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)putBucketOwnershipControls:(AWSS3PutBucketOwnershipControlsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/{Bucket}?ownershipControls"
+                  targetPrefix:@""
+                 operationName:@"PutBucketOwnershipControls"
+                   outputClass:nil];
+}
+
+- (void)putBucketOwnershipControls:(AWSS3PutBucketOwnershipControlsRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self putBucketOwnershipControls:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {

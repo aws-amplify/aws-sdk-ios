@@ -33,7 +33,7 @@ static NSString *table2Name = nil;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     table1Name = [NSString stringWithFormat:@"%@-%f", AWSDynamoDBTestTable1, timeIntervalSinceReferenceDate];
@@ -620,6 +620,7 @@ static NSString *table2Name = nil;
 
     if (![[self class] createTable:table2Name]) {
         XCTFail(@"failed to createTable: %@",table2Name);
+        return;
     }
 
     NSNumber *newCapacity = @2;

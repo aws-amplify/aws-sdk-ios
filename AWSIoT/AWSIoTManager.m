@@ -34,6 +34,10 @@ static NSString *const AWSInfoIoTManager = @"IoTManager";
 
 @implementation AWSIoTCreateCertificateResponse
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSIoTManager
@@ -219,6 +223,20 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     
     [AWSIoTManager readPk12:pkcs12Data passPhrase:passPhrase certRef:&certRef privateKeyRef:&privateKey publicKeyRef:&publicKey];
     
+    if (!certRef || !privateKey || !publicKey) {
+        if (certRef) {
+            CFRelease(certRef);
+        }
+        if (privateKey) {
+            CFRelease(privateKey);
+        }
+        if (publicKey) {
+            CFRelease(publicKey);
+        }
+        AWSDDLogError(@"Unable to extract PKCS12 data. Ensure the passPhrase is correct.");
+        return NO;
+    }
+
     NSString *publicTag = [AWSIoTKeychain.publicKeyTag stringByAppendingString:certificateId];
     NSString *privateTag = [AWSIoTKeychain.privateKeyTag stringByAppendingString:certificateId];
 

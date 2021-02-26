@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisAddTagsToStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamName" : @"StreamName",
@@ -30,6 +34,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisCreateStreamInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -42,6 +50,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDecreaseStreamRetentionPeriodInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"retentionPeriodHours" : @"RetentionPeriodHours",
@@ -53,6 +65,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDeleteStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamName" : @"StreamName",
@@ -63,9 +79,17 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDescribeLimitsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 @end
 
 @implementation AWSKinesisDescribeLimitsOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -78,6 +102,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDescribeStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exclusiveStartShardId" : @"ExclusiveStartShardId",
@@ -89,6 +117,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisDescribeStreamOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -104,6 +136,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDescribeStreamSummaryInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamName" : @"StreamName",
@@ -113,6 +149,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisDescribeStreamSummaryOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -128,6 +168,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisDisableEnhancedMonitoringInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"shardLevelMetrics" : @"ShardLevelMetrics",
@@ -138,6 +182,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisEnableEnhancedMonitoringInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -150,6 +198,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisEnhancedMetrics
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"shardLevelMetrics" : @"ShardLevelMetrics",
@@ -159,6 +211,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisEnhancedMonitoringOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -172,6 +228,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisGetRecordsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"limit" : @"Limit",
@@ -182,6 +242,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisGetRecordsOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -198,6 +262,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisGetShardIteratorInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -257,6 +325,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisGetShardIteratorOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"shardIterator" : @"ShardIterator",
@@ -266,6 +338,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisHashKeyRange
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -278,6 +354,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisIncreaseStreamRetentionPeriodInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"retentionPeriodHours" : @"RetentionPeriodHours",
@@ -288,6 +368,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisListShardsInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -311,6 +395,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisListShardsOutput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"NextToken",
@@ -326,6 +414,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisListStreamsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exclusiveStartStreamName" : @"ExclusiveStartStreamName",
@@ -336,6 +428,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisListStreamsOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -348,6 +444,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisListTagsForStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exclusiveStartTagKey" : @"ExclusiveStartTagKey",
@@ -359,6 +459,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisListTagsForStreamOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -375,6 +479,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisMergeShardsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"adjacentShardToMerge" : @"AdjacentShardToMerge",
@@ -386,6 +494,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisPutRecordInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -400,6 +512,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisPutRecordOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -434,6 +550,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisPutRecordsInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"records" : @"Records",
@@ -448,6 +568,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisPutRecordsOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -486,6 +610,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisPutRecordsRequestEntry
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"data" : @"Data",
@@ -497,6 +625,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisPutRecordsResultEntry
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -510,6 +642,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisRecord
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -554,6 +690,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisRemoveTagsFromStreamInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"streamName" : @"StreamName",
@@ -565,6 +705,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisSequenceNumberRange
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endingSequenceNumber" : @"EndingSequenceNumber",
@@ -575,6 +719,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisShard
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -598,6 +746,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisSplitShardInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"latestStartingHashKey" : @"NewStartingHashKey",
@@ -609,6 +761,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisStartStreamEncryptionInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -643,6 +799,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisStopStreamEncryptionInput
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"encryptionType" : @"EncryptionType",
@@ -675,6 +835,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisStreamDescription
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -763,6 +927,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisStreamDescriptionSummary
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"encryptionType" : @"EncryptionType",
@@ -845,6 +1013,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 
 @implementation AWSKinesisTag
 
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"key" : @"Key",
@@ -855,6 +1027,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisUpdateShardCountInput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -883,6 +1059,10 @@ NSString *const AWSKinesisErrorDomain = @"com.amazonaws.AWSKinesisErrorDomain";
 @end
 
 @implementation AWSKinesisUpdateShardCountOutput
+
++ (BOOL) supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

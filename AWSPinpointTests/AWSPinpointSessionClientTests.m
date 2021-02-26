@@ -39,7 +39,7 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
 
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointSessionClientTests
@@ -48,14 +48,10 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     [super setUp];
     [[NSUserDefaults standardUserDefaults] removeSuiteNamed:@"AWSPinpointSessionClientTests"];
     self.userDefaults = [[NSUserDefaults alloc] initWithSuiteName:@"AWSPinpointSessionClientTests"];
-    [AWSTestUtility setupCognitoCredentialsProvider];
     
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    self.appId = credentialsJson[@"pinpointAppId"];
+    [AWSTestUtility setupSessionCredentialsProvider];
+    self.appId = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"pinpoint"
+                                                                        configKey:@"app_id"];
 }
 
 - (void)tearDown {
@@ -69,7 +65,9 @@ static NSString *const AWSPinpointSessionKey = @"com.amazonaws.AWSPinpointSessio
     [self.userDefaults synchronize];
     
     NSData *data = [self.userDefaults dataForKey:AWSPinpointSessionKey];
-    AWSPinpointSession *session = [NSKeyedUnarchiver unarchiveObjectWithData:data];
+    AWSPinpointSession *session = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointSession class]
+                                                                                  fromData:data
+                                                                                     error:nil];
 
     NSLog(@"Session Object Should be Empty: %@",session.description);
     

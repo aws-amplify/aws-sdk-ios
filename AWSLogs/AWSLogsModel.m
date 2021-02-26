@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsAssociateKmsKeyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"kmsKeyId" : @"kmsKeyId",
@@ -31,6 +35,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsCancelExportTaskRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -40,6 +48,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsCreateExportTaskRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -57,6 +69,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsCreateExportTaskResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"taskId" : @"taskId",
@@ -66,6 +82,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsCreateLogGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -79,6 +99,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsCreateLogStreamRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -90,6 +114,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDeleteDestinationRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"destinationName" : @"destinationName",
@@ -100,6 +128,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDeleteLogGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -109,6 +141,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDeleteLogStreamRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -121,6 +157,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDeleteMetricFilterRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"filterName" : @"filterName",
@@ -130,7 +170,39 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDeleteQueryDefinitionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryDefinitionId" : @"queryDefinitionId",
+             };
+}
+
+@end
+
+@implementation AWSLogsDeleteQueryDefinitionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"success" : @"success",
+             };
+}
+
+@end
+
 @implementation AWSLogsDeleteResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -142,6 +214,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDeleteRetentionPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -151,6 +227,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDeleteSubscriptionFilterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -163,6 +243,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeDestinationsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"destinationNamePrefix" : @"DestinationNamePrefix",
@@ -174,6 +258,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeDestinationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -189,6 +277,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeExportTasksRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -244,6 +336,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeExportTasksResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exportTasks" : @"exportTasks",
@@ -259,6 +355,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeLogGroupsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"limit" : @"limit",
@@ -270,6 +370,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeLogGroupsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -285,6 +389,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeLogStreamsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -322,6 +430,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeLogStreamsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logStreams" : @"logStreams",
@@ -336,6 +448,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeMetricFiltersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -352,6 +468,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeMetricFiltersResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"metricFilters" : @"metricFilters",
@@ -366,6 +486,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeQueriesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -416,6 +540,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeQueriesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextToken" : @"nextToken",
@@ -429,7 +557,46 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsDescribeQueryDefinitionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"maxResults",
+             @"nextToken" : @"nextToken",
+             @"queryDefinitionNamePrefix" : @"queryDefinitionNamePrefix",
+             };
+}
+
+@end
+
+@implementation AWSLogsDescribeQueryDefinitionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"nextToken",
+             @"queryDefinitions" : @"queryDefinitions",
+             };
+}
+
++ (NSValueTransformer *)queryDefinitionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSLogsQueryDefinition class]];
+}
+
+@end
+
 @implementation AWSLogsDescribeResourcePoliciesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -441,6 +608,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeResourcePoliciesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -457,6 +628,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDescribeSubscriptionFiltersRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"filterNamePrefix" : @"filterNamePrefix",
@@ -469,6 +644,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsDescribeSubscriptionFiltersResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -485,6 +664,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDestination
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accessPolicy" : @"accessPolicy",
@@ -500,6 +683,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsDisassociateKmsKeyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -509,6 +696,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsExportTask
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -536,6 +727,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsExportTaskExecutionInfo
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"completionTime" : @"completionTime",
@@ -546,6 +741,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsExportTaskStatus
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -599,6 +798,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsFilterLogEventsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endTime" : @"endTime",
@@ -616,6 +819,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsFilterLogEventsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -637,6 +844,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsFilteredLogEvent
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"eventId" : @"eventId",
@@ -650,6 +861,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsGetLogEventsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -667,6 +882,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsGetLogEventsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"events" : @"events",
@@ -683,6 +902,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsGetLogGroupFieldsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -693,6 +916,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsGetLogGroupFieldsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -708,6 +935,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsGetLogRecordRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logRecordPointer" : @"logRecordPointer",
@@ -717,6 +948,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsGetLogRecordResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -728,6 +963,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsGetQueryResultsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"queryId" : @"queryId",
@@ -737,6 +976,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsGetQueryResultsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -790,6 +1033,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsInputLogEvent
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"message" : @"message",
@@ -801,6 +1048,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsListTagsLogGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -811,6 +1062,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsListTagsLogGroupResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"tags" : @"tags",
@@ -820,6 +1075,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsLogGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -837,6 +1096,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsLogGroupField
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"name",
@@ -847,6 +1110,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsLogStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -864,6 +1131,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsMetricFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -883,6 +1154,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsMetricFilterMatchRecord
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"eventMessage" : @"eventMessage",
@@ -894,6 +1169,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsMetricTransformation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -908,6 +1187,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsOutputLogEvent
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ingestionTime" : @"ingestionTime",
@@ -920,6 +1203,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsPutDestinationPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"accessPolicy" : @"accessPolicy",
@@ -930,6 +1217,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutDestinationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -942,6 +1233,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutDestinationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -956,6 +1251,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutLogEventsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -974,6 +1273,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsPutLogEventsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"nextSequenceToken" : @"nextSequenceToken",
@@ -988,6 +1291,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutMetricFilterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1004,7 +1311,42 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsPutQueryDefinitionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"logGroupNames" : @"logGroupNames",
+             @"name" : @"name",
+             @"queryDefinitionId" : @"queryDefinitionId",
+             @"queryString" : @"queryString",
+             };
+}
+
+@end
+
+@implementation AWSLogsPutQueryDefinitionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"queryDefinitionId" : @"queryDefinitionId",
+             };
+}
+
+@end
+
 @implementation AWSLogsPutResourcePolicyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1016,6 +1358,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutResourcePolicyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1031,6 +1377,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsPutRetentionPolicyRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -1041,6 +1391,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsPutSubscriptionFilterRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1078,6 +1432,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsQueryCompileError
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"location" : @"location",
@@ -1093,6 +1451,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsQueryCompileErrorLocation
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endCharOffset" : @"endCharOffset",
@@ -1102,7 +1464,29 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @end
 
+@implementation AWSLogsQueryDefinition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lastModified" : @"lastModified",
+             @"logGroupNames" : @"logGroupNames",
+             @"name" : @"name",
+             @"queryDefinitionId" : @"queryDefinitionId",
+             @"queryString" : @"queryString",
+             };
+}
+
+@end
+
 @implementation AWSLogsQueryInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1154,6 +1538,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsQueryStatistics
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bytesScanned" : @"bytesScanned",
@@ -1165,6 +1553,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsRejectedLogEventsInfo
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1178,6 +1570,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsResourcePolicy
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"lastUpdatedTime" : @"lastUpdatedTime",
@@ -1190,6 +1586,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsResultField
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"field" : @"field",
@@ -1200,6 +1600,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsSearchedLogStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1212,11 +1616,16 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsStartQueryRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endTime" : @"endTime",
              @"limit" : @"limit",
              @"logGroupName" : @"logGroupName",
+             @"logGroupNames" : @"logGroupNames",
              @"queryString" : @"queryString",
              @"startTime" : @"startTime",
              };
@@ -1225,6 +1634,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsStartQueryResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1236,6 +1649,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsStopQueryRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"queryId" : @"queryId",
@@ -1246,6 +1663,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsStopQueryResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"success" : @"success",
@@ -1255,6 +1676,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsSubscriptionFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1293,6 +1718,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsTagLogGroupRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"logGroupName" : @"logGroupName",
@@ -1304,6 +1733,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 
 @implementation AWSLogsTestMetricFilterRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"filterPattern" : @"filterPattern",
@@ -1314,6 +1747,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsTestMetricFilterResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1328,6 +1765,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 @end
 
 @implementation AWSLogsUntagLogGroupRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

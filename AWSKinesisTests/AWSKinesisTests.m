@@ -31,7 +31,7 @@ static NSString *testStreamName = nil;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testStreamName = [NSString stringWithFormat:@"%@-%f", AWSKinesisTestStream, timeIntervalSinceReferenceDate];

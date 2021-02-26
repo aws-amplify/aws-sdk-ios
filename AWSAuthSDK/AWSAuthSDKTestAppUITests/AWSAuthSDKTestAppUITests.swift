@@ -2,11 +2,9 @@
 //  AWSAuthSDKTestAppUITests.swift
 //  AWSAuthSDKTestAppUITests
 //
-//  Created by Dubal, Rohan on 1/10/19.
-//  Copyright © 2019 Dubal, Rohan. All rights reserved.
-//
 
 import XCTest
+import AWSTestResources
 
 class AWSAuthSDKTestAppUITests: XCTestCase {
     
@@ -18,18 +16,18 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
     static var UserpoolPassword: String?
     
     override class func setUp() {
-        let filePath = Bundle(for: self).path(forResource: "credentials-mc", ofType: "json")
-        var credentialsJson: [AnyHashable : Any]? = nil
-        if let aPath = NSData(contentsOfFile: filePath ?? "") {
-            credentialsJson = try! JSONSerialization.jsonObject(with: aPath as Data, options: .mutableContainers) as? [AnyHashable : Any]
-        }
-        
-        FacebookUsername = credentialsJson?["FacebookUsername"] as? String
-        FacebookPassword = credentialsJson?["FacebookPassword"] as? String
-        GoogleUsername = credentialsJson?["GoogleUsername"] as? String
-        GooglePassword = credentialsJson?["GooglePassword"] as? String
-        UserpoolUsername = credentialsJson?["UserpoolUsername"] as? String
-        UserpoolPassword = credentialsJson?["UserpoolPassword"] as? String
+        FacebookUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "facebook_username")
+        FacebookPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "facebook_password")
+        GoogleUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                   configKey: "google_username")
+        GooglePassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                   configKey: "google_password")
+        UserpoolUsername = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_username")
+        UserpoolPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
+                                                                                     configKey: "userpool_password")
     }
 
     override func setUp() {
@@ -130,39 +128,48 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
     func testFacebookSignInHostedUI() {
         let app = XCUIApplication()
         
-        let signinstatelabelElement = XCUIApplication().otherElements["signInStateLabel"]
+        let signinstatelabelElement = app.staticTexts["signInStateLabel"]
         
         print(signinstatelabelElement.label)
         
+        //declaring here for reuse below
+        let predicateLabelContainsSignedOut = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
+        let labelContainsSignedOut = expectation(for: predicateLabelContainsSignedOut, evaluatedWith: signinstatelabelElement)
+        
+        let predicateLabelContainsSignedIn = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
+        let labelContainsSignedIn = expectation(for: predicateLabelContainsSignedIn, evaluatedWith: signinstatelabelElement)
+        
         if signinstatelabelElement.label == "signedIn" {
-            app.buttons["SignOut"].tap()
-            let statusBarsQuery = app.statusBars
-            statusBarsQuery.element.tap()
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
             
-            let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+            app.buttons["SignOut"].tap()
+            
+            //in order to continue with alert properly have to call addUIInterruptionMonitor and then tap Continue.
+            addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+                alert.buttons["Continue"].tap()
+                return true
+            }
+            
+            app.tap()
+            
+            _ = XCTWaiter().wait(for: [labelContainsSignedOut], timeout: 15)
+            
         }
         
-        XCTAssertEqual("signedOut", signinstatelabelElement.label)
+        app.buttons["Launch CognitoAuth SignIn Facebook"].tap()
         
-        XCUIApplication().buttons["Launch CognitoAuth SignIn Facebook"].tap()
-        
-        let statusBarsQuery = app.statusBars
-        if #available(iOS 11.0, *) {
-            statusBarsQuery.element.tap()
-        } else {
-            // or use some work around
+        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+            alert.buttons["Continue"].tap()
+            return true
         }
+        
+        app.tap()
         
         // set up an expectation predicate to test whether elements exist
-        let exists = NSPredicate(format: "exists == true")
-        
+        let continueBtnExists = NSPredicate(format: "exists == true")
         
         // wait for the "Confirm" title at the top of facebook's sign in screen
         let continueButton = app.webViews.buttons["Continue"]
-        let continueButtonExpectation = expectation(for: exists, evaluatedWith: continueButton, handler: nil)
+        let continueButtonExpectation = expectation(for: continueBtnExists, evaluatedWith: continueButton, handler: nil)
         let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 5)
         
         // Facebook user already logged in
@@ -173,112 +180,53 @@ class AWSAuthSDKTestAppUITests: XCTestCase {
             if signinstatelabelElement.label == "signedIn" {
                 // break outside of else if
             } else {
-            
-            
-            // We will try to enter email and password here to log the user in.
-            let webViewsQuery = app.webViews
-            webViewsQuery.textFields["Mobile Number or Email"].tap()
-            webViewsQuery.textFields["Mobile Number or Email"].clearText()
-            webViewsQuery.textFields["Mobile Number or Email"].typeText(AWSAuthSDKTestAppUITests.FacebookUsername!)
-            webViewsQuery.secureTextFields["Facebook Password"].tap()
-            webViewsQuery.secureTextFields["Facebook Password"].typeText(AWSAuthSDKTestAppUITests.FacebookPassword!)
-            webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
-            
-            let continueButton = app.webViews.buttons["Continue"]
-            let continueButtonExpectation = expectation(for: exists, evaluatedWith: continueButton, handler: nil)
-            let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 10)
-            if buttonWaiter == .completed {
-                app.webViews.buttons["Continue"].tap()
-            } else if buttonWaiter == .timedOut {
-                XCTFail("Could not finish Facebook login.")
-                return
-            }
+                // We will try to enter email and password here to log the user in.
+                let webViewsQuery = app.webViews
+                
+                webViewsQuery.textFields["Mobile Number or Email"].tap()
+                webViewsQuery.textFields["Mobile Number or Email"].clearText()
+                webViewsQuery.textFields["Mobile Number or Email"].typeText(AWSAuthSDKTestAppUITests.FacebookUsername!)
+                
+                webViewsQuery.secureTextFields["Facebook Password"].tap()
+                webViewsQuery.secureTextFields["Facebook Password"].typeText(AWSAuthSDKTestAppUITests.FacebookPassword!)
+                
+                webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Log In"]/*[[".otherElements[\"Log into Facebook | Facebook\"]",".otherElements[\"main\"].buttons[\"Log In\"]",".buttons[\"Log In\"]"],[[[-1,2],[-1,1],[-1,0,1]],[[-1,2],[-1,1]]],[0]]@END_MENU_TOKEN@*/.tap()
+                
+                let continueButton = app.webViews.buttons["Continue"]
+                
+                let continueButtonExpectation = expectation(for: continueBtnExists, evaluatedWith: continueButton)
+                
+                let buttonWaiter = XCTWaiter().wait(for: [continueButtonExpectation], timeout: 10)
+                
+                if buttonWaiter == .completed {
+                    
+                    app.webViews.buttons["Continue"].tap()
+                    
+                } else if buttonWaiter == .timedOut {
+                    
+                    XCTFail("Could not finish Facebook login.")
+                    return
+                }
             }
         }
         
-        
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+        _ = XCTWaiter().wait(for: [labelContainsSignedIn], timeout: 5)
         
         print(signinstatelabelElement.label)
         
         app.buttons["SignOut"].tap()
         
-        statusBarsQuery.element.tap()
-        let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-        let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation2], timeout: 5)
-        
-        print(signinstatelabelElement.label)
-        
-    }
-
-    func testHostedUIUsernamePasswordSignIn() {
-        // Use recording to get started writing UI tests.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-        
-        let app = XCUIApplication()
-        
-        let signinstatelabelElement = XCUIApplication().otherElements["signInStateLabel"]
-        
-        print(signinstatelabelElement.label)
-        
-        if signinstatelabelElement.label == "signedIn" {
-            app.buttons["SignOut"].tap()
-            let statusBarsQuery = app.statusBars
-            statusBarsQuery.element.tap()
-            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-            let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                           handler: nil)
-            
-            let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+        addUIInterruptionMonitor(withDescription: "Continue Alert") { (alert) -> Bool in
+            alert.buttons["Continue"].tap()
+            return true
         }
         
-        XCTAssertEqual("signedOut", signinstatelabelElement.label)
+        app.tap()
         
-        app.buttons["Launch CognitoAuth SignIn"].tap()
-        let statusBarsQuery = app.statusBars
-        if #available(iOS 11.0, *) {
-            statusBarsQuery.element.tap()
-        } else {
-            // or use some work around
-        }
-
-        let webViewsQuery = app.webViews
-        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.tap()
-        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.typeText(AWSAuthSDKTestAppUITests.UserpoolUsername!)
-        
-        let passwordSecureTextField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".otherElements[\"Signin\"].secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        passwordSecureTextField.tap()
-        passwordSecureTextField.typeText(AWSAuthSDKTestAppUITests.UserpoolPassword!)
-        
-        let signInButton = webViewsQuery/*@START_MENU_TOKEN@*/.buttons["Sign in"]/*[[".otherElements[\"Signin\"].buttons[\"Sign in\"]",".buttons[\"Sign in\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
-        signInButton.tap()
-        
-        
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
-                                      handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation1], timeout: 5)
+        _ = XCTWaiter().wait(for: [labelContainsSignedOut], timeout: 5)
         
         print(signinstatelabelElement.label)
         
-        app.buttons["SignOut"].tap()
-        
-        statusBarsQuery.element.tap()
-        let predicate1 = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
-        let expectation2 = expectation(for: predicate1, evaluatedWith: signinstatelabelElement,
-                                       handler: nil)
-        
-        let _ = XCTWaiter().wait(for: [expectation2], timeout: 5)
-        
-        print(signinstatelabelElement.label)
     }
 
 }

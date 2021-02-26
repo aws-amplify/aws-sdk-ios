@@ -26,7 +26,7 @@
 #import "AWSMachineLearningResources.h"
 
 static NSString *const AWSInfoMachineLearning = @"MachineLearning";
-NSString *const AWSMachineLearningSDKVersion = @"2.9.8";
+NSString *const AWSMachineLearningSDKVersion = @"2.23.0";
 
 
 @interface AWSMachineLearningResponseSerializer : AWSJSONResponseSerializer
@@ -270,6 +270,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         headers[@"X-Amz-Target"] = [NSString stringWithFormat:@"%@.%@", targetPrefix, operationName];
         networkingRequest.headers = headers;
         networkingRequest.HTTPMethod = HTTPMethod;
+        networkingRequest.URLString = URLString;
         networkingRequest.requestSerializer = [[AWSJSONRequestSerializer alloc] initWithJSONDefinition:[[AWSMachineLearningResources sharedInstance] JSONObject]
                                                                                                    actionName:operationName];
         networkingRequest.responseSerializer = [[AWSMachineLearningResponseSerializer alloc] initWithJSONDefinition:[[AWSMachineLearningResources sharedInstance] JSONObject]

@@ -36,19 +36,21 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
 
 @interface AWSPinpointAnalyticsClient()
 
+@property (nonatomic, weak) AWSPinpointContext *context;
+
+@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
+
 @property (nonatomic, strong) NSMutableDictionary* eventTypeAttributes;
 @property (nonatomic, strong) NSMutableDictionary* eventTypeMetrics;
 @property (nonatomic, strong) NSMutableDictionary* globalAttributes;
 @property (nonatomic, strong) NSMutableDictionary* globalMetrics;
-@property (nonatomic, strong) NSDictionary* globalCampaignAttributes;
-@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
-@property (nonatomic, strong) AWSPinpointContext *context;
+@property (nonatomic, strong) NSDictionary* globalEventSourceAttributes;
 
 @end
 
 @interface AWSPinpointEventRecorder ()
 - (instancetype)initWithContext:(AWSPinpointContext *) context;
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
+- (AWSTask*) updateSessionStartWithEventSourceAttributes:(NSDictionary*) attributes;
 @end
 
 @implementation AWSPinpointAnalyticsClient
@@ -201,8 +203,8 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
         }
         
         // Apply Campaign Attributes
-        for (NSString *key in [self.globalCampaignAttributes allKeys]) {
-            [theEvent addAttribute:[self.globalCampaignAttributes objectForKey:key] forKey:key];
+        for (NSString *key in [self.globalEventSourceAttributes allKeys]) {
+            [theEvent addAttribute:[self.globalEventSourceAttributes objectForKey:key] forKey:key];
         }
     }
     
@@ -391,16 +393,16 @@ NSString *const AWSPinpointAnalyticsClientErrorDomain = @"com.amazonaws.AWSPinpo
     }
 }
 
-- (void) setCampaignAttributes:(NSDictionary*) campaign {
-    _globalCampaignAttributes = campaign;
-    [self.eventRecorder updateSessionStartWithCampaignAttributes:campaign];
+- (void) setEventSourceAttributes:(NSDictionary*) campaign {
+    _globalEventSourceAttributes = campaign;
+    [self.eventRecorder updateSessionStartWithEventSourceAttributes:campaign];
 }
 
-- (void) removeAllGlobalCampaignAttributes {
-    for (NSString *key in self.globalCampaignAttributes) {
+- (void) removeAllGlobalEventSourceAttributes {
+    for (NSString *key in self.globalEventSourceAttributes) {
         [self removeGlobalAttributeForKey:key];
     }
-    _globalCampaignAttributes = nil;
+    _globalEventSourceAttributes = nil;
 }
 
 @end

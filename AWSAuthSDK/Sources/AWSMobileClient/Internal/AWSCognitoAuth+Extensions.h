@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -13,9 +13,8 @@
 // permissions and limitations under the License.
 //
 
-#import <AWSMobileClient/AWSCognitoAuth.h>
-
 NS_ASSUME_NONNULL_BEGIN
+@class AWSCognitoAuthConfiguration;
 
 @interface AWSCognitoAuthConfiguration(Extension)
 
@@ -32,7 +31,9 @@ NS_ASSUME_NONNULL_BEGIN
                           tokensUri:(nullable NSString *) tokensUri
            signInUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signInUriQueryParameters
           signOutUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) signOutUriQueryParameters
-            tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters;
+            tokenUriQueryParameters:(nullable NSDictionary<NSString *, NSString *> *) tokenUriQueryParameters
+       userPoolServiceConfiguration:(nullable AWSServiceConfiguration *)serviceConfiguration
+               signInPrivateSession:(BOOL)signInPrivateSession;
 
 @end
 

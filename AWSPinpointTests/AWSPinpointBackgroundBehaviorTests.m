@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -25,7 +25,7 @@ static id _mockNSBundle;
 #pragma mark - Expose initializers & properties for testing
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 #pragma mark - Test class
@@ -53,7 +53,7 @@ static id _mockNSBundle;
 
 - (void)setUp {
     [super setUp];
-    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
 }
 
 - (void)tearDown {
@@ -145,11 +145,17 @@ static id _mockNSBundle;
 }
 
 - (void)testHandlesIncomingEventsWhileMovingToBackground {
+//    [[AWSDDLog sharedInstance] setLogLevel:AWSDDLogLevelVerbose];
+//    [[AWSDDLog sharedInstance] addLogger:[AWSDDTTYLogger sharedInstance]];
+    
     // Record session start/stop events for foreground/background notifications
     __block AWSPinpoint *pinpoint = [AWSPinpointBackgroundBehaviorTests makeTestPinpointEnablingAutoSessionRecording:YES];
 
-    // Start submitting events on a background queue, until we get a flag to stop
+    // Start submitting events on a background queue, until we get a flag to stop. Allow overfulfillment of this in case
+    // the "stop" command comes right on the boundary of a timer firing.
     __block XCTestExpectation *stoppedSubmittingEvents = [self expectationWithDescription:@"Stopped submitting events"];
+    stoppedSubmittingEvents.assertForOverFulfill = NO;
+    
     __block BOOL stopSubmittingEvents = NO;
     __block int eventCount = 0;
     [NSTimer scheduledTimerWithTimeInterval:0.1 repeats:YES block:^(NSTimer * _Nonnull timer) {
@@ -158,8 +164,8 @@ static id _mockNSBundle;
             AWSPinpointEvent *event = [AWSPinpointBackgroundBehaviorTests makeTestEvent:eventName pinpoint:pinpoint];
             [pinpoint.analyticsClient.eventRecorder saveEvent:event];
             if (stopSubmittingEvents) {
-                [timer invalidate];
                 [stoppedSubmittingEvents fulfill];
+                [timer invalidate];
             }
             eventCount += 1;
         });
@@ -193,6 +199,7 @@ static id _mockNSBundle;
     // Ensure we've added at least a few items to the queue, or the test isn't valid
     XCTAssertGreaterThan(eventCount, 10);
     __block XCTestExpectation *eventQueueIsDrained = [self expectationWithDescription:@"Event queue is drained"];
+    eventQueueIsDrained.assertForOverFulfill = NO;
 
     [NSTimer scheduledTimerWithTimeInterval:0.5 repeats:YES block:^(NSTimer * _Nonnull timer) {
         [[[pinpoint.analyticsClient.eventRecorder getEventsWithLimit:@2000] continueWithBlock:^id _Nullable(AWSTask<NSArray<AWSPinpointEvent *> *> * _Nonnull t) {
@@ -206,7 +213,7 @@ static id _mockNSBundle;
         }] waitUntilFinished];
     }];
 
-    [self waitForExpectations:@[eventQueueIsDrained] timeout:60.0];
+    [self waitForExpectations:@[eventQueueIsDrained] timeout:30.0];
 }
 
 - (NSArray<XCTestExpectation *> *)recordTestEventsAsync:(AWSPinpoint *)pinpoint
@@ -243,20 +250,14 @@ static id _mockNSBundle;
 }
 
 + (AWSPinpoint *)makeTestPinpointEnablingAutoSessionRecording:(BOOL)enableAutoSessionRecording {
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-
-    NSString *appID = credentialsJson[@"pinpointAppId"];
-
+    [AWSTestUtility setupSessionCredentialsProvider];
+    NSString *appID = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"pinpoint"
+                                                                             configKey:@"app_id"];
+    
     AWSPinpointConfiguration *config = [[AWSPinpointConfiguration alloc] initWithAppId:appID
                                                                          launchOptions:nil
                                                                         maxStorageSize:5 * 1024 * 1024
-                                                                        sessionTimeout:0];
+                                                                        sessionTimeout:3000];
 
     // We will specify our own session in the event setup
     config.enableAutoSessionRecording = enableAutoSessionRecording;

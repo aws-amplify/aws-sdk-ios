@@ -19,9 +19,9 @@
 #import "AWSKinesis.h"
 #import "AWSTestUtility.h"
 
-NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
-
 @interface AWSFirehoseTests : XCTestCase
+
+@property (nonatomic, strong) NSString *streamName;
 
 @end
 
@@ -29,7 +29,9 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
 
 - (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
+    _streamName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"firehose"
+                                                                         configKey:@"firehose_stream_name"];
 }
 
 - (void)tearDown {
@@ -48,7 +50,7 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
 
         __block BOOL didFind = NO;
         for (NSString *streamName in listDeliveryStreamsOutput.deliveryStreamNames) {
-            if ([streamName isEqualToString:AWSFirehoseTestStream]) {
+            if ([streamName isEqualToString:self.streamName]) {
                 didFind = YES;
                 break;
             }
@@ -69,7 +71,7 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
     record.data = [testString dataUsingEncoding:NSUTF8StringEncoding];
 
     AWSFirehosePutRecordInput *putRecordInput = [AWSFirehosePutRecordInput new];
-    putRecordInput.deliveryStreamName = AWSFirehoseTestStream;
+    putRecordInput.deliveryStreamName = self.streamName;
     putRecordInput.record = record;
 
     [[[firehose putRecord:putRecordInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
@@ -92,7 +94,7 @@ NSString *const AWSFirehoseTestStream = @"test-permanent-firehose";
     record.data = [testString dataUsingEncoding:NSUTF8StringEncoding];
 
     AWSFirehosePutRecordBatchInput *putRecordBatchInput = [AWSFirehosePutRecordBatchInput new];
-    putRecordBatchInput.deliveryStreamName = AWSFirehoseTestStream;
+    putRecordBatchInput.deliveryStreamName = self.streamName;
     putRecordBatchInput.records = @[record];
 
     [[[firehose putRecordBatch:putRecordBatchInput] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {

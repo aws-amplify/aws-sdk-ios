@@ -3,4 +3,5 @@
 //
 
 #import "AWSTestUtility.h"
+#import "AWSS3TestHelper.h"
 #import <CommonCrypto/CommonCrypto.h>

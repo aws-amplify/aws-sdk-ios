@@ -20,7 +20,6 @@
 #import "AWSSimpleDB.h"
 #import "AWSTestUtility.h"
 
-NSString *const AWSSimpleDBTestDomainNamePrefix = @"ios-v2-test-";
 static NSString *_testDomainName = nil;
 
 @interface AWSSimpleDBTests : XCTestCase
@@ -31,11 +30,13 @@ static NSString *_testDomainName = nil;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-    //[AWSTestUtility setupCrdentialsViaFile];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
+    NSString *domainPrefix = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"sdb"
+                                                                                    configKey:@"domain_prefix"];
+    
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
-    _testDomainName = [NSString stringWithFormat:@"%@%lld", AWSSimpleDBTestDomainNamePrefix, (int64_t)timeIntervalSinceReferenceDate];
+    _testDomainName = [NSString stringWithFormat:@"%@%lld", domainPrefix, (int64_t)timeIntervalSinceReferenceDate];
 
     [[self createTestDomain] waitUntilFinished];
 }
@@ -323,7 +324,8 @@ static NSString *_testDomainName = nil;
 
     [[[sdb domainMetadata:metaDataRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidParameterValue error but got nil");
-        XCTAssertEqual(task.error.code, 6);
+        XCTAssertEqualObjects(task.error.domain, AWSSimpleDBErrorDomain);
+        XCTAssertEqual(task.error.code, AWSSimpleDBErrorInvalidParameterValue);
         XCTAssertTrue([@"InvalidParameterValue" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"Value () for parameter DomainName is invalid. " isEqualToString: (NSString *)task.error.userInfo[@"Message"]]);
         return nil;

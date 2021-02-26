@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -27,11 +27,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBErrorType) {
     AWSDynamoDBErrorBackupNotFound,
     AWSDynamoDBErrorConditionalCheckFailed,
     AWSDynamoDBErrorContinuousBackupsUnavailable,
+    AWSDynamoDBErrorDuplicateItem,
+    AWSDynamoDBErrorExportConflict,
+    AWSDynamoDBErrorExportNotFound,
     AWSDynamoDBErrorGlobalTableAlreadyExists,
     AWSDynamoDBErrorGlobalTableNotFound,
     AWSDynamoDBErrorIdempotentParameterMismatch,
     AWSDynamoDBErrorIndexNotFound,
     AWSDynamoDBErrorInternalServer,
+    AWSDynamoDBErrorInvalidExportTime,
     AWSDynamoDBErrorInvalidRestoreTime,
     AWSDynamoDBErrorItemCollectionSizeLimitExceeded,
     AWSDynamoDBErrorLimitExceeded,
@@ -79,6 +83,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBBackupTypeFilter) {
     AWSDynamoDBBackupTypeFilterAll,
 };
 
+typedef NS_ENUM(NSInteger, AWSDynamoDBBatchStatementErrorCodeEnum) {
+    AWSDynamoDBBatchStatementErrorCodeEnumUnknown,
+    AWSDynamoDBBatchStatementErrorCodeEnumConditionalCheckFailed,
+    AWSDynamoDBBatchStatementErrorCodeEnumItemCollectionSizeLimitExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumRequestLimitExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumValidationError,
+    AWSDynamoDBBatchStatementErrorCodeEnumProvisionedThroughputExceeded,
+    AWSDynamoDBBatchStatementErrorCodeEnumTransactionConflict,
+    AWSDynamoDBBatchStatementErrorCodeEnumThrottlingError,
+    AWSDynamoDBBatchStatementErrorCodeEnumInternalServerError,
+    AWSDynamoDBBatchStatementErrorCodeEnumResourceNotFound,
+    AWSDynamoDBBatchStatementErrorCodeEnumAccessDenied,
+    AWSDynamoDBBatchStatementErrorCodeEnumDuplicateItem,
+};
+
 typedef NS_ENUM(NSInteger, AWSDynamoDBBillingMode) {
     AWSDynamoDBBillingModeUnknown,
     AWSDynamoDBBillingModeProvisioned,
@@ -112,6 +131,43 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBContinuousBackupsStatus) {
     AWSDynamoDBContinuousBackupsStatusUnknown,
     AWSDynamoDBContinuousBackupsStatusEnabled,
     AWSDynamoDBContinuousBackupsStatusDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsAction) {
+    AWSDynamoDBContributorInsightsActionUnknown,
+    AWSDynamoDBContributorInsightsActionEnable,
+    AWSDynamoDBContributorInsightsActionDisable,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBContributorInsightsStatus) {
+    AWSDynamoDBContributorInsightsStatusUnknown,
+    AWSDynamoDBContributorInsightsStatusEnabling,
+    AWSDynamoDBContributorInsightsStatusEnabled,
+    AWSDynamoDBContributorInsightsStatusDisabling,
+    AWSDynamoDBContributorInsightsStatusDisabled,
+    AWSDynamoDBContributorInsightsStatusFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBDestinationStatus) {
+    AWSDynamoDBDestinationStatusUnknown,
+    AWSDynamoDBDestinationStatusEnabling,
+    AWSDynamoDBDestinationStatusActive,
+    AWSDynamoDBDestinationStatusDisabling,
+    AWSDynamoDBDestinationStatusDisabled,
+    AWSDynamoDBDestinationStatusEnableFailed,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportFormat) {
+    AWSDynamoDBExportFormatUnknown,
+    AWSDynamoDBExportFormatDynamodbJson,
+    AWSDynamoDBExportFormatIon,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBExportStatus) {
+    AWSDynamoDBExportStatusUnknown,
+    AWSDynamoDBExportStatusInProgress,
+    AWSDynamoDBExportStatusCompleted,
+    AWSDynamoDBExportStatusFailed,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBGlobalTableStatus) {
@@ -152,9 +208,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBProjectionType) {
 typedef NS_ENUM(NSInteger, AWSDynamoDBReplicaStatus) {
     AWSDynamoDBReplicaStatusUnknown,
     AWSDynamoDBReplicaStatusCreating,
+    AWSDynamoDBReplicaStatusCreationFailed,
     AWSDynamoDBReplicaStatusUpdating,
     AWSDynamoDBReplicaStatusDeleting,
     AWSDynamoDBReplicaStatusActive,
+    AWSDynamoDBReplicaStatusRegionDisabled,
+    AWSDynamoDBReplicaStatusInaccessibleEncryptionCredentials,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBReturnConsumedCapacity) {
@@ -183,6 +242,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBReturnValuesOnConditionCheckFailure) {
     AWSDynamoDBReturnValuesOnConditionCheckFailureUnknown,
     AWSDynamoDBReturnValuesOnConditionCheckFailureAllOld,
     AWSDynamoDBReturnValuesOnConditionCheckFailureNone,
+};
+
+typedef NS_ENUM(NSInteger, AWSDynamoDBS3SseAlgorithm) {
+    AWSDynamoDBS3SseAlgorithmUnknown,
+    AWSDynamoDBS3SseAlgorithmAES256,
+    AWSDynamoDBS3SseAlgorithmKms,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBSSEStatus) {
@@ -229,6 +294,9 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTableStatus) {
     AWSDynamoDBTableStatusUpdating,
     AWSDynamoDBTableStatusDeleting,
     AWSDynamoDBTableStatusActive,
+    AWSDynamoDBTableStatusInaccessibleEncryptionCredentials,
+    AWSDynamoDBTableStatusArchiving,
+    AWSDynamoDBTableStatusArchived,
 };
 
 typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
@@ -239,6 +307,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
     AWSDynamoDBTimeToLiveStatusDisabled,
 };
 
+@class AWSDynamoDBArchivalSummary;
 @class AWSDynamoDBAttributeDefinition;
 @class AWSDynamoDBAttributeValue;
 @class AWSDynamoDBAttributeValueUpdate;
@@ -251,8 +320,13 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBBackupDescription;
 @class AWSDynamoDBBackupDetails;
 @class AWSDynamoDBBackupSummary;
+@class AWSDynamoDBBatchExecuteStatementInput;
+@class AWSDynamoDBBatchExecuteStatementOutput;
 @class AWSDynamoDBBatchGetItemInput;
 @class AWSDynamoDBBatchGetItemOutput;
+@class AWSDynamoDBBatchStatementError;
+@class AWSDynamoDBBatchStatementRequest;
+@class AWSDynamoDBBatchStatementResponse;
 @class AWSDynamoDBBatchWriteItemInput;
 @class AWSDynamoDBBatchWriteItemOutput;
 @class AWSDynamoDBBillingModeSummary;
@@ -262,12 +336,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBConditionCheck;
 @class AWSDynamoDBConsumedCapacity;
 @class AWSDynamoDBContinuousBackupsDescription;
+@class AWSDynamoDBContributorInsightsSummary;
 @class AWSDynamoDBCreateBackupInput;
 @class AWSDynamoDBCreateBackupOutput;
 @class AWSDynamoDBCreateGlobalSecondaryIndexAction;
 @class AWSDynamoDBCreateGlobalTableInput;
 @class AWSDynamoDBCreateGlobalTableOutput;
 @class AWSDynamoDBCreateReplicaAction;
+@class AWSDynamoDBCreateReplicationGroupMemberAction;
 @class AWSDynamoDBCreateTableInput;
 @class AWSDynamoDBCreateTableOutput;
 @class AWSDynamoDBRemove;
@@ -277,6 +353,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDeleteItemInput;
 @class AWSDynamoDBDeleteItemOutput;
 @class AWSDynamoDBDeleteReplicaAction;
+@class AWSDynamoDBDeleteReplicationGroupMemberAction;
 @class AWSDynamoDBDeleteRequest;
 @class AWSDynamoDBDeleteTableInput;
 @class AWSDynamoDBDeleteTableOutput;
@@ -284,24 +361,42 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBDescribeBackupOutput;
 @class AWSDynamoDBDescribeContinuousBackupsInput;
 @class AWSDynamoDBDescribeContinuousBackupsOutput;
+@class AWSDynamoDBDescribeContributorInsightsInput;
+@class AWSDynamoDBDescribeContributorInsightsOutput;
 @class AWSDynamoDBDescribeEndpointsRequest;
 @class AWSDynamoDBDescribeEndpointsResponse;
+@class AWSDynamoDBDescribeExportInput;
+@class AWSDynamoDBDescribeExportOutput;
 @class AWSDynamoDBDescribeGlobalTableInput;
 @class AWSDynamoDBDescribeGlobalTableOutput;
 @class AWSDynamoDBDescribeGlobalTableSettingsInput;
 @class AWSDynamoDBDescribeGlobalTableSettingsOutput;
+@class AWSDynamoDBDescribeKinesisStreamingDestinationInput;
+@class AWSDynamoDBDescribeKinesisStreamingDestinationOutput;
 @class AWSDynamoDBDescribeLimitsInput;
 @class AWSDynamoDBDescribeLimitsOutput;
 @class AWSDynamoDBDescribeTableInput;
 @class AWSDynamoDBDescribeTableOutput;
+@class AWSDynamoDBDescribeTableReplicaAutoScalingInput;
+@class AWSDynamoDBDescribeTableReplicaAutoScalingOutput;
 @class AWSDynamoDBDescribeTimeToLiveInput;
 @class AWSDynamoDBDescribeTimeToLiveOutput;
 @class AWSDynamoDBEndpoint;
+@class AWSDynamoDBExecuteStatementInput;
+@class AWSDynamoDBExecuteStatementOutput;
+@class AWSDynamoDBExecuteTransactionInput;
+@class AWSDynamoDBExecuteTransactionOutput;
 @class AWSDynamoDBExpectedAttributeValue;
+@class AWSDynamoDBExportDescription;
+@class AWSDynamoDBExportSummary;
+@class AWSDynamoDBExportTableToPointInTimeInput;
+@class AWSDynamoDBExportTableToPointInTimeOutput;
+@class AWSDynamoDBFailureException;
 @class AWSDynamoDBGet;
 @class AWSDynamoDBGetItemInput;
 @class AWSDynamoDBGetItemOutput;
 @class AWSDynamoDBGlobalSecondaryIndex;
+@class AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate;
 @class AWSDynamoDBGlobalSecondaryIndexDescription;
 @class AWSDynamoDBGlobalSecondaryIndexInfo;
 @class AWSDynamoDBGlobalSecondaryIndexUpdate;
@@ -312,8 +407,15 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBItemResponse;
 @class AWSDynamoDBKeySchemaElement;
 @class AWSDynamoDBKeysAndAttributes;
+@class AWSDynamoDBKinesisDataStreamDestination;
+@class AWSDynamoDBKinesisStreamingDestinationInput;
+@class AWSDynamoDBKinesisStreamingDestinationOutput;
 @class AWSDynamoDBListBackupsInput;
 @class AWSDynamoDBListBackupsOutput;
+@class AWSDynamoDBListContributorInsightsInput;
+@class AWSDynamoDBListContributorInsightsOutput;
+@class AWSDynamoDBListExportsInput;
+@class AWSDynamoDBListExportsOutput;
 @class AWSDynamoDBListGlobalTablesInput;
 @class AWSDynamoDBListGlobalTablesOutput;
 @class AWSDynamoDBListTablesInput;
@@ -323,11 +425,13 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBLocalSecondaryIndex;
 @class AWSDynamoDBLocalSecondaryIndexDescription;
 @class AWSDynamoDBLocalSecondaryIndexInfo;
+@class AWSDynamoDBParameterizedStatement;
 @class AWSDynamoDBPointInTimeRecoveryDescription;
 @class AWSDynamoDBPointInTimeRecoverySpecification;
 @class AWSDynamoDBProjection;
 @class AWSDynamoDBProvisionedThroughput;
 @class AWSDynamoDBProvisionedThroughputDescription;
+@class AWSDynamoDBProvisionedThroughputOverride;
 @class AWSDynamoDBPut;
 @class AWSDynamoDBPutItemInput;
 @class AWSDynamoDBPutItemOutput;
@@ -335,12 +439,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBQueryInput;
 @class AWSDynamoDBQueryOutput;
 @class AWSDynamoDBReplica;
+@class AWSDynamoDBReplicaAutoScalingDescription;
+@class AWSDynamoDBReplicaAutoScalingUpdate;
 @class AWSDynamoDBReplicaDescription;
+@class AWSDynamoDBReplicaGlobalSecondaryIndex;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate;
+@class AWSDynamoDBReplicaGlobalSecondaryIndexDescription;
 @class AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription;
 @class AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate;
 @class AWSDynamoDBReplicaSettingsDescription;
 @class AWSDynamoDBReplicaSettingsUpdate;
 @class AWSDynamoDBReplicaUpdate;
+@class AWSDynamoDBReplicationGroupUpdate;
 @class AWSDynamoDBRestoreSummary;
 @class AWSDynamoDBRestoreTableFromBackupInput;
 @class AWSDynamoDBRestoreTableFromBackupOutput;
@@ -353,6 +464,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBSourceTableDetails;
 @class AWSDynamoDBSourceTableFeatureDetails;
 @class AWSDynamoDBStreamSpecification;
+@class AWSDynamoDBTableAutoScalingDescription;
 @class AWSDynamoDBTableDescription;
 @class AWSDynamoDBTag;
 @class AWSDynamoDBTagResourceInput;
@@ -368,6 +480,8 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBUpdate;
 @class AWSDynamoDBUpdateContinuousBackupsInput;
 @class AWSDynamoDBUpdateContinuousBackupsOutput;
+@class AWSDynamoDBUpdateContributorInsightsInput;
+@class AWSDynamoDBUpdateContributorInsightsOutput;
 @class AWSDynamoDBUpdateGlobalSecondaryIndexAction;
 @class AWSDynamoDBUpdateGlobalTableInput;
 @class AWSDynamoDBUpdateGlobalTableOutput;
@@ -375,11 +489,37 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @class AWSDynamoDBUpdateGlobalTableSettingsOutput;
 @class AWSDynamoDBUpdateItemInput;
 @class AWSDynamoDBUpdateItemOutput;
+@class AWSDynamoDBUpdateReplicationGroupMemberAction;
 @class AWSDynamoDBUpdateTableInput;
 @class AWSDynamoDBUpdateTableOutput;
+@class AWSDynamoDBUpdateTableReplicaAutoScalingInput;
+@class AWSDynamoDBUpdateTableReplicaAutoScalingOutput;
 @class AWSDynamoDBUpdateTimeToLiveInput;
 @class AWSDynamoDBUpdateTimeToLiveOutput;
 @class AWSDynamoDBWriteRequest;
+
+/**
+ <p>Contains details of a table archival operation.</p>
+ */
+@interface AWSDynamoDBArchivalSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the backup the table was archived to, when applicable in the archival reason. If you wish to restore this backup to the same table name, you will need to delete the original table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable archivalBackupArn;
+
+/**
+ <p>The date and time when table archival was initiated by DynamoDB, in UNIX epoch time format.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable archivalDateTime;
+
+/**
+ <p>The reason DynamoDB archived the table. Currently, the only possible value is:</p><ul><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The table was archived due to the table's AWS KMS key being inaccessible for more than seven days. An On-Demand backup was created at the archival time.</p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable archivalReason;
+
+@end
 
 /**
  <p>Represents an attribute for describing the key schema for the table and indexes.</p>
@@ -495,7 +635,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents the autoscaling policy to be modified.</p>
+ <p>Represents the auto scaling policy to be modified.</p>
  Required parameters: [TargetTrackingScalingPolicyConfiguration]
  */
 @interface AWSDynamoDBAutoScalingPolicyUpdate : AWSModel
@@ -514,18 +654,18 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents the autoscaling settings for a global table or global secondary index.</p>
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
  */
 @interface AWSDynamoDBAutoScalingSettingsDescription : AWSModel
 
 
 /**
- <p>Disabled autoscaling for this global table or global secondary index.</p>
+ <p>Disabled auto scaling for this global table or global secondary index.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable autoScalingDisabled;
 
 /**
- <p>Role ARN used for configuring autoScaling policy.</p>
+ <p>Role ARN used for configuring the auto scaling policy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingRoleArn;
 
@@ -547,18 +687,18 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents the autoscaling settings to be modified for a global table or global secondary index.</p>
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
  */
 @interface AWSDynamoDBAutoScalingSettingsUpdate : AWSModel
 
 
 /**
- <p>Disabled autoscaling for this global table or global secondary index.</p>
+ <p>Disabled auto scaling for this global table or global secondary index.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable autoScalingDisabled;
 
 /**
- <p>Role ARN used for configuring autoscaling policy.</p>
+ <p>Role ARN used for configuring auto scaling policy.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingRoleArn;
 
@@ -592,7 +732,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable disableScaleIn;
 
 /**
- <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately. </p>
+ <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application auto scaling scales out your scalable target immediately. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable scaleInCooldown;
 
@@ -621,7 +761,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable disableScaleIn;
 
 /**
- <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application autoscaling scales out your scalable target immediately. </p>
+ <p>The amount of time, in seconds, after a scale in activity completes before another scale in activity can start. The cooldown period is used to block subsequent scale in requests until it has expired. You should scale in conservatively to protect your application's availability. However, if another alarm triggers a scale out policy during the cooldown period after a scale-in, application auto scaling scales out your scalable target immediately. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable scaleInCooldown;
 
@@ -763,6 +903,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBBatchExecuteStatementInput : AWSRequest
+
+
+/**
+ <p> The list of PartiQL statements representing the batch to run. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementRequest *> * _Nullable statements;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBBatchExecuteStatementOutput : AWSModel
+
+
+/**
+ <p> The response to each PartiQL statement in the batch. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBBatchStatementResponse *> * _Nullable responses;
+
+@end
+
+/**
  <p>Represents the input of a <code>BatchGetItem</code> operation.</p>
  Required parameters: [RequestItems]
  */
@@ -770,7 +936,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per <code>BatchGetItem</code> request.</p><p>Each element in the map of items to retrieve consists of the following:</p><ul><li><p><code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li><li><p><code>ExpressionAttributeNames</code> - One or more substitution tokens for attribute names in the <code>ProjectionExpression</code> parameter. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li><li><p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p></li></ul>
+ <p>A map of one or more table names and, for each table, a map that describes one or more items to retrieve from that table. Each table name can be used only once per <code>BatchGetItem</code> request.</p><p>Each element in the map of items to retrieve consists of the following:</p><ul><li><p><code>ConsistentRead</code> - If <code>true</code>, a strongly consistent read is used; if <code>false</code> (the default), an eventually consistent read is used.</p></li><li><p><code>ExpressionAttributeNames</code> - One or more substitution tokens for attribute names in the <code>ProjectionExpression</code> parameter. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>Keys</code> - An array of primary key attribute values that define specific items in the table. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide the partition key value. For a composite key, you must provide <i>both</i> the partition key value and the sort key value.</p></li><li><p><code>ProjectionExpression</code> - A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p></li><li><p><code>AttributesToGet</code> - This is a legacy parameter. Use <code>ProjectionExpression</code> instead. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/LegacyConditionalParameters.AttributesToGet.html">AttributesToGet</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBKeysAndAttributes *> * _Nullable requestItems;
 
@@ -805,6 +971,71 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p> An error associated with a statement in a PartiQL batch that was run. </p>
+ */
+@interface AWSDynamoDBBatchStatementError : AWSModel
+
+
+/**
+ <p> The error code associated with the failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBatchStatementErrorCodeEnum code;
+
+/**
+ <p> The error message associated with the PartiQL batch resposne. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable message;
+
+@end
+
+/**
+ <p> A PartiQL batch statement request. </p>
+ Required parameters: [Statement]
+ */
+@interface AWSDynamoDBBatchStatementRequest : AWSModel
+
+
+/**
+ <p> The read consistency of the PartiQL batch request. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable consistentRead;
+
+/**
+ <p> The parameters associated with a PartiQL statement in the batch request. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> A valid PartiQL statement. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
+
+@end
+
+/**
+ <p> A PartiQL batch statement response.. </p>
+ */
+@interface AWSDynamoDBBatchStatementResponse : AWSModel
+
+
+/**
+ <p> The error associated with a failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, strong) AWSDynamoDBBatchStatementError * _Nullable error;
+
+/**
+ <p> A DynamoDB item associated with a BatchStatementResponse </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
+
+/**
+ <p> The table name associated with a failed PartiQL batch statement. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  <p>Represents the input of a <code>BatchWriteItem</code> operation.</p>
  Required parameters: [RequestItems]
  */
@@ -812,7 +1043,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A map of one or more table names and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values will be rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
+ <p>A map of one or more table names and, for each table, a list of operations to be performed (<code>DeleteRequest</code> or <code>PutRequest</code>). Each element in the map consists of the following:</p><ul><li><p><code>DeleteRequest</code> - Perform a <code>DeleteItem</code> operation on the specified item. The item to be deleted is identified by a <code>Key</code> subelement:</p><ul><li><p><code>Key</code> - A map of primary key attribute values that uniquely identify the item. Each entry in this map consists of an attribute name and an attribute value. For each primary key, you must provide <i>all</i> of the key attributes. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide values for <i>both</i> the partition key and the sort key.</p></li></ul></li><li><p><code>PutRequest</code> - Perform a <code>PutItem</code> operation on the specified item. The item to be put is identified by an <code>Item</code> subelement:</p><ul><li><p><code>Item</code> - A map of attributes and their values. Each entry in this map consists of an attribute name and an attribute value. Attribute values must not be null; string and binary type attributes must have lengths greater than zero; and set type attributes must not be empty. Requests that contain empty values are rejected with a <code>ValidationException</code> exception.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBWriteRequest *> *> * _Nullable requestItems;
 
@@ -935,7 +1166,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents a request to perform a check that an item exists or to check the condition of specific attributes of the item..</p>
+ <p>Represents a request to perform a check that an item exists or to check the condition of specific attributes of the item.</p>
  Required parameters: [Key, TableName, ConditionExpression]
  */
 @interface AWSDynamoDBConditionCheck : AWSModel
@@ -1036,6 +1267,29 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents a Contributor Insights summary entry.</p>
+ */
+@interface AWSDynamoDBContributorInsightsSummary : AWSModel
+
+
+/**
+ <p>Describes the current status for contributor insights for the given table and index, if applicable.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>Name of the index associated with the summary, if any.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Name of the table associated with the summary.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  
  */
 @interface AWSDynamoDBCreateBackupInput : AWSRequest
@@ -1089,7 +1343,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
 
 /**
- <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
@@ -1107,7 +1361,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>The regions where the global table needs to be created.</p>
+ <p>The Regions where the global table needs to be created.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplica *> * _Nullable replicationGroup;
 
@@ -1134,7 +1388,36 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The region of the replica to be added.</p>
+ <p>The Region of the replica to be added.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
+ <p>Represents a replica to be created.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBCreateReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) that should be used for AWS KMS encryption in the new replica. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The Region where the new replica will be created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -1153,27 +1436,27 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
 
 /**
- <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. This setting can be changed later.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
 
 /**
- <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the global secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the global secondary index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
+ <p>One or more global secondary indexes (the maximum is 20) to be created on the table. Each global secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the global secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the global secondary index.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
 
 /**
- <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>Each <code>KeySchemaElement</code> in the array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of this key attribute.</p></li><li><p><code>KeyType</code> - The role that the key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note><p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p><p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Specifying the Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Specifies the attributes that make up the primary key for a table or an index. The attributes in <code>KeySchema</code> must also be defined in the <code>AttributeDefinitions</code> array. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html">Data Model</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>Each <code>KeySchemaElement</code> in the array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of this key attribute.</p></li><li><p><code>KeyType</code> - The role that the key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from the DynamoDB usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note><p>For a simple primary key (partition key), you must provide exactly one element with a <code>KeyType</code> of <code>HASH</code>.</p><p>For a composite primary key (partition key and sort key), you must provide exactly two elements, in this order: The first element must have a <code>KeyType</code> of <code>HASH</code>, and the second element must have a <code>KeyType</code> of <code>RANGE</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/WorkingWithTables.html#WorkingWithTables.primary.key">Working with Tables</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
 /**
- <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p><p>Each local secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
+ <p>One or more local secondary indexes (the maximum is 5) to be created on the table. Each index is scoped to a given partition key value. There is a 10 GB size limit per partition key value; otherwise, the size of a local secondary index is unconstrained.</p><p>Each local secondary index in the array includes the following:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index. Must be unique only for this table.</p><p/></li><li><p><code>KeySchema</code> - Specifies the key schema for the local secondary index. The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 100. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexes;
 
 /**
- <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p> If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property. </p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p> If you set BillingMode as <code>PROVISIONED</code>, you must specify this property. If you set BillingMode as <code>PAY_PER_REQUEST</code>, you cannot specify this property.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
@@ -1183,7 +1466,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecification;
 
 /**
- <p>The settings for DynamoDB Streams on the table. These settings consist of:</p><ul><li><p><code>StreamEnabled</code> - Indicates whether Streams is to be enabled (true) or disabled (false).</p></li><li><p><code>StreamViewType</code> - When an item in the table is modified, <code>StreamViewType</code> determines what information is written to the table's stream. Valid values for <code>StreamViewType</code> are:</p><ul><li><p><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the stream.</p></li><li><p><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written to the stream.</p></li><li><p><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is written to the stream.</p></li><li><p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li></ul></li></ul>
+ <p>The settings for DynamoDB Streams on the table. These settings consist of:</p><ul><li><p><code>StreamEnabled</code> - Indicates whether DynamoDB Streams is to be enabled (true) or disabled (false).</p></li><li><p><code>StreamViewType</code> - When an item in the table is modified, <code>StreamViewType</code> determines what information is written to the table's stream. Valid values for <code>StreamViewType</code> are:</p><ul><li><p><code>KEYS_ONLY</code> - Only the key attributes of the modified item are written to the stream.</p></li><li><p><code>NEW_IMAGE</code> - The entire item, as it appears after it was modified, is written to the stream.</p></li><li><p><code>OLD_IMAGE</code> - The entire item, as it appeared before it was modified, is written to the stream.</p></li><li><p><code>NEW_AND_OLD_IMAGES</code> - Both the new and the old item images of the item are written to the stream.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) AWSDynamoDBStreamSpecification * _Nullable streamSpecification;
 
@@ -1299,7 +1582,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A condition that must be satisfied in order for a conditional <code>DeleteItem</code> to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable conditionExpression;
 
@@ -1314,12 +1597,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBExpectedAttributeValue *> * _Nullable expected;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
 /**
- <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
 
@@ -1362,7 +1645,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable attributes;
 
 /**
- <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The capacity units consumed by the <code>DeleteItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBConsumedCapacity * _Nullable consumedCapacity;
 
@@ -1381,7 +1664,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The region of the replica to be removed.</p>
+ <p>The Region of the replica to be removed.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
+ <p>Represents a replica to be deleted.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBDeleteReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>The Region where the replica exists.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -1435,7 +1732,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The ARN associated with the backup.</p>
+ <p>The Amazon Resource Name (ARN) associated with the backup.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable backupArn;
 
@@ -1483,6 +1780,62 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 /**
  
  */
+@interface AWSDynamoDBDescribeContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>The name of the global secondary index to describe, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table to describe.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>List of names of the associated Alpine rules.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable contributorInsightsRuleList;
+
+/**
+ <p>Current Status contributor insights.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>Returns information about the last failure that encountered.</p><p>The most common exceptions for a FAILED status are:</p><ul><li><p>LimitExceededException - Per-account Amazon CloudWatch Contributor Insights rule limit reached. Please disable Contributor Insights for other tables/indexes OR disable Contributor Insights rules before retrying.</p></li><li><p>AccessDeniedException - Amazon CloudWatch Contributor Insights rules cannot be modified due to insufficient permissions.</p></li><li><p>AccessDeniedException - Failed to create service-linked role for Contributor Insights due to insufficient permissions.</p></li><li><p>InternalServerError - Failed to create Amazon CloudWatch Contributor Insights rules. Please retry request.</p></li></ul>
+ */
+@property (nonatomic, strong) AWSDynamoDBFailureException * _Nullable failureException;
+
+/**
+ <p>The name of the global secondary index being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Timestamp of the last time the status was changed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable lastUpdateDateTime;
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
 @interface AWSDynamoDBDescribeEndpointsRequest : AWSRequest
 
 
@@ -1498,6 +1851,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>List of endpoints.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBEndpoint *> * _Nullable endpoints;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeExportInput : AWSRequest
+
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeExportOutput : AWSModel
+
+
+/**
+ <p>Represents the properties of the export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBExportDescription * _Nullable exportDescription;
 
 @end
 
@@ -1552,9 +1931,40 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>The region specific settings for the global table.</p>
+ <p>The Region-specific settings for the global table.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaSettingsDescription *> * _Nullable replicaSettings;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeKinesisStreamingDestinationInput : AWSRequest
+
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeKinesisStreamingDestinationOutput : AWSModel
+
+
+/**
+ <p>The list of replica structures for the table being described.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBKinesisDataStreamDestination *> * _Nullable kinesisDataStreamDestinations;
+
+/**
+ <p>The name of the table being described.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
 
 @end
 
@@ -1573,22 +1983,22 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this region.</p>
+ <p>The maximum total read capacity units that your account allows you to provision across all of your tables in this Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable accountMaxReadCapacityUnits;
 
 /**
- <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this region.</p>
+ <p>The maximum total write capacity units that your account allows you to provision across all of your tables in this Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable accountMaxWriteCapacityUnits;
 
 /**
- <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
+ <p>The maximum read capacity units that your account allows you to provision for a new table that you are creating in this Region, including the read capacity units provisioned for its global secondary indexes (GSIs).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tableMaxReadCapacityUnits;
 
 /**
- <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
+ <p>The maximum write capacity units that your account allows you to provision for a new table that you are creating in this Region, including the write capacity units provisioned for its global secondary indexes (GSIs).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tableMaxWriteCapacityUnits;
 
@@ -1618,6 +2028,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The properties of the table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBTableDescription * _Nullable table;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeTableReplicaAutoScalingInput : AWSRequest
+
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBDescribeTableReplicaAutoScalingOutput : AWSModel
+
+
+/**
+ <p>Represents the auto scaling properties of the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableAutoScalingDescription * _Nullable tableAutoScalingDescription;
 
 @end
 
@@ -1667,7 +2103,84 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents a condition to be compared with an attribute value. This condition can be used with <code>DeleteItem</code>, <code>PutItem</code> or <code>UpdateItem</code> operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use <code>ExpectedAttributeValue</code> in one of two different ways:</p><ul><li><p>Use <code>AttributeValueList</code> to specify one or more values to compare against an attribute. Use <code>ComparisonOperator</code> to specify how you want to perform the comparison. If the comparison evaluates to true, then the conditional operation succeeds.</p></li><li><p>Use <code>Value</code> to specify a value that DynamoDB will compare against an attribute. If the values match, then <code>ExpectedAttributeValue</code> evaluates to true and the conditional operation succeeds. Optionally, you can also set <code>Exists</code> to false, indicating that you <i>do not</i> expect to find the attribute value in the table. In this case, the conditional operation succeeds only if the comparison evaluates to false.</p></li></ul><p><code>Value</code> and <code>Exists</code> are incompatible with <code>AttributeValueList</code> and <code>ComparisonOperator</code>. Note that if you use both sets of parameters at once, DynamoDB will return a <code>ValidationException</code> exception.</p>
+ 
+ */
+@interface AWSDynamoDBExecuteStatementInput : AWSRequest
+
+
+/**
+ <p> The consistency of a read operation. If set to <code>true</code>, then a strongly consistent read is used; otherwise, an eventually consistent read is used. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable consistentRead;
+
+/**
+ <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p> The parameters for the PartiQL statement, if any. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> The PartiQL statement representing the operation to run. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteStatementOutput : AWSModel
+
+
+/**
+ <p> If a read operation was used, this property will contain the result of the reade operation; a map of attribute names and their values. For the write operations this value will be empty. </p>
+ */
+@property (nonatomic, strong) NSArray<NSDictionary<NSString *, AWSDynamoDBAttributeValue *> *> * _Nullable items;
+
+/**
+ <p> If the response of a read request exceeds the response payload limit DynamoDB will set this value in the response. If set, you can use that this value in the subsequent request to get the remaining results. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteTransactionInput : AWSRequest
+
+
+/**
+ <p> Set this value to get remaining results, if <code>NextToken</code> was returned in the statement response. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p> The list of PartiQL statements representing the transaction to run. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBParameterizedStatement *> * _Nullable transactStatements;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExecuteTransactionOutput : AWSModel
+
+
+/**
+ <p> The response to a PartiQL transaction. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBItemResponse *> * _Nullable responses;
+
+@end
+
+/**
+ <p>Represents a condition to be compared with an attribute value. This condition can be used with <code>DeleteItem</code>, <code>PutItem</code>, or <code>UpdateItem</code> operations; if the comparison evaluates to true, the operation succeeds; if not, the operation fails. You can use <code>ExpectedAttributeValue</code> in one of two different ways:</p><ul><li><p>Use <code>AttributeValueList</code> to specify one or more values to compare against an attribute. Use <code>ComparisonOperator</code> to specify how you want to perform the comparison. If the comparison evaluates to true, then the conditional operation succeeds.</p></li><li><p>Use <code>Value</code> to specify a value that DynamoDB will compare against an attribute. If the values match, then <code>ExpectedAttributeValue</code> evaluates to true and the conditional operation succeeds. Optionally, you can also set <code>Exists</code> to false, indicating that you <i>do not</i> expect to find the attribute value in the table. In this case, the conditional operation succeeds only if the comparison evaluates to false.</p></li></ul><p><code>Value</code> and <code>Exists</code> are incompatible with <code>AttributeValueList</code> and <code>ComparisonOperator</code>. Note that if you use both sets of parameters at once, DynamoDB will return a <code>ValidationException</code> exception.</p>
  */
 @interface AWSDynamoDBExpectedAttributeValue : AWSModel
 
@@ -1691,6 +2204,211 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the data for the expected attribute.</p><p>Each attribute value is described as a name-value pair. The name is the data type, and the value is the data itself.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.NamingRulesDataTypes.html#HowItWorks.DataTypes">Data Types</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAttributeValue * _Nullable value;
+
+@end
+
+/**
+ <p>Represents the properties of the exported table.</p>
+ */
+@interface AWSDynamoDBExportDescription : AWSModel
+
+
+/**
+ <p>The billable size of the table export.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable billedSizeBytes;
+
+/**
+ <p>The client token that was provided for the export task. A client token makes calls to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The time at which the export task completed.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the table export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+/**
+ <p>The format of the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportFormat exportFormat;
+
+/**
+ <p>The name of the manifest file for the export task.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportManifest;
+
+/**
+ <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportStatus exportStatus;
+
+/**
+ <p>Point in time from which table data was exported.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportTime;
+
+/**
+ <p>Status code for the result of the failed export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureCode;
+
+/**
+ <p>Export failure reason description.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable failureMessage;
+
+/**
+ <p>The number of items exported.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable itemCount;
+
+/**
+ <p>The name of the Amazon S3 bucket containing the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The ID of the AWS account that owns the bucket containing the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
+
+/**
+ <p>The Amazon S3 bucket prefix used as the file name and path of the exported snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+/**
+ <p>Type of encryption used on the bucket where export data is stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
+
+/**
+ <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data is stored (if applicable).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
+
+/**
+ <p>The time at which the export task began.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the table that was exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+/**
+ <p>Unique ID of the table that was exported.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableId;
+
+@end
+
+/**
+ <p>Summary information about an export task.</p>
+ */
+@interface AWSDynamoDBExportSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exportArn;
+
+/**
+ <p>Export can be in one of the following states: IN_PROGRESS, COMPLETED, or FAILED.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportStatus exportStatus;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExportTableToPointInTimeInput : AWSRequest
+
+
+/**
+ <p>Providing a <code>ClientToken</code> makes the call to <code>ExportTableToPointInTimeInput</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>A client token is valid for 8 hours after the first request that uses it is completed. After 8 hours, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 8 hours, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 8-hour idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>The format for the exported data. Valid values for <code>ExportFormat</code> are <code>DYNAMODB_JSON</code> or <code>ION</code>.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBExportFormat exportFormat;
+
+/**
+ <p>Time in the past from which to export table data. The table export will be a snapshot of the table's state at this point in time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable exportTime;
+
+/**
+ <p>The name of the Amazon S3 bucket to export the snapshot to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Bucket;
+
+/**
+ <p>The ID of the AWS account that owns the bucket the export will be stored in.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3BucketOwner;
+
+/**
+ <p>The Amazon S3 bucket prefix to use as the file name and path of the exported snapshot.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3Prefix;
+
+/**
+ <p>Type of encryption used on the bucket where export data will be stored. Valid values for <code>S3SseAlgorithm</code> are:</p><ul><li><p><code>AES256</code> - server-side encryption with Amazon S3 managed keys</p></li><li><p><code>KMS</code> - server-side encryption with AWS KMS managed keys</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBS3SseAlgorithm s3SseAlgorithm;
+
+/**
+ <p>The ID of the AWS KMS managed key used to encrypt the S3 bucket where export data will be stored (if applicable).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable s3SseKmsKeyId;
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the table to export.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBExportTableToPointInTimeOutput : AWSModel
+
+
+/**
+ <p>Contains a description of the table export.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBExportDescription * _Nullable exportDescription;
+
+@end
+
+/**
+ <p>Represents a failure a contributor insights operation.</p>
+ */
+@interface AWSDynamoDBFailureException : AWSModel
+
+
+/**
+ <p>Description of the failure.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exceptionDescription;
+
+/**
+ <p>Exception name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable exceptionName;
 
 @end
 
@@ -1741,7 +2459,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable consistentRead;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
@@ -1751,7 +2469,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable key;
 
 /**
- <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A string that identifies one or more attributes to retrieve from the table. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes are returned. If any of the requested attributes are not found, they do not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectionExpression;
 
@@ -1774,7 +2492,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The capacity units consumed by the <code>GetItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Read/Write Capacity Mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBConsumedCapacity * _Nullable consumedCapacity;
 
@@ -1798,7 +2516,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -1808,9 +2526,27 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
 
 /**
- <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a global secondary index for a global table that will be modified.</p>
+ */
+@interface AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingUpdate;
 
 @end
 
@@ -1821,7 +2557,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and <code>Backfilling</code> is false.</p><note><p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p></note>
+ <p>Indicates whether the index is currently backfilling. <i>Backfilling</i> is the process of reading items from the table and determining whether they can be added to the index. (Not all items will qualify: For example, a partition key cannot have any duplicate values.) If an item can be added to the index, DynamoDB will do so. After all items have been processed, the backfilling operation is complete and <code>Backfilling</code> is false.</p><p>You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. </p><note><p>For indexes that were created during a <code>CreateTable</code> operation, the <code>Backfilling</code> attribute does not appear in the <code>DescribeTable</code> output.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable backfilling;
 
@@ -1851,7 +2587,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable itemCount;
 
 /**
- <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -1861,7 +2597,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProjection * _Nullable projection;
 
 /**
- <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputDescription * _Nullable provisionedThroughput;
 
@@ -1879,7 +2615,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for a global secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -1930,7 +2666,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>The regions where the global table has replicas.</p>
+ <p>The Regions where the global table has replicas.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplica *> * _Nullable replicationGroup;
 
@@ -1963,7 +2699,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBGlobalTableStatus globalTableStatus;
 
 /**
- <p>The regions where the global table has replicas.</p>
+ <p>The Regions where the global table has replicas.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaDescription *> * _Nullable replicationGroup;
 
@@ -1982,7 +2718,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>AutoScaling settings for managing a global secondary index's write capacity units.</p>
+ <p>Auto scaling settings for managing a global secondary index's write capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingSettingsUpdate;
 
@@ -2037,7 +2773,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
- <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The role that this key attribute will assume:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, assign) AWSDynamoDBKeyType keyType;
 
@@ -2078,6 +2814,70 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Describes a Kinesis data stream destination.</p>
+ */
+@interface AWSDynamoDBKinesisDataStreamDestination : AWSModel
+
+
+/**
+ <p>The current status of replication.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The human-readable string that corresponds to the replica status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable destinationStatusDescription;
+
+/**
+ <p>The ARN for a specific Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBKinesisStreamingDestinationInput : AWSRequest
+
+
+/**
+ <p>The ARN for a Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The name of the DynamoDB table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBKinesisStreamingDestinationOutput : AWSModel
+
+
+/**
+ <p>The current status of the replication.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBDestinationStatus destinationStatus;
+
+/**
+ <p>The ARN for the specific Kinesis data stream.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable streamArn;
+
+/**
+ <p>The name of the table being modified.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  
  */
 @interface AWSDynamoDBListBackupsInput : AWSRequest
@@ -2089,7 +2889,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBackupTypeFilter backupType;
 
 /**
- <p><code>LastEvaluatedBackupArn</code> is the ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p>
+ <p><code>LastEvaluatedBackupArn</code> is the Amazon Resource Name (ARN) of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartBackupArn;
 
@@ -2127,9 +2927,91 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBBackupSummary *> * _Nullable backupSummaries;
 
 /**
- <p> The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p><p> If <code>LastEvaluatedBackupArn</code> is empty, then the last page of results has been processed and there are no more results to be retrieved. </p><p> If <code>LastEvaluatedBackupArn</code> is not empty, this may or may not indicate there is more data to be returned. All results are guaranteed to have been returned if and only if no value for <code>LastEvaluatedBackupArn</code> is returned. </p>
+ <p> The ARN of the backup last evaluated when the current page of results was returned, inclusive of the current page of results. This value may be specified as the <code>ExclusiveStartBackupArn</code> of a new <code>ListBackups</code> operation in order to fetch the next page of results. </p><p> If <code>LastEvaluatedBackupArn</code> is empty, then the last page of results has been processed and there are no more results to be retrieved. </p><p> If <code>LastEvaluatedBackupArn</code> is not empty, this may or may not indicate that there is more data to be returned. All results are guaranteed to have been returned if and only if no value for <code>LastEvaluatedBackupArn</code> is returned. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastEvaluatedBackupArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>Maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>A token to for the desired page, if there is one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>A list of ContributorInsightsSummary.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBContributorInsightsSummary *> * _Nullable contributorInsightsSummaries;
+
+/**
+ <p>A token to go to the next page if there is one.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListExportsInput : AWSRequest
+
+
+/**
+ <p>Maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>An optional string that, if supplied, must be copied from the output of a previous call to <code>ListExports</code>. When provided in this manner, the API fetches the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) associated with the exported table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBListExportsOutput : AWSModel
+
+
+/**
+ <p>A list of <code>ExportSummary</code> objects.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBExportSummary *> * _Nullable exportSummaries;
+
+/**
+ <p>If this value is returned, there are additional results to be displayed. To retrieve them, call <code>ListExports</code> again, with <code>NextToken</code> set to this value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -2145,12 +3027,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable exclusiveStartGlobalTableName;
 
 /**
- <p>The maximum number of table names to return.</p>
+ <p>The maximum number of table names to return, if the parameter is not specified DynamoDB defaults to 100.</p><p>If the number of global tables DynamoDB finds reaches this limit, it stops the operation and returns the table names collected up to that point, with a table name in the <code>LastEvaluatedGlobalTableName</code> to apply in a subsequent operation to the <code>ExclusiveStartGlobalTableName</code> parameter.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>Lists the global tables in a specific region.</p>
+ <p>Lists the global tables in a specific Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -2259,7 +3141,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -2297,7 +3179,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable itemCount;
 
 /**
- <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for the local secondary index, consisting of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -2320,7 +3202,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
+ <p>The complete key schema for a local secondary index, which consists of one or more pairs of attribute names and key types:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -2332,13 +3214,32 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p> Represents a PartiQL statment that uses parameters. </p>
+ Required parameters: [Statement]
+ */
+@interface AWSDynamoDBParameterizedStatement : AWSModel
+
+
+/**
+ <p> The parameter values. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBAttributeValue *> * _Nullable parameters;
+
+/**
+ <p> A PartiQL statment that uses parameters. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable statement;
+
+@end
+
+/**
  <p>The description of the point in time settings applied to the table.</p>
  */
 @interface AWSDynamoDBPointInTimeRecoveryDescription : AWSModel
 
 
 /**
- <p>Specifies the earliest point in time you can restore your table to. It You can restore your table to any point in time during the last 35 days. </p>
+ <p>Specifies the earliest point in time you can restore your table to. You can restore your table to any point in time during the last 35 days. </p>
  */
 @property (nonatomic, strong) NSDate * _Nullable earliestRestorableDateTime;
 
@@ -2380,14 +3281,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable nonKeyAttributes;
 
 /**
- <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul>
+ <p>The set of attributes that are projected into the index:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBProjectionType projectionType;
 
 @end
 
 /**
- <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for a specified table or index. The settings can be modified using the <code>UpdateTable</code> operation.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  Required parameters: [ReadCapacityUnits, WriteCapacityUnits]
  */
 @interface AWSDynamoDBProvisionedThroughput : AWSModel
@@ -2422,7 +3323,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable lastIncreaseDateTime;
 
 /**
- <p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The number of provisioned throughput decreases for this table during this UTC calendar day. For current maximums on provisioned throughput decreases, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfDecreasesToday;
 
@@ -2435,6 +3336,19 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The maximum number of writes consumed per second before DynamoDB returns a <code>ThrottlingException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable writeCapacityUnits;
+
+@end
+
+/**
+ <p>Replica-specific provisioned throughput settings. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@interface AWSDynamoDBProvisionedThroughputOverride : AWSModel
+
+
+/**
+ <p>Replica-specific read capacity units. If not specified, uses the source table's read capacity settings.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable readCapacityUnits;
 
 @end
 
@@ -2485,7 +3399,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A condition that must be satisfied in order for a conditional <code>PutItem</code> operation to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable conditionExpression;
 
@@ -2500,17 +3414,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBExpectedAttributeValue *> * _Nullable expected;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
 /**
- <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
 
 /**
- <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p><p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
+ <p>A map of attribute name/value pairs, one for each attribute. Only the primary key attributes are required; you can optionally provide other attribute name-value pairs for the item.</p><p>You must provide all of the attributes for the primary key. For example, with a simple primary key, you only need to provide a value for the partition key. For a composite primary key, you must provide both values for both the partition key and the sort key.</p><p>If you specify any attributes that are part of an index key, then the data types for those attributes must match those of the schema in the table's attribute definition.</p><p>Empty String and Binary attribute values are allowed. Attribute values of type String and Binary must have a length greater than zero if the attribute is used as a key attribute for a table or index.</p><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.CoreComponents.html#HowItWorks.CoreComponents.PrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>Each element in the <code>Item</code> map is an <code>AttributeValue</code> object.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
 
@@ -2548,7 +3462,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable attributes;
 
 /**
- <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The capacity units consumed by the <code>PutItem</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Read/Write Capacity Mode</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBConsumedCapacity * _Nullable consumedCapacity;
 
@@ -2567,7 +3481,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item which are part of an index key schema for the table, their types must match the index key schema.</p>
+ <p>A map of attribute name to attribute values, representing the primary key of an item to be processed by <code>PutItem</code>. All of the table's primary key attributes must be specified, and their data types must match those of the table's key schema. If any attributes are present in the item that are part of an index key schema for the table, their types must match the index key schema.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable item;
 
@@ -2596,12 +3510,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable consistentRead;
 
 /**
- <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p><p>The data type for <code>ExclusiveStartKey</code> must be String, Number or Binary. No set data types are allowed.</p>
+ <p>The primary key of the first item that this operation will evaluate. Use the value that was returned for <code>LastEvaluatedKey</code> in the previous operation.</p><p>The data type for <code>ExclusiveStartKey</code> must be String, Number, or Binary. No set data types are allowed.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable exclusiveStartKey;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
@@ -2621,7 +3535,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The condition that specifies the key value(s) for items to be retrieved by the <code>Query</code> action.</p><p>The condition must perform an equality test on a single partition key value.</p><p>The condition can optionally perform one of several comparison tests on a single sort key value. This allows <code>Query</code> to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.</p><p>The partition key equality test is required, and must be specified in the following format:</p><p><code>partitionKeyName</code><i>=</i><code>:partitionkeyval</code></p><p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p><p><code>partitionKeyName</code><code>=</code><code>:partitionkeyval</code><code>AND</code><code>sortKeyName</code><code>=</code><code>:sortkeyval</code></p><p>Valid comparisons for the sort key condition are as follows:</p><ul><li><p><code>sortKeyName</code><code>=</code><code>:sortkeyval</code> - true if the sort key value is equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&lt;</code><code>:sortkeyval</code> - true if the sort key value is less than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&lt;=</code><code>:sortkeyval</code> - true if the sort key value is less than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&gt;</code><code>:sortkeyval</code> - true if the sort key value is greater than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&gt;= </code><code>:sortkeyval</code> - true if the sort key value is greater than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>BETWEEN</code><code>:sortkeyval1</code><code>AND</code><code>:sortkeyval2</code> - true if the sort key value is greater than or equal to <code>:sortkeyval1</code>, and less than or equal to <code>:sortkeyval2</code>.</p></li><li><p><code>begins_with (</code><code>sortKeyName</code>, <code>:sortkeyval</code><code>)</code> - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name <code>begins_with</code> is case-sensitive.</p></li></ul><p>Use the <code>ExpressionAttributeValues</code> parameter to replace tokens such as <code>:partitionval</code> and <code>:sortval</code> with actual values at runtime.</p><p>You can optionally use the <code>ExpressionAttributeNames</code> parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following <code>KeyConditionExpression</code> parameter causes an error because <i>Size</i> is a reserved word:</p><ul><li><p><code>Size = :myval</code></p></li></ul><p>To work around this, define a placeholder (such a <code>#S</code>) to represent the attribute name <i>Size</i>. <code>KeyConditionExpression</code> then is as follows:</p><ul><li><p><code>#S = :myval</code></p></li></ul><p>For a list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>For more information on <code>ExpressionAttributeNames</code> and <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The condition that specifies the key values for items to be retrieved by the <code>Query</code> action.</p><p>The condition must perform an equality test on a single partition key value.</p><p>The condition can optionally perform one of several comparison tests on a single sort key value. This allows <code>Query</code> to retrieve one item with a given partition key value and sort key value, or several items that have the same partition key value but different sort key values.</p><p>The partition key equality test is required, and must be specified in the following format:</p><p><code>partitionKeyName</code><i>=</i><code>:partitionkeyval</code></p><p>If you also want to provide a condition for the sort key, it must be combined using <code>AND</code> with the condition for the sort key. Following is an example, using the <b>=</b> comparison operator for the sort key:</p><p><code>partitionKeyName</code><code>=</code><code>:partitionkeyval</code><code>AND</code><code>sortKeyName</code><code>=</code><code>:sortkeyval</code></p><p>Valid comparisons for the sort key condition are as follows:</p><ul><li><p><code>sortKeyName</code><code>=</code><code>:sortkeyval</code> - true if the sort key value is equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&lt;</code><code>:sortkeyval</code> - true if the sort key value is less than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&lt;=</code><code>:sortkeyval</code> - true if the sort key value is less than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&gt;</code><code>:sortkeyval</code> - true if the sort key value is greater than <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>&gt;= </code><code>:sortkeyval</code> - true if the sort key value is greater than or equal to <code>:sortkeyval</code>.</p></li><li><p><code>sortKeyName</code><code>BETWEEN</code><code>:sortkeyval1</code><code>AND</code><code>:sortkeyval2</code> - true if the sort key value is greater than or equal to <code>:sortkeyval1</code>, and less than or equal to <code>:sortkeyval2</code>.</p></li><li><p><code>begins_with (</code><code>sortKeyName</code>, <code>:sortkeyval</code><code>)</code> - true if the sort key value begins with a particular operand. (You cannot use this function with a sort key that is of type Number.) Note that the function name <code>begins_with</code> is case-sensitive.</p></li></ul><p>Use the <code>ExpressionAttributeValues</code> parameter to replace tokens such as <code>:partitionval</code> and <code>:sortval</code> with actual values at runtime.</p><p>You can optionally use the <code>ExpressionAttributeNames</code> parameter to replace the names of the partition key and sort key with placeholder tokens. This option might be necessary if an attribute name conflicts with a DynamoDB reserved word. For example, the following <code>KeyConditionExpression</code> parameter causes an error because <i>Size</i> is a reserved word:</p><ul><li><p><code>Size = :myval</code></p></li></ul><p>To work around this, define a placeholder (such a <code>#S</code>) to represent the attribute name <i>Size</i>. <code>KeyConditionExpression</code> then is as follows:</p><ul><li><p><code>#S = :myval</code></p></li></ul><p>For a list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p><p>For more information on <code>ExpressionAttributeNames</code> and <code>ExpressionAttributeValues</code>, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ExpressionPlaceholders.html">Using Placeholders for Attribute Names and Values</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyConditionExpression;
 
@@ -2631,7 +3545,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBCondition *> * _Nullable keyConditions;
 
 /**
- <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
@@ -2656,7 +3570,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable scanIndexForward;
 
 /**
- <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index DynamoDB will fetch the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>AttributesToGet</code>. This return value is equivalent to specifying <code>AttributesToGet</code> without specifying any value for <code>Select</code>.</p><p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB will fetch each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p><p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>AttributesToGet</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>AttributesToGet</code> without any value for <code>Select</code>.)</p><note><p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p></note>
+ <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index, DynamoDB fetches the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>AttributesToGet</code>. This return value is equivalent to specifying <code>AttributesToGet</code> without specifying any value for <code>Select</code>.</p><p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p><p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>AttributesToGet</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>AttributesToGet</code> without any value for <code>Select</code>.)</p><note><p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p></note>
  */
 @property (nonatomic, assign) AWSDynamoDBSelect select;
 
@@ -2674,7 +3588,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The capacity units consumed by the <code>Query</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The capacity units consumed by the <code>Query</code> operation. The data returned includes the total provisioned throughput consumed, along with statistics for the table and any indexes involved in the operation. <code>ConsumedCapacity</code> is only returned if the <code>ReturnConsumedCapacity</code> parameter was specified. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ProvisionedThroughputIntro.html">Provisioned Throughput</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBConsumedCapacity * _Nullable consumedCapacity;
 
@@ -2707,9 +3621,66 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The region where the replica needs to be created.</p>
+ <p>The Region where the replica needs to be created.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of the replica.</p>
+ */
+@interface AWSDynamoDBReplicaAutoScalingDescription : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index auto scaling settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedReadCapacityAutoScalingSettings;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedWriteCapacityAutoScalingSettings;
+
+/**
+ <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a replica that will be modified.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBReplicaAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>Represents the auto scaling settings of global secondary indexes that will be modified.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate *> * _Nullable replicaGlobalSecondaryIndexUpdates;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable replicaProvisionedReadCapacityAutoScalingUpdate;
 
 @end
 
@@ -2720,9 +3691,127 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The name of the region.</p>
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) of the replica that will be used for AWS KMS encryption.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not described, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The name of the Region.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
+
+/**
+ <p>The time at which the replica was first detected as inaccessible. To determine cause of inaccessibility check the <code>ReplicaStatus</code> property.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable replicaInaccessibleDateTime;
+
+/**
+ <p>The current state of the replica:</p><ul><li><p><code>CREATING</code> - The replica is being created.</p></li><li><p><code>UPDATING</code> - The replica is being updated.</p></li><li><p><code>DELETING</code> - The replica is being deleted.</p></li><li><p><code>ACTIVE</code> - The replica is ready for use.</p></li><li><p><code>REGION_DISABLED</code> - The replica is inaccessible because the AWS Region has been disabled.</p><note><p>If the AWS Region remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS </code> - The AWS KMS key used to encrypt the table is inaccessible.</p><note><p>If the AWS KMS key remains inaccessible for more than 20 hours, DynamoDB will remove this replica from the replication group. The replica will not be deleted and replication will stop from and to this region.</p></note></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
+
+/**
+ <p>Detailed information about the replica status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaStatusDescription;
+
+/**
+ <p>Specifies the progress of a Create, Update, or Delete action on the replica as a percentage.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable replicaStatusPercentProgress;
+
+@end
+
+/**
+ <p>Represents the properties of a replica global secondary index.</p>
+ Required parameters: [IndexName]
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndex : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Replica table GSI-specific provisioned throughput. If not specified, uses the source table GSI's read capacity settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+@end
+
+/**
+ <p>Represents the auto scaling configuration for a replica global secondary index.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingDescription : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The current state of the replica global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBIndexStatus indexStatus;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedReadCapacityAutoScalingSettings;
+
+/**
+ <p>Represents the auto scaling settings for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedWriteCapacityAutoScalingSettings;
+
+@end
+
+/**
+ <p>Represents the auto scaling settings of a global secondary index for a replica that will be modified.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexAutoScalingUpdate : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedReadCapacityAutoScalingUpdate;
+
+@end
+
+/**
+ <p>Represents the properties of a replica global secondary index.</p>
+ */
+@interface AWSDynamoDBReplicaGlobalSecondaryIndexDescription : AWSModel
+
+
+/**
+ <p>The name of the global secondary index.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>If not described, uses the source table GSI's read capacity settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
 
 @end
 
@@ -2744,7 +3833,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBIndexStatus indexStatus;
 
 /**
- <p>Autoscaling settings for a global secondary index replica's read capacity units.</p>
+ <p>Auto scaling settings for a global secondary index replica's read capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedReadCapacityAutoScalingSettings;
 
@@ -2754,7 +3843,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable provisionedReadCapacityUnits;
 
 /**
- <p>AutoScaling settings for a global secondary index replica's write capacity units.</p>
+ <p>Auto scaling settings for a global secondary index replica's write capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable provisionedWriteCapacityAutoScalingSettings;
 
@@ -2778,7 +3867,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>Autoscaling settings for managing a global secondary index replica's read capacity units.</p>
+ <p>Auto scaling settings for managing a global secondary index replica's read capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedReadCapacityAutoScalingSettingsUpdate;
 
@@ -2797,7 +3886,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The region name of the replica.</p>
+ <p>The Region name of the replica.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -2812,7 +3901,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexSettingsDescription *> * _Nullable replicaGlobalSecondaryIndexSettings;
 
 /**
- <p>Autoscaling settings for a global table replica's read capacity units.</p>
+ <p>Auto scaling settings for a global table replica's read capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedReadCapacityAutoScalingSettings;
 
@@ -2822,7 +3911,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable replicaProvisionedReadCapacityUnits;
 
 /**
- <p>AutoScaling settings for a global table replica's write capacity units.</p>
+ <p>Auto scaling settings for a global table replica's write capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsDescription * _Nullable replicaProvisionedWriteCapacityAutoScalingSettings;
 
@@ -2832,21 +3921,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable replicaProvisionedWriteCapacityUnits;
 
 /**
- <p>The current state of the region:</p><ul><li><p><code>CREATING</code> - The region is being created.</p></li><li><p><code>UPDATING</code> - The region is being updated.</p></li><li><p><code>DELETING</code> - The region is being deleted.</p></li><li><p><code>ACTIVE</code> - The region is ready for use.</p></li></ul>
+ <p>The current state of the Region:</p><ul><li><p><code>CREATING</code> - The Region is being created.</p></li><li><p><code>UPDATING</code> - The Region is being updated.</p></li><li><p><code>DELETING</code> - The Region is being deleted.</p></li><li><p><code>ACTIVE</code> - The Region is ready for use.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBReplicaStatus replicaStatus;
 
 @end
 
 /**
- <p>Represents the settings for a global table in a region that will be modified.</p>
+ <p>Represents the settings for a global table in a Region that will be modified.</p>
  Required parameters: [RegionName]
  */
 @interface AWSDynamoDBReplicaSettingsUpdate : AWSModel
 
 
 /**
- <p>The region of the replica to be added.</p>
+ <p>The Region of the replica to be added.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable regionName;
 
@@ -2856,7 +3945,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndexSettingsUpdate *> * _Nullable replicaGlobalSecondaryIndexSettingsUpdate;
 
 /**
- <p>Autoscaling settings for managing a global table replica's read capacity units.</p>
+ <p>Auto scaling settings for managing a global table replica's read capacity units.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable replicaProvisionedReadCapacityAutoScalingSettingsUpdate;
 
@@ -2886,6 +3975,29 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents one of the following:</p><ul><li><p>A new replica to be added to an existing regional table or global table. This request invokes the <code>CreateTableReplica</code> action in the destination Region.</p></li><li><p>New parameters for an existing replica. This request invokes the <code>UpdateTable</code> action in the destination Region.</p></li><li><p>An existing replica to be deleted. The request invokes the <code>DeleteTableReplica</code> action in the destination Region, deleting the replica and all if its items in the destination Region.</p></li></ul>
+ */
+@interface AWSDynamoDBReplicationGroupUpdate : AWSModel
+
+
+/**
+ <p>The parameters required for creating a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBCreateReplicationGroupMemberAction * _Nullable create;
+
+/**
+ <p>The parameters required for deleting a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBDeleteReplicationGroupMemberAction * _Nullable remove;
+
+/**
+ <p>The parameters required for updating a replica for the table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBUpdateReplicationGroupMemberAction * _Nullable update;
+
+@end
+
+/**
  <p>Contains details for the restore.</p>
  Required parameters: [RestoreDateTime, RestoreInProgress]
  */
@@ -2903,12 +4015,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable restoreInProgress;
 
 /**
- <p>ARN of the backup from which the table was restored.</p>
+ <p>The Amazon Resource Name (ARN) of the backup from which the table was restored.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceBackupArn;
 
 /**
- <p>ARN of the source table of the backup that is being restored.</p>
+ <p>The ARN of the source table of the backup that is being restored.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceTableArn;
 
@@ -2921,9 +4033,34 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The ARN associated with the backup.</p>
+ <p>The Amazon Resource Name (ARN) associated with the backup.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable backupArn;
+
+/**
+ <p>The billing mode of the restored table.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingModeOverride;
+
+/**
+ <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexOverride;
+
+/**
+ <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexOverride;
+
+/**
+ <p>Provisioned throughput settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The new server-side encryption settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecificationOverride;
 
 /**
  <p>The name of the new table to which the backup must be restored.</p>
@@ -2952,9 +4089,39 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
+ <p>The billing mode of the restored table.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBBillingMode billingModeOverride;
+
+/**
+ <p>List of global secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexOverride;
+
+/**
+ <p>List of local secondary indexes for the restored table. The indexes provided should match existing secondary indexes. You can choose to exclude some or all of the indexes at the time of restore.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndex *> * _Nullable localSecondaryIndexOverride;
+
+/**
+ <p>Provisioned throughput settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughputOverride;
+
+/**
  <p>Time in the past to restore the table to.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable restoreDateTime;
+
+/**
+ <p>The new server-side encryption settings for the restored table.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecificationOverride;
+
+/**
+ <p>The DynamoDB table that will be restored. This value is an Amazon Resource Name (ARN).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceTableArn;
 
 /**
  <p>Name of the source table that is being restored.</p>
@@ -2993,17 +4160,22 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The KMS master key ARN used for the KMS encryption.</p>
+ <p>Indicates the time, in UNIX epoch date format, when DynamoDB detected that the table's AWS KMS key was inaccessible. This attribute will automatically be cleared when DynamoDB detects that the table's AWS KMS key is accessible again. DynamoDB will initiate the table archival process when table's AWS KMS key remains inaccessible for more than seven days from this date.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable inaccessibleEncryptionDateTime;
+
+/**
+ <p>The AWS KMS customer master key (CMK) ARN used for the AWS KMS encryption.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyArn;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
 /**
- <p>The current state of server-side encryption:</p><ul><li><p><code>ENABLING</code> - Server-side encryption is being enabled.</p></li><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>DISABLING</code> - Server-side encryption is being disabled.</p></li><li><p><code>DISABLED</code> - Server-side encryption is disabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
+ <p>Represents the current state of server-side encryption. The only supported values are:</p><ul><li><p><code>ENABLED</code> - Server-side encryption is enabled.</p></li><li><p><code>UPDATING</code> - Server-side encryption is being updated.</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEStatus status;
 
@@ -3016,17 +4188,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Indicates whether server-side encryption is enabled (true) or disabled (false) on the table. If enabled (true), server-side encryption type is set to <code>KMS</code>. If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
+ <p>Indicates whether server-side encryption is done using an AWS managed CMK or an AWS owned CMK. If enabled (true), server-side encryption type is set to <code>KMS</code> and an AWS managed CMK is used (AWS KMS charges apply). If disabled (false) or not specified, server-side encryption is set to AWS owned CMK.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
 /**
- <p>The KMS Master Key (CMK) which should be used for the KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS Master Key alias/aws/dynamodb.</p>
+ <p>The AWS KMS customer master key (CMK) that should be used for the AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB customer master key alias/aws/dynamodb.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
 
 /**
- <p>Server-side encryption type:</p><ul><li><p><code>AES256</code> - Server-side encryption which uses the AES256 algorithm (not applicable).</p></li><li><p><code>KMS</code> - Server-side encryption which uses AWS Key Management Service. Key is stored in your account and is managed by AWS KMS (KMS charges apply).</p></li></ul>
+ <p>Server-side encryption type. The only supported value is:</p><ul><li><p><code>KMS</code> - Server-side encryption that uses AWS Key Management Service. The key is stored in your account and is managed by AWS KMS (AWS KMS charges apply).</p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBSSEType SSEType;
 
@@ -3050,7 +4222,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBConditionalOperator conditionalOperator;
 
 /**
- <p>A Boolean value that determines the read consistency model during the scan:</p><ul><li><p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from <code>Scan</code> might not contain the results from other recently completed write operations (PutItem, UpdateItem or DeleteItem).</p></li><li><p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p></li></ul><p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p><p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
+ <p>A Boolean value that determines the read consistency model during the scan:</p><ul><li><p>If <code>ConsistentRead</code> is <code>false</code>, then the data returned from <code>Scan</code> might not contain the results from other recently completed write operations (<code>PutItem</code>, <code>UpdateItem</code>, or <code>DeleteItem</code>).</p></li><li><p>If <code>ConsistentRead</code> is <code>true</code>, then all of the write operations that completed before the <code>Scan</code> began are guaranteed to be contained in the <code>Scan</code> response.</p></li></ul><p>The default setting for <code>ConsistentRead</code> is <code>false</code>.</p><p>The <code>ConsistentRead</code> parameter is not supported on global secondary indexes. If you scan a global secondary index with <code>ConsistentRead</code> set to true, you will receive a <code>ValidationException</code>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable consistentRead;
 
@@ -3060,12 +4232,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable exclusiveStartKey;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
 /**
- <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
 
@@ -3080,12 +4252,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed data set size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Query and Scan</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The maximum number of items to evaluate (not necessarily the number of matching items). If DynamoDB processes the number of items up to the limit while processing the results, it stops the operation and returns the matching values up to that point, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation, so that you can pick up where you left off. Also, if the processed dataset size exceeds 1 MB before DynamoDB reaches this limit, it stops the operation and returns the matching values up to the limit, and a key in <code>LastEvaluatedKey</code> to apply in a subsequent operation to continue the operation. For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/QueryAndScan.html">Working with Queries</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable limit;
 
 /**
- <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A string that identifies one or more attributes to retrieve from the specified table or index. These attributes can include scalars, sets, or elements of a JSON document. The attributes in the expression must be separated by commas.</p><p>If no attribute names are specified, then all attributes will be returned. If any of the requested attributes are not found, they will not appear in the result.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable projectionExpression;
 
@@ -3105,7 +4277,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable segment;
 
 /**
- <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index DynamoDB will fetch the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>AttributesToGet</code>. This return value is equivalent to specifying <code>AttributesToGet</code> without specifying any value for <code>Select</code>.</p><p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation will read only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB will fetch each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p><p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>AttributesToGet</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>AttributesToGet</code> without any value for <code>Select</code>.)</p><note><p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p></note>
+ <p>The attributes to be returned in the result. You can retrieve all item attributes, specific item attributes, the count of matching items, or in the case of an index, some or all of the attributes projected into the index.</p><ul><li><p><code>ALL_ATTRIBUTES</code> - Returns all of the item attributes from the specified table or index. If you query a local secondary index, then for each matching item in the index, DynamoDB fetches the entire item from the parent table. If the index is configured to project all item attributes, then all of the data can be obtained from the local secondary index, and no fetching is required.</p></li><li><p><code>ALL_PROJECTED_ATTRIBUTES</code> - Allowed only when querying an index. Retrieves all attributes that have been projected into the index. If the index is configured to project all attributes, this return value is equivalent to specifying <code>ALL_ATTRIBUTES</code>.</p></li><li><p><code>COUNT</code> - Returns the number of matching items, rather than the matching items themselves.</p></li><li><p><code>SPECIFIC_ATTRIBUTES</code> - Returns only the attributes listed in <code>AttributesToGet</code>. This return value is equivalent to specifying <code>AttributesToGet</code> without specifying any value for <code>Select</code>.</p><p>If you query or scan a local secondary index and request only attributes that are projected into that index, the operation reads only the index and not the table. If any of the requested attributes are not projected into the local secondary index, DynamoDB fetches each of these attributes from the parent table. This extra fetching incurs additional throughput cost and latency.</p><p>If you query or scan a global secondary index, you can only request attributes that are projected into the index. Global secondary index queries cannot fetch attributes from the parent table.</p></li></ul><p>If neither <code>Select</code> nor <code>AttributesToGet</code> are specified, DynamoDB defaults to <code>ALL_ATTRIBUTES</code> when accessing a table, and <code>ALL_PROJECTED_ATTRIBUTES</code> when accessing an index. You cannot use both <code>Select</code> and <code>AttributesToGet</code> together in a single request, unless the value for <code>Select</code> is <code>SPECIFIC_ATTRIBUTES</code>. (This usage is equivalent to specifying <code>AttributesToGet</code> without any value for <code>Select</code>.)</p><note><p>If you use the <code>ProjectionExpression</code> parameter, then the value for <code>Select</code> can only be <code>SPECIFIC_ATTRIBUTES</code>. Any other value for <code>Select</code> will return an error.</p></note>
  */
 @property (nonatomic, assign) AWSDynamoDBSelect select;
 
@@ -3167,7 +4339,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
 
 /**
- <p>Number of items in the table. Please note this is an approximate value. </p>
+ <p>Number of items in the table. Note that this is an approximate value. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable itemCount;
 
@@ -3202,7 +4374,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
 /**
- <p>Size of the table in bytes. Please note this is an approximate value.</p>
+ <p>Size of the table in bytes. Note that this is an approximate value.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tableSizeBytes;
 
@@ -3215,7 +4387,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection and ProvisionedThroughput for the GSIs on the table at the time of backup. </p>
+ <p>Represents the GSI properties for the table when the backup was created. It includes the IndexName, KeySchema, Projection, and ProvisionedThroughput for the GSIs on the table at the time of backup. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexInfo *> * _Nullable globalSecondaryIndexes;
 
@@ -3243,6 +4415,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 /**
  <p>Represents the DynamoDB Streams configuration for a table in DynamoDB.</p>
+ Required parameters: [StreamEnabled]
  */
 @interface AWSDynamoDBStreamSpecification : AWSModel
 
@@ -3260,10 +4433,38 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents the auto scaling configuration for a global table.</p>
+ */
+@interface AWSDynamoDBTableAutoScalingDescription : AWSModel
+
+
+/**
+ <p>Represents replicas of the global table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaAutoScalingDescription *> * _Nullable replicas;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+/**
+ <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
+
+@end
+
+/**
  <p>Represents the properties of a table.</p>
  */
 @interface AWSDynamoDBTableDescription : AWSModel
 
+
+/**
+ <p>Contains information about the table archive.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBArchivalSummary * _Nullable archivalSummary;
 
 /**
  <p>An array of <code>AttributeDefinition</code> objects. Each of these objects describes one attribute in the table and index key schema.</p><p>Each <code>AttributeDefinition</code> object in this array is composed of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>AttributeType</code> - The data type for the attribute.</p></li></ul>
@@ -3281,9 +4482,14 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDate * _Nullable creationDateTime;
 
 /**
- <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table; it is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases. </p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+ <p>The global secondary indexes, if any, on the table. Each index is scoped to a given partition key value. Each element is composed of:</p><ul><li><p><code>Backfilling</code> - If true, then the index is currently in the backfilling phase. Backfilling occurs only when a new global secondary index is added to the table. It is the process by which DynamoDB populates the new index with data from the table. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.) </p><p> You can delete an index that is being created during the <code>Backfilling</code> phase when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is true. You can't delete the index that is being created when <code>IndexStatus</code> is set to CREATING and <code>Backfilling</code> is false. (This attribute does not appear for indexes that were created during a <code>CreateTable</code> operation.)</p></li><li><p><code>IndexName</code> - The name of the global secondary index.</p></li><li><p><code>IndexSizeBytes</code> - The total size of the global secondary index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>IndexStatus</code> - The current status of the global secondary index:</p><ul><li><p><code>CREATING</code> - The index is being created.</p></li><li><p><code>UPDATING</code> - The index is being updated.</p></li><li><p><code>DELETING</code> - The index is being deleted.</p></li><li><p><code>ACTIVE</code> - The index is ready for use.</p></li></ul></li><li><p><code>ItemCount</code> - The number of items in the global secondary index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value. </p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - In addition to the attributes described in <code>KEYS_ONLY</code>, the secondary index will include other non-key attributes that you specify.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>ProvisionedThroughput</code> - The provisioned throughput settings for the global secondary index, consisting of read and write capacity units, along with data about increases and decreases. </p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexDescription *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>Represents the version of <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GlobalTables.html">global tables</a> in use, if the table is replicated across AWS Regions.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable globalTableVersion;
 
 /**
  <p>The number of items in the specified table. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p>
@@ -3291,7 +4497,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable itemCount;
 
 /**
- <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB' usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>The primary key structure for the table. Each <code>KeySchemaElement</code> consists of:</p><ul><li><p><code>AttributeName</code> - The name of the attribute.</p></li><li><p><code>KeyType</code> - The role of the attribute:</p><ul><li><p><code>HASH</code> - partition key</p></li><li><p><code>RANGE</code> - sort key</p></li></ul><note><p>The partition key of an item is also known as its <i>hash attribute</i>. The term "hash attribute" derives from DynamoDB's usage of an internal hash function to evenly distribute data items across partitions, based on their partition key values.</p><p>The sort key of an item is also known as its <i>range attribute</i>. The term "range attribute" derives from the way DynamoDB stores items with the same partition key physically close together, in sorted order by the sort key value.</p></note></li></ul><p>For more information about primary keys, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/DataModel.html#DataModelPrimaryKey">Primary Key</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBKeySchemaElement *> * _Nullable keySchema;
 
@@ -3301,12 +4507,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable latestStreamArn;
 
 /**
- <p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>the AWS customer ID.</p></li><li><p>the table name.</p></li><li><p>the <code>StreamLabel</code>.</p></li></ul>
+ <p>A timestamp, in ISO 8601 format, for this stream.</p><p>Note that <code>LatestStreamLabel</code> is not a unique identifier for the stream, because it is possible that a stream from another table might have the same timestamp. However, the combination of the following three elements is guaranteed to be unique:</p><ul><li><p>AWS customer ID</p></li><li><p>Table name</p></li><li><p><code>StreamLabel</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable latestStreamLabel;
 
 /**
- <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes are in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
+ <p>Represents one or more local secondary indexes on the table. Each index is scoped to a given partition key value. Tables with one or more local secondary indexes are subject to an item collection size limit, where the amount of data within a given item collection cannot exceed 10 GB. Each element is composed of:</p><ul><li><p><code>IndexName</code> - The name of the local secondary index.</p></li><li><p><code>KeySchema</code> - Specifies the complete index key schema. The attribute names in the key schema must be between 1 and 255 characters (inclusive). The key schema must begin with the same partition key as the table.</p></li><li><p><code>Projection</code> - Specifies attributes that are copied (projected) from the table into the index. These are in addition to the primary key attributes and index key attributes, which are automatically projected. Each attribute specification is composed of:</p><ul><li><p><code>ProjectionType</code> - One of the following:</p><ul><li><p><code>KEYS_ONLY</code> - Only the index and primary keys are projected into the index.</p></li><li><p><code>INCLUDE</code> - Only the specified table attributes are projected into the index. The list of projected attributes is in <code>NonKeyAttributes</code>.</p></li><li><p><code>ALL</code> - All of the table attributes are projected into the index.</p></li></ul></li><li><p><code>NonKeyAttributes</code> - A list of one or more non-key attribute names that are projected into the secondary index. The total count of attributes provided in <code>NonKeyAttributes</code>, summed across all of the secondary indexes, must not exceed 20. If you project the same attribute into two different indexes, this counts as two distinct attributes when determining the total.</p></li></ul></li><li><p><code>IndexSizeBytes</code> - Represents the total size of the index, in bytes. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li><li><p><code>ItemCount</code> - Represents the number of items in the index. DynamoDB updates this value approximately every six hours. Recent changes might not be reflected in this value.</p></li></ul><p>If the table is in the <code>DELETING</code> state, no information about indexes will be returned.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBLocalSecondaryIndexDescription *> * _Nullable localSecondaryIndexes;
 
@@ -3314,6 +4520,11 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>The provisioned throughput settings for the table, consisting of read and write capacity units, along with data about increases and decreases.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughputDescription * _Nullable provisionedThroughput;
+
+/**
+ <p>Represents replicas of the table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaDescription *> * _Nullable replicas;
 
 /**
  <p>Contains details for the restore.</p>
@@ -3351,21 +4562,21 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable tableSizeBytes;
 
 /**
- <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li></ul>
+ <p>The current state of the table:</p><ul><li><p><code>CREATING</code> - The table is being created.</p></li><li><p><code>UPDATING</code> - The table is being updated.</p></li><li><p><code>DELETING</code> - The table is being deleted.</p></li><li><p><code>ACTIVE</code> - The table is ready for use.</p></li><li><p><code>INACCESSIBLE_ENCRYPTION_CREDENTIALS</code> - The AWS KMS key used to encrypt the table in inaccessible. Table operations may fail due to failure to use the AWS KMS key. DynamoDB will initiate the table archival process when a table's AWS KMS key remains inaccessible for more than seven days. </p></li><li><p><code>ARCHIVING</code> - The table is being archived. Operations are not allowed until archival is complete. </p></li><li><p><code>ARCHIVED</code> - The table has been archived. See the ArchivalReason for more information. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBTableStatus tableStatus;
 
 @end
 
 /**
- <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. </p><p> AWS-assigned tag names and values are automatically assigned the aws: prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix user: in the Cost Allocation Report. You cannot backdate the application of a tag. </p><p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Describes a tag. A tag is a key-value pair. You can add up to 50 tags to a single DynamoDB table. </p><p> AWS-assigned tag names and values are automatically assigned the <code>aws:</code> prefix, which the user cannot assign. AWS-assigned tag names do not count towards the tag limit of 50. User-assigned tag names have the prefix <code>user:</code> in the Cost Allocation Report. You cannot backdate the application of a tag. </p><p>For an overview on tagging DynamoDB resources, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Tagging.html">Tagging for DynamoDB</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  Required parameters: [Key, Value]
  */
 @interface AWSDynamoDBTag : AWSModel
 
 
 /**
- <p>The key of the tag.Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value. </p>
+ <p>The key of the tag. Tag keys are case sensitive. Each DynamoDB table can only have up to one tag with the same key. If you try to add an existing tag (same key), the existing tag value will be updated to the new value. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable key;
 
@@ -3401,31 +4612,31 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p> The name of the Time to Live attribute for items in the table.</p>
+ <p> The name of the TTL attribute for items in the table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
- <p> The Time to Live status for the table.</p>
+ <p> The TTL status for the table.</p>
  */
 @property (nonatomic, assign) AWSDynamoDBTimeToLiveStatus timeToLiveStatus;
 
 @end
 
 /**
- <p>Represents the settings used to enable or disable Time to Live for the specified table.</p>
+ <p>Represents the settings used to enable or disable Time to Live (TTL) for the specified table.</p>
  Required parameters: [Enabled, AttributeName]
  */
 @interface AWSDynamoDBTimeToLiveSpecification : AWSModel
 
 
 /**
- <p>The name of the Time to Live attribute used to store the expiration time for items in the table.</p>
+ <p>The name of the TTL attribute used to store the expiration time for items in the table.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
 /**
- <p>Indicates whether Time To Live is to be enabled (true) or disabled (false) on the table.</p>
+ <p>Indicates whether TTL is to be enabled (true) or disabled (false) on the table.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable enabled;
 
@@ -3457,7 +4668,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnConsumedCapacity returnConsumedCapacity;
 
 /**
- <p>An ordered array of up to 10 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
+ <p>An ordered array of up to 25 <code>TransactGetItem</code> objects, each of which contains a <code>Get</code> structure.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBTransactGetItem *> * _Nullable transactItems;
 
@@ -3475,7 +4686,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
 
 /**
- <p>An ordered array of up to 10 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p><p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>
+ <p>An ordered array of up to 25 <code>ItemResponse</code> objects, each of which corresponds to the <code>TransactGetItem</code> object in the same position in the <i>TransactItems</i> array. Each <code>ItemResponse</code> object contains a Map of the name-value pairs that are the projected attributes of the requested item.</p><p>If a requested item could not be retrieved, the corresponding <code>ItemResponse</code> object is Null, or if the requested item has no projected attributes, the corresponding <code>ItemResponse</code> object is an empty Map. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBItemResponse *> * _Nullable responses;
 
@@ -3516,7 +4727,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls may not be the same. If the <code>ReturnConsumedCapacity&gt;</code> parameter is set, then the initial <code>TransactWriteItems</code> call returns the amount of write capacity units consumed in making the changes, and subsequent <code>TransactWriteItems</code> calls with the same client token return the amount of read capacity units consumed in reading the item.</p><p>A client request token is valid for 10 minutes after the first request that uses it completes. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes or the result may not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 10 minute idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
+ <p>Providing a <code>ClientRequestToken</code> makes the call to <code>TransactWriteItems</code> idempotent, meaning that multiple identical calls have the same effect as one single call.</p><p>Although multiple identical calls using the same client request token produce the same result on the server (no side effects), the responses to the calls might not be the same. If the <code>ReturnConsumedCapacity&gt;</code> parameter is set, then the initial <code>TransactWriteItems</code> call returns the amount of write capacity units consumed in making the changes. Subsequent <code>TransactWriteItems</code> calls with the same client token return the number of read capacity units consumed in reading the item.</p><p>A client request token is valid for 10 minutes after the first request that uses it is completed. After 10 minutes, any request with the same client token is treated as a new request. Do not resubmit the same request with the same client token for more than 10 minutes, or the result might not be idempotent.</p><p>If you submit a request with the same client token but a change in other parameters within the 10-minute idempotency window, DynamoDB returns an <code>IdempotentParameterMismatch</code> exception.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
 
@@ -3531,7 +4742,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, assign) AWSDynamoDBReturnItemCollectionMetrics returnItemCollectionMetrics;
 
 /**
- <p>An ordered array of up to 10 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same AWS account and region, and no two of them can operate on the same item. </p>
+ <p>An ordered array of up to 25 <code>TransactWriteItem</code> objects, each of which contains a <code>ConditionCheck</code>, <code>Put</code>, <code>Update</code>, or <code>Delete</code> object. These can operate on items in different tables, but the tables must reside in the same AWS account and Region, and no two of them can operate on the same item. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBTransactWriteItem *> * _Nullable transactItems;
 
@@ -3549,7 +4760,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBConsumedCapacity *> * _Nullable consumedCapacity;
 
 /**
- <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code> or <code>DeleteItem</code> operations. </p>
+ <p>A list of tables that were processed by <code>TransactWriteItems</code> and, for each table, information about any item collections that were affected by individual <code>UpdateItem</code>, <code>PutItem</code>, or <code>DeleteItem</code> operations. </p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSArray<AWSDynamoDBItemCollectionMetrics *> *> * _Nullable itemCollectionMetrics;
 
@@ -3562,12 +4773,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The Amazon DyanamoDB resource the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
+ <p>The DynamoDB resource that the tags will be removed from. This value is an Amazon Resource Name (ARN).</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
 /**
- <p>A list of tag keys. Existing tags of the resource whose keys are members of this list will be removed from the Amazon DynamoDB resource.</p>
+ <p>A list of tag keys. Existing tags of the resource whose keys are members of this list will be removed from the DynamoDB resource.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
 
@@ -3649,6 +4860,52 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSDynamoDBUpdateContributorInsightsInput : AWSRequest
+
+
+/**
+ <p>Represents the contributor insights action.</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsAction contributorInsightsAction;
+
+/**
+ <p>The global secondary index name, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateContributorInsightsOutput : AWSModel
+
+
+/**
+ <p>The status of contributor insights</p>
+ */
+@property (nonatomic, assign) AWSDynamoDBContributorInsightsStatus contributorInsightsStatus;
+
+/**
+ <p>The name of the global secondary index, if applicable.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable indexName;
+
+/**
+ <p>The name of the table.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
  <p>Represents the new provisioned throughput settings to be applied to a global secondary index.</p>
  Required parameters: [IndexName, ProvisionedThroughput]
  */
@@ -3661,7 +4918,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable indexName;
 
 /**
- <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Limits</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>Represents the provisioned throughput settings for the specified global secondary index.</p><p>For current minimum and maximum provisioned throughput values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Limits.html">Service, Account, and Table Quotas</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
@@ -3679,7 +4936,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>A list of regions that should be added or removed from the global table.</p>
+ <p>A list of Regions that should be added or removed from the global table.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaUpdate *> * _Nullable replicaUpdates;
 
@@ -3705,7 +4962,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 
 
 /**
- <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p>
+ <p>The billing mode of the global table. If <code>GlobalTableBillingMode</code> is not specified, the global table defaults to <code>PROVISIONED</code> capacity billing mode.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBillingMode globalTableBillingMode;
 
@@ -3720,7 +4977,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>AutoScaling settings for managing provisioned write capacity for the global table.</p>
+ <p>Auto scaling settings for managing provisioned write capacity for the global table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable globalTableProvisionedWriteCapacityAutoScalingSettingsUpdate;
 
@@ -3730,7 +4987,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable globalTableProvisionedWriteCapacityUnits;
 
 /**
- <p>Represents the settings for a global table in a region that will be modified.</p>
+ <p>Represents the settings for a global table in a Region that will be modified.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaSettingsUpdate *> * _Nullable replicaSettingsUpdate;
 
@@ -3748,7 +5005,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable globalTableName;
 
 /**
- <p>The region specific settings for the global table.</p>
+ <p>The Region-specific settings for the global table.</p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBReplicaSettingsDescription *> * _Nullable replicaSettings;
 
@@ -3767,7 +5024,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValueUpdate *> * _Nullable attributeUpdates;
 
 /**
- <p>A condition that must be satisfied in order for a conditional update to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information on condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>A condition that must be satisfied in order for a conditional update to succeed.</p><p>An expression can contain any of the following:</p><ul><li><p>Functions: <code>attribute_exists | attribute_not_exists | attribute_type | contains | begins_with | size</code></p><p>These function names are case-sensitive.</p></li><li><p>Comparison operators: <code>= | &lt;&gt; | &lt; | &gt; | &lt;= | &gt;= | BETWEEN | IN </code></p></li><li><p> Logical operators: <code>AND | OR | NOT</code></p></li></ul><p>For more information about condition expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable conditionExpression;
 
@@ -3782,12 +5039,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBExpectedAttributeValue *> * _Nullable expected;
 
 /**
- <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>). To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information on expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Accessing Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more substitution tokens for attribute names in an expression. The following are some use cases for using <code>ExpressionAttributeNames</code>:</p><ul><li><p>To access an attribute whose name conflicts with a DynamoDB reserved word.</p></li><li><p>To create a placeholder for repeating occurrences of an attribute name in an expression.</p></li><li><p>To prevent special characters in an attribute name from being misinterpreted in an expression.</p></li></ul><p>Use the <b>#</b> character in an expression to dereference an attribute name. For example, consider the following attribute name:</p><ul><li><p><code>Percentile</code></p></li></ul><p>The name of this attribute conflicts with a reserved word, so it cannot be used directly in an expression. (For the complete list of reserved words, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/ReservedWords.html">Reserved Words</a> in the <i>Amazon DynamoDB Developer Guide</i>.) To work around this, you could specify the following for <code>ExpressionAttributeNames</code>:</p><ul><li><p><code>{"#P":"Percentile"}</code></p></li></ul><p>You could then use this substitution in an expression, as in this example:</p><ul><li><p><code>#P = :val</code></p></li></ul><note><p>Tokens that begin with the <b>:</b> character are <i>expression attribute values</i>, which are placeholders for the actual value at runtime.</p></note><p>For more information about expression attribute names, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.AccessingItemAttributes.html">Specifying Item Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable expressionAttributeNames;
 
 /**
- <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <i>ProductStatus</i> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Specifying Conditions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>One or more values that can be substituted in an expression.</p><p>Use the <b>:</b> (colon) character in an expression to dereference an attribute value. For example, suppose that you wanted to check whether the value of the <code>ProductStatus</code> attribute was one of the following: </p><p><code>Available | Backordered | Discontinued</code></p><p>You would first need to specify <code>ExpressionAttributeValues</code> as follows:</p><p><code>{ ":avail":{"S":"Available"}, ":back":{"S":"Backordered"}, ":disc":{"S":"Discontinued"} }</code></p><p>You could then use these values in an expression, such as this:</p><p><code>ProductStatus IN (:avail, :back, :disc)</code></p><p>For more information on expression attribute values, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.SpecifyingConditions.html">Condition Expressions</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSDynamoDBAttributeValue *> * _Nullable expressionAttributeValues;
 
@@ -3817,7 +5074,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSString * _Nullable tableName;
 
 /**
- <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new value(s) for them.</p><p>The following action values are available for <code>UpdateExpression</code>.</p><ul><li><p><code>SET</code> - Adds one or more attributes and values to an item. If any of these attribute already exist, they are replaced by the new values. You can also use <code>SET</code> to add or subtract from an attribute that is of type Number. For example: <code>SET myNum = myNum + :val</code></p><p><code>SET</code> supports the following functions:</p><ul><li><p><code>if_not_exists (path, operand)</code> - if the item does not contain an attribute at the specified path, then <code>if_not_exists</code> evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.</p></li><li><p><code>list_append (operand, operand)</code> - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.</p></li></ul><p>These function names are case-sensitive.</p></li><li><p><code>REMOVE</code> - Removes one or more attributes from an item.</p></li><li><p><code>ADD</code> - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <code>Value</code> is also a number, then <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note><p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value.</p><p>Similarly, if you use <code>ADD</code> for an existing item to increment or decrement an attribute value that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update doesn't have an attribute named <i>itemcount</i>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway. DynamoDB will create the <i>itemcount</i> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <i>itemcount</i> attribute in the item, with a value of <code>3</code>.</p></note></li><li><p>If the existing data type is a set and if <code>Value</code> is also a set, then <code>Value</code> is added to the existing set. For example, if the attribute value is the set <code>[1,2]</code>, and the <code>ADD</code> action specified <code>[3]</code>, then the final attribute value is <code>[1,2,3]</code>. An error occurs if an <code>ADD</code> action is specified for a set attribute and the attribute type specified does not match the existing set type. </p><p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <code>Value</code> must also be a set of strings.</p></li></ul><important><p>The <code>ADD</code> action only supports Number and set data types. In addition, <code>ADD</code> can only be used on top-level attributes, not nested attributes.</p></important></li><li><p><code>DELETE</code> - Deletes an element from a set.</p><p>If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>[a,b,c]</code> and the <code>DELETE</code> action specifies <code>[a,c]</code>, then the final attribute value is <code>[b]</code>. Specifying an empty set is an error.</p><important><p>The <code>DELETE</code> action only supports set data types. In addition, <code>DELETE</code> can only be used on top-level attributes, not nested attributes.</p></important></li></ul><p>You can have many actions in a single expression, such as the following: <code>SET a=:value1, b=:value2 DELETE :value3, :value4, :value5</code></p><p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
+ <p>An expression that defines one or more attributes to be updated, the action to be performed on them, and new values for them.</p><p>The following action values are available for <code>UpdateExpression</code>.</p><ul><li><p><code>SET</code> - Adds one or more attributes and values to an item. If any of these attributes already exist, they are replaced by the new values. You can also use <code>SET</code> to add or subtract from an attribute that is of type Number. For example: <code>SET myNum = myNum + :val</code></p><p><code>SET</code> supports the following functions:</p><ul><li><p><code>if_not_exists (path, operand)</code> - if the item does not contain an attribute at the specified path, then <code>if_not_exists</code> evaluates to operand; otherwise, it evaluates to path. You can use this function to avoid overwriting an attribute that may already be present in the item.</p></li><li><p><code>list_append (operand, operand)</code> - evaluates to a list with a new element added to it. You can append the new element to the start or the end of the list by reversing the order of the operands.</p></li></ul><p>These function names are case-sensitive.</p></li><li><p><code>REMOVE</code> - Removes one or more attributes from an item.</p></li><li><p><code>ADD</code> - Adds the specified value to the item, if the attribute does not already exist. If the attribute does exist, then the behavior of <code>ADD</code> depends on the data type of the attribute:</p><ul><li><p>If the existing attribute is a number, and if <code>Value</code> is also a number, then <code>Value</code> is mathematically added to the existing attribute. If <code>Value</code> is a negative number, then it is subtracted from the existing attribute.</p><note><p>If you use <code>ADD</code> to increment or decrement a number value for an item that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value.</p><p>Similarly, if you use <code>ADD</code> for an existing item to increment or decrement an attribute value that doesn't exist before the update, DynamoDB uses <code>0</code> as the initial value. For example, suppose that the item you want to update doesn't have an attribute named <code>itemcount</code>, but you decide to <code>ADD</code> the number <code>3</code> to this attribute anyway. DynamoDB will create the <code>itemcount</code> attribute, set its initial value to <code>0</code>, and finally add <code>3</code> to it. The result will be a new <code>itemcount</code> attribute in the item, with a value of <code>3</code>.</p></note></li><li><p>If the existing data type is a set and if <code>Value</code> is also a set, then <code>Value</code> is added to the existing set. For example, if the attribute value is the set <code>[1,2]</code>, and the <code>ADD</code> action specified <code>[3]</code>, then the final attribute value is <code>[1,2,3]</code>. An error occurs if an <code>ADD</code> action is specified for a set attribute and the attribute type specified does not match the existing set type. </p><p>Both sets must have the same primitive data type. For example, if the existing data type is a set of strings, the <code>Value</code> must also be a set of strings.</p></li></ul><important><p>The <code>ADD</code> action only supports Number and set data types. In addition, <code>ADD</code> can only be used on top-level attributes, not nested attributes.</p></important></li><li><p><code>DELETE</code> - Deletes an element from a set.</p><p>If a set of values is specified, then those values are subtracted from the old set. For example, if the attribute value was the set <code>[a,b,c]</code> and the <code>DELETE</code> action specifies <code>[a,c]</code>, then the final attribute value is <code>[b]</code>. Specifying an empty set is an error.</p><important><p>The <code>DELETE</code> action only supports set data types. In addition, <code>DELETE</code> can only be used on top-level attributes, not nested attributes.</p></important></li></ul><p>You can have many actions in a single expression, such as the following: <code>SET a=:value1, b=:value2 DELETE :value3, :value4, :value5</code></p><p>For more information on update expressions, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Expressions.Modifying.html">Modifying Items and Attributes</a> in the <i>Amazon DynamoDB Developer Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable updateExpression;
 
@@ -3847,6 +5104,35 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
+ <p>Represents a replica to be modified.</p>
+ Required parameters: [RegionName]
+ */
+@interface AWSDynamoDBUpdateReplicationGroupMemberAction : AWSModel
+
+
+/**
+ <p>Replica-specific global secondary index settings.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaGlobalSecondaryIndex *> * _Nullable globalSecondaryIndexes;
+
+/**
+ <p>The AWS KMS customer master key (CMK) of the replica that should be used for AWS KMS encryption. To specify a CMK, use its key ID, Amazon Resource Name (ARN), alias name, or alias ARN. Note that you should only provide this parameter if the key is different from the default DynamoDB KMS master key alias/aws/dynamodb.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable KMSMasterKeyId;
+
+/**
+ <p>Replica-specific provisioned throughput. If not specified, uses the source table's provisioned throughput settings.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBProvisionedThroughputOverride * _Nullable provisionedThroughputOverride;
+
+/**
+ <p>The Region where the replica exists.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable regionName;
+
+@end
+
+/**
  <p>Represents the input of an <code>UpdateTable</code> operation.</p>
  Required parameters: [TableName]
  */
@@ -3859,12 +5145,12 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) NSArray<AWSDynamoDBAttributeDefinition *> * _Nullable attributeDefinitions;
 
 /**
- <p>Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.</p><ul><li><p><code>PROVISIONED</code> - Sets the billing mode to <code>PROVISIONED</code>. We recommend using <code>PROVISIONED</code> for predictable workloads.</p></li><li><p><code>PAY_PER_REQUEST</code> - Sets the billing mode to <code>PAY_PER_REQUEST</code>. We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. </p></li></ul>
+ <p>Controls how you are charged for read and write throughput and how you manage capacity. When switching from pay-per-request to provisioned capacity, initial provisioned capacity values must be set. The initial provisioned capacity values are estimated based on the consumed read and write capacity of your table and global secondary indexes over the past 30 minutes.</p><ul><li><p><code>PROVISIONED</code> - We recommend using <code>PROVISIONED</code> for predictable workloads. <code>PROVISIONED</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.ProvisionedThroughput.Manual">Provisioned Mode</a>.</p></li><li><p><code>PAY_PER_REQUEST</code> - We recommend using <code>PAY_PER_REQUEST</code> for unpredictable workloads. <code>PAY_PER_REQUEST</code> sets the billing mode to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/HowItWorks.ReadWriteCapacityMode.html#HowItWorks.OnDemand">On-Demand Mode</a>. </p></li></ul>
  */
 @property (nonatomic, assign) AWSDynamoDBBillingMode billingMode;
 
 /**
- <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
+ <p>An array of one or more global secondary indexes for the table. For each index in the array, you can request one action:</p><ul><li><p><code>Create</code> - add a new global secondary index to the table.</p></li><li><p><code>Update</code> - modify the provisioned throughput settings of an existing global secondary index.</p></li><li><p><code>Delete</code> - remove a global secondary index from the table.</p></li></ul><p>You can create or delete only one global secondary index per <code>UpdateTable</code> operation.</p><p>For more information, see <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/GSI.OnlineOps.html">Managing Global Secondary Indexes</a> in the <i>Amazon DynamoDB Developer Guide</i>. </p>
  */
 @property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexUpdate *> * _Nullable globalSecondaryIndexUpdates;
 
@@ -3874,12 +5160,17 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @property (nonatomic, strong) AWSDynamoDBProvisionedThroughput * _Nullable provisionedThroughput;
 
 /**
+ <p>A list of replica update actions (create, delete, or update) for the table.</p><note><p>This property only applies to <a href="https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables.V2.html">Version 2019.11.21</a> of global tables.</p></note>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicationGroupUpdate *> * _Nullable replicaUpdates;
+
+/**
  <p>The new server-side encryption settings for the specified table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBSSESpecification * _Nullable SSESpecification;
 
 /**
- <p>Represents the DynamoDB Streams configuration for the table.</p><note><p>You will receive a <code>ResourceInUseException</code> if you attempt to enable a stream on a table that already has a stream, or if you attempt to disable a stream on a table which does not have a stream.</p></note>
+ <p>Represents the DynamoDB Streams configuration for the table.</p><note><p>You receive a <code>ResourceInUseException</code> if you try to enable a stream on a table that already has a stream, or if you try to disable a stream on a table that doesn't have a stream.</p></note>
  */
 @property (nonatomic, strong) AWSDynamoDBStreamSpecification * _Nullable streamSpecification;
 
@@ -3900,6 +5191,47 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
  <p>Represents the properties of the table.</p>
  */
 @property (nonatomic, strong) AWSDynamoDBTableDescription * _Nullable tableDescription;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateTableReplicaAutoScalingInput : AWSRequest
+
+
+/**
+ <p>Represents the auto scaling settings of the global secondary indexes of the replica to be updated.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBGlobalSecondaryIndexAutoScalingUpdate *> * _Nullable globalSecondaryIndexUpdates;
+
+/**
+ <p>Represents the auto scaling settings to be modified for a global table or global secondary index.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBAutoScalingSettingsUpdate * _Nullable provisionedWriteCapacityAutoScalingUpdate;
+
+/**
+ <p>Represents the auto scaling settings of replicas of the table that will be modified.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSDynamoDBReplicaAutoScalingUpdate *> * _Nullable replicaUpdates;
+
+/**
+ <p>The name of the global table to be updated.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable tableName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSDynamoDBUpdateTableReplicaAutoScalingOutput : AWSModel
+
+
+/**
+ <p>Returns information about the auto scaling settings of a table with replicas.</p>
+ */
+@property (nonatomic, strong) AWSDynamoDBTableAutoScalingDescription * _Nullable tableAutoScalingDescription;
 
 @end
 
@@ -3936,7 +5268,7 @@ typedef NS_ENUM(NSInteger, AWSDynamoDBTimeToLiveStatus) {
 @end
 
 /**
- <p>Represents an operation to perform - either <code>DeleteItem</code> or <code>PutItem</code>. You can only request one of these operations, not both, in a single <code>WriteRequest</code>. If you do need to perform both of these operations, you will need to provide two separate <code>WriteRequest</code> objects.</p>
+ <p>Represents an operation to perform - either <code>DeleteItem</code> or <code>PutItem</code>. You can only request one of these operations, not both, in a single <code>WriteRequest</code>. If you do need to perform both of these operations, you need to provide two separate <code>WriteRequest</code> objects.</p>
  */
 @interface AWSDynamoDBWriteRequest : AWSModel
 

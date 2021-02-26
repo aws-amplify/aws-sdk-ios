@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,11 +20,8 @@
 #import "AWSFormTableCell.h"
 #import "AWSTableInputCell.h"
 #import "AWSFormTableDelegate.h"
-#import "AWSUserPoolsUIHelper.h"
 #import "AWSSignInViewController.h"
 
-#define DEFAULT_BACKGROUND_COLOR_TOP [UIColor darkGrayColor]
-#define DEFAULT_BACKGROUND_COLOR_BOTTOM [UIColor whiteColor]
 #define NAVIGATION_BAR_HEIGHT 64
 
 static NSString *const RESOURCES_BUNDLE = @"AWSAuthUI.bundle";
@@ -240,13 +237,13 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         self.tableView.delegate = self.tableDelegate;
         self.tableView.dataSource = self.tableDelegate;
         [self.tableView reloadData];
-        Class AWSUserPoolsUIHelper = NSClassFromString(@"AWSUserPoolsUIHelper");
-        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
-            [AWSUserPoolsUIHelper setUpFormShadowForView:self.tableFormView];
+        Class AWSAuthUIHelper = NSClassFromString(@"AWSAuthUIHelper");
+        if ([AWSAuthUIHelper respondsToSelector:@selector(setUpFormShadowForView:)]) {
+            [AWSAuthUIHelper setUpFormShadowForView:self.tableFormView];
         }
         
-        if ([AWSUserPoolsUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
-            [AWSUserPoolsUIHelper setAWSUIConfiguration:self.config];
+        if ([AWSAuthUIHelper respondsToSelector:@selector(setAWSUIConfiguration:)]) {
+            [AWSAuthUIHelper setAWSUIConfiguration:self.config];
         }
         
         // Add SignInButton to the view
@@ -269,8 +266,16 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
                                   action:@selector(handleUserPoolSignUp)
                         forControlEvents:UIControlEventTouchUpInside];
         } else {
-            [self.signUpButton removeFromSuperview];
+            [self.signUpButton setAlpha:0.0f];
         }
+        
+        // style buttons (primary color)
+        if (self.config.primaryColor) {
+            self.signInButton.backgroundColor = self.config.primaryColor;
+            self.signUpButton.tintColor = self.config.primaryColor;
+            self.forgotPasswordButton.tintColor = self.config.primaryColor;
+        }
+        
     } else {
         [self.tableFormView removeFromSuperview];
         self.orSignInWithLabel.text = @"Sign in with";
@@ -324,9 +329,9 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 
 - (void)setUpBackground:(UIColor *)color {
     if (self.config.isBackgroundColorFullScreen) {
-        self.view.backgroundColor = color ?: DEFAULT_BACKGROUND_COLOR_TOP;
+        self.view.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
     } else {
-        self.view.backgroundColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+        self.view.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
     }
     
     if (self.config.enableUserPoolsUI) {
@@ -334,7 +339,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         if (color != nil) {
             backgroundImageView.backgroundColor = color;
         } else {
-            backgroundImageView.backgroundColor = DEFAULT_BACKGROUND_COLOR_TOP;
+            backgroundImageView.backgroundColor = [AWSAuthUIHelper getBackgroundColor:self.config];
         }
         backgroundImageView.autoresizingMask = UIViewAutoresizingFlexibleWidth;
         [self.view insertSubview:backgroundImageView atIndex:0];
@@ -354,6 +359,8 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
 }
 
 - (void)setUpNavigationController {
+    UIColor *textColor = [AWSAuthUIHelper getTextColor:config];
+
     self.navigationController.navigationBar.topItem.title = @"Sign In";
     self.canCancel = self.config.canCancel;
     if (self.canCancel) {
@@ -361,15 +368,16 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
                                                                          style:UIBarButtonItemStylePlain
                                                                         target:self
                                                                         action:@selector(barButtonClosePressed)];
-        cancelButton.tintColor = [UIColor whiteColor];
+        cancelButton.tintColor = textColor;
         self.navigationController.navigationBar.topItem.leftBarButtonItem = cancelButton;
     }
+    
     self.navigationController.navigationBar.titleTextAttributes = @{
-                                                                    NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                                    NSForegroundColorAttributeName: textColor,
                                                                     };
     self.navigationController.navigationBar.translucent = NO;
-    self.navigationController.navigationBar.barTintColor = self.config.backgroundColor ?: DEFAULT_BACKGROUND_COLOR_TOP;
-    self.navigationController.navigationBar.tintColor = DEFAULT_BACKGROUND_COLOR_BOTTOM;
+    self.navigationController.navigationBar.barTintColor = [AWSAuthUIHelper getBackgroundColor:config];
+    self.navigationController.navigationBar.tintColor = textColor;
     
 }
 
@@ -409,6 +417,7 @@ static NSInteger const SCALED_DOWN_LOGO_IMAGE_HEIGHT = 140;
         UIButton *btn = buttons[[buttonViews indexOfObject:signInButtonViewClass]];
         UIView<AWSSignInButtonView> *buttonView = [[signInButtonViewClass alloc] initWithFrame:CGRectMake(0, 0, btn.frame.size.width, btn.frame.size.height)];
         buttonView.buttonStyle = AWSSignInButtonStyleLarge;
+        buttonView.backgroundColor = [AWSAuthUIHelper getSecondaryBackgroundColor];
         buttonView.delegate = self;
         
         [btn addSubview:buttonView];

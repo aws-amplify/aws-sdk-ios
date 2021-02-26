@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSSESService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSSESResources.h"
 
 static NSString *const AWSInfoSES = @"SES";
-NSString *const AWSSESSDKVersion = @"2.9.8";
+NSString *const AWSSESSDKVersion = @"2.23.0";
 
 
 @interface AWSSESResponseSerializer : AWSXMLResponseSerializer
@@ -54,6 +53,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"FromEmailAddressNotVerified" : @(AWSSESErrorFromEmailAddressNotVerified),
                             @"InvalidCloudWatchDestination" : @(AWSSESErrorInvalidCloudWatchDestination),
                             @"InvalidConfigurationSet" : @(AWSSESErrorInvalidConfigurationSet),
+                            @"InvalidDeliveryOptions" : @(AWSSESErrorInvalidDeliveryOptions),
                             @"InvalidFirehoseDestination" : @(AWSSESErrorInvalidFirehoseDestination),
                             @"InvalidLambdaFunction" : @(AWSSESErrorInvalidLambdaFunction),
                             @"InvalidPolicy" : @(AWSSESErrorInvalidPolicy),
@@ -1258,6 +1258,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSESListVerifiedEmailAddressesResponse *response, NSError *error))completionHandler {
     [[self listVerifiedEmailAddresses:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESListVerifiedEmailAddressesResponse *> * _Nonnull task) {
         AWSSESListVerifiedEmailAddressesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSESPutConfigurationSetDeliveryOptionsResponse *> *)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"PutConfigurationSetDeliveryOptions"
+                   outputClass:[AWSSESPutConfigurationSetDeliveryOptionsResponse class]];
+}
+
+- (void)putConfigurationSetDeliveryOptions:(AWSSESPutConfigurationSetDeliveryOptionsRequest *)request
+     completionHandler:(void (^)(AWSSESPutConfigurationSetDeliveryOptionsResponse *response, NSError *error))completionHandler {
+    [[self putConfigurationSetDeliveryOptions:request] continueWithBlock:^id _Nullable(AWSTask<AWSSESPutConfigurationSetDeliveryOptionsResponse *> * _Nonnull task) {
+        AWSSESPutConfigurationSetDeliveryOptionsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

@@ -26,18 +26,9 @@
 
 @implementation AWSSESTests
 
-static NSString *_verifiedEmailAddress = nil;
-
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
-
-    NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"credentials"
-                                                                          ofType:@"json"];
-    NSDictionary *credentialsJson = [NSJSONSerialization JSONObjectWithData:[NSData dataWithContentsOfFile:filePath]
-                                                                    options:NSJSONReadingMutableContainers
-                                                                      error:nil];
-    _verifiedEmailAddress = credentialsJson[@"verifiedEmailAddress"];
+    [AWSTestUtility setupSessionCredentialsProvider];
 }
 
 - (void)setUp {
@@ -98,43 +89,6 @@ static NSString *_verifiedEmailAddress = nil;
     }] waitUntilFinished];
 }
 
-/*
- This is a manual test, and you need to verify that
- you received the test email to your verified email address.
- */
-- (void)testSendEmail {
-    AWSSES *ses = [AWSSES defaultSES];
-
-    AWSSESSendEmailRequest *sendEmailRequest = [AWSSESSendEmailRequest new];
-    sendEmailRequest.source = _verifiedEmailAddress;
-
-    AWSSESDestination *destination = [AWSSESDestination new];
-    destination.toAddresses = @[_verifiedEmailAddress];
-    sendEmailRequest.destination = destination;
-
-    AWSSESMessage *message = [AWSSESMessage new];
-    AWSSESContent *subject = [AWSSESContent new];
-    subject.data = @"Test Subject";
-    subject.charset = @"UTF-8";
-    message.subject = subject;
-
-    AWSSESContent *content = [AWSSESContent new];
-    content.data = @"Test Body";
-    content.charset = @"UTF-8";
-
-    AWSSESBody *body = [AWSSESBody new];
-    body.text = content;
-    message.body = body;
-    sendEmailRequest.message = message;
-
-    [[[ses sendEmail:sendEmailRequest] continueWithBlock:^id(AWSTask *task) {
-        if (task.error) {
-            XCTFail(@"Error: [%@]", task.error);
-        }
-        return nil;
-    }] waitUntilFinished];
-}
-
 - (void)testVerifyEmailIdentityFailed {
     AWSSES *ses = [AWSSES defaultSES];
 
@@ -143,7 +97,8 @@ static NSString *_verifiedEmailAddress = nil;
 
     [[[ses verifyEmailIdentity:identityRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNotNil(task.error, @"expected InvalidParameterValue Error but got nil");
-        XCTAssertEqual(task.error.code, 0);
+        XCTAssertEqualObjects(task.error.domain, AWSSESErrorDomain);
+        XCTAssertEqual(task.error.code, AWSSESErrorUnknown);
         XCTAssertTrue([@"InvalidParameterValue" isEqualToString:task.error.userInfo[@"Code"]]);
         XCTAssertTrue([@"Email address not specified." isEqualToString:task.error.userInfo[@"Message"]]);
         return nil;

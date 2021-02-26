@@ -31,16 +31,8 @@ static NSString *certificateID = nil;
     [AWSDDLog sharedInstance].logLevel = AWSDDLogLevelInfo;
     [AWSDDLog addLogger:[AWSDDTTYLogger sharedInstance]];
 
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupCognitoIdentityService];
 }
-- (void)setUp {
-    [super setUp];
-}
-
-- (void)tearDown {
-    [super tearDown];
-}
-
 
 - (void)testConstructors {
     NSString *key = @"testIOTConstructors";

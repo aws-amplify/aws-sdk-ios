@@ -78,13 +78,20 @@ FOUNDATION_EXPORT NSString *const AWSDateShortDateFormat2;
 
 @interface NSString (AWS)
 
+/// A convenience method for calculating an MD5 hash of `data`.
+///
+/// MD5 is not suited for cryptographically-sensitive operations. Usages of this
+/// method in the AWS Mobile SDK are limited to calculating checksums for AWS S3
+/// operations that require a `Content-MD5` HTTP header, and do not repesent a
+/// security risk. We are exposing this method as a convenience API for
+/// applications that need to calculate that value manually.
 + (NSString *)aws_base64md5FromData:(NSData *)data;
+
 - (BOOL)aws_isBase64Data;
 - (NSString *)aws_stringWithURLEncoding;
 - (NSString *)aws_stringWithURLEncodingPath;
 - (NSString *)aws_stringWithURLEncodingPathWithoutPriorDecoding;
-- (NSString *)aws_md5String;
-- (NSString *)aws_md5StringLittleEndian;
+
 - (BOOL)aws_isVirtualHostedStyleCompliant;
 
 - (AWSRegionType)aws_regionTypeValue;

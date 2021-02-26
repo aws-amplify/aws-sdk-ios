@@ -36,7 +36,7 @@ static NSString *const AWSMobileAnalyticsRoot = @"com.amazonaws.MobileAnalytics"
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @implementation AWSPinpointContextTests

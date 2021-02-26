@@ -16,21 +16,32 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
+#import "TargetConditionals.h"
+
+#if !TARGET_OS_TV
+
 #import <Foundation/Foundation.h>
 
 #import "FBSDKCopying.h"
+
+NS_ASSUME_NONNULL_BEGIN
 
 /**
   Extension protocol for NSMutableCopying that adds the mutableCopy method, which is implemented on NSObject.
 
  NSObject<NSCopying, NSMutableCopying> implicitly conforms to this protocol.
  */
+NS_SWIFT_NAME(MutableCopying)
 @protocol FBSDKMutableCopying <FBSDKCopying, NSMutableCopying>
 
 /**
   Implemented by NSObject as a convenience to mutableCopyWithZone:.
- - Returns: A mutable copy of the receiver.
+ @return A mutable copy of the receiver.
  */
 - (id)mutableCopy;
 
 @end
+
+NS_ASSUME_NONNULL_END
+
+#endif

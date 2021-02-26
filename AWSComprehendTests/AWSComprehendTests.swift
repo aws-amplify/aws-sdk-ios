@@ -20,8 +20,7 @@ class AWSComprehendTests: XCTestCase {
     
     override class func setUp() {
         super.setUp()
-        // Setup cognito credentials to use for tests.
-        AWSTestUtility.setupCognitoCredentialsProvider()
+        AWSTestUtility.setupSessionCredentialsProvider()
     }
     override func tearDown() {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
@@ -34,8 +33,12 @@ class AWSComprehendTests: XCTestCase {
         detectDominantLanguageRequest!.text = "The sun shines in Seattle";
         
         comprehendClient.detectDominantLanguage(detectDominantLanguageRequest!).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -51,8 +54,12 @@ class AWSComprehendTests: XCTestCase {
         detectDominantLanguageRequest!.text = "El sol brilla en Seattle";
         
         comprehendClient.detectDominantLanguage(detectDominantLanguageRequest!).continueWith { (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -69,8 +76,12 @@ class AWSComprehendTests: XCTestCase {
         detectEntitiesRequest!.text = "The sun shines in Seattle"
         
         comprehendClient.detectEntities(detectEntitiesRequest!).continueWith{ (task) -> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertFalse(true, "got error: \(String(describing: task.error))")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -87,8 +98,12 @@ class AWSComprehendTests: XCTestCase {
         detectKeyPhrasesRequest!.text = "The sun shines in Seattle"
         
         comprehendClient.detectKeyPhrases(detectKeyPhrasesRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -105,8 +120,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "The sun shines in Seattle!!"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -122,8 +141,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "It is raining in Seattle"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -139,8 +162,12 @@ class AWSComprehendTests: XCTestCase {
         detectSentimentRequest!.text = "This view is horrible"
         
         comprehendClient.detectSentiment(detectSentimentRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
@@ -157,21 +184,21 @@ class AWSComprehendTests: XCTestCase {
         batchEntityRequest!.textList = inputStrings
         
         comprehendClient.batchDetectEntities(batchEntityRequest!).continueWith{ (task)-> Any? in
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
+            if let error = task.error {
+                XCTAssertNil(error)
+                return nil
+            }
             guard let result = task.result else {
-                XCTAssertFalse(true, "got error.")
+                XCTAssertNotNil(task.result, "Result unexpectedly nil")
                 return nil
             }
             XCTAssertNotNil(result)
             XCTAssertNotNil(result.resultList)
-            XCTAssertEqual(result.resultList!.count, 4, "Found 4 results")
-            XCTAssertEqual(result.resultList![0].entities![0].text, "AWS")
-            XCTAssertEqual(result.resultList![0].entities![1].text, "Mobile SDK")
-            XCTAssertEqual(result.resultList![1].entities![0].text, "Today")
-            XCTAssertEqual(result.resultList![1].entities![1].text, "Sunday")
-            XCTAssertEqual(result.resultList![2].entities![0].text, "Tomorrow")
-            XCTAssertEqual(result.resultList![2].entities![1].text, "Monday")
-            XCTAssertEqual(result.resultList![3].entities![0].text, "AWS")
-            XCTAssertEqual(result.resultList![3].entities![1].text, "Amplify")
+            XCTAssertEqual(result.resultList!.count, 4, "Should return 4 results")
             return nil
         }.waitUntilFinished()
     }

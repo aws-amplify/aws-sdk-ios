@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -20,6 +20,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingADMChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientId" : @"ClientId",
@@ -31,6 +35,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingADMChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -50,6 +58,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingADMMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -102,6 +114,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingAPNSChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bundleId" : @"BundleId",
@@ -118,6 +134,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAPNSChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -140,8 +160,13 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingAPNSMessage
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"APNSPushType" : @"APNSPushType",
              @"action" : @"Action",
              @"badge" : @"Badge",
              @"body" : @"Body",
@@ -190,7 +215,57 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingAPNSPushNotificationTemplate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"Action",
+             @"body" : @"Body",
+             @"mediaUrl" : @"MediaUrl",
+             @"rawContent" : @"RawContent",
+             @"sound" : @"Sound",
+             @"title" : @"Title",
+             @"url" : @"Url",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"OPEN_APP"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionOpenApp);
+        }
+        if ([value caseInsensitiveCompare:@"DEEP_LINK"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionDeepLink);
+        }
+        if ([value caseInsensitiveCompare:@"URL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionUrl);
+        }
+        return @(AWSPinpointTargetingActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingActionOpenApp:
+                return @"OPEN_APP";
+            case AWSPinpointTargetingActionDeepLink:
+                return @"DEEP_LINK";
+            case AWSPinpointTargetingActionUrl:
+                return @"URL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingAPNSSandboxChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -208,6 +283,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAPNSSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -230,6 +309,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingAPNSVoipChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bundleId" : @"BundleId",
@@ -246,6 +329,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAPNSVoipChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -268,6 +355,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingAPNSVoipSandboxChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bundleId" : @"BundleId",
@@ -284,6 +375,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAPNSVoipSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -306,6 +401,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingActivitiesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -319,7 +418,70 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"CUSTOM" : @"CUSTOM",
+             @"conditionalSplit" : @"ConditionalSplit",
+             @"detail" : @"Description",
+             @"EMAIL" : @"EMAIL",
+             @"holdout" : @"Holdout",
+             @"multiCondition" : @"MultiCondition",
+             @"PUSH" : @"PUSH",
+             @"randomSplit" : @"RandomSplit",
+             @"SMS" : @"SMS",
+             @"wait" : @"Wait",
+             };
+}
+
++ (NSValueTransformer *)CUSTOMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCustomMessageActivity class]];
+}
+
++ (NSValueTransformer *)conditionalSplitJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingConditionalSplitActivity class]];
+}
+
++ (NSValueTransformer *)EMAILJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEmailMessageActivity class]];
+}
+
++ (NSValueTransformer *)holdoutJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingHoldoutActivity class]];
+}
+
++ (NSValueTransformer *)multiConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMultiConditionalSplitActivity class]];
+}
+
++ (NSValueTransformer *)PUSHJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingPushMessageActivity class]];
+}
+
++ (NSValueTransformer *)randomSplitJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRandomSplitActivity class]];
+}
+
++ (NSValueTransformer *)SMSJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSMSMessageActivity class]];
+}
+
++ (NSValueTransformer *)waitJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWaitActivity class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingActivityResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -343,6 +505,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingAddressConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bodyOverride" : @"BodyOverride",
@@ -356,6 +522,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)channelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingChannelTypePush);
+        }
         if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
             return @(AWSPinpointTargetingChannelTypeGcm);
         }
@@ -392,6 +561,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         return @(AWSPinpointTargetingChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSPinpointTargetingChannelTypePush:
+                return @"PUSH";
             case AWSPinpointTargetingChannelTypeGcm:
                 return @"GCM";
             case AWSPinpointTargetingChannelTypeApns:
@@ -422,7 +593,98 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingAndroidPushNotificationTemplate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"Action",
+             @"body" : @"Body",
+             @"imageIconUrl" : @"ImageIconUrl",
+             @"imageUrl" : @"ImageUrl",
+             @"rawContent" : @"RawContent",
+             @"smallImageIconUrl" : @"SmallImageIconUrl",
+             @"sound" : @"Sound",
+             @"title" : @"Title",
+             @"url" : @"Url",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"OPEN_APP"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionOpenApp);
+        }
+        if ([value caseInsensitiveCompare:@"DEEP_LINK"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionDeepLink);
+        }
+        if ([value caseInsensitiveCompare:@"URL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionUrl);
+        }
+        return @(AWSPinpointTargetingActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingActionOpenApp:
+                return @"OPEN_APP";
+            case AWSPinpointTargetingActionDeepLink:
+                return @"DEEP_LINK";
+            case AWSPinpointTargetingActionUrl:
+                return @"URL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingApplicationDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingApplicationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -436,6 +698,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingApplicationSettingsResource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -463,6 +729,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingApplicationsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -477,6 +747,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAttributeDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -493,6 +767,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"EXCLUSIVE"] == NSOrderedSame) {
             return @(AWSPinpointTargetingAttributeTypeExclusive);
         }
+        if ([value caseInsensitiveCompare:@"CONTAINS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeContains);
+        }
+        if ([value caseInsensitiveCompare:@"BEFORE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeBefore);
+        }
+        if ([value caseInsensitiveCompare:@"AFTER"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeAfter);
+        }
+        if ([value caseInsensitiveCompare:@"ON"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeOn);
+        }
+        if ([value caseInsensitiveCompare:@"BETWEEN"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingAttributeTypeBetween);
+        }
         return @(AWSPinpointTargetingAttributeTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -500,6 +789,16 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"INCLUSIVE";
             case AWSPinpointTargetingAttributeTypeExclusive:
                 return @"EXCLUSIVE";
+            case AWSPinpointTargetingAttributeTypeContains:
+                return @"CONTAINS";
+            case AWSPinpointTargetingAttributeTypeBefore:
+                return @"BEFORE";
+            case AWSPinpointTargetingAttributeTypeAfter:
+                return @"AFTER";
+            case AWSPinpointTargetingAttributeTypeOn:
+                return @"ON";
+            case AWSPinpointTargetingAttributeTypeBetween:
+                return @"BETWEEN";
             default:
                 return nil;
         }
@@ -509,6 +808,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingAttributesResource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -522,6 +825,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingBaiduChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"apiKey" : @"ApiKey",
@@ -533,6 +840,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingBaiduChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -553,6 +864,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingBaiduMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -601,7 +916,83 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingBaseKpiResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"rows" : @"Rows",
+             };
+}
+
++ (NSValueTransformer *)rowsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRow class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCampaignCustomMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"data" : @"Data",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingCampaignDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"campaignId" : @"CampaignId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingCampaignEmailMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -615,6 +1006,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingCampaignEventFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -652,6 +1047,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCampaignHook
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"lambdaFunctionName" : @"LambdaFunctionName",
@@ -685,6 +1084,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCampaignLimits
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"daily" : @"Daily",
@@ -698,12 +1101,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCampaignResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalTreatments" : @"AdditionalTreatments",
              @"applicationId" : @"ApplicationId",
              @"arn" : @"Arn",
              @"creationDate" : @"CreationDate",
+             @"customDeliveryConfiguration" : @"CustomDeliveryConfiguration",
              @"defaultState" : @"DefaultState",
              @"detail" : @"Description",
              @"holdoutPercent" : @"HoldoutPercent",
@@ -718,6 +1126,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"segmentId" : @"SegmentId",
              @"segmentVersion" : @"SegmentVersion",
              @"state" : @"State",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
              @"version" : @"Version",
@@ -727,6 +1136,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)additionalTreatmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingTreatmentResource class]];
+}
+
++ (NSValueTransformer *)customDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCustomDeliveryConfiguration class]];
 }
 
 + (NSValueTransformer *)defaultStateJSONTransformer {
@@ -753,15 +1166,26 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignState class]];
 }
 
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
+}
+
 @end
 
 @implementation AWSPinpointTargetingCampaignSmsMessage
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
+             @"entityId" : @"EntityId",
              @"messageType" : @"MessageType",
+             @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
+             @"templateId" : @"TemplateId",
              };
 }
 
@@ -790,6 +1214,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCampaignState
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"campaignStatus" : @"CampaignStatus",
@@ -816,6 +1244,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"DELETED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingCampaignStatusDeleted);
         }
+        if ([value caseInsensitiveCompare:@"INVALID"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingCampaignStatusInvalid);
+        }
         return @(AWSPinpointTargetingCampaignStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -831,6 +1262,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"PAUSED";
             case AWSPinpointTargetingCampaignStatusDeleted:
                 return @"DELETED";
+            case AWSPinpointTargetingCampaignStatusInvalid:
+                return @"INVALID";
             default:
                 return nil;
         }
@@ -840,6 +1273,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingCampaignsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -855,6 +1292,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -874,6 +1315,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingChannelsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channels" : @"Channels",
@@ -890,7 +1335,76 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"conditions" : @"Conditions",
+             @"operator" : @"Operator",
+             };
+}
+
++ (NSValueTransformer *)conditionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingSimpleCondition class]];
+}
+
++ (NSValueTransformer *)operatorJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingOperatorAll);
+        }
+        if ([value caseInsensitiveCompare:@"ANY"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingOperatorAny);
+        }
+        return @(AWSPinpointTargetingOperatorUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingOperatorAll:
+                return @"ALL";
+            case AWSPinpointTargetingOperatorAny:
+                return @"ANY";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingConditionalSplitActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"condition" : @"Condition",
+             @"evaluationWaitTime" : @"EvaluationWaitTime",
+             @"falseActivity" : @"FalseActivity",
+             @"trueActivity" : @"TrueActivity",
+             };
+}
+
++ (NSValueTransformer *)conditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCondition class]];
+}
+
++ (NSValueTransformer *)evaluationWaitTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWaitTime class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingCreateAppRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -906,6 +1420,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateAppResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationResponse" : @"ApplicationResponse",
@@ -920,6 +1438,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateApplicationRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"name" : @"Name",
@@ -930,6 +1452,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingCreateCampaignRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -946,6 +1472,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateCampaignResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"campaignResponse" : @"CampaignResponse",
@@ -958,7 +1488,48 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingCreateEmailTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"emailTemplateRequest" : @"EmailTemplateRequest",
+             @"templateName" : @"TemplateName",
+             };
+}
+
++ (NSValueTransformer *)emailTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEmailTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateEmailTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTemplateMessageBody" : @"CreateTemplateMessageBody",
+             };
+}
+
++ (NSValueTransformer *)createTemplateMessageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateTemplateMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingCreateExportJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -975,6 +1546,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateExportJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"exportJobResponse" : @"ExportJobResponse",
@@ -988,6 +1563,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingCreateImportJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1004,6 +1583,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateImportJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"importJobResponse" : @"ImportJobResponse",
@@ -1016,7 +1599,143 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingCreateJourneyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"writeJourneyRequest" : @"WriteJourneyRequest",
+             };
+}
+
++ (NSValueTransformer *)writeJourneyRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWriteJourneyRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateJourneyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyResponse" : @"JourneyResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreatePushTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pushNotificationTemplateRequest" : @"PushNotificationTemplateRequest",
+             @"templateName" : @"TemplateName",
+             };
+}
+
++ (NSValueTransformer *)pushNotificationTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingPushNotificationTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreatePushTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTemplateMessageBody" : @"CreateTemplateMessageBody",
+             };
+}
+
++ (NSValueTransformer *)createTemplateMessageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateTemplateMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateRecommenderConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateRecommenderConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createRecommenderConfiguration" : @"CreateRecommenderConfiguration",
+             };
+}
+
++ (NSValueTransformer *)createRecommenderConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateRecommenderConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateRecommenderConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingCreateSegmentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1033,6 +1752,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingCreateSegmentResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"segmentResponse" : @"SegmentResponse",
@@ -1045,7 +1768,139 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingCreateSmsTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"SMSTemplateRequest" : @"SMSTemplateRequest",
+             @"templateName" : @"TemplateName",
+             };
+}
+
++ (NSValueTransformer *)SMSTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSMSTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateSmsTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTemplateMessageBody" : @"CreateTemplateMessageBody",
+             };
+}
+
++ (NSValueTransformer *)createTemplateMessageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateTemplateMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateTemplateMessageBody
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"message" : @"Message",
+             @"requestID" : @"RequestID",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateVoiceTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"voiceTemplateRequest" : @"VoiceTemplateRequest",
+             };
+}
+
++ (NSValueTransformer *)voiceTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingVoiceTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCreateVoiceTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createTemplateMessageBody" : @"CreateTemplateMessageBody",
+             };
+}
+
++ (NSValueTransformer *)createTemplateMessageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCreateTemplateMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingCustomDeliveryConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryUri" : @"DeliveryUri",
+             @"endpointTypes" : @"EndpointTypes",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingCustomMessageActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deliveryUri" : @"DeliveryUri",
+             @"endpointTypes" : @"EndpointTypes",
+             @"messageConfig" : @"MessageConfig",
+             @"nextActivity" : @"NextActivity",
+             @"templateName" : @"TemplateName",
+             @"templateVersion" : @"TemplateVersion",
+             };
+}
+
++ (NSValueTransformer *)messageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyCustomMessage class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDefaultMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1057,6 +1912,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDefaultPushNotificationMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1098,7 +1957,55 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDefaultPushNotificationTemplate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"action" : @"Action",
+             @"body" : @"Body",
+             @"sound" : @"Sound",
+             @"title" : @"Title",
+             @"url" : @"Url",
+             };
+}
+
++ (NSValueTransformer *)actionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"OPEN_APP"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionOpenApp);
+        }
+        if ([value caseInsensitiveCompare:@"DEEP_LINK"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionDeepLink);
+        }
+        if ([value caseInsensitiveCompare:@"URL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingActionUrl);
+        }
+        return @(AWSPinpointTargetingActionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingActionOpenApp:
+                return @"OPEN_APP";
+            case AWSPinpointTargetingActionDeepLink:
+                return @"DEEP_LINK";
+            case AWSPinpointTargetingActionUrl:
+                return @"URL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDeleteAdmChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1109,6 +2016,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteAdmChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1124,6 +2035,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteApnsChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1133,6 +2048,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteApnsChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1148,6 +2067,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteApnsSandboxChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1157,6 +2080,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteApnsSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1172,6 +2099,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteApnsVoipChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1181,6 +2112,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteApnsVoipChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1196,6 +2131,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteApnsVoipSandboxChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1205,6 +2144,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteApnsVoipSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1220,6 +2163,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteAppRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1229,6 +2176,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteAppResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1244,6 +2195,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteBaiduChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1253,6 +2208,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteBaiduChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1268,6 +2227,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteCampaignRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1278,6 +2241,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteCampaignResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1293,6 +2260,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteEmailChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1302,6 +2273,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteEmailChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1315,7 +2290,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDeleteEmailTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteEmailTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDeleteEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1327,6 +2339,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteEndpointResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1342,6 +2358,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteEventStreamRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1351,6 +2371,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteEventStreamResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1366,6 +2390,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteGcmChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1375,6 +2403,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteGcmChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1388,7 +2420,109 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDeleteJourneyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteJourneyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyResponse" : @"JourneyResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeletePushTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeletePushTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteRecommenderConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteRecommenderConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDeleteSegmentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1400,6 +2534,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteSegmentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1415,6 +2553,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteSmsChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1424,6 +2566,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteSmsChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1437,7 +2583,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDeleteSmsTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteSmsTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDeleteUserEndpointsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1449,6 +2632,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteUserEndpointsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1464,6 +2651,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingDeleteVoiceChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -1473,6 +2664,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingDeleteVoiceChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1486,7 +2681,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingDeleteVoiceTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingDeleteVoiceTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingDirectMessageConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1542,6 +2774,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEmailChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"configurationSet" : @"ConfigurationSet",
@@ -1555,6 +2791,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEmailChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1580,6 +2820,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEmailMessage
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
@@ -1602,7 +2846,109 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEmailMessageActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageConfig" : @"MessageConfig",
+             @"nextActivity" : @"NextActivity",
+             @"templateName" : @"TemplateName",
+             @"templateVersion" : @"TemplateVersion",
+             };
+}
+
++ (NSValueTransformer *)messageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyEmailMessage class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingEmailTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"htmlPart" : @"HtmlPart",
+             @"recommenderId" : @"RecommenderId",
+             @"subject" : @"Subject",
+             @"templateDescription" : @"TemplateDescription",
+             @"textPart" : @"TextPart",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingEmailTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"creationDate" : @"CreationDate",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"htmlPart" : @"HtmlPart",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
+             @"subject" : @"Subject",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"textPart" : @"TextPart",
+             @"version" : @"Version",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingEndpointBatchItem
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1623,6 +2969,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)channelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingChannelTypePush);
+        }
         if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
             return @(AWSPinpointTargetingChannelTypeGcm);
         }
@@ -1659,6 +3008,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         return @(AWSPinpointTargetingChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSPinpointTargetingChannelTypePush:
+                return @"PUSH";
             case AWSPinpointTargetingChannelTypeGcm:
                 return @"GCM";
             case AWSPinpointTargetingChannelTypeApns:
@@ -1703,6 +3054,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointBatchRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -1716,6 +3071,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEndpointDemographic
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1734,6 +3093,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointItemResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"message" : @"Message",
@@ -1744,6 +3107,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEndpointLocation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1759,6 +3126,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEndpointMessageResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -1821,6 +3192,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"address" : @"Address",
@@ -1839,6 +3214,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)channelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingChannelTypePush);
+        }
         if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
             return @(AWSPinpointTargetingChannelTypeGcm);
         }
@@ -1875,6 +3253,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         return @(AWSPinpointTargetingChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSPinpointTargetingChannelTypePush:
+                return @"PUSH";
             case AWSPinpointTargetingChannelTypeGcm:
                 return @"GCM";
             case AWSPinpointTargetingChannelTypeApns:
@@ -1919,6 +3299,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"address" : @"Address",
@@ -1941,6 +3325,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)channelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingChannelTypePush);
+        }
         if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
             return @(AWSPinpointTargetingChannelTypeGcm);
         }
@@ -1977,6 +3364,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         return @(AWSPinpointTargetingChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSPinpointTargetingChannelTypePush:
+                return @"PUSH";
             case AWSPinpointTargetingChannelTypeGcm:
                 return @"GCM";
             case AWSPinpointTargetingChannelTypeApns:
@@ -2021,6 +3410,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointSendConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"bodyOverride" : @"BodyOverride",
@@ -2035,6 +3428,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEndpointUser
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"userAttributes" : @"UserAttributes",
@@ -2045,6 +3442,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEndpointsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2059,6 +3460,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEvent
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2081,7 +3486,30 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEventCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensions" : @"Dimensions",
+             @"messageActivity" : @"MessageActivity",
+             };
+}
+
++ (NSValueTransformer *)dimensionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventDimensions class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingEventDimensions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2113,7 +3541,51 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEventFilter
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dimensions" : @"Dimensions",
+             @"filterType" : @"FilterType",
+             };
+}
+
++ (NSValueTransformer *)dimensionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventDimensions class]];
+}
+
++ (NSValueTransformer *)filterTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"SYSTEM"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingFilterTypeSystem);
+        }
+        if ([value caseInsensitiveCompare:@"ENDPOINT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingFilterTypeEndpoint);
+        }
+        return @(AWSPinpointTargetingFilterTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingFilterTypeSystem:
+                return @"SYSTEM";
+            case AWSPinpointTargetingFilterTypeEndpoint:
+                return @"ENDPOINT";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingEventItemResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2124,7 +3596,30 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingEventStartCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"eventFilter" : @"EventFilter",
+             @"segmentId" : @"SegmentId",
+             };
+}
+
++ (NSValueTransformer *)eventFilterJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventFilter class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingEventStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2140,6 +3635,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEventsBatch
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2164,6 +3663,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingEventsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"batchItem" : @"BatchItem",
@@ -2181,6 +3684,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingEventsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2200,6 +3707,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingExportJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"roleArn" : @"RoleArn",
@@ -2213,6 +3724,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingExportJobResource
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"roleArn" : @"RoleArn",
@@ -2225,6 +3740,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingExportJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2253,11 +3772,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusCreated);
         }
+        if ([value caseInsensitiveCompare:@"PREPARING_FOR_INITIALIZATION"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingJobStatusPreparingForInitialization);
+        }
         if ([value caseInsensitiveCompare:@"INITIALIZING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusInitializing);
         }
         if ([value caseInsensitiveCompare:@"PROCESSING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusProcessing);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_JOB"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingJobStatusPendingJob);
         }
         if ([value caseInsensitiveCompare:@"COMPLETING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusCompleting);
@@ -2276,10 +3801,14 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         switch ([value integerValue]) {
             case AWSPinpointTargetingJobStatusCreated:
                 return @"CREATED";
+            case AWSPinpointTargetingJobStatusPreparingForInitialization:
+                return @"PREPARING_FOR_INITIALIZATION";
             case AWSPinpointTargetingJobStatusInitializing:
                 return @"INITIALIZING";
             case AWSPinpointTargetingJobStatusProcessing:
                 return @"PROCESSING";
+            case AWSPinpointTargetingJobStatusPendingJob:
+                return @"PENDING_JOB";
             case AWSPinpointTargetingJobStatusCompleting:
                 return @"COMPLETING";
             case AWSPinpointTargetingJobStatusCompleted:
@@ -2298,6 +3827,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingExportJobsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -2313,6 +3846,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGCMChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"apiKey" : @"ApiKey",
@@ -2323,6 +3860,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGCMChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2343,6 +3884,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGCMMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2396,6 +3941,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGPSCoordinates
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"latitude" : @"Latitude",
@@ -2406,6 +3955,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGPSPointDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2422,6 +3975,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetAdmChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2431,6 +3988,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetAdmChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2446,6 +4007,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetApnsChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2455,6 +4020,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetApnsChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2470,6 +4039,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetApnsSandboxChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2479,6 +4052,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetApnsSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2494,6 +4071,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetApnsVoipChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2503,6 +4084,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetApnsVoipChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2518,6 +4103,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetApnsVoipSandboxChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2527,6 +4116,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetApnsVoipSandboxChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2542,6 +4135,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetAppRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2551,6 +4148,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetAppResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2564,7 +4165,64 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetApplicationDateRangeKpiRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetApplicationDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationDateRangeKpiResponse" : @"ApplicationDateRangeKpiResponse",
+             };
+}
+
++ (NSValueTransformer *)applicationDateRangeKpiResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingApplicationDateRangeKpiResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetApplicationSettingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2575,6 +4233,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetApplicationSettingsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2590,6 +4252,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetAppsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"pageSize" : @"PageSize",
@@ -2600,6 +4266,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetAppsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2615,6 +4285,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetBaiduChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2624,6 +4298,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetBaiduChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2639,6 +4317,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetCampaignActivitiesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2652,6 +4334,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetCampaignActivitiesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"activitiesResponse" : @"ActivitiesResponse",
@@ -2664,7 +4350,65 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetCampaignDateRangeKpiRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"campaignId" : @"CampaignId",
+             @"endTime" : @"EndTime",
+             @"kpiName" : @"KpiName",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetCampaignDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"campaignDateRangeKpiResponse" : @"CampaignDateRangeKpiResponse",
+             };
+}
+
++ (NSValueTransformer *)campaignDateRangeKpiResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignDateRangeKpiResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetCampaignRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2676,6 +4420,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetCampaignResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2691,6 +4439,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetCampaignVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2702,6 +4454,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetCampaignVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2717,6 +4473,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetCampaignVersionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2729,6 +4489,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetCampaignVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2744,6 +4508,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetCampaignsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2755,6 +4523,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetCampaignsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2770,6 +4542,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetChannelsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2779,6 +4555,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetChannelsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2794,6 +4574,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetEmailChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2803,6 +4587,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetEmailChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2816,7 +4604,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetEmailTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetEmailTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"emailTemplateResponse" : @"EmailTemplateResponse",
+             };
+}
+
++ (NSValueTransformer *)emailTemplateResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEmailTemplateResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2828,6 +4653,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetEndpointResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2843,6 +4672,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetEventStreamRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2852,6 +4685,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetEventStreamResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2867,6 +4704,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetExportJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2877,6 +4718,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetExportJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2892,6 +4737,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetExportJobsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2903,6 +4752,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetExportJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2918,6 +4771,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetGcmChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2927,6 +4784,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetGcmChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2942,6 +4803,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetImportJobRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2952,6 +4817,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetImportJobResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2967,6 +4836,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetImportJobsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -2978,6 +4851,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetImportJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -2991,7 +4868,267 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetJourneyDateRangeKpiRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"journeyId" : @"JourneyId",
+             @"kpiName" : @"KpiName",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyDateRangeKpiResponse" : @"JourneyDateRangeKpiResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyDateRangeKpiResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyDateRangeKpiResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyExecutionActivityMetricsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyActivityId" : @"JourneyActivityId",
+             @"journeyId" : @"JourneyId",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyExecutionActivityMetricsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyExecutionActivityMetricsResponse" : @"JourneyExecutionActivityMetricsResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyExecutionActivityMetricsResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyExecutionActivityMetricsResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyExecutionMetricsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyExecutionMetricsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyExecutionMetricsResponse" : @"JourneyExecutionMetricsResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyExecutionMetricsResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyExecutionMetricsResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetJourneyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyResponse" : @"JourneyResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetPushTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetPushTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pushNotificationTemplateResponse" : @"PushNotificationTemplateResponse",
+             };
+}
+
++ (NSValueTransformer *)pushNotificationTemplateResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingPushNotificationTemplateResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"pageSize" : @"PageSize",
+             @"token" : @"Token",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetRecommenderConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"listRecommenderConfigurationsResponse" : @"ListRecommenderConfigurationsResponse",
+             };
+}
+
++ (NSValueTransformer *)listRecommenderConfigurationsResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingListRecommenderConfigurationsResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetSegmentExportJobsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3005,6 +5142,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentExportJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3020,6 +5161,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSegmentImportJobsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3032,6 +5177,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentImportJobsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3047,6 +5196,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSegmentRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3057,6 +5210,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3072,6 +5229,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSegmentVersionRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3083,6 +5244,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3098,6 +5263,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSegmentVersionsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3110,6 +5279,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3125,6 +5298,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSegmentsRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3136,6 +5313,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSegmentsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3151,6 +5332,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetSmsChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3160,6 +5345,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetSmsChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3173,7 +5362,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetSmsTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetSmsTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"SMSTemplateResponse" : @"SMSTemplateResponse",
+             };
+}
+
++ (NSValueTransformer *)SMSTemplateResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSMSTemplateResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingGetUserEndpointsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3185,6 +5411,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetUserEndpointsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3200,6 +5430,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingGetVoiceChannelRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3209,6 +5443,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingGetVoiceChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3222,7 +5460,59 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingGetVoiceTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingGetVoiceTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"voiceTemplateResponse" : @"VoiceTemplateResponse",
+             };
+}
+
++ (NSValueTransformer *)voiceTemplateResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingVoiceTemplateResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingHoldoutActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextActivity" : @"NextActivity",
+             @"percentage" : @"Percentage",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingImportJobRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3262,6 +5552,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingImportJobResource
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"defineSegment" : @"DefineSegment",
@@ -3300,6 +5594,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingImportJobResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -3327,11 +5625,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"CREATED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusCreated);
         }
+        if ([value caseInsensitiveCompare:@"PREPARING_FOR_INITIALIZATION"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingJobStatusPreparingForInitialization);
+        }
         if ([value caseInsensitiveCompare:@"INITIALIZING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusInitializing);
         }
         if ([value caseInsensitiveCompare:@"PROCESSING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusProcessing);
+        }
+        if ([value caseInsensitiveCompare:@"PENDING_JOB"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingJobStatusPendingJob);
         }
         if ([value caseInsensitiveCompare:@"COMPLETING"] == NSOrderedSame) {
             return @(AWSPinpointTargetingJobStatusCompleting);
@@ -3350,10 +5654,14 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         switch ([value integerValue]) {
             case AWSPinpointTargetingJobStatusCreated:
                 return @"CREATED";
+            case AWSPinpointTargetingJobStatusPreparingForInitialization:
+                return @"PREPARING_FOR_INITIALIZATION";
             case AWSPinpointTargetingJobStatusInitializing:
                 return @"INITIALIZING";
             case AWSPinpointTargetingJobStatusProcessing:
                 return @"PROCESSING";
+            case AWSPinpointTargetingJobStatusPendingJob:
+                return @"PENDING_JOB";
             case AWSPinpointTargetingJobStatusCompleting:
                 return @"COMPLETING";
             case AWSPinpointTargetingJobStatusCompleted:
@@ -3372,6 +5680,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingImportJobsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -3386,6 +5698,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingItemResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3408,7 +5724,426 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingJourneyCustomMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"data" : @"Data",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyDateRangeKpiResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"endTime" : @"EndTime",
+             @"journeyId" : @"JourneyId",
+             @"kpiName" : @"KpiName",
+             @"kpiResult" : @"KpiResult",
+             @"nextToken" : @"NextToken",
+             @"startTime" : @"StartTime",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)kpiResultJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingBaseKpiResult class]];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyEmailMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"fromAddress" : @"FromAddress",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyExecutionActivityMetricsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"activityType" : @"ActivityType",
+             @"applicationId" : @"ApplicationId",
+             @"journeyActivityId" : @"JourneyActivityId",
+             @"journeyId" : @"JourneyId",
+             @"lastEvaluatedTime" : @"LastEvaluatedTime",
+             @"metrics" : @"Metrics",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyExecutionMetricsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             @"lastEvaluatedTime" : @"LastEvaluatedTime",
+             @"metrics" : @"Metrics",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyLimits
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dailyCap" : @"DailyCap",
+             @"endpointReentryCap" : @"EndpointReentryCap",
+             @"messagesPerSecond" : @"MessagesPerSecond",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyPushMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"timeToLive" : @"TimeToLive",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"activities" : @"Activities",
+             @"applicationId" : @"ApplicationId",
+             @"creationDate" : @"CreationDate",
+             @"identifier" : @"Id",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"limits" : @"Limits",
+             @"localTime" : @"LocalTime",
+             @"name" : @"Name",
+             @"quietTime" : @"QuietTime",
+             @"refreshFrequency" : @"RefreshFrequency",
+             @"schedule" : @"Schedule",
+             @"startActivity" : @"StartActivity",
+             @"startCondition" : @"StartCondition",
+             @"state" : @"State",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)activitiesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingActivity class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
++ (NSValueTransformer *)limitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyLimits class]];
+}
+
++ (NSValueTransformer *)quietTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingQuietTime class]];
+}
+
++ (NSValueTransformer *)scheduleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneySchedule class]];
+}
+
++ (NSValueTransformer *)startConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingStartCondition class]];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateDraft);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"CANCELLED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCancelled);
+        }
+        if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateClosed);
+        }
+        return @(AWSPinpointTargetingStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingStateDraft:
+                return @"DRAFT";
+            case AWSPinpointTargetingStateActive:
+                return @"ACTIVE";
+            case AWSPinpointTargetingStateCompleted:
+                return @"COMPLETED";
+            case AWSPinpointTargetingStateCancelled:
+                return @"CANCELLED";
+            case AWSPinpointTargetingStateClosed:
+                return @"CLOSED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneySMSMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"entityId" : @"EntityId",
+             @"messageType" : @"MessageType",
+             @"originationNumber" : @"OriginationNumber",
+             @"senderId" : @"SenderId",
+             @"templateId" : @"TemplateId",
+             };
+}
+
++ (NSValueTransformer *)messageTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"TRANSACTIONAL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingMessageTypeTransactional);
+        }
+        if ([value caseInsensitiveCompare:@"PROMOTIONAL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingMessageTypePromotional);
+        }
+        return @(AWSPinpointTargetingMessageTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingMessageTypeTransactional:
+                return @"TRANSACTIONAL";
+            case AWSPinpointTargetingMessageTypePromotional:
+                return @"PROMOTIONAL";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneySchedule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endTime" : @"EndTime",
+             @"startTime" : @"StartTime",
+             @"timezone" : @"Timezone",
+             };
+}
+
++ (NSValueTransformer *)endTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)startTimeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSNumber *number) {
+        return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
+    } reverseBlock:^id(NSDate *date) {
+        return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneyStateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"state" : @"State",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateDraft);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"CANCELLED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCancelled);
+        }
+        if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateClosed);
+        }
+        return @(AWSPinpointTargetingStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingStateDraft:
+                return @"DRAFT";
+            case AWSPinpointTargetingStateActive:
+                return @"ACTIVE";
+            case AWSPinpointTargetingStateCompleted:
+                return @"COMPLETED";
+            case AWSPinpointTargetingStateCancelled:
+                return @"CANCELLED";
+            case AWSPinpointTargetingStateClosed:
+                return @"CLOSED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingJourneysResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"item" : @"Item",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)itemJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingListJourneysRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"pageSize" : @"PageSize",
+             @"token" : @"Token",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingListJourneysResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeysResponse" : @"JourneysResponse",
+             };
+}
+
++ (NSValueTransformer *)journeysResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneysResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingListRecommenderConfigurationsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"item" : @"Item",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)itemJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingListTagsForResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3419,6 +6154,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingListTagsForResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3432,7 +6171,81 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingListTemplateVersionsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingListTemplateVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateVersionsResponse" : @"TemplateVersionsResponse",
+             };
+}
+
++ (NSValueTransformer *)templateVersionsResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateVersionsResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingListTemplatesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"pageSize" : @"PageSize",
+             @"prefix" : @"Prefix",
+             @"templateType" : @"TemplateType",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingListTemplatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templatesResponse" : @"TemplatesResponse",
+             };
+}
+
++ (NSValueTransformer *)templatesResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplatesResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingMessage
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3481,6 +6294,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingMessageBody
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"message" : @"Message",
@@ -3492,11 +6309,16 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingMessageConfiguration
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ADMMessage" : @"ADMMessage",
              @"APNSMessage" : @"APNSMessage",
              @"baiduMessage" : @"BaiduMessage",
+             @"customMessage" : @"CustomMessage",
              @"defaultMessage" : @"DefaultMessage",
              @"emailMessage" : @"EmailMessage",
              @"GCMMessage" : @"GCMMessage",
@@ -3514,6 +6336,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)baiduMessageJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessage class]];
+}
+
++ (NSValueTransformer *)customMessageJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignCustomMessage class]];
 }
 
 + (NSValueTransformer *)defaultMessageJSONTransformer {
@@ -3536,12 +6362,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingMessageRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"addresses" : @"Addresses",
              @"context" : @"Context",
              @"endpoints" : @"Endpoints",
              @"messageConfiguration" : @"MessageConfiguration",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"traceId" : @"TraceId",
              };
 }
@@ -3566,9 +6397,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingDirectMessageConfiguration class]];
 }
 
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
+}
+
 @end
 
 @implementation AWSPinpointTargetingMessageResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3598,6 +6437,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingMessageResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3659,6 +6502,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingMetricDimension
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"comparisonOperator" : @"ComparisonOperator",
@@ -3668,7 +6515,54 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingMultiConditionalBranch
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"condition" : @"Condition",
+             @"nextActivity" : @"NextActivity",
+             };
+}
+
++ (NSValueTransformer *)conditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSimpleCondition class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingMultiConditionalSplitActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"branches" : @"Branches",
+             @"defaultActivity" : @"DefaultActivity",
+             @"evaluationWaitTime" : @"EvaluationWaitTime",
+             };
+}
+
++ (NSValueTransformer *)branchesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingMultiConditionalBranch class]];
+}
+
++ (NSValueTransformer *)evaluationWaitTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWaitTime class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingNumberValidateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3680,6 +6574,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingNumberValidateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3704,6 +6602,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingPhoneNumberValidateRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"numberValidateRequest" : @"NumberValidateRequest",
@@ -3718,6 +6620,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingPhoneNumberValidateResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"numberValidateResponse" : @"NumberValidateResponse",
@@ -3731,6 +6637,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingPublicEndpoint
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3750,6 +6660,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)channelTypeJSONTransformer {
     return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingChannelTypePush);
+        }
         if ([value caseInsensitiveCompare:@"GCM"] == NSOrderedSame) {
             return @(AWSPinpointTargetingChannelTypeGcm);
         }
@@ -3786,6 +6699,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         return @(AWSPinpointTargetingChannelTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
+            case AWSPinpointTargetingChannelTypePush:
+                return @"PUSH";
             case AWSPinpointTargetingChannelTypeGcm:
                 return @"GCM";
             case AWSPinpointTargetingChannelTypeApns:
@@ -3828,7 +6743,153 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingPushMessageActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageConfig" : @"MessageConfig",
+             @"nextActivity" : @"NextActivity",
+             @"templateName" : @"TemplateName",
+             @"templateVersion" : @"TemplateVersion",
+             };
+}
+
++ (NSValueTransformer *)messageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyPushMessage class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingPushNotificationTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ADM" : @"ADM",
+             @"APNS" : @"APNS",
+             @"baidu" : @"Baidu",
+             @"defaultValue" : @"Default",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"GCM" : @"GCM",
+             @"recommenderId" : @"RecommenderId",
+             @"templateDescription" : @"TemplateDescription",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)ADMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)APNSJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAPNSPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)baiduJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)defaultValueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingDefaultPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)GCMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingPushNotificationTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ADM" : @"ADM",
+             @"APNS" : @"APNS",
+             @"arn" : @"Arn",
+             @"baidu" : @"Baidu",
+             @"creationDate" : @"CreationDate",
+             @"defaultValue" : @"Default",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"GCM" : @"GCM",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)ADMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)APNSJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAPNSPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)baiduJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)defaultValueJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingDefaultPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)GCMJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingAndroidPushNotificationTemplate class]];
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingPutEventStreamRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3845,6 +6906,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingPutEventStreamResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"eventStream" : @"EventStream",
@@ -3858,6 +6923,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingPutEventsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3874,6 +6943,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingPutEventsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"eventsResponse" : @"EventsResponse",
@@ -3888,6 +6961,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingQuietTime
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"end" : @"End",
@@ -3897,7 +6974,44 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingRandomSplitActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"branches" : @"Branches",
+             };
+}
+
++ (NSValueTransformer *)branchesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingRandomSplitEntry class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingRandomSplitEntry
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextActivity" : @"NextActivity",
+             @"percentage" : @"Percentage",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingRawEmail
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3908,6 +7022,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingRecencyDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3970,7 +7088,36 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingRecommenderConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"creationDate" : @"CreationDate",
+             @"detail" : @"Description",
+             @"identifier" : @"Id",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingRemoveAttributesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -3988,6 +7135,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingRemoveAttributesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"attributesResource" : @"AttributesResource",
@@ -4000,7 +7151,50 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingResultRow
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupedBys" : @"GroupedBys",
+             @"values" : @"Values",
+             };
+}
+
++ (NSValueTransformer *)groupedBysJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRowValue class]];
+}
+
++ (NSValueTransformer *)valuesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingResultRowValue class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingResultRowValue
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"key" : @"Key",
+             @"types" : @"Type",
+             @"value" : @"Value",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingSMSChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4013,6 +7207,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSMSChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4037,14 +7235,21 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSMSMessage
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
+             @"entityId" : @"EntityId",
              @"keyword" : @"Keyword",
+             @"mediaUrl" : @"MediaUrl",
              @"messageType" : @"MessageType",
              @"originationNumber" : @"OriginationNumber",
              @"senderId" : @"SenderId",
              @"substitutions" : @"Substitutions",
+             @"templateId" : @"TemplateId",
              };
 }
 
@@ -4071,7 +7276,105 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingSMSMessageActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageConfig" : @"MessageConfig",
+             @"nextActivity" : @"NextActivity",
+             @"templateName" : @"TemplateName",
+             @"templateVersion" : @"TemplateVersion",
+             };
+}
+
++ (NSValueTransformer *)messageConfigJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneySMSMessage class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingSMSTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"body" : @"Body",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"recommenderId" : @"RecommenderId",
+             @"templateDescription" : @"TemplateDescription",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingSMSTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"body" : @"Body",
+             @"creationDate" : @"CreationDate",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"recommenderId" : @"RecommenderId",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingSchedule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4138,6 +7441,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentBehaviors
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"recency" : @"Recency",
@@ -4150,7 +7457,25 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingSegmentCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"segmentId" : @"SegmentId",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingSegmentDemographics
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4190,6 +7515,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSegmentDimensions
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4241,6 +7570,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSegmentGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4315,6 +7648,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentGroupList
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"groups" : @"Groups",
@@ -4356,6 +7693,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentImportResource
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"channelCounts" : @"ChannelCounts",
@@ -4392,6 +7733,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentLocation
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"country" : @"Country",
@@ -4411,6 +7756,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentReference
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"identifier" : @"Id",
@@ -4421,6 +7770,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSegmentResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4476,6 +7829,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSegmentsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"item" : @"Item",
@@ -4490,6 +7847,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSendMessagesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4506,6 +7867,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSendMessagesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageResponse" : @"MessageResponse",
@@ -4520,10 +7885,15 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSendUsersMessageRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"context" : @"Context",
              @"messageConfiguration" : @"MessageConfiguration",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"traceId" : @"TraceId",
              @"users" : @"Users",
              };
@@ -4531,6 +7901,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)messageConfigurationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingDirectMessageConfiguration class]];
+}
+
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
 }
 
 + (NSValueTransformer *)usersJSONTransformer {
@@ -4545,6 +7919,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSendUsersMessageResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationId" : @"ApplicationId",
@@ -4556,6 +7934,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSendUsersMessagesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4572,6 +7954,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSendUsersMessagesResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"sendUsersMessageResponse" : @"SendUsersMessageResponse",
@@ -4586,6 +7972,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSession
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"duration" : @"Duration",
@@ -4598,6 +7988,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingSetDimension
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4629,7 +8023,39 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingSimpleCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"eventCondition" : @"EventCondition",
+             @"segmentCondition" : @"SegmentCondition",
+             @"segmentDimensions" : @"SegmentDimensions",
+             };
+}
+
++ (NSValueTransformer *)eventConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventCondition class]];
+}
+
++ (NSValueTransformer *)segmentConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSegmentCondition class]];
+}
+
++ (NSValueTransformer *)segmentDimensionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSegmentDimensions class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingSimpleEmail
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4655,6 +8081,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingSimpleEmailPart
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"charset" : @"Charset",
@@ -4664,7 +8094,35 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingStartCondition
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"eventStartCondition" : @"EventStartCondition",
+             @"segmentStartCondition" : @"SegmentStartCondition",
+             };
+}
+
++ (NSValueTransformer *)eventStartConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEventStartCondition class]];
+}
+
++ (NSValueTransformer *)segmentStartConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSegmentCondition class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingTagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4681,6 +8139,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingTagsModel
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"tags" : @"tags",
@@ -4689,18 +8151,203 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
-@implementation AWSPinpointTargetingTreatmentResource
+@implementation AWSPinpointTargetingTemplate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"name" : @"Name",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplateActiveVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplateConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"emailTemplate" : @"EmailTemplate",
+             @"pushTemplate" : @"PushTemplate",
+             @"SMSTemplate" : @"SMSTemplate",
+             @"voiceTemplate" : @"VoiceTemplate",
+             };
+}
+
++ (NSValueTransformer *)emailTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
+}
+
++ (NSValueTransformer *)pushTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
+}
+
++ (NSValueTransformer *)SMSTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
+}
+
++ (NSValueTransformer *)voiceTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplate class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"creationDate" : @"CreationDate",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplateVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"creationDate" : @"CreationDate",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplateVersionsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"item" : @"Item",
+             @"message" : @"Message",
+             @"nextToken" : @"NextToken",
+             @"requestID" : @"RequestID",
+             };
+}
+
++ (NSValueTransformer *)itemJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingTemplateVersionResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingTemplatesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"item" : @"Item",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)itemJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingTemplateResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingTreatmentResource
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"customDeliveryConfiguration" : @"CustomDeliveryConfiguration",
              @"identifier" : @"Id",
              @"messageConfiguration" : @"MessageConfiguration",
              @"schedule" : @"Schedule",
              @"sizePercent" : @"SizePercent",
              @"state" : @"State",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
              };
+}
+
++ (NSValueTransformer *)customDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCustomDeliveryConfiguration class]];
 }
 
 + (NSValueTransformer *)messageConfigurationJSONTransformer {
@@ -4715,9 +8362,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCampaignState class]];
 }
 
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
+}
+
 @end
 
 @implementation AWSPinpointTargetingUntagResourceRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4729,6 +8384,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateAdmChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4745,6 +8404,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateAdmChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ADMChannelResponse" : @"ADMChannelResponse",
@@ -4758,6 +8421,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateApnsChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4774,6 +8441,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateApnsChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"APNSChannelResponse" : @"APNSChannelResponse",
@@ -4787,6 +8458,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateApnsSandboxChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4803,6 +8478,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateApnsSandboxChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"APNSSandboxChannelResponse" : @"APNSSandboxChannelResponse",
@@ -4816,6 +8495,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateApnsVoipChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4832,6 +8515,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateApnsVoipChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"APNSVoipChannelResponse" : @"APNSVoipChannelResponse",
@@ -4845,6 +8532,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateApnsVoipSandboxChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4861,6 +8552,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateApnsVoipSandboxChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"APNSVoipSandboxChannelResponse" : @"APNSVoipSandboxChannelResponse",
@@ -4874,6 +8569,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateApplicationSettingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4890,6 +8589,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateApplicationSettingsResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"applicationSettingsResource" : @"ApplicationSettingsResource",
@@ -4904,6 +8607,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateAttributesRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"blacklist" : @"Blacklist",
@@ -4913,6 +8620,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateBaiduChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4929,6 +8640,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateBaiduChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"baiduChannelResponse" : @"BaiduChannelResponse",
@@ -4942,6 +8657,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateCampaignRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4959,6 +8678,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateCampaignResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"campaignResponse" : @"CampaignResponse",
@@ -4972,6 +8695,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateEmailChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -4988,6 +8715,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateEmailChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"emailChannelResponse" : @"EmailChannelResponse",
@@ -5000,7 +8731,50 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingUpdateEmailTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createNewVersion" : @"CreateNewVersion",
+             @"emailTemplateRequest" : @"EmailTemplateRequest",
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)emailTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingEmailTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateEmailTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingUpdateEndpointRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5018,6 +8792,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateEndpointResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageBody" : @"MessageBody",
@@ -5031,6 +8809,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateEndpointsBatchRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5047,6 +8829,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateEndpointsBatchResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"messageBody" : @"MessageBody",
@@ -5060,6 +8846,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateGcmChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5076,6 +8866,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateGcmChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"GCMChannelResponse" : @"GCMChannelResponse",
@@ -5088,7 +8882,185 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingUpdateJourneyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             @"writeJourneyRequest" : @"WriteJourneyRequest",
+             };
+}
+
++ (NSValueTransformer *)writeJourneyRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWriteJourneyRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateJourneyResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyResponse" : @"JourneyResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateJourneyStateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"applicationId" : @"ApplicationId",
+             @"journeyId" : @"JourneyId",
+             @"journeyStateRequest" : @"JourneyStateRequest",
+             };
+}
+
++ (NSValueTransformer *)journeyStateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyStateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateJourneyStateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"journeyResponse" : @"JourneyResponse",
+             };
+}
+
++ (NSValueTransformer *)journeyResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyResponse class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdatePushTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createNewVersion" : @"CreateNewVersion",
+             @"pushNotificationTemplateRequest" : @"PushNotificationTemplateRequest",
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)pushNotificationTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingPushNotificationTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdatePushTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"attributes" : @"Attributes",
+             @"detail" : @"Description",
+             @"name" : @"Name",
+             @"recommendationProviderIdType" : @"RecommendationProviderIdType",
+             @"recommendationProviderRoleArn" : @"RecommendationProviderRoleArn",
+             @"recommendationProviderUri" : @"RecommendationProviderUri",
+             @"recommendationTransformerUri" : @"RecommendationTransformerUri",
+             @"recommendationsDisplayName" : @"RecommendationsDisplayName",
+             @"recommendationsPerMessage" : @"RecommendationsPerMessage",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfigurationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderId" : @"RecommenderId",
+             @"updateRecommenderConfiguration" : @"UpdateRecommenderConfiguration",
+             };
+}
+
++ (NSValueTransformer *)updateRecommenderConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingUpdateRecommenderConfiguration class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateRecommenderConfigurationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"recommenderConfigurationResponse" : @"RecommenderConfigurationResponse",
+             };
+}
+
++ (NSValueTransformer *)recommenderConfigurationResponseJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingRecommenderConfigurationResponse class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingUpdateSegmentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5106,6 +9078,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateSegmentResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"segmentResponse" : @"SegmentResponse",
@@ -5119,6 +9095,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingUpdateSmsChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5135,6 +9115,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateSmsChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"SMSChannelResponse" : @"SMSChannelResponse",
@@ -5147,7 +9131,88 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingUpdateSmsTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createNewVersion" : @"CreateNewVersion",
+             @"SMSTemplateRequest" : @"SMSTemplateRequest",
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             };
+}
+
++ (NSValueTransformer *)SMSTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSMSTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateSmsTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateTemplateActiveVersionRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"templateActiveVersionRequest" : @"TemplateActiveVersionRequest",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             };
+}
+
++ (NSValueTransformer *)templateActiveVersionRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateActiveVersionRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateTemplateActiveVersionResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingUpdateVoiceChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5164,6 +9229,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingUpdateVoiceChannelResponse
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"voiceChannelResponse" : @"VoiceChannelResponse",
@@ -5176,7 +9245,50 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingUpdateVoiceTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createNewVersion" : @"CreateNewVersion",
+             @"templateName" : @"TemplateName",
+             @"version" : @"Version",
+             @"voiceTemplateRequest" : @"VoiceTemplateRequest",
+             };
+}
+
++ (NSValueTransformer *)voiceTemplateRequestJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingVoiceTemplateRequest class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingUpdateVoiceTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"messageBody" : @"MessageBody",
+             };
+}
+
++ (NSValueTransformer *)messageBodyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingMessageBody class]];
+}
+
+@end
+
 @implementation AWSPinpointTargetingVoiceChannelRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5187,6 +9299,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 @end
 
 @implementation AWSPinpointTargetingVoiceChannelResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5207,6 +9323,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingVoiceMessage
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"body" : @"Body",
@@ -5219,12 +9339,126 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingVoiceTemplateRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"body" : @"Body",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"languageCode" : @"LanguageCode",
+             @"templateDescription" : @"TemplateDescription",
+             @"voiceId" : @"VoiceId",
+             @"tags" : @"tags",
+             };
+}
+
+@end
+
+@implementation AWSPinpointTargetingVoiceTemplateResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"arn" : @"Arn",
+             @"body" : @"Body",
+             @"creationDate" : @"CreationDate",
+             @"defaultSubstitutions" : @"DefaultSubstitutions",
+             @"languageCode" : @"LanguageCode",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"templateDescription" : @"TemplateDescription",
+             @"templateName" : @"TemplateName",
+             @"templateType" : @"TemplateType",
+             @"version" : @"Version",
+             @"voiceId" : @"VoiceId",
+             @"tags" : @"tags",
+             };
+}
+
++ (NSValueTransformer *)templateTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"SMS"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeSms);
+        }
+        if ([value caseInsensitiveCompare:@"VOICE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypeVoice);
+        }
+        if ([value caseInsensitiveCompare:@"PUSH"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingTemplateTypePush);
+        }
+        return @(AWSPinpointTargetingTemplateTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingTemplateTypeEmail:
+                return @"EMAIL";
+            case AWSPinpointTargetingTemplateTypeSms:
+                return @"SMS";
+            case AWSPinpointTargetingTemplateTypeVoice:
+                return @"VOICE";
+            case AWSPinpointTargetingTemplateTypePush:
+                return @"PUSH";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSPinpointTargetingWaitActivity
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextActivity" : @"NextActivity",
+             @"waitTime" : @"WaitTime",
+             };
+}
+
++ (NSValueTransformer *)waitTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingWaitTime class]];
+}
+
+@end
+
+@implementation AWSPinpointTargetingWaitTime
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"waitFor" : @"WaitFor",
+             @"waitUntil" : @"WaitUntil",
+             };
+}
+
+@end
+
 @implementation AWSPinpointTargetingWriteApplicationSettingsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"campaignHook" : @"CampaignHook",
              @"cloudWatchMetricsEnabled" : @"CloudWatchMetricsEnabled",
+             @"eventTaggingEnabled" : @"EventTaggingEnabled",
              @"limits" : @"Limits",
              @"quietTime" : @"QuietTime",
              };
@@ -5246,9 +9480,14 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingWriteCampaignRequest
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"additionalTreatments" : @"AdditionalTreatments",
+             @"customDeliveryConfiguration" : @"CustomDeliveryConfiguration",
              @"detail" : @"Description",
              @"holdoutPercent" : @"HoldoutPercent",
              @"hook" : @"Hook",
@@ -5259,6 +9498,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"schedule" : @"Schedule",
              @"segmentId" : @"SegmentId",
              @"segmentVersion" : @"SegmentVersion",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
              @"tags" : @"tags",
@@ -5267,6 +9507,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)additionalTreatmentsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSPinpointTargetingWriteTreatmentResource class]];
+}
+
++ (NSValueTransformer *)customDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCustomDeliveryConfiguration class]];
 }
 
 + (NSValueTransformer *)hookJSONTransformer {
@@ -5285,9 +9529,17 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSchedule class]];
 }
 
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
+}
+
 @end
 
 @implementation AWSPinpointTargetingWriteEventStream
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5298,7 +9550,96 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @end
 
+@implementation AWSPinpointTargetingWriteJourneyRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"activities" : @"Activities",
+             @"creationDate" : @"CreationDate",
+             @"lastModifiedDate" : @"LastModifiedDate",
+             @"limits" : @"Limits",
+             @"localTime" : @"LocalTime",
+             @"name" : @"Name",
+             @"quietTime" : @"QuietTime",
+             @"refreshFrequency" : @"RefreshFrequency",
+             @"schedule" : @"Schedule",
+             @"startActivity" : @"StartActivity",
+             @"startCondition" : @"StartCondition",
+             @"state" : @"State",
+             };
+}
+
++ (NSValueTransformer *)activitiesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(id JSONDictionary) {
+        return [AWSModelUtility mapMTLDictionaryFromJSONDictionary:JSONDictionary withModelClass:[AWSPinpointTargetingActivity class]];
+    } reverseBlock:^id(id mapMTLDictionary) {
+        return [AWSModelUtility JSONDictionaryFromMapMTLDictionary:mapMTLDictionary];
+    }];
+}
+
++ (NSValueTransformer *)limitsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneyLimits class]];
+}
+
++ (NSValueTransformer *)quietTimeJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingQuietTime class]];
+}
+
++ (NSValueTransformer *)scheduleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingJourneySchedule class]];
+}
+
++ (NSValueTransformer *)startConditionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingStartCondition class]];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"DRAFT"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateDraft);
+        }
+        if ([value caseInsensitiveCompare:@"ACTIVE"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"COMPLETED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCompleted);
+        }
+        if ([value caseInsensitiveCompare:@"CANCELLED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateCancelled);
+        }
+        if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStateClosed);
+        }
+        return @(AWSPinpointTargetingStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSPinpointTargetingStateDraft:
+                return @"DRAFT";
+            case AWSPinpointTargetingStateActive:
+                return @"ACTIVE";
+            case AWSPinpointTargetingStateCompleted:
+                return @"COMPLETED";
+            case AWSPinpointTargetingStateCancelled:
+                return @"CANCELLED";
+            case AWSPinpointTargetingStateClosed:
+                return @"CLOSED";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSPinpointTargetingWriteSegmentRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -5321,14 +9662,24 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 @implementation AWSPinpointTargetingWriteTreatmentResource
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"customDeliveryConfiguration" : @"CustomDeliveryConfiguration",
              @"messageConfiguration" : @"MessageConfiguration",
              @"schedule" : @"Schedule",
              @"sizePercent" : @"SizePercent",
+             @"templateConfiguration" : @"TemplateConfiguration",
              @"treatmentDescription" : @"TreatmentDescription",
              @"treatmentName" : @"TreatmentName",
              };
+}
+
++ (NSValueTransformer *)customDeliveryConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingCustomDeliveryConfiguration class]];
 }
 
 + (NSValueTransformer *)messageConfigurationJSONTransformer {
@@ -5337,6 +9688,10 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 
 + (NSValueTransformer *)scheduleJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingSchedule class]];
+}
+
++ (NSValueTransformer *)templateConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSPinpointTargetingTemplateConfiguration class]];
 }
 
 @end

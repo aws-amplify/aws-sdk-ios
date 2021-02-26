@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -55,6 +55,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
     XCTAssertNil([AWSDynamoDB DynamoDBForKey:key]);
 
+}
+
+- (void)testBatchExecuteStatement {
+    NSString *key = @"testBatchExecuteStatement";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] batchExecuteStatement:[AWSDynamoDBBatchExecuteStatementInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testBatchExecuteStatementCompletionHandler {
+    NSString *key = @"testBatchExecuteStatement";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] batchExecuteStatement:[AWSDynamoDBBatchExecuteStatementInput new] completionHandler:^(AWSDynamoDBBatchExecuteStatementOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
 - (void)testBatchGetItem {
@@ -537,6 +585,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testDescribeContributorInsights {
+    NSString *key = @"testDescribeContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] describeContributorInsights:[AWSDynamoDBDescribeContributorInsightsInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDescribeContributorInsightsCompletionHandler {
+    NSString *key = @"testDescribeContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] describeContributorInsights:[AWSDynamoDBDescribeContributorInsightsInput new] completionHandler:^(AWSDynamoDBDescribeContributorInsightsOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testDescribeEndpoints {
     NSString *key = @"testDescribeEndpoints";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -572,6 +668,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSDynamoDB DynamoDBForKey:key] describeEndpoints:[AWSDynamoDBDescribeEndpointsRequest new] completionHandler:^(AWSDynamoDBDescribeEndpointsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDescribeExport {
+    NSString *key = @"testDescribeExport";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] describeExport:[AWSDynamoDBDescribeExportInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDescribeExportCompletionHandler {
+    NSString *key = @"testDescribeExport";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] describeExport:[AWSDynamoDBDescribeExportInput new] completionHandler:^(AWSDynamoDBDescribeExportOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -681,6 +825,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testDescribeKinesisStreamingDestination {
+    NSString *key = @"testDescribeKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] describeKinesisStreamingDestination:[AWSDynamoDBDescribeKinesisStreamingDestinationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDescribeKinesisStreamingDestinationCompletionHandler {
+    NSString *key = @"testDescribeKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] describeKinesisStreamingDestination:[AWSDynamoDBDescribeKinesisStreamingDestinationInput new] completionHandler:^(AWSDynamoDBDescribeKinesisStreamingDestinationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testDescribeLimits {
     NSString *key = @"testDescribeLimits";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -777,6 +969,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testDescribeTableReplicaAutoScaling {
+    NSString *key = @"testDescribeTableReplicaAutoScaling";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] describeTableReplicaAutoScaling:[AWSDynamoDBDescribeTableReplicaAutoScalingInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDescribeTableReplicaAutoScalingCompletionHandler {
+    NSString *key = @"testDescribeTableReplicaAutoScaling";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] describeTableReplicaAutoScaling:[AWSDynamoDBDescribeTableReplicaAutoScalingInput new] completionHandler:^(AWSDynamoDBDescribeTableReplicaAutoScalingOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testDescribeTimeToLive {
     NSString *key = @"testDescribeTimeToLive";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -812,6 +1052,246 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSDynamoDB DynamoDBForKey:key] describeTimeToLive:[AWSDynamoDBDescribeTimeToLiveInput new] completionHandler:^(AWSDynamoDBDescribeTimeToLiveOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDisableKinesisStreamingDestination {
+    NSString *key = @"testDisableKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] disableKinesisStreamingDestination:[AWSDynamoDBKinesisStreamingDestinationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testDisableKinesisStreamingDestinationCompletionHandler {
+    NSString *key = @"testDisableKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] disableKinesisStreamingDestination:[AWSDynamoDBKinesisStreamingDestinationInput new] completionHandler:^(AWSDynamoDBKinesisStreamingDestinationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testEnableKinesisStreamingDestination {
+    NSString *key = @"testEnableKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] enableKinesisStreamingDestination:[AWSDynamoDBKinesisStreamingDestinationInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testEnableKinesisStreamingDestinationCompletionHandler {
+    NSString *key = @"testEnableKinesisStreamingDestination";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] enableKinesisStreamingDestination:[AWSDynamoDBKinesisStreamingDestinationInput new] completionHandler:^(AWSDynamoDBKinesisStreamingDestinationOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExecuteStatement {
+    NSString *key = @"testExecuteStatement";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] executeStatement:[AWSDynamoDBExecuteStatementInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExecuteStatementCompletionHandler {
+    NSString *key = @"testExecuteStatement";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] executeStatement:[AWSDynamoDBExecuteStatementInput new] completionHandler:^(AWSDynamoDBExecuteStatementOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExecuteTransaction {
+    NSString *key = @"testExecuteTransaction";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] executeTransaction:[AWSDynamoDBExecuteTransactionInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExecuteTransactionCompletionHandler {
+    NSString *key = @"testExecuteTransaction";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] executeTransaction:[AWSDynamoDBExecuteTransactionInput new] completionHandler:^(AWSDynamoDBExecuteTransactionOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExportTableToPointInTime {
+    NSString *key = @"testExportTableToPointInTime";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] exportTableToPointInTime:[AWSDynamoDBExportTableToPointInTimeInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testExportTableToPointInTimeCompletionHandler {
+    NSString *key = @"testExportTableToPointInTime";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] exportTableToPointInTime:[AWSDynamoDBExportTableToPointInTimeInput new] completionHandler:^(AWSDynamoDBExportTableToPointInTimeOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -908,6 +1388,102 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSDynamoDB DynamoDBForKey:key] listBackups:[AWSDynamoDBListBackupsInput new] completionHandler:^(AWSDynamoDBListBackupsOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testListContributorInsights {
+    NSString *key = @"testListContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] listContributorInsights:[AWSDynamoDBListContributorInsightsInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testListContributorInsightsCompletionHandler {
+    NSString *key = @"testListContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] listContributorInsights:[AWSDynamoDBListContributorInsightsInput new] completionHandler:^(AWSDynamoDBListContributorInsightsOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testListExports {
+    NSString *key = @"testListExports";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] listExports:[AWSDynamoDBListExportsInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testListExportsCompletionHandler {
+    NSString *key = @"testListExports";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] listExports:[AWSDynamoDBListExportsInput new] completionHandler:^(AWSDynamoDBListExportsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1543,6 +2119,54 @@ static id mockNetworking = nil;
     [AWSDynamoDB removeDynamoDBForKey:key];
 }
 
+- (void)testUpdateContributorInsights {
+    NSString *key = @"testUpdateContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] updateContributorInsights:[AWSDynamoDBUpdateContributorInsightsInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testUpdateContributorInsightsCompletionHandler {
+    NSString *key = @"testUpdateContributorInsights";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] updateContributorInsights:[AWSDynamoDBUpdateContributorInsightsInput new] completionHandler:^(AWSDynamoDBUpdateContributorInsightsOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
 - (void)testUpdateGlobalTable {
     NSString *key = @"testUpdateGlobalTable";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1722,6 +2346,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSDynamoDB DynamoDBForKey:key] updateTable:[AWSDynamoDBUpdateTableInput new] completionHandler:^(AWSDynamoDBUpdateTableOutput* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testUpdateTableReplicaAutoScaling {
+    NSString *key = @"testUpdateTableReplicaAutoScaling";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSDynamoDB DynamoDBForKey:key] updateTableReplicaAutoScaling:[AWSDynamoDBUpdateTableReplicaAutoScalingInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSDynamoDB removeDynamoDBForKey:key];
+}
+
+- (void)testUpdateTableReplicaAutoScalingCompletionHandler {
+    NSString *key = @"testUpdateTableReplicaAutoScaling";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSDynamoDB registerDynamoDBWithConfiguration:configuration forKey:key];
+
+    AWSDynamoDB *awsClient = [AWSDynamoDB DynamoDBForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSDynamoDB DynamoDBForKey:key] updateTableReplicaAutoScaling:[AWSDynamoDBUpdateTableReplicaAutoScalingInput new] completionHandler:^(AWSDynamoDBUpdateTableReplicaAutoScalingOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

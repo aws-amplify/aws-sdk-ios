@@ -105,6 +105,19 @@ NS_ASSUME_NONNULL_BEGIN
 @property(nonatomic, assign, readonly) NSUInteger publishRetryThrottle;
 
 /**
+ MQTT username used to construct the MQTT username field for enhanced custom authentication use case:
+ https://docs.aws.amazon.com/iot/latest/developerguide/enhanced-custom-auth-using.html#enhanced-custom-auth-using-mqtt
+ **/
+@property (nonatomic, copy) NSString *username;
+
+/**
+ MQTT password used for the MQTT password field for enhanced custom authentication use case:
+ https://docs.aws.amazon.com/iot/latest/developerguide/enhanced-custom-auth-using.html#enhanced-custom-auth-using-mqtt
+ **/
+@property (nonatomic, copy) NSString *password;
+
+
+/**
  Create an AWSIoTMQTTConfiguration object and initialize its parameters.
  The AWSIoTMQTTConfiguration object is then passed to AWSIoTDataManager to initialize it.
  Note, clients need to either specify all parameters explicitly or not customize any

@@ -29,13 +29,21 @@ protocol UserPoolAuthHelperlCallbacks {
     
     func didCompleteNewPasswordStepWithError(_ error: Error?)
     
-    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>)
+    func getCustomAuthenticationDetails(_ customAuthenticationInput: AWSCognitoIdentityCustomAuthenticationInput, customAuthCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>)
+    
+    func didCompleteCustomAuthenticationStepWithError(_ error: Error?)
+
+    func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                 mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>)
     
     func didCompleteMultifactorAuthenticationStepWithError(_ error: Error?)
-    
+
 }
 
-internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiveAuthenticationDelegate {
+internal class UserPoolOperationsHandler: NSObject,
+    AWSCognitoIdentityInteractiveAuthenticationDelegate,
+AWSCognitoUserPoolInternalDelegate {
+    
     internal var userpoolClient: AWSCognitoIdentityUserPool?
     internal var signUpUser: AWSCognitoIdentityUser?
     
@@ -44,26 +52,54 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     }
     
     internal var passwordAuthTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityPasswordAuthenticationDetails>?
-    internal var passwordAuthInput: AWSCognitoIdentityPasswordAuthenticationInput?
-    
     internal var newPasswordRequiredTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityNewPasswordRequiredDetails>?
-    internal var newPasswordRequiredInput: AWSCognitoIdentityNewPasswordRequiredInput?
+    internal var customAuthChallengeTaskCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityCustomChallengeDetails>?
     
     internal var mfaAuthenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput?
-    internal var mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>?
+    internal var mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>?
     
     internal var currentSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
+    internal var currentConfirmSignInHandlerCallback: ((SignInResult?, Error?) -> Void)?
     
     var authHelperDelegate: UserPoolAuthHelperlCallbacks?
-    
+    var customAuthHandler: AWSUserPoolCustomAuthHandler?
     internal static let sharedInstance: UserPoolOperationsHandler = UserPoolOperationsHandler()
+
+    static var serviceConfiguration: CognitoServiceConfiguration? = nil
+
     
     public override init() {
         super.init()
         if (AWSInfo.default().defaultServiceInfo("CognitoUserPool") != nil) {
-            self.userpoolClient = AWSCognitoIdentityUserPool.default()
+            self.userpoolClient = self.getUserPoolClient()
             self.userpoolClient?.delegate = self
         }
+    }
+
+    private func getUserPoolClient() -> AWSCognitoIdentityUserPool {
+        
+        guard let serviceConfig = UserPoolOperationsHandler.serviceConfiguration?.userPoolServiceConfiguration else {
+            return AWSCognitoIdentityUserPool.default()
+        }
+
+        // Check if a AWSCognitoIdentityUserPool is already registered with the given key.
+        let clientKey = "CognitoUserPoolKey"
+        if let client = AWSCognitoIdentityUserPool.init(forKey: clientKey) {
+            return client
+        }
+
+        // If the AWSCognitoIdentityUserPool is not registered, register it and then return the same object.
+        let serviceInfo = AWSInfo.default().defaultServiceInfo("CognitoUserPool")
+        let userPoolConfig = AWSCognitoIdentityUserPool.buildConfiguration(serviceInfo)
+        AWSCognitoIdentityUserPool.register(with: serviceConfig,
+                                            userPoolConfiguration: userPoolConfig,
+                                            forKey: clientKey)
+        if let client =  AWSCognitoIdentityUserPool.init(forKey: clientKey) {
+            return client
+        }
+
+        /// Fall back to the default client if the client was not registered correctly.
+        return AWSCognitoIdentityUserPool.default()
     }
     
     internal func startPasswordAuthentication() -> AWSCognitoIdentityPasswordAuthentication {
@@ -80,6 +116,14 @@ internal class UserPoolOperationsHandler: NSObject, AWSCognitoIdentityInteractiv
     
     internal func setAuthHelperDelegate(authHelperDelegate: UserPoolAuthHelperlCallbacks) {
         self.authHelperDelegate = authHelperDelegate
+    }
+    
+    internal func startCustomAuthentication_v2() -> AWSCognitoIdentityCustomAuthentication {
+        if (customAuthHandler == nil) {
+            customAuthHandler = AWSUserPoolCustomAuthHandler()
+            customAuthHandler?.authHelperDelegate = authHelperDelegate
+        }
+        return customAuthHandler!
     }
 }
 
@@ -108,7 +152,8 @@ extension UserPoolOperationsHandler: AWSCognitoIdentityNewPasswordRequired {
 
 extension UserPoolOperationsHandler: AWSCognitoIdentityMultiFactorAuthentication {
     
-    public func getCode(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput, mfaCodeCompletionSource: AWSTaskCompletionSource<NSString>) {
+    public func getCode_v2(_ authenticationInput: AWSCognitoIdentityMultifactorAuthenticationInput,
+                           mfaCodeCompletionSource: AWSTaskCompletionSource<AWSCognitoIdentityMfaCodeDetails>) {
         self.mfaAuthenticationInput = authenticationInput
         self.authHelperDelegate?.getCode(authenticationInput, mfaCodeCompletionSource: mfaCodeCompletionSource)
     }

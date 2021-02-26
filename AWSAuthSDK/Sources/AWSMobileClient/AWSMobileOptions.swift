@@ -14,18 +14,35 @@ import Foundation
     @objc public let logoImage: UIImage?
     /// The background color of the sign-in screen.
     @objc public let backgroundColor: UIColor?
-    
+    /// The secondary background color. It's applied to the bottom panel of the sign-in screen.
+    @objc public let secondaryBackgroundColor: UIColor?
+    /// The view primary color used for highlighted elements (button background, links).
+    @objc public let primaryColor: UIColor?
+    /// If set to true the sign up button is hidden from the UI.
+    @objc public let disableSignUpButton: Bool
     
     /// Initializer for the drop-in UI configuration.
-    ///
-    /// - Parameters:
-    ///   - canCancel: If set to true, the end user can cancel the sign-in operation and go back to previous view controller.
-    ///   - logoImage: The logo image to be displayed on the sign-in screen.
-    ///   - backgroundColor: The background color of the sign-in screen.
-    @objc public init(canCancel: Bool = false,logoImage: UIImage? = nil, backgroundColor: UIColor? = nil) {
+    @objc public init(canCancel: Bool = false,
+                      logoImage: UIImage? = nil,
+                      backgroundColor: UIColor? = nil,
+                      secondaryBackgroundColor: UIColor? = nil,
+                      primaryColor: UIColor? = .systemBlue,
+                      disableSignUpButton: Bool = false) {
         self.canCancel = canCancel
         self.logoImage = logoImage
         self.backgroundColor = backgroundColor
+        self.secondaryBackgroundColor = secondaryBackgroundColor
+        self.primaryColor = primaryColor
+        self.disableSignUpButton = disableSignUpButton
+    }
+    
+    public override convenience init() {
+        self.init(canCancel: false,
+                  logoImage: nil,
+                  backgroundColor: nil,
+                  secondaryBackgroundColor: nil,
+                  primaryColor: .systemBlue,
+                  disableSignUpButton: false)
     }
 }
 
@@ -68,6 +85,9 @@ public struct FederatedSignInOptions {
 
 
 /// The options object for `showSignIn` API when using Hosted Auth solution like Amazon Cognito UserPools or AUth0.
+///
+/// NOTE: If specified, some of the values in this type will override the corresponding values in `awsconfiguration.json`. See
+/// the `init` method below.
 public struct HostedUIOptions {
     let scopes: [String]?
     
@@ -81,6 +101,7 @@ public struct HostedUIOptions {
     let tokenURIQueryParameters: [String: String]?
     let signOutURIQueryParameters: [String: String]?
     
+    let signInPrivateSession: Bool
     
     /// Initializer for hosted UI options.
     ///
@@ -100,7 +121,8 @@ public struct HostedUIOptions {
                 federationProviderName: String? = nil,
                 signInURIQueryParameters: [String: String]? = nil,
                 tokenURIQueryParameters: [String: String]? = nil,
-                signOutURIQueryParameters: [String: String]? = nil) {
+                signOutURIQueryParameters: [String: String]? = nil,
+                signInPrivateSession: Bool = false) {
         self.disableFederation = disableFederation
         self.scopes = scopes
         if let identityProvider = identityProvider {
@@ -118,6 +140,7 @@ public struct HostedUIOptions {
         self.signInURIQueryParameters = signInURIQueryParameters
         self.tokenURIQueryParameters = tokenURIQueryParameters
         self.signOutURIQueryParameters = signOutURIQueryParameters
+        self.signInPrivateSession = signInPrivateSession
     }
 }
 
@@ -134,6 +157,7 @@ public enum IdentityProvider: String {
     case twitter = "api.twitter.com"
     case amazon = "www.amazon.com"
     case developer = "cognito-identity.amazonaws.com"
+    case apple = "appleid.apple.com"
     
     func getHostedUIIdentityProvider() -> String? {
         switch self {
@@ -143,6 +167,8 @@ public enum IdentityProvider: String {
             return "Google"
         case .amazon:
             return "LoginWithAmazon"
+        case .apple:
+            return "SignInWithApple"
         default:
             return nil
         }

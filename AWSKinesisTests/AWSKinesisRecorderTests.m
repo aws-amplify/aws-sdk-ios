@@ -32,7 +32,7 @@ static NSString *testStreamName = nil;
 
 + (void)setUp {
     [super setUp];
-    [AWSTestUtility setupCognitoCredentialsProvider];
+    [AWSTestUtility setupSessionCredentialsProvider];
 
     NSTimeInterval timeIntervalSinceReferenceDate = [NSDate timeIntervalSinceReferenceDate];
     testStreamName = [NSString stringWithFormat:@"%@-%f", AWSKinesisRecorderTestStream, timeIntervalSinceReferenceDate];
@@ -60,7 +60,14 @@ static NSString *testStreamName = nil;
     createStreamInput.streamName = testStreamName;
     createStreamInput.shardCount = @1;
 
-    return [[kinesis createStream:createStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[kinesis createStream:createStreamInput] continueWithBlock:^id(AWSTask *task) {
+        if (task.error) {
+            @throw [NSException exceptionWithName:@"AWSKinesisRecorderTestsStreamCreationError"
+                                           reason:@"Could not create stream"
+                                         userInfo:@{
+                                             @"underlyingError": task.error
+                                         }];
+        }
         return [self waitForStreamToBeReady];
     }];
 }
@@ -71,8 +78,15 @@ static NSString *testStreamName = nil;
     AWSKinesisDescribeStreamInput *describeStreamInput = [AWSKinesisDescribeStreamInput new];
     describeStreamInput.streamName = testStreamName;
 
-    return [[kinesis describeStream:describeStreamInput] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[kinesis describeStream:describeStreamInput] continueWithBlock:^id(AWSTask *task) {
         AWSKinesisDescribeStreamOutput *describeStreamOutput = task.result;
+        if (task.error) {
+            @throw [NSException exceptionWithName:@"AWSKinesisRecorderTestsStreamCreationError"
+                                           reason:@"Could not create stream"
+                                         userInfo:@{
+                                             @"underlyingError": task.error
+                                         }];
+        }
         if (describeStreamOutput.streamDescription.streamStatus != AWSKinesisStreamStatusActive) {
             sleep(10);
             return [self waitForStreamToBeReady];

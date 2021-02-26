@@ -18,17 +18,22 @@
 
 #import <Foundation/Foundation.h>
 
+NS_ASSUME_NONNULL_BEGIN
+
 /**
   Extension protocol for NSCopying that adds the copy method, which is implemented on NSObject.
 
  NSObject<NSCopying> implicitly conforms to this protocol.
  */
+NS_SWIFT_NAME(Copying)
 @protocol FBSDKCopying <NSCopying, NSObject>
 
 /**
   Implemented by NSObject as a convenience to copyWithZone:.
- - Returns: A copy of the receiver.
+ @return A copy of the receiver.
  */
 - (id)copy;
 
 @end
+
+NS_ASSUME_NONNULL_END

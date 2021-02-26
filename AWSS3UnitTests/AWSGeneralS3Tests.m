@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -614,6 +614,53 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSS3 S3ForKey:key] deleteBucketMetricsConfiguration:[AWSS3DeleteBucketMetricsConfigurationRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testDeleteBucketOwnershipControls {
+    NSString *key = @"testDeleteBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSS3 S3ForKey:key] deleteBucketOwnershipControls:[AWSS3DeleteBucketOwnershipControlsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testDeleteBucketOwnershipControlsCompletionHandler {
+    NSString *key = @"testDeleteBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSS3 S3ForKey:key] deleteBucketOwnershipControls:[AWSS3DeleteBucketOwnershipControlsRequest new] completionHandler:^(NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1616,6 +1663,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSS3 S3ForKey:key] getBucketNotificationConfiguration:[AWSS3GetBucketNotificationConfigurationRequest new] completionHandler:^(AWSS3NotificationConfiguration* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testGetBucketOwnershipControls {
+    NSString *key = @"testGetBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSS3 S3ForKey:key] getBucketOwnershipControls:[AWSS3GetBucketOwnershipControlsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testGetBucketOwnershipControlsCompletionHandler {
+    NSString *key = @"testGetBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSS3 S3ForKey:key] getBucketOwnershipControls:[AWSS3GetBucketOwnershipControlsRequest new] completionHandler:^(AWSS3GetBucketOwnershipControlsOutput* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -3428,6 +3523,53 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSS3 S3ForKey:key] putBucketNotificationConfiguration:[AWSS3PutBucketNotificationConfigurationRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testPutBucketOwnershipControls {
+    NSString *key = @"testPutBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSS3 S3ForKey:key] putBucketOwnershipControls:[AWSS3PutBucketOwnershipControlsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSS3 removeS3ForKey:key];
+}
+
+- (void)testPutBucketOwnershipControlsCompletionHandler {
+    NSString *key = @"testPutBucketOwnershipControls";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSS3 registerS3WithConfiguration:configuration forKey:key];
+
+    AWSS3 *awsClient = [AWSS3 S3ForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSS3 S3ForKey:key] putBucketOwnershipControls:[AWSS3PutBucketOwnershipControlsRequest new] completionHandler:^(NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

@@ -16,12 +16,12 @@
 #import "AWSS3TransferUtility.h"
 #import "AWSS3PreSignedURL.h"
 #import "AWSS3Service.h"
-#import "AWSXMLDictionary.h"
 #import "AWSS3TransferUtilityDatabaseHelper.h"
 #import "AWSS3TransferUtilityTasks.h"
 
 #import <AWSCore/AWSFMDB.h>
 #import <AWSCore/AWSSynchronizedMutableDictionary.h>
+#import <AWSCore/AWSXMLDictionary.h>
 
 #include <stdio.h>
 
@@ -107,7 +107,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property BOOL cancelled;
 @property BOOL temporaryFileCreated;
 @property NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *waitingPartsDictionary;
-@property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *completedPartsDictionary;
+@property (strong, nonatomic) NSMutableSet <AWSS3TransferUtilityUploadSubTask *> *completedPartsSet;
 @property (strong, nonatomic) NSMutableDictionary <NSNumber *, AWSS3TransferUtilityUploadSubTask *> *inProgressPartsDictionary;
 @property int retryCount;
 @property int partNumber;
@@ -260,8 +260,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoS3TransferUtility];
        
         if (serviceInfo) {
+            NSNumber *localTestingEnabled = [serviceInfo.infoDictionary valueForKey:@"DangerouslyConnectToHTTPEndpointForTesting"];
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider];
+                                                                       serviceType:AWSServiceS3
+                                                               credentialsProvider:serviceInfo.cognitoCredentialsProvider
+                                                               localTestingEnabled:[localTestingEnabled boolValue]];
             NSNumber *accelerateModeEnabled = [serviceInfo.infoDictionary valueForKey:@"AccelerateModeEnabled"];
             NSString *bucketName = [serviceInfo.infoDictionary valueForKey:@"Bucket"];
             transferUtilityConfiguration.bucket = bucketName;
@@ -320,9 +323,13 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     AWSS3TransferUtility *s3TransferUtility = [[AWSS3TransferUtility alloc] initWithConfiguration:configuration
                                                                      transferUtilityConfiguration:transferUtilityConfiguration
                                                                                        identifier:[NSString stringWithFormat:@"%@.%@", AWSS3TransferUtilityDefaultIdentifier, key]
-                                                                                completionHandler: completionHandler];
-    [_serviceClients setObject:s3TransferUtility
-                        forKey:key];
+                                                                                     recoverState:NO
+                                                                                completionHandler:completionHandler];
+    if (s3TransferUtility) {
+        [_serviceClients setObject:s3TransferUtility
+                            forKey:key];
+        [s3TransferUtility recover:completionHandler];
+    }
 }
 
 + (instancetype)S3TransferUtilityForKey:(NSString *)key {
@@ -386,6 +393,17 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
          transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
                            identifier:(NSString *)identifier
+                    completionHandler:(void (^)(NSError *_Nullable error)) completionHandler {
+    return [self initWithConfiguration:serviceConfiguration
+          transferUtilityConfiguration:transferUtilityConfiguration identifier:identifier
+                          recoverState:YES
+                     completionHandler:completionHandler];
+}
+
+- (instancetype)initWithConfiguration:(AWSServiceConfiguration *)serviceConfiguration
+         transferUtilityConfiguration:(AWSS3TransferUtilityConfiguration *)transferUtilityConfiguration
+                           identifier:(NSString *)identifier
+                         recoverState:(BOOL)recoverState
                     completionHandler: (void (^)(NSError *_Nullable error)) completionHandler{
     if (self = [super init]) {
         
@@ -468,9 +486,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         
         //Instantiate the Database Helper
         self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:_cacheDirectoryPath];
-        
-        //Recover the state from the previous time this was instantiated
-        [self recover:completionHandler];
+
+        if (recoverState) {
+            //Recover the state from the previous time this was instantiated
+            [self recover:completionHandler];
+        }
     }
     return self;
 }
@@ -562,7 +582,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             }
             //Check if the subTask is is already completed. If it is, add it to the completed parts list, update the progress object and go to the next iteration of the loop
             if (subTask.status== AWSS3TransferUtilityTransferStatusCompleted ) {
-                [multiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(sessionTaskID)];
+                [multiPartUploadTask.completedPartsSet addObject:subTask];
                 continue;
             }
             
@@ -1034,8 +1054,30 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return [self createUploadTask:transferUtilityUploadTask startTransfer:YES];
 }
 
+- (NSURLSessionUploadTask *)getURLSessionUploadTaskWithRequest:(NSURLRequest *) request
+                                                      fromFile:(NSURL *) fileURL
+                                                         error:(NSError **) errorPtr {
+    @try {
+        return [self.session uploadTaskWithRequest:request
+                                          fromFile:fileURL];
+    } @catch (NSException *exception) {
+        AWSDDLogWarn(@"Exception in upload task %@", exception.debugDescription);
+        NSString *exceptionReason = [exception.reason copy];
+        NSString *errorMessage = [NSString stringWithFormat:@"Exception from upload task."];
+        NSDictionary *userInfo = [NSDictionary dictionaryWithObjectsAndKeys:
+                                  errorMessage, @"Message",
+                                  exceptionReason, @"Reason", nil];
+        if (errorPtr != NULL) {
+            *errorPtr = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                            code:AWSS3TransferUtilityErrorUnknown
+                                        userInfo:userInfo];
+        }
+    }
+    return nil;
+}
 
--(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask: (AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask startTransfer:(BOOL) startTransfer {
+-(AWSTask<AWSS3TransferUtilityUploadTask *> *) createUploadTask:(AWSS3TransferUtilityUploadTask *) transferUtilityUploadTask
+                                                  startTransfer:(BOOL) startTransfer {
     //Create PreSigned URL Request
     AWSS3GetPreSignedURLRequest *getPreSignedURLRequest = [AWSS3GetPreSignedURLRequest new];
     getPreSignedURLRequest.bucket = transferUtilityUploadTask.bucket;
@@ -1067,9 +1109,15 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
             [request setValue: transferUtilityUploadTask.expression.requestHeaders[key] forHTTPHeaderField:key];
         }
         AWSDDLogDebug(@"Request headers:\n%@", request.allHTTPHeaderFields);
-        
-        NSURLSessionUploadTask *uploadTask = [self.session uploadTaskWithRequest:request
-                                                                        fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]];
+        NSURLSessionUploadTask *uploadTask = [self getURLSessionUploadTaskWithRequest:request
+                                                                                  fromFile:[NSURL fileURLWithPath:transferUtilityUploadTask.file]
+                                                                                     error:&error];
+
+        if (uploadTask == nil) {
+            AWSDDLogError(@"Error: %@", error);
+            return [AWSTask taskWithError:error];
+        }
+
         transferUtilityUploadTask.sessionTask = uploadTask;
         if ( startTransfer) {
             transferUtilityUploadTask.status = AWSS3TransferUtilityTransferStatusInProgress;
@@ -1458,10 +1506,10 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                    startTransfer: (BOOL) startTransfer
        internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAddSubTaskTo
 {
+    __block NSError *error = nil;
     //Create a temporary part file if required.
     if (!(subTask.file || [subTask.file isEqualToString:@""]) || ![[NSFileManager defaultManager] fileExistsAtPath:subTask.file]) {
         //Create a temporary file for this part.
-        NSError *error = nil;
         NSString * partFileName = [self createTemporaryFileForPart:transferUtilityMultiPartUploadTask.file partNumber:[subTask.partNumber integerValue] dataLength:subTask.totalBytesExpectedToSend error:&error];
         if (partFileName == nil)  {
             //Unable to create partFile. Send back error object to indicate that createUploadSubtask failed.
@@ -1485,8 +1533,13 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                       URLRequest:nil];
     
     [transferUtilityMultiPartUploadTask.expression assignRequestParameters:request];
-   
-    [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithSuccessBlock:^id(AWSTask *task) {
+
+    [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
+        error = task.error;
+        if ( error ) {
+            return nil;
+        }
+
         NSURL *presignedURL = task.result;
         NSMutableURLRequest * urlRequest = [NSMutableURLRequest requestWithURL:presignedURL];
          urlRequest.cachePolicy = NSURLRequestReloadIgnoringLocalCacheData;
@@ -1494,8 +1547,15 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
         [self filterAndAssignHeaders:transferUtilityMultiPartUploadTask.expression.requestHeaders
               getPresignedURLRequest:nil URLRequest: urlRequest];
         [ urlRequest setValue:[self.configuration.userAgent stringByAppendingString:@" MultiPart"] forHTTPHeaderField:@"User-Agent"];
-        NSURLSessionUploadTask *nsURLUploadTask = [self->_session uploadTaskWithRequest:urlRequest
-                                                                         fromFile:[NSURL fileURLWithPath:subTask.file]];
+        NSURLSessionUploadTask *nsURLUploadTask = [self getURLSessionUploadTaskWithRequest:urlRequest
+                                                                                  fromFile:[NSURL fileURLWithPath:subTask.file]
+                                                                                     error:&error];
+
+        if (nsURLUploadTask == nil) {
+            AWSDDLogError(@"Error: %@", error);
+            return nil;
+        }
+
         //Create subtask to track this upload
         subTask.sessionTask = nsURLUploadTask;
         subTask.taskIdentifier = nsURLUploadTask.taskIdentifier;
@@ -1520,10 +1580,15 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                                                                status:subTask.status
                                                           retry_count:transferUtilityMultiPartUploadTask.retryCount
                                                         databaseQueue:self.databaseQueue];
+
+        if (startTransfer) {
+            AWSDDLogDebug(@"[CreateUploadSubTask] startTransfer is true, Starting subTask %@", @(subTask.taskIdentifier));
+            [subTask.sessionTask resume];
+        }
        
         return nil;
     }] waitUntilFinished];
-    return nil;
+    return error;
 }
 
 -(void) retryUploadSubTask: (AWSS3TransferUtilityMultiPartUploadTask *) transferUtilityMultiPartUploadTask
@@ -1876,17 +1941,16 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
 
 - (AWSTask *)callFinishMultiPartForUploadTask:(AWSS3TransferUtilityMultiPartUploadTask *)uploadTask {
     
-    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:[uploadTask.completedPartsDictionary count]];
+    NSMutableArray *completedParts = [NSMutableArray arrayWithCapacity:[uploadTask.completedPartsSet count]];
     NSMutableDictionary *tempDictionary = [NSMutableDictionary new];
     
     //Create a new Dictionary with the partNumber as the Key
-    for(id key in uploadTask.completedPartsDictionary) {
-        AWSS3TransferUtilityUploadSubTask *subTask = [uploadTask.completedPartsDictionary objectForKey:key];
+    for(AWSS3TransferUtilityUploadSubTask *subTask in uploadTask.completedPartsSet) {
         [tempDictionary setObject:subTask forKey:subTask.partNumber];
     }
     
     //Compose the request.
-    for(int i = 1; i <= [uploadTask.completedPartsDictionary count]; i++) {
+    for(int i = 1; i <= [tempDictionary count]; i++) {
         AWSS3TransferUtilityUploadSubTask *subTask = [tempDictionary objectForKey: [NSNumber numberWithInt:i]];
         AWSS3CompletedPart *completedPart = [AWSS3CompletedPart new];
         completedPart.partNumber = subTask.partNumber;
@@ -2143,7 +2207,12 @@ didCompleteWithError:(NSError *)error {
                     AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.inProgressPartsDictionary objectForKey:key];
                     [subTask.sessionTask cancel];
                 }
-                
+
+                for (NSNumber *key in [transferUtilityMultiPartUploadTask.waitingPartsDictionary allKeys]) {
+                    AWSS3TransferUtilityUploadSubTask *subTask = [transferUtilityMultiPartUploadTask.waitingPartsDictionary objectForKey:key];
+                    [subTask.sessionTask cancel];
+                }
+
                 //Abort the request, so the server can clean up any partials.
                 [self callAbortMultiPartForUploadTask:transferUtilityMultiPartUploadTask];
                 
@@ -2156,7 +2225,7 @@ didCompleteWithError:(NSError *)error {
             subTask.eTag = (NSString *) HTTPResponse.allHeaderFields[@"ETAG"];
             
             //Add it to completed parts and remove it from remaining parts.
-            [transferUtilityMultiPartUploadTask.completedPartsDictionary setObject:subTask forKey:@(subTask.taskIdentifier)];
+            [transferUtilityMultiPartUploadTask.completedPartsSet addObject:subTask];
             [transferUtilityMultiPartUploadTask.inProgressPartsDictionary removeObjectForKey:@(subTask.taskIdentifier)];
             //Update progress
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = transferUtilityMultiPartUploadTask.progress.completedUnitCount - subTask.totalBytesSent + subTask.totalBytesExpectedToSend;
@@ -2199,14 +2268,14 @@ didCompleteWithError:(NSError *)error {
                 
                 //Validate that all the content has been uploaded.
                 int64_t totalBytesSent = 0;
-                for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.completedPartsDictionary allValues]) {
+                for (AWSS3TransferUtilityUploadSubTask *aSubTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
                     totalBytesSent += aSubTask.totalBytesExpectedToSend;
                 }
                 
-                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.intValue ) {
+                if (totalBytesSent != transferUtilityMultiPartUploadTask.contentLength.longLongValue ) {
                     NSString *errorMessage = [NSString stringWithFormat:@"Expected to send [%@], but sent [%@] and there are no remaining parts. Failing transfer ",
                                               transferUtilityMultiPartUploadTask.contentLength, @(totalBytesSent)];
-                    
+                    AWSDDLogDebug(@"%@", errorMessage);
                     NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
                                                                          forKey:@"Message"];
                     
@@ -2344,8 +2413,8 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
         if (transferUtilityUploadTask.progress.totalUnitCount != totalBytesExpectedToSend) {
             transferUtilityUploadTask.progress.totalUnitCount = totalBytesExpectedToSend;
         }
-     
-        if (transferUtilityUploadTask.progress.completedUnitCount < totalBytesSent) {
+
+        if (transferUtilityUploadTask.progress.completedUnitCount != totalBytesSent) {
             transferUtilityUploadTask.progress.completedUnitCount = totalBytesSent;
             
             if (transferUtilityUploadTask.expression.progressBlock) {
@@ -2363,14 +2432,19 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
     
         //Calculate the total sent so far
         int64_t totalSentSoFar = 0;
-        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.completedPartsDictionary allValues]) {
+        //Create a new Dictionary with the partNumber as the Key
+        NSMutableDictionary *completedPartsByPartNumber = [NSMutableDictionary new];
+        for(AWSS3TransferUtilityUploadSubTask *subTask in transferUtilityMultiPartUploadTask.completedPartsSet) {
+            [completedPartsByPartNumber setObject:subTask forKey:subTask.partNumber];
+        }
+        for (AWSS3TransferUtilityUploadSubTask *aSubTask in [completedPartsByPartNumber allValues]) {
             totalSentSoFar += aSubTask.totalBytesExpectedToSend;
         }
         for (AWSS3TransferUtilityUploadSubTask *aSubTask in [transferUtilityMultiPartUploadTask.inProgressPartsDictionary allValues]) {
             totalSentSoFar += aSubTask.totalBytesSent;
         }
      
-        if (transferUtilityMultiPartUploadTask.progress.completedUnitCount < totalSentSoFar ) {
+        if (transferUtilityMultiPartUploadTask.progress.completedUnitCount != totalSentSoFar ) {
             transferUtilityMultiPartUploadTask.progress.totalUnitCount = [transferUtilityMultiPartUploadTask.contentLength longLongValue];
             transferUtilityMultiPartUploadTask.progress.completedUnitCount = totalSentSoFar;
         

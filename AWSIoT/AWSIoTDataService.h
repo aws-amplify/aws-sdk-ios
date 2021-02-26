@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 
 /**
- <fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete thing shadows. A thing shadow is a persistent representation of your things and their state in the AWS cloud.</p>
+ <fullname>AWS IoT</fullname><p>AWS IoT-Data enables secure, bi-directional communication between Internet-connected things (such as sensors, actuators, embedded devices, or smart appliances) and the AWS cloud. It implements a broker for applications and things to publish messages over HTTP (Publish) and retrieve, update, and delete shadows. A shadow is a persistent representation of your things and their state in the AWS cloud.</p><p>Find the endpoint address for actions in the AWS IoT data plane by running this CLI command:</p><p><code>aws iot describe-endpoint --endpoint-type iot:Data-ATS</code></p><p>The service name used by <a href="https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html">AWS Signature Version 4</a> to sign requests is: <i>iotdevicegateway</i>.</p>
  */
 @interface AWSIoTData : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 + (void)removeIoTDataForKey:(NSString *)key;
 
 /**
- <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Deletes the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingShadow service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask<AWSIoTDataDeleteThingShadowResponse *> *)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request;
 
 /**
- <p>Deletes the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Deletes the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_DeleteThingShadow.html">DeleteThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the DeleteThingShadow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)deleteThingShadow:(AWSIoTDataDeleteThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataDeleteThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Gets the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the GetThingShadow service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask<AWSIoTDataGetThingShadowResponse *> *)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request;
 
 /**
- <p>Gets the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Gets the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_GetThingShadow.html">GetThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the GetThingShadow service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -225,7 +225,32 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)getThingShadow:(AWSIoTDataGetThingShadowRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataGetThingShadowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Lists the shadows for the specified thing.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListNamedShadowsForThing service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDataListNamedShadowsForThingResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`.
+ 
+ @see AWSIoTDataListNamedShadowsForThingRequest
+ @see AWSIoTDataListNamedShadowsForThingResponse
+ */
+- (AWSTask<AWSIoTDataListNamedShadowsForThingResponse *> *)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request;
+
+/**
+ <p>Lists the shadows for the specified thing.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListNamedShadowsForThing service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTDataErrorDomain` domain and the following error code: `AWSIoTDataErrorResourceNotFound`, `AWSIoTDataErrorInvalidRequest`, `AWSIoTDataErrorThrottling`, `AWSIoTDataErrorUnauthorized`, `AWSIoTDataErrorServiceUnavailable`, `AWSIoTDataErrorInternalFailure`, `AWSIoTDataErrorMethodNotAllowed`.
+ 
+ @see AWSIoTDataListNamedShadowsForThingRequest
+ @see AWSIoTDataListNamedShadowsForThingResponse
+ */
+- (void)listNamedShadowsForThing:(AWSIoTDataListNamedShadowsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDataListNamedShadowsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -236,7 +261,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask *)publish:(AWSIoTDataPublishRequest *)request;
 
 /**
- <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Publishes state information.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/protocols.html#http">HTTP Protocol</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -247,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (void)publish:(AWSIoTDataPublishRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Updates the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingShadow service method.
 
@@ -259,7 +284,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTDataSDKVersion;
 - (AWSTask<AWSIoTDataUpdateThingShadowResponse *> *)updateThingShadow:(AWSIoTDataUpdateThingShadowRequest *)request;
 
 /**
- <p>Updates the thing shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the <i>AWS IoT Developer Guide</i>.</p>
+ <p>Updates the shadow for the specified thing.</p><p>For more information, see <a href="http://docs.aws.amazon.com/iot/latest/developerguide/API_UpdateThingShadow.html">UpdateThingShadow</a> in the AWS IoT Developer Guide.</p>
  
  @param request A container for the necessary parameters to execute the UpdateThingShadow service method.
  @param completionHandler The completion handler to call when the load request is complete.

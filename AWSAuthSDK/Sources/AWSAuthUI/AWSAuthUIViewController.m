@@ -36,29 +36,41 @@ typedef void(^AWSAuthUIExtendedCompletionHandler)(NSString * _Nullable signInPro
 static NSString *const AWSInfoCognitoUserPoolIdentifier = @"CognitoUserPool";
 static NSString *const AWSInfoFacebookIdentifier = @"FacebookSignIn";
 static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
+static NSString *const AWSInfoAppleIdentifier = @"AppleSignIn";
 
 #pragma mark PresentViewController methods
 
 // new signIn screen which allows optional federation
 + (void)presentViewControllerWithConfig:(NSMutableDictionary<NSString *, id> *)configDictionary
-                                    completionHandler:(AWSAuthUIExtendedCompletionHandler)completionHandler {
+                      completionHandler:(AWSAuthUIExtendedCompletionHandler)completionHandler {
     
     UINavigationController *navigationController = (UINavigationController *)configDictionary[@"navigationController"];
     AWSAuthUIConfiguration *config = [AWSAuthUIViewController getDefaultAuthUIConfiguration];
     if(configDictionary[@"canCancel"]) {
         NSString *canCancelValue = (NSString *)configDictionary[@"canCancel"];
-        if ([canCancelValue isEqual: @"YES"]) {
-            [config setCanCancel:true];
-        } else {
-            [config setCanCancel:false];
-        }
-        
+        [config setCanCancel:[canCancelValue isEqual: @"YES"]];
     }
-    if(configDictionary[@"logoImage"]) {
+    if (configDictionary[@"logoImage"]) {
         [config setLogoImage:(UIImage *)configDictionary[@"logoImage"]];
     }
-    if(configDictionary[@"backgroundColor"]) {
+    if (configDictionary[@"backgroundColor"]) {
         [config setBackgroundColor:(UIColor *)configDictionary[@"backgroundColor"]];
+    }
+
+    if(configDictionary[@"disableSignUpButton"]) {
+        NSString *disableSignUpButtonValue = (NSString *)configDictionary[@"disableSignUpButton"];
+        if ([disableSignUpButtonValue isEqual: @"YES"]) {
+            [config setDisableSignUpButton:true];
+        } else {
+            [config setDisableSignUpButton:false];
+        }
+    }
+
+    if (configDictionary[@"secondaryBackgroundColor"]) {
+        [config setSecondaryBackgroundColor:(UIColor *)configDictionary[@"secondaryBackgroundColor"]];
+    }
+    if (configDictionary[@"primaryColor"]) {
+        [config setPrimaryColor:(UIColor *)configDictionary[@"primaryColor"]];
     }
     
     [[AWSSignInManager sharedInstance] setDontFederate];
@@ -73,6 +85,9 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
         [loginController createInternalCompletionHandler];
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+
+        navController.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [navigationController presentViewController:navController
                                            animated:YES
                                          completion:nil];
@@ -96,6 +111,9 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
         loginController.completionHandler = completionHandler;
         
         UINavigationController *navController = [[UINavigationController alloc] initWithRootViewController:loginController];
+
+        navController.modalPresentationStyle = UIModalPresentationFullScreen;
+
         [navigationController presentViewController:navController
                                            animated:YES
                                          completion:nil];
@@ -107,7 +125,21 @@ static NSString *const AWSInfoGoogleIdentifier = @"GoogleSignIn";
 + (AWSAuthUIConfiguration *)getDefaultAuthUIConfiguration {
     
     AWSAuthUIConfiguration *authUIConfig = [[AWSAuthUIConfiguration alloc] init];
-    
+
+    if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoAppleIdentifier]) {
+        Class appleClass = NSClassFromString(@"AWSAppleSignInButton");
+        if (appleClass) {
+            if (@available(iOS 13, *)) {
+                [authUIConfig addAWSSignInButtonViewClass:appleClass];
+            } else {
+                AWSDDLogWarn(@"Found Sign in with Apple configuration but the SDK only supports Sign in with Apple for iOS 13+");
+            }
+        } else {
+            AWSDDLogWarn(@"Found Apple Sign In configuration in awsconfiguration.json but could not find dependencies. Skipping rendering in AuthUI");
+        }
+
+    }
+
     if ([AWSAuthUIViewController isConfigurationKeyPresent:AWSInfoCognitoUserPoolIdentifier]) {
         Class userpoolClass = NSClassFromString(@"AWSCognitoUserPoolsSignInProvider");
         if (userpoolClass) {

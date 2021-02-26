@@ -21,7 +21,7 @@
 #import "AWSCocoaLumberjack.h"
 #import "AWSCategory.h"
 
-NSString *const AWSiOSSDKVersion = @"2.9.8";
+NSString *const AWSiOSSDKVersion = @"2.23.0";
 NSString *const AWSServiceErrorDomain = @"com.amazonaws.AWSServiceErrorDomain";
 
 static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
@@ -107,7 +107,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 @property (nonatomic, strong) id<AWSCredentialsProvider> credentialsProvider;
 @property (nonatomic, strong) AWSEndpoint *endpoint;
 @property (nonatomic, strong) NSArray *userAgentProductTokens;
-
+@property (nonatomic, assign) BOOL localTestingEnabled;
 @end
 
 @implementation AWSServiceConfiguration
@@ -119,10 +119,27 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
+                   serviceType:(AWSServiceType)serviceType
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+           localTestingEnabled:(BOOL)localTestingEnabled {
+    if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
+        _localTestingEnabled = localTestingEnabled;
+        if(localTestingEnabled) {
+            _endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:regionType
+                                                                 service:serviceType
+                                                            useUnsafeURL:YES];
+        }
+    }
+    
+    return self;
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     if (self = [super init]) {
         _regionType = regionType;
         _credentialsProvider = credentialsProvider;
+        _localTestingEnabled = NO;
     }
 
     return self;
@@ -130,7 +147,7 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
                       endpoint:(AWSEndpoint *)endpoint
-           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider{
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
     if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
         _endpoint = endpoint;
     }
@@ -209,7 +226,7 @@ static NSMutableArray *_globalUserAgentPrefixes = nil;
     configuration.credentialsProvider = self.credentialsProvider;
     configuration.userAgentProductTokens = self.userAgentProductTokens;
     configuration.endpoint = self.endpoint;
-    
+    configuration.localTestingEnabled = self.localTestingEnabled;
     return configuration;
 }
 
@@ -238,6 +255,9 @@ static NSString *const AWSRegionNameCNNorthWest1 = @"cn-northwest-1";
 static NSString *const AWSRegionNameCACentral1 = @"ca-central-1";
 static NSString *const AWSRegionNameUSGovWest1 = @"us-gov-west-1";
 static NSString *const AWSRegionNameUSGovEast1 = @"us-gov-east-1";
+static NSString *const AWSRegionNameMESouth1 = @"me-south-1";
+static NSString *const AWSRegionNameAFSouth1 = @"af-south-1";
+static NSString *const AWSRegionNameEUSouth1 = @"eu-south-1";
 
 static NSString *const AWSServiceNameAPIGateway = @"execute-api";
 static NSString *const AWSServiceNameAutoScaling = @"autoscaling";
@@ -245,33 +265,40 @@ static NSString *const AWSServiceNameCloudWatch = @"monitoring";
 static NSString *const AWSServiceNameCognitoIdentity = @"cognito-identity";
 static NSString *const AWSServiceNameCognitoIdentityProvider = @"cognito-idp";
 static NSString *const AWSServiceNameCognitoSync = @"cognito-sync";
+static NSString *const AWSServiceNameComprehend = @"comprehend";
+static NSString *const AWSServiceNameConnect = @"connect";
+static NSString *const AWSServiceNameConnectParticipant = @"connectparticipant";
 static NSString *const AWSServiceNameDynamoDB = @"dynamodb";
 static NSString *const AWSServiceNameEC2 = @"ec2";
 static NSString *const AWSServiceNameElasticLoadBalancing = @"elasticloadbalancing";
+static NSString *const AWSServiceNameFirehose = @"firehose";
 static NSString *const AWSServiceNameIoT = @"execute-api";
 static NSString *const AWSServiceNameIoTData = @"iotdata";
-static NSString *const AWSServiceNameFirehose = @"firehose";
-static NSString *const AWSServiceNameKinesis = @"kinesis";
 static NSString *const AWSServiceNameKMS = @"kms";
+static NSString *const AWSServiceNameKinesis = @"kinesis";
+static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameKinesisVideoSignaling = @"kinesisvideo";
 static NSString *const AWSServiceNameLambda = @"lambda";
 static NSString *const AWSServiceNameLexRuntime = @"runtime.lex";
 static NSString *const AWSServiceNameLogs = @"logs";
 static NSString *const AWSServiceNameMachineLearning = @"machinelearning";
 static NSString *const AWSServiceNameMobileAnalytics = @"mobileanalytics";
-static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameMobileTargeting = @"mobiletargeting";
+static NSString *const AWSServiceNamePolly = @"polly";
 static NSString *const AWSServiceNameRekognition = @"rekognition";
 static NSString *const AWSServiceNameS3 = @"s3";
 static NSString *const AWSServiceNameSES = @"email";
-static NSString *const AWSServiceNameSimpleDB = @"sdb";
 static NSString *const AWSServiceNameSNS = @"sns";
 static NSString *const AWSServiceNameSQS = @"sqs";
 static NSString *const AWSServiceNameSTS = @"sts";
+static NSString *const AWSServiceNameSageMakerRuntime = @"sagemaker";
+static NSString *const AWSServiceNameSimpleDB = @"sdb";
+static NSString *const AWSServiceNameTextract = @"textract";
 static NSString *const AWSServiceNameTranscribe = @"transcribe";
+static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
 static NSString *const AWSServiceNameTranslate = @"translate";
-static NSString *const AWSServiceNameComprehend = @"comprehend";
-static NSString *const AWSServiceNameKinesisVideo = @"kinesisvideo";
-static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo";
+static NSString *const AWSServiceNameLocation = @"location";
 
 @interface AWSEndpoint()
 
@@ -285,6 +312,36 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:@"`- init` is not a valid initializer. Use `- initWithRegion:service:useUnsafeURL:` instead."
                                  userInfo:nil];
+}
+
+- (instancetype)initLocalEndpointWithRegion:(AWSRegionType)regionType
+                                    service:(AWSServiceType)serviceType
+                               useUnsafeURL:(BOOL)useUnsafeURL {
+    if (self = [super init]) {
+        _regionType = regionType;
+        _serviceType = serviceType;
+        _useUnsafeURL = useUnsafeURL;
+        _regionName = [AWSEndpoint regionNameFromType:regionType];
+        if (!_regionName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid region type."
+                                         userInfo:nil];
+        }
+        _serviceName = [self serviceNameFromType:serviceType];
+        if (!_serviceName) {
+            @throw [NSException exceptionWithName:NSInternalInconsistencyException
+                                           reason:@"Invalid service type."
+                                         userInfo:nil];
+        }
+        NSNumber *portNumber = [self portNumberForService:serviceType
+                                       isLocalTestingPort:YES];
+        _URL = [self localTestingURLForService:serviceType
+                                          port:portNumber
+                                  useUnsafeURL:useUnsafeURL];
+        _hostName = [_URL host];
+        
+    }
+    return self;
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
@@ -417,6 +474,12 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSRegionNameEUNorth1;
         case AWSRegionAPEast1:
             return AWSRegionNameAPEast1;
+        case AWSRegionMESouth1:
+            return AWSRegionNameMESouth1;
+        case AWSRegionAFSouth1:
+            return AWSRegionNameAFSouth1;
+        case AWSRegionEUSouth1:
+            return AWSRegionNameEUSouth1;
         default:
             return nil;
     }
@@ -436,22 +499,34 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSServiceNameCognitoIdentityProvider;
         case AWSServiceCognitoSync:
             return AWSServiceNameCognitoSync;
+        case AWSServiceComprehend:
+            return AWSServiceNameComprehend;
+        case AWSServiceConnect:
+            return AWSServiceNameConnect;
+        case AWSServiceConnectParticipant:
+            return AWSServiceNameConnectParticipant;
         case AWSServiceDynamoDB:
             return AWSServiceNameDynamoDB;
         case AWSServiceEC2:
             return AWSServiceNameEC2;
         case AWSServiceElasticLoadBalancing:
             return AWSServiceNameElasticLoadBalancing;
+        case AWSServiceFirehose:
+            return AWSServiceNameFirehose;
         case AWSServiceIoT:
             return AWSServiceNameIoT;
         case AWSServiceIoTData:
             return AWSServiceNameIoTData;
-        case AWSServiceFirehose:
-            return AWSServiceNameFirehose;
-        case AWSServiceKinesis:
-            return AWSServiceNameKinesis;
         case AWSServiceKMS:
             return AWSServiceNameKMS;
+        case AWSServiceKinesis:
+            return AWSServiceNameKinesis;
+        case AWSServiceKinesisVideo:
+            return AWSServiceNameKinesisVideo;
+        case AWSServiceKinesisVideoArchivedMedia:
+            return AWSServiceNameKinesisVideoArchivedMedia;
+        case AWSServiceKinesisVideoSignaling:
+            return AWSServiceNameKinesisVideoSignaling;
         case AWSServiceLambda:
             return AWSServiceNameLambda;
         case AWSServiceLexRuntime:
@@ -462,37 +537,70 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             return AWSServiceNameMachineLearning;
         case AWSServiceMobileAnalytics:
             return AWSServiceNameMobileAnalytics;
-        case AWSServicePolly:
-            return AWSServiceNamePolly;
         case AWSServiceMobileTargeting:
             return AWSServiceNameMobileTargeting;
+        case AWSServicePolly:
+            return AWSServiceNamePolly;
         case AWSServiceRekognition:
             return AWSServiceNameRekognition;
         case AWSServiceS3:
             return AWSServiceNameS3;
         case AWSServiceSES:
             return AWSServiceNameSES;
-        case AWSServiceSimpleDB:
-            return AWSServiceNameSimpleDB;
         case AWSServiceSNS:
             return AWSServiceNameSNS;
         case AWSServiceSQS:
             return AWSServiceNameSQS;
         case AWSServiceSTS:
             return AWSServiceNameSTS;
+        case AWSServiceSageMakerRuntime:
+            return AWSServiceNameSageMakerRuntime;
+        case AWSServiceSimpleDB:
+            return AWSServiceNameSimpleDB;
+        case AWSServiceTextract:
+            return AWSServiceNameTextract;
         case AWSServiceTranscribe:
             return AWSServiceNameTranscribe;
+        case AWSServiceTranscribeStreaming:
+            return AWSServiceNameTranscribeStreaming;
         case AWSServiceTranslate:
             return AWSServiceNameTranslate;
-        case AWSServiceComprehend:
-            return AWSServiceNameComprehend;
-        case AWSServiceKinesisVideo:
-            return AWSServiceNameKinesisVideo;
-        case AWSServiceKinesisVideoArchivedMedia:
-            return AWSServiceNameKinesisVideoArchivedMedia;
+        case AWSServiceLocation:
+            return AWSServiceNameLocation;
         default:
             return nil;
     }
+}
+
+- (NSNumber *)portNumber {
+    if (_URL != nil) {
+        return _URL.port;
+    }
+    return nil;
+}
+
+- (NSNumber *)portNumberForService:(AWSServiceType)serviceType
+                isLocalTestingPort:(BOOL)isLocalTestingPort {
+    if (isLocalTestingPort) {
+        if (serviceType == AWSServiceS3) {
+            return [NSNumber numberWithInteger:20005];
+        }
+    }
+    return nil;
+}
+
+- (NSURL *)localTestingURLForService:(AWSServiceType)serviceType
+                                port:(NSNumber *)portNumber
+                        useUnsafeURL:(BOOL)useUnsafeURL {
+    NSURL *URL = nil;
+    NSString *HTTPType = @"https";
+    if (useUnsafeURL) {
+        HTTPType = @"http";
+    }
+    if (serviceType == AWSServiceS3) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://localhost:%@/", HTTPType, portNumber.stringValue]];
+    }
+    return URL;
 }
 
 - (NSURL *)URLWithRegion:(AWSRegionType)regionType
@@ -502,31 +610,12 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
             useUnsafeURL:(BOOL)useUnsafeURL {
     NSURL *URL = nil;
 
-    NSString *separator = @".";
-    if (serviceType == AWSServiceS3
-        && (regionType == AWSRegionUSEast1
-            || regionType == AWSRegionUSWest1
-            || regionType == AWSRegionUSWest2
-            || regionType == AWSRegionEUWest1
-            || regionType == AWSRegionAPEast1
-            || regionType == AWSRegionAPSoutheast1
-            || regionType == AWSRegionAPNortheast1
-            || regionType == AWSRegionAPNortheast2
-            || regionType == AWSRegionAPSoutheast2
-            || regionType == AWSRegionAPSouth1
-            || regionType == AWSRegionSAEast1
-            || regionType == AWSRegionUSGovWest1)) {
-            separator = @"-";
-        }
-
     NSString *HTTPType = @"https";
     if (useUnsafeURL) {
         HTTPType = @"http";
     }
 
-    if (serviceType == AWSServiceS3 && regionType == AWSRegionUSEast1) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://s3.amazonaws.com", HTTPType]];
-    } else if (serviceType == AWSServiceSTS) {
+    if (serviceType == AWSServiceSTS) {
         if (regionType == AWSRegionCNNorth1) {
             URL = [NSURL URLWithString:@"https://sts.cn-north-1.amazonaws.com"];
         } else if (regionType == AWSRegionUSGovWest1) {
@@ -537,13 +626,21 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
     } else if (serviceType == AWSServiceSimpleDB && regionType == AWSRegionUSEast1) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://sdb.amazonaws.com", HTTPType]];
     } else if (serviceType == AWSServiceIoT) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://iot%@%@.amazonaws.com", HTTPType, separator, regionName]];
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://iot.%@.amazonaws.com", HTTPType, regionName]];
     } else if (serviceType == AWSServiceIoTData) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://data%@iot%@%@.amazonaws.com", HTTPType, separator, separator, regionName]];
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://data.iot.%@.amazonaws.com", HTTPType, regionName]];
     } else if (serviceType == AWSServiceMobileTargeting) {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pinpoint%@%@.amazonaws.com", HTTPType, separator, regionName]];
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://pinpoint.%@.amazonaws.com", HTTPType, regionName]];
+    } else if (serviceType == AWSServiceSageMakerRuntime) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://runtime.%@.%@.amazonaws.com", HTTPType, serviceName, regionName]];
+    } else if (serviceType == AWSServiceTranscribeStreaming) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://transcribestreaming.%@.amazonaws.com", HTTPType, regionName]];
+    }  else if (serviceType == AWSServiceConnectParticipant) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://participant.connect.%@.amazonaws.com", HTTPType, regionName]];
+    } else if (serviceType == AWSServiceLocation) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://geo.%@.amazonaws.com", HTTPType, regionName]];
     } else {
-        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@%@%@.amazonaws.com", HTTPType, serviceName, separator, regionName]];
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@.%@.amazonaws.com", HTTPType, serviceName, regionName]];
     }
 
     //need to add ".cn" at end of URL if it is in China Region
@@ -553,6 +650,13 @@ static NSString *const AWSServiceNameKinesisVideoArchivedMedia = @"kinesisvideo"
     }
     
     return URL;
+}
+
+- (NSString *)signingName {
+    if (self.serviceType == AWSServiceLocation) {
+        return @"geo";
+    }
+    return self.serviceName;
 }
 
 @end

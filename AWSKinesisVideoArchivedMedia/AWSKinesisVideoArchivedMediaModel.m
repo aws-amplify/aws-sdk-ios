@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -19,6 +19,10 @@
 NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKinesisVideoArchivedMediaErrorDomain";
 
 @implementation AWSKinesisVideoArchivedMediaFragment
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -49,6 +53,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 @end
 
 @implementation AWSKinesisVideoArchivedMediaFragmentSelector
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -85,6 +93,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 @end
 
 @implementation AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -148,6 +160,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @implementation AWSKinesisVideoArchivedMediaGetHLSStreamingSessionURLOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"HLSStreamingSessionURL" : @"HLSStreamingSessionURL",
@@ -157,6 +173,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 @end
 
 @implementation AWSKinesisVideoArchivedMediaGetMediaForFragmentListInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -169,6 +189,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @implementation AWSKinesisVideoArchivedMediaGetMediaForFragmentListOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"contentType" : @"ContentType",
@@ -179,6 +203,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 @end
 
 @implementation AWSKinesisVideoArchivedMediaHLSFragmentSelector
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
@@ -216,6 +244,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @implementation AWSKinesisVideoArchivedMediaHLSTimestampRange
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"endTimestamp" : @"EndTimestamp",
@@ -243,6 +275,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @implementation AWSKinesisVideoArchivedMediaListFragmentsInput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"fragmentSelector" : @"FragmentSelector",
@@ -260,6 +296,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 
 @implementation AWSKinesisVideoArchivedMediaListFragmentsOutput
 
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"fragments" : @"Fragments",
@@ -274,6 +314,10 @@ NSString *const AWSKinesisVideoArchivedMediaErrorDomain = @"com.amazonaws.AWSKin
 @end
 
 @implementation AWSKinesisVideoArchivedMediaTimestampRange
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{

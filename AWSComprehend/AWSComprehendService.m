@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSComprehendService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSComprehendResources.h"
 
 static NSString *const AWSInfoComprehend = @"Comprehend";
-NSString *const AWSComprehendSDKVersion = @"2.9.8";
+NSString *const AWSComprehendSDKVersion = @"2.23.0";
 
 
 @interface AWSComprehendResponseSerializer : AWSJSONResponseSerializer
@@ -405,6 +404,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendClassifyDocumentResponse *> *)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ClassifyDocument"
+                   outputClass:[AWSComprehendClassifyDocumentResponse class]];
+}
+
+- (void)classifyDocument:(AWSComprehendClassifyDocumentRequest *)request
+     completionHandler:(void (^)(AWSComprehendClassifyDocumentResponse *response, NSError *error))completionHandler {
+    [[self classifyDocument:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendClassifyDocumentResponse *> * _Nonnull task) {
+        AWSComprehendClassifyDocumentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendCreateDocumentClassifierResponse *> *)createDocumentClassifier:(AWSComprehendCreateDocumentClassifierRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -418,6 +440,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendCreateDocumentClassifierResponse *response, NSError *error))completionHandler {
     [[self createDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendCreateDocumentClassifierResponse *> * _Nonnull task) {
         AWSComprehendCreateDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendCreateEndpointResponse *> *)createEndpoint:(AWSComprehendCreateEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"CreateEndpoint"
+                   outputClass:[AWSComprehendCreateEndpointResponse class]];
+}
+
+- (void)createEndpoint:(AWSComprehendCreateEndpointRequest *)request
+     completionHandler:(void (^)(AWSComprehendCreateEndpointResponse *response, NSError *error))completionHandler {
+    [[self createEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendCreateEndpointResponse *> * _Nonnull task) {
+        AWSComprehendCreateEndpointResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -464,6 +509,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDeleteDocumentClassifierResponse *response, NSError *error))completionHandler {
     [[self deleteDocumentClassifier:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteDocumentClassifierResponse *> * _Nonnull task) {
         AWSComprehendDeleteDocumentClassifierResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDeleteEndpointResponse *> *)deleteEndpoint:(AWSComprehendDeleteEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DeleteEndpoint"
+                   outputClass:[AWSComprehendDeleteEndpointResponse class]];
+}
+
+- (void)deleteEndpoint:(AWSComprehendDeleteEndpointRequest *)request
+     completionHandler:(void (^)(AWSComprehendDeleteEndpointResponse *response, NSError *error))completionHandler {
+    [[self deleteEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDeleteEndpointResponse *> * _Nonnull task) {
+        AWSComprehendDeleteEndpointResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -566,6 +634,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDescribeEndpointResponse *> *)describeEndpoint:(AWSComprehendDescribeEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeEndpoint"
+                   outputClass:[AWSComprehendDescribeEndpointResponse class]];
+}
+
+- (void)describeEndpoint:(AWSComprehendDescribeEndpointRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeEndpointResponse *response, NSError *error))completionHandler {
+    [[self describeEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeEndpointResponse *> * _Nonnull task) {
+        AWSComprehendDescribeEndpointResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeEntitiesDetectionJobResponse *> *)describeEntitiesDetectionJob:(AWSComprehendDescribeEntitiesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -612,6 +703,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDescribeEventsDetectionJobResponse *> *)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribeEventsDetectionJob"
+                   outputClass:[AWSComprehendDescribeEventsDetectionJobResponse class]];
+}
+
+- (void)describeEventsDetectionJob:(AWSComprehendDescribeEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribeEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describeEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribeEventsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDescribeKeyPhrasesDetectionJobResponse *> *)describeKeyPhrasesDetectionJob:(AWSComprehendDescribeKeyPhrasesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -625,6 +739,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendDescribeKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
     [[self describeKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribeKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendDescribeKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendDescribePiiEntitiesDetectionJobResponse *> *)describePiiEntitiesDetectionJob:(AWSComprehendDescribePiiEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DescribePiiEntitiesDetectionJob"
+                   outputClass:[AWSComprehendDescribePiiEntitiesDetectionJobResponse class]];
+}
+
+- (void)describePiiEntitiesDetectionJob:(AWSComprehendDescribePiiEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendDescribePiiEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self describePiiEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDescribePiiEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendDescribePiiEntitiesDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -750,6 +887,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendDetectPiiEntitiesResponse *> *)detectPiiEntities:(AWSComprehendDetectPiiEntitiesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"DetectPiiEntities"
+                   outputClass:[AWSComprehendDetectPiiEntitiesResponse class]];
+}
+
+- (void)detectPiiEntities:(AWSComprehendDetectPiiEntitiesRequest *)request
+     completionHandler:(void (^)(AWSComprehendDetectPiiEntitiesResponse *response, NSError *error))completionHandler {
+    [[self detectPiiEntities:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendDetectPiiEntitiesResponse *> * _Nonnull task) {
+        AWSComprehendDetectPiiEntitiesResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendDetectSentimentResponse *> *)detectSentiment:(AWSComprehendDetectSentimentRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -865,6 +1025,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListEndpointsResponse *> *)listEndpoints:(AWSComprehendListEndpointsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEndpoints"
+                   outputClass:[AWSComprehendListEndpointsResponse class]];
+}
+
+- (void)listEndpoints:(AWSComprehendListEndpointsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEndpointsResponse *response, NSError *error))completionHandler {
+    [[self listEndpoints:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEndpointsResponse *> * _Nonnull task) {
+        AWSComprehendListEndpointsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListEntitiesDetectionJobsResponse *> *)listEntitiesDetectionJobs:(AWSComprehendListEntitiesDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -911,6 +1094,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendListEventsDetectionJobsResponse *> *)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListEventsDetectionJobs"
+                   outputClass:[AWSComprehendListEventsDetectionJobsResponse class]];
+}
+
+- (void)listEventsDetectionJobs:(AWSComprehendListEventsDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListEventsDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listEventsDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListEventsDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListEventsDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendListKeyPhrasesDetectionJobsResponse *> *)listKeyPhrasesDetectionJobs:(AWSComprehendListKeyPhrasesDetectionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -924,6 +1130,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendListKeyPhrasesDetectionJobsResponse *response, NSError *error))completionHandler {
     [[self listKeyPhrasesDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListKeyPhrasesDetectionJobsResponse *> * _Nonnull task) {
         AWSComprehendListKeyPhrasesDetectionJobsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendListPiiEntitiesDetectionJobsResponse *> *)listPiiEntitiesDetectionJobs:(AWSComprehendListPiiEntitiesDetectionJobsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"ListPiiEntitiesDetectionJobs"
+                   outputClass:[AWSComprehendListPiiEntitiesDetectionJobsResponse class]];
+}
+
+- (void)listPiiEntitiesDetectionJobs:(AWSComprehendListPiiEntitiesDetectionJobsRequest *)request
+     completionHandler:(void (^)(AWSComprehendListPiiEntitiesDetectionJobsResponse *response, NSError *error))completionHandler {
+    [[self listPiiEntitiesDetectionJobs:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendListPiiEntitiesDetectionJobsResponse *> * _Nonnull task) {
+        AWSComprehendListPiiEntitiesDetectionJobsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1072,6 +1301,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendStartEventsDetectionJobResponse *> *)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartEventsDetectionJob"
+                   outputClass:[AWSComprehendStartEventsDetectionJobResponse class]];
+}
+
+- (void)startEventsDetectionJob:(AWSComprehendStartEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartEventsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendStartKeyPhrasesDetectionJobResponse *> *)startKeyPhrasesDetectionJob:(AWSComprehendStartKeyPhrasesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1085,6 +1337,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStartKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
     [[self startKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStartKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStartPiiEntitiesDetectionJobResponse *> *)startPiiEntitiesDetectionJob:(AWSComprehendStartPiiEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StartPiiEntitiesDetectionJob"
+                   outputClass:[AWSComprehendStartPiiEntitiesDetectionJobResponse class]];
+}
+
+- (void)startPiiEntitiesDetectionJob:(AWSComprehendStartPiiEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStartPiiEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self startPiiEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStartPiiEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStartPiiEntitiesDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1187,6 +1462,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSComprehendStopEventsDetectionJobResponse *> *)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopEventsDetectionJob"
+                   outputClass:[AWSComprehendStopEventsDetectionJobResponse class]];
+}
+
+- (void)stopEventsDetectionJob:(AWSComprehendStopEventsDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopEventsDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopEventsDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopEventsDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopEventsDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSComprehendStopKeyPhrasesDetectionJobResponse *> *)stopKeyPhrasesDetectionJob:(AWSComprehendStopKeyPhrasesDetectionJobRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1200,6 +1498,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendStopKeyPhrasesDetectionJobResponse *response, NSError *error))completionHandler {
     [[self stopKeyPhrasesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopKeyPhrasesDetectionJobResponse *> * _Nonnull task) {
         AWSComprehendStopKeyPhrasesDetectionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendStopPiiEntitiesDetectionJobResponse *> *)stopPiiEntitiesDetectionJob:(AWSComprehendStopPiiEntitiesDetectionJobRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"StopPiiEntitiesDetectionJob"
+                   outputClass:[AWSComprehendStopPiiEntitiesDetectionJobResponse class]];
+}
+
+- (void)stopPiiEntitiesDetectionJob:(AWSComprehendStopPiiEntitiesDetectionJobRequest *)request
+     completionHandler:(void (^)(AWSComprehendStopPiiEntitiesDetectionJobResponse *response, NSError *error))completionHandler {
+    [[self stopPiiEntitiesDetectionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendStopPiiEntitiesDetectionJobResponse *> * _Nonnull task) {
+        AWSComprehendStopPiiEntitiesDetectionJobResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -1315,6 +1636,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSComprehendUntagResourceResponse *response, NSError *error))completionHandler {
     [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendUntagResourceResponse *> * _Nonnull task) {
         AWSComprehendUntagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSComprehendUpdateEndpointResponse *> *)updateEndpoint:(AWSComprehendUpdateEndpointRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Comprehend_20171127"
+                 operationName:@"UpdateEndpoint"
+                   outputClass:[AWSComprehendUpdateEndpointResponse class]];
+}
+
+- (void)updateEndpoint:(AWSComprehendUpdateEndpointRequest *)request
+     completionHandler:(void (^)(AWSComprehendUpdateEndpointResponse *response, NSError *error))completionHandler {
+    [[self updateEndpoint:request] continueWithBlock:^id _Nullable(AWSTask<AWSComprehendUpdateEndpointResponse *> * _Nonnull task) {
+        AWSComprehendUpdateEndpointResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

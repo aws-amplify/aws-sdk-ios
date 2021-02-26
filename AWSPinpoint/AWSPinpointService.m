@@ -55,9 +55,6 @@
 #pragma mark - AWSPinpoint -
 @interface AWSPinpoint()
 
-@property (nonatomic, strong) AWSPinpointSessionClient *sessionClient;
-@property (nonatomic, strong) AWSPinpointTargetingClient *targetingClient;
-@property (nonatomic, strong) AWSPinpointAnalyticsClient *analyticsClient;
 @property (nonatomic, strong) AWSPinpointNotificationManager *notificationManager;
 @property (nonatomic, strong) AWSPinpointConfiguration *configuration;
 @property (nonatomic, strong) AWSPinpointContext *pinpointContext;
@@ -95,6 +92,13 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
     }
 }
 
+/// Removes the pinpoint client from the map of clients, making it suitable for release. Only exposed for testing.
+- (void) destroy {
+    @synchronized (_pinpointForAppNamespace) {
+        [_pinpointForAppNamespace removeObjectForKey:self.configuration.appId];
+    }
+}
+
 - (instancetype)init {
     @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                    reason:@"You must not initialize this class directly. Please use the public static constructors."
@@ -121,19 +125,21 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
         }        
 
         _pinpointContext = [AWSPinpointContext contextWithConfiguration:_configuration];
+
         if (_configuration.enableTargeting) {
             _pinpointContext.targetingService = [[AWSPinpointTargeting alloc] initWithConfiguration:_configuration.targetingServiceConfiguration];
-            _targetingClient = [[AWSPinpointTargetingClient alloc] initWithContext:_pinpointContext];
-            _pinpointContext.targetingClient = _targetingClient;
+            AWSPinpointTargetingClient *targetingClient = [[AWSPinpointTargetingClient alloc] initWithContext:_pinpointContext];
+            _pinpointContext.targetingClient = targetingClient;
         } else {
             AWSDDLogWarn(@"Pinpoint Targeting is disabled.");
         }
         
         if (_configuration.enableEvents) {
-            _sessionClient = [[AWSPinpointSessionClient alloc] initWithContext:_pinpointContext];
-            _pinpointContext.sessionClient = _sessionClient;
-            _analyticsClient = [[AWSPinpointAnalyticsClient alloc] initWithContext:_pinpointContext];
-            _pinpointContext.analyticsClient = _analyticsClient;
+            AWSPinpointSessionClient *sessionClient = [[AWSPinpointSessionClient alloc] initWithContext:_pinpointContext];
+            _pinpointContext.sessionClient = sessionClient;
+
+            AWSPinpointAnalyticsClient *analyticsClient = [[AWSPinpointAnalyticsClient alloc] initWithContext:_pinpointContext];
+            _pinpointContext.analyticsClient = analyticsClient;
         } else {
             AWSDDLogWarn(@"Pinpoint Analytics Event recording is disabled.");
         }
@@ -147,7 +153,7 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
         }
         
         if (configuration.enableAutoSessionRecording) {
-            [_sessionClient startSession];
+            [_pinpointContext.sessionClient startSession];
         }
         
         AWSDDLogInfo(@"Pinpoint SDK Initialization successfully completed.");
@@ -157,24 +163,24 @@ static AWSSynchronizedMutableDictionary *_pinpointForAppNamespace = nil;
 }
 
 - (AWSPinpointTargetingClient *)targetingClient {
-    if (!_targetingClient) {
+    if (!self.pinpointContext.targetingClient) {
         AWSDDLogError(@"Pinpoint Targeting is not enabled");
     }
-    return _targetingClient;
+    return self.pinpointContext.targetingClient;
 }
 
 - (AWSPinpointAnalyticsClient *)analyticsClient {
-    if (!_analyticsClient) {
+    if (!self.pinpointContext.analyticsClient) {
         AWSDDLogError(@"Pinpoint Analytics is not enabled");
     }
-    return _analyticsClient;
+    return self.pinpointContext.analyticsClient;
 }
 
 - (AWSPinpointSessionClient *)sessionClient {
-    if (!_sessionClient) {
+    if (!self.pinpointContext.sessionClient) {
         AWSDDLogError(@"Pinpoint Analytics is not enabled");
     }
-    return _sessionClient;
+    return self.pinpointContext.sessionClient;
 }
 
 @end

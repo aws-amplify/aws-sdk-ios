@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -201,6 +201,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testCreateCodeSigningConfig {
+    NSString *key = @"testCreateCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] createCodeSigningConfig:[AWSLambdaCreateCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testCreateCodeSigningConfigCompletionHandler {
+    NSString *key = @"testCreateCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] createCodeSigningConfig:[AWSLambdaCreateCodeSigningConfigRequest new] completionHandler:^(AWSLambdaCreateCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testCreateEventSourceMapping {
     NSString *key = @"testCreateEventSourceMapping";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -344,6 +392,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testDeleteCodeSigningConfig {
+    NSString *key = @"testDeleteCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] deleteCodeSigningConfig:[AWSLambdaDeleteCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testDeleteCodeSigningConfigCompletionHandler {
+    NSString *key = @"testDeleteCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] deleteCodeSigningConfig:[AWSLambdaDeleteCodeSigningConfigRequest new] completionHandler:^(AWSLambdaDeleteCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testDeleteEventSourceMapping {
     NSString *key = @"testDeleteEventSourceMapping";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -439,6 +535,53 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testDeleteFunctionCodeSigningConfig {
+    NSString *key = @"testDeleteFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] deleteFunctionCodeSigningConfig:[AWSLambdaDeleteFunctionCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testDeleteFunctionCodeSigningConfigCompletionHandler {
+    NSString *key = @"testDeleteFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] deleteFunctionCodeSigningConfig:[AWSLambdaDeleteFunctionCodeSigningConfigRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testDeleteFunctionConcurrency {
     NSString *key = @"testDeleteFunctionConcurrency";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -486,6 +629,53 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testDeleteFunctionEventInvokeConfig {
+    NSString *key = @"testDeleteFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] deleteFunctionEventInvokeConfig:[AWSLambdaDeleteFunctionEventInvokeConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testDeleteFunctionEventInvokeConfigCompletionHandler {
+    NSString *key = @"testDeleteFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] deleteFunctionEventInvokeConfig:[AWSLambdaDeleteFunctionEventInvokeConfigRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testDeleteLayerVersion {
     NSString *key = @"testDeleteLayerVersion";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -521,6 +711,53 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] deleteLayerVersion:[AWSLambdaDeleteLayerVersionRequest new] completionHandler:^(NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testDeleteProvisionedConcurrencyConfig {
+    NSString *key = @"testDeleteProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] deleteProvisionedConcurrencyConfig:[AWSLambdaDeleteProvisionedConcurrencyConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testDeleteProvisionedConcurrencyConfigCompletionHandler {
+    NSString *key = @"testDeleteProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] deleteProvisionedConcurrencyConfig:[AWSLambdaDeleteProvisionedConcurrencyConfigRequest new] completionHandler:^(NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -616,6 +853,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] getAlias:[AWSLambdaGetAliasRequest new] completionHandler:^(AWSLambdaAliasConfiguration* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetCodeSigningConfig {
+    NSString *key = @"testGetCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getCodeSigningConfig:[AWSLambdaGetCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetCodeSigningConfigCompletionHandler {
+    NSString *key = @"testGetCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] getCodeSigningConfig:[AWSLambdaGetCodeSigningConfigRequest new] completionHandler:^(AWSLambdaGetCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -725,6 +1010,102 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testGetFunctionCodeSigningConfig {
+    NSString *key = @"testGetFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getFunctionCodeSigningConfig:[AWSLambdaGetFunctionCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetFunctionCodeSigningConfigCompletionHandler {
+    NSString *key = @"testGetFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] getFunctionCodeSigningConfig:[AWSLambdaGetFunctionCodeSigningConfigRequest new] completionHandler:^(AWSLambdaGetFunctionCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetFunctionConcurrency {
+    NSString *key = @"testGetFunctionConcurrency";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getFunctionConcurrency:[AWSLambdaGetFunctionConcurrencyRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetFunctionConcurrencyCompletionHandler {
+    NSString *key = @"testGetFunctionConcurrency";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] getFunctionConcurrency:[AWSLambdaGetFunctionConcurrencyRequest new] completionHandler:^(AWSLambdaGetFunctionConcurrencyResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testGetFunctionConfiguration {
     NSString *key = @"testGetFunctionConfiguration";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -760,6 +1141,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] getFunctionConfiguration:[AWSLambdaGetFunctionConfigurationRequest new] completionHandler:^(AWSLambdaFunctionConfiguration* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetFunctionEventInvokeConfig {
+    NSString *key = @"testGetFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getFunctionEventInvokeConfig:[AWSLambdaGetFunctionEventInvokeConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetFunctionEventInvokeConfigCompletionHandler {
+    NSString *key = @"testGetFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] getFunctionEventInvokeConfig:[AWSLambdaGetFunctionEventInvokeConfigRequest new] completionHandler:^(AWSLambdaFunctionEventInvokeConfig* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -965,6 +1394,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testGetProvisionedConcurrencyConfig {
+    NSString *key = @"testGetProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] getProvisionedConcurrencyConfig:[AWSLambdaGetProvisionedConcurrencyConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testGetProvisionedConcurrencyConfigCompletionHandler {
+    NSString *key = @"testGetProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] getProvisionedConcurrencyConfig:[AWSLambdaGetProvisionedConcurrencyConfigRequest new] completionHandler:^(AWSLambdaGetProvisionedConcurrencyConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testInvoke {
     NSString *key = @"testInvoke";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1109,6 +1586,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testListCodeSigningConfigs {
+    NSString *key = @"testListCodeSigningConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listCodeSigningConfigs:[AWSLambdaListCodeSigningConfigsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListCodeSigningConfigsCompletionHandler {
+    NSString *key = @"testListCodeSigningConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] listCodeSigningConfigs:[AWSLambdaListCodeSigningConfigsRequest new] completionHandler:^(AWSLambdaListCodeSigningConfigsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testListEventSourceMappings {
     NSString *key = @"testListEventSourceMappings";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1157,6 +1682,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testListFunctionEventInvokeConfigs {
+    NSString *key = @"testListFunctionEventInvokeConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listFunctionEventInvokeConfigs:[AWSLambdaListFunctionEventInvokeConfigsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListFunctionEventInvokeConfigsCompletionHandler {
+    NSString *key = @"testListFunctionEventInvokeConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] listFunctionEventInvokeConfigs:[AWSLambdaListFunctionEventInvokeConfigsRequest new] completionHandler:^(AWSLambdaListFunctionEventInvokeConfigsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testListFunctions {
     NSString *key = @"testListFunctions";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1192,6 +1765,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] listFunctions:[AWSLambdaListFunctionsRequest new] completionHandler:^(AWSLambdaListFunctionsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListFunctionsByCodeSigningConfig {
+    NSString *key = @"testListFunctionsByCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listFunctionsByCodeSigningConfig:[AWSLambdaListFunctionsByCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListFunctionsByCodeSigningConfigCompletionHandler {
+    NSString *key = @"testListFunctionsByCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] listFunctionsByCodeSigningConfig:[AWSLambdaListFunctionsByCodeSigningConfigRequest new] completionHandler:^(AWSLambdaListFunctionsByCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1288,6 +1909,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] listLayers:[AWSLambdaListLayersRequest new] completionHandler:^(AWSLambdaListLayersResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListProvisionedConcurrencyConfigs {
+    NSString *key = @"testListProvisionedConcurrencyConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] listProvisionedConcurrencyConfigs:[AWSLambdaListProvisionedConcurrencyConfigsRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testListProvisionedConcurrencyConfigsCompletionHandler {
+    NSString *key = @"testListProvisionedConcurrencyConfigs";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] listProvisionedConcurrencyConfigs:[AWSLambdaListProvisionedConcurrencyConfigsRequest new] completionHandler:^(AWSLambdaListProvisionedConcurrencyConfigsResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1493,6 +2162,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testPutFunctionCodeSigningConfig {
+    NSString *key = @"testPutFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] putFunctionCodeSigningConfig:[AWSLambdaPutFunctionCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPutFunctionCodeSigningConfigCompletionHandler {
+    NSString *key = @"testPutFunctionCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] putFunctionCodeSigningConfig:[AWSLambdaPutFunctionCodeSigningConfigRequest new] completionHandler:^(AWSLambdaPutFunctionCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testPutFunctionConcurrency {
     NSString *key = @"testPutFunctionConcurrency";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1528,6 +2245,102 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] putFunctionConcurrency:[AWSLambdaPutFunctionConcurrencyRequest new] completionHandler:^(AWSLambdaConcurrency* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPutFunctionEventInvokeConfig {
+    NSString *key = @"testPutFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] putFunctionEventInvokeConfig:[AWSLambdaPutFunctionEventInvokeConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPutFunctionEventInvokeConfigCompletionHandler {
+    NSString *key = @"testPutFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] putFunctionEventInvokeConfig:[AWSLambdaPutFunctionEventInvokeConfigRequest new] completionHandler:^(AWSLambdaFunctionEventInvokeConfig* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPutProvisionedConcurrencyConfig {
+    NSString *key = @"testPutProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] putProvisionedConcurrencyConfig:[AWSLambdaPutProvisionedConcurrencyConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testPutProvisionedConcurrencyConfigCompletionHandler {
+    NSString *key = @"testPutProvisionedConcurrencyConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] putProvisionedConcurrencyConfig:[AWSLambdaPutProvisionedConcurrencyConfigRequest new] completionHandler:^(AWSLambdaPutProvisionedConcurrencyConfigResponse* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1777,6 +2590,54 @@ static id mockNetworking = nil;
     [AWSLambda removeLambdaForKey:key];
 }
 
+- (void)testUpdateCodeSigningConfig {
+    NSString *key = @"testUpdateCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] updateCodeSigningConfig:[AWSLambdaUpdateCodeSigningConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testUpdateCodeSigningConfigCompletionHandler {
+    NSString *key = @"testUpdateCodeSigningConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] updateCodeSigningConfig:[AWSLambdaUpdateCodeSigningConfigRequest new] completionHandler:^(AWSLambdaUpdateCodeSigningConfigResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
 - (void)testUpdateEventSourceMapping {
     NSString *key = @"testUpdateEventSourceMapping";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1908,6 +2769,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSLambda LambdaForKey:key] updateFunctionConfiguration:[AWSLambdaUpdateFunctionConfigurationRequest new] completionHandler:^(AWSLambdaFunctionConfiguration* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testUpdateFunctionEventInvokeConfig {
+    NSString *key = @"testUpdateFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSLambda LambdaForKey:key] updateFunctionEventInvokeConfig:[AWSLambdaUpdateFunctionEventInvokeConfigRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSLambda removeLambdaForKey:key];
+}
+
+- (void)testUpdateFunctionEventInvokeConfigCompletionHandler {
+    NSString *key = @"testUpdateFunctionEventInvokeConfig";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSLambda registerLambdaWithConfiguration:configuration forKey:key];
+
+    AWSLambda *awsClient = [AWSLambda LambdaForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSLambda LambdaForKey:key] updateFunctionEventInvokeConfig:[AWSLambdaUpdateFunctionEventInvokeConfigRequest new] completionHandler:^(AWSLambdaFunctionEventInvokeConfig* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSSNSService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSSNSResources.h"
 
 static NSString *const AWSInfoSNS = @"SNS";
-NSString *const AWSSNSSDKVersion = @"2.9.8";
+NSString *const AWSSNSSDKVersion = @"2.23.0";
 
 
 @interface AWSSNSResponseSerializer : AWSXMLResponseSerializer

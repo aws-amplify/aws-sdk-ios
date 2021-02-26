@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSSTSService.h"
-#import "AWSNetworking.h"
 #import "AWSCategory.h"
 #import "AWSNetworking.h"
 #import "AWSSignature.h"
@@ -352,6 +351,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSSTSDecodeAuthorizationMessageResponse *response, NSError *error))completionHandler {
     [[self decodeAuthorizationMessage:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSDecodeAuthorizationMessageResponse *> * _Nonnull task) {
         AWSSTSDecodeAuthorizationMessageResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSSTSGetAccessKeyInfoResponse *> *)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetAccessKeyInfo"
+                   outputClass:[AWSSTSGetAccessKeyInfoResponse class]];
+}
+
+- (void)getAccessKeyInfo:(AWSSTSGetAccessKeyInfoRequest *)request
+     completionHandler:(void (^)(AWSSTSGetAccessKeyInfoResponse *response, NSError *error))completionHandler {
+    [[self getAccessKeyInfo:request] continueWithBlock:^id _Nullable(AWSTask<AWSSTSGetAccessKeyInfoResponse *> * _Nonnull task) {
+        AWSSTSGetAccessKeyInfoResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

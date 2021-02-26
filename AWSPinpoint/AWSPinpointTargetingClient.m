@@ -13,16 +13,15 @@
  permissions and limitations under the License.
  */
 
+#import "AWSNSCodingUtilities.h"
 #import "AWSPinpointTargetingClient.h"
 #import "AWSPinpointEndpointProfile.h"
 #import "AWSPinpointDateUtils.h"
 #import "AWSPinpointNotificationManager.h"
 #import "AWSPinpointEndpointProfile.h"
-#import "AWSPinpointEventRecorder.h"
 #import "AWSPinpointContext.h"
 #import "AWSPinpointTargetingService.h"
 #import "AWSPinpointConfiguration.h"
-#import "AWSPinpointEventRecorder.h"
 
 NSString *const AWSPinpointEndpointAttributesKey = @"AWSPinpointEndpointAttributesKey";
 NSString *const AWSPinpointEndpointMetricsKey = @"AWSPinpointEndpointMetricsKey";
@@ -32,17 +31,17 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 
 @interface AWSPinpointTargetingClient()
 
-@property (nonatomic) AWSPinpointContext *context;
+@property (nonatomic, weak) AWSPinpointContext *context;
+
 @property (nonatomic) NSMutableArray* endpointObservers;
 @property (nonatomic) NSMutableDictionary* globalAttributes;
 @property (nonatomic) NSMutableDictionary* globalMetrics;
-@property (nonatomic, strong) AWSPinpointEventRecorder *eventRecorder;
 @property (nonatomic) AWSPinpointEndpointProfile *endpointProfile;
 
 @end
 
 @interface AWSPinpointConfiguration()
-@property (nonnull, strong) NSUserDefaults *userDefaults;
+@property (nonatomic, strong) NSUserDefaults *userDefaults;
 @end
 
 @interface AWSPinpointEndpointProfile()
@@ -51,14 +50,6 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (BOOL) isApplicationLevelOptOut:(AWSPinpointContext *) context;
 - (void) updateEndpointProfileWithContext:(AWSPinpointContext *) context;
 - (void) setEndpointOptOut:(BOOL) applicationLevelOptOut;
-@end
-
-@interface AWSPinpointEventRecorder ()
-- (instancetype) initWithContext:(AWSPinpointContext *) context;
-- (AWSTask*) updateSessionStartWithCampaignAttributes:(NSDictionary*) attributes;
-- (AWSTask *) putEvents:(NSDictionary *)temporaryEvents
-                  error:(NSError* __autoreleasing *) error
-        endpointProfile:(AWSPinpointEndpointProfile *) profile;
 @end
 
 @implementation AWSPinpointTargetingClient
@@ -76,7 +67,6 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
         _globalAttributes = [[NSMutableDictionary alloc] initWithDictionary:customAttributes];
         NSDictionary *customMetrics = [context.configuration.userDefaults objectForKey:AWSPinpointEndpointMetricsKey];
         _globalMetrics = [[NSMutableDictionary alloc] initWithDictionary:customMetrics];
-        _eventRecorder = [[AWSPinpointEventRecorder alloc] initWithContext:context];
     }
     
     return self;
@@ -87,7 +77,15 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     if (!self.endpointProfile) {
         if ([self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey] != nil) {
             NSData *endpointProfileData = [self.context.configuration.userDefaults objectForKey:AWSPinpointEndpointProfileKey];
-            localEndpointProfile = [NSKeyedUnarchiver unarchiveObjectWithData:endpointProfileData];
+
+            NSError *decodingError;
+            localEndpointProfile = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
+                                                                                   fromData:endpointProfileData
+                                                                                      error:&decodingError];
+            if (decodingError) {
+                AWSDDLogError(@"Error decoding local endpoint profile: %@", decodingError);
+            }
+
             if ([localEndpointProfile.applicationId isEqualToString:self.context.configuration.appId]) {
                 // This is to verify that same appId is being used. Anyone can modify the plist and test with a different app id
                 [localEndpointProfile removeAllMetrics];
@@ -115,7 +113,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
     [localEndpointProfile setEndpointOptOut:applicationLevelOptOut];
 
     [self addMetricsAndAttributesToEndpointProfile:localEndpointProfile];
-    
+
     return localEndpointProfile;
 }
 
@@ -160,10 +158,18 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSTask *)executeUpdate:(AWSPinpointEndpointProfile *) endpointProfile {
     self.endpointProfile = endpointProfile;
     @synchronized (self.endpointProfile) {
-        NSData *endpointProfileData = [NSKeyedArchiver archivedDataWithRootObject:endpointProfile];
+        NSError *codingError;
+        NSData *endpointProfileData = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:endpointProfile
+                                                                            requiringSecureCoding:YES
+                                                                                            error:&codingError];
+        if (codingError) {
+            AWSDDLogError(@"Error archiving endpointProfileData. Updating service but not persisting locally: %@", codingError);
+        }
+
         [self.context.configuration.userDefaults setObject:endpointProfileData forKey:AWSPinpointEndpointProfileKey];
         [self.context.configuration.userDefaults synchronize];
     }
+
     return [[self.context.targetingService updateEndpoint:[self updateEndpointRequestForEndpoint:self.endpointProfile]] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         if (task.error) {
             AWSDDLogError(@"Unable to successfully update endpoint. Error Message:%@", task.error);
@@ -184,7 +190,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (void)addAttribute:(NSArray *)theValue
-                    forKey:(NSString *)theKey {
+              forKey:(NSString *)theKey {
     if (theValue == nil) {
         @throw [NSException exceptionWithName:AWSPinpointTargetingClientErrorDomain
                                        reason:@"Nil value provided to addGlobalAttribute"
@@ -221,7 +227,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 }
 
 - (void)addMetric:(NSNumber *)theValue
-                 forKey:(NSString *)theKey {
+           forKey:(NSString *)theKey {
     if (theValue == nil) {
         @throw [NSException exceptionWithName:AWSPinpointTargetingClientErrorDomain
                                        reason:@"Nil value provided to addGlobalMetric"
@@ -283,6 +289,7 @@ NSString *const APNS_CHANNEL_TYPE = @"APNS";
 - (AWSPinpointTargetingEndpointUser*) userModelForUser:(AWSPinpointEndpointProfileUser *) user {
     AWSPinpointTargetingEndpointUser *userModel = [AWSPinpointTargetingEndpointUser new];
     userModel.userId = user.userId;
+    userModel.userAttributes = user.allUserAttributes;
     return userModel;
 }
 

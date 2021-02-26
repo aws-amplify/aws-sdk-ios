@@ -88,7 +88,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
 - (AWSTask<AWSPinpointEvent *> *) saveEvent:(AWSPinpointEvent *) event;
 
 /**
- Retrieves events in local storage with a limit of 128 events.
+ Retrieves events in local storage with a limit of 100 events (the limit per batch).
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */
@@ -102,7 +102,7 @@ FOUNDATION_EXPORT NSString *const AWSPinpointEventByteThresholdReachedNotificati
 - (AWSTask<NSArray<AWSPinpointEvent *> *> *) getEventsWithLimit:(NSNumber *) limit;
 
 /**
- Retrieves dirty events in local storage with a limit of 128 events.
+ Retrieves dirty events in local storage with a limit of 100 events (the limit per batch).
  
  @return AWSTask - task.result contains an array of AWSPinpointEvent objects.
  */

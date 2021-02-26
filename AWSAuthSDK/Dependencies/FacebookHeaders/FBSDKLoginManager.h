@@ -16,26 +16,76 @@
 // IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN
 // CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
-#import <Accounts/Accounts.h>
-#import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+
+#import "FBSDKLoginConfiguration.h"
+
+NS_ASSUME_NONNULL_BEGIN
+
+#if TARGET_OS_TV
+
+// This is an unfortunate hack for Swift Package Manager support.
+// SPM does not allow us to conditionally exclude Swift files for compilation by platform.
+//
+// So to support tvOS with SPM we need to use runtime availability checks in the Swift files.
+// This means that even though the code in `LoginManager.swift` will never be run for tvOS
+// targets, it still needs to be able to compile. Hence we need to declare it here.
+//
+// The way to fix this is to remove extensions of ObjC types in Swift.
+
+@class LoginManagerLoginResult;
+@class FBSDKLoginConfiguration;
+
+typedef NS_ENUM(NSUInteger, LoginBehavior) { LoginBehaviorBrowser };
+typedef NS_ENUM(NSUInteger, DefaultAudience) { DefaultAudienceFriends };
+
+typedef void (^LoginManagerLoginResultBlock)(LoginManagerLoginResult *_Nullable result,
+                                             NSError *_Nullable error);
+
+@interface LoginManager : NSObject
+
+@property (assign, nonatomic) LoginBehavior loginBehavior;
+@property (assign, nonatomic) DefaultAudience defaultAudience;
+
+- (void)logInWithPermissions:(NSArray<NSString *> *)permissions
+              fromViewController:(nullable UIViewController *)fromViewController
+                         handler:(nullable LoginManagerLoginResultBlock)handler
+NS_SWIFT_NAME(logIn(permissions:from:handler:));
+
+- (void)logInFromViewController:(nullable UIViewController *)viewController
+                  configuration:(FBSDKLoginConfiguration *)configuration
+                     completion:(LoginManagerLoginResultBlock)completion
+NS_REFINED_FOR_SWIFT;
+
+@end
+
+#else
 
 @class FBSDKLoginManagerLoginResult;
 
+/// typedef for FBSDKLoginAuthType
+typedef NSString *const FBSDKLoginAuthType NS_TYPED_EXTENSIBLE_ENUM NS_SWIFT_NAME(LoginAuthType);
+
+/// Rerequest
+FOUNDATION_EXPORT FBSDKLoginAuthType FBSDKLoginAuthTypeRerequest;
+
+/// Reauthorize
+FOUNDATION_EXPORT FBSDKLoginAuthType FBSDKLoginAuthTypeReauthorize;
+
 /**
   Describes the call back to the FBSDKLoginManager
- - Parameter result: the result of the authorization
- - Parameter error: the authorization error, if any.
+ @param result the result of the authorization
+ @param error the authorization error, if any.
  */
-typedef void (^FBSDKLoginManagerRequestTokenHandler)(FBSDKLoginManagerLoginResult *result, NSError *error);
+typedef void (^FBSDKLoginManagerLoginResultBlock)(FBSDKLoginManagerLoginResult *_Nullable result,
+                                                  NSError *_Nullable error)
+NS_SWIFT_NAME(LoginManagerLoginResultBlock);
 
 
 /**
  FBSDKDefaultAudience enum
 
-  Passed to open to indicate which default audience to use for sessions that post data to Facebook.
-
-
+  Passed to openURL to indicate which default audience to use for sessions that post data to Facebook.
 
  Certain operations such as publishing a status or publishing a photo require an audience. When the user
  grants an application permission to perform a publish operation, a default audience is selected as the
@@ -50,66 +100,28 @@ typedef NS_ENUM(NSUInteger, FBSDKDefaultAudience)
   FBSDKDefaultAudienceOnlyMe,
   /** Indicates that all Facebook users are able to see posts made by the application */
   FBSDKDefaultAudienceEveryone,
-};
-
-/**
- FBSDKLoginBehavior enum
-
-  Passed to the \c FBSDKLoginManager to indicate how Facebook Login should be attempted.
-
-
-
- Facebook Login authorizes the application to act on behalf of the user, using the user's
- Facebook account. Usually a Facebook Login will rely on an account maintained outside of
- the application, by the native Facebook application, the browser, or perhaps the device
- itself. This avoids the need for a user to enter their username and password directly, and
- provides the most secure and lowest friction way for a user to authorize the application to
- interact with Facebook.
-
- The \c FBSDKLoginBehavior enum specifies which log-in methods may be used. The SDK
-  will determine the best behavior based on the current device (such as iOS version).
- */
-typedef NS_ENUM(NSUInteger, FBSDKLoginBehavior)
-{
-  /**
-    This is the default behavior, and indicates logging in through the native
-   Facebook app may be used. The SDK may still use Safari instead.
-   */
-  FBSDKLoginBehaviorNative = 0,
-  /**
-    Attempts log in through the Safari or SFSafariViewController, if available.
-   */
-  FBSDKLoginBehaviorBrowser,
-  /**
-    Attempts log in through the Facebook account currently signed in through
-   the device Settings.
-   @note If the account is not available to the app (either not configured by user or
-   as determined by the SDK) this behavior falls back to \c FBSDKLoginBehaviorNative.
-   */
-  FBSDKLoginBehaviorSystemAccount,
-  /**
-    Attempts log in through a modal \c UIWebView pop up
-
-   @note This behavior is only available to certain types of apps. Please check the Facebook
-   Platform Policy to verify your app meets the restrictions.
-   */
-  FBSDKLoginBehaviorWeb,
-};
+} NS_SWIFT_NAME(DefaultAudience);
 
 /**
   `FBSDKLoginManager` provides methods for logging the user in and out.
 
- `FBSDKLoginManager` works directly with `[FBSDKAccessToken currentAccessToken]` and
-  sets the "currentAccessToken" upon successful authorizations (or sets `nil` in case of `logOut`).
+ `FBSDKLoginManager` serves to help manage sessions represented by tokens for authentication,
+ `AuthenticationToken`, and data access, `AccessToken`.
 
- You should check `[FBSDKAccessToken currentAccessToken]` before calling logIn* to see if there is
- a cached token available (typically in your viewDidLoad).
+ You should check if the type of token you expect is present as a singleton instance, either `AccessToken.current`
+ or `AuthenticationToken.current` before calling any of the login methods to see if there is a cached token
+ available. A standard place to do this is in `viewDidLoad`.
 
- If you are managing your own token instances outside of "currentAccessToken", you will need to set
- "currentAccessToken" before calling logIn* to authorize further permissions on your tokens.
+ @warning If you are managing your own token instances outside of `AccessToken.current`, you will need to set
+ `AccessToken.current` before calling any of the login methods to authorize further permissions on your tokens.
  */
+NS_SWIFT_NAME(LoginManager)
 @interface FBSDKLoginManager : NSObject
 
+/**
+ Auth type
+ */
+@property (strong, nonatomic) FBSDKLoginAuthType authType;
 /**
   the default audience.
 
@@ -118,91 +130,98 @@ typedef NS_ENUM(NSUInteger, FBSDKLoginBehavior)
 @property (assign, nonatomic) FBSDKDefaultAudience defaultAudience;
 
 /**
-  the login behavior
- */
-@property (assign, nonatomic) FBSDKLoginBehavior loginBehavior;
+ Logs the user in or authorizes additional permissions.
 
-/**
-
-- Warning:use logInWithReadPermissions:fromViewController:handler: instead
- */
-- (void)logInWithReadPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler
-__attribute__ ((deprecated("use logInWithReadPermissions:fromViewController:handler: instead")));
-
-/**
-
-- Warning:use logInWithPublishPermissions:fromViewController:handler: instead
- */
-- (void)logInWithPublishPermissions:(NSArray *)permissions handler:(FBSDKLoginManagerRequestTokenHandler)handler
-__attribute__ ((deprecated("use logInWithPublishPermissions:fromViewController:handler: instead")));
-
-/**
-  Logs the user in or authorizes additional permissions.
- - Parameter permissions: the optional array of permissions. Note this is converted to NSSet and is only
-  an NSArray for the convenience of literal syntax.
- - Parameter fromViewController: the view controller to present from. If nil, the topmost view controller will be
-  automatically determined as best as possible.
- - Parameter handler: the callback.
+ @param permissions the optional array of permissions. Note this is converted to NSSet and is only
+ an NSArray for the convenience of literal syntax.
+ @param fromViewController the view controller to present from. If nil, the topmost view controller will be
+ automatically determined as best as possible.
+ @param handler the callback.
 
  Use this method when asking for read permissions. You should only ask for permissions when they
-  are needed and explain the value to the user. You can inspect the result.declinedPermissions to also
-  provide more information to the user if they decline permissions.
+ are needed and explain the value to the user. You can inspect the `FBSDKLoginManagerLoginResultBlock`'s
+ `result.declinedPermissions` to provide more information to the user if they decline permissions.
+ You typically should check if `AccessToken.current` already contains the permissions you need before
+ asking to reduce unnecessary login attempts. For example, you could perform that check in `viewDidLoad`.
 
- This method will present UI the user. You typically should check if `[FBSDKAccessToken currentAccessToken]`
- already contains the permissions you need before asking to reduce unnecessary app switching. For example,
- you could make that check at viewDidLoad.
- You can only do one login call at a time. Calling a login method before the completion handler is called
- on a previous login will return an error.
+ @warning You can only perform one login call at a time. Calling a login method before the completion handler is called
+ on a previous login attempt will result in an error.
+ @warning This method will present a UI to the user and thus should be called on the main thread.
  */
-- (void)logInWithReadPermissions:(NSArray *)permissions
-              fromViewController:(UIViewController *)fromViewController
-                         handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+- (void)logInWithPermissions:(NSArray<NSString *> *)permissions
+          fromViewController:(nullable UIViewController *)fromViewController
+                     handler:(nullable FBSDKLoginManagerLoginResultBlock)handler
+NS_SWIFT_NAME(logIn(permissions:from:handler:));
 
 /**
-  Logs the user in or authorizes additional permissions.
- - Parameter permissions: the optional array of permissions. Note this is converted to NSSet and is only
- an NSArray for the convenience of literal syntax.
- - Parameter fromViewController: the view controller to present from. If nil, the topmost view controller will be
- automatically determined as best as possible.
- - Parameter handler: the callback.
+ Logs the user in or authorizes additional permissions.
 
- Use this method when asking for publish permissions. You should only ask for permissions when they
- are needed and explain the value to the user. You can inspect the result.declinedPermissions to also
- provide more information to the user if they decline permissions.
+ @param viewController the view controller from which to present the login UI. If nil, the topmost view
+ controller will be automatically determined and used.
+ @param configuration the login configuration to use.
+ @param completion the login completion handler.
 
- This method will present UI the user. You typically should check if `[FBSDKAccessToken currentAccessToken]`
- already contains the permissions you need before asking to reduce unnecessary app switching. For example,
- you could make that check at viewDidLoad.
- You can only do one login call at a time. Calling a login method before the completion handler is called
- on a previous login will return an error.
+ Use this method when asking for permissions. You should only ask for permissions when they
+ are needed and the value should be explained to the user. You can inspect the
+ `FBSDKLoginManagerLoginResultBlock`'s `result.declinedPermissions` to provide more information
+ to the user if they decline permissions.
+ To reduce unnecessary login attempts, you should typically check if `AccessToken.current`
+ already contains the permissions you need. If it does, you probably do not need to call this method.
+
+ @warning You can only perform one login call at a time. Calling a login method before the completion handler is called
+ on a previous login attempt will result in an error.
+ @warning This method will present a UI to the user and thus should be called on the main thread.
  */
-- (void)logInWithPublishPermissions:(NSArray *)permissions
-                 fromViewController:(UIViewController *)fromViewController
-                            handler:(FBSDKLoginManagerRequestTokenHandler)handler;
+- (void)logInFromViewController:(nullable UIViewController *)viewController
+                  configuration:(FBSDKLoginConfiguration *)configuration
+                     completion:(FBSDKLoginManagerLoginResultBlock)completion
+NS_REFINED_FOR_SWIFT;
+
+/**
+ Logs the user in with the given deep link url. Will only log user in if the given url contains valid login data.
+ @param url the deep link url
+ @param handler the callback.
+
+This method will present a UI to the user and thus should be called on the main thread.
+This method should be called with the url from the openURL method.
+
+ @warning This method will present a UI to the user and thus should be called on the main thread.
+ */
+- (void)logInWithURL:(NSURL *)url
+             handler:(nullable FBSDKLoginManagerLoginResultBlock)handler
+NS_SWIFT_NAME(logIn(url:handler:));
+
+/**
+ Requests user's permission to reathorize application's data access, after it has expired due to inactivity.
+ @param fromViewController the view controller from which to present the login UI. If nil, the topmost view
+ controller will be automatically determined and used.
+ @param handler the callback.
+
+Use this method when you need to reathorize your app's access to user data via the Graph API.
+You should only call this after access has expired.
+You should provide as much context to the user as possible as to why you need to reauthorize the access, the
+scope of access being reathorized, and what added value your app provides when the access is reathorized.
+You can inspect the `result.declinedPermissions` to determine if you should provide more information to the
+user based on any declined permissions.
+
+ @warning This method will reauthorize using a `LoginConfiguration` with `FBSDKLoginTracking` set to `.enabled`.
+ @warning This method will present UI the user. You typically should call this if `AccessToken.isDataAccessExpired` is true.
+ */
+- (void)reauthorizeDataAccess:(UIViewController *)fromViewController
+                      handler:(FBSDKLoginManagerLoginResultBlock)handler
+NS_SWIFT_NAME(reauthorizeDataAccess(from:handler:));
 
 /**
   Logs the user out
 
- This calls [FBSDKAccessToken setCurrentAccessToken:nil] and [FBSDKProfile setCurrentProfile:nil].
+ This nils out the singleton instances of `AccessToken` `AuthenticationToken` and `Profle`.
+
+ @note This is only a client side logout. It will not log the user out of their Facebook account.
  */
 - (void)logOut;
 
-/**
- @method
-
-  Issues an asynchronous renewCredentialsForAccount call to the device's Facebook account store.
-
- - Parameter handler: The completion handler to call when the renewal is completed. This can be invoked on an arbitrary thread.
-
-
- This can be used to explicitly renew account credentials and is provided as a convenience wrapper around
- `[ACAccountStore renewCredentialsForAccount:completion]`. Note the method will not issue the renewal call if the the
- Facebook account has not been set on the device, or if access had not been granted to the account (though the handler
- wil receive an error).
-
- If the `[FBSDKAccessToken currentAccessToken]` was from the account store, a succesful renewal will also set
- a new "currentAccessToken".
- */
-+ (void)renewSystemCredentials:(void (^)(ACAccountCredentialRenewResult result, NSError *error))handler;
-
 @end
+
+#endif
+
+NS_ASSUME_NONNULL_END

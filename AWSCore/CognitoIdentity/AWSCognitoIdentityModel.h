@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -80,6 +80,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @class AWSCognitoIdentityGetOpenIdTokenForDeveloperIdentityResponse;
 @class AWSCognitoIdentityGetOpenIdTokenInput;
 @class AWSCognitoIdentityGetOpenIdTokenResponse;
+@class AWSCognitoIdentityGetPrincipalTagAttributeMapInput;
+@class AWSCognitoIdentityGetPrincipalTagAttributeMapResponse;
 @class AWSCognitoIdentityIdentityDescription;
 @class AWSCognitoIdentityIdentityPool;
 @class AWSCognitoIdentityIdentityPoolShortDescription;
@@ -97,6 +99,8 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @class AWSCognitoIdentityRoleMapping;
 @class AWSCognitoIdentityRulesConfigurationType;
 @class AWSCognitoIdentitySetIdentityPoolRolesInput;
+@class AWSCognitoIdentitySetPrincipalTagAttributeMapInput;
+@class AWSCognitoIdentitySetPrincipalTagAttributeMapResponse;
 @class AWSCognitoIdentityTagResourceInput;
 @class AWSCognitoIdentityTagResourceResponse;
 @class AWSCognitoIdentityUnlinkDeveloperIdentityInput;
@@ -136,6 +140,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 
 
 /**
+ <p>Enables or disables the Basic (Classic) authentication flow. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowClassicFlow;
+
+/**
  <p>TRUE if the identity pool supports unauthenticated logins.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowUnauthenticatedIdentities;
@@ -161,7 +170,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable identityPoolTags;
 
 /**
- <p>A list of OpendID Connect provider ARNs.</p>
+ <p>The Amazon Resource Names (ARN) of the OpenID Connect providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
 
@@ -292,7 +301,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSString * _Nullable identityId;
 
 /**
- <p>A set of optional name-value pairs that map provider names to provider tokens. The name-value pair will follow the syntax "provider_name": "provider_user_identifier".</p><p>Logins should not be specified when trying to get credentials for an unauthenticated identity.</p><p>The Logins parameter is required when using identities associated with external identity providers such as FaceBook. For examples of <code>Logins</code> maps, see the code examples in the <a href="http://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer Guide.</p>
+ <p>A set of optional name-value pairs that map provider names to provider tokens. The name-value pair will follow the syntax "provider_name": "provider_user_identifier".</p><p>Logins should not be specified when trying to get credentials for an unauthenticated identity.</p><p>The Logins parameter is required when using identities associated with external identity providers such as Facebook. For examples of <code>Logins</code> maps, see the code examples in the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/external-identity-providers.html">External Identity Providers</a> section of the Amazon Cognito Developer Guide.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
@@ -413,7 +422,12 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
 /**
- <p>The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.</p>
+ <p>Use this operation to configure attribute mappings for custom providers. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable principalTags;
+
+/**
+ <p>The expiration time of the token, in seconds. You can specify a custom expiration time for the token so that you can cache it. If you don't provide an expiration time, the token is valid for 15 minutes. You can exchange the token with Amazon STS for temporary AWS credentials, which are valid for a maximum of one hour. The maximum token duration you can set is 24 hours. You should take care in setting the expiration time for a token, as there are significant security implications: an attacker could use a leaked token to access your AWS resources for the token's duration.</p><note><p>Please provide for a small grace period, usually no more than 5 minutes, to account for clock skew.</p></note>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tokenDuration;
 
@@ -450,7 +464,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSString * _Nullable identityId;
 
 /**
- <p>A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenId Connect provider, always include the <code>id_token</code>.</p>
+ <p>A set of optional name-value pairs that map provider names to provider tokens. When using graph.facebook.com and www.amazon.com, supply the access_token returned from the provider's authflow. For accounts.google.com, an Amazon Cognito user pool provider, or any other OpenID Connect provider, always include the <code>id_token</code>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable logins;
 
@@ -471,6 +485,52 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
  <p>An OpenID token, valid for 10 minutes.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable token;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityGetPrincipalTagAttributeMapInput : AWSRequest
+
+
+/**
+ <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityPoolId;
+
+/**
+ <p>You can use this operation to get the provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityProviderName;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentityGetPrincipalTagAttributeMapResponse : AWSModel
+
+
+/**
+ <p>You can use this operation to get the ID of the Identity Pool you setup attribute mappings for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityPoolId;
+
+/**
+ <p>You can use this operation to get the provider name.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityProviderName;
+
+/**
+ <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable principalTags;
+
+/**
+ <p>You can use this operation to list </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable useDefaults;
 
 @end
 
@@ -510,6 +570,11 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 
 
 /**
+ <p>Enables or disables the Basic (Classic) authentication flow. For more information, see <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/authentication-flow.html">Identity Pools (Federated Identities) Authentication Flow</a> in the <i>Amazon Cognito Developer Guide</i>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable allowClassicFlow;
+
+/**
  <p>TRUE if the identity pool supports unauthenticated logins.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable allowUnauthenticatedIdentities;
@@ -540,7 +605,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable identityPoolTags;
 
 /**
- <p>A list of OpendID Connect provider ARNs.</p>
+ <p>The ARNs of the OpenID Connect providers.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable openIdConnectProviderARNs;
 
@@ -868,7 +933,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 @property (nonatomic, strong) NSString * _Nullable identityPoolId;
 
 /**
- <p>How users for a specific identity provider are to mapped to roles. This is a string to <a>RoleMapping</a> object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p><p>Up to 25 rules can be specified per identity provider.</p>
+ <p>How users for a specific identity provider are to mapped to roles. This is a string to <a>RoleMapping</a> object map. The string identifies the identity provider, for example, "graph.facebook.com" or "cognito-idp.us-east-1.amazonaws.com/us-east-1_abcdefghi:app_client_id".</p><p>Up to 25 rules can be specified per identity provider.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, AWSCognitoIdentityRoleMapping *> * _Nullable roleMappings;
 
@@ -882,11 +947,67 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 /**
  
  */
+@interface AWSCognitoIdentitySetPrincipalTagAttributeMapInput : AWSRequest
+
+
+/**
+ <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityPoolId;
+
+/**
+ <p>The provider name you want to use for attribute mappings.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityProviderName;
+
+/**
+ <p>You can use this operation to add principal tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable principalTags;
+
+/**
+ <p>You can use this operation to use default (username and clientID) attribute mappings.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable useDefaults;
+
+@end
+
+/**
+ 
+ */
+@interface AWSCognitoIdentitySetPrincipalTagAttributeMapResponse : AWSModel
+
+
+/**
+ <p>The ID of the Identity Pool you want to set attribute mappings for.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityPoolId;
+
+/**
+ <p>The provider name you want to use for attribute mappings.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identityProviderName;
+
+/**
+ <p>You can use this operation to add principal tags. The <code>PrincipalTags</code>operation enables you to reference user attributes in your IAM permissions policy.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable principalTags;
+
+/**
+ <p>You can use this operation to select default (username and clientID) attribute mappings.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable useDefaults;
+
+@end
+
+/**
+ 
+ */
 @interface AWSCognitoIdentityTagResourceInput : AWSRequest
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the identity pool to assign the tags to.</p>
+ <p>The Amazon Resource Name (ARN) of the identity pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 
@@ -983,7 +1104,7 @@ typedef NS_ENUM(NSInteger, AWSCognitoIdentityRoleMappingType) {
 
 
 /**
- <p>The Amazon Resource Name (ARN) of the identity pool that the tags are assigned to.</p>
+ <p>The Amazon Resource Name (ARN) of the identity pool.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceArn;
 

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2019 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -14,7 +14,6 @@
 //
 
 #import "AWSElasticLoadBalancingService.h"
-#import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSCategory.h>
 #import <AWSCore/AWSNetworking.h>
 #import <AWSCore/AWSSignature.h>
@@ -26,7 +25,7 @@
 #import "AWSElasticLoadBalancingResources.h"
 
 static NSString *const AWSInfoElasticLoadBalancing = @"ElasticLoadBalancing";
-NSString *const AWSElasticLoadBalancingSDKVersion = @"2.9.8";
+NSString *const AWSElasticLoadBalancingSDKVersion = @"2.23.0";
 
 
 @interface AWSElasticLoadBalancingResponseSerializer : AWSXMLResponseSerializer
@@ -40,27 +39,42 @@ NSString *const AWSElasticLoadBalancingSDKVersion = @"2.9.8";
 static NSDictionary *errorCodeDictionary = nil;
 + (void)initialize {
     errorCodeDictionary = @{
-                            @"LoadBalancerNotFound" : @(AWSElasticLoadBalancingErrorAccessPointNotFound),
+                            @"ALPNPolicyNotFound" : @(AWSElasticLoadBalancingErrorALPNPolicyNotSupported),
+                            @"AllocationIdNotFound" : @(AWSElasticLoadBalancingErrorAllocationIdNotFound),
+                            @"AvailabilityZoneNotSupported" : @(AWSElasticLoadBalancingErrorAvailabilityZoneNotSupported),
                             @"CertificateNotFound" : @(AWSElasticLoadBalancingErrorCertificateNotFound),
-                            @"DependencyThrottle" : @(AWSElasticLoadBalancingErrorDependencyThrottle),
-                            @"DuplicateLoadBalancerName" : @(AWSElasticLoadBalancingErrorDuplicateAccessPointName),
                             @"DuplicateListener" : @(AWSElasticLoadBalancingErrorDuplicateListener),
-                            @"DuplicatePolicyName" : @(AWSElasticLoadBalancingErrorDuplicatePolicyName),
+                            @"DuplicateLoadBalancerName" : @(AWSElasticLoadBalancingErrorDuplicateLoadBalancerName),
                             @"DuplicateTagKeys" : @(AWSElasticLoadBalancingErrorDuplicateTagKeys),
+                            @"DuplicateTargetGroupName" : @(AWSElasticLoadBalancingErrorDuplicateTargetGroupName),
+                            @"HealthUnavailable" : @(AWSElasticLoadBalancingErrorHealthUnavailable),
+                            @"IncompatibleProtocols" : @(AWSElasticLoadBalancingErrorIncompatibleProtocols),
                             @"InvalidConfigurationRequest" : @(AWSElasticLoadBalancingErrorInvalidConfigurationRequest),
-                            @"InvalidInstance" : @(AWSElasticLoadBalancingErrorInvalidEndPoint),
+                            @"InvalidLoadBalancerAction" : @(AWSElasticLoadBalancingErrorInvalidLoadBalancerAction),
                             @"InvalidScheme" : @(AWSElasticLoadBalancingErrorInvalidScheme),
                             @"InvalidSecurityGroup" : @(AWSElasticLoadBalancingErrorInvalidSecurityGroup),
                             @"InvalidSubnet" : @(AWSElasticLoadBalancingErrorInvalidSubnet),
+                            @"InvalidTarget" : @(AWSElasticLoadBalancingErrorInvalidTarget),
                             @"ListenerNotFound" : @(AWSElasticLoadBalancingErrorListenerNotFound),
-                            @"LoadBalancerAttributeNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerAttributeNotFound),
+                            @"LoadBalancerNotFound" : @(AWSElasticLoadBalancingErrorLoadBalancerNotFound),
                             @"OperationNotPermitted" : @(AWSElasticLoadBalancingErrorOperationNotPermitted),
-                            @"PolicyNotFound" : @(AWSElasticLoadBalancingErrorPolicyNotFound),
-                            @"PolicyTypeNotFound" : @(AWSElasticLoadBalancingErrorPolicyTypeNotFound),
+                            @"PriorityInUse" : @(AWSElasticLoadBalancingErrorPriorityInUse),
+                            @"ResourceInUse" : @(AWSElasticLoadBalancingErrorResourceInUse),
+                            @"RuleNotFound" : @(AWSElasticLoadBalancingErrorRuleNotFound),
+                            @"SSLPolicyNotFound" : @(AWSElasticLoadBalancingErrorSSLPolicyNotFound),
                             @"SubnetNotFound" : @(AWSElasticLoadBalancingErrorSubnetNotFound),
-                            @"TooManyLoadBalancers" : @(AWSElasticLoadBalancingErrorTooManyAccessPoints),
-                            @"TooManyPolicies" : @(AWSElasticLoadBalancingErrorTooManyPolicies),
+                            @"TargetGroupAssociationLimit" : @(AWSElasticLoadBalancingErrorTargetGroupAssociationLimit),
+                            @"TargetGroupNotFound" : @(AWSElasticLoadBalancingErrorTargetGroupNotFound),
+                            @"TooManyActions" : @(AWSElasticLoadBalancingErrorTooManyActions),
+                            @"TooManyCertificates" : @(AWSElasticLoadBalancingErrorTooManyCertificates),
+                            @"TooManyListeners" : @(AWSElasticLoadBalancingErrorTooManyListeners),
+                            @"TooManyLoadBalancers" : @(AWSElasticLoadBalancingErrorTooManyLoadBalancers),
+                            @"TooManyRegistrationsForTargetId" : @(AWSElasticLoadBalancingErrorTooManyRegistrationsForTargetId),
+                            @"TooManyRules" : @(AWSElasticLoadBalancingErrorTooManyRules),
                             @"TooManyTags" : @(AWSElasticLoadBalancingErrorTooManyTags),
+                            @"TooManyTargetGroups" : @(AWSElasticLoadBalancingErrorTooManyTargetGroups),
+                            @"TooManyTargets" : @(AWSElasticLoadBalancingErrorTooManyTargets),
+                            @"TooManyUniqueTargetGroupsPerLoadBalancer" : @(AWSElasticLoadBalancingErrorTooManyUniqueTargetGroupsPerLoadBalancer),
                             @"UnsupportedProtocol" : @(AWSElasticLoadBalancingErrorUnsupportedProtocol),
                             };
 }
@@ -294,6 +308,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
 #pragma mark - Service method
 
+- (AWSTask<AWSElasticLoadBalancingAddListenerCertificatesOutput *> *)addListenerCertificates:(AWSElasticLoadBalancingAddListenerCertificatesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AddListenerCertificates"
+                   outputClass:[AWSElasticLoadBalancingAddListenerCertificatesOutput class]];
+}
+
+- (void)addListenerCertificates:(AWSElasticLoadBalancingAddListenerCertificatesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingAddListenerCertificatesOutput *response, NSError *error))completionHandler {
+    [[self addListenerCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddListenerCertificatesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingAddListenerCertificatesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSElasticLoadBalancingAddTagsOutput *> *)addTags:(AWSElasticLoadBalancingAddTagsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -317,19 +354,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *> *)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request {
+- (AWSTask<AWSElasticLoadBalancingCreateListenerOutput *> *)createListener:(AWSElasticLoadBalancingCreateListenerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"ApplySecurityGroupsToLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput class]];
+                 operationName:@"CreateListener"
+                   outputClass:[AWSElasticLoadBalancingCreateListenerOutput class]];
 }
 
-- (void)applySecurityGroupsToLoadBalancer:(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *response, NSError *error))completionHandler {
-    [[self applySecurityGroupsToLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingApplySecurityGroupsToLoadBalancerOutput *result = task.result;
+- (void)createListener:(AWSElasticLoadBalancingCreateListenerInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateListenerOutput *response, NSError *error))completionHandler {
+    [[self createListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateListenerOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingCreateListenerOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -340,111 +377,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *> *)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"AttachLoadBalancerToSubnets"
-                   outputClass:[AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput class]];
-}
-
-- (void)attachLoadBalancerToSubnets:(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *response, NSError *error))completionHandler {
-    [[self attachLoadBalancerToSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingAttachLoadBalancerToSubnetsOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingConfigureHealthCheckOutput *> *)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"ConfigureHealthCheck"
-                   outputClass:[AWSElasticLoadBalancingConfigureHealthCheckOutput class]];
-}
-
-- (void)configureHealthCheck:(AWSElasticLoadBalancingConfigureHealthCheckInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingConfigureHealthCheckOutput *response, NSError *error))completionHandler {
-    [[self configureHealthCheck:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingConfigureHealthCheckOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingConfigureHealthCheckOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *> *)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"CreateAppCookieStickinessPolicy"
-                   outputClass:[AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput class]];
-}
-
-- (void)createAppCookieStickinessPolicy:(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
-    [[self createAppCookieStickinessPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingCreateAppCookieStickinessPolicyOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *> *)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"CreateLBCookieStickinessPolicy"
-                   outputClass:[AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput class]];
-}
-
-- (void)createLBCookieStickinessPolicy:(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *response, NSError *error))completionHandler {
-    [[self createLBCookieStickinessPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingCreateLBCookieStickinessPolicyOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingCreateAccessPointOutput *> *)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request {
+- (AWSTask<AWSElasticLoadBalancingCreateLoadBalancerOutput *> *)createLoadBalancer:(AWSElasticLoadBalancingCreateLoadBalancerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"CreateLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingCreateAccessPointOutput class]];
+                   outputClass:[AWSElasticLoadBalancingCreateLoadBalancerOutput class]];
 }
 
-- (void)createLoadBalancer:(AWSElasticLoadBalancingCreateAccessPointInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingCreateAccessPointOutput *response, NSError *error))completionHandler {
-    [[self createLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateAccessPointOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingCreateAccessPointOutput *result = task.result;
+- (void)createLoadBalancer:(AWSElasticLoadBalancingCreateLoadBalancerInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerOutput *response, NSError *error))completionHandler {
+    [[self createLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingCreateLoadBalancerOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -455,19 +400,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *> *)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request {
+- (AWSTask<AWSElasticLoadBalancingCreateRuleOutput *> *)createRule:(AWSElasticLoadBalancingCreateRuleInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"CreateLoadBalancerListeners"
-                   outputClass:[AWSElasticLoadBalancingCreateLoadBalancerListenerOutput class]];
+                 operationName:@"CreateRule"
+                   outputClass:[AWSElasticLoadBalancingCreateRuleOutput class]];
 }
 
-- (void)createLoadBalancerListeners:(AWSElasticLoadBalancingCreateLoadBalancerListenerInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *response, NSError *error))completionHandler {
-    [[self createLoadBalancerListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingCreateLoadBalancerListenerOutput *result = task.result;
+- (void)createRule:(AWSElasticLoadBalancingCreateRuleInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateRuleOutput *response, NSError *error))completionHandler {
+    [[self createRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateRuleOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingCreateRuleOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -478,19 +423,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *> *)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request {
+- (AWSTask<AWSElasticLoadBalancingCreateTargetGroupOutput *> *)createTargetGroup:(AWSElasticLoadBalancingCreateTargetGroupInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"CreateLoadBalancerPolicy"
-                   outputClass:[AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput class]];
+                 operationName:@"CreateTargetGroup"
+                   outputClass:[AWSElasticLoadBalancingCreateTargetGroupOutput class]];
 }
 
-- (void)createLoadBalancerPolicy:(AWSElasticLoadBalancingCreateLoadBalancerPolicyInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
-    [[self createLoadBalancerPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingCreateLoadBalancerPolicyOutput *result = task.result;
+- (void)createTargetGroup:(AWSElasticLoadBalancingCreateTargetGroupInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingCreateTargetGroupOutput *response, NSError *error))completionHandler {
+    [[self createTargetGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingCreateTargetGroupOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingCreateTargetGroupOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -501,19 +446,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDeleteAccessPointOutput *> *)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDeleteListenerOutput *> *)deleteListener:(AWSElasticLoadBalancingDeleteListenerInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteListener"
+                   outputClass:[AWSElasticLoadBalancingDeleteListenerOutput class]];
+}
+
+- (void)deleteListener:(AWSElasticLoadBalancingDeleteListenerInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteListenerOutput *response, NSError *error))completionHandler {
+    [[self deleteListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteListenerOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeleteListenerOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerOutput *> *)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteLoadBalancerInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DeleteLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingDeleteAccessPointOutput class]];
+                   outputClass:[AWSElasticLoadBalancingDeleteLoadBalancerOutput class]];
 }
 
-- (void)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteAccessPointInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteAccessPointOutput *response, NSError *error))completionHandler {
-    [[self deleteLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteAccessPointOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDeleteAccessPointOutput *result = task.result;
+- (void)deleteLoadBalancer:(AWSElasticLoadBalancingDeleteLoadBalancerInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerOutput *response, NSError *error))completionHandler {
+    [[self deleteLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeleteLoadBalancerOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -524,19 +492,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *> *)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDeleteRuleOutput *> *)deleteRule:(AWSElasticLoadBalancingDeleteRuleInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DeleteLoadBalancerListeners"
-                   outputClass:[AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput class]];
+                 operationName:@"DeleteRule"
+                   outputClass:[AWSElasticLoadBalancingDeleteRuleOutput class]];
 }
 
-- (void)deleteLoadBalancerListeners:(AWSElasticLoadBalancingDeleteLoadBalancerListenerInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *response, NSError *error))completionHandler {
-    [[self deleteLoadBalancerListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDeleteLoadBalancerListenerOutput *result = task.result;
+- (void)deleteRule:(AWSElasticLoadBalancingDeleteRuleInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteRuleOutput *response, NSError *error))completionHandler {
+    [[self deleteRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteRuleOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeleteRuleOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -547,19 +515,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *> *)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDeleteTargetGroupOutput *> *)deleteTargetGroup:(AWSElasticLoadBalancingDeleteTargetGroupInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DeleteLoadBalancerPolicy"
-                   outputClass:[AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput class]];
+                 operationName:@"DeleteTargetGroup"
+                   outputClass:[AWSElasticLoadBalancingDeleteTargetGroupOutput class]];
 }
 
-- (void)deleteLoadBalancerPolicy:(AWSElasticLoadBalancingDeleteLoadBalancerPolicyInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *response, NSError *error))completionHandler {
-    [[self deleteLoadBalancerPolicy:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDeleteLoadBalancerPolicyOutput *result = task.result;
+- (void)deleteTargetGroup:(AWSElasticLoadBalancingDeleteTargetGroupInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeleteTargetGroupOutput *response, NSError *error))completionHandler {
+    [[self deleteTargetGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeleteTargetGroupOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeleteTargetGroupOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -570,19 +538,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDeregisterEndPointsOutput *> *)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDeregisterTargetsOutput *> *)deregisterTargets:(AWSElasticLoadBalancingDeregisterTargetsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DeregisterInstancesFromLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingDeregisterEndPointsOutput class]];
+                 operationName:@"DeregisterTargets"
+                   outputClass:[AWSElasticLoadBalancingDeregisterTargetsOutput class]];
 }
 
-- (void)deregisterInstancesFromLoadBalancer:(AWSElasticLoadBalancingDeregisterEndPointsInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDeregisterEndPointsOutput *response, NSError *error))completionHandler {
-    [[self deregisterInstancesFromLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeregisterEndPointsOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDeregisterEndPointsOutput *result = task.result;
+- (void)deregisterTargets:(AWSElasticLoadBalancingDeregisterTargetsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDeregisterTargetsOutput *response, NSError *error))completionHandler {
+    [[self deregisterTargets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDeregisterTargetsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDeregisterTargetsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -616,19 +584,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDescribeEndPointStateOutput *> *)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDescribeListenerCertificatesOutput *> *)describeListenerCertificates:(AWSElasticLoadBalancingDescribeListenerCertificatesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DescribeInstanceHealth"
-                   outputClass:[AWSElasticLoadBalancingDescribeEndPointStateOutput class]];
+                 operationName:@"DescribeListenerCertificates"
+                   outputClass:[AWSElasticLoadBalancingDescribeListenerCertificatesOutput class]];
 }
 
-- (void)describeInstanceHealth:(AWSElasticLoadBalancingDescribeEndPointStateInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeEndPointStateOutput *response, NSError *error))completionHandler {
-    [[self describeInstanceHealth:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeEndPointStateOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDescribeEndPointStateOutput *result = task.result;
+- (void)describeListenerCertificates:(AWSElasticLoadBalancingDescribeListenerCertificatesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeListenerCertificatesOutput *response, NSError *error))completionHandler {
+    [[self describeListenerCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeListenerCertificatesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeListenerCertificatesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeListenersOutput *> *)describeListeners:(AWSElasticLoadBalancingDescribeListenersInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeListeners"
+                   outputClass:[AWSElasticLoadBalancingDescribeListenersOutput class]];
+}
+
+- (void)describeListeners:(AWSElasticLoadBalancingDescribeListenersInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeListenersOutput *response, NSError *error))completionHandler {
+    [[self describeListeners:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeListenersOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeListenersOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -662,65 +653,65 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *> *)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"DescribeLoadBalancerPolicies"
-                   outputClass:[AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput class]];
-}
-
-- (void)describeLoadBalancerPolicies:(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *response, NSError *error))completionHandler {
-    [[self describeLoadBalancerPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDescribeLoadBalancerPoliciesOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *> *)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request {
-    return [self invokeRequest:request
-                    HTTPMethod:AWSHTTPMethodPOST
-                     URLString:@""
-                  targetPrefix:@""
-                 operationName:@"DescribeLoadBalancerPolicyTypes"
-                   outputClass:[AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput class]];
-}
-
-- (void)describeLoadBalancerPolicyTypes:(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *response, NSError *error))completionHandler {
-    [[self describeLoadBalancerPolicyTypes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDescribeLoadBalancerPolicyTypesOutput *result = task.result;
-        NSError *error = task.error;
-
-        if (completionHandler) {
-            completionHandler(result, error);
-        }
-
-        return nil;
-    }];
-}
-
-- (AWSTask<AWSElasticLoadBalancingDescribeAccessPointsOutput *> *)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDescribeLoadBalancersOutput *> *)describeLoadBalancers:(AWSElasticLoadBalancingDescribeLoadBalancersInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"DescribeLoadBalancers"
-                   outputClass:[AWSElasticLoadBalancingDescribeAccessPointsOutput class]];
+                   outputClass:[AWSElasticLoadBalancingDescribeLoadBalancersOutput class]];
 }
 
-- (void)describeLoadBalancers:(AWSElasticLoadBalancingDescribeAccessPointsInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeAccessPointsOutput *response, NSError *error))completionHandler {
-    [[self describeLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeAccessPointsOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDescribeAccessPointsOutput *result = task.result;
+- (void)describeLoadBalancers:(AWSElasticLoadBalancingDescribeLoadBalancersInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeLoadBalancersOutput *response, NSError *error))completionHandler {
+    [[self describeLoadBalancers:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeLoadBalancersOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeLoadBalancersOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeRulesOutput *> *)describeRules:(AWSElasticLoadBalancingDescribeRulesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeRules"
+                   outputClass:[AWSElasticLoadBalancingDescribeRulesOutput class]];
+}
+
+- (void)describeRules:(AWSElasticLoadBalancingDescribeRulesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeRulesOutput *response, NSError *error))completionHandler {
+    [[self describeRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeRulesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeRulesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingDescribeSSLPoliciesOutput *> *)describeSSLPolicies:(AWSElasticLoadBalancingDescribeSSLPoliciesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeSSLPolicies"
+                   outputClass:[AWSElasticLoadBalancingDescribeSSLPoliciesOutput class]];
+}
+
+- (void)describeSSLPolicies:(AWSElasticLoadBalancingDescribeSSLPoliciesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeSSLPoliciesOutput *response, NSError *error))completionHandler {
+    [[self describeSSLPolicies:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeSSLPoliciesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeSSLPoliciesOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -754,19 +745,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *> *)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput *> *)describeTargetGroupAttributes:(AWSElasticLoadBalancingDescribeTargetGroupAttributesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DetachLoadBalancerFromSubnets"
-                   outputClass:[AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput class]];
+                 operationName:@"DescribeTargetGroupAttributes"
+                   outputClass:[AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput class]];
 }
 
-- (void)detachLoadBalancerFromSubnets:(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *response, NSError *error))completionHandler {
-    [[self detachLoadBalancerFromSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingDetachLoadBalancerFromSubnetsOutput *result = task.result;
+- (void)describeTargetGroupAttributes:(AWSElasticLoadBalancingDescribeTargetGroupAttributesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput *response, NSError *error))completionHandler {
+    [[self describeTargetGroupAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTargetGroupAttributesOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -777,19 +768,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *> *)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDescribeTargetGroupsOutput *> *)describeTargetGroups:(AWSElasticLoadBalancingDescribeTargetGroupsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"DisableAvailabilityZonesForLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingRemoveAvailabilityZonesOutput class]];
+                 operationName:@"DescribeTargetGroups"
+                   outputClass:[AWSElasticLoadBalancingDescribeTargetGroupsOutput class]];
 }
 
-- (void)disableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingRemoveAvailabilityZonesInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *response, NSError *error))completionHandler {
-    [[self disableAvailabilityZonesForLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingRemoveAvailabilityZonesOutput *result = task.result;
+- (void)describeTargetGroups:(AWSElasticLoadBalancingDescribeTargetGroupsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTargetGroupsOutput *response, NSError *error))completionHandler {
+    [[self describeTargetGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTargetGroupsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTargetGroupsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -800,19 +791,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingAddAvailabilityZonesOutput *> *)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request {
+- (AWSTask<AWSElasticLoadBalancingDescribeTargetHealthOutput *> *)describeTargetHealth:(AWSElasticLoadBalancingDescribeTargetHealthInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"EnableAvailabilityZonesForLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingAddAvailabilityZonesOutput class]];
+                 operationName:@"DescribeTargetHealth"
+                   outputClass:[AWSElasticLoadBalancingDescribeTargetHealthOutput class]];
 }
 
-- (void)enableAvailabilityZonesForLoadBalancer:(AWSElasticLoadBalancingAddAvailabilityZonesInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingAddAvailabilityZonesOutput *response, NSError *error))completionHandler {
-    [[self enableAvailabilityZonesForLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingAddAvailabilityZonesOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingAddAvailabilityZonesOutput *result = task.result;
+- (void)describeTargetHealth:(AWSElasticLoadBalancingDescribeTargetHealthInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingDescribeTargetHealthOutput *response, NSError *error))completionHandler {
+    [[self describeTargetHealth:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingDescribeTargetHealthOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingDescribeTargetHealthOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingModifyListenerOutput *> *)modifyListener:(AWSElasticLoadBalancingModifyListenerInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyListener"
+                   outputClass:[AWSElasticLoadBalancingModifyListenerOutput class]];
+}
+
+- (void)modifyListener:(AWSElasticLoadBalancingModifyListenerInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyListenerOutput *response, NSError *error))completionHandler {
+    [[self modifyListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyListenerOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyListenerOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -846,19 +860,111 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingRegisterEndPointsOutput *> *)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request {
+- (AWSTask<AWSElasticLoadBalancingModifyRuleOutput *> *)modifyRule:(AWSElasticLoadBalancingModifyRuleInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"RegisterInstancesWithLoadBalancer"
-                   outputClass:[AWSElasticLoadBalancingRegisterEndPointsOutput class]];
+                 operationName:@"ModifyRule"
+                   outputClass:[AWSElasticLoadBalancingModifyRuleOutput class]];
 }
 
-- (void)registerInstancesWithLoadBalancer:(AWSElasticLoadBalancingRegisterEndPointsInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingRegisterEndPointsOutput *response, NSError *error))completionHandler {
-    [[self registerInstancesWithLoadBalancer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRegisterEndPointsOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingRegisterEndPointsOutput *result = task.result;
+- (void)modifyRule:(AWSElasticLoadBalancingModifyRuleInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyRuleOutput *response, NSError *error))completionHandler {
+    [[self modifyRule:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyRuleOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyRuleOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingModifyTargetGroupOutput *> *)modifyTargetGroup:(AWSElasticLoadBalancingModifyTargetGroupInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTargetGroup"
+                   outputClass:[AWSElasticLoadBalancingModifyTargetGroupOutput class]];
+}
+
+- (void)modifyTargetGroup:(AWSElasticLoadBalancingModifyTargetGroupInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyTargetGroupOutput *response, NSError *error))completionHandler {
+    [[self modifyTargetGroup:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyTargetGroupOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyTargetGroupOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingModifyTargetGroupAttributesOutput *> *)modifyTargetGroupAttributes:(AWSElasticLoadBalancingModifyTargetGroupAttributesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyTargetGroupAttributes"
+                   outputClass:[AWSElasticLoadBalancingModifyTargetGroupAttributesOutput class]];
+}
+
+- (void)modifyTargetGroupAttributes:(AWSElasticLoadBalancingModifyTargetGroupAttributesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingModifyTargetGroupAttributesOutput *response, NSError *error))completionHandler {
+    [[self modifyTargetGroupAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingModifyTargetGroupAttributesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingModifyTargetGroupAttributesOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingRegisterTargetsOutput *> *)registerTargets:(AWSElasticLoadBalancingRegisterTargetsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RegisterTargets"
+                   outputClass:[AWSElasticLoadBalancingRegisterTargetsOutput class]];
+}
+
+- (void)registerTargets:(AWSElasticLoadBalancingRegisterTargetsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingRegisterTargetsOutput *response, NSError *error))completionHandler {
+    [[self registerTargets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRegisterTargetsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingRegisterTargetsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingRemoveListenerCertificatesOutput *> *)removeListenerCertificates:(AWSElasticLoadBalancingRemoveListenerCertificatesInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"RemoveListenerCertificates"
+                   outputClass:[AWSElasticLoadBalancingRemoveListenerCertificatesOutput class]];
+}
+
+- (void)removeListenerCertificates:(AWSElasticLoadBalancingRemoveListenerCertificatesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingRemoveListenerCertificatesOutput *response, NSError *error))completionHandler {
+    [[self removeListenerCertificates:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingRemoveListenerCertificatesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingRemoveListenerCertificatesOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -892,19 +998,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *> *)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request {
+- (AWSTask<AWSElasticLoadBalancingSetIpAddressTypeOutput *> *)setIpAddressType:(AWSElasticLoadBalancingSetIpAddressTypeInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"SetLoadBalancerListenerSSLCertificate"
-                   outputClass:[AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput class]];
+                 operationName:@"SetIpAddressType"
+                   outputClass:[AWSElasticLoadBalancingSetIpAddressTypeOutput class]];
 }
 
-- (void)setLoadBalancerListenerSSLCertificate:(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *response, NSError *error))completionHandler {
-    [[self setLoadBalancerListenerSSLCertificate:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingSetLoadBalancerListenerSSLCertificateOutput *result = task.result;
+- (void)setIpAddressType:(AWSElasticLoadBalancingSetIpAddressTypeInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetIpAddressTypeOutput *response, NSError *error))completionHandler {
+    [[self setIpAddressType:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetIpAddressTypeOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingSetIpAddressTypeOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -915,19 +1021,19 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *> *)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request {
+- (AWSTask<AWSElasticLoadBalancingSetRulePrioritiesOutput *> *)setRulePriorities:(AWSElasticLoadBalancingSetRulePrioritiesInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"SetLoadBalancerPoliciesForBackendServer"
-                   outputClass:[AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput class]];
+                 operationName:@"SetRulePriorities"
+                   outputClass:[AWSElasticLoadBalancingSetRulePrioritiesOutput class]];
 }
 
-- (void)setLoadBalancerPoliciesForBackendServer:(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *response, NSError *error))completionHandler {
-    [[self setLoadBalancerPoliciesForBackendServer:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingSetLoadBalancerPoliciesForBackendServerOutput *result = task.result;
+- (void)setRulePriorities:(AWSElasticLoadBalancingSetRulePrioritiesInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetRulePrioritiesOutput *response, NSError *error))completionHandler {
+    [[self setRulePriorities:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetRulePrioritiesOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingSetRulePrioritiesOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -938,19 +1044,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *> *)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request {
+- (AWSTask<AWSElasticLoadBalancingSetSecurityGroupsOutput *> *)setSecurityGroups:(AWSElasticLoadBalancingSetSecurityGroupsInput *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
-                 operationName:@"SetLoadBalancerPoliciesOfListener"
-                   outputClass:[AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput class]];
+                 operationName:@"SetSecurityGroups"
+                   outputClass:[AWSElasticLoadBalancingSetSecurityGroupsOutput class]];
 }
 
-- (void)setLoadBalancerPoliciesOfListener:(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerInput *)request
-     completionHandler:(void (^)(AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *response, NSError *error))completionHandler {
-    [[self setLoadBalancerPoliciesOfListener:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *> * _Nonnull task) {
-        AWSElasticLoadBalancingSetLoadBalancerPoliciesOfListenerOutput *result = task.result;
+- (void)setSecurityGroups:(AWSElasticLoadBalancingSetSecurityGroupsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetSecurityGroupsOutput *response, NSError *error))completionHandler {
+    [[self setSecurityGroups:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetSecurityGroupsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingSetSecurityGroupsOutput *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSElasticLoadBalancingSetSubnetsOutput *> *)setSubnets:(AWSElasticLoadBalancingSetSubnetsInput *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"SetSubnets"
+                   outputClass:[AWSElasticLoadBalancingSetSubnetsOutput class]];
+}
+
+- (void)setSubnets:(AWSElasticLoadBalancingSetSubnetsInput *)request
+     completionHandler:(void (^)(AWSElasticLoadBalancingSetSubnetsOutput *response, NSError *error))completionHandler {
+    [[self setSubnets:request] continueWithBlock:^id _Nullable(AWSTask<AWSElasticLoadBalancingSetSubnetsOutput *> * _Nonnull task) {
+        AWSElasticLoadBalancingSetSubnetsOutput *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

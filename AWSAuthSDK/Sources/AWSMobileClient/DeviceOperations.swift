@@ -77,7 +77,7 @@ public class DeviceOperations {
     public func list(limit: Int = 60, paginationToken: String? = nil, completionHandler: @escaping ((ListDevicesResult?, Error?) -> Void)) {
         mobileClient?.userpoolOpsHelper.currentActiveUser!.listDevices(Int32(limit), paginationToken: paginationToken).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, self.mobileClient!.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 var devices: [Device] = []
                 if result.devices != nil {
@@ -103,7 +103,7 @@ public class DeviceOperations {
     public func updateStatus(deviceId: String, remembered: Bool, completionHandler: @escaping ((UpdateDeviceStatusResult?, Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(deviceId, remembered: remembered).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, self.mobileClient!.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(UpdateDeviceStatusResult(), nil)
             }
@@ -119,7 +119,7 @@ public class DeviceOperations {
     public func updateStatus(remembered: Bool, completionHandler: @escaping ((UpdateDeviceStatusResult?, Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.updateDeviceStatus(remembered).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, self.mobileClient!.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(UpdateDeviceStatusResult(), nil)
             }
@@ -136,7 +136,7 @@ public class DeviceOperations {
     public func get(deviceId: String, completionHandler: @escaping ((Device?, Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice(deviceId).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, self.mobileClient!.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
             }
@@ -151,7 +151,7 @@ public class DeviceOperations {
     public func get(_ completionHandler: @escaping ((Device?, Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.getDevice().continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(nil, self.mobileClient!.getMobileError(for: error))
+                completionHandler(nil, AWSMobileClientError.makeMobileClientError(from: error))
             } else if let result = task.result {
                 completionHandler(self.getMCDeviceForCognitoDevice(device: result.device), nil)
             }
@@ -168,7 +168,7 @@ public class DeviceOperations {
     public func forget(deviceId: String, completionHandler: @escaping ((Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice(deviceId).continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(self.mobileClient!.getMobileError(for: error))
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }
@@ -183,7 +183,7 @@ public class DeviceOperations {
     public func forget(_ completionHandler: @escaping ((Error?) -> Void)) {
         mobileClient!.userpoolOpsHelper.currentActiveUser!.forgetDevice().continueWith { (task) -> Any? in
             if let error = task.error {
-                completionHandler(self.mobileClient!.getMobileError(for: error))
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
             } else if let _ = task.result {
                 completionHandler(nil)
             }

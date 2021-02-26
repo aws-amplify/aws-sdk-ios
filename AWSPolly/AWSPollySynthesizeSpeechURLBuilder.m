@@ -16,7 +16,7 @@
 #import "AWSPollySynthesizeSpeechURLBuilder.h"
 
 static NSString *const AWSInfoPollySynthesizeSpeechURLBuilder = @"PollySynthesizeSpeechUrlBuilder";
-static NSString *const AWSPollySDKVersion = @"2.9.8";
+static NSString *const AWSPollySDKVersion = @"2.23.0";
 
 NSString *const AWSPollySynthesizeSpeechURLBuilderErrorDomain = @"com.amazonaws.AWSPollySynthesizeSpeechURLBuilderErrorDomain";
 NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
@@ -30,6 +30,16 @@ NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
 @interface AWSServiceConfiguration()
 
 @property (nonatomic, strong) AWSEndpoint *endpoint;
+
+@end
+
+@interface AWSPollyStartSpeechSynthesisTaskInput()
+
++ (NSValueTransformer *)engineJSONTransformer;
++ (NSValueTransformer *)languageCodeJSONTransformer;
++ (NSValueTransformer *)outputFormatJSONTransformer;
++ (NSValueTransformer *)textTypeJSONTransformer;
++ (NSValueTransformer *)voiceIdJSONTransformer;
 
 @end
 
@@ -49,7 +59,7 @@ NSString *const AWSPollyPresignedUrlPath = @"v1/speech";
 
 + (void)initialize {
     [super initialize];
-    
+
     if (![AWSiOSSDKVersion isEqualToString:AWSPollySDKVersion]) {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:[NSString stringWithFormat:@"AWSCore and AWSPolly versions need to match. Check your SDK installation. AWSCore: %@ AWSPolly: %@", AWSiOSSDKVersion, AWSPollySDKVersion]
@@ -71,11 +81,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
             serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                credentialsProvider:serviceInfo.cognitoCredentialsProvider];
         }
-        
+
         if (!serviceConfiguration) {
             serviceConfiguration = [AWSServiceManager defaultServiceManager].defaultServiceConfiguration;
         }
-        
+
         if (!serviceConfiguration) {
             @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                            reason:@"The service configuration is `nil`. You need to configure `Info.plist` or set `defaultServiceConfiguration` before using this method."
@@ -83,7 +93,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         }
         _defaultPolly = [[AWSPollySynthesizeSpeechURLBuilder alloc] initWithConfiguration:serviceConfiguration];
     });
-    
+
     return _defaultPolly;
 }
 
@@ -103,16 +113,16 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
         if (serviceClient) {
             return serviceClient;
         }
-        
+
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] serviceInfo:AWSInfoPollySynthesizeSpeechURLBuilder
                                                                      forKey:key];
         if (serviceInfo) {
             AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
                                                                                         credentialsProvider:serviceInfo.cognitoCredentialsProvider];
             [AWSPollySynthesizeSpeechURLBuilder registerPollySynthesizeSpeechURLBuilder:serviceConfiguration
-                                                                                   forKey:key];
+                                                                                 forKey:key];
         }
-        
+
         return [_serviceClients objectForKey:key];
     }
 }
@@ -133,11 +143,11 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (instancetype)initWithConfiguration:(AWSServiceConfiguration *)configuration {
     if (self = [super init]) {
         _configuration = [configuration copy];
-       	_configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
+        _configuration.endpoint = [[AWSEndpoint alloc] initWithRegion:_configuration.regionType
                                                               service:AWSServicePolly
                                                          useUnsafeURL:NO];
     }
-    
+
     return self;
 }
 
@@ -145,50 +155,56 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return [[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id _Nullable(AWSTask *task) {
         id<AWSCredentialsProvider> credentialProvider = self.configuration.credentialsProvider;
         AWSEndpoint *endpoint = self.configuration.endpoint;
-        
+
         //validate expires Date
         if (!preSignedURLRequest.expires) {
             //set default expiry to 15 mins from now.
             [preSignedURLRequest setExpires:[NSDate dateWithTimeIntervalSinceNow:15*60]];
         }
-        
+
         if ([preSignedURLRequest.expires timeIntervalSinceNow] < 0.0) {
             return [AWSTask taskWithError:[NSError errorWithDomain:AWSPollySynthesizeSpeechURLBuilderErrorDomain
                                                               code:AWSPollySynthesizeSpeechURLBuilderInvalidExpiresDate
                                                           userInfo:@{NSLocalizedDescriptionKey: @"expires can not be in past"}]
                     ];
         }
-        
+
         int32_t expireDuration = [preSignedURLRequest.expires timeIntervalSinceNow];
-        
+
         NSMutableDictionary *parameters = [[NSMutableDictionary alloc]init];
         [parameters setObject:[self stringFromOutputFormat:preSignedURLRequest.outputFormat] forKey:@"OutputFormat"];
-        
-        if(preSignedURLRequest.sampleRate)
+
+        if (preSignedURLRequest.sampleRate) {
             [parameters setObject:preSignedURLRequest.sampleRate forKey:@"SampleRate"];
-        
+        }
+
         [parameters setObject:preSignedURLRequest.text forKey:@"Text"];
-        
-        if(preSignedURLRequest.textType)
+
+        if (preSignedURLRequest.textType) {
             [parameters setObject:[self stringFromTextType:preSignedURLRequest.textType] forKey:@"TextType"];
-        
+        }
+
         [parameters setObject:[self stringFromVoiceId:preSignedURLRequest.voiceId] forKey:@"VoiceId"];
-        
-        if(preSignedURLRequest.lexiconNames && [preSignedURLRequest.lexiconNames count] >= 1) {
+
+        if (preSignedURLRequest.lexiconNames && [preSignedURLRequest.lexiconNames count] >= 1) {
             [parameters setObject:preSignedURLRequest.lexiconNames forKey:@"LexiconNames"];
         }
-        
-        if(preSignedURLRequest.speechMarkTypes && [preSignedURLRequest.speechMarkTypes count] >= 1) {
+
+        if (preSignedURLRequest.speechMarkTypes && [preSignedURLRequest.speechMarkTypes count] >= 1) {
             [parameters setObject:preSignedURLRequest.speechMarkTypes forKey:@"SpeechMarkTypes"];
         }
-        
+
         if (preSignedURLRequest.languageCode) {
             [parameters setObject:[self stringFromLanguageCode:preSignedURLRequest.languageCode] forKey:@"LanguageCode"];
         }
-        
+
+        if (preSignedURLRequest.engine) {
+            [parameters setObject:[self stringFromEngine:preSignedURLRequest.engine] forKey:@"Engine"];
+        }
+
         NSMutableDictionary *headers = [NSMutableDictionary new];
         [headers setObject:endpoint.hostName forKey:@"host"];
-        
+
         return [AWSSignatureV4Signer generateQueryStringForSignatureV4WithCredentialProvider:credentialProvider
                                                                                   httpMethod:AWSHTTPMethodGET
                                                                               expireDuration:expireDuration
@@ -200,214 +216,34 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (NSString *)stringFromOutputFormat:(AWSPollyOutputFormat)format{
-    switch (format) {
-        case AWSPollyOutputFormatMp3:
-            return @"mp3";
-        case AWSPollyOutputFormatPcm:
-            return @"pcm";
-        case AWSPollyOutputFormatOggVorbis:
-            return @"ogg_vorbis";
-        case AWSPollyOutputFormatJson:
-            return @"json";
-        case AWSPollyOutputFormatUnknown:
-            return @"";
-    }
+- (NSString *)stringFromOutputFormat:(AWSPollyOutputFormat)format {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput outputFormatJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(format)];
+    return transformedValue;
 }
 
-- (NSString *)stringFromTextType:(AWSPollyTextType)textType{
-    switch (textType) {
-        case AWSPollyTextTypeText:
-            return @"text";
-        case AWSPollyTextTypeSsml:
-            return @"ssml";
-        case AWSPollyTextTypeUnknown:
-            return @"";
-    }
+- (NSString *)stringFromTextType:(AWSPollyTextType)textType {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput textTypeJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(textType)];
+    return transformedValue;
 }
 
-- (NSString *)stringFromLanguageCode: (AWSPollyLanguageCode)languageCode {
-    switch (languageCode) {
-        case AWSPollyLanguageCodeCmnCN:
-            return @"cmn-CN";
-        case AWSPollyLanguageCodeCyGB:
-            return @"cy-GB";
-        case AWSPollyLanguageCodeDaDK:
-            return @"da-DK";
-        case AWSPollyLanguageCodeDeDE:
-            return @"de-DE";
-        case AWSPollyLanguageCodeEnAU:
-            return @"en-AU";
-        case AWSPollyLanguageCodeEnGB:
-            return @"en-GB";
-        case AWSPollyLanguageCodeEnGBWLS:
-            return @"en-GB-WLS";
-        case AWSPollyLanguageCodeEnIN:
-            return @"en-IN";
-        case AWSPollyLanguageCodeEnUS:
-            return @"en-US";
-        case AWSPollyLanguageCodeEsES:
-            return @"es-ES";
-        case AWSPollyLanguageCodeEsMX:
-            return @"es-MX";
-        case AWSPollyLanguageCodeEsUS:
-            return @"es-US";
-        case AWSPollyLanguageCodeFrCA:
-            return @"fr-CA";
-        case AWSPollyLanguageCodeFrFR:
-            return @"fr-FR";
-        case AWSPollyLanguageCodeIsIS:
-            return @"is-IS";
-        case AWSPollyLanguageCodeItIT:
-            return @"it-IT";
-        case AWSPollyLanguageCodeJaJP:
-            return @"ja-JP";
-        case AWSPollyLanguageCodeHiIN:
-            return @"hi-IN";
-        case AWSPollyLanguageCodeKoKR:
-            return @"ko-KR";
-        case AWSPollyLanguageCodeNbNO:
-            return @"nb-NO";
-        case AWSPollyLanguageCodeNlNL:
-            return @"nl-NL";
-        case AWSPollyLanguageCodePlPL:
-            return @"pl-PL";
-        case AWSPollyLanguageCodePtBR:
-            return @"pt-BR";
-        case AWSPollyLanguageCodePtPT:
-            return @"pt-PT";
-        case AWSPollyLanguageCodeRoRO:
-            return @"ro-RO";
-        case AWSPollyLanguageCodeRuRU:
-            return @"ru-RU";
-        case AWSPollyLanguageCodeSvSE:
-            return @"sv-SE";
-        case AWSPollyLanguageCodeTrTR:
-            return @"tr-TR";
-        default:
-            return nil;
-    }
+- (NSString *)stringFromLanguageCode:(AWSPollyLanguageCode)languageCode {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput languageCodeJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(languageCode)];
+    return transformedValue;
 }
 
-- (NSString *)stringFromVoiceId:(AWSPollyVoiceId)voiceId{
-    switch (voiceId) {
-        case AWSPollyVoiceIdGeraint:
-            return @"Geraint";
-        case AWSPollyVoiceIdGwyneth:
-            return @"Gwyneth";
-        case AWSPollyVoiceIdMads:
-            return @"Mads";
-        case AWSPollyVoiceIdNaja:
-            return @"Naja";
-        case AWSPollyVoiceIdHans:
-            return @"Hans";
-        case AWSPollyVoiceIdMarlene:
-            return @"Marlene";
-        case AWSPollyVoiceIdNicole:
-            return @"Nicole";
-        case AWSPollyVoiceIdRussell:
-            return @"Russell";
-        case AWSPollyVoiceIdAmy:
-            return @"Amy";
-        case AWSPollyVoiceIdBrian:
-            return @"Brian";
-        case AWSPollyVoiceIdEmma:
-            return @"Emma";
-        case AWSPollyVoiceIdRaveena:
-            return @"Raveena";
-        case AWSPollyVoiceIdIvy:
-            return @"Ivy";
-        case AWSPollyVoiceIdJoanna:
-            return @"Joanna";
-        case AWSPollyVoiceIdJoey:
-            return @"Joey";
-        case AWSPollyVoiceIdJustin:
-            return @"Justin";
-        case AWSPollyVoiceIdKendra:
-            return @"Kendra";
-        case AWSPollyVoiceIdKimberly:
-            return @"Kimberly";
-        case AWSPollyVoiceIdMatthew:
-            return @"Matthew";
-        case AWSPollyVoiceIdSalli:
-            return @"Salli";
-        case AWSPollyVoiceIdConchita:
-            return @"Conchita";
-        case AWSPollyVoiceIdEnrique:
-            return @"Enrique";
-        case AWSPollyVoiceIdMiguel:
-            return @"Miguel";
-        case AWSPollyVoiceIdPenelope:
-            return @"Penelope";
-        case AWSPollyVoiceIdChantal:
-            return @"Chantal";
-        case AWSPollyVoiceIdCeline:
-            return @"Celine";
-        case AWSPollyVoiceIdMathieu:
-            return @"Mathieu";
-        case AWSPollyVoiceIdDora:
-            return @"Dora";
-        case AWSPollyVoiceIdKarl:
-            return @"Karl";
-        case AWSPollyVoiceIdCarla:
-            return @"Carla";
-        case AWSPollyVoiceIdGiorgio:
-            return @"Giorgio";
-        case AWSPollyVoiceIdMizuki:
-            return @"Mizuki";
-        case AWSPollyVoiceIdLiv:
-            return @"Liv";
-        case AWSPollyVoiceIdLotte:
-            return @"Lotte";
-        case AWSPollyVoiceIdRuben:
-            return @"Ruben";
-        case AWSPollyVoiceIdEwa:
-            return @"Ewa";
-        case AWSPollyVoiceIdJacek:
-            return @"Jacek";
-        case AWSPollyVoiceIdJan:
-            return @"Jan";
-        case AWSPollyVoiceIdMaja:
-            return @"Maja";
-        case AWSPollyVoiceIdRicardo:
-            return @"Ricardo";
-        case AWSPollyVoiceIdVitoria:
-            return @"Vitoria";
-        case AWSPollyVoiceIdCristiano:
-            return @"Cristiano";
-        case AWSPollyVoiceIdInes:
-            return @"Ines";
-        case AWSPollyVoiceIdCarmen:
-            return @"Carmen";
-        case AWSPollyVoiceIdMaxim:
-            return @"Maxim";
-        case AWSPollyVoiceIdTatyana:
-            return @"Tatyana";
-        case AWSPollyVoiceIdAstrid:
-            return @"Astrid";
-        case AWSPollyVoiceIdFiliz:
-            return @"Filiz";
-        case AWSPollyVoiceIdVicki:
-            return @"Vicki";
-        case AWSPollyVoiceIdTakumi:
-            return @"Takumi";
-        case AWSPollyVoiceIdSeoyeon:
-            return @"Seoyeon";
-        case AWSPollyVoiceIdAditi:
-            return @"Aditi";
-        case AWSPollyVoiceIdLea:
-            return @"Lea";
-        case AWSPollyVoiceIdZhiyu:
-            return @"Zhiyu";
-        case AWSPollyVoiceIdBianca:
-            return @"Bianca";
-        case AWSPollyVoiceIdLucia:
-            return @"Lucia";
-        case AWSPollyVoiceIdMia:
-            return @"Mia";
-        default:
-            return nil;
-    }
+- (NSString *)stringFromVoiceId:(AWSPollyVoiceId)voiceId {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput voiceIdJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(voiceId)];
+    return transformedValue;
+}
+
+- (NSString *)stringFromEngine:(AWSPollyEngine)engine {
+    NSValueTransformer *transformer = [AWSPollyStartSpeechSynthesisTaskInput engineJSONTransformer];
+    NSString *transformedValue = (NSString *)[transformer reverseTransformedValue:(id)@(engine)];
+    return transformedValue;
 }
 
 @end

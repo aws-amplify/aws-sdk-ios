@@ -13,19 +13,15 @@
 // permissions and limitations under the License.
 //
 
+#import <CommonCrypto/CommonDigest.h>
 #import "AWSAbstractKinesisRecorder.h"
 #import "AWSKinesis.h"
-#import "AWSBolts.h"
-#import "AWSCocoaLumberjack.h"
-#import "AWSCategory.h"
-#import "AWSFMDB.h"
-#import "AWSSynchronizedMutableDictionary.h"
 
 // Kinesis Abstract Client
 NSUInteger const AWSKinesisAbstractClientByteLimitDefault = 5 * 1024 * 1024; // 5MB
 NSTimeInterval const AWSKinesisAbstractClientAgeLimitDefault = 0.0; // Keeps the data indefinitely unless it hits the size limit.
 NSString *const AWSKinesisAbstractClientUserAgent = @"recorder";
-NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024 * 1024;
+NSUInteger const AWSKinesisAbstractClientBatchRecordByteLimitDefault = 512 * 1024; // 512KB
 NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazonaws/AWSKinesisRecorder";
 
 @protocol AWSKinesisRecorderHelper <NSObject>
@@ -371,6 +367,26 @@ NSString *const AWSKinesisAbstractClientRecorderDatabasePathPrefix = @"com/amazo
     } else {
         _batchRecordsByteLimit = batchRecordsByteLimit;
     }
+}
+
+/// Calculates a path-safe database database name for `key`.
+///
+/// Note that the internal implementation of this method uses MD5 to calculate a
+/// hash of the key. MD5 is not suited for cryptographically-sensitive operations,
+/// but this method is using it simply to get a database name that is associated
+/// with the specified `key`, and doesn't contain special characters, etc. The use
+/// of MD5 is carried over from previous implementations for
+/// backwards-compatibility, and does not represent a security risk.
++ (NSString *) databasePathForKey:(NSString *)key {
+    NSData *dataString = [key dataUsingEncoding:NSUTF16LittleEndianStringEncoding];
+    unsigned char digestArray[CC_MD5_DIGEST_LENGTH];
+    CC_MD5([dataString bytes], (CC_LONG)[dataString length], digestArray);
+
+    NSMutableString *md5String = [NSMutableString stringWithCapacity:CC_MD5_DIGEST_LENGTH * 2];
+    for (int i = 0; i < CC_MD5_DIGEST_LENGTH; i++) {
+        [md5String appendFormat:@"%02x", digestArray[i]];
+    }
+    return md5String;
 }
 
 @end
