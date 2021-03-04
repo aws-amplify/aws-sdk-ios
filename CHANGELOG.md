@@ -4,6 +4,10 @@
 
 -Features for next release
 
+### Bug fixes
+- **AWSMobileClient**
+  - Fix callback URL scheme in ASWebAuthenticationSession handling ([PR #3456](https://github.com/aws-amplify/aws-sdk-ios/pull/3456))
+
 ### Misc. Updates
 
 - Model updates for the following services
