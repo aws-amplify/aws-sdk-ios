@@ -331,7 +331,9 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 }
 
 - (void)launchASWebAuthenticationSession:(NSURL *)hostedUIURL API_AVAILABLE(ios(13.0)) {
-    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    NSString *rawCallbackURLScheme = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    NSURL *url = [[NSURL alloc] initWithString:rawCallbackURLScheme];
+    NSString *callbackURLScheme = url.scheme;
     self.asAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:hostedUIURL
                                                        callbackURLScheme:callbackURLScheme
                                                        completionHandler:^(NSURL * _Nullable url,
@@ -558,7 +560,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 /**
  Display ui for signout
  */
-- (void) signOutInternal: (UIViewController *) vc completion: (AWSCognitoAuthSignOutBlock) completion {
+- (void) signOutInternal:(UIViewController *) vc completion:(AWSCognitoAuthSignOutBlock) completion {
     self.signOutBlock = completion;
     NSString *urlString = [NSString stringWithFormat:@"%@?%@",
                      self.authConfiguration.signOutUri,
@@ -566,7 +568,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
     NSURL *url = [NSURL URLWithString:urlString];
     if(@available(iOS 13.0, *)) {
         if (self.presentationAnchor) {
-            [self launchASWebAuthenticationSessionForSignOut: url];
+            [self launchASWebAuthenticationSessionForSignOut:url];
         } else {
             [self launchLegacySessionForSignOut:url withPresentingViewController:vc];
         }
@@ -576,11 +578,13 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 }
 
 - (void)launchASWebAuthenticationSessionForSignOut:(NSURL *) url API_AVAILABLE(ios(13.0)) {
-    NSString *callbackURLScheme = [[self urlEncode:self.authConfiguration.signOutRedirectUri] copy];
+    NSString *rawCallbackURLScheme = [[self urlEncode:self.authConfiguration.signInRedirectUri] copy];
+    NSURL *url = [[NSURL alloc] initWithString:rawCallbackURLScheme];
+    NSString *callbackURLScheme = url.scheme;
     self.asAuthSession = [[ASWebAuthenticationSession alloc] initWithURL:url
-                                                    callbackURLScheme:callbackURLScheme
-                                                    completionHandler:^(NSURL * _Nullable url,
-                                                                        NSError * _Nullable error) {
+                                                       callbackURLScheme:callbackURLScheme
+                                                       completionHandler:^(NSURL * _Nullable url,
+                                                                           NSError * _Nullable error) {
         if (url) {
             [self processURL:url forRedirection:NO];
         } else {
