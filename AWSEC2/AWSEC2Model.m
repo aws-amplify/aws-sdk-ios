@@ -70602,6 +70602,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"capacityOptimized"] == NSOrderedSame) {
             return @(AWSEC2AllocationStrategyCapacityOptimized);
         }
+        if ([value caseInsensitiveCompare:@"capacityOptimizedPrioritized"] == NSOrderedSame) {
+            return @(AWSEC2AllocationStrategyCapacityOptimizedPrioritized);
+        }
         return @(AWSEC2AllocationStrategyUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -70611,6 +70614,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"diversified";
             case AWSEC2AllocationStrategyCapacityOptimized:
                 return @"capacityOptimized";
+            case AWSEC2AllocationStrategyCapacityOptimizedPrioritized:
+                return @"capacityOptimizedPrioritized";
             default:
                 return nil;
         }
@@ -71360,6 +71365,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"capacity-optimized"] == NSOrderedSame) {
             return @(AWSEC2SpotAllocationStrategyCapacityOptimized);
         }
+        if ([value caseInsensitiveCompare:@"capacity-optimized-prioritized"] == NSOrderedSame) {
+            return @(AWSEC2SpotAllocationStrategyCapacityOptimizedPrioritized);
+        }
         return @(AWSEC2SpotAllocationStrategyUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -71369,6 +71377,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"diversified";
             case AWSEC2SpotAllocationStrategyCapacityOptimized:
                 return @"capacity-optimized";
+            case AWSEC2SpotAllocationStrategyCapacityOptimizedPrioritized:
+                return @"capacity-optimized-prioritized";
             default:
                 return nil;
         }
@@ -71437,6 +71447,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"capacity-optimized"] == NSOrderedSame) {
             return @(AWSEC2SpotAllocationStrategyCapacityOptimized);
         }
+        if ([value caseInsensitiveCompare:@"capacity-optimized-prioritized"] == NSOrderedSame) {
+            return @(AWSEC2SpotAllocationStrategyCapacityOptimizedPrioritized);
+        }
         return @(AWSEC2SpotAllocationStrategyUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -71446,6 +71459,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"diversified";
             case AWSEC2SpotAllocationStrategyCapacityOptimized:
                 return @"capacity-optimized";
+            case AWSEC2SpotAllocationStrategyCapacityOptimizedPrioritized:
+                return @"capacity-optimized-prioritized";
             default:
                 return nil;
         }
