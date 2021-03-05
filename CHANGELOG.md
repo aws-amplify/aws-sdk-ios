@@ -2,6 +2,11 @@
 
 ## Unreleased
 
+### Bug fixes
+
+- **AWSCognitoIdentityProvider**
+  - Fix ignored `isInitialCustomChallenge` parameter in `AWSCognitoIdentityUser` ([PR #3461](https://github.com/aws-amplify/aws-sdk-ios/pull/3461)). Thanks @johntmcintosh!
+
 ### Misc. Updates
 
 - Model updates for the following services

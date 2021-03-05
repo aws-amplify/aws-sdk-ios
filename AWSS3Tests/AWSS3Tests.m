@@ -533,6 +533,64 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 
 }
 
+/// Test put/get to a transfer-accelerate-enabled bucket:
+/// https://docs.aws.amazon.com/AmazonS3/latest/userguide/transfer-acceleration.html
+- (void)testTransferAcceleration {
+    NSString *bucketName = [AWSS3Tests transferAccelerationBucketName];
+    AWSRegionType region = [AWSTestUtility getRegionFromTestConfiguration];
+
+    id<AWSCredentialsProvider> credentialsProvider = [AWSTestUtility getDefaultCredentialsProvider];
+    AWSEndpoint *customEndpoint = [[AWSEndpoint alloc]initWithURLString:@"https://s3-accelerate.amazonaws.com"];
+
+    AWSServiceConfiguration *serviceConfiguration = [[AWSServiceConfiguration alloc]initWithRegion:region
+                                                                                          endpoint:customEndpoint
+                                                                               credentialsProvider:credentialsProvider];
+
+    [AWSS3 registerS3WithConfiguration:serviceConfiguration forKey:@"testTransferAcceleration"];
+    AWSS3 *s3 = [AWSS3 S3ForKey:@"testTransferAcceleration"];
+
+    NSString *testObjectStr = @"a test object string.";
+
+    NSTimeInterval timestamp = [NSDate timeIntervalSinceReferenceDate];
+    NSString *keyName = [NSString stringWithFormat:@"ios-test-transfer-acceleration-%lld", (int64_t)timestamp];
+    NSData *testObjectData = [testObjectStr dataUsingEncoding:NSUTF8StringEncoding];
+
+    AWSS3PutObjectRequest *putObjectRequest = [AWSS3PutObjectRequest new];
+    putObjectRequest.bucket = bucketName;
+    putObjectRequest.key = keyName;
+    putObjectRequest.body = testObjectData;
+    putObjectRequest.contentLength = [NSNumber numberWithUnsignedInteger:[testObjectData length]];
+    putObjectRequest.contentType = @"application/octet-stream";
+
+    [[[s3 putObject:putObjectRequest] continueWithBlock:^id(AWSTask<AWSS3PutObjectOutput *> *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result.ETag);
+        return nil;
+    }] waitUntilFinished];
+
+    AWSS3GetObjectRequest *getObjectRequest = [AWSS3GetObjectRequest new];
+    getObjectRequest.bucket = bucketName;
+    getObjectRequest.key = keyName;
+
+    [[[s3 getObject:getObjectRequest] continueWithBlock:^id(AWSTask<AWSS3GetObjectOutput *> *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        XCTAssertEqualObjects(task.result.body, testObjectData);
+        return nil;
+    }] waitUntilFinished];
+
+    AWSS3DeleteObjectRequest *deleteObjectRequest = [AWSS3DeleteObjectRequest new];
+    deleteObjectRequest.bucket = bucketName;
+    deleteObjectRequest.key = keyName;
+    [[[s3 deleteObject:deleteObjectRequest] continueWithBlock:^id(AWSTask<AWSS3DeleteObjectOutput *> *task) {
+        XCTAssertNil(task.error);
+        XCTAssertNotNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    [AWSS3 removeS3ForKey:@"testTransferAcceleration"];
+}
+
 - (void)testPutHeadGetAndDeleteObject {
     NSString *testObjectStr = @"a test object string.";
     NSString *keyName = @"ios-test-put-get-and-delete-obj";
@@ -1533,5 +1591,11 @@ static NSMutableArray<NSString *> *testBucketsCreated;
 }
 
 #pragma mark - Utilities
+
++ (NSString *)transferAccelerationBucketName {
+    NSString *bucketName = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"s3"
+                                                                                    configKey:@"bucket_name_transfer_acceleration"];
+    return bucketName;
+}
 
 @end
