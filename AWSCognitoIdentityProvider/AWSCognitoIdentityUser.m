@@ -330,7 +330,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
                                                password:(NSString *) password
                                          validationData:(NSArray<AWSCognitoIdentityUserAttributeType*>*) validationData
                                isInitialCustomChallenge:(BOOL) isInitialCustomChallenge {
-    return [self getSession:username password:password validationData:validationData clientMetaData:nil];
+    return [self getSession:username password:password validationData:validationData clientMetaData:nil isInitialCustomChallenge:isInitialCustomChallenge];
 }
 
 /**

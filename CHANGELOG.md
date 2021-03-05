@@ -3,6 +3,8 @@
 ## Unreleased
 
 -Features for next release
+- **AWSCognitoIdentityProvider**
+  - Fix ignored `isInitialCustomChallenge` parameter in `AWSCognitoIdentityUser`
 
 ## 2.23.1
 
