@@ -6,8 +6,6 @@
 
 ## 2.23.1
 
--Features for next release
-
 ### Bug fixes
 - **AWSMobileClient**
   - Fix callback URL scheme in ASWebAuthenticationSession handling ([PR #3456](https://github.com/aws-amplify/aws-sdk-ios/pull/3456))
