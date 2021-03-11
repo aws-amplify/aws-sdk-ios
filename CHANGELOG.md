@@ -1,11 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSComprehend
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -19,6 +11,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
   - AWSEC2
+  - AWSComprehend
 
 ## 2.23.1
 
