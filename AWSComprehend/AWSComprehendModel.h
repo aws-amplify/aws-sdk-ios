@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -224,6 +224,8 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendClassifierMetadata;
 @class AWSComprehendClassifyDocumentRequest;
 @class AWSComprehendClassifyDocumentResponse;
+@class AWSComprehendContainsPiiEntitiesRequest;
+@class AWSComprehendContainsPiiEntitiesResponse;
 @class AWSComprehendCreateDocumentClassifierRequest;
 @class AWSComprehendCreateDocumentClassifierResponse;
 @class AWSComprehendCreateEndpointRequest;
@@ -286,6 +288,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendEntitiesDetectionJobFilter;
 @class AWSComprehendEntitiesDetectionJobProperties;
 @class AWSComprehendEntity;
+@class AWSComprehendEntityLabel;
 @class AWSComprehendEntityRecognizerAnnotations;
 @class AWSComprehendEntityRecognizerDocuments;
 @class AWSComprehendEntityRecognizerEntityList;
@@ -802,6 +805,37 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The labels used the document being analyzed. These are used for multi-label trained models. Individual labels represent different categories that are related in some manner and are not mutually exclusive. For example, a movie can be just an action movie, or it can be an action movie, a science fiction movie, and a comedy, all at the same time. </p>
  */
 @property (nonatomic, strong) NSArray<AWSComprehendDocumentLabel *> * _Nullable labels;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendContainsPiiEntitiesRequest : AWSRequest
+
+
+/**
+ <p>The language of the input documents.</p>
+ */
+@property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>Creates a new document classification request to analyze a single document in real-time, returning personally identifiable information (PII) entity labels.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ 
+ */
+@interface AWSComprehendContainsPiiEntitiesResponse : AWSModel
+
+
+/**
+ <p>The labels used in the document being analyzed. Individual labels represent personally identifiable information (PII) entity types.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendEntityLabel *> * _Nullable labels;
 
 @end
 
@@ -2123,6 +2157,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The entity's type.</p>
  */
 @property (nonatomic, assign) AWSComprehendEntityType types;
+
+@end
+
+/**
+ <p>Specifies one of the label or labels that categorize the personally identifiable information (PII) entity being analyzed.</p>
+ */
+@interface AWSComprehendEntityLabel : AWSModel
+
+
+/**
+ <p>The name of the label.</p>
+ */
+@property (nonatomic, assign) AWSComprehendPiiEntityType name;
+
+/**
+ <p>The level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable score;
 
 @end
 
