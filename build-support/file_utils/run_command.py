@@ -1,12 +1,6 @@
-import os
-import platform
-import sys
+import logging
 from datetime import datetime, timedelta
 from subprocess import PIPE, Popen, TimeoutExpired
-
-
-def log(*messages):
-    print(f"{datetime.now()}:", *messages)
 
 
 def has_timed_out(deadline):
@@ -45,7 +39,7 @@ def run_command(
     process = Popen(command, stdin=in_handle, stdout=out_handle, stderr=PIPE, cwd=working_dir)
     while not has_timed_out(deadline) and process.returncode is None:
         try:
-            log(f"Waiting for process {process.pid}")
+            logging.debug(f"Waiting for process {process.pid}")
             (out, err) = process.communicate(timeout=keepalive_interval)
         except TimeoutExpired:
             if has_timed_out(deadline):
@@ -53,8 +47,7 @@ def run_command(
                 # so do that here
                 process.kill()
                 (out, err) = process.communicate()
-                log(f"ERROR: {process.pid} timed out; return code: {process.returncode}")
+                logging.error(f"ERROR: {process.pid} timed out; return code: {process.returncode}")
             else:
-                log("I am still alive")
+                logging.info("I am still alive")
     return process.returncode, out, err
-

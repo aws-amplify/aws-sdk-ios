@@ -1,14 +1,16 @@
+from __future__ import print_function
+
 import glob
+import logging
 import os
 import re
-import sys
 
 from lxml import etree
 
-from functions import replace_files
+from file_utils.replace import replace_files
 
 
-class VersionBumper:
+class VersionWriter:
 
     module_list = [
         "AWSAPIGateway",
@@ -58,22 +60,25 @@ class VersionBumper:
     ]
 
     def __init__(self, root, new_sdk_version):
-        self._root = root
-        self._new_sdk_version = new_sdk_version
+        self.root_dir = root
+        self.new_sdk_version = new_sdk_version
 
-    def bump_sdk_version(self):
+    def write_sdk_version(self):
+        logging.info(f"Updating {self.root_dir} to new SDK version {self.new_sdk_version}")
         self.bump_plists()
         self.bump_services()
         self.bump_podspecs()
         self.bump_changelog()
         self.bump_generate_docs()
+        self.overwrite_version_file()
 
     def bump_plists(self):
-        for module in VersionBumper.module_list:
-            filename = os.path.join(root, module, "Info.plist")
+        for module in VersionWriter.module_list:
+            filename = os.path.join(self.root_dir, module, "Info.plist")
             self.bump_plist(filename)
 
     def bump_plist(self, filename):
+        logging.debug(f"Updating {filename}")
         tree = etree.parse(filename)
         root_node = tree.getroot()
         namespaces = root_node.nsmap
@@ -84,10 +89,10 @@ class VersionBumper:
                 set_version = True
             else:
                 if set_version:
-                    child.text = self._new_sdk_version
+                    child.text = self.new_sdk_version
                     break
 
-        plist_string = VersionBumper.format_plist(tree)
+        plist_string = VersionWriter.format_plist(tree)
         plist = open(filename, "w")
         plist.write(plist_string)
         plist.close()
@@ -101,7 +106,7 @@ class VersionBumper:
         :param tree: the lxml tree to format
         :return: a pretty-printed string matching Xcode's plist format
         """
-        plist_string = VersionBumper.tree_to_string(tree)
+        plist_string = VersionWriter.tree_to_string(tree)
 
         flags = re.MULTILINE | re.IGNORECASE
 
@@ -129,14 +134,14 @@ class VersionBumper:
     def bump_services(self):
         service_pattern = {
             "match": r'(NSString[[:space:]]+\*const[[:space:]]+AWS.+SDKVersion[[:space:]]*=[[:space:]]+@")[0-9]+\.[0-9]+\.[0-9]+"',  # noqa: E501
-            "replace": r'\1{version}"'.format(version=self._new_sdk_version),
+            "replace": r'\1{version}"'.format(version=self.new_sdk_version),
             "files": [],
         }
 
         # Add files for each module
-        for module in VersionBumper.module_list:
+        for module in VersionWriter.module_list:
             path = "{0}/{0}Service.m".format(module)
-            if os.path.isfile(os.path.join(root, path)):
+            if os.path.isfile(os.path.join(self.root_dir, path)):
                 service_pattern["files"].append(path)
 
         # Add files for special modules
@@ -153,49 +158,48 @@ class VersionBumper:
                 "AWSS3/AWSS3PreSignedURL.m",
             ]
         )
-        replace_files(self._root, service_pattern)
+        replace_files(self.root_dir, service_pattern)
 
     def bump_podspecs(self):
         podspec_pattern1 = {
             "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",  # noqa: E501
-            "replace": r"\1{version}\2".format(version=self._new_sdk_version),
+            "replace": r"\1{version}\2".format(version=self.new_sdk_version),
             "files": [],
         }
 
         podspec_pattern2 = {
             "match": r"(s\.version[[:space:]]+=[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",
-            "replace": r"\1{version}\2".format(version=self._new_sdk_version),
+            "replace": r"\1{version}\2".format(version=self.new_sdk_version),
             "files": [],
         }
 
-        for file in glob.glob(os.path.join(root, "*.podspec")):
+        for file in glob.glob(os.path.join(self.root_dir, "*.podspec")):
             podspec_pattern1["files"].append(file)
             podspec_pattern2["files"].append(file)
 
-        replace_files(self._root, podspec_pattern1)
-        replace_files(self._root, podspec_pattern2)
+        replace_files(self.root_dir, podspec_pattern1)
+        replace_files(self.root_dir, podspec_pattern2)
 
     def bump_changelog(self):
         changelog_pattern = {
             "match": r"## Unreleased",
             "replace": "## Unreleased\\\n\\\n-Features for next release\\\n\\\n## {version}".format(
-                version=self._new_sdk_version
+                version=self.new_sdk_version
             ),
             "files": ["CHANGELOG.md"],
         }
-        replace_files(self._root, changelog_pattern)
+        replace_files(self.root_dir, changelog_pattern)
 
     def bump_generate_docs(self):
         generate_documentation_pattern = {
             "match": r'VERSION="[0-9]+\.[0-9]+\.[0-9]+"',
-            "replace": r'VERSION="{version}"'.format(version=self._new_sdk_version),
+            "replace": r'VERSION="{version}"'.format(version=self.new_sdk_version),
             "files": ["CircleciScripts/generate_documentation.sh"],
         }
-        replace_files(self._root, generate_documentation_pattern)
+        replace_files(self.root_dir, generate_documentation_pattern)
 
-
-if __name__ == "__main__":
-    root = sys.argv[1]
-    new_sdk_version = sys.argv[2]
-    bumper = VersionBumper(root, new_sdk_version)
-    bumper.bump_sdk_version()
+    def overwrite_version_file(self):
+        logging.debug("Writing new version to .version")
+        version_file_path = os.path.join(self.root_dir, ".version")
+        version_file = open(version_file_path, "w")
+        version_file.write(self.new_sdk_version)
