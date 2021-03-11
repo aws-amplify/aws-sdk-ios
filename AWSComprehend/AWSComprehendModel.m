@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -695,6 +695,110 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)labelsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendDocumentLabel class]];
+}
+
+@end
+
+@implementation AWSComprehendContainsPiiEntitiesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEn);
+        }
+        if ([value caseInsensitiveCompare:@"es"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeEs);
+        }
+        if ([value caseInsensitiveCompare:@"fr"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeFr);
+        }
+        if ([value caseInsensitiveCompare:@"de"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeDe);
+        }
+        if ([value caseInsensitiveCompare:@"it"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeIt);
+        }
+        if ([value caseInsensitiveCompare:@"pt"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodePt);
+        }
+        if ([value caseInsensitiveCompare:@"ar"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeAr);
+        }
+        if ([value caseInsensitiveCompare:@"hi"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeHi);
+        }
+        if ([value caseInsensitiveCompare:@"ja"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeJa);
+        }
+        if ([value caseInsensitiveCompare:@"ko"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeKo);
+        }
+        if ([value caseInsensitiveCompare:@"zh"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZh);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSComprehendLanguageCodeZhTW);
+        }
+        return @(AWSComprehendLanguageCodeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendLanguageCodeEn:
+                return @"en";
+            case AWSComprehendLanguageCodeEs:
+                return @"es";
+            case AWSComprehendLanguageCodeFr:
+                return @"fr";
+            case AWSComprehendLanguageCodeDe:
+                return @"de";
+            case AWSComprehendLanguageCodeIt:
+                return @"it";
+            case AWSComprehendLanguageCodePt:
+                return @"pt";
+            case AWSComprehendLanguageCodeAr:
+                return @"ar";
+            case AWSComprehendLanguageCodeHi:
+                return @"hi";
+            case AWSComprehendLanguageCodeJa:
+                return @"ja";
+            case AWSComprehendLanguageCodeKo:
+                return @"ko";
+            case AWSComprehendLanguageCodeZh:
+                return @"zh";
+            case AWSComprehendLanguageCodeZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendContainsPiiEntitiesResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"labels" : @"Labels",
+             };
+}
+
++ (NSValueTransformer *)labelsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendEntityLabel class]];
 }
 
 @end
@@ -3148,6 +3252,147 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
                 return @"TITLE";
             case AWSComprehendEntityTypeOther:
                 return @"OTHER";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSComprehendEntityLabel
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"name" : @"Name",
+             @"score" : @"Score",
+             };
+}
+
++ (NSValueTransformer *)nameJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"BANK_ACCOUNT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeBankAccountNumber);
+        }
+        if ([value caseInsensitiveCompare:@"BANK_ROUTING"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeBankRouting);
+        }
+        if ([value caseInsensitiveCompare:@"CREDIT_DEBIT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCreditDebitNumber);
+        }
+        if ([value caseInsensitiveCompare:@"CREDIT_DEBIT_CVV"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCreditDebitCvv);
+        }
+        if ([value caseInsensitiveCompare:@"CREDIT_DEBIT_EXPIRY"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeCreditDebitExpiry);
+        }
+        if ([value caseInsensitiveCompare:@"PIN"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypePin);
+        }
+        if ([value caseInsensitiveCompare:@"EMAIL"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeEmail);
+        }
+        if ([value caseInsensitiveCompare:@"ADDRESS"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeAddress);
+        }
+        if ([value caseInsensitiveCompare:@"NAME"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeName);
+        }
+        if ([value caseInsensitiveCompare:@"PHONE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypePhone);
+        }
+        if ([value caseInsensitiveCompare:@"SSN"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeSsn);
+        }
+        if ([value caseInsensitiveCompare:@"DATE_TIME"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeDateTime);
+        }
+        if ([value caseInsensitiveCompare:@"PASSPORT_NUMBER"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypePassportNumber);
+        }
+        if ([value caseInsensitiveCompare:@"DRIVER_ID"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeDriverId);
+        }
+        if ([value caseInsensitiveCompare:@"URL"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUrl);
+        }
+        if ([value caseInsensitiveCompare:@"AGE"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeAge);
+        }
+        if ([value caseInsensitiveCompare:@"USERNAME"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeUsername);
+        }
+        if ([value caseInsensitiveCompare:@"PASSWORD"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypePassword);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_ACCESS_KEY"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeAwsAccessKey);
+        }
+        if ([value caseInsensitiveCompare:@"AWS_SECRET_KEY"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeAwsSecretKey);
+        }
+        if ([value caseInsensitiveCompare:@"IP_ADDRESS"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeIpAddress);
+        }
+        if ([value caseInsensitiveCompare:@"MAC_ADDRESS"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeMacAddress);
+        }
+        if ([value caseInsensitiveCompare:@"ALL"] == NSOrderedSame) {
+            return @(AWSComprehendPiiEntityTypeAll);
+        }
+        return @(AWSComprehendPiiEntityTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSComprehendPiiEntityTypeBankAccountNumber:
+                return @"BANK_ACCOUNT_NUMBER";
+            case AWSComprehendPiiEntityTypeBankRouting:
+                return @"BANK_ROUTING";
+            case AWSComprehendPiiEntityTypeCreditDebitNumber:
+                return @"CREDIT_DEBIT_NUMBER";
+            case AWSComprehendPiiEntityTypeCreditDebitCvv:
+                return @"CREDIT_DEBIT_CVV";
+            case AWSComprehendPiiEntityTypeCreditDebitExpiry:
+                return @"CREDIT_DEBIT_EXPIRY";
+            case AWSComprehendPiiEntityTypePin:
+                return @"PIN";
+            case AWSComprehendPiiEntityTypeEmail:
+                return @"EMAIL";
+            case AWSComprehendPiiEntityTypeAddress:
+                return @"ADDRESS";
+            case AWSComprehendPiiEntityTypeName:
+                return @"NAME";
+            case AWSComprehendPiiEntityTypePhone:
+                return @"PHONE";
+            case AWSComprehendPiiEntityTypeSsn:
+                return @"SSN";
+            case AWSComprehendPiiEntityTypeDateTime:
+                return @"DATE_TIME";
+            case AWSComprehendPiiEntityTypePassportNumber:
+                return @"PASSPORT_NUMBER";
+            case AWSComprehendPiiEntityTypeDriverId:
+                return @"DRIVER_ID";
+            case AWSComprehendPiiEntityTypeUrl:
+                return @"URL";
+            case AWSComprehendPiiEntityTypeAge:
+                return @"AGE";
+            case AWSComprehendPiiEntityTypeUsername:
+                return @"USERNAME";
+            case AWSComprehendPiiEntityTypePassword:
+                return @"PASSWORD";
+            case AWSComprehendPiiEntityTypeAwsAccessKey:
+                return @"AWS_ACCESS_KEY";
+            case AWSComprehendPiiEntityTypeAwsSecretKey:
+                return @"AWS_SECRET_KEY";
+            case AWSComprehendPiiEntityTypeIpAddress:
+                return @"IP_ADDRESS";
+            case AWSComprehendPiiEntityTypeMacAddress:
+                return @"MAC_ADDRESS";
+            case AWSComprehendPiiEntityTypeAll:
+                return @"ALL";
             default:
                 return nil;
         }

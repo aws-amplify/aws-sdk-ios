@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -40,6 +40,8 @@
 - (void) test_AWSComprehendClassifierMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendClassifyDocumentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendClassifyDocumentResponse API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendContainsPiiEntitiesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendContainsPiiEntitiesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendCreateDocumentClassifierRequest API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendCreateDocumentClassifierResponse API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendCreateEndpointRequest API_AVAILABLE(ios(11));
@@ -102,6 +104,7 @@
 - (void) test_AWSComprehendEntitiesDetectionJobFilter API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntitiesDetectionJobProperties API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntity API_AVAILABLE(ios(11));
+- (void) test_AWSComprehendEntityLabel API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityRecognizerAnnotations API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityRecognizerDocuments API_AVAILABLE(ios(11));
 - (void) test_AWSComprehendEntityRecognizerEntityList API_AVAILABLE(ios(11));
@@ -283,6 +286,14 @@
 
 - (void) test_AWSComprehendClassifyDocumentResponse {
     [self validateSecureCodingForClass:[AWSComprehendClassifyDocumentResponse class]];
+}
+
+- (void) test_AWSComprehendContainsPiiEntitiesRequest {
+    [self validateSecureCodingForClass:[AWSComprehendContainsPiiEntitiesRequest class]];
+}
+
+- (void) test_AWSComprehendContainsPiiEntitiesResponse {
+    [self validateSecureCodingForClass:[AWSComprehendContainsPiiEntitiesResponse class]];
 }
 
 - (void) test_AWSComprehendCreateDocumentClassifierRequest {
@@ -531,6 +542,10 @@
 
 - (void) test_AWSComprehendEntity {
     [self validateSecureCodingForClass:[AWSComprehendEntity class]];
+}
+
+- (void) test_AWSComprehendEntityLabel {
+    [self validateSecureCodingForClass:[AWSComprehendEntityLabel class]];
 }
 
 - (void) test_AWSComprehendEntityRecognizerAnnotations {
