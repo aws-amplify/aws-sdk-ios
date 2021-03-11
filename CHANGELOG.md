@@ -11,6 +11,7 @@
 
 - Model updates for the following services
   - AWSEC2
+  - AWSComprehend
 
 ## 2.23.1
 
