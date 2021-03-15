@@ -78,7 +78,9 @@ class BumpVersionCLI:
 
     def process_args(self, args):
         self.log_level = args.log_level
-        logging.basicConfig(level=self.log_level)
+        logging.basicConfig(
+            level=self.log_level, format="%(asctime)s:%(levelname)s:%(name)s:%(message)s"
+        )
 
         self.root_dir = args.root_dir or os.getcwd()
 

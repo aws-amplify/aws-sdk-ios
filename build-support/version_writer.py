@@ -199,7 +199,7 @@ class VersionWriter:
         replace_files(self.root_dir, generate_documentation_pattern)
 
     def overwrite_version_file(self):
-        logging.debug("Writing new version to .version")
+        logging.info("Writing new version to .version")
         version_file_path = os.path.join(self.root_dir, ".version")
         version_file = open(version_file_path, "w")
         version_file.write(self.new_sdk_version)

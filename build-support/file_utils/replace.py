@@ -35,7 +35,7 @@ def replace_files(root, *replaces):
         exclude = f"/{replace_action['exclude']}/ ! " if "exclude" in replace_action else ""
 
         for file in files:
-            logging.debug(f"Updating file")
+            logging.info(f"Updating {file}")
             target_file = os.path.join(root, file)
             command = ["sed"] + sed_params + [f"{exclude}s/{match}/{replace}/", target_file]
 
