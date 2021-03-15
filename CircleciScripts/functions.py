@@ -1,6 +1,3 @@
-import os
-import platform
-import sys
 from datetime import datetime, timedelta
 from subprocess import PIPE, Popen, TimeoutExpired
 
