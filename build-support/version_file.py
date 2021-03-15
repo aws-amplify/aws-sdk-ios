@@ -1,6 +1,5 @@
 import os
 
-
 VERSION_FILE_NAME = ".version"
 
 

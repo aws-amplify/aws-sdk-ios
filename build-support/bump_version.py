@@ -2,7 +2,6 @@ from __future__ import print_function
 
 import argparse
 import logging
-
 import os
 import sys
 
@@ -71,14 +70,14 @@ class BumpVersionCLI:
             "-p",
             "--print-version",
             help="print current version (from .version file) and exit",
-            action="store_true"
+            action="store_true",
         )
 
         self._parser.add_argument(
             "-r",
             "--root",
             dest="root_dir",
-            help="root directory of the SDK project (defaults to current working directory)"
+            help="root directory of the SDK project (defaults to current working directory)",
         )
 
     def parse_args(self, args):
@@ -88,9 +87,7 @@ class BumpVersionCLI:
 
     def process_args(self, args):
         self.log_level = args.log_level
-        logging.basicConfig(
-            level=self.log_level, format=BumpVersionCLI.LOG_FORMAT
-        )
+        logging.basicConfig(level=self.log_level, format=BumpVersionCLI.LOG_FORMAT)
 
         self.root_dir = args.root_dir or os.getcwd()
 
@@ -100,9 +97,7 @@ class BumpVersionCLI:
 
         if args.new_sdk_version is None:
             if not args.component:
-                raise BumpVersionCLI.ArgumentError(
-                    "Must specify one of --exact or --component"
-                )
+                raise BumpVersionCLI.ArgumentError("Must specify one of --exact or --component")
             self.resolve_new_version(args.component)
         else:
             self.new_sdk_version = args.new_sdk_version
