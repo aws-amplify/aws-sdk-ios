@@ -13,7 +13,7 @@ from version_file import write_version
 
 class VersionWriter:
 
-    module_list = [
+    MODULE_LIST = [
         "AWSAPIGateway",
         "AWSAutoScaling",
         "AWSCloudWatch",
@@ -74,7 +74,7 @@ class VersionWriter:
         self.overwrite_version_file()
 
     def bump_plists(self):
-        for module in VersionWriter.module_list:
+        for module in VersionWriter.MODULE_LIST:
             filename = os.path.join(self.root_dir, module, "Info.plist")
             self.bump_plist(filename)
 
@@ -140,7 +140,7 @@ class VersionWriter:
         }
 
         # Add files for each module
-        for module in VersionWriter.module_list:
+        for module in VersionWriter.MODULE_LIST:
             path = "{0}/{0}Service.m".format(module)
             if os.path.isfile(os.path.join(self.root_dir, path)):
                 service_pattern["files"].append(path)

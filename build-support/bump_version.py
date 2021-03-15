@@ -68,6 +68,13 @@ class BumpVersionCLI:
         )
 
         self._parser.add_argument(
+            "-p",
+            "--print-version",
+            help="print current version (from .version file) and exit",
+            action="store_true"
+        )
+
+        self._parser.add_argument(
             "-r",
             "--root",
             dest="root_dir",
@@ -87,6 +94,10 @@ class BumpVersionCLI:
 
         self.root_dir = args.root_dir or os.getcwd()
 
+        if args.print_version:
+            self.print_version()
+            exit(0)
+
         if args.new_sdk_version is None:
             if not args.component:
                 raise BumpVersionCLI.ArgumentError(
@@ -105,6 +116,10 @@ class BumpVersionCLI:
     def write_new_version(self):
         writer = VersionWriter(self.root_dir, self.new_sdk_version)
         writer.write_sdk_version()
+
+    def print_version(self):
+        current_version = read_version(self.root_dir)
+        print(current_version)
 
 
 def main(argv):
