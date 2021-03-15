@@ -8,6 +8,7 @@ import re
 from lxml import etree
 
 from file_utils.replace import replace_files
+from version_file import write_version
 
 
 class VersionWriter:
@@ -199,7 +200,5 @@ class VersionWriter:
         replace_files(self.root_dir, generate_documentation_pattern)
 
     def overwrite_version_file(self):
-        logging.info("Writing new version to .version")
-        version_file_path = os.path.join(self.root_dir, ".version")
-        version_file = open(version_file_path, "w")
-        version_file.write(self.new_sdk_version)
+        logging.info("Writing new version to version_file")
+        write_version(self.root_dir, self.new_sdk_version)

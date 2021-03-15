@@ -6,11 +6,14 @@ import logging
 import os
 import sys
 
-from semver_utils import SemanticVersionComponent, bump
+from semver_utils import SemanticVersionComponent, bump_version_component
+from version_file import read_version
 from version_writer import VersionWriter
 
 
 class BumpVersionCLI:
+
+    LOG_FORMAT = "%(asctime)s:%(levelname)s:%(name)s:%(message)s"
 
     class ArgumentError(RuntimeError):
         pass
@@ -79,7 +82,7 @@ class BumpVersionCLI:
     def process_args(self, args):
         self.log_level = args.log_level
         logging.basicConfig(
-            level=self.log_level, format="%(asctime)s:%(levelname)s:%(name)s:%(message)s"
+            level=self.log_level, format=BumpVersionCLI.LOG_FORMAT
         )
 
         self.root_dir = args.root_dir or os.getcwd()
@@ -94,10 +97,10 @@ class BumpVersionCLI:
             self.new_sdk_version = args.new_sdk_version
 
     def resolve_new_version(self, component):
-        version_file_path = os.path.join(self.root_dir, ".version")
-        version_file = open(version_file_path)
-        current_version = version_file.read().rstrip()
-        self.new_sdk_version = bump(current_version, SemanticVersionComponent(component))
+        current_version = read_version(self.root_dir)
+        self.new_sdk_version = bump_version_component(
+            current_version, SemanticVersionComponent(component)
+        )
 
     def write_new_version(self):
         writer = VersionWriter(self.root_dir, self.new_sdk_version)

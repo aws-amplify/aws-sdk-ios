@@ -12,7 +12,7 @@ class SemanticVersionComponent(Enum):
     PATCH = "PATCH"
 
 
-def bump(version_str, component):
+def bump_version_component(version_str, component):
     logging.debug(f"Bumping {component} of {version_str}")
 
     major, minor, patch = split_version(version_str)
