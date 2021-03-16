@@ -65,7 +65,7 @@ class VersionWriter:
         self.new_sdk_version = new_sdk_version
 
     def write_sdk_version(self):
-        logging.info(f"Updating {self.root_dir} to new SDK version {self.new_sdk_version}")
+        logging.info(f"Updating {self.root_dir} to new SDK version {self.new_sdk_version.prerelease_version_str}")  # noqa: E501
         self.bump_plists()
         self.bump_services()
         self.bump_podspecs()
@@ -90,7 +90,7 @@ class VersionWriter:
                 set_version = True
             else:
                 if set_version:
-                    child.text = self.new_sdk_version
+                    child.text = self.new_sdk_version.prerelease_version_str
                     break
 
         plist_string = VersionWriter.format_plist(tree)
@@ -135,7 +135,7 @@ class VersionWriter:
     def bump_services(self):
         service_pattern = {
             "match": r'(NSString[[:space:]]+\*const[[:space:]]+AWS.+SDKVersion[[:space:]]*=[[:space:]]+@")[0-9]+\.[0-9]+\.[0-9]+"',  # noqa: E501
-            "replace": r'\1{version}"'.format(version=self.new_sdk_version),
+            "replace": r'\1{version}"'.format(version=self.new_sdk_version.prerelease_version_str),
             "files": [],
         }
 
@@ -164,13 +164,13 @@ class VersionWriter:
     def bump_podspecs(self):
         podspec_pattern1 = {
             "match": r"(dependency[[:space:]]+'AWS.+'[[:space:]]*,[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",  # noqa: E501
-            "replace": r"\1{version}\2".format(version=self.new_sdk_version),
+            "replace": r"\1{version}\2".format(version=self.new_sdk_version.prerelease_version_str),
             "files": [],
         }
 
         podspec_pattern2 = {
             "match": r"(s\.version[[:space:]]+=[[:space:]]*')[0-9]+\.[0-9]+\.[0-9]+(')",
-            "replace": r"\1{version}\2".format(version=self.new_sdk_version),
+            "replace": r"\1{version}\2".format(version=self.new_sdk_version.prerelease_version_str),
             "files": [],
         }
 
@@ -185,7 +185,7 @@ class VersionWriter:
         changelog_pattern = {
             "match": r"## Unreleased",
             "replace": "## Unreleased\\\n\\\n-Features for next release\\\n\\\n## {version}".format(
-                version=self.new_sdk_version
+                version=self.new_sdk_version.prerelease_version_str
             ),
             "files": ["CHANGELOG.md"],
         }
@@ -194,7 +194,9 @@ class VersionWriter:
     def bump_generate_docs(self):
         generate_documentation_pattern = {
             "match": r'VERSION="[0-9]+\.[0-9]+\.[0-9]+"',
-            "replace": r'VERSION="{version}"'.format(version=self.new_sdk_version),
+            "replace": r'VERSION="{version}"'.format(
+                version=self.new_sdk_version.prerelease_version_str
+            ),
             "files": ["CircleciScripts/generate_documentation.sh"],
         }
         replace_files(self.root_dir, generate_documentation_pattern)

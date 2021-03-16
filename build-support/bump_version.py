@@ -5,7 +5,7 @@ import logging
 import os
 import sys
 
-from semver_utils import SemanticVersionComponent, bump_version_component
+from semantic_version import SemanticVersion
 from version_file import read_version
 from version_writer import VersionWriter
 
@@ -45,9 +45,12 @@ class BumpVersionCLI:
         self._parser.add_argument(
             "-c",
             "--component",
-            help="specify the version component (major, minor, patch) to bump",
-            choices=["MAJOR", "MINOR", "PATCH"],
-            default="PATCH",
+            help="""
+            specify the version component (major, minor, patch, prerelease) to bump
+            (defaults to PRERELEASE)
+            """,
+            choices=[component.value for component in SemanticVersion.Component],
+            default="PRERELEASE",
         )
 
         self._parser.add_argument(
@@ -98,15 +101,13 @@ class BumpVersionCLI:
         if args.new_sdk_version is None:
             if not args.component:
                 raise BumpVersionCLI.ArgumentError("Must specify one of --exact or --component")
-            self.resolve_new_version(args.component)
+            self.resolve_new_version(SemanticVersion.Component(args.component))
         else:
-            self.new_sdk_version = args.new_sdk_version
+            self.new_sdk_version = SemanticVersion.fromstring(args.new_sdk_version)
 
     def resolve_new_version(self, component):
-        current_version = read_version(self.root_dir)
-        self.new_sdk_version = bump_version_component(
-            current_version, SemanticVersionComponent(component)
-        )
+        self.new_sdk_version = read_version(self.root_dir)
+        self.new_sdk_version.bump_component(component)
 
     def write_new_version(self):
         writer = VersionWriter(self.root_dir, self.new_sdk_version)
@@ -114,7 +115,7 @@ class BumpVersionCLI:
 
     def print_version(self):
         current_version = read_version(self.root_dir)
-        print(current_version)
+        print(current_version.prerelease_version_str)
 
 
 def main(argv):
