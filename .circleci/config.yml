@@ -657,6 +657,14 @@ jobs:
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
+  test_trigger_on_branch:
+    docker:
+      - image: circleci/android:api-27-alpha
+    steps:
+      - run:
+          name: Test trigger on branch
+          command: echo "Triggered successfully"
+
 all_integ_test_requires: &all_integ_test_requires
   requires:
     - build
@@ -689,6 +697,15 @@ all_integ_test_requires: &all_integ_test_requires
 workflows:
   version: 2
 
+  test_trigger_on_branch:
+    jobs:
+      - test_trigger_on_branch:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: trigger-prerelease
+
   bump_sdk_version:
     jobs:
       - bump_sdk_version:
@@ -700,10 +717,15 @@ workflows:
     jobs:
       - build:
           filters:
+            tags:
+              ignore: trigger-prerelease
             branches:
               ignore: bump_sdk_version
+
       - build_test_host_apps:
           filters:
+            tags:
+              ignore: trigger-prerelease
             branches:
               ignore: bump_sdk_version
 
@@ -713,9 +735,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSAutoScaling
@@ -723,9 +742,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSCloudWatch
@@ -733,9 +749,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSCognitoAuth
@@ -743,9 +756,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSCognitoIdentityProvider
@@ -753,9 +763,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSComprehend
@@ -763,9 +770,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSConnect
@@ -773,9 +777,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSConnectParticipant
@@ -783,9 +784,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSCore
@@ -793,9 +791,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSDynamoDB
@@ -803,9 +798,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSEC2
@@ -813,9 +805,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSElasticLoadBalancing
@@ -823,9 +812,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSIoT
@@ -833,9 +819,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSKMS
@@ -843,9 +826,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSKinesis
@@ -853,9 +833,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSKinesisVideo
@@ -863,9 +840,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSKinesisVideoArchivedMedia
@@ -873,9 +847,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSKinesisVideoSignaling
@@ -883,9 +854,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSLambda
@@ -893,9 +861,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSLex
@@ -903,9 +868,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSLogs
@@ -913,9 +875,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSMachineLearning
@@ -923,9 +882,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           project: AWSAuthSDK/AWSAuthSDK.xcodeproj
@@ -934,9 +890,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSPinpoint
@@ -944,9 +897,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSPolly
@@ -954,9 +904,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSRekognition
@@ -964,9 +911,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSS3
@@ -974,9 +918,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSSES
@@ -984,9 +925,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSSNS
@@ -994,9 +932,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSSQS
@@ -1004,9 +939,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSSageMakerRuntime
@@ -1014,9 +946,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSSimpleDB
@@ -1024,9 +953,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSTextract
@@ -1034,9 +960,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSTranscribe
@@ -1044,9 +967,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSTranscribeStreaming
@@ -1054,9 +974,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - unit_test:
           scheme: AWSTranslate
@@ -1064,9 +981,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
       
       - unit_test:
           scheme: AWSLocation
@@ -1074,9 +988,6 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-          filters:
-            branches:
-              ignore: bump_sdk_version
 
       - create_pullrequest_for_modelupdate:
           filters:
