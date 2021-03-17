@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.23.2
+
 ### Bug fixes
 
 - **AWSCognitoIdentityProvider**
