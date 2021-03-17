@@ -245,8 +245,8 @@ commands:
             fi
       - checkout
 
-  install_build_support_requirements:
-    description: Install build-support requirements
+  set_python_venv_vars:
+    description: Sets BASH_ENV vars for python virtual environment
     steps:
       - run:
           name: Install build-support requirements and set paths
@@ -254,11 +254,18 @@ commands:
             export BUILD_SUPPORT_DIR=$HOME/project/build-support
             export PYTHON_VENV_PATH=$BUILD_SUPPORT_DIR/.env
             export PYTHON_VENV_CMD=$PYTHON_VENV_PATH/bin/python3
-            python3 -m venv $PYTHON_VENV_PATH
-            $PYTHON_VENV_PATH/bin/pip3 install -r $BUILD_SUPPORT_DIR/requirements.txt
             echo "export BUILD_SUPPORT_DIR=$BUILD_SUPPORT_DIR" >> $BASH_ENV
             echo "export PYTHON_VENV_PATH=$PYTHON_VENV_PATH" >> $BASH_ENV
             echo "export PYTHON_VENV_CMD=$PYTHON_VENV_CMD" >> $BASH_ENV
+
+  install_build_support_requirements:
+    description: Install build-support requirements
+    steps:
+      - run:
+          name: Install build-support requirements and set paths
+          command: |
+            python3 -m venv $PYTHON_VENV_PATH
+            $PYTHON_VENV_PATH/bin/pip3 install -r $BUILD_SUPPORT_DIR/requirements.txt
 
   restore_build_support:
     steps:
@@ -671,6 +678,7 @@ jobs:
       xcode: "12.4.0"
     steps:
       - checkout_with_cache
+      - set_python_venv_vars
       - install_build_support_requirements
       - save_cache:
           key: v1-build-support-venv-{{ .Revision }}
@@ -682,11 +690,11 @@ jobs:
       xcode: "12.4.0"
     steps:
       - checkout_with_cache
+      - set_python_venv_vars
       - restore_build_support
       - run:
           command: |
-            source $BASH_ENV
-            echo "build-support is all set up and checked out. Current version:"
+            echo "build-support is all set up and checked out to BUILD_SUPPORT_DIR ($BUILD_SUPPORT_DIR). Current version:"
             $PYTHON_VENV_CMD ./build-support/bump_version.py -p
 
 
