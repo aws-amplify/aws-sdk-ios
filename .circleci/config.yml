@@ -190,14 +190,14 @@ commands:
       - run:
           name: Skip job if SKIP_JOB flag is set
           command: |
-              variable_name=SKIP_JOB_${CIRCLE_JOB}
-              skipjob_flag=$(eval "echo $"${variable_name}"")
-              skipjob_flag=$(echo "${skipjob_flag}" | tr '[:upper:]' '[:lower:]')
-              if [ "${skipjob_flag}" == "true" ]
-              then
-                echo "Skipping current job as ${variable_name} environment variable is set"
-                circleci step halt
-              fi
+            variable_name=SKIP_JOB_${CIRCLE_JOB}
+            skipjob_flag=$(eval "echo $"${variable_name}"")
+            skipjob_flag=$(echo "${skipjob_flag}" | tr '[:upper:]' '[:lower:]')
+            if [ "${skipjob_flag}" == "true" ]
+            then
+              echo "Skipping current job as ${variable_name} environment variable is set"
+              circleci step halt
+            fi
 
   build_for_testing:
     parameters:
@@ -237,7 +237,7 @@ commands:
       - restore_cache:
           keys:
             - v1-source-{{ .Revision }}
-      - run: 
+      - run:
           name: Fetch tag from origin if present
           command: |
             if [ -n "$CIRCLE_TAG" ] ; then
@@ -305,7 +305,7 @@ jobs:
 
       - when:
           condition:
-            equal: [ << parameters.project >>, "AWSAuthSDK/AWSAuthSDK.xcodeproj" ]
+            equal: [<< parameters.project >>, "AWSAuthSDK/AWSAuthSDK.xcodeproj"]
           steps:
             - restore_cache:
                 key: v1-testing-derived-data-AWSAuthSDKTestApp-{{ .Revision }}
@@ -328,7 +328,7 @@ jobs:
 
       - when:
           condition:
-            equal: [ << parameters.scheme >>, "AWSCore" ]
+            equal: [<< parameters.scheme >>, "AWSCore"]
           steps:
             - run:
                 name: Additional AWSCore unit test targets
@@ -379,7 +379,7 @@ jobs:
 
       - when:
           condition:
-            equal: [ << parameters.scheme >>, "AWSMobileClient" ]
+            equal: [<< parameters.scheme >>, "AWSMobileClient"]
           steps:
             - run:
                 name: Additional AWSMobileClient test targets
@@ -524,8 +524,7 @@ jobs:
             git clone "https://github.com/${SAMPLE_APPS_REPO_ACCOUNT}/aws-sdk-ios-samples.git"
       - run:
           name: Build projects
-          command:
-            python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
+          command: python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
   release_ios_s3:
     macos:
       xcode: "12.1.0"
@@ -981,7 +980,7 @@ workflows:
           requires:
             - build
             - build_test_host_apps
-      
+
       - unit_test:
           scheme: AWSLocation
           name: unit_test_AWSLocation
@@ -1245,7 +1244,6 @@ workflows:
             branches:
               only:
                 - main
-
 
       - prepare_release_sdk:
           <<: *all_integ_test_requires
