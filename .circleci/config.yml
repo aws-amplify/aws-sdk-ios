@@ -671,6 +671,7 @@ jobs:
     macos:
       xcode: "12.4.0"
     steps:
+      - checkout_with_cache
       - install_build_support_requirements
       - save_cache:
           key: v1-build-support-{{ .Revision }}
@@ -681,6 +682,7 @@ jobs:
     macos:
       xcode: "12.4.0"
     steps:
+      - checkout_with_cache
       - activate_build_support
       - run:
           command: |
