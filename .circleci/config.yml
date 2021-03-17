@@ -250,7 +250,19 @@ commands:
     steps:
       - run:
           command: |
-            sudo pip3 install -r ./build-support/requirements.txt
+            export BUILD_SUPPORT_DIR=$CIRCLE_WORKING_DIRECTORY/build-support
+            export PYTHON_VENV_PATH=$BUILD_SUPPORT_DIR/.env
+            export PYTHON_VENV_CMD=$PYTHON_VENV_PATH/bin/python3
+            python3 -m venv $PYTHON_VENV_PATH
+            $PYTHON_VENV_PATH/bin/pip3 install -r $BUILD_SUPPORT_DIR/requirements.txt
+            echo "export BUILD_SUPPORT_DIR=$BUILD_SUPPORT_DIR" >> $BASH_ENV
+            echo "export PYTHON_VENV_PATH=$PYTHON_VENV_PATH" >> $BASH_ENV
+            echo "export PYTHON_VENV_CMD=$PYTHON_VENV_CMD" >> $BASH_ENV
+
+  restore_build_support:
+    steps:
+      - restore_cache:
+          key: v1-build-support-venv-{{ .Revision }}
 
 jobs:
   build:
@@ -659,16 +671,21 @@ jobs:
     steps:
       - checkout_with_cache
       - install_build_support_requirements
+      - save_cache:
+          key: v1-build-support-venv-{{ .Revision }}
+          paths:
+            - build-support/.env
 
   do_prerelease:
     macos:
       xcode: "12.4.0"
     steps:
       - checkout_with_cache
+      - restore_build_support
       - run:
           command: |
             echo "build-support is all set up and checked out. Current version:"
-            python3 ./build-support/bump_version.py -p
+            $PYTHON_VENV_CMD ./build-support/bump_version.py -p
 
 
 all_integ_test_requires: &all_integ_test_requires
