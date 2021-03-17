@@ -249,6 +249,7 @@ commands:
     description: Install build-support requirements
     steps:
       - run:
+          name: Install build-support requirements and set paths
           command: |
             export BUILD_SUPPORT_DIR=$HOME/project/build-support
             export PYTHON_VENV_PATH=$BUILD_SUPPORT_DIR/.env
