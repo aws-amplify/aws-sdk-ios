@@ -519,7 +519,7 @@ jobs:
               git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${CIRCLE_TAG}"
               git prune
             done
-            git push -q https://${GITHUB_TOKEN}@github.com/aws/aws-sdk-ios.git
+            git push -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
 
   add_doc_tag:
     macos:
@@ -552,6 +552,7 @@ jobs:
       - run:
           name: Build projects
           command: python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
+
   release_ios_s3:
     macos:
       xcode: "12.4.0"
@@ -697,9 +698,37 @@ jobs:
       - set_build_support_env_vars
       - restore_build_support
       - run:
-          name: Echo current version
-          command: $PYTHON_VENV_CMD ./build-support/bump_version.py -p
+          name: Calculate new prerelease version
+          command: |
+            NEW_SDK_VERSION=$( $PYTHON_VENV_CMD ./build-support/bump_version.py -l DEBUG -c prerelease )
+            echo "export NEW_SDK_VERSION=$NEW_SDK_VERSION" >> $BASH_ENV
+      - run:
+          name: Commit new prerelease version and tag
+          command: |
+            $PYTHON_VENV_CMD ./build-support/write_version.py -l DEBUG -t version_file -v ${NEW_SDK_VERSION}
+            git add .version
+            git commit -m "Update prerelease version $NEW_SDK_VERSION [skip ci]"
+            git tag -a ${NEW_SDK_VERSION} -m "SDK prerelease version ${NEW_SDK_VERSION}"
+            git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
+      - run:
+          name: Bump SDK version in all files
+          command: $PYTHON_VENV_CMD ./build-support/write_version.py -l DEBUG -v ${NEW_SDK_VERSION}
+      - run:
+          name: Release CocoaPods
+          command: echo "TBD"
+      - run:
+          name: Delete prerelease trigger tag
+          command: |
+            git fetch --tags
+            git tag -d trigger-prerelease
+            git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
+          
 
+  cleanup_prerelease:
+    macos:
+      xcode: "12.4.0"
+    steps:
+      - checkout_with_cache
 
 all_integ_test_requires: &all_integ_test_requires
   requires:
@@ -738,13 +767,15 @@ workflows:
       - setup_build_support:
           filters:
             branches:
-              only: palpatim.chore.unstable-builds.trigger-release-script
               ignore: /.*/
             tags:
               only: trigger-prerelease
       - do_prerelease:
           requires:
             - setup_build_support
+      - cleanup_prerelease:
+          requires:
+            - do_prerelease
 
   bump_sdk_version:
     jobs:
