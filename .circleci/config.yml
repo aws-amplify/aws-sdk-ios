@@ -250,7 +250,7 @@ commands:
     steps:
       - run:
           command: |
-            export BUILD_SUPPORT_DIR=$CIRCLE_WORKING_DIRECTORY/build-support
+            export BUILD_SUPPORT_DIR=$HOME/project/build-support
             export PYTHON_VENV_PATH=$BUILD_SUPPORT_DIR/.env
             export PYTHON_VENV_CMD=$PYTHON_VENV_PATH/bin/python3
             python3 -m venv $PYTHON_VENV_PATH
