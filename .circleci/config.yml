@@ -725,7 +725,9 @@ workflows:
               ignore: /.*/
             tags:
               only: trigger-prerelease
-      - do_prerelease
+      - do_prerelease:
+          requires:
+            - setup_build_support
 
   bump_sdk_version:
     jobs:
