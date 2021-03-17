@@ -66,9 +66,6 @@ commands:
               circleci step halt
             fi
 
-  setup_build_tools:
-    description: Set up build-tools environment
-
   bump_version_pre:
     description: >-
       Prepare bump version
@@ -247,6 +244,23 @@ commands:
               git fetch --force origin "refs/tags/${CIRCLE_TAG}:refs/tags/${CIRCLE_TAG}"
             fi
       - checkout
+
+  install_build_support_requirements:
+    description: Install build-support requirements
+    steps:
+      - run:
+          command: |
+            python3 -m venv ./build-support/.env
+            source ./build-support/.env/bin/activate
+            pip3 install -r ./build-support/requirements.txt
+
+  activate_build_support:
+    steps:
+      - restore_cache:
+          key: v1-build-support-{{ .Revision }}
+      - run:
+          name: Activate local python3 venv
+          command: source ./build-support/.env/bin/activate
 
 jobs:
   build:
@@ -573,9 +587,6 @@ jobs:
       - set_environment_variables
       - checkout_with_cache
       - run:
-          name: Install JSON parser
-          command: sudo pip3 install demjson
-      - run:
           name: Install lxml
           command: sudo pip3 install lxml
       - run:
@@ -652,11 +663,25 @@ jobs:
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
+  setup_build_support:
+    macos:
+      xcode: "12.4.0"
+    steps:
+      - install_build_support_requirements
+      - save_cache:
+          key: v1-build-support-{{ .Revision }}
+          paths:
+            - build-support
+
   do_prerelease:
     macos:
       xcode: "12.4.0"
     steps:
-      - setup_build_tools
+      - activate_build_support
+      - run:
+          command: |
+            echo "build-support is all set up and checked out. Current version:"
+            python3 ./build-support/bump_version.py -p
 
 
 all_integ_test_requires: &all_integ_test_requires
@@ -693,12 +718,14 @@ workflows:
 
   do_prerelease:
     jobs:
-      - do_prerelease:
+      - setup_build_support:
           filters:
             branches:
+              only: palpatim.chore.unstable-builds.trigger-release-script
               ignore: /.*/
             tags:
               only: trigger-prerelease
+      - do_prerelease
 
   bump_sdk_version:
     jobs:
@@ -707,6 +734,7 @@ workflows:
             branches:
               only:
                 - bump_sdk_version
+
   build_and_test:
     jobs:
       - build:
