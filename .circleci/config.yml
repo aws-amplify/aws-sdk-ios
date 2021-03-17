@@ -684,6 +684,7 @@ jobs:
       - restore_build_support
       - run:
           command: |
+            source $BASH_ENV
             echo "build-support is all set up and checked out. Current version:"
             $PYTHON_VENV_CMD ./build-support/bump_version.py -p
 
