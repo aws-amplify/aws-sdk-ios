@@ -3,7 +3,10 @@ from __future__ import print_function
 import argparse
 import logging
 import os
+import sys
 
+from common import LOG_FORMAT
+from semantic_version import SemanticVersion
 from version_writer import VersionWriter
 
 
@@ -17,21 +20,22 @@ class WriteVersionCLI:
         self._command_name = "write_version"
 
         self.log_level = None
-        self.new_sdk_version = None
+        self.sdk_version = None
         self.root_dir = None
+        self.file_types = None
 
     def run(self, argv):
         self._command_name = os.path.basename(argv[0])
         args = self.parse_args(argv[1:])
         self.process_args(args)
 
-        logging.debug(f"sdk_version: {self.new_sdk_version}, root_dir: {self.root_dir}")
+        logging.debug(f"sdk_version: {self.sdk_version}, root_dir: {self.root_dir}")
 
         self.write_new_version()
 
     def setup_parser(self):
         self._parser = argparse.ArgumentParser(
-            description="Bump version of the SDK",
+            description="Write SDK version",
             usage=f"{self._command_name} <args>",
         )
 
@@ -62,8 +66,10 @@ class WriteVersionCLI:
         self._parser.add_argument(
             "-t",
             "--file-type",
-            dest="file_type",
-            help="bump version in the specified file type. Defaults to all if not specified.",
+            help="""
+            bump version in the specified file type. Can be specified multiple times.
+            (Defaults to all if not specified.)
+            """,
             action="append",
             choices=[file_type.value for file_type in VersionWriter.FileType],
         )
@@ -75,18 +81,31 @@ class WriteVersionCLI:
 
     def process_args(self, args):
         self.log_level = args.log_level
-        logging.basicConfig(level=self.log_level, format=BumpVersionCLI.LOG_FORMAT)
+        logging.basicConfig(level=self.log_level, format=LOG_FORMAT)
 
-        self.root_dir = args.root_dir or os.getcwd()
+        self.root_dir = args.root_dir
+        self.sdk_version = args.sdk_version
+        self.resolve_file_types(args)
 
-        if args.print_version:
-            self.print_version()
-            exit(0)
-
-        if args.sdk_version is None:
-            if not args.component:
-                raise BumpVersionCLI.ArgumentError("Must specify one of --exact or --component")
-            self.resolve_new_version(SemanticVersion.Component(args.component))
+    def resolve_file_types(self, args):
+        if args.file_type and len(args.file_type) > 0:
+            self.file_types = map(VersionWriter.FileType, args.file_type)
         else:
-            self.new_sdk_version = SemanticVersion.fromstring(args.sdk_version)
+            self.file_types = [file_type for file_type in VersionWriter.FileType]
 
+    def write_new_version(self):
+        semantic_version = SemanticVersion.fromstring(self.sdk_version)
+        version_writer = VersionWriter(
+            root=self.root_dir,
+            sdk_version=semantic_version,
+            file_types=self.file_types
+        )
+        version_writer.write_sdk_version()
+
+
+def main(argv):
+    WriteVersionCLI().run(argv)
+
+
+if __name__ == "__main__":
+    main(sys.argv)
