@@ -249,10 +249,14 @@ commands:
     description: Install build-support requirements
     steps:
       - run:
-          command: |
-            python3 -m venv ./build-support/.env
-            source ./build-support/.env/bin/activate
-            pip3 install -r ./build-support/requirements.txt
+          name: Create virtual environment
+          command: python3 -m venv ./build-support/.env
+      - run:
+          name: Activate virtual environment
+          command: source ./build-support/.env/bin/activate
+      - run:
+          name: Install requirements
+          command: pip3 install -r ./build-support/requirements.txt
 
   activate_build_support:
     steps:
