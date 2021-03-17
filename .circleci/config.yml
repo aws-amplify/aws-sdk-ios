@@ -722,13 +722,6 @@ jobs:
             git fetch --tags
             git tag -d trigger-prerelease
             git push --tags -q https://${GITHUB_TOKEN}@github.com/aws-amplify/aws-sdk-ios.git
-          
-
-  cleanup_prerelease:
-    macos:
-      xcode: "12.4.0"
-    steps:
-      - checkout_with_cache
 
 all_integ_test_requires: &all_integ_test_requires
   requires:
@@ -771,11 +764,13 @@ workflows:
             tags:
               only: trigger-prerelease
       - do_prerelease:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: trigger-prerelease
           requires:
             - setup_build_support
-      - cleanup_prerelease:
-          requires:
-            - do_prerelease
 
   bump_sdk_version:
     jobs:
