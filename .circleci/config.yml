@@ -250,17 +250,7 @@ commands:
     steps:
       - run:
           command: |
-            python3 -m venv ./build-support/.env
-            source ./build-support/.env/bin/activate
-            pip3 install -r ./build-support/requirements.txt
-
-  activate_build_support:
-    steps:
-      - restore_cache:
-          key: v1-build-support-{{ .Revision }}
-      - run:
-          name: Activate local python3 venv
-          command: source ./build-support/.env/bin/activate
+            sudo pip3 install -r ./build-support/requirements.txt
 
 jobs:
   build:
@@ -669,17 +659,12 @@ jobs:
     steps:
       - checkout_with_cache
       - install_build_support_requirements
-      - save_cache:
-          key: v1-build-support-{{ .Revision }}
-          paths:
-            - build-support
 
   do_prerelease:
     macos:
       xcode: "12.4.0"
     steps:
       - checkout_with_cache
-      - activate_build_support
       - run:
           command: |
             echo "build-support is all set up and checked out. Current version:"
