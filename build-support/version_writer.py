@@ -4,6 +4,7 @@ import glob
 import logging
 import os
 import re
+from enum import Enum, unique
 
 from lxml import etree
 
@@ -12,6 +13,18 @@ from version_file import write_version
 
 
 class VersionWriter:
+
+    @unique
+    class FileType(Enum):
+        """
+        The type of file to be updated
+        """
+        CHANGELOG = "changelog"
+        PLIST = "plist"
+        PODSPEC = "podspec"
+        SCRIPT = "script"
+        SERVICE = "service"
+        VERSION_FILE = "version_file"
 
     MODULE_LIST = [
         "AWSAPIGateway",
@@ -60,18 +73,27 @@ class VersionWriter:
         "AWSAuthSDK/Sources/AWSUserPoolsSignIn",
     ]
 
-    def __init__(self, root, new_sdk_version):
+    def __init__(self, root, new_sdk_version, file_types=None):
         self.root_dir = root
         self.new_sdk_version = new_sdk_version
+        self.file_types = file_types
 
     def write_sdk_version(self):
-        logging.info(f"Updating {self.root_dir} to new SDK version {self.new_sdk_version.prerelease_version_str}")  # noqa: E501
-        self.bump_plists()
-        self.bump_services()
-        self.bump_podspecs()
-        self.bump_changelog()
-        self.bump_generate_docs()
-        self.overwrite_version_file()
+        logging.info(f"Updating to new SDK version {self.new_sdk_version.prerelease_version_str}")
+        resolved_file_types = self.file_types or [file_type for file_type in VersionWriter.FileType]
+        for file_type in resolved_file_types:
+            if file_type is VersionWriter.FileType.PLIST:
+                self.bump_plists()
+            if file_type is VersionWriter.FileType.SERVICE:
+                self.bump_services()
+            if file_type is VersionWriter.FileType.PODSPEC:
+                self.bump_podspecs()
+            if file_type is VersionWriter.FileType.CHANGELOG:
+                self.bump_changelog()
+            if file_type is VersionWriter.FileType.SCRIPT:
+                self.bump_generate_docs()
+            if file_type is VersionWriter.FileType.VERSION_FILE:
+                self.overwrite_version_file()
 
     def bump_plists(self):
         for module in VersionWriter.MODULE_LIST:

@@ -7,13 +7,12 @@ from enum import Enum, unique
 
 
 class SemanticVersion:
-    # These values must be kept in sync with the arguments to the bump_version script
     @unique
     class Component(Enum):
-        MAJOR = "MAJOR"
-        MINOR = "MINOR"
-        PATCH = "PATCH"
-        PRERELEASE = "PRERELEASE"
+        MAJOR = "major"
+        MINOR = "minor"
+        PATCH = "patch"
+        PRERELEASE = "prerelease"
 
     DEFAULT_PRERELEASE_PREFIX = "unstable"
 
@@ -72,7 +71,7 @@ class SemanticVersion:
             return ".".join([prerelease_prefix, str(self.prerelease)])
 
     def bump_component(self, component):
-        logging.debug(f"Bumping {component} of {self.prerelease_version_str}")
+        logging.debug(f"Bumping {component.value} of {self.prerelease_version_str}")
 
         if component is SemanticVersion.Component.MAJOR:
             self.major += 1
