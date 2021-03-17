@@ -657,9 +657,9 @@ jobs:
             content="${CIRCLE_BRANCH}"
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_USER}" "${GITHUB_TOKEN}" "$title" "$content" "$target_branch" "${CIRCLE_PROJECT_USERNAME}:${CIRCLE_BRANCH}" ${CIRCLE_PROJECT_USERNAME} ${CIRCLE_PROJECT_REPONAME}
 
-  test_trigger_on_branch:
-    docker:
-      - image: circleci/android:api-27-alpha
+  do_prerelease:
+    macos:
+      xcode: "12.1.0"
     steps:
       - run:
           name: Test trigger on branch
@@ -697,9 +697,9 @@ all_integ_test_requires: &all_integ_test_requires
 workflows:
   version: 2
 
-  test_trigger_on_branch:
+  do_prerelease:
     jobs:
-      - test_trigger_on_branch:
+      - do_prerelease:
           filters:
             branches:
               ignore: /.*/
