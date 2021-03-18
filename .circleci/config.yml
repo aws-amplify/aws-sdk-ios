@@ -246,10 +246,10 @@ commands:
       - checkout
 
   set_build_support_env_vars:
-    description: Sets BASH_ENV vars for python virtual environment
+    description: Set global paths for python virtual environment
     steps:
       - run:
-          name: Install build-support requirements and set paths
+          name: Set global paths for python virtual environment
           command: |
             export BUILD_SUPPORT_DIR=$HOME/project/build-support
             export PYTHON_VENV_PATH=$BUILD_SUPPORT_DIR/.env
@@ -262,7 +262,7 @@ commands:
     description: Install build-support requirements
     steps:
       - run:
-          name: Install build-support requirements and set paths
+          name: Install build-support requirements
           command: |
             python3 -m venv $PYTHON_VENV_PATH
             $PYTHON_VENV_PATH/bin/pip3 install -r $BUILD_SUPPORT_DIR/requirements.txt
