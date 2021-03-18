@@ -519,7 +519,7 @@ jobs:
               git add "$dirPath" && git commit -m "Update API documentation for ${sdkName} ${CIRCLE_TAG}"
               git prune
             done
-            git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
+            git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
 
   add_doc_tag:
     macos:
@@ -533,7 +533,7 @@ jobs:
             git config --local user.name "AWS"
             git checkout gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
-            git push origin ${CIRCLE_TAG}_api_docs -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
+            git push origin ${CIRCLE_TAG}_api_docs -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
 
   bump_ios_sampleapp_version:
     macos:
@@ -724,7 +724,7 @@ jobs:
           command: |
             git fetch --tags
             git tag -d trigger-prerelease
-            git push origin :trigger-prerelease -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
+            git push origin :trigger-prerelease -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
 
 all_integ_test_requires: &all_integ_test_requires
   requires:
