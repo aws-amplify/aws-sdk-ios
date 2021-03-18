@@ -694,7 +694,8 @@ jobs:
     macos:
       xcode: "12.4.0"
     steps:
-      - checkout_with_cache
+      # No need to checkout_with_cache, as we're going to be building from a new, uncached tag
+      - checkout
       - set_build_support_env_vars
       - restore_build_support
       - run:
