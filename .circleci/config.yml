@@ -533,7 +533,7 @@ jobs:
             git config --local user.name "AWS"
             git checkout gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
-            git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
+            git push origin ${CIRCLE_TAG}_api_docs -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
 
   bump_ios_sampleapp_version:
     macos:
@@ -712,7 +712,7 @@ jobs:
             git add .version
             git commit -m "Update prerelease version $NEW_SDK_VERSION [skip ci]"
             git tag -a ${NEW_SDK_VERSION} -m "SDK prerelease version ${NEW_SDK_VERSION}"
-            git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            git push origin ${NEW_SDK_VERSION} -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
       - run:
           name: Bump SDK version in all files
           command: $PYTHON_VENV_CMD ./build-support/write_version.py -l DEBUG -v ${NEW_SDK_VERSION}
@@ -724,7 +724,7 @@ jobs:
           command: |
             git fetch --tags
             git tag -d trigger-prerelease
-            git push --tags -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
+            git push origin :trigger-prerelease -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_USERNAME}.git
 
 all_integ_test_requires: &all_integ_test_requires
   requires:
