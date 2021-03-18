@@ -708,6 +708,7 @@ jobs:
           name: Commit new prerelease version and tag
           command: |
             $PYTHON_VENV_CMD ./build-support/write_version.py -l DEBUG -t version_file -v ${NEW_SDK_VERSION}
+            git config --local user.name "AWS"
             git add .version
             git commit -m "Update prerelease version $NEW_SDK_VERSION [skip ci]"
             git tag -a ${NEW_SDK_VERSION} -m "SDK prerelease version ${NEW_SDK_VERSION}"
