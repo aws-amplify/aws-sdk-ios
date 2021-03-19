@@ -5301,7 +5301,6 @@
 			isa = PBXGroup;
 			children = (
 				2109E4C2254754E00057043C /* AWSLocation.h */,
-				218646E9260279AC0070CD1B /* AWSLocationXCF.h */,
 				2109E4C6254754E10057043C /* AWSLocationModel.h */,
 				2109E4C4254754E00057043C /* AWSLocationModel.m */,
 				2109E4C5254754E00057043C /* AWSLocationResources.h */,
@@ -5309,6 +5308,7 @@
 				2109E4C7254754E10057043C /* AWSLocationService.h */,
 				2109E4C3254754E00057043C /* AWSLocationService.m */,
 				2171F5AD254CB31800FAB22F /* AWSLocationTracker */,
+				218646E9260279AC0070CD1B /* AWSLocationXCF.h */,
 				2109E2BC254745210057043C /* Info.plist */,
 			);
 			path = AWSLocation;
@@ -14567,7 +14567,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -14601,7 +14600,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.18.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
@@ -14913,7 +14911,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.18.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				OTHER_LDFLAGS = "-ObjC";
@@ -14947,7 +14944,6 @@
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				MARKETING_VERSION = 2.18.0;
 				MTL_FAST_MATH = YES;
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSLocation;
 				PRODUCT_NAME = "$(TARGET_NAME)";
