@@ -17,6 +17,9 @@
   - AWSEC2
   - AWSComprehend
 
+- **AWSLocation**
+  - Created a new target named `AWSLocationXCF` to support building AWSLocation as an XCFramework. [PR #3475](https://github.com/aws-amplify/aws-sdk-ios/pull/3475)
+
 ## 2.23.1
 
 ### Bug fixes

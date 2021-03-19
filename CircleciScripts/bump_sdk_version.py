@@ -32,6 +32,7 @@ class VersionBumper:
         "AWSLambda",
         "AWSLex",
         "AWSLocation",
+        "AWSLocationXCF",
         "AWSLogs",
         "AWSMachineLearning",
         "AWSPinpoint",

@@ -11,6 +11,8 @@ EXCLUDE_FROM_XCFRAMEWORK = [
     "AWSAuth",
     # AWSMobileClient is named as AWSMobileClientXCF and will be added later.
     "AWSMobileClient",
+    # AWSLocation is named as AWSLocationXCF and will be added later.
+    "AWSLocation"
 ]
 
 IOS_DEVICE_ARCHIVE_PATH = "./xcframeworks/output/iOS/"
@@ -76,6 +78,7 @@ log(f"Creating XCFrameworks in {project_dir}")
 
 filtered_frameworks = list(filter(is_framework_included, frameworks))
 filtered_frameworks.append("AWSMobileClientXCF")
+filtered_frameworks.append("AWSLocationXCF")
 framework_map = map_framework_to_project(filtered_frameworks)
 
 # Archive all the frameworks.

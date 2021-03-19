@@ -45,13 +45,15 @@ There are three ways to integrate the AWS Mobile SDK for iOS into your own proje
 
 You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.
 
-> Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), the module `AWSMobileClient` is named as `AWSMobileClientXCF` to work around a [Swift issue](https://bugs.swift.org/browse/SR-11704). To use `AWSMobileClient`, import it as:
+> Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), some modules are named with the `XCF` suffix to work around a [Swift issue](https://bugs.swift.org/browse/SR-11704). `AWSMobileClient` is named as `AWSMobileClientXCF` and `AWSLocation` is named as `AWSLocationXCF`. To use `AWSMobileClient` or `AWSLocation`, import it as:
         
         import AWSMobileClientXCF
+        import AWSLocationXCF
 
 and use it your app code without the `XCF` suffix.
 
-        AWSMobileClient.default.initialize() 
+        AWSMobileClient.default().initialize() 
+        let locationClient = AWSLocation.default()
 
 
 ### CocoaPods
