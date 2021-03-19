@@ -17,7 +17,7 @@
     <a title="AWSComprehend Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSComprehend 2.23.1 Docs</a> (82% documented)</p>
+        <p><a href="../index.html">AWSComprehend 2.23.2 Docs</a> (82% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSComprehend.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -105,6 +105,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendClassifyDocumentResponse.html">AWSComprehendClassifyDocumentResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendCreateDocumentClassifierRequest.html">AWSComprehendCreateDocumentClassifierRequest</a>
@@ -291,6 +297,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendEntity.html">AWSComprehendEntity</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSComprehendEntityLabel.html">AWSComprehendEntityLabel</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSComprehendEntityRecognizerAnnotations.html">AWSComprehendEntityRecognizerAnnotations</a>
@@ -1885,6 +1894,150 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorResourceUnavailable</code>, <code>AWSComprehendErrorTextSizeLimitExceeded</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)containsPiiEntities:"></a>
+                    <a name="//apple_ref/objc/Method/-containsPiiEntities:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)containsPiiEntities:">-containsPiiEntities:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Analyzes input text for the presence of personally identifiable information (PII) and returns the labels of identified PII entity types such as name, address, bank account number, or phone number.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendContainsPiiEntitiesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendContainsPiiEntitiesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">containsPiiEntities</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">containsPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ContainsPiiEntities service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTextSizeLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSComprehend(im)containsPiiEntities:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-containsPiiEntities:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSComprehend(im)containsPiiEntities:completionHandler:">-containsPiiEntities:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Analyzes input text for the presence of personally identifiable information (PII) and returns the labels of identified PII entity types such as name, address, bank account number, or phone number.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendContainsPiiEntitiesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSComprehendContainsPiiEntitiesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">containsPiiEntities</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+          <span class="nf">completionHandler</span><span class="p">:</span>
+              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                  <span class="n"><a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                  <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">containsPiiEntities</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesRequest.html">AWSComprehendContainsPiiEntitiesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSComprehendContainsPiiEntitiesResponse.html">AWSComprehendContainsPiiEntitiesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ContainsPiiEntities service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSComprehendErrorDomain">AWSComprehendErrorDomain</a></code> domain and the following error code: <code>AWSComprehendErrorInvalidRequest</code>, <code>AWSComprehendErrorTextSizeLimitExceeded</code>, <code>AWSComprehendErrorUnsupportedLanguage</code>, <code>AWSComprehendErrorInternalServer</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9679,7 +9832,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-03-05)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-03-19)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
