@@ -533,7 +533,7 @@ jobs:
             git config --local user.name "AWS"
             git checkout gh-pages
             git tag -a ${CIRCLE_TAG}_api_docs -m "Add documentation tags to version ${CIRCLE_TAG}"
-            git push origin ${CIRCLE_TAG}_api_docs -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git
+            git push -q https://${GITHUB_TOKEN}@github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME}.git ${CIRCLE_TAG}_api_docs
 
   bump_ios_sampleapp_version:
     macos:
