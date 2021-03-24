@@ -22,4 +22,4 @@ log(f"Uploading xcframeworks from {archive_path}")
 for framework in xcframeworks:
     filename = f"{framework}-{version}.zip"
     archived_sdk_path = f"{archive_path}/{filename}"
-    upload_file(archived_sdk_path, bucket, filename)
+    upload_file(archived_sdk_path, bucket, f"iosv2sdk/{filename}")

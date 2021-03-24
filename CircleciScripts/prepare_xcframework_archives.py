@@ -9,27 +9,31 @@ from functions import log, run_command
 def create_archives(xcframework_path, archive_path, version):
     os.makedirs(archive_path, exist_ok=True)
     for framework in xcframeworks:
+        
+        xcframework_sdk = f"{framework}.xcframework"
+        xcframework_sdk_path = os.path.join(xcframework_path, xcframework_sdk)
+        
+        archive_name = f"{framework}-{version}"
+        final_archive_name_with_ext = f"{framework}-{version}.zip"
+        log(f"Creating zip file for {archive_name}")
+        
+        temp_folder = os.path.join(xcframework_path, framework)
+        log(f"Copying the zip to a temp location {temp_folder}")
+        shutil.copytree(xcframework_sdk_path, os.path.join(temp_folder, xcframework_sdk))  
 
-        finalZipName = f"{framework}-{version}"
-        log(f"Creating zip file for {finalZipName}")
+        log(f"Generate the archive and move it to the archive directory")
+        final_archived_path = os.path.join(archive_path, final_archive_name_with_ext)
+        shutil.make_archive(archive_name, "zip", root_dir=xcframework_path, base_dir=framework)
+        shutil.move(f"{framework}-{version}.zip", final_archived_path)  
 
-        xcframework_sdk_path = f"{xcframework_path}/{framework}.xcframework"
-        temp_path = f"{xcframework_path}/{framework}/{framework}.xcframework"
-
-        log(f"Copying the zip to a temp location {temp_path}")
-        shutil.copytree(xcframework_sdk_path, temp_path)  
-
-        log(f"Make the archive and move to the archives dir")
-        shutil.make_archive(finalZipName, 'zip', root_dir=xcframework_path, base_dir=f"{framework}")
-        shutil.move(f"{framework}-{version}.zip", f"{archive_path}/{framework}-{version}.zip")  
-
-        log(f"Cleanup the files")
-        shutil.rmtree(f"{xcframework_path}/{framework}")
+        log(f"Remove the temp folder")
+        shutil.rmtree(temp_folder)
 
 def create_checksum(archive_path, spm_manifest_repo, version):
     framework_to_checksum = {}
     for framework in xcframeworks:
-        zipfile_path = f"{archive_path}/{framework}-{version}.zip"
+        final_archive_name_with_ext = f"{framework}-{version}.zip"
+        zipfile_path = os.path.join(archive_path, final_archive_name_with_ext)
         cmd = [
             "swift",
             "package",

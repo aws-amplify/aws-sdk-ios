@@ -89,4 +89,4 @@ def is_framework_included(framework):
 # flatten the grouped frameworks
 frameworks = [framework for group in grouped_frameworks for framework in group]
 
-xcframeworks = list(filter(is_framework_included, frameworks)) + ["AWSMobileClientXCF", "AWSLocationXCF"]
+xcframeworks = ["AWSMobileClientXCF", "AWSCore"] # list(filter(is_framework_included, frameworks)) + ["AWSMobileClientXCF", "AWSLocationXCF"]
