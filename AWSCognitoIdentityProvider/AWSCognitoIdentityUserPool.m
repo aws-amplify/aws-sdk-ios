@@ -65,7 +65,10 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         if (serviceInfo) {
             NSString *endpointOverride = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolEndpoint];
             if (endpointOverride) {
-                NSURL *endpointURL = [[NSURL alloc] initWithString:endpointOverride];
+                NSURLComponents *components = [NSURLComponents new];
+                components.scheme = @"https";
+                components.host = endpointOverride;
+                NSURL *endpointURL = [components URL];
                 AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:serviceInfo.region
                                                                     service:AWSServiceCognitoIdentityProvider
                                                                         URL:endpointURL];
