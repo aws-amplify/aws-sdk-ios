@@ -2,9 +2,11 @@ import os
 import sys
 import shutil
 import re
+import logging
 
+from semver_util import validate_version 
 from framework_list import xcframeworks
-from functions import log, run_command
+from functions import run_command
 
 def create_archives(xcframework_path, archive_path, version):
     os.makedirs(archive_path, exist_ok=True)
@@ -15,18 +17,18 @@ def create_archives(xcframework_path, archive_path, version):
         
         archive_name = f"{framework}-{version}"
         final_archive_name_with_ext = f"{framework}-{version}.zip"
-        log(f"Creating zip file for {archive_name}")
+        logging.info(f"Creating zip file for {archive_name}")
         
         temp_folder = os.path.join(xcframework_path, framework)
-        log(f"Copying the zip to a temp location {temp_folder}")
+        logging.info(f"Copying the zip to a temp location {temp_folder}")
         shutil.copytree(xcframework_sdk_path, os.path.join(temp_folder, xcframework_sdk))  
 
-        log(f"Generate the archive and move it to the archive directory")
+        logging.info(f"Generate the archive and move it to the archive directory")
         final_archived_path = os.path.join(archive_path, final_archive_name_with_ext)
         shutil.make_archive(archive_name, "zip", root_dir=xcframework_path, base_dir=framework)
         shutil.move(f"{framework}-{version}.zip", final_archived_path)  
 
-        log(f"Remove the temp folder")
+        logging.info(f"Remove the temp folder")
         shutil.rmtree(temp_folder)
 
 def create_checksum(archive_path, spm_manifest_repo, version):
@@ -45,10 +47,9 @@ def create_checksum(archive_path, spm_manifest_repo, version):
         
         (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
         if exit_code == 0:
-            log(f"Created check sum for archive {framework} {out}")
+            logging.info(f"Created check sum for archive {framework} {out}")
         else:
-            log(cmd)
-            log(f"Could not create checksum for archive: {framework} output: {out}; error: {err}")
+            logging.error(f"Could not create checksum for archive: {framework} output: {out}; error: {err}")
             sys.exit(exit_code)
         framework_to_checksum[framework] = out.decode("utf-8").rstrip()
     return framework_to_checksum
@@ -68,17 +69,20 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
         package_manifest_file.truncate()
 
 version = str(sys.argv[1])
+if validate_version(version) == False:
+    logging.error("Version is invalid, exiting")
+    sys.exit(0)
 
 project_dir = os.getcwd()
-xcframework_path = f"{project_dir}/xcframeworks/output/XCF"
-archive_path = f"{project_dir}/xcframeworks/output/archives"
+xcframework_path = os.path.join(project_dir, "xcframeworks", "output", "XCF")
+archive_path =  os.path.join(project_dir, "xcframeworks", "output", "archives")
 spm_manifest_repo = '../aws-sdk-ios-spm'
 
-log(f"Creating archives from {xcframework_path}")
+logging.info(f"Creating archives from {xcframework_path}")
 create_archives(xcframework_path, archive_path, version)
 
-log(f"Calculating checksum from {archive_path}")
+logging.info(f"Calculating checksum from {archive_path}")
 framework_to_checksum = create_checksum(archive_path, spm_manifest_repo, version)
 
-log(f"Updating checksum to {spm_manifest_repo}")
+logging.info(f"Updating checksum to {spm_manifest_repo}")
 update_spm_manifest(framework_to_checksum, spm_manifest_repo, version)
