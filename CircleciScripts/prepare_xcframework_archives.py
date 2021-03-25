@@ -26,7 +26,7 @@ def create_archives(xcframework_path, archive_path, version):
         logging.info(f"Generate the archive and move it to the archive directory")
         final_archived_path = os.path.join(archive_path, final_archive_name_with_ext)
         shutil.make_archive(archive_name, "zip", root_dir=xcframework_path, base_dir=framework)
-        shutil.move(f"{framework}-{version}.zip", final_archived_path)  
+        shutil.move(final_archive_name_with_ext, final_archived_path)  
 
         logging.info(f"Remove the temp folder")
         shutil.rmtree(temp_folder)
