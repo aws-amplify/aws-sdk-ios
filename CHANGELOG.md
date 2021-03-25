@@ -5,7 +5,7 @@
 ### New Features
 
 - **AWSMobileClient**, **AWSCognitoIdentityProvider**
-  - AWSCognitoIdentityProvider now accepts an `Endpoint` configuration value that can be used to override the default endpoint of `cognito-idp.<region>.amazonaws.com`. (See (PR #3481)[https://github.com/aws-amplify/aws-sdk-ios/pull/3481].)
+  - AWSCognitoIdentityProvider now accepts an `Endpoint` configuration value that can be used to override the default endpoint of `cognito-idp.<region>.amazonaws.com`. (See (PR #3482)[https://github.com/aws-amplify/aws-sdk-ios/pull/3482].)
 
     You can use this override value to specify the domain name of, for example, a CloudFront distribution fronted by a Web Application Firewall for DDOS protection on your Cognito User Pool account. The value of `Endpoint` should be a fully-qualified host name, not a URL. Example:
 
@@ -21,7 +21,7 @@
     }
     ```
 
-    > **WARNING** The Amplify CLI will overwrite customizations to the `awsconfiguration.json` and `amplifyconfiguration.json` files if you do an `amplify push` or `amplify pull`. You will need to re-apply the `Endpoint` customization if you use the CLI to modify your cloud backend.
+    > **WARNING** The Amplify CLI will overwrite customizations to the `awsconfiguration.json` and `amplifyconfiguration.json` files if you do an `amplify push` or `amplify pull`. You will need to manually re-apply the `Endpoint` customization if you use the CLI to modify your cloud backend.
 
 ## 2.23.2
 

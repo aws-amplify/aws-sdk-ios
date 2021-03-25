@@ -63,17 +63,10 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoCognitoUserPool];
         if (serviceInfo) {
-            NSString *endpointOverride = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolEndpoint];
+            AWSEndpoint *endpointOverride = [AWSCognitoIdentityUserPool resolveEndpointOverrideFromServiceInfo:serviceInfo];
             if (endpointOverride) {
-                NSURLComponents *components = [NSURLComponents new];
-                components.scheme = @"https";
-                components.host = endpointOverride;
-                NSURL *endpointURL = [components URL];
-                AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:serviceInfo.region
-                                                                    service:AWSServiceCognitoIdentityProvider
-                                                                        URL:endpointURL];
                 serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                              endpoint:endpoint
+                                                                              endpoint:endpointOverride
                                                                    credentialsProvider:nil
                                                                    localTestingEnabled:NO];
             } else {
@@ -396,6 +389,37 @@ AWSCognitoIdentityUserAttributeType* attribute(NSString *name, NSString *value) 
 
 - (NSString*) strippedPoolId {
     return [self.userPoolConfiguration.poolId substringFromIndex:[self.userPoolConfiguration.poolId rangeOfString:@"_" ].location+1];
+}
+
++ (nullable AWSEndpoint *)resolveEndpointOverrideFromServiceInfo:(nonnull AWSServiceInfo *)serviceInfo {
+    NSString *endpointOverride = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolEndpoint];
+    if (!endpointOverride) {
+        return NULL;
+    }
+
+    NSURLComponents *components = [NSURLComponents new];
+    components.scheme = @"https";
+
+    // NSURLComponents will happily interpret a string like "https://foo.com" as a valid hostname if
+    // we set it to the `host` property. By assigning to `percentEncodedHost`, NSURLComponents will
+    // raise an exception for incorrectly escaped hosts. At that point, it's likely to fail later
+    // when an actual request is made, but this strikes a reasonable balance between early failure
+    // detection and overly complex and error-prone validation logic.
+    components.percentEncodedHost = endpointOverride;
+
+    NSURL *endpointURL = [components URL];
+    if (!endpointURL) {
+        NSString *failureMessage = [NSString stringWithFormat:@"Invalid Endpoint value '%@'. Expected a fully-qualified hostname.",
+                                    endpointOverride];
+        @throw [NSException exceptionWithName:NSInvalidArgumentException
+                                       reason:failureMessage
+                                     userInfo:nil];
+    }
+
+    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:serviceInfo.region
+                                                        service:AWSServiceCognitoIdentityProvider
+                                                            URL:endpointURL];
+    return endpoint;
 }
 
 @end

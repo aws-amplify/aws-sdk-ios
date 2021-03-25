@@ -54,12 +54,6 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
 
         signUpAndVerifyUser(username: username)
 
-        let clientInitialized = expectation(description: "clientInitialized")
-        AWSMobileClient.default().initialize { _, _ in
-            clientInitialized.fulfill()
-        }
-        wait(for: [clientInitialized], timeout: 0.1)
-
         let signInComplete = expectation(description: "signInComplete")
         AWSMobileClient.default().signIn(
             username: username,
