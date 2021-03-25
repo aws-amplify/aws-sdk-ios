@@ -13,4 +13,3 @@ def validate_version(version):
     if pattern.search(version) is None:
         return False
     return True
-    
