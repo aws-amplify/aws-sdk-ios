@@ -4,7 +4,7 @@ import sys
 import boto3
 import logging
 
-from functions import log
+from functions import setup_logging
 from framework_list import xcframeworks
 from semver_util import validate_version 
 from botocore.exceptions import ClientError
@@ -17,7 +17,7 @@ def upload_file(file_name, bucket, object_name):
         logging.error(e)
         sys.exit(e.response['Error']['Code'])
 
-    
+setup_logging()  
 project_dir = os.getcwd()
 archive_path = f"{project_dir}/xcframeworks/output/archives"
 
@@ -32,7 +32,7 @@ if not re.match("^[a-zA-Z0-9]*$", bucket):
     logging.error("Bucket is invalid, exiting")
     sys.exit(0)
 
-log(f"Uploading xcframeworks from {archive_path}")
+logging.info(f"Uploading xcframeworks from {archive_path}")
 for framework in xcframeworks:
     filename = f"{framework}-{version}.zip"
     archived_sdk_path = f"{archive_path}/{filename}"

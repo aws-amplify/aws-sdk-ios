@@ -6,7 +6,7 @@ import logging
 
 from semver_util import validate_version 
 from framework_list import xcframeworks
-from functions import run_command
+from functions import run_command, setup_logging
 
 def create_archives(xcframework_path, archive_path, version):
     os.makedirs(archive_path, exist_ok=True)
@@ -68,6 +68,7 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
         package_manifest_file.write(content)
         package_manifest_file.truncate()
 
+setup_logging()
 version = str(sys.argv[1])
 if validate_version(version) == False:
     logging.error("Version is invalid, exiting")

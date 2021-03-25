@@ -1,5 +1,4 @@
 import re
-import logging
 
 def validate_version(version):
     """
@@ -14,3 +13,4 @@ def validate_version(version):
     if pattern.search(version) is None:
         return False
     return True
+    
