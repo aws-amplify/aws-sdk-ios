@@ -1,6 +1,7 @@
 import os
 import platform
 import sys
+import logging
 from datetime import datetime, timedelta
 from subprocess import PIPE, Popen, TimeoutExpired
 
@@ -8,6 +9,8 @@ from subprocess import PIPE, Popen, TimeoutExpired
 def log(*messages):
     print(f"{datetime.now()}:", *messages)
 
+def setup_logging():
+    logging.basicConfig(format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p', level=logging.INFO)
 
 def has_timed_out(deadline):
     """
