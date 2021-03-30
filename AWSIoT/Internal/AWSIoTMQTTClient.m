@@ -646,10 +646,15 @@
 }
 
 - (void)cleanUpToDecoderStream {
-    self.toDecoderStream.delegate = nil;
-    [self.toDecoderStream close];
-    [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
-    self.toDecoderStream = nil;
+    @synchronized (self) {
+        if (self.toDecoderStream == nil) {
+            return;
+        }
+        self.toDecoderStream.delegate = nil;
+        [self.toDecoderStream close];
+        [self.toDecoderStream removeFromRunLoop:[NSRunLoop currentRunLoop] forMode:NSDefaultRunLoopMode];
+        self.toDecoderStream = nil;
+    }
 }
 
 - (void)reconnectToSession {
