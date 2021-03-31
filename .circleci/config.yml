@@ -537,6 +537,13 @@ jobs:
       - restore_cache:
           key: build_xcframeworks-result-{{ .Revision }}
       - run:
+          name: Clone spm github repo
+          command: |
+            git clone "https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git"
+            cd aws-sdk-ios-spm
+            git checkout -b pre-release-${release_version}
+            cd ..
+      - run:
           name: Prepare xcframework archives
           command:
             python3 CircleciScripts/prepare_xcframework_archives.py $release_version
@@ -544,6 +551,15 @@ jobs:
           name: Upload xcframework archives
           command:
             python3 CircleciScripts/upload_xcframeworks.py $release_bucket $release_version sdk_xcf_release
+      - run:
+          name: Create PR for SPM package manifest
+          command: |
+            git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
+            cd aws-sdk-ios-spm
+            git add Package.swift
+            git commit -m "release: Version and checksum update for ${release_version}"
+            git push https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
+            cd ..
 
   release_xcframeworks_combined:
     macos:
