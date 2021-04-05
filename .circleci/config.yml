@@ -545,7 +545,7 @@ jobs:
           command:
             python3 CircleciScripts/upload_xcframeworks.py $release_bucket $release_version sdk_xcf_release
 
-  release_ios_s3:
+  release_xcframeworks_combined:
     macos:
       xcode: "12.1.0"
     environment:
@@ -1387,7 +1387,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_ios_s3:
+      - release_xcframeworks_combined:
           requires:
             - release_xcframeworks
           filters:
@@ -1404,7 +1404,7 @@ workflows:
       - release_docs:
           requires:
             - release_tag
-            - release_ios_s3
+            - release_xcframeworks_combined
           filters:
             branches:
               ignore: /.*/
@@ -1438,7 +1438,7 @@ workflows:
       - bump_ios_sampleapp_version:
           requires:
             - release_tag
-            - release_ios_s3
+            - release_xcframeworks_combined
             - release_cocoapods
           filters:
             branches:
