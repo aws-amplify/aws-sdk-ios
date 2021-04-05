@@ -23,6 +23,7 @@ archive_path = f"{project_dir}/xcframeworks/output/archives"
 
 bucket = sys.argv[1]
 version = sys.argv[2]
+aws_profile = sys.argv[3]
 
 if validate_version(version) == False:
     logging.error("Version is invalid, exiting")
@@ -32,7 +33,14 @@ if not re.match("^[a-zA-Z0-9]*$", bucket):
     logging.error("Bucket is invalid, exiting")
     sys.exit(0)
 
+if aws_profile is not None:
+    logging.error("AWS profile should not be none")
+    sys.exit(0)
+
 logging.info(f"Uploading xcframeworks from {archive_path}")
+
+boto3.setup_default_session(profile_name=aws_profile)
+
 for framework in xcframeworks:
     filename = f"{framework}-{version}.zip"
     archived_sdk_path = f"{archive_path}/{filename}"

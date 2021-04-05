@@ -35,7 +35,7 @@ commands:
             sdkName=aws-ios-sdk
             echo "export sdkName=$sdkName" >> $BASH_ENV
 
-            release_bucket=${S3_RELEASE_BUCKET}
+            release_bucket=${XCF_RELEASE_BUCKET}
             echo "export release_bucket=$release_bucket" >> $BASH_ENV
 
             release_tag=${CIRCLE_TAG}
@@ -143,8 +143,8 @@ commands:
       - run:
           name: Configure AWS profiles
           command: |
-            aws configure --profile sdk_s3_release set region us-east-1
-            echo -e "[sdk_s3_release]\naws_access_key_id=${S3_RELEASE_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${S3_RELEASE_AWS_SECRET_ACCESS_KEY}\n" >> ~/.aws/credentials
+            aws configure --profile sdk_xcf_release set region us-east-1
+            echo -e "[sdk_xcf_release]\naws_access_key_id=${XCF_AWS_ACCESS_KEY_ID}\naws_secret_access_key=${XCF_AWS_SECRET_ACCESS_KEY}\naws_session_token=${XCF_AWS_SESSION_TOKEN}\n" >> ~/.aws/credentials
 
   pre_start_simulator:
     description: >-
@@ -527,7 +527,25 @@ jobs:
           command:
             python3 CircleciScripts/build_iossample.py "$(pwd)/aws-sdk-ios-samples"
   
-  release_ios_s3:
+  release_xcframeworks:
+    macos:
+      xcode: "12.3.0"
+    steps:
+      - skip_job_unless_required
+      - checkout_with_cache
+      - pre_start_simulator
+      - restore_cache:
+          key: build_xcframeworks-result-{{ .Revision }}
+      - run:
+          name: Prepare xcframework archives
+          command:
+            python3 CircleciScripts/prepare_xcframework_archives.py $release_version
+      - run:
+          name: Upload xcframework archives
+          command:
+            python3 CircleciScripts/upload_xcframeworks.py $release_bucket $release_version sdk_xcf_release
+
+  release_xcframeworks_combined:
     macos:
       xcode: "12.1.0"
     environment:
@@ -564,12 +582,12 @@ jobs:
       - run:
           name: Upload to S3
           command: |
-            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
-            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_s3_release
+            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_xcf_release
+            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_xcf_release
       - run:
           name: Invalidate cloudfront
           command: |
-            python3 CircleciScripts/cloudfront_invalidate.py sdk_s3_release "${S3_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_xcf_release "${XCF_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
 
   bump_sdk_version:
     macos:
@@ -1361,9 +1379,17 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_ios_s3:
+      - release_xcframeworks:
           requires:
             - build_xcframeworks
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - release_xcframeworks_combined:
+          requires:
+            - release_xcframeworks
           filters:
             branches:
               ignore: /.*/
@@ -1378,7 +1404,7 @@ workflows:
       - release_docs:
           requires:
             - release_tag
-            - release_ios_s3
+            - release_xcframeworks_combined
           filters:
             branches:
               ignore: /.*/
@@ -1412,7 +1438,7 @@ workflows:
       - bump_ios_sampleapp_version:
           requires:
             - release_tag
-            - release_ios_s3
+            - release_xcframeworks_combined
             - release_cocoapods
           filters:
             branches:
