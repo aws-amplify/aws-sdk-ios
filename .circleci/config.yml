@@ -543,7 +543,6 @@ jobs:
       - run:
           name: Upload xcframework archives
           command:
-            echo "Upload"
             python3 CircleciScripts/upload_xcframeworks.py $release_bucket $release_version sdk_xcf_release
 
   release_ios_s3:
