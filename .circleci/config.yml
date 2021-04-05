@@ -544,7 +544,7 @@ jobs:
             git checkout -b pre-release-${release_version}
             cd ..
       - run:
-          name: Prepare xcframework archives
+          name: Prepare xcframework archives and update Package.swift manifest
           command:
             python3 CircleciScripts/prepare_xcframework_archives.py $release_version
       - run:
@@ -554,12 +554,18 @@ jobs:
       - run:
           name: Create PR for SPM package manifest
           command: |
-            git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
             cd aws-sdk-ios-spm
+            head_branch=pre-release-${release_version} 
+            target_branch="release"
+            title="release: Version and checksum update for ${release_version}"
+            content="Update for package manifest and version for the next release"
+            git checkout ${head_branch}
+            git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
             git add Package.swift
-            git commit -m "release: Version and checksum update for ${release_version}"
-            git push https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
-            cd ..
+            git commit -m $title
+            git push origin ${head_branch} https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
+            python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_SPM_RELEASE_USER}" "${GITHUB_SPM_RELEASE_TOKEN}" "$title" "$content" "$target_branch" "${head_branch}" "aws-amplify" "aws-sdk-ios-spm"
+
 
   release_xcframeworks_combined:
     macos:
