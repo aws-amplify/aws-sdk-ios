@@ -562,7 +562,7 @@ jobs:
             git checkout ${head_branch}
             git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
             git add Package.swift
-            git commit -m $title
+            git commit -m "$title"
             git push origin ${head_branch} https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_SPM_RELEASE_USER}" "${GITHUB_SPM_RELEASE_TOKEN}" "$title" "$content" "$target_branch" "${head_branch}" "aws-amplify" "aws-sdk-ios-spm"
 
