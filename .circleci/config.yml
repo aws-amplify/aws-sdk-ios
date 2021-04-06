@@ -537,13 +537,35 @@ jobs:
       - restore_cache:
           key: build_xcframeworks-result-{{ .Revision }}
       - run:
-          name: Prepare xcframework archives
+          name: Clone spm github repo
+          command: |
+            git clone "https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git"
+            cd aws-sdk-ios-spm
+            git checkout -b pre-release-${release_version}
+            cd ..
+      - run:
+          name: Prepare xcframework archives and update Package.swift manifest
           command:
             python3 CircleciScripts/prepare_xcframework_archives.py $release_version
       - run:
           name: Upload xcframework archives
           command:
             python3 CircleciScripts/upload_xcframeworks.py $release_bucket $release_version sdk_xcf_release
+      - run:
+          name: Create PR for SPM package manifest
+          command: |
+            cd aws-sdk-ios-spm
+            head_branch=pre-release-${release_version} 
+            target_branch="release"
+            title="release: Version and checksum update for ${release_version}"
+            content="Update for package manifest and version for the next release"
+            git checkout ${head_branch}
+            git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
+            git add Package.swift
+            git commit -m "$title"
+            git push origin ${head_branch} https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
+            python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_SPM_RELEASE_USER}" "${GITHUB_SPM_RELEASE_TOKEN}" "$title" "$content" "$target_branch" "${head_branch}" "aws-amplify" "aws-sdk-ios-spm"
+
 
   release_xcframeworks_combined:
     macos:
