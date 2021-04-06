@@ -72,5 +72,21 @@ grouped_frameworks = [
     ],
 ]
 
+excluded_from_xcframeworks = [
+    # This isn't a real framework
+    "AWSiOSSDKv2",
+    # Legacy frameworks not built or packaged
+    "AWSAuth",
+    # AWSMobileClient is named as AWSMobileClientXCF and will be added later.
+    "AWSMobileClient",
+    # AWSLocation is named as AWSLocationXCF and will be added later.
+    "AWSLocation"
+]
+
+def is_framework_included(framework):
+    return framework not in excluded_from_xcframeworks
+
 # flatten the grouped frameworks
 frameworks = [framework for group in grouped_frameworks for framework in group]
+
+xcframeworks = list(filter(is_framework_included, frameworks)) + ["AWSMobileClientXCF", "AWSLocationXCF"]

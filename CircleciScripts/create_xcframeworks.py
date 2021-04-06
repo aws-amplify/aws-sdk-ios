@@ -1,26 +1,13 @@
 import os
 import sys
+import shutil
 
-from framework_list import frameworks
+from framework_list import xcframeworks
 from functions import log, run_command
-
-EXCLUDE_FROM_XCFRAMEWORK = [
-    # This isn't a real framework
-    "AWSiOSSDKv2",
-    # Legacy frameworks not built or packaged
-    "AWSAuth",
-    # AWSMobileClient is named as AWSMobileClientXCF and will be added later.
-    "AWSMobileClient",
-    # AWSLocation is named as AWSLocationXCF and will be added later.
-    "AWSLocation"
-]
 
 IOS_DEVICE_ARCHIVE_PATH = "./xcframeworks/output/iOS/"
 IOS_SIMULATOR_ARCHIVE_PATH = "./xcframeworks/output/Simulator/"
 XCFRAMEWORK_PATH = "./xcframeworks/output/XCF/"
-
-def is_framework_included(framework):
-    return framework not in EXCLUDE_FROM_XCFRAMEWORK
 
 def create_archive(framework, project_file, build_for_device):
     if build_for_device:
@@ -46,7 +33,7 @@ def create_archive(framework, project_file, build_for_device):
     
     (exit_code, out, err) = run_command(cmd, keepalive_interval=300, timeout=7200)
     if exit_code == 0:
-        log(f"Created iOS archive {framework}")
+        log(f"Created iOS archive {framework} {destination}")
     else:
         log(f"Could not create xcodebuild archive: {framework} output: {out}; error: {err}")
         sys.exit(exit_code)
@@ -75,19 +62,15 @@ def map_framework_to_project(framework_list):
 
 project_dir = os.getcwd()
 log(f"Creating XCFrameworks in {project_dir}")
-
-filtered_frameworks = list(filter(is_framework_included, frameworks))
-filtered_frameworks.append("AWSMobileClientXCF")
-filtered_frameworks.append("AWSLocationXCF")
-framework_map = map_framework_to_project(filtered_frameworks)
+framework_map = map_framework_to_project(xcframeworks)
 
 # Archive all the frameworks.
-for framework in filtered_frameworks:
+for framework in xcframeworks:
     create_archive(framework=framework, project_file=framework_map[framework], build_for_device=True)
     create_archive(framework=framework, project_file=framework_map[framework], build_for_device=False)
 
 # Create XCFramework using the archived frameworks.
-for framework in filtered_frameworks:
+for framework in xcframeworks:
     ios_device_framework = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
     ios_simulator_framework = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
     xcframework = f"{XCFRAMEWORK_PATH}{framework}.xcframework"
@@ -107,3 +90,6 @@ for framework in filtered_frameworks:
     else:
         log(f"Could not create XCFramework: {framework} output: {out}; error: {err}")
         sys.exit(exit_code)
+    
+shutil.rmtree(IOS_DEVICE_ARCHIVE_PATH)
+shutil.rmtree(IOS_SIMULATOR_ARCHIVE_PATH)
