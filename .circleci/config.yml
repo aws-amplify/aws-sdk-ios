@@ -538,8 +538,8 @@ jobs:
       - restore_cache:
           key: build_xcframeworks-result-{{ .Revision }}
       - run:
-        name: Install boto3
-        command: sudo pip3 install boto3
+          name: Install boto3
+          command: sudo pip3 install boto3
       - run:
           name: Clone spm github repo
           command: |
