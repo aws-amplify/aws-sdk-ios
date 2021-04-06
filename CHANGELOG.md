@@ -2,7 +2,13 @@
 
 ## Unreleased
 
--Features for next release
+### Bug fixes
+
+- **AWSLocation**
+  - Created a new target named `AWSLocationXCF` to support building AWSLocation as an XCFramework. [PR #3475](https://github.com/aws-amplify/aws-sdk-ios/pull/3475)
+
+### Misc. Updates
+- Added CI/CD support for building the AWS Mobile SDK for iOS as a Swift Package Manager binary framework. ([PR #3494](https://github.com/aws-amplify/aws-sdk-ios/pull/3494))
 
 ## 2.23.2
 
@@ -16,9 +22,6 @@
 - Model updates for the following services
   - AWSEC2
   - AWSComprehend
-
-- **AWSLocation**
-  - Created a new target named `AWSLocationXCF` to support building AWSLocation as an XCFramework. [PR #3475](https://github.com/aws-amplify/aws-sdk-ios/pull/3475)
 
 ## 2.23.1
 
