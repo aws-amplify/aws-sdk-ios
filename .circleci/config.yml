@@ -571,7 +571,6 @@ jobs:
             cd ..
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_SPM_RELEASE_USER}" "${GITHUB_SPM_RELEASE_TOKEN}" "$title" "$content" "$target_branch" "${head_branch}" "aws-amplify" "aws-sdk-ios-spm"
 
-
   release_xcframeworks_combined:
     macos:
       xcode: "12.1.0"
