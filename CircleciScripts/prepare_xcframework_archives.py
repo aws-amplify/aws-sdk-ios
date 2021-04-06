@@ -70,14 +70,14 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
 
 setup_logging()
 version = str(sys.argv[1])
-if validate_version(version) == False:
+if not validate_version(version):
     logging.error("Version is invalid, exiting")
-    sys.exit(0)
+    sys.exit(1)
 
 project_dir = os.getcwd()
 xcframework_path = os.path.join(project_dir, "xcframeworks", "output", "XCF")
 archive_path =  os.path.join(project_dir, "xcframeworks", "output", "archives")
-spm_manifest_repo = '../aws-sdk-ios-spm'
+spm_manifest_repo = './aws-sdk-ios-spm'
 
 logging.info(f"Creating archives from {xcframework_path}")
 create_archives(xcframework_path, archive_path, version)

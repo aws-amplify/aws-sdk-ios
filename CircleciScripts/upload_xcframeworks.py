@@ -27,15 +27,15 @@ aws_profile = sys.argv[3]
 
 if validate_version(version) == False:
     logging.error("Version is invalid, exiting")
-    sys.exit(0)
+    sys.exit(1)
 
-if not re.match("^[a-zA-Z0-9]*$", bucket):
+if not re.match("^[a-zA-Z0-9-]*$", bucket):
     logging.error("Bucket is invalid, exiting")
-    sys.exit(0)
+    sys.exit(1)
 
-if aws_profile is not None:
+if aws_profile is None:
     logging.error("AWS profile should not be none")
-    sys.exit(0)
+    sys.exit(1)
 
 logging.info(f"Uploading xcframeworks from {archive_path}")
 
@@ -44,4 +44,4 @@ boto3.setup_default_session(profile_name=aws_profile)
 for framework in xcframeworks:
     filename = f"{framework}-{version}.zip"
     archived_sdk_path = f"{archive_path}/{filename}"
-    upload_file(archived_sdk_path, bucket, f"iosv2sdk/{filename}")
+    upload_file(archived_sdk_path, bucket, f"aws-sdk-ios/{filename}")
