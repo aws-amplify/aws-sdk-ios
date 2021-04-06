@@ -533,9 +533,13 @@ jobs:
     steps:
       - skip_job_unless_required
       - checkout_with_cache
-      - pre_start_simulator
+      - set_environment_variables
+      - configure_aws
       - restore_cache:
           key: build_xcframeworks-result-{{ .Revision }}
+      - run:
+        name: Install boto3
+        command: sudo pip3 install boto3
       - run:
           name: Clone spm github repo
           command: |
@@ -563,7 +567,8 @@ jobs:
             git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
             git add Package.swift
             git commit -m "$title"
-            git push origin ${head_branch} https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git
+            git push origin ${head_branch}
+            cd ..
             python3 ./CircleciScripts/create_pullrequest.py "${GITHUB_SPM_RELEASE_USER}" "${GITHUB_SPM_RELEASE_TOKEN}" "$title" "$content" "$target_branch" "${head_branch}" "aws-amplify" "aws-sdk-ios-spm"
 
 
@@ -604,12 +609,12 @@ jobs:
       - run:
           name: Upload to S3
           command: |
-            aws s3api put-object --bucket "$release_bucket" --key "$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_xcf_release
-            aws s3api put-object --bucket "$release_bucket" --key "latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --acl public-read --profile sdk_xcf_release
+            aws s3api put-object --bucket "$release_bucket" --key "aws-sdk-ios/$sdkNameWithVersion.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --profile sdk_xcf_release
+            aws s3api put-object --bucket "$release_bucket" --key "aws-sdk-ios/latest/$sdkName.zip" --body "$sdkNameWithVersion.zip" --content-disposition "attachment;filename=$sdkNameWithVersion.zip" --profile sdk_xcf_release
       - run:
           name: Invalidate cloudfront
           command: |
-            python3 CircleciScripts/cloudfront_invalidate.py sdk_xcf_release "${XCF_RELEASE_DISTRIBUTION_ID}" "latest/$sdkName.zip"
+            python3 CircleciScripts/cloudfront_invalidate.py sdk_xcf_release "${XCF_RELEASE_DISTRIBUTION_ID}" "aws-sdk-ios/latest/$sdkName.zip"
 
   bump_sdk_version:
     macos:
