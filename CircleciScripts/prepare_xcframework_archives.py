@@ -70,7 +70,7 @@ def update_spm_manifest(framework_to_checksum, spm_manifest_repo, version):
 
 setup_logging()
 version = str(sys.argv[1])
-if validate_version(version) == False:
+if not validate_version(version):
     logging.error("Version is invalid, exiting")
     sys.exit(1)
 
