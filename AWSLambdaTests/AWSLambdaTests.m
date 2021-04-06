@@ -198,10 +198,12 @@
 }
 
 - (void)testInvokeWithVersion {
+    NSString *associatedVersion = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"lambda"
+                                                                                         configKey:@"version_alias_associated_version"];
     AWSLambda *lambda = [AWSLambda defaultLambda];
     AWSLambdaInvocationRequest *invocationRequest = [AWSLambdaInvocationRequest new];
     invocationRequest.functionName = [self echo_function_name];
-    invocationRequest.qualifier = @"2";
+    invocationRequest.qualifier = associatedVersion;
     invocationRequest.invocationType = AWSLambdaInvocationTypeRequestResponse;
     NSDictionary *parameters = @{@"key1" : @"value1",
                                  @"key2" : @"value2",
@@ -217,7 +219,7 @@
         XCTAssertNotNil(task.result);
         AWSLambdaInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, associatedVersion);
         return nil;
     }] waitUntilFinished];
 }
