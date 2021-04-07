@@ -37,24 +37,56 @@ To use the AWS SDK for iOS, you will need the following installed on your develo
 
 We have a couple [samples](https://github.com/awslabs/aws-sdk-ios-samples) applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.
 
-There are three ways to integrate the AWS Mobile SDK for iOS into your own project:
+There are several ways to integrate the AWS Mobile SDK for iOS into your own project:
 
+* [Swift Package Manager](https://swift.org/package-manager/)
 * [CocoaPods](https://cocoapods.org/)
 * [Carthage](https://github.com/Carthage/Carthage)
 * [Dynamic Frameworks](https://aws.amazon.com/mobile/sdk/)
 
 You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.
 
-> Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), some modules are named with the `XCF` suffix to work around a [Swift issue](https://bugs.swift.org/browse/SR-11704). `AWSMobileClient` is named as `AWSMobileClientXCF` and `AWSLocation` is named as `AWSLocationXCF`. To use `AWSMobileClient` or `AWSLocation`, import it as:
-        
-        import AWSMobileClientXCF
-        import AWSLocationXCF
+> Note: If you are using XCFrameworks (i.e., either Swift Package Manager, Carthage, or Dynamic Frameworks), some modules are named with the `XCF` suffix to work around a [Swift issue](https://bugs.swift.org/browse/SR-11704). `AWSMobileClient` is named as `AWSMobileClientXCF` and `AWSLocation` is named as `AWSLocationXCF`. To use the `AWSMobileClient` or `AWSLocation` SDKs, import them as:
+
+```swift
+import AWSMobileClientXCF
+import AWSLocationXCF
+```
 
 and use it your app code without the `XCF` suffix.
 
-        AWSMobileClient.default().initialize() 
-        let locationClient = AWSLocation.default()
+```swift
+AWSMobileClient.default().initialize() 
+let locationClient = AWSLocation.default()
+```
 
+### Swift Package Manager
+
+1. Swift Package Manager is distributed with Xcode. To start adding the AWS SDK to your iOS project, open your project in Xcode and select **File > Swift Packages > Add Package Dependency**.
+
+    ![Add package dependency](readme-images/spm-setup-01-add-package-dependency.png)
+
+1. Enter the URL for the AWS SDK for iOS Swift Package Manager GitHub repo (`https://github.com/aws-amplify/aws-sdk-ios-spm`) into the search bar and click **Next**.
+
+    ![Search for repo](readme-images/spm-setup-02-search-amplify-repo.png)
+
+    **NOTE:** This URL is _not_ the main URL of the SDK. We maintain the Swift Package Manager manifest (`Package.swift`) file for this library in a separate repo so that apps that use the SDK do not have to download the entire source repository in order to consume the binary targets.
+
+1. You'll see the Amplify iOS repository rules for which version of Amplify you want Swift Package Manager to install. Choose the first rule, **Version**, and select **Up to Next Minor** as it will use the latest compatible version of the dependency that can be detected from the `main` branch, then click **Next**.
+
+    ![Dependency version options](readme-images/spm-setup-03-dependency-version-options.png)
+
+    **NOTE:** The AWS Mobile SDK for iOS does [not use Semantic Versioning](https://docs.amplify.aws/sdk/configuration/setup-options/q/platform/ios#aws-sdk-version-vs-semantic-versioning), and may introduce breaking API changes on minor version releases. We recommend setting your **Version** rule to **Up to Next Minor** and evaluating minor version releases to ensure they are compatible with your app.
+
+1. Choose which of the libraries you want added to your project. Always select the **AWSCore** SDK. The remaining SDKs to install will vary based on which SDK you're trying to install. Most SDKs rely only on **AWSCore**, but for a full dependency list, see the [README-spm-support file](README-spm-support.md).
+
+    _Note: AWSLex is not currently supported through Swift Package Manager due to conflicts with a packaged binary dependency._
+
+    ![Select dependencies](readme-images/spm-setup-04-select-dependencies.png)
+
+    Select all that are appropriate, then click **Finish**.
+
+    You can always go back and modify which SPM packages are included in your project by opening the Swift Packages tab for your project: Click on the Project file in the Xcode navigator, then click on your project's icon, then select the **Swift Packages** tab.
 
 ### CocoaPods
 
@@ -96,7 +128,6 @@ For a complete list of our pods, check out the .podspec files in the root direct
         clang: error: linker command failed with exit code 1 (use -v to see invocation)
 
 ### Carthage
-
 
 #### XCFrameworks (recommended)
 
