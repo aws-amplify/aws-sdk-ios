@@ -238,6 +238,8 @@
 
 - (void)testInvokeWithVersion {
     AWSLambdaInvoker *lambdaInvoker = [AWSLambdaInvoker defaultLambdaInvoker];
+    NSString *associatedVersion = [AWSTestUtility getIntegrationTestConfigurationValueForPackageId:@"lambda"
+                                                                                         configKey:@"version_alias_associated_version"];
 
     AWSLambdaInvokerInvocationRequest *invocationRequest = [AWSLambdaInvokerInvocationRequest new];
     invocationRequest.functionName = self.echoFunctionName;
@@ -247,7 +249,7 @@
                                   @"key2" : @"value2",
                                   @"key3" : @"value3",
                                   @"isError" : @NO};
-    invocationRequest.qualifier = @"2";
+    invocationRequest.qualifier = associatedVersion;
 
     [[[lambdaInvoker invoke:invocationRequest] continueWithBlock:^id(AWSTask *task) {
         XCTAssertNil(task.error);
@@ -255,7 +257,7 @@
         XCTAssertTrue([task.result isKindOfClass:[AWSLambdaInvokerInvocationResponse class]]);
         AWSLambdaInvokerInvocationResponse *invocationResponse = task.result;
         XCTAssertTrue([invocationResponse.payload isKindOfClass:[NSDictionary class]]);
-        XCTAssertEqualObjects(invocationResponse.executedVersion, @"2");
+        XCTAssertEqualObjects(invocationResponse.executedVersion, associatedVersion);
         XCTAssertNotNil(invocationResponse.logResult);
         XCTAssertTrue([invocationResponse.logResult isKindOfClass:[NSString class]]);
         return nil;
