@@ -36,7 +36,7 @@ However, some SDKs rely on other libraries in the SDK. The full list is below
 | **AWSKinesisVideoArchivedMedia** | AWSCore |
 | **AWSKinesisVideoSignaling** | AWSCore |
 | **AWSLambda** | AWSCore |
-| **AWSLex** | _SPM not supported due to an incompatibility with a packaged binary_ |
+| **AWSLex** | AWSCore | _`arm64` architecture not supported due to an incompatibility with a packaged binary_
 | **AWSLocationXCF** | AWSCore | See **XCFramework support** note below
 | **AWSLogs** | AWSCore |
 | **AWSMachineLearning** | AWSCore |

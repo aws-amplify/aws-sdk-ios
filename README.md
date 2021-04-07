@@ -80,7 +80,7 @@ let locationClient = AWSLocation.default()
 
 1. Choose which of the libraries you want added to your project. Always select the **AWSCore** SDK. The remaining SDKs to install will vary based on which SDK you're trying to install. Most SDKs rely only on **AWSCore**, but for a full dependency list, see the [README-spm-support file](README-spm-support.md).
 
-    _Note: AWSLex is not currently supported through Swift Package Manager due to conflicts with a packaged binary dependency._
+    _Note: AWSLex is not currently supported for the `arm64` architecture through Swift Package Manager due to conflicts with a packaged binary dependency._
 
     ![Select dependencies](readme-images/spm-setup-04-select-dependencies.png)
 
