@@ -72,7 +72,7 @@ let locationClient = AWSLocation.default()
 
     **NOTE:** This URL is _not_ the main URL of the SDK. We maintain the Swift Package Manager manifest (`Package.swift`) file for this library in a separate repo so that apps that use the SDK do not have to download the entire source repository in order to consume the binary targets.
 
-1. You'll see the Amplify iOS repository rules for which version of Amplify you want Swift Package Manager to install. Choose the first rule, **Version**, and select **Up to Next Minor** as it will use the latest compatible version of the dependency that can be detected from the `main` branch, then click **Next**.
+1. You'll see the repository rules for which version of the SDK you want Swift Package Manager to install. Choose the first rule, **Version**, and select **Up to Next Minor** as it will use the latest compatible version of the dependency that can be detected from the `main` branch, then click **Next**.
 
     ![Dependency version options](readme-images/spm-setup-03-dependency-version-options.png)
 
