@@ -6,6 +6,11 @@
 
 ## 2.23.3
 
+### New Features
+
+- **Swift Package Manager**
+  - The AWS Mobile SDK for iOS can now be installed via Swift Package Manager. See the [README](https://github.com/aws-amplify/aws-sdk-ios/blob/main/README.md) for full details.
+
 ### Bug fixes
 
 - **AWSLocation**
