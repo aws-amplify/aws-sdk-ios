@@ -783,16 +783,16 @@ extension AWSMobileClient {
     /// When you receive a notifcation which is `signedOutFederatedTokensInvalid` or `signedOutUserPoolsTokensInvalid` you need to proovide SDK the token via `federate` method or call the `signIn` method and complete the sign-in flow. If you can't get the latest token from the user, you can call this method to un-block any waiting calls.
     public func releaseSignInWait() {
         if self.federationProvider == .userPools {
-            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            self.userpoolOpsHelper.passwordAuthTaskCompletionSource?.set(error: AWSMobileClientError.invalidState(message: "Unable to get valid sign in session from the end user."))
             self.userpoolOpsHelper.passwordAuthTaskCompletionSource = nil
-            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.unableToSignIn(message: "Unable to get valid sign in session from the end user."))
+            self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource?.set(error: AWSMobileClientError.invalidState(message: "Unable to get valid sign in session from the end user."))
             self.userpoolOpsHelper.customAuthChallengeTaskCompletionSource = nil
         } else if self.federationProvider == .hostedUI {
-            self.pendingGetTokensCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid token from the user."))
+            self.pendingGetTokensCompletion?(nil, AWSMobileClientError.invalidState(message: "Could not get valid token from the user."))
             self.pendingGetTokensCompletion = nil
             self.tokenFetchLock.leave()
         } else if self.federationProvider == .oidcFederation {
-            self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.unableToSignIn(message: "Could not get valid federation token from the user."))
+            self.pendingAWSCredentialsCompletion?(nil, AWSMobileClientError.invalidState(message: "Could not get valid federation token from the user."))
             self.pendingAWSCredentialsCompletion = nil
             self.credentialsFetchLock.leave()
         }
