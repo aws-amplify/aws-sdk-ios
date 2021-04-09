@@ -16,7 +16,7 @@ def create_archives(xcframework_path, archive_path, version):
         xcframework_sdk_path = os.path.join(xcframework_path, xcframework_sdk)
         
         archive_name = f"{framework}-{version}"
-        final_archive_name_with_ext = f"{framework}-{version}.zip"
+        final_archive_name_with_ext = f"{archive_name}.zip"
         logging.info(f"Creating zip file for {archive_name}")
         
         temp_folder = os.path.join(xcframework_path, framework)
@@ -24,8 +24,9 @@ def create_archives(xcframework_path, archive_path, version):
         shutil.copytree(xcframework_sdk_path, os.path.join(temp_folder, xcframework_sdk))  
 
         logging.info(f"Generate the archive and move it to the archive directory")
+        shutil.make_archive(archive_name, "zip", root_dir=temp_folder, base_dir=xcframework_sdk)
+        
         final_archived_path = os.path.join(archive_path, final_archive_name_with_ext)
-        shutil.make_archive(archive_name, "zip", root_dir=xcframework_path, base_dir=framework)
         shutil.move(final_archive_name_with_ext, final_archived_path)  
 
         logging.info(f"Remove the temp folder")
