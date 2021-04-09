@@ -192,7 +192,7 @@ To build platform-specific framework bundles with multiple architectures in the 
 
 Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. Follow the steps below to install XCFramework.
 
-1. Download the [latest SDK](https://releases.amplify.aws/aws-sdk-ios/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.22.1, the download link is [https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip](https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip).
+1. Download the [latest SDK](https://releases.amplify.aws/aws-sdk-ios/latest/aws-ios-sdk.zip). Older SDK versions can be downloaded from `https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-#.#.#.zip`, where `#.#.#` represents the version number. So for version 2.23.3, the download link is [https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip](https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip).
 > Note1: If you are using version < 2.22.1 please refer to the "Legacy framework setup" section below.
 > Note2: To download version < 2.23.3 use this link `https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip`
 
