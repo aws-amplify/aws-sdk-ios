@@ -13,7 +13,7 @@
 // permissions and limitations under the License.
 //
 
-#import "AWSNSCodingUtilities.h"
+#import <AWSCore/AWSNSCodingUtilities.h>
 #import "AWSPinpointEventRecorder.h"
 #import "AWSPinpointEvent.h"
 #import "AWSPinpointTargeting.h"
