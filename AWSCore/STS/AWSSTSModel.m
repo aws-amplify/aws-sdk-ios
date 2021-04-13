@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -33,6 +33,7 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"roleArn" : @"RoleArn",
              @"roleSessionName" : @"RoleSessionName",
              @"serialNumber" : @"SerialNumber",
+             @"sourceIdentity" : @"SourceIdentity",
              @"tags" : @"Tags",
              @"tokenCode" : @"TokenCode",
              @"transitiveTagKeys" : @"TransitiveTagKeys",
@@ -60,6 +61,7 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"assumedRoleUser" : @"AssumedRoleUser",
              @"credentials" : @"Credentials",
              @"packedPolicySize" : @"PackedPolicySize",
+             @"sourceIdentity" : @"SourceIdentity",
              };
 }
 
@@ -110,6 +112,7 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"issuer" : @"Issuer",
              @"nameQualifier" : @"NameQualifier",
              @"packedPolicySize" : @"PackedPolicySize",
+             @"sourceIdentity" : @"SourceIdentity",
              @"subject" : @"Subject",
              @"subjectType" : @"SubjectType",
              };
@@ -162,6 +165,7 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"credentials" : @"Credentials",
              @"packedPolicySize" : @"PackedPolicySize",
              @"provider" : @"Provider",
+             @"sourceIdentity" : @"SourceIdentity",
              @"subjectFromWebIdentityToken" : @"SubjectFromWebIdentityToken",
              };
 }
