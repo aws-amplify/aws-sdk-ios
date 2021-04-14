@@ -54,6 +54,8 @@
 - (void) test_AWSAutoScalingDeletePolicyType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDeleteScheduledActionType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDeleteTagsType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDeleteWarmPoolAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDeleteWarmPoolType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeAccountLimitsAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeAdjustmentTypesAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeAutoScalingInstancesType API_AVAILABLE(ios(11));
@@ -75,6 +77,8 @@
 - (void) test_AWSAutoScalingDescribeScheduledActionsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeTagsType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeTerminationPolicyTypesAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDescribeWarmPoolAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDescribeWarmPoolType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachInstancesAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachInstancesQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachLoadBalancerTargetGroupsResultType API_AVAILABLE(ios(11));
@@ -96,6 +100,9 @@
 - (void) test_AWSAutoScalingInstanceMetadataOptions API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMonitoring API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceRefresh API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceRefreshLivePoolProgress API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceRefreshProgressDetails API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingInstanceRefreshWarmPoolProgress API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstancesDistribution API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLaunchConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLaunchConfigurationNameType API_AVAILABLE(ios(11));
@@ -123,6 +130,8 @@
 - (void) test_AWSAutoScalingPutNotificationConfigurationType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPutScalingPolicyType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPutScheduledUpdateGroupActionType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPutWarmPoolAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPutWarmPoolType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingRecordLifecycleActionHeartbeatAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingRecordLifecycleActionHeartbeatType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingRefreshPreferences API_AVAILABLE(ios(11));
@@ -145,6 +154,7 @@
 - (void) test_AWSAutoScalingTargetTrackingConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingTerminateInstanceInAutoScalingGroupType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingUpdateAutoScalingGroupType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingWarmPoolConfiguration API_AVAILABLE(ios(11));
 
 @end
 
@@ -290,6 +300,14 @@
     [self validateSecureCodingForClass:[AWSAutoScalingDeleteTagsType class]];
 }
 
+- (void) test_AWSAutoScalingDeleteWarmPoolAnswer {
+    [self validateSecureCodingForClass:[AWSAutoScalingDeleteWarmPoolAnswer class]];
+}
+
+- (void) test_AWSAutoScalingDeleteWarmPoolType {
+    [self validateSecureCodingForClass:[AWSAutoScalingDeleteWarmPoolType class]];
+}
+
 - (void) test_AWSAutoScalingDescribeAccountLimitsAnswer {
     [self validateSecureCodingForClass:[AWSAutoScalingDescribeAccountLimitsAnswer class]];
 }
@@ -374,6 +392,14 @@
     [self validateSecureCodingForClass:[AWSAutoScalingDescribeTerminationPolicyTypesAnswer class]];
 }
 
+- (void) test_AWSAutoScalingDescribeWarmPoolAnswer {
+    [self validateSecureCodingForClass:[AWSAutoScalingDescribeWarmPoolAnswer class]];
+}
+
+- (void) test_AWSAutoScalingDescribeWarmPoolType {
+    [self validateSecureCodingForClass:[AWSAutoScalingDescribeWarmPoolType class]];
+}
+
 - (void) test_AWSAutoScalingDetachInstancesAnswer {
     [self validateSecureCodingForClass:[AWSAutoScalingDetachInstancesAnswer class]];
 }
@@ -456,6 +482,18 @@
 
 - (void) test_AWSAutoScalingInstanceRefresh {
     [self validateSecureCodingForClass:[AWSAutoScalingInstanceRefresh class]];
+}
+
+- (void) test_AWSAutoScalingInstanceRefreshLivePoolProgress {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceRefreshLivePoolProgress class]];
+}
+
+- (void) test_AWSAutoScalingInstanceRefreshProgressDetails {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceRefreshProgressDetails class]];
+}
+
+- (void) test_AWSAutoScalingInstanceRefreshWarmPoolProgress {
+    [self validateSecureCodingForClass:[AWSAutoScalingInstanceRefreshWarmPoolProgress class]];
 }
 
 - (void) test_AWSAutoScalingInstancesDistribution {
@@ -566,6 +604,14 @@
     [self validateSecureCodingForClass:[AWSAutoScalingPutScheduledUpdateGroupActionType class]];
 }
 
+- (void) test_AWSAutoScalingPutWarmPoolAnswer {
+    [self validateSecureCodingForClass:[AWSAutoScalingPutWarmPoolAnswer class]];
+}
+
+- (void) test_AWSAutoScalingPutWarmPoolType {
+    [self validateSecureCodingForClass:[AWSAutoScalingPutWarmPoolType class]];
+}
+
 - (void) test_AWSAutoScalingRecordLifecycleActionHeartbeatAnswer {
     [self validateSecureCodingForClass:[AWSAutoScalingRecordLifecycleActionHeartbeatAnswer class]];
 }
@@ -652,6 +698,10 @@
 
 - (void) test_AWSAutoScalingUpdateAutoScalingGroupType {
     [self validateSecureCodingForClass:[AWSAutoScalingUpdateAutoScalingGroupType class]];
+}
+
+- (void) test_AWSAutoScalingWarmPoolConfiguration {
+    [self validateSecureCodingForClass:[AWSAutoScalingWarmPoolConfiguration class]];
 }
 
 @end
