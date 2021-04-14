@@ -6,6 +6,7 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 
+---AWSAutoScaling
 ---AWSComprehend
 ---AWSEC2
 ---AWSSQS
