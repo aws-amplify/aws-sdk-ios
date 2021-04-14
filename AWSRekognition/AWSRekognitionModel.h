@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -348,6 +348,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionListFacesResponse;
 @class AWSRekognitionListStreamProcessorsRequest;
 @class AWSRekognitionListStreamProcessorsResponse;
+@class AWSRekognitionListTagsForResourceRequest;
+@class AWSRekognitionListTagsForResourceResponse;
 @class AWSRekognitionModerationLabel;
 @class AWSRekognitionMouthOpen;
 @class AWSRekognitionMustache;
@@ -411,6 +413,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionStreamProcessorSettings;
 @class AWSRekognitionSummary;
 @class AWSRekognitionSunglasses;
+@class AWSRekognitionTagResourceRequest;
+@class AWSRekognitionTagResourceResponse;
 @class AWSRekognitionTechnicalCueSegment;
 @class AWSRekognitionTestingData;
 @class AWSRekognitionTestingDataResult;
@@ -419,6 +423,8 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionTrainingData;
 @class AWSRekognitionTrainingDataResult;
 @class AWSRekognitionUnindexedFace;
+@class AWSRekognitionUntagResourceRequest;
+@class AWSRekognitionUntagResourceResponse;
 @class AWSRekognitionValidationData;
 @class AWSRekognitionVideo;
 @class AWSRekognitionVideoMetadata;
@@ -794,6 +800,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  */
 @property (nonatomic, strong) NSString * _Nullable collectionId;
 
+/**
+ <p> A set of tags (key-value pairs) that you want to attach to the collection. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
 @end
 
 /**
@@ -862,6 +873,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable projectArn;
 
 /**
+ <p> A set of tags (key-value pairs) that you want to attach to the model. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
  <p>The dataset to use for testing.</p>
  */
 @property (nonatomic, strong) AWSRekognitionTestingData * _Nullable testingData;
@@ -921,6 +937,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Face recognition input parameters to be used by the stream processor. Includes the collection to use for face recognition and the face attributes to detect.</p>
  */
 @property (nonatomic, strong) AWSRekognitionStreamProcessorSettings * _Nullable settings;
+
+/**
+ <p> A set of tags (key-value pairs) that you want to attach to the stream processor. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 @end
 
@@ -1565,7 +1586,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minBoundingBoxWidth;
 
 /**
- <p>Sets confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 0.5 and 1 as Text in Video will not return any result below 0.5.</p>
+ <p>Sets the confidence of word detection. Words with detection confidence below this will be excluded from the result. Values should be between 50 and 100 as Text in Video will not return any result below 50.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
@@ -2836,6 +2857,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSRekognitionListTagsForResourceRequest : AWSRequest
+
+
+/**
+ <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that contains the tags that you want a list of. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionListTagsForResourceResponse : AWSModel
+
+
+/**
+ <p> A list of key-value tags assigned to the resource. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
  <p>Provides information about a single type of unsafe content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionModerationLabel : AWSModel
@@ -3227,7 +3274,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable personsWithRequiredEquipment;
 
 /**
- <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the RequiredEquipmentTypes field of the detected personal protective equipment. </p>
+ <p>An array of IDs for persons who are not wearing all of the types of PPE specified in the <code>RequiredEquipmentTypes</code> field of the detected personal protective equipment. </p>
  */
 @property (nonatomic, strong) NSArray<NSNumber *> * _Nullable personsWithoutRequiredEquipment;
 
@@ -4142,6 +4189,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSRekognitionTagResourceRequest : AWSRequest
+
+
+/**
+ <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to assign the tags to. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p> The key-value tags to assign to the resource. </p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionTagResourceResponse : AWSModel
+
+
+@end
+
+/**
  <p>Information about a technical cue segment. For more information, see <a>SegmentDetection</a>.</p>
  */
 @interface AWSRekognitionTechnicalCueSegment : AWSModel
@@ -4307,6 +4380,32 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>An array of reasons that specify why a face wasn't indexed. </p><ul><li><p>EXTREME_POSE - The face is at a pose that can't be detected. For example, the head is turned too far away from the camera.</p></li><li><p>EXCEEDS_MAX_FACES - The number of faces detected is already higher than that specified by the <code>MaxFaces</code> input parameter for <code>IndexFaces</code>.</p></li><li><p>LOW_BRIGHTNESS - The image is too dark.</p></li><li><p>LOW_SHARPNESS - The image is too blurry.</p></li><li><p>LOW_CONFIDENCE - The face was detected with a low confidence.</p></li><li><p>SMALL_BOUNDING_BOX - The bounding box around the face is too small.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable reasons;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionUntagResourceRequest : AWSRequest
+
+
+/**
+ <p> Amazon Resource Name (ARN) of the model, collection, or stream processor that you want to remove the tags from. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceArn;
+
+/**
+ <p> A list of the tags that you want to remove. </p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable tagKeys;
+
+@end
+
+/**
+ 
+ */
+@interface AWSRekognitionUntagResourceResponse : AWSModel
+
 
 @end
 
