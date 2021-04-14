@@ -5,6 +5,14 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Misc. Updates
 
 - Model updates for the following services
+---AWSRekognition
+---
+
+MOVE THIS SECTION TO THE CORRECT LOCATION
+
+### Misc. Updates
+
+- Model updates for the following services
 
 ---AWSAutoScaling
 ---AWSComprehend
