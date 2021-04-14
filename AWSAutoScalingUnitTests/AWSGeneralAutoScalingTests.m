@@ -863,6 +863,54 @@ static id mockNetworking = nil;
     [AWSAutoScaling removeAutoScalingForKey:key];
 }
 
+- (void)testDeleteWarmPool {
+    NSString *key = @"testDeleteWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] deleteWarmPool:[AWSAutoScalingDeleteWarmPoolType new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
+- (void)testDeleteWarmPoolCompletionHandler {
+    NSString *key = @"testDeleteWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSAutoScaling AutoScalingForKey:key] deleteWarmPool:[AWSAutoScalingDeleteWarmPoolType new] completionHandler:^(AWSAutoScalingDeleteWarmPoolAnswer* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
 - (void)testDescribeAccountLimits {
     NSString *key = @"testDescribeAccountLimits";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -1775,6 +1823,54 @@ static id mockNetworking = nil;
     [AWSAutoScaling removeAutoScalingForKey:key];
 }
 
+- (void)testDescribeWarmPool {
+    NSString *key = @"testDescribeWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] describeWarmPool:[AWSAutoScalingDescribeWarmPoolType new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
+- (void)testDescribeWarmPoolCompletionHandler {
+    NSString *key = @"testDescribeWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSAutoScaling AutoScalingForKey:key] describeWarmPool:[AWSAutoScalingDescribeWarmPoolType new] completionHandler:^(AWSAutoScalingDescribeWarmPoolAnswer* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
 - (void)testDetachInstances {
     NSString *key = @"testDetachInstances";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -2337,6 +2433,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
+- (void)testPutWarmPool {
+    NSString *key = @"testPutWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSAutoScaling AutoScalingForKey:key] putWarmPool:[AWSAutoScalingPutWarmPoolType new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSAutoScaling removeAutoScalingForKey:key];
+}
+
+- (void)testPutWarmPoolCompletionHandler {
+    NSString *key = @"testPutWarmPool";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSAutoScaling registerAutoScalingWithConfiguration:configuration forKey:key];
+
+    AWSAutoScaling *awsClient = [AWSAutoScaling AutoScalingForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSAutoScaling AutoScalingForKey:key] putWarmPool:[AWSAutoScalingPutWarmPoolType new] completionHandler:^(AWSAutoScalingPutWarmPoolAnswer* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
