@@ -817,6 +817,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"mode" : @"Mode",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"outputDataConfig" : @"OutputDataConfig",
              @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
@@ -957,6 +958,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientRequestToken" : @"ClientRequestToken",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"desiredInferenceUnits" : @"DesiredInferenceUnits",
              @"endpointName" : @"EndpointName",
              @"modelArn" : @"ModelArn",
@@ -996,6 +998,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"recognizerName" : @"RecognizerName",
              @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
@@ -2409,6 +2412,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"languageCode" : @"LanguageCode",
              @"message" : @"Message",
              @"mode" : @"Mode",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"outputDataConfig" : @"OutputDataConfig",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
@@ -2883,6 +2887,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 	return @{
              @"creationTime" : @"CreationTime",
              @"currentInferenceUnits" : @"CurrentInferenceUnits",
+             @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"desiredInferenceUnits" : @"DesiredInferenceUnits",
              @"endpointArn" : @"EndpointArn",
              @"lastModifiedTime" : @"LastModifiedTime",
@@ -3656,6 +3661,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"languageCode" : @"LanguageCode",
              @"message" : @"Message",
+             @"modelKmsKeyId" : @"ModelKmsKeyId",
              @"recognizerMetadata" : @"RecognizerMetadata",
              @"status" : @"Status",
              @"submitTime" : @"SubmitTime",
