@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -441,6 +441,8 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"botVersion" : @"botVersion",
              @"contentType" : @"contentType",
              @"dialogState" : @"dialogState",
+             @"encodedInputTranscript" : @"encodedInputTranscript",
+             @"encodedMessage" : @"encodedMessage",
              @"inputTranscript" : @"inputTranscript",
              @"intentName" : @"intentName",
              @"message" : @"message",
@@ -736,6 +738,7 @@ NSString *const AWSLexErrorDomain = @"com.amazonaws.AWSLexErrorDomain";
              @"audioStream" : @"audioStream",
              @"contentType" : @"contentType",
              @"dialogState" : @"dialogState",
+             @"encodedMessage" : @"encodedMessage",
              @"intentName" : @"intentName",
              @"message" : @"message",
              @"messageFormat" : @"messageFormat",

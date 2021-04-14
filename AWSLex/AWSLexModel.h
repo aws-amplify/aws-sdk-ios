@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -500,7 +500,17 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, assign) AWSLexDialogState dialogState;
 
 /**
- <p>The text used to process the request.</p><p>If the input was an audio stream, the <code>inputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p>
+ <p>The text used to process the request.</p><p>If the input was an audio stream, the <code>encodedInputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p><p>The <code>encodedInputTranscript</code> field is base-64 encoded. You must decode the field before you can use the value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encodedInputTranscript;
+
+/**
+ <p>The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p><p>The <code>encodedMessage</code> field is base-64 encoded. You must decode the field before you can use the value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encodedMessage;
+
+/**
+ <p>The text used to process the request.</p><p>You can use this field only in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the <code>inputTranscript</code> field is null. You should use the <code>encodedInputTranscript</code> field instead.</p><p>If the input was an audio stream, the <code>inputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable inputTranscript;
 
@@ -510,7 +520,7 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, strong) NSString * _Nullable intentName;
 
 /**
- <p>The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>
+ <p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the <code>message</code> field is null. You should use the <code>encodedMessage</code> field instead.</p><p>The message to convey to the user. The message can come from the bot's configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot's configuration based on the current interaction context. For example, if Amazon Lex isn't able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
@@ -770,12 +780,17 @@ typedef NS_ENUM(NSInteger, AWSLexMessageFormatType) {
 @property (nonatomic, assign) AWSLexDialogState dialogState;
 
 /**
+ <p>The next message that should be presented to the user.</p><p>The <code>encodedMessage</code> field is base-64 encoded. You must decode the field before you can use the value.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable encodedMessage;
+
+/**
  <p>The name of the current intent.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable intentName;
 
 /**
- <p>The next message that should be presented to the user.</p>
+ <p>The next message that should be presented to the user.</p><p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the <code>message</code> field is null. You should use the <code>encodedMessage</code> field instead.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
 
