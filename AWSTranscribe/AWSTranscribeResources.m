@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -510,7 +510,13 @@
     \"Boolean\":{\"type\":\"boolean\"},\
     \"CLMLanguageCode\":{\
       \"type\":\"string\",\
-      \"enum\":[\"en-US\"]\
+      \"enum\":[\
+        \"en-US\",\
+        \"hi-IN\",\
+        \"es-US\",\
+        \"en-GB\",\
+        \"en-AU\"\
+      ]\
     },\
     \"ConflictException\":{\
       \"type\":\"structure\",\
@@ -1631,7 +1637,7 @@
         },\
         \"VocabularyFilterMethod\":{\
           \"shape\":\"VocabularyFilterMethod\",\
-          \"documentation\":\"<p>Set to <code>mask</code> to remove filtered text from the transcript and replace it with three asterisks (\\\"***\\\") as placeholder text. Set to <code>remove</code> to remove filtered text from the transcript without using placeholder text.</p>\"\
+          \"documentation\":\"<p>Set to <code>mask</code> to remove filtered text from the transcript and replace it with three asterisks (\\\"***\\\") as placeholder text. Set to <code>remove</code> to remove filtered text from the transcript without using placeholder text. Set to <code>tag</code> to mark the word in the transcription output that matches the vocabulary filter. When you set the filter method to <code>tag</code>, the words matching your vocabulary filter are not masked or removed.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Provides optional settings for the <code>StartTranscriptionJob</code> operation.</p>\"\
@@ -2102,7 +2108,8 @@
       \"type\":\"string\",\
       \"enum\":[\
         \"remove\",\
-        \"mask\"\
+        \"mask\",\
+        \"tag\"\
       ]\
     },\
     \"VocabularyFilterName\":{\
