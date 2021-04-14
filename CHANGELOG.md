@@ -6,8 +6,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 
 - Model updates for the following services
 
----AWSSQS
+---AWSComprehend
 ---AWSEC2
+---AWSSQS
 
 # AWS Mobile SDK for iOS CHANGELOG
 
