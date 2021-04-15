@@ -5838,6 +5838,7 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
 	return @{
              @"dailyCap" : @"DailyCap",
              @"endpointReentryCap" : @"EndpointReentryCap",
+             @"endpointReentryInterval" : @"EndpointReentryInterval",
              @"messagesPerSecond" : @"MessagesPerSecond",
              };
 }
@@ -5876,10 +5877,12 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"name" : @"Name",
              @"quietTime" : @"QuietTime",
              @"refreshFrequency" : @"RefreshFrequency",
+             @"refreshOnSegmentUpdate" : @"RefreshOnSegmentUpdate",
              @"schedule" : @"Schedule",
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
+             @"waitForQuietTime" : @"WaitForQuietTime",
              @"tags" : @"tags",
              };
 }
@@ -5925,6 +5928,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingStateClosed);
         }
+        if ([value caseInsensitiveCompare:@"PAUSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStatePaused);
+        }
         return @(AWSPinpointTargetingStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -5938,6 +5944,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"CANCELLED";
             case AWSPinpointTargetingStateClosed:
                 return @"CLOSED";
+            case AWSPinpointTargetingStatePaused:
+                return @"PAUSED";
             default:
                 return nil;
         }
@@ -6046,6 +6054,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingStateClosed);
         }
+        if ([value caseInsensitiveCompare:@"PAUSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStatePaused);
+        }
         return @(AWSPinpointTargetingStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -6059,6 +6070,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"CANCELLED";
             case AWSPinpointTargetingStateClosed:
                 return @"CLOSED";
+            case AWSPinpointTargetingStatePaused:
+                return @"PAUSED";
             default:
                 return nil;
         }
@@ -9566,10 +9579,12 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
              @"name" : @"Name",
              @"quietTime" : @"QuietTime",
              @"refreshFrequency" : @"RefreshFrequency",
+             @"refreshOnSegmentUpdate" : @"RefreshOnSegmentUpdate",
              @"schedule" : @"Schedule",
              @"startActivity" : @"StartActivity",
              @"startCondition" : @"StartCondition",
              @"state" : @"State",
+             @"waitForQuietTime" : @"WaitForQuietTime",
              };
 }
 
@@ -9614,6 +9629,9 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
         if ([value caseInsensitiveCompare:@"CLOSED"] == NSOrderedSame) {
             return @(AWSPinpointTargetingStateClosed);
         }
+        if ([value caseInsensitiveCompare:@"PAUSED"] == NSOrderedSame) {
+            return @(AWSPinpointTargetingStatePaused);
+        }
         return @(AWSPinpointTargetingStateUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -9627,6 +9645,8 @@ NSString *const AWSPinpointTargetingErrorDomain = @"com.amazonaws.AWSPinpointTar
                 return @"CANCELLED";
             case AWSPinpointTargetingStateClosed:
                 return @"CLOSED";
+            case AWSPinpointTargetingStatePaused:
+                return @"PAUSED";
             default:
                 return nil;
         }

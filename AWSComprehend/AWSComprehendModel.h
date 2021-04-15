@@ -876,6 +876,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendDocumentClassifierMode mode;
 
 /**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
+
+/**
  <p>Enables the addition of output results configuration parameters for custom classifier jobs.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
@@ -920,6 +925,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>An idempotency token provided by the customer. If this token matches a previous endpoint creation request, Amazon Comprehend will not return a <code>ResourceInUseException</code>. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientRequestToken;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
  <p> The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
@@ -981,6 +991,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> You can specify any of the following languages supported by Amazon Comprehend: English ("en"), Spanish ("es"), French ("fr"), Italian ("it"), German ("de"), or Portuguese ("pt"). All documents must be in the same language.</p>
  */
 @property (nonatomic, assign) AWSComprehendLanguageCode languageCode;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
 
 /**
  <p>The name given to the newly created recognizer. Recognizer names can be a maximum of 256 characters. Alphanumeric characters, hyphens (-) and underscores (_) are allowed. The name must be unique in the account/region.</p>
@@ -1787,6 +1802,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, assign) AWSComprehendDocumentClassifierMode mode;
 
 /**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
+
+/**
  <p> Provides output results configuration parameters for custom classifier jobs.</p>
  */
 @property (nonatomic, strong) AWSComprehendDocumentClassifierOutputDataConfig * _Nullable outputDataConfig;
@@ -1993,6 +2013,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The number of inference units currently used by the model using this endpoint.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable currentInferenceUnits;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the AWS identity and Access Management (IAM) role that grants Amazon Comprehend read access to trained custom models encrypted with a customer managed key (ModelKmsKeyId).</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable dataAccessRoleArn;
 
 /**
  <p>The desired number of inference units to be used by the model using this endpoint. Each inference unit represents of a throughput of 100 characters per second.</p>
@@ -2391,6 +2416,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p> A description of the status of the recognizer.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable message;
+
+/**
+ <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt trained custom models. The ModelKmsKeyId can be either of the following formats: </p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
+ */
+@property (nonatomic, strong) NSString * _Nullable modelKmsKeyId;
 
 /**
  <p> Provides information about an entity recognizer.</p>

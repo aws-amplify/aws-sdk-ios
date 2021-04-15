@@ -189,6 +189,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargetingState) {
     AWSPinpointTargetingStateCompleted,
     AWSPinpointTargetingStateCancelled,
     AWSPinpointTargetingStateClosed,
+    AWSPinpointTargetingStatePaused,
 };
 
 typedef NS_ENUM(NSInteger, AWSPinpointTargetingTemplateType) {
@@ -6898,6 +6899,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSNumber * _Nullable endpointReentryCap;
 
 /**
+ <p>Minimum time that must pass before an endpoint can re-enter a given journey. The duration should use an ISO 8601 format, such as PT1H. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable endpointReentryInterval;
+
+/**
  <p>The maximum number of messages that the journey can send each second.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable messagesPerSecond;
@@ -6975,6 +6981,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable refreshFrequency;
 
 /**
+ <p>Specifies whether a journey should be refreshed on segment update.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable refreshOnSegmentUpdate;
+
+/**
  <p>The schedule settings for the journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
@@ -6993,6 +7004,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
  <p>The current status of the journey. Possible values are:</p><ul><li><p>DRAFT - The journey is being developed and hasn't been published yet.</p></li><li><p>ACTIVE - The journey has been developed and published. Depending on the journey's schedule, the journey may currently be running or scheduled to start running at a later time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li><li><p>COMPLETED - The journey has been published and has finished running. All participants have entered the journey and no participants are waiting to complete the journey or any activities in the journey.</p></li><li><p>CANCELLED - The journey has been stopped. If a journey's status is CANCELLED, you can't add, change, or remove activities or segment settings from the journey.</p></li><li><p>CLOSED - The journey has been published and has started running. It may have also passed its scheduled end time, or passed its scheduled start time and a refresh frequency hasn't been specified for it. If a journey's status is CLOSED, you can't add participants to it, and no existing participants can enter the journey for the first time. However, any existing participants who are currently waiting to start an activity may continue the journey.</p></li></ul>
  */
 @property (nonatomic, assign) AWSPinpointTargetingState state;
+
+/**
+ <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable waitForQuietTime;
 
 /**
  <p>This object is not used or supported.</p>
@@ -7064,7 +7080,7 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 
 
 /**
- <p>The status of the journey. Currently, the only supported value is CANCELLED.</p><p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p><p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p>
+ <p>The status of the journey. Currently, Supported values are ACTIVE, PAUSED, and CANCELLED</p><p>If you cancel a journey, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Amazon Pinpoint also continues to collect and aggregate analytics data for those activities, until they are complete, and any activities that were complete when you cancelled the journey.</p><p>After you cancel a journey, you can't add, change, or remove any activities from the journey. In addition, Amazon Pinpoint stops evaluating the journey and doesn't perform any activities that haven't started.</p><p>When the journey is paused, Amazon Pinpoint continues to perform activities that are currently in progress, until those activities are complete. Endpoints will stop entering journeys when the journey is paused and will resume entering the journey after the journey is resumed. For wait activities, wait time is paused when the journey is paused. Currently, PAUSED only supports journeys with a segment refresh interval.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingState state;
 
@@ -10676,6 +10692,11 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) NSString * _Nullable refreshFrequency;
 
 /**
+ <p>Specifies whether a journey should be refreshed on segment update.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable refreshOnSegmentUpdate;
+
+/**
  <p>The schedule settings for the journey.</p>
  */
 @property (nonatomic, strong) AWSPinpointTargetingJourneySchedule * _Nullable schedule;
@@ -10691,9 +10712,14 @@ typedef NS_ENUM(NSInteger, AWSPinpointTargeting__EndpointTypesElement) {
 @property (nonatomic, strong) AWSPinpointTargetingStartCondition * _Nullable startCondition;
 
 /**
- <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul><p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
+ <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn't publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey's schedule, the journey starts running immediately or at the scheduled start time. If a journey's status is ACTIVE, you can't add, change, or remove activities from it.</p></li></ul><p>PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in requests to create or update a journey. To cancel, pause, or resume a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
  */
 @property (nonatomic, assign) AWSPinpointTargetingState state;
+
+/**
+ <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable waitForQuietTime;
 
 @end
 
