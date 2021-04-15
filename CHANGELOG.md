@@ -1,22 +1,21 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
-
----AWSAutoScaling
----AWSComprehend
----AWSEC2
----AWSSQS
-
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
 -Features for next release
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSComprehend
+  - AWSEC2
+  - AWSPinpoint
+  - AWSRekognition
+  - AWSLex
+  - AWSSQS
+  - AWSTranscribe
+  
 ## 2.23.3
 
 ### New Features
