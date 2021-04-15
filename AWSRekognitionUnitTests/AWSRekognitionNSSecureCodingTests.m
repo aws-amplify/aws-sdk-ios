@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -126,6 +126,8 @@
 - (void) test_AWSRekognitionListFacesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListStreamProcessorsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionListStreamProcessorsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionModerationLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMouthOpen API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionMustache API_AVAILABLE(ios(11));
@@ -189,6 +191,8 @@
 - (void) test_AWSRekognitionStreamProcessorSettings API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSummary API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionSunglasses API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionTagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTechnicalCueSegment API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTestingData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTestingDataResult API_AVAILABLE(ios(11));
@@ -197,6 +201,8 @@
 - (void) test_AWSRekognitionTrainingData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionTrainingDataResult API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionUnindexedFace API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionValidationData API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideo API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionVideoMetadata API_AVAILABLE(ios(11));
@@ -633,6 +639,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionListStreamProcessorsResponse class]];
 }
 
+- (void) test_AWSRekognitionListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSRekognitionListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionListTagsForResourceResponse class]];
+}
+
 - (void) test_AWSRekognitionModerationLabel {
     [self validateSecureCodingForClass:[AWSRekognitionModerationLabel class]];
 }
@@ -885,6 +899,14 @@
     [self validateSecureCodingForClass:[AWSRekognitionSunglasses class]];
 }
 
+- (void) test_AWSRekognitionTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionTagResourceRequest class]];
+}
+
+- (void) test_AWSRekognitionTagResourceResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionTagResourceResponse class]];
+}
+
 - (void) test_AWSRekognitionTechnicalCueSegment {
     [self validateSecureCodingForClass:[AWSRekognitionTechnicalCueSegment class]];
 }
@@ -915,6 +937,14 @@
 
 - (void) test_AWSRekognitionUnindexedFace {
     [self validateSecureCodingForClass:[AWSRekognitionUnindexedFace class]];
+}
+
+- (void) test_AWSRekognitionUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSRekognitionUntagResourceRequest class]];
+}
+
+- (void) test_AWSRekognitionUntagResourceResponse {
+    [self validateSecureCodingForClass:[AWSRekognitionUntagResourceResponse class]];
 }
 
 - (void) test_AWSRekognitionValidationData {

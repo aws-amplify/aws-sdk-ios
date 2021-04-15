@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -1050,6 +1050,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSRekognitionListTagsForResourceResponse *> *)listTagsForResource:(AWSRekognitionListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSRekognitionListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSRekognitionListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSRekognitionListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionListTagsForResourceResponse *> * _Nonnull task) {
+        AWSRekognitionListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSRekognitionRecognizeCelebritiesResponse *> *)recognizeCelebrities:(AWSRekognitionRecognizeCelebritiesRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1385,6 +1408,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSRekognitionStopStreamProcessorResponse *response, NSError *error))completionHandler {
     [[self stopStreamProcessor:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionStopStreamProcessorResponse *> * _Nonnull task) {
         AWSRekognitionStopStreamProcessorResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionTagResourceResponse *> *)tagResource:(AWSRekognitionTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"TagResource"
+                   outputClass:[AWSRekognitionTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSRekognitionTagResourceRequest *)request
+     completionHandler:(void (^)(AWSRekognitionTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionTagResourceResponse *> * _Nonnull task) {
+        AWSRekognitionTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSRekognitionUntagResourceResponse *> *)untagResource:(AWSRekognitionUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"RekognitionService"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSRekognitionUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSRekognitionUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSRekognitionUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSRekognitionUntagResourceResponse *> * _Nonnull task) {
+        AWSRekognitionUntagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
