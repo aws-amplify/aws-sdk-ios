@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -39,6 +39,10 @@ typedef NS_ENUM(NSInteger, AWSTranscribeBaseModelName) {
 typedef NS_ENUM(NSInteger, AWSTranscribeCLMLanguageCode) {
     AWSTranscribeCLMLanguageCodeUnknown,
     AWSTranscribeCLMLanguageCodeEnUS,
+    AWSTranscribeCLMLanguageCodeHiIN,
+    AWSTranscribeCLMLanguageCodeEsUS,
+    AWSTranscribeCLMLanguageCodeEnGB,
+    AWSTranscribeCLMLanguageCodeEnAU,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeLanguageCode) {
@@ -139,6 +143,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyFilterMethod) {
     AWSTranscribeVocabularyFilterMethodUnknown,
     AWSTranscribeVocabularyFilterMethodRemove,
     AWSTranscribeVocabularyFilterMethodMask,
+    AWSTranscribeVocabularyFilterMethodTag,
 };
 
 typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
@@ -1391,7 +1396,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSNumber * _Nullable showSpeakerLabels;
 
 /**
- <p>Set to <code>mask</code> to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove filtered text from the transcript without using placeholder text.</p>
+ <p>Set to <code>mask</code> to remove filtered text from the transcript and replace it with three asterisks ("***") as placeholder text. Set to <code>remove</code> to remove filtered text from the transcript without using placeholder text. Set to <code>tag</code> to mark the word in the transcription output that matches the vocabulary filter. When you set the filter method to <code>tag</code>, the words matching your vocabulary filter are not masked or removed.</p>
  */
 @property (nonatomic, assign) AWSTranscribeVocabularyFilterMethod vocabularyFilterMethod;
 
