@@ -198,8 +198,6 @@ cmd_quiet_flag="--quiet"
 [[ -n $region ]] || die "'region' not specified"
 export AWS_DEFAULT_REGION=${region}
 
-[[ ! -z $(which jq) ]] || die "jq is missing: brew install jq"
-
 ##################################################
 # LOCAL FUNCTIONS
 
