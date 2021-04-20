@@ -245,6 +245,7 @@
 		D8FAC28B251D1D78005F9FC6 /* FBSDKMeasurementEvent.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */; };
 		D8FAC28D251D1D8F005F9FC6 /* FBSDKURL.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */; };
 		D8FAC28F251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h in Headers */ = {isa = PBXBuildFile; fileRef = D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */; };
+		D8FB43AD26290118008CB525 /* AWSAuthSDKUITestBase.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB43AC26290118008CB525 /* AWSAuthSDKUITestBase.swift */; };
 		FA47B5DF246C6CDD0071196D /* AWSCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B55D57121F44EC3F005A0E56 /* AWSCore.framework */; };
 		FA5B0F11246A475500B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
 		FA5B0F12246A477D00B4185B /* AWSTestResources.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FA4A69C22462317A00230849 /* AWSTestResources.framework */; };
@@ -1165,6 +1166,13 @@
 			remoteGlobalIDString = FA53332B22D4D47D00BD88AF;
 			remoteInfo = AWSTranscribeStreamingUnitTests;
 		};
+		D8FB425B2628D1F9008CB525 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 21863B3E2602660A0070CD1B;
+			remoteInfo = AWSLocationXCF;
+		};
 		E496D9411FDB0632000CF290 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = B55D56BD1F44EC3F005A0E56 /* AWSiOSSDKv2.xcodeproj */;
@@ -1434,8 +1442,9 @@
 		D8FAC28A251D1D78005F9FC6 /* FBSDKMeasurementEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKMeasurementEvent.h; sourceTree = "<group>"; };
 		D8FAC28C251D1D8F005F9FC6 /* FBSDKURL.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKURL.h; sourceTree = "<group>"; };
 		D8FAC28E251D1D94005F9FC6 /* FBSDKWebViewAppLinkResolver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FBSDKWebViewAppLinkResolver.h; sourceTree = "<group>"; };
+		D8FB43AC26290118008CB525 /* AWSAuthSDKUITestBase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSAuthSDKUITestBase.swift; sourceTree = "<group>"; };
 		FA25453125E5C1D1006D77ED /* AWSMobileClientCustomEndpointTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSMobileClientCustomEndpointTest.swift; sourceTree = "<group>"; };
-		FA771188260BEFCA0030966D /* AWSMobileClientCustomEndpointTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileClientCustomEndpointTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA771188260BEFCA0030966D /* AWSMobileClientCustomEndpointTest.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AWSMobileClientCustomEndpointTest.xctest; sourceTree = BUILT_PRODUCTS_DIR; };		
 		FA77118C260BEFCA0030966D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1741,9 +1750,10 @@
 		177B8AE721E81B7D0051068F /* AWSAuthSDKTestAppUITests */ = {
 			isa = PBXGroup;
 			children = (
-				B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */,
-				B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */,
 				177B8AE821E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift */,
+				D8FB43AC26290118008CB525 /* AWSAuthSDKUITestBase.swift */,
+				B41F67D8233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift */,
+				B40EA1842339774200135711 /* AWSHostedUIUserPoolTests.swift */,
 				177B8AEA21E81B7D0051068F /* Info.plist */,
 			);
 			path = AWSAuthSDKTestAppUITests;
@@ -3439,6 +3449,13 @@
 			remoteRef = B97FFF0F234D49A000DC327D /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
+		D8FB425C2628D1F9008CB525 /* AWSLocationXCF.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = AWSLocationXCF.framework;
+			remoteRef = D8FB425B2628D1F9008CB525 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		E496D9421FDB0632000CF290 /* AWSCognitoIdentityProviderASF.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -3625,6 +3642,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				177B8AE921E81B7D0051068F /* AWSAuthSDKTestAppUITests.swift in Sources */,
+				D8FB43AD26290118008CB525 /* AWSAuthSDKUITestBase.swift in Sources */,
 				B41F67D9233D536E0060FDEE /* AWSDropInUIUserPoolTests.swift in Sources */,
 				B40EA1852339774200135711 /* AWSHostedUIUserPoolTests.swift in Sources */,
 			);
