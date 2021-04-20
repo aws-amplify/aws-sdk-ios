@@ -16,8 +16,8 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
     }
 
     override func setUp() {
-        let credentialsProvider = AWSMobileClient.default().getCredentialsProvider()
-
+        _ = AWSMobileClient.default().getCredentialsProvider()
+        continueAfterFailure = false
     }
 
     override func tearDown() {
@@ -206,4 +206,55 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
 
         waitForExpectations(timeout: AWSMobileClientTestBase.networkRequestTimeout)
     }
+
+    func testRefreshToken() {
+        let username = "awsmobileclient-testRefreshToken-\(UUID().uuidString)"
+
+        signUpAndVerifyUser(username: username)
+
+        let signInComplete = expectation(description: "signInComplete")
+        AWSMobileClient.default().signIn(
+            username: username,
+            password: AWSMobileClientCustomEndpointTest.sharedPassword
+        ) { result, error in
+            defer {
+                signInComplete.fulfill()
+            }
+
+            XCTAssertNil(error)
+
+            guard let signInResult = result else {
+                XCTAssertNotNil(result)
+                return
+            }
+
+            XCTAssertEqual(signInResult.signInState, .signedIn)
+        }
+
+        wait(for: [signInComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
+
+        invalidateSession(username: username)
+
+        let getTokensComplete = expectation(description: "getTokensComplete")
+        AWSMobileClient.default().getTokens { result, error in
+            defer {
+                getTokensComplete.fulfill()
+            }
+
+            guard error == nil else {
+                XCTAssertNil(error)
+                return
+            }
+
+            guard let tokens = result else {
+                XCTAssertNotNil(result)
+                return
+            }
+
+            XCTAssertNotNil(tokens.accessToken)
+        }
+
+        wait(for: [getTokensComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
+    }
+
 }

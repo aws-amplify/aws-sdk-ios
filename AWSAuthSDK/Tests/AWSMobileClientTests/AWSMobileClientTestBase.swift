@@ -224,7 +224,11 @@ class AWSMobileClientTestBase: XCTestCase {
         let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
         let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
         let key = "\(namespace).tokenExpiration"
-        keychain.removeItem(forKey: key)
+        
+        let pastDate = Date(timeIntervalSinceNow: -1)
+        let formattedDate = ISO8601DateFormatter().string(from: pastDate)
+        let dateData = formattedDate.data(using: .utf8)
+        keychain.setData(dateData, forKey: key)
     }
     
     static func getAWSConfiguration() -> [String: Any] {
