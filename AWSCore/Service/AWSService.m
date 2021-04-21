@@ -122,36 +122,45 @@ static NSString *const AWSServiceConfigurationUnknown = @"Unknown";
                    serviceType:(AWSServiceType)serviceType
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
            localTestingEnabled:(BOOL)localTestingEnabled {
-    if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
-        _localTestingEnabled = localTestingEnabled;
-        if(localTestingEnabled) {
-            _endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:regionType
-                                                                 service:serviceType
-                                                            useUnsafeURL:YES];
-        }
+    AWSEndpoint *endpoint;
+    if (localTestingEnabled) {
+        endpoint = [[AWSEndpoint alloc] initLocalEndpointWithRegion:regionType
+                                                            service:serviceType
+                                                       useUnsafeURL:YES];
     }
-    
-    return self;
+    return [self initWithRegion:regionType
+                       endpoint:endpoint
+            credentialsProvider:credentialsProvider
+            localTestingEnabled:localTestingEnabled];
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
-    if (self = [super init]) {
-        _regionType = regionType;
-        _credentialsProvider = credentialsProvider;
-        _localTestingEnabled = NO;
-    }
-
-    return self;
+    return [self initWithRegion:regionType
+                       endpoint:nil
+            credentialsProvider:credentialsProvider
+            localTestingEnabled:NO];
 }
 
 - (instancetype)initWithRegion:(AWSRegionType)regionType
                       endpoint:(AWSEndpoint *)endpoint
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider {
-    if(self = [self initWithRegion:regionType credentialsProvider:credentialsProvider]){
+    return [self initWithRegion:regionType
+                       endpoint:endpoint
+            credentialsProvider:credentialsProvider
+            localTestingEnabled:NO];
+}
+
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                      endpoint:(AWSEndpoint *)endpoint
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+           localTestingEnabled:(BOOL)localTestingEnabled {
+    if (self = [super init]) {
+        _regionType = regionType;
         _endpoint = endpoint;
+        _credentialsProvider = credentialsProvider;
+        _localTestingEnabled = localTestingEnabled;
     }
-    
     return self;
 }
 
