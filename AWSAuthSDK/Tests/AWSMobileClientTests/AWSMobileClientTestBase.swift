@@ -218,19 +218,36 @@ class AWSMobileClientTestBase: XCTestCase {
             return nil
         }.waitUntilFinished()
     }
-    
-    func invalidateSession(username: String) {
+
+    /// Removes the access token's expiration key from the keychain, which forces the SDK into the
+    /// "refresh token expired" flow
+    /// - Parameter username: the username for which to invalidate the token
+    func invalidateRefreshToken(username: String) {
         let bundleID = Bundle.main.bundleIdentifier
         let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
-        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
-        let key = "\(namespace).tokenExpiration"
-        
+        let key = getTokenKeychainKey(for: username)
+        keychain.removeItem(forKey: key)
+    }
+
+    /// Sets access token's expiration date in the keychain to a past date, which forces the SDK into the
+    /// "access token expired" flow
+    /// - Parameter username: the username for which to invalidate the token
+    func invalidateAccessToken(username: String) {
+        let bundleID = Bundle.main.bundleIdentifier
+        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
+        let key = getTokenKeychainKey(for: username)
         let pastDate = Date(timeIntervalSinceNow: -1)
         let formattedDate = ISO8601DateFormatter().string(from: pastDate)
         let dateData = formattedDate.data(using: .utf8)
         keychain.setData(dateData, forKey: key)
     }
-    
+
+    private func getTokenKeychainKey(for username: String) -> String {
+        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
+        let key = "\(namespace).tokenExpiration"
+        return key
+    }
+
     static func getAWSConfiguration() -> [String: Any] {
         let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
         let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]

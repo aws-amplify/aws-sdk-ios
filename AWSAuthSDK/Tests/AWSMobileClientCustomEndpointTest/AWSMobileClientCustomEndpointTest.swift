@@ -233,7 +233,7 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
 
         wait(for: [signInComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
 
-        invalidateSession(username: username)
+        invalidateAccessToken(username: username)
 
         let getTokensComplete = expectation(description: "getTokensComplete")
         AWSMobileClient.default().getTokens { result, error in
