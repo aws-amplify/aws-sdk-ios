@@ -223,29 +223,31 @@ class AWSMobileClientTestBase: XCTestCase {
     /// "refresh token expired" flow
     /// - Parameter username: the username for which to invalidate the token
     func invalidateRefreshToken(username: String) {
-        let bundleID = Bundle.main.bundleIdentifier
-        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
         let key = getTokenKeychainKey(for: username)
-        keychain.removeItem(forKey: key)
+        getKeychain().removeItem(forKey: key)
     }
 
     /// Sets access token's expiration date in the keychain to a past date, which forces the SDK into the
     /// "access token expired" flow
     /// - Parameter username: the username for which to invalidate the token
     func invalidateAccessToken(username: String) {
-        let bundleID = Bundle.main.bundleIdentifier
-        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
         let key = getTokenKeychainKey(for: username)
         let pastDate = Date(timeIntervalSinceNow: -1)
         let formattedDate = ISO8601DateFormatter().string(from: pastDate)
         let dateData = formattedDate.data(using: .utf8)
-        keychain.setData(dateData, forKey: key)
+        getKeychain().setData(dateData, forKey: key)
     }
 
     private func getTokenKeychainKey(for username: String) -> String {
         let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
         let key = "\(namespace).tokenExpiration"
         return key
+    }
+
+    private func getKeychain() -> AWSUICKeyChainStore {
+        let bundleID = Bundle.main.bundleIdentifier
+        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
+        return keychain
     }
 
     static func getAWSConfiguration() -> [String: Any] {
