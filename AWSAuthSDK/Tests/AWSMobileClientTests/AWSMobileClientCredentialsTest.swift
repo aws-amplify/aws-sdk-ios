@@ -364,7 +364,7 @@ class AWSMobileClientCredentialsTest: AWSMobileClientTestBase {
             }
         }
         // Now invalidate the session and then try to call getToken
-        self.invalidateSession(username: username_1)
+        self.invalidateRefreshToken(username: username_1)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
         AWSMobileClient.default().getTokens { (token, error) in
