@@ -45,7 +45,7 @@ class UserDetailsViewController: UIViewController {
     }
     
     func refreshData() {
-        invalidateSessionOrNot()
+        invalidateRefreshTokenOrNot()
         fetchUserAttributes()
         fetchToken()
         fetchCredentials()
@@ -69,10 +69,14 @@ class UserDetailsViewController: UIViewController {
         }
     }
 
-    func invalidateSessionOrNot() {
+    /// There is one test case `testHostedUIGetAttributesWhenSessionExpired` in `AWSHostedUIUserPoolTests.swift`
+    /// that requires the refresh token to be invalidated. But `UserDetailsViewController` doesn't have context which test case it is in
+    /// The workaround is to create a user `sessionExpired+UUID` so that when `UserDetailsViewController` sees that,
+    /// it knows it should call `mockIncalidateRefreshToken()`
+    func invalidateRefreshTokenOrNot() {
         let username = AWSMobileClient.default().username
-        if username?.prefix(7) == "session" {
-            invalidateSession()
+        if username?.prefix(14) == "sessionExpired" {
+            mockInvalidateRefreshToken()
         }
     }
 
@@ -170,7 +174,7 @@ class UserDetailsViewController: UIViewController {
         }
     }
     
-    func invalidateSession() {
+    func mockInvalidateRefreshToken() {
         let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
         let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
         let userPoolConfig = awsconfiguration["CognitoUserPool"] as! [String: [String: Any]]

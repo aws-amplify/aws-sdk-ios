@@ -13,13 +13,10 @@ import AWSTestResources
 class AWSAuthSDKUITestBase: XCTestCase {
     static let networkRequestTimeout: TimeInterval = 60.0
     
-    static var cognitoIdentity: AWSCognitoIdentity!
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
     
     static var userPoolId: String!
-    static var appClientId: String!
     static var sharedEmail: String!
-    static var identityPoolId: String!
     static var sharedPassword: String!
     
     override class func setUp() {
@@ -34,10 +31,6 @@ class AWSAuthSDKUITestBase: XCTestCase {
         AWSInfo.configureDefaultAWSInfo(awsConfig)
         let userPoolConfig = awsConfig["CognitoUserPool"] as! [String: [String: Any]]
         userPoolId = (userPoolConfig["Default"]!["PoolId"] as! String)
-        appClientId = (userPoolConfig["Default"]!["AppClientId"] as! String)
-        
-        let credentialProviderConfig = awsConfig["CredentialsProvider"] as! [String: [String: [String: String]]]
-        identityPoolId = credentialProviderConfig["CognitoIdentity"]!["Default"]!["PoolId"]
         
         let testConfigurationJSON = loadTestConfigurationFromFile()
         let credentialsTestConfiguration = testConfigurationJSON["credentials"] as! [String: Any]
@@ -51,7 +44,6 @@ class AWSAuthSDKUITestBase: XCTestCase {
         AWSCognitoIdentityProvider.register(with: configuration, forKey: "TEST")
         AWSCognitoIdentity.register(with: configuration, forKey: "TEST")
         
-        cognitoIdentity = AWSCognitoIdentity(forKey: "TEST")
         userPoolsAdminClient = AWSCognitoIdentityProvider(forKey: "TEST")
         initializeMobileClient()
     }
@@ -71,6 +63,12 @@ class AWSAuthSDKUITestBase: XCTestCase {
     
     static func loadTestConfigurationFromFile() -> [String: Any] {
         return AWSTestConfiguration.getTestConfiguration() as! [String: Any]
+    }
+
+    static func getAWSConfiguration() -> [String: Any] {
+        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
+        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
+        return awsconfiguration
     }
 
     static func initializeMobileClient() {
@@ -168,12 +166,6 @@ class AWSAuthSDKUITestBase: XCTestCase {
     func signUpAndVerifyUser(username: String, customUserAttributes: [String: String]? = nil) {
         signUpUser(username: username, customUserAttributes: customUserAttributes)
         adminVerifyUser(username: username)
-    }
-    
-    static func getAWSConfiguration() -> [String: Any] {
-        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
-        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
-        return awsconfiguration
     }
 
     /// Sign in the user
