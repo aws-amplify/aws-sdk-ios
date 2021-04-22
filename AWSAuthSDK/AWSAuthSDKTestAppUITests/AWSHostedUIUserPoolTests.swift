@@ -57,13 +57,13 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
         inspectCredentialDetails(application: app)
     }
 
-    /// Test successful re-authentication in user pool when session expires using hosted UI and get user attributes
+    /// Test successful refresh access token and get user attributes
     ///
-    /// - Given: Expire an user session after signing in
+    /// - Given: Invalidate the access token of an user after signing in
     /// - When:
-    ///    - I try to get user attributes
+    ///    - I try to get user attributes after access token is invalidated
     /// - Then:
-    ///    - I should re-authenticate and successfully get user attributes
+    ///    - I should successfully get user attributes
     ///
     func testHostedUIGetAttributesWhenAccessTokenInvalidated() {
         let username = "accessToken" + UUID().uuidString
@@ -97,13 +97,13 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
         inspectCredentialDetails(application: app)
     }
 
-    /// Test successful re-authentication in user pool when session expires using hosted UI and get user attributes
+    /// Test successful re-authentication in user pool with hosted UI when refresh token expires and get user attributes
     ///
-    /// - Given: Expire an user session after signing in
+    /// - Given: Invalidate the refresh token of an user after signing in
     /// - When:
-    ///    - I try to get user attributes
+    ///    - I try to get user attributes after refresh token is invalidated
     /// - Then:
-    ///    - I should re-authenticate and successfully get user attributes
+    ///    - I should re-authenticate with hostedUI and successfully get user attributes
     ///
     func testHostedUIGetAttributesWhenRefreshTokenInvalidated() {
         let username = "refreshToken" + UUID().uuidString
