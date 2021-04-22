@@ -187,7 +187,7 @@ class AWSAuthSDKUITestBase: XCTestCase {
                 signInButton.tap()
     }
     
-    func signInUserpoolAgain(application: XCUIApplication, username: String) {
+    func signInUserpoolWhenRefreshTokenExpires(application: XCUIApplication, username: String) {
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
         springboard.buttons["Continue"].tap()
     }
