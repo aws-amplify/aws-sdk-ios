@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.23.4
+
 ### New Features
 
 - **AWSMobileClient**, **AWSCognitoIdentityProvider**
