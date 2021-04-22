@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 
 /**
- <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito User Pools.</p><p>For more information, see the Amazon Cognito Documentation.</p>
+ <p>Using the Amazon Cognito User Pools API, you can create a user pool to manage directories and users. You can authenticate a user to obtain tokens related to user identity and access policies.</p><p>This API reference provides information about user pools in Amazon Cognito User Pools.</p><p>For more information, see the <a href="https://docs.aws.amazon.com/cognito/latest/developerguide/what-is-amazon-cognito.html">Amazon Cognito Documentation</a>.</p>
  */
 @interface AWSCognitoIdentityProvider : AWSService
 
@@ -1138,7 +1138,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (void)createUserPoolDomain:(AWSCognitoIdentityProviderCreateUserPoolDomainRequest *)request completionHandler:(void (^ _Nullable)(AWSCognitoIdentityProviderCreateUserPoolDomainResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Calling this action requires developer credentials.</p>
+ <p>Deletes a group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGroup service method.
 
@@ -1149,7 +1149,7 @@ FOUNDATION_EXPORT NSString *const AWSCognitoIdentityProviderSDKVersion;
 - (AWSTask *)deleteGroup:(AWSCognitoIdentityProviderDeleteGroupRequest *)request;
 
 /**
- <p>Deletes a group. Currently only groups with no members can be deleted.</p><p>Calling this action requires developer credentials.</p>
+ <p>Deletes a group.</p><p>Calling this action requires developer credentials.</p>
  
  @param request A container for the necessary parameters to execute the DeleteGroup service method.
  @param completionHandler The completion handler to call when the load request is complete.
