@@ -945,7 +945,11 @@ extension AWSMobileClient {
                 completionHandler(nil, error)
                 return
             }
-            let userDetails = AWSMobileClientUserDetails(with: self.userpoolOpsHelper.currentActiveUser!)
+            guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
+                completionHandler(nil, AWSMobileClientError.notSignedIn(message: self.notSignedInErrorMessage))
+                return
+            }
+            let userDetails = AWSMobileClientUserDetails(with: currentActiveUser)
             userDetails.getUserAttributes(completionHandler: completionHandler)
         }
     }
