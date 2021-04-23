@@ -17,7 +17,7 @@
     <a title="AWSPinpointTargetingWriteJourneyRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSPinpoint 2.23.2 Docs</a> (90% documented)</p>
+        <p><a href="../index.html">AWSPinpoint 2.23.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSPinpoint.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -1725,6 +1725,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)refreshOnSegmentUpdate"></a>
+                    <a name="//apple_ref/objc/Property/refreshOnSegmentUpdate" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)refreshOnSegmentUpdate">refreshOnSegmentUpdate</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies whether a journey should be refreshed on segment update.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">refreshOnSegmentUpdate</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">refreshOnSegmentUpdate</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)schedule"></a>
                     <a name="//apple_ref/objc/Property/schedule" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)schedule">schedule</a>
@@ -1831,7 +1863,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn&rsquo;t publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey&rsquo;s schedule, the journey starts running immediately or at the scheduled start time. If a journey&rsquo;s status is ACTIVE, you can&rsquo;t add, change, or remove activities from it.</p></li></ul><p>The CANCELLED, COMPLETED, and CLOSED values are not supported in requests to create or update a journey. To cancel a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
+                        <p>The status of the journey. Valid values are:</p><ul><li><p>DRAFT - Saves the journey and doesn&rsquo;t publish it.</p></li><li><p>ACTIVE - Saves and publishes the journey. Depending on the journey&rsquo;s schedule, the journey starts running immediately or at the scheduled start time. If a journey&rsquo;s status is ACTIVE, you can&rsquo;t add, change, or remove activities from it.</p></li></ul><p>PAUSED, CANCELLED, COMPLETED, and CLOSED states are not supported in requests to create or update a journey. To cancel, pause, or resume a journey, use the <linklinkend="apps-application-id-journeys-journey-id-state">Journey State</link> resource.</p>
 
                       </div>
                       <div class="declaration">
@@ -1850,12 +1882,44 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)waitForQuietTime"></a>
+                    <a name="//apple_ref/objc/Property/waitForQuietTime" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSPinpointTargetingWriteJourneyRequest(py)waitForQuietTime">waitForQuietTime</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Specifies whether endpoints in quiet hours should enter a wait till the end of their quiet hours.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">waitForQuietTime</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">waitForQuietTime</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-03-19)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-04-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
