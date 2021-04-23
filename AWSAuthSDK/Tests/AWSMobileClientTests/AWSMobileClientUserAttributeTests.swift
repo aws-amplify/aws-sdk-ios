@@ -49,6 +49,49 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
         wait(for: [getAttrExpectation], timeout: 5)
     }
     
+    func testGetAttributesWhenAccessTokenInvalidated() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username, customUserAttributes: ["custom:mutableStringAttr1": "Value for mutableStringAttr1"])
+        signIn(username: username)
+        invalidateAccessToken(username: username)
+        let getAttrExpectation = expectation(description: "get attributes expectation.")
+        
+        AWSMobileClient.default().getUserAttributes { (attributes, error) in
+            if let attributes = attributes {
+                XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
+                XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
+            }else if let error = error {
+                XCTFail("Received un-expected error: \(error.localizedDescription)")
+            }
+            getAttrExpectation.fulfill()
+        }
+        
+        wait(for: [getAttrExpectation], timeout: 5)
+    }
+
+    func testGetAttributesWhenRefreshTokenInvalidated() {
+        let username = "testUser" + UUID().uuidString
+        signUpAndVerifyUser(username: username, customUserAttributes: ["custom:mutableStringAttr1": "Value for mutableStringAttr1"])
+        signIn(username: username)
+        invalidateRefreshToken(username: username)
+        let getAttrExpectation = expectation(description: "get attributes expectation.")
+        
+        AWSMobileClient.default().getUserAttributes { (attributes, error) in
+            if let attributes = attributes {
+                XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
+                XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
+            }else if let error = error {
+                XCTFail("Received un-expected error: \(error.localizedDescription)")
+            }
+            getAttrExpectation.fulfill()
+        }
+        sleep(1)
+        signIn(username: username)
+
+        wait(for: [getAttrExpectation], timeout: 5)
+
+    }
+    
     // Note: This test relies on the configuration of the test UserPools to have two mutable custom attributes:
     // custom:mutableStringAttr1; custom:mutableStringAttr2
     func testUpdateAttributes() {
