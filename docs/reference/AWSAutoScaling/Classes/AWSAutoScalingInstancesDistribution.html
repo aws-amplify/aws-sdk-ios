@@ -17,7 +17,7 @@
     <a title="AWSAutoScalingInstancesDistribution Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSAutoScaling 2.23.2 Docs</a> (88% documented)</p>
+        <p><a href="../index.html">AWSAutoScaling 2.23.4 Docs</a> (87% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSAutoScaling.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -149,6 +149,12 @@
                 <a href="../Classes/AWSAutoScalingDeleteTagsType.html">AWSAutoScalingDeleteTagsType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingDeleteWarmPoolAnswer">AWSAutoScalingDeleteWarmPoolAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDeleteWarmPoolType.html">AWSAutoScalingDeleteWarmPoolType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDescribeAccountLimitsAnswer.html">AWSAutoScalingDescribeAccountLimitsAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -212,6 +218,12 @@
                 <a href="../Classes/AWSAutoScalingDescribeTerminationPolicyTypesAnswer.html">AWSAutoScalingDescribeTerminationPolicyTypesAnswer</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeWarmPoolAnswer.html">AWSAutoScalingDescribeWarmPoolAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingDescribeWarmPoolType.html">AWSAutoScalingDescribeWarmPoolType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingDetachInstancesAnswer.html">AWSAutoScalingDetachInstancesAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -273,6 +285,15 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingInstanceRefresh.html">AWSAutoScalingInstanceRefresh</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingInstanceRefreshLivePoolProgress.html">AWSAutoScalingInstanceRefreshLivePoolProgress</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingInstanceRefreshProgressDetails.html">AWSAutoScalingInstanceRefreshProgressDetails</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingInstanceRefreshWarmPoolProgress.html">AWSAutoScalingInstanceRefreshWarmPoolProgress</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingInstancesDistribution.html">AWSAutoScalingInstancesDistribution</a>
@@ -356,6 +377,12 @@
                 <a href="../Classes/AWSAutoScalingPutScheduledUpdateGroupActionType.html">AWSAutoScalingPutScheduledUpdateGroupActionType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSAutoScalingPutWarmPoolAnswer">AWSAutoScalingPutWarmPoolAnswer</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingPutWarmPoolType.html">AWSAutoScalingPutWarmPoolType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSAutoScalingRecordLifecycleActionHeartbeatAnswer">AWSAutoScalingRecordLifecycleActionHeartbeatAnswer</a>
               </li>
               <li class="nav-group-task">
@@ -424,6 +451,9 @@
               <li class="nav-group-task">
                 <a href="../Classes/AWSAutoScalingUpdateAutoScalingGroupType.html">AWSAutoScalingUpdateAutoScalingGroupType</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSAutoScalingWarmPoolConfiguration.html">AWSAutoScalingWarmPoolConfiguration</a>
+              </li>
             </ul>
           </li>
           <li class="nav-group-name">
@@ -473,6 +503,12 @@
               <li class="nav-group-task">
                 <a href="../Enums/AWSAutoScalingScalingActivityStatusCode.html">AWSAutoScalingScalingActivityStatusCode</a>
               </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingWarmPoolState.html">AWSAutoScalingWarmPoolState</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSAutoScalingWarmPoolStatus.html">AWSAutoScalingWarmPoolStatus</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -512,7 +548,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is <code>prioritized</code>, which is also the default value. This strategy uses the order of instance types in the overrides to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on.</p>
+                        <p>Indicates how to allocate instance types to fulfill On-Demand capacity. The only valid value is <code>prioritized</code>, which is also the default value. This strategy uses the order of instance types in the <code>LaunchTemplateOverrides</code> to define the launch priority of each instance type. The first instance type in the array is prioritized higher than the last. If all your On-Demand capacity cannot be fulfilled using your highest priority instance, then the Auto Scaling groups launches the remaining capacity using the second priority instance type, and so on.</p>
 
                       </div>
                       <div class="declaration">
@@ -608,7 +644,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates how to allocate instances across Spot Instance pools. If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. Defaults to <code>lowest-price</code> if not specified.</p>
+                        <p>Indicates how to allocate instances across Spot Instance pools. </p><p>If the allocation strategy is <code>lowest-price</code>, the Auto Scaling group launches instances using the Spot pools with the lowest price, and evenly allocates your instances across the number of Spot pools that you specify. Defaults to <code>lowest-price</code> if not specified.</p><p>If the allocation strategy is <code>capacity-optimized</code> (recommended), the Auto Scaling group launches instances using Spot pools that are optimally chosen based on the available Spot capacity. Alternatively, you can use <code>capacity-optimized-prioritized</code> and set the order of instance types in the list of launch template overrides from highest to lowest priority (from first to last in the list). Amazon EC2 Auto Scaling honors the instance type priorities on a best-effort basis but optimizes for capacity first. </p>
 
                       </div>
                       <div class="declaration">
@@ -696,7 +732,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-03-19)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-04-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
