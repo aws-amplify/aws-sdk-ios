@@ -16,7 +16,7 @@
     <a title="AWSMachineLearning  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSMachineLearning 2.23.2 Docs</a> (81% documented)</p>
+        <p><a href="index.html">AWSMachineLearning 2.23.4 Docs</a> (81% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSMachineLearning.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -371,9 +371,10 @@
 
 <p>We have a couple <a href="https://github.com/awslabs/aws-sdk-ios-samples">samples</a> applications which showcase how to use the AWS SDK for iOS.  Please note that the code in these sample applications is not of production quality, and should be considered as exactly what we called them: samples.</p>
 
-<p>There are three ways to integrate the AWS Mobile SDK for iOS into your own project:</p>
+<p>There are several ways to integrate the AWS Mobile SDK for iOS into your own project:</p>
 
 <ul>
+<li><a href="https://swift.org/package-manager/">Swift Package Manager</a></li>
 <li><a href="https://cocoapods.org/">CocoaPods</a></li>
 <li><a href="https://github.com/Carthage/Carthage">Carthage</a></li>
 <li><a href="https://aws.amazon.com/mobile/sdk/">Dynamic Frameworks</a></li>
@@ -382,14 +383,42 @@
 <p>You should use ONE and only one of these ways to import the AWS Mobile SDK. Importing the SDK in multiple ways loads duplicate copies of the SDK into the project and causes compiler/linker errors.</p>
 
 <blockquote>
-<p>Note: If you are using XCFrameworks (i.e., either Carthage or Dynamic Frameworks), the module <code>AWSMobileClient</code> is named as <code>AWSMobileClientXCF</code> to work around a <a href="https://bugs.swift.org/browse/SR-11704">Swift issue</a>. To use <code>AWSMobileClient</code>, import it as:</p>
+<p>Note: If you are using XCFrameworks (i.e., either Swift Package Manager, Carthage, or Dynamic Frameworks), some modules are named with the <code>XCF</code> suffix to work around a <a href="https://bugs.swift.org/browse/SR-11704">Swift issue</a>. <code>AWSMobileClient</code> is named as <code>AWSMobileClientXCF</code> and <code>AWSLocation</code> is named as <code>AWSLocationXCF</code>. To use the <code>AWSMobileClient</code> or <code>AWSLocation</code> SDKs, import them as:</p>
 </blockquote>
-<pre class="highlight plaintext"><code>    import AWSMobileClientXCF
+<pre class="highlight swift"><code><span class="kd">import</span> <span class="kt">AWSMobileClientXCF</span>
+<span class="kd">import</span> <span class="kt">AWSLocationXCF</span>
 </code></pre>
 
 <p>and use it your app code without the <code>XCF</code> suffix.</p>
-<pre class="highlight plaintext"><code>    AWSMobileClient.default.initialize() 
+<pre class="highlight swift"><code><span class="kt">AWSMobileClient</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span><span class="o">.</span><span class="nf">initialize</span><span class="p">()</span> 
+<span class="k">let</span> <span class="nv">locationClient</span> <span class="o">=</span> <span class="kt">AWSLocation</span><span class="o">.</span><span class="nf">default</span><span class="p">()</span>
 </code></pre>
+<h3 id='swift-package-manager' class='heading'>Swift Package Manager</h3>
+
+<ol>
+<li><p>Swift Package Manager is distributed with Xcode. To start adding the AWS SDK to your iOS project, open your project in Xcode and select <strong>File &gt; Swift Packages &gt; Add Package Dependency</strong>.</p>
+
+<p><img src="readme-images/spm-setup-01-add-package-dependency.png" alt="Add package dependency"></p></li>
+<li><p>Enter the URL for the AWS SDK for iOS Swift Package Manager GitHub repo (<code>https://github.com/aws-amplify/aws-sdk-ios-spm</code>) into the search bar and click <strong>Next</strong>.</p>
+
+<p><img src="readme-images/spm-setup-02-search-amplify-repo.png" alt="Search for repo"></p>
+
+<p><strong>NOTE:</strong> This URL is <em>not</em> the main URL of the SDK. We maintain the Swift Package Manager manifest (<code>Package.swift</code>) file for this library in a separate repo so that apps that use the SDK do not have to download the entire source repository in order to consume the binary targets.</p></li>
+<li><p>You&rsquo;ll see the repository rules for which version of the SDK you want Swift Package Manager to install. Choose the first rule, <strong>Version</strong>, and select <strong>Up to Next Minor</strong> as it will use the latest compatible version of the dependency that can be detected from the <code>main</code> branch, then click <strong>Next</strong>.</p>
+
+<p><img src="readme-images/spm-setup-03-dependency-version-options.png" alt="Dependency version options"></p>
+
+<p><strong>NOTE:</strong> The AWS Mobile SDK for iOS does <a href="https://docs.amplify.aws/sdk/configuration/setup-options/q/platform/ios#aws-sdk-version-vs-semantic-versioning">not use Semantic Versioning</a>, and may introduce breaking API changes on minor version releases. We recommend setting your <strong>Version</strong> rule to <strong>Up to Next Minor</strong> and evaluating minor version releases to ensure they are compatible with your app.</p></li>
+<li><p>Choose which of the libraries you want added to your project. Always select the <strong>AWSCore</strong> SDK. The remaining SDKs to install will vary based on which SDK you&rsquo;re trying to install. Most SDKs rely only on <strong>AWSCore</strong>, but for a full dependency list, see the <a href="README-spm-support.md">README-spm-support file</a>.</p>
+
+<p><em>Note: AWSLex is not currently supported for the <code>arm64</code> architecture through Swift Package Manager due to conflicts with a packaged binary dependency.</em></p>
+
+<p><img src="readme-images/spm-setup-04-select-dependencies.png" alt="Select dependencies"></p>
+
+<p>Select all that are appropriate, then click <strong>Finish</strong>.</p>
+
+<p>You can always go back and modify which SPM packages are included in your project by opening the Swift Packages tab for your project: Click on the Project file in the Xcode navigator, then click on your project&rsquo;s icon, then select the <strong>Swift Packages</strong> tab.</p></li>
+</ol>
 <h3 id='cocoapods' class='heading'>CocoaPods</h3>
 
 <ol>
@@ -496,10 +525,11 @@ Output Files: Empty
 <p>Starting AWS SDK iOS version 2.22.1, SDK binaries are released as XCFrameworks. Follow the steps below to install XCFramework.</p>
 
 <ol>
-<li><p>Download the <a href="https://sdk-for-ios.amazonwebservices.com/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.22.1, the download link is <a href="https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip">https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-2.22.1.zip</a>.</p>
+<li><p>Download the <a href="https://releases.amplify.aws/aws-sdk-ios/latest/aws-ios-sdk.zip">latest SDK</a>. Older SDK versions can be downloaded from <code>https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-#.#.#.zip</code>, where <code>#.#.#</code> represents the version number. So for version 2.23.3, the download link is <a href="https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip">https://releases.amplify.aws/aws-sdk-ios/aws-ios-sdk-2.23.3.zip</a>.</p>
 
 <blockquote>
-<p>Note: If you are using version &lt; 2.22.1 please refer to the &ldquo;Legacy framework setup&rdquo; section below.</p>
+<p>Note1: If you are using version &lt; 2.22.1 please refer to the &ldquo;Legacy framework setup&rdquo; section below.
+Note2: To download version &lt; 2.23.3 use this link <code>https://sdk-for-ios.amazonwebservices.com/aws-ios-sdk-#.#.#.zip</code></p>
 </blockquote></li>
 <li><p>Uncompress the ZIP file</p></li>
 <li><p>On your application targets’ General settings tab, in the Embedded Binaries section, drag and drop each xcframework you want to use from the downloaded folder.</p></li>
@@ -723,7 +753,7 @@ fileLogger.logFileManager.maximumNumberOfLogFiles = 7;
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-03-19)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-04-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
