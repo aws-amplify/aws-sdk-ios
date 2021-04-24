@@ -2,8 +2,29 @@
 
 ## Unreleased
 
--Features for next release
+### New Features
 
+- **AWSMobileClient**, **AWSCognitoIdentityProvider**
+  - AWSCognitoIdentityProvider now accepts an `Endpoint` configuration value that can be used to override the default endpoint of `cognito-idp.<region>.amazonaws.com`. (See [PR #3482](https://github.com/aws-amplify/aws-sdk-ios/pull/3482).)
+
+    You can use this override value to specify the domain name of, for example, a CloudFront distribution fronted by a Web Application Firewall for DDOS protection on your Cognito User Pool account. The value of `Endpoint` should be a fully-qualified host name, not a URL. Example:
+
+    ```json
+    "CognitoUserPool": {
+      "Default": {
+        "AppClientId": "xxx",
+        "AppClientSecret": "xxx",
+        "Endpoint": "d2XXXXXXXXXXXX.cloudfront.net",
+        "PoolId": "xxxxx",
+        "Region": "xx-xxx-1"
+      }
+    }
+    ```
+
+    > **WARNING** The Amplify CLI will overwrite customizations to the `awsconfiguration.json` and `amplifyconfiguration.json` files if you do an `amplify push` or `amplify pull`. You will need to manually re-apply the `Endpoint` customization if you use the CLI to modify your cloud backend.
+    
+    > **Note** This feature was originally was originally released incorrectly as a patch version update in [2.23.4](https://github.com/aws-amplify/aws-sdk-ios/releases/tag/2.23.4). It was reverted by [PR #3553](https://github.com/aws-amplify/aws-sdk-ios/pull/3553) and released in [2.23.5](https://github.com/aws-amplify/aws-sdk-ios/releases/tag/2.23.5) to allow backwards compatability. After 2.23.5 was released, it was added back with [PR #3556](https://github.com/aws-amplify/aws-sdk-ios/pull/3556) for this minor version release.
+   
 ## 2.23.5
 
 ### Backwards Compatibility Fix
