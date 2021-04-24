@@ -111,6 +111,11 @@ typedef NS_ENUM(NSInteger, AWSServiceErrorType) {
                       endpoint:(AWSEndpoint *)endpoint
            credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider;
 
+- (instancetype)initWithRegion:(AWSRegionType)regionType
+                      endpoint:(AWSEndpoint *)endpoint
+           credentialsProvider:(id<AWSCredentialsProvider>)credentialsProvider
+           localTestingEnabled:(BOOL)localTestingEnabled;
+
 - (void)addUserAgentProductToken:(NSString *)productToken;
 
 @end
