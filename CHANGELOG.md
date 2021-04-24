@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.23.5
+
 ### Backwards Compatibility Fix
   - Revert: feat: Support AWSCognitoIdentityProvider custom endpoint and AWSMobileClient integ tests (See [PR #3553](https://github.com/aws-amplify/aws-sdk-ios/pull/3553).). This removes the new constructor added to `AWSServiceConfiguration` in the 2.23.4 patch update, fixing [Amplify Flutter Issue #539](https://github.com/aws-amplify/amplify-flutter/issues/539).
 
