@@ -4658,132 +4658,125 @@
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
       "line": 114,
-      "symbol": "AWSServiceConfiguration.-initWithRegion:endpoint:credentialsProvider:localTestingEnabled:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 119,
       "symbol": "AWSServiceConfiguration.-addUserAgentProductToken:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 125,
+      "line": 120,
       "symbol": "AWSEndpoint",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 127,
+      "line": 122,
       "symbol": "AWSEndpoint.regionType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 128,
+      "line": 123,
       "symbol": "AWSEndpoint.regionName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 129,
+      "line": 124,
       "symbol": "AWSEndpoint.serviceType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 130,
+      "line": 125,
       "symbol": "AWSEndpoint.serviceName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 131,
+      "line": 126,
       "symbol": "AWSEndpoint.signingName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 132,
+      "line": 127,
       "symbol": "AWSEndpoint.URL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 133,
+      "line": 128,
       "symbol": "AWSEndpoint.hostName",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 134,
+      "line": 129,
       "symbol": "AWSEndpoint.useUnsafeURL",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 135,
+      "line": 130,
       "symbol": "AWSEndpoint.portNumber",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 137,
+      "line": 132,
       "symbol": "AWSEndpoint.+regionNameFromType:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 139,
+      "line": 134,
       "symbol": "AWSEndpoint.-initWithRegion:service:useUnsafeURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 143,
+      "line": 138,
       "symbol": "AWSEndpoint.-initWithRegion:service:URL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 147,
+      "line": 142,
       "symbol": "AWSEndpoint.-initWithRegion:serviceName:URL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 151,
+      "line": 146,
       "symbol": "AWSEndpoint.-initWithURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 153,
+      "line": 148,
       "symbol": "AWSEndpoint.-initWithURLString:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSCore/Service/AWSService.h",
-      "line": 155,
+      "line": 150,
       "symbol": "AWSEndpoint.-initLocalEndpointWithRegion:service:useUnsafeURL:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
