@@ -15,11 +15,6 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
         super.setUp()
     }
 
-    override func setUp() {
-        _ = AWSMobileClient.default().getCredentialsProvider()
-        continueAfterFailure = false
-    }
-
     override func tearDown() {
         let signedOut = expectation(description: "signedOut")
         AWSMobileClient.default().signOut() { _ in
@@ -54,43 +49,8 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
         AWSInfo.configureDefaultAWSInfo(configurationJson)
     }
 
-    /// Simply tests that the method completes without errors. We make this an explicit test,
-    /// even though `testSignIn` uses `AWSMobileClient.signUp` behind the scenes,
-    /// so that we're not dependent on the internals of the test base `signUpAndVerifyUser`
-    /// utility method
-    func testSignUp() {
-        let username = "awsmobileclient-testSignUp-\(UUID().uuidString)"
-        let userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
-
-        let signUpComplete = expectation(description: "signUpComplete")
-
-        AWSMobileClient.default().signUp(
-            username: username,
-            password: AWSMobileClientTestBase.sharedPassword,
-            userAttributes: userAttributes
-        ) { result, error in
-            defer {
-                signUpComplete.fulfill()
-            }
-
-            guard error == nil else {
-                XCTAssertNil(error)
-                return
-            }
-
-            guard let result = result else {
-                XCTFail("result unexpectedly nil")
-                return
-            }
-
-            XCTAssertEqual(result.signUpConfirmationState, .unconfirmed)
-        }
-
-        waitForExpectations(timeout: AWSMobileClientTestBase.networkRequestTimeout)
-    }
-
-    func testSignSRPIn() {
-        let username = "awsmobileclient-testSignIn-\(UUID().uuidString)"
+    func testSignIn() {
+        let username = "awsmobileclient-\(UUID().uuidString)"
 
         signUpAndVerifyUser(username: username)
 
@@ -112,149 +72,7 @@ class AWSMobileClientCustomEndpointTest: AWSMobileClientTestBase {
 
             XCTAssertEqual(signInResult.signInState, .signedIn)
         }
-
         wait(for: [signInComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
-    }
-
-    func testForgotPassword() {
-        let username = "awsmobileclient-testForgotPassword-\(UUID().uuidString)"
-
-        signUpAndVerifyUser(username: username)
-
-        let confirmEmailRequest = AWSCognitoIdentityProviderAdminUpdateUserAttributesRequest()!
-        confirmEmailRequest.username = username
-        confirmEmailRequest.userPoolId = AWSMobileClientTestBase.userPoolId
-        confirmEmailRequest.userAttributes = [
-            AWSCognitoIdentityUserAttributeType(name: "email_verified", value: "true")
-        ]
-
-        AWSMobileClientTestBase
-            .userPoolsAdminClient
-            .adminUpdateUserAttributes(confirmEmailRequest)
-            .continueWith(block: { task in
-                XCTAssertNil(task.error)
-                XCTAssertNotNil(task.result)
-                return nil
-            })
-            .waitUntilFinished()
-
-        let forgotPasswordComplete = expectation(description: "forgotPasswordComplete")
-        AWSMobileClient.default().forgotPassword(username: username) { result, error in
-            defer {
-                forgotPasswordComplete.fulfill()
-            }
-
-            XCTAssertNil(error)
-
-            guard let forgotPasswordResult = result else {
-                XCTAssertNotNil(result)
-                return
-            }
-
-            XCTAssertEqual(forgotPasswordResult.forgotPasswordState, .confirmationCodeSent)
-        }
-
-        wait(for: [forgotPasswordComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
-    }
-
-    func testResendConfirmationCode() {
-        let username = "awsmobileclient-testResendConfirmationCode-\(UUID().uuidString)"
-        let userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
-
-        let signUpComplete = expectation(description: "signUpComplete")
-        AWSMobileClient.default().signUp(
-            username: username,
-            password: AWSMobileClientTestBase.sharedPassword,
-            userAttributes: userAttributes
-        ) { result, error in
-            defer {
-                signUpComplete.fulfill()
-            }
-
-            guard error == nil else {
-                XCTAssertNil(error)
-                return
-            }
-
-            guard let result = result else {
-                XCTFail("result unexpectedly nil")
-                return
-            }
-
-            XCTAssertEqual(result.signUpConfirmationState, .unconfirmed)
-        }
-        waitForExpectations(timeout: AWSMobileClientTestBase.networkRequestTimeout)
-
-        let resendSignUpCodeComplete = expectation(description: "resendSignUpCodeComplete")
-        AWSMobileClient.default().resendSignUpCode(username: username) { result, error in
-            defer {
-                resendSignUpCodeComplete.fulfill()
-            }
-
-            guard error == nil else {
-                XCTAssertNil(error)
-                return
-            }
-
-            guard let result = result else {
-                XCTFail("result unexpectedly nil")
-                return
-            }
-
-            XCTAssertNotNil(result.codeDeliveryDetails)
-        }
-
-        waitForExpectations(timeout: AWSMobileClientTestBase.networkRequestTimeout)
-    }
-
-    func testRefreshToken() {
-        let username = "awsmobileclient-testRefreshToken-\(UUID().uuidString)"
-
-        signUpAndVerifyUser(username: username)
-
-        let signInComplete = expectation(description: "signInComplete")
-        AWSMobileClient.default().signIn(
-            username: username,
-            password: AWSMobileClientCustomEndpointTest.sharedPassword
-        ) { result, error in
-            defer {
-                signInComplete.fulfill()
-            }
-
-            XCTAssertNil(error)
-
-            guard let signInResult = result else {
-                XCTAssertNotNil(result)
-                return
-            }
-
-            XCTAssertEqual(signInResult.signInState, .signedIn)
-        }
-
-        wait(for: [signInComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
-
-        invalidateAccessToken(username: username)
-
-        let getTokensComplete = expectation(description: "getTokensComplete")
-        AWSMobileClient.default().getTokens { result, error in
-            defer {
-                getTokensComplete.fulfill()
-            }
-
-            guard error == nil else {
-                XCTAssertNil(error)
-                return
-            }
-
-            guard let tokens = result else {
-                XCTAssertNotNil(result)
-                return
-            }
-
-            XCTAssertNotNil(tokens.accessToken)
-        }
-
-        wait(for: [getTokensComplete], timeout: AWSMobileClientCustomEndpointTest.networkRequestTimeout)
     }
 
 }
