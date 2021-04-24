@@ -243,7 +243,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
             }
         }
         wait(for: [tokenFetchExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
-        invalidateSession(username: username)
+        invalidateRefreshToken(username: username)
         
         let signOutExpectation = expectation(description: "signout was called")
         AWSMobileClient.default().addUserStateListener(self) { (userstate, info) in
@@ -309,7 +309,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
 
         // Now invalidate the session and then try to call getToken
-        invalidateSession(username: username)
+        invalidateRefreshToken(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
         AWSMobileClient.default().getTokens { (token, error) in
@@ -361,7 +361,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
 
         // Now invalidate the session and then try to call getToken
-        invalidateSession(username: username)
+        invalidateRefreshToken(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
         tokenFetchFailExpectation.expectedFulfillmentCount = 50
@@ -418,7 +418,7 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
         }
 
         // Now invalidate the session and then try to call getToken
-        invalidateSession(username: username)
+        invalidateRefreshToken(username: username)
 
         let tokenFetchFailExpectation = expectation(description: "Token fetch should complete")
         AWSMobileClient.default().getTokens { (token, error) in
