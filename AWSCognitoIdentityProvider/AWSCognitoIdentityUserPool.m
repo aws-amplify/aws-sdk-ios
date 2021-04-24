@@ -44,7 +44,6 @@ static NSString *const AWSCognitoUserPoolAppClientId = @"AppClientId";
 static NSString *const AWSCognitoUserPoolAppClientSecret = @"AppClientSecret";
 static NSString *const AWSCognitoUserPoolPinpointAppId = @"PinpointAppId";
 static NSString *const AWSCognitoUserPoolMigrationEnabled = @"MigrationEnabled";
-static NSString *const AWSCognitoUserPoolEndpoint = @"Endpoint";
 
 static NSString *const AWSPinpointContextKeychainService = @"com.amazonaws.AWSPinpointContext";
 static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.AWSPinpointContextKeychainUniqueIdKey";
@@ -62,19 +61,12 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
     dispatch_once(&onceToken, ^{
         AWSServiceConfiguration *serviceConfiguration = nil;
         AWSServiceInfo *serviceInfo = [[AWSInfo defaultAWSInfo] defaultServiceInfo:AWSInfoCognitoUserPool];
+
         if (serviceInfo) {
-            AWSEndpoint *endpointOverride = [AWSCognitoIdentityUserPool resolveEndpointOverrideFromServiceInfo:serviceInfo];
-            if (endpointOverride) {
-                serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                              endpoint:endpointOverride
-                                                                   credentialsProvider:nil
-                                                                   localTestingEnabled:NO];
-            } else {
-                serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
-                                                                   credentialsProvider:nil];
-            }
+            serviceConfiguration = [[AWSServiceConfiguration alloc] initWithRegion:serviceInfo.region
+                                                               credentialsProvider:nil];
         }
-        AWSCognitoIdentityUserPoolConfiguration *configuration = [AWSCognitoIdentityUserPool buildUserPoolConfiguration:serviceInfo];
+        AWSCognitoIdentityUserPoolConfiguration *configuration = [AWSCognitoIdentityUserPool buildUserPoolConfiguration: serviceInfo];
         _defaultUserPool = [[AWSCognitoIdentityUserPool alloc] initWithConfiguration:serviceConfiguration
                                                                userPoolConfiguration:configuration];
     });
@@ -129,25 +121,24 @@ static NSString *const AWSPinpointContextKeychainUniqueIdKey = @"com.amazonaws.A
     NSString *clientSecret = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecret] ?: [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolAppClientSecretLegacy];
     NSString *pinpointAppId = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolPinpointAppId];
     NSNumber *migrationEnabled = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolMigrationEnabled];
-
     BOOL migrationEnabledBoolean = NO;
     if (migrationEnabled != nil) {
         migrationEnabledBoolean = [migrationEnabled boolValue];
     }
 
-    if (!poolId || !clientId) {
+    if (poolId && clientId) {
+        return [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
+                                                                    clientSecret:clientSecret
+                                                                          poolId:poolId
+                                              shouldProvideCognitoValidationData:YES
+                                                                   pinpointAppId:pinpointAppId
+                                                                migrationEnabled:migrationEnabledBoolean ];
+
+    } else {
         @throw [NSException exceptionWithName:NSInternalInconsistencyException
                                        reason:@"The service configuration is `nil`. You need to configure `Info.plist` before using this method."
                                      userInfo:nil];
     }
-
-    return [[AWSCognitoIdentityUserPoolConfiguration alloc] initWithClientId:clientId
-                                                                clientSecret:clientSecret
-                                                                      poolId:poolId
-                                          shouldProvideCognitoValidationData:YES
-                                                               pinpointAppId:pinpointAppId
-                                                            migrationEnabled:migrationEnabledBoolean ];
-
 }
 
 // Internal init method
@@ -389,37 +380,6 @@ AWSCognitoIdentityUserAttributeType* attribute(NSString *name, NSString *value) 
 
 - (NSString*) strippedPoolId {
     return [self.userPoolConfiguration.poolId substringFromIndex:[self.userPoolConfiguration.poolId rangeOfString:@"_" ].location+1];
-}
-
-+ (nullable AWSEndpoint *)resolveEndpointOverrideFromServiceInfo:(nonnull AWSServiceInfo *)serviceInfo {
-    NSString *endpointOverride = [serviceInfo.infoDictionary objectForKey:AWSCognitoUserPoolEndpoint];
-    if (!endpointOverride) {
-        return NULL;
-    }
-
-    NSURLComponents *components = [NSURLComponents new];
-    components.scheme = @"https";
-
-    // NSURLComponents will happily interpret a string like "https://foo.com" as a valid hostname if
-    // we set it to the `host` property. By assigning to `percentEncodedHost`, NSURLComponents will
-    // raise an exception for incorrectly escaped hosts. At that point, it's likely to fail later
-    // when an actual request is made, but this strikes a reasonable balance between early failure
-    // detection and overly complex and error-prone validation logic.
-    components.percentEncodedHost = endpointOverride;
-
-    NSURL *endpointURL = [components URL];
-    if (!endpointURL) {
-        NSString *failureMessage = [NSString stringWithFormat:@"Invalid Endpoint value '%@'. Expected a fully-qualified hostname.",
-                                    endpointOverride];
-        @throw [NSException exceptionWithName:NSInvalidArgumentException
-                                       reason:failureMessage
-                                     userInfo:nil];
-    }
-
-    AWSEndpoint *endpoint = [[AWSEndpoint alloc] initWithRegion:serviceInfo.region
-                                                        service:AWSServiceCognitoIdentityProvider
-                                                            URL:endpointURL];
-    return endpoint;
 }
 
 @end
