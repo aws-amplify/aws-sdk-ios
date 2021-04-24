@@ -940,13 +940,13 @@ extension AWSMobileClient {
             completionHandler(nil, AWSMobileClientError.notSignedIn(message: notSignedInErrorMessage))
             return
         }
+        guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
+            completionHandler(nil, AWSMobileClientError.notSignedIn(message: self.notSignedInErrorMessage))
+            return
+        }
         self.getTokens { _, error in
             guard error == nil else {
                 completionHandler(nil, error)
-                return
-            }
-            guard let currentActiveUser = self.userpoolOpsHelper.currentActiveUser else {
-                completionHandler(nil, AWSMobileClientError.notSignedIn(message: self.notSignedInErrorMessage))
                 return
             }
             let userDetails = AWSMobileClientUserDetails(with: currentActiveUser)

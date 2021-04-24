@@ -64,6 +64,12 @@ class AWSMobileClientTestBase: XCTestCase {
     static func loadTestConfigurationFromFile() -> [String: Any] {
         return AWSTestConfiguration.getTestConfiguration() as! [String: Any]
     }
+
+    static func getAWSConfiguration() -> [String: Any] {
+        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
+        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
+        return awsconfiguration
+    }
     
     static func initializeMobileClient() {
         let testCase = XCTestCase()
@@ -248,12 +254,6 @@ class AWSMobileClientTestBase: XCTestCase {
         let bundleID = Bundle.main.bundleIdentifier
         let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
         return keychain
-    }
-
-    static func getAWSConfiguration() -> [String: Any] {
-        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
-        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
-        return awsconfiguration
     }
 }
 

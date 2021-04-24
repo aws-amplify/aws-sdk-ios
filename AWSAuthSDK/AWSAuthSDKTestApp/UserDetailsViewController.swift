@@ -178,12 +178,12 @@ class UserDetailsViewController: UIViewController {
         }
     }
     
-    func invalidateRefreshToken() {
+    private func invalidateRefreshToken() {
         let key = getTokenKeychain()
         getKeychain().removeItem(forKey: key)
     }
 
-    func invalidateAccessToken() {
+    private func invalidateAccessToken() {
         let key = getTokenKeychain()
         let pastDate = Date(timeIntervalSinceNow: -1)
         let formattedDate = ISO8601DateFormatter().string(from: pastDate)

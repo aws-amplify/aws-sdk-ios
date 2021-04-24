@@ -49,7 +49,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
             if let attributes = attributes {
                 XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
                 XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
-            }else if let error = error {
+            } else if let error = error {
                 XCTFail("Received un-expected error: \(error.localizedDescription)")
             }
             getAttrExpectation.fulfill()
@@ -79,7 +79,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
             if let attributes = attributes {
                 XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
                 XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
-            }else if let error = error {
+            } else if let error = error {
                 XCTFail("Received un-expected error: \(error.localizedDescription)")
             }
             getAttrExpectation.fulfill()
@@ -109,7 +109,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
             if let attributes = attributes {
                 XCTAssertEqual(attributes.count, 4, "Expected 4 attributes for user.")
                 XCTAssertEqual(attributes["email_verified"], "false", "Email should not be verified.")
-            }else if let error = error {
+            } else if let error = error {
                 XCTFail("Received un-expected error: \(error.localizedDescription)")
             }
             getAttrExpectation.fulfill()
