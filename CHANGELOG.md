@@ -57,6 +57,10 @@
 
     > **WARNING** The Amplify CLI will overwrite customizations to the `awsconfiguration.json` and `amplifyconfiguration.json` files if you do an `amplify push` or `amplify pull`. You will need to manually re-apply the `Endpoint` customization if you use the CLI to modify your cloud backend.
 
+### Bug fixes
+- **AWSMobileClient**
+  - Fix crash in getUserAttribute api  ([PR #3501](https://github.com/aws-amplify/aws-sdk-ios/pull/3501))
+
 ### Misc. Updates
 
 - Model updates for the following services
@@ -68,7 +72,7 @@
   - AWSLex
   - AWSSQS
   - AWSTranscribe
-  
+
 ## 2.23.3
 
 ### New Features

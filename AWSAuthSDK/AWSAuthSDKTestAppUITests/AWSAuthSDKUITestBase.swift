@@ -10,15 +10,13 @@ import AWSAuthCore
 import AWSCognitoIdentityProvider
 import AWSTestResources
 
-class AWSMobileClientTestBase: XCTestCase {
+class AWSAuthSDKUITestBase: XCTestCase {
     static let networkRequestTimeout: TimeInterval = 60.0
     
-    static var cognitoIdentity: AWSCognitoIdentity!
     static var userPoolsAdminClient: AWSCognitoIdentityProvider!
     
     static var userPoolId: String!
     static var sharedEmail: String!
-    static var identityPoolId: String!
     static var sharedPassword: String!
     
     override class func setUp() {
@@ -30,11 +28,9 @@ class AWSMobileClientTestBase: XCTestCase {
         let commonTestConfiguration = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "common")
         
         let awsConfig = getAWSConfiguration()
+        AWSInfo.configureDefaultAWSInfo(awsConfig)
         let userPoolConfig = awsConfig["CognitoUserPool"] as! [String: [String: Any]]
         userPoolId = (userPoolConfig["Default"]!["PoolId"] as! String)
-        
-        let credentialProviderConfig = awsConfig["CredentialsProvider"] as! [String: [String: [String: String]]]
-        identityPoolId = credentialProviderConfig["CognitoIdentity"]!["Default"]!["PoolId"]
         
         let testConfigurationJSON = loadTestConfigurationFromFile()
         let credentialsTestConfiguration = testConfigurationJSON["credentials"] as! [String: Any]
@@ -48,11 +44,15 @@ class AWSMobileClientTestBase: XCTestCase {
         AWSCognitoIdentityProvider.register(with: configuration, forKey: "TEST")
         AWSCognitoIdentity.register(with: configuration, forKey: "TEST")
         
-        cognitoIdentity = AWSCognitoIdentity(forKey: "TEST")
         userPoolsAdminClient = AWSCognitoIdentityProvider(forKey: "TEST")
         initializeMobileClient()
     }
-    
+
+    override func setUp() {
+        continueAfterFailure = false
+        XCUIApplication().launch()
+    }
+
     override func tearDown() {
         AWSMobileClient.default().signOut()
         AWSMobileClient.default().clearCredentials()
@@ -70,7 +70,7 @@ class AWSMobileClientTestBase: XCTestCase {
         let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
         return awsconfiguration
     }
-    
+
     static func initializeMobileClient() {
         let testCase = XCTestCase()
         let mobileClientIsInitialized = testCase.expectation(description: "AWSMobileClient is initialized")
@@ -94,50 +94,11 @@ class AWSMobileClientTestBase: XCTestCase {
         testCase.wait(for: [mobileClientIsInitialized], timeout: 5)
     }
     
-    func signIn(username: String, password: String? = nil, verifySignState: SignInState = .signedIn) {
-        let passwordToUse = password ?? AWSMobileClientTestBase.sharedPassword!
-        let signInWasSuccessful = expectation(description: "signIn was successful")
-        AWSMobileClient.default().signIn(username: username, password: passwordToUse) { (signInResult, error) in
-            if let error = error {
-                XCTFail("User login failed: \(error.localizedDescription)")
-                return
-            }
-            
-            guard let signInResult = signInResult else {
-                XCTFail("User login failed, signInResult unexpectedly nil")
-                return
-            }
-            XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
-            signInWasSuccessful.fulfill()
-        }
-        wait(for: [signInWasSuccessful], timeout: AWSMobileClientTestBase.networkRequestTimeout)
-    }
-    
-    func confirmSign(challengeResponse: String, userAttributes:[String:String] = [:], verifySignState: SignInState = .signedIn) {
-        
-        let signInConfirmWasSuccessful = expectation(description: "signIn confirm was successful")
-        AWSMobileClient.default().confirmSignIn(challengeResponse: challengeResponse,
-                                                userAttributes: userAttributes) {
-                                                    (signInResult, error) in
-                                                    
-                                                    if let error = error {
-                                                        XCTFail("Sign in confirm failed: \(error.localizedDescription)")
-                                                        return
-                                                    }
-                                                    if let signInResult = signInResult {
-                                                        XCTAssertEqual(signInResult.signInState, verifySignState, "Could not verify sign in state")
-                                                    }
-                                                    
-                                                    signInConfirmWasSuccessful.fulfill()
-        }
-        wait(for: [signInConfirmWasSuccessful], timeout: AWSMobileClientTestBase.networkRequestTimeout)
-    }
-    
     func signUpUser(username: String,
                     customUserAttributes: [String: String]? = nil,
                     clientMetaData: [String: String]? = nil,
                     signupState: SignUpConfirmationState = .unconfirmed) {
-        var userAttributes = ["email": AWSMobileClientTestBase.sharedEmail!]
+        var userAttributes = ["email": AWSAuthSDKUITestBase.sharedEmail!]
         if let customUserAttributes = customUserAttributes {
             userAttributes.merge(customUserAttributes) { current, _ in current }
         }
@@ -145,7 +106,7 @@ class AWSMobileClientTestBase: XCTestCase {
         let signUpExpectation = expectation(description: "successful sign up expectation.")
         AWSMobileClient.default().signUp(
             username: username,
-            password: AWSMobileClientTestBase.sharedPassword,
+            password: AWSAuthSDKUITestBase.sharedPassword,
             userAttributes: userAttributes,
             clientMetaData: clientMetaData ?? [:]) { (signUpResult, error) in
                 if let error = error {
@@ -182,7 +143,7 @@ class AWSMobileClientTestBase: XCTestCase {
                 signUpExpectation.fulfill()
         }
         
-        wait(for: [signUpExpectation], timeout: AWSMobileClientTestBase.networkRequestTimeout)
+        wait(for: [signUpExpectation], timeout: AWSAuthSDKUITestBase.networkRequestTimeout)
     }
     
     func adminVerifyUser(username: String) {
@@ -192,9 +153,9 @@ class AWSMobileClientTestBase: XCTestCase {
         }
         
         adminConfirmSignUpRequest.username = username
-        adminConfirmSignUpRequest.userPoolId = AWSMobileClientTestBase.userPoolId
+        adminConfirmSignUpRequest.userPoolId = AWSAuthSDKUITestBase.userPoolId
         
-        AWSMobileClientTestBase.userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
+        AWSAuthSDKUITestBase.userPoolsAdminClient.adminConfirmSignUp(adminConfirmSignUpRequest).continueWith(block: { (task) -> Any? in
             if let error = task.error {
                 XCTFail("Could not confirm user. Failing the test: \(error)")
             }
@@ -206,54 +167,90 @@ class AWSMobileClientTestBase: XCTestCase {
         signUpUser(username: username, customUserAttributes: customUserAttributes)
         adminVerifyUser(username: username)
     }
+
+    /// Sign in the user
+    func signInUserpool(application: XCUIApplication, username: String) {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        springboard.buttons["Continue"].tap()
+        
+        let webViewsQuery = application.webViews
+        webViewsQuery.textFields["Username"].tap()
+        webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.typeText(username)
+        
+        let passwordSecureTextField = webViewsQuery/*@START_MENU_TOKEN@*/.secureTextFields["Password"]/*[[".otherElements[\"Signin\"].secureTextFields[\"Password\"]",".secureTextFields[\"Password\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/
+        passwordSecureTextField.tap()
+        passwordSecureTextField.typeText(AWSAuthSDKUITestBase.sharedPassword)
+        
+        application.buttons["Done"].tap()
+        
+        let signInButton = webViewsQuery.buttons["submit"]
+                signInButton.tap()
+    }
     
-    func adminCreateUser(username: String, temporaryPassword: String, userAttributes: [String: String] = [:]) {
-        guard let adminCreateUserRequest = AWSCognitoIdentityProviderAdminCreateUserRequest() else {
-            XCTFail("Unable to create adminCreateUserRequest")
-            return
+    func signInUserpoolWhenRefreshTokenExpires(application: XCUIApplication, username: String) {
+        let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        springboard.buttons["Continue"].tap()
+    }
+    
+    /// Sign out the active user in the home page.
+    func signOutUserpool(application: XCUIApplication) {
+        let signinstatelabelElement = application.staticTexts["signInStateLabel"]
+        if signinstatelabelElement.label == "signedIn" {
+            application.buttons["SignOut"].tap()
+            let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+            springboard.buttons["Continue"].tap()
+            let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOut")
+            let signOutExpectation = expectation(for: predicate, evaluatedWith: signinstatelabelElement,
+                                                 handler: nil)
+            wait(for: [signOutExpectation], timeout: 5)
         }
-        let userAttributesTransformed = userAttributes.map {AWSCognitoIdentityUserAttributeType.init(name: $0, value: $1) }
-        adminCreateUserRequest.username = username
-        adminCreateUserRequest.temporaryPassword = temporaryPassword
-        adminCreateUserRequest.userAttributes = userAttributesTransformed
-        adminCreateUserRequest.userPoolId = AWSMobileClientTestBase.userPoolId
-        AWSMobileClientTestBase.userPoolsAdminClient.adminCreateUser(adminCreateUserRequest).continueWith { (task) -> Any? in
-            if let error = task.error {
-                XCTFail("Could not create user. Failing the test: \(error)")
-            }
-            return nil
-        }.waitUntilFinished()
+        XCTAssertEqual("signedOut", signinstatelabelElement.label)
     }
-
-    /// Removes the access token's expiration key from the keychain, which forces the SDK into the
-    /// "refresh token expired" flow
-    /// - Parameter username: the username for which to invalidate the token
-    func invalidateRefreshToken(username: String) {
-        let key = getTokenKeychainKey(for: username)
-        getKeychain().removeItem(forKey: key)
+    
+    /// Inspect if we have all the token details. We fail if
+    /// the token values are still 'NA'
+    func inspectTokenDetails(application: XCUIApplication) {
+        
+        let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
+        
+        let idTokenLabelElement = application.staticTexts["idTokenLabel"]
+        let accessTokenLabelElement = application.staticTexts["accessTokenLabel"]
+        let refreshTokenLabelElement = application.staticTexts["refreshTokenLabel"]
+        
+        let idTokenExpectation = expectation(for: labelValidityPredicate,
+                                             evaluatedWith: idTokenLabelElement,
+                                             handler: nil)
+        let accessTokenExpectation = expectation(for: labelValidityPredicate,
+                                                 evaluatedWith: accessTokenLabelElement,
+                                                 handler: nil)
+        let refreshTokenExpectation = expectation(for: labelValidityPredicate,
+                                                  evaluatedWith: refreshTokenLabelElement,
+                                                  handler: nil)
+        
+        wait(for: [idTokenExpectation, accessTokenExpectation, refreshTokenExpectation], timeout: 10)
     }
-
-    /// Sets access token's expiration date in the keychain to a past date, which forces the SDK into the
-    /// "access token expired" flow
-    /// - Parameter username: the username for which to invalidate the token
-    func invalidateAccessToken(username: String) {
-        let key = getTokenKeychainKey(for: username)
-        let pastDate = Date(timeIntervalSinceNow: -1)
-        let formattedDate = ISO8601DateFormatter().string(from: pastDate)
-        let dateData = formattedDate.data(using: .utf8)
-        getKeychain().setData(dateData, forKey: key)
-    }
-
-    private func getTokenKeychainKey(for username: String) -> String {
-        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
-        let key = "\(namespace).tokenExpiration"
-        return key
-    }
-
-    private func getKeychain() -> AWSUICKeyChainStore {
-        let bundleID = Bundle.main.bundleIdentifier
-        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
-        return keychain
+    
+    /// Inspect if we have all the credential details. We fail if
+    /// the credential values are still 'NA'
+    func inspectCredentialDetails(application: XCUIApplication) {
+        
+        let labelValidityPredicate = NSPredicate(format: "NOT label BEGINSWITH 'NA'")
+        
+        let accessKeyLabelElement = application.staticTexts["idTokenLabel"]
+        let secretKeyLabelElement = application.staticTexts["accessTokenLabel"]
+        let sessionKeyLabelElement = application.staticTexts["refreshTokenLabel"]
+        
+        let accessKeyExpectation = expectation(for: labelValidityPredicate,
+                                               evaluatedWith: accessKeyLabelElement,
+                                               handler: nil)
+        let secretKeyExpectation = expectation(for: labelValidityPredicate,
+                                               evaluatedWith: secretKeyLabelElement,
+                                               handler: nil)
+        let sessionKeyExpectation = expectation(for: labelValidityPredicate,
+                                                evaluatedWith: sessionKeyLabelElement,
+                                                handler: nil)
+        
+        wait(for: [accessKeyExpectation, secretKeyExpectation, sessionKeyExpectation], timeout: 10)
     }
 }
 
