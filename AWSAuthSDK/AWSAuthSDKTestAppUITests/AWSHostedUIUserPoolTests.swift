@@ -66,7 +66,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     ///    - I should successfully get user attributes
     ///
     func testHostedUIGetAttributesWhenAccessTokenInvalidated() {
-        let username = "accessToken" + UUID().uuidString
+        let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
         signOutUserpool(application: app)
         
@@ -87,6 +87,8 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
                                        evaluatedWith: userPoolSignInStateLabelElement,
                                        handler: nil)
         wait(for: [expectation1], timeout: 5)
+
+        app.buttons["invalidateAccessToken"].tap()
 
         // Push the user detail page
         app.buttons["User pool operations"].tap()
@@ -106,7 +108,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     ///    - I should re-authenticate with hostedUI and successfully get user attributes
     ///
     func testHostedUIGetAttributesWhenRefreshTokenInvalidated() {
-        let username = "refreshToken" + UUID().uuidString
+        let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
         signOutUserpool(application: app)
         
@@ -127,6 +129,8 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
                                        evaluatedWith: userPoolSignInStateLabelElement,
                                        handler: nil)
         wait(for: [expectation1], timeout: 5)
+
+        app.buttons["invalidateRefreshToken"].tap()
 
         // Push the user detail page
         app.buttons["User pool operations"].tap()

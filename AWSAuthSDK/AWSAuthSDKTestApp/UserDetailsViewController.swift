@@ -6,14 +6,12 @@
 import UIKit
 import AWSMobileClient
 import AWSCore
-import AWSTestResources
 
 /// View controller to handle user details.
 ///
 /// This controller is not specific for any provider. Controller just displays tokens
 /// credentials and user attributes. We make the assumption that the user in the userpool
 /// has two custom attributes named custom:mutableStringAttr1 and custom:mutableStringAttr1
-@available(iOS 10.0, *)
 class UserDetailsViewController: UIViewController {
     
     let CUSTOM_ATTRIBUTE_KEY1 = "custom:mutableStringAttr1"
@@ -46,7 +44,6 @@ class UserDetailsViewController: UIViewController {
     }
     
     func refreshData() {
-        invalidateTokenOrNot()
         fetchUserAttributes()
         fetchToken()
         fetchCredentials()
@@ -67,20 +64,6 @@ class UserDetailsViewController: UIViewController {
             self.attribute3Label.text = "NA"
             self.customeAttribute1Label.text = "NA"
             self.customeAttribute2Label.text = "NA"
-        }
-    }
-
-    /// There is one test case `testHostedUIGetAttributesWhenSessionExpired` in `AWSHostedUIUserPoolTests.swift`
-    /// that requires the refresh token to be invalidated. But `UserDetailsViewController` doesn't have context which test case it is in
-    /// The workaround is to create a user `sessionExpired+UUID` so that when `UserDetailsViewController` sees that,
-    /// it knows it should call `mockIncalidateRefreshToken()`
-    func invalidateTokenOrNot() {
-        let username = AWSMobileClient.default().username
-        if username?.prefix(12) == "refreshToken" {
-            invalidateRefreshToken()
-        }
-        if username?.prefix(11) == "accessToken" {
-            invalidateAccessToken()
         }
     }
 
@@ -176,34 +159,5 @@ class UserDetailsViewController: UIViewController {
         AWSMobileClient.default().updateUserAttributes(attributeMap: newUserAttributes) { result, error in
             self.refreshData()
         }
-    }
-    
-    private func invalidateRefreshToken() {
-        let key = getTokenKeychain()
-        getKeychain().removeItem(forKey: key)
-    }
-
-    private func invalidateAccessToken() {
-        let key = getTokenKeychain()
-        let pastDate = Date(timeIntervalSinceNow: -1)
-        let formattedDate = ISO8601DateFormatter().string(from: pastDate)
-        let dateData = formattedDate.data(using: .utf8)
-        getKeychain().setData(dateData, forKey: key)
-    }
-
-    private func getKeychain() -> AWSUICKeyChainStore {
-        let bundleID = Bundle.main.bundleIdentifier
-        let keychain = AWSUICKeyChainStore(service: "\(bundleID!).\(AWSCognitoIdentityUserPool.self)")
-        return keychain
-    }
-
-    private func getTokenKeychain() -> String {
-        let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
-        let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
-        let userPoolConfig = awsconfiguration["CognitoUserPool"] as! [String: [String: Any]]
-        let appClientId = (userPoolConfig["Default"]!["AppClientId"] as! String)
-        let namespace = "\(appClientId).\(AWSMobileClient.default().username ?? "")"
-        let key = "\(namespace).tokenExpiration"
-        return key
     }
 }

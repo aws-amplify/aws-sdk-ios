@@ -264,22 +264,44 @@
                                 <color key="textColor" red="0.1166862764" green="0.24307424650000001" blue="0.60000404789999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pAF-TL-32k">
+                                <rect key="frame" x="112" y="357" width="151" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="invalidateAccessToken"/>
+                                <connections>
+                                    <action selector="invalidateAccessToken:" destination="4xE-Wp-lW2" eventType="touchUpInside" id="UvZ-Re-h3A"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n5x-dr-3dO">
+                                <rect key="frame" x="112" y="419" width="151" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <state key="normal" title="invalidateRefreshToken"/>
+                                <connections>
+                                    <action selector="invalidateRefreshToken:" destination="4xE-Wp-lW2" eventType="touchUpInside" id="rnE-cD-hXN"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ozC-cu-NWH"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
+                            <constraint firstItem="ozC-cu-NWH" firstAttribute="trailing" secondItem="n5x-dr-3dO" secondAttribute="trailing" constant="112" id="3CU-Th-GiJ"/>
                             <constraint firstItem="b3h-ZP-AQx" firstAttribute="top" secondItem="ozC-cu-NWH" secondAttribute="top" constant="70" id="3kA-Pk-kIM"/>
                             <constraint firstItem="z83-mT-Ha2" firstAttribute="top" secondItem="b3h-ZP-AQx" secondAttribute="bottom" constant="33" id="5bk-Q4-4IQ"/>
                             <constraint firstItem="Eks-a4-vTN" firstAttribute="leading" secondItem="b3h-ZP-AQx" secondAttribute="trailing" constant="8" id="JYa-rH-2Zl"/>
                             <constraint firstItem="ozC-cu-NWH" firstAttribute="trailing" secondItem="de6-2m-IB4" secondAttribute="trailing" constant="116" id="KDL-5D-7GY"/>
                             <constraint firstItem="z83-mT-Ha2" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="148" id="KJ8-7Z-NMy"/>
+                            <constraint firstItem="pAF-TL-32k" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="112" id="NQf-Qu-9MF"/>
                             <constraint firstItem="ozC-cu-NWH" firstAttribute="trailing" secondItem="Jx1-9H-Bdf" secondAttribute="trailing" constant="141" id="Rlw-aj-zBB"/>
+                            <constraint firstItem="n5x-dr-3dO" firstAttribute="top" secondItem="pAF-TL-32k" secondAttribute="bottom" constant="33" id="d7K-d5-gNt"/>
                             <constraint firstItem="de6-2m-IB4" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="116" id="dnr-qC-f9C"/>
                             <constraint firstItem="de6-2m-IB4" firstAttribute="top" secondItem="Jx1-9H-Bdf" secondAttribute="bottom" constant="33" id="iNP-3C-kLb"/>
                             <constraint firstItem="ozC-cu-NWH" firstAttribute="trailing" secondItem="z83-mT-Ha2" secondAttribute="trailing" constant="148" id="j6H-qR-quN"/>
                             <constraint firstItem="Eks-a4-vTN" firstAttribute="top" secondItem="ozC-cu-NWH" secondAttribute="top" constant="70" id="lFL-gh-HAg"/>
                             <constraint firstItem="b3h-ZP-AQx" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="15" id="nPg-TV-hsc"/>
+                            <constraint firstItem="n5x-dr-3dO" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="112" id="qgb-AL-cWi"/>
                             <constraint firstItem="Jx1-9H-Bdf" firstAttribute="top" secondItem="z83-mT-Ha2" secondAttribute="bottom" constant="33" id="rb3-qT-6Qn"/>
+                            <constraint firstItem="pAF-TL-32k" firstAttribute="top" secondItem="de6-2m-IB4" secondAttribute="bottom" constant="33" id="rn6-wE-Eo7"/>
+                            <constraint firstItem="ozC-cu-NWH" firstAttribute="trailing" secondItem="pAF-TL-32k" secondAttribute="trailing" constant="112" id="w2y-h6-ht9"/>
                             <constraint firstItem="Jx1-9H-Bdf" firstAttribute="leading" secondItem="ozC-cu-NWH" secondAttribute="leading" constant="141" id="wpl-IX-COC"/>
                         </constraints>
                     </view>
@@ -289,7 +311,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aW1-hY-27I" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="887" y="-462"/>
+            <point key="canvasLocation" x="885.60000000000002" y="-462.8185907046477"/>
         </scene>
         <!--User Details-->
         <scene sceneID="WNH-XR-mxG">
@@ -441,7 +463,8 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tjp-bi-Swj">
-                                <rect key="frame" x="112" y="531" width="151" height="30"/>
+                                <rect key="frame" x="112" y="512" width="151" height="29"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <state key="normal" title="Update User Attribute"/>
                                 <connections>
                                     <action selector="updateUserAttributeAction:" destination="mG6-DT-ukZ" eventType="touchUpInside" id="HNC-kP-PDW"/>
@@ -521,7 +544,7 @@
                             <constraint firstItem="ziK-LP-NrU" firstAttribute="leading" secondItem="xt3-O0-ESK" secondAttribute="trailing" constant="8" id="MmT-Uy-Iw4"/>
                             <constraint firstItem="W1c-kg-6gb" firstAttribute="leading" secondItem="Nt3-dm-BAC" secondAttribute="leading" id="NMN-tr-TcJ"/>
                             <constraint firstItem="1Jf-c9-2Pn" firstAttribute="leading" secondItem="bgr-Jm-OR1" secondAttribute="trailing" constant="8" id="Oi2-vA-vg9"/>
-                            <constraint firstItem="tjp-bi-Swj" firstAttribute="top" secondItem="1Jf-c9-2Pn" secondAttribute="bottom" constant="29" id="Qae-tN-Ny6"/>
+                            <constraint firstItem="tjp-bi-Swj" firstAttribute="top" secondItem="1Jf-c9-2Pn" secondAttribute="bottom" constant="10" id="Qae-tN-Ny6"/>
                             <constraint firstItem="taA-kR-dux" firstAttribute="centerY" secondItem="H1N-WR-a8c" secondAttribute="centerY" id="SRG-GM-u3x"/>
                             <constraint firstItem="ot2-cM-oYk" firstAttribute="leading" secondItem="xyb-BD-wHA" secondAttribute="trailing" constant="8" id="ST8-Ts-6x3"/>
                             <constraint firstItem="cef-qJ-TBK" firstAttribute="top" secondItem="blW-jL-BmK" secondAttribute="bottom" constant="10" id="UO7-Av-1pD"/>

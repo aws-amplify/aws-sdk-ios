@@ -101,6 +101,20 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
     func testGetAttributesWhenRefreshTokenInvalidated() {
         let username = "testUser" + UUID().uuidString
         signUpAndVerifyUser(username: username, customUserAttributes: ["custom:mutableStringAttr1": "Value for mutableStringAttr1"])
+
+        AWSMobileClient.default().addUserStateListener(self) { (userState, info) in
+            switch (userState) {
+            case .signedOutUserPoolsTokenInvalid:
+                print("signedOutUserPoolsTokenInvalid is received.")
+                DispatchQueue.main.async {
+                    self.signIn(username: username)
+                    print("Listener user is signed in.")
+                }
+            default:
+                print("Listener \(userState)")
+            }
+        }
+
         signIn(username: username)
         invalidateRefreshToken(username: username)
         let getAttrExpectation = expectation(description: "get attributes expectation.")
@@ -114,8 +128,6 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
             }
             getAttrExpectation.fulfill()
         }
-        sleep(1)
-        signIn(username: username)
 
         wait(for: [getAttrExpectation], timeout: 5)
 
