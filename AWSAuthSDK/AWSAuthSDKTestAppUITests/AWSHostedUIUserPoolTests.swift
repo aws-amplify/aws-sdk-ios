@@ -6,7 +6,6 @@
 import XCTest
 import AWSTestResources
 import AWSAuthCore
-import AWSAuthCore
 import AWSCognitoIdentityProvider
 
 class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
