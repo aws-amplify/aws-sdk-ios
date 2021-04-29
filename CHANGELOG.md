@@ -59,7 +59,7 @@
 
 ### Bug fixes
 - **AWSMobileClient**
-  - Fix getUserAttribute crashes App when session expired ([PR #3501](https://github.com/aws-amplify/aws-sdk-ios/pull/3501))
+  - Fix crash in getUserAttribute api  ([PR #3501](https://github.com/aws-amplify/aws-sdk-ios/pull/3501))
 
 ### Misc. Updates
 
