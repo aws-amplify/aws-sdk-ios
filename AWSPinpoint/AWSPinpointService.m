@@ -19,7 +19,7 @@
 #import "AWSPinpointContext.h"
 #import "AWSPinpointSessionClient.h"
 #import "AWSPinpointConfiguration.h"
-#import "AWSClientContext.h"
+#import <AWSCore/AWSClientContext.h>
 #import "AWSPinpointTargeting.h"
 #import "AWSPinpointNotificationManager.h"
 #import "AWSPinpointAnalyticsClient.h"

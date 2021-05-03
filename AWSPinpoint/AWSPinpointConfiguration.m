@@ -14,7 +14,7 @@
 //
 
 #import "AWSPinpointConfiguration.h"
-#import "AWSService.h"
+#import <AWSCore/AWSService.h>
 #import "AWSPinpointService.h"
 
 int const MAX_STORAGE_SIZE = 1024 * 1024 * 5; // 5 MB
