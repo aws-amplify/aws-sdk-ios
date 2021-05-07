@@ -596,6 +596,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"sourceApplicationName" : @"SourceApplicationName",
              @"sourceApplicationUrl" : @"SourceApplicationUrl",
              @"sourceType" : @"SourceType",
+             @"tags" : @"Tags",
              };
 }
 
@@ -783,6 +784,7 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 	return @{
              @"instanceId" : @"InstanceId",
              @"integrationAssociationId" : @"IntegrationAssociationId",
+             @"tags" : @"Tags",
              @"useCaseType" : @"UseCaseType",
              };
 }
