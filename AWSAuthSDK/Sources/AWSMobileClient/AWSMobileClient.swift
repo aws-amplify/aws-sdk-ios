@@ -396,13 +396,20 @@ final public class AWSMobileClient: _AWSMobileClient {
     public func showSignIn(presentationAnchor: ASPresentationAnchor,
                            hostedUIOptions: HostedUIOptions,
                            _ completionHandler: @escaping(UserState?, Error?) -> Void) {
+        if case .signedIn = self.currentUserState {
+            completionHandler(nil, AWSMobileClientError.invalidState(message: "There is already a user which is signed in. Please log out the user before calling showSignIn."))
+            return
+        }
         developerNavigationController = nil
         configureAndRegisterCognitoAuth(hostedUIOptions: hostedUIOptions, completionHandler)
         
         let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
         cognitoAuth.delegate = self
         
-        cognitoAuth.getSessionWithWebUI(presentationAnchor) { (session, error) in
+        // Clear the keychain if there is an existing user details
+        cognitoAuth.signOutLocally()
+        
+        cognitoAuth.launchSignIn(withWebUI: presentationAnchor) { (session, error) in
             self.handleCognitoAuthGetSession(hostedUIOptions: hostedUIOptions,
                                              session: session,
                                              error: error,
@@ -443,7 +450,10 @@ final public class AWSMobileClient: _AWSMobileClient {
             let cognitoAuth = AWSCognitoAuth.init(forKey: CognitoAuthRegistrationKey)
             cognitoAuth.delegate = self
             
-            cognitoAuth.getSession(navigationController.viewControllers.first!) { (session, error) in
+            // Clear the keychain if there is an existing user details
+            cognitoAuth.signOutLocally()
+            
+            cognitoAuth.launchSignIn(with: navigationController.viewControllers.first!) { (session, error) in
                 self.handleCognitoAuthGetSession(hostedUIOptions: hostedUIOptions,
                                                  session: session,
                                                  error: error,

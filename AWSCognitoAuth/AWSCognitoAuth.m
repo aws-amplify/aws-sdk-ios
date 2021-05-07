@@ -216,7 +216,40 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     return refreshToken!=nil;
 }
 
-#pragma mark sign in
+- (void)launchSignInWithViewController:(UIViewController *) vc
+            completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
+
+    __block __weak NSOperation *weakGetSessionOperation;
+    NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
+        self.presentationAnchor = nil;
+        [self prepareForSignIn:vc completion:completion];
+        [self launchSignInVC:vc];
+        if(weakGetSessionOperation.isCancelled){
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
+        }
+    }];
+    weakGetSessionOperation = getSessionOperation;
+    [self.getSessionQueue addOperation:getSessionOperation];
+}
+
+- (void)launchSignInWithWebUI:(nonnull ASPresentationAnchor) anchor
+                   completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
+    
+    __block __weak NSOperation *weakGetSessionOperation;
+    NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
+        self.presentationAnchor = anchor;
+        [self prepareForSignIn:nil completion:completion];
+        [self launchSignInVC:nil];
+        if(weakGetSessionOperation.isCancelled){
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
+        }
+    }];
+    weakGetSessionOperation = getSessionOperation;
+    [self.getSessionQueue addOperation:getSessionOperation];
+    
+}
+
+#pragma mark get session
 
 - (void)getSession:(AWSCognitoAuthGetSessionBlock) completion {
     self.presentationAnchor = nil;
@@ -259,6 +292,15 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     self.proofKeyHash = nil;
     self.pvc = nil;
     self.responseData = nil;
+}
+
+- (void)prepareForSignIn:(UIViewController *) vc
+              completion:(AWSCognitoAuthGetSessionBlock) completion {
+    self.getSessionBlock = completion;
+    self.state = [[[NSUUID UUID] UUIDString] lowercaseString];
+    self.proofKey = [self generateRandom:32];
+    self.proofKeyHash = [self calculateSHA256Hash:self.proofKey];
+    self.pvc = vc;
 }
 
 /**
@@ -397,13 +439,8 @@ withPresentingViewController:(UIViewController *)presentingViewController {
  Check keychain for valid session, if expired or not available, prompt end user via ui
  */
 - (void)getSessionInternal: (nullable UIViewController *) vc completion: (AWSCognitoAuthGetSessionBlock) completion {
-    self.getSessionBlock = completion;
-    self.state = [[[NSUUID UUID] UUIDString] lowercaseString];
-    self.proofKey = [self generateRandom:32];
-    self.proofKeyHash = [self calculateSHA256Hash:self.proofKey];
-    self.pvc = vc;
 
-
+    [self prepareForSignIn:vc completion:completion];
     //check to see if we have valid tokens
     NSString * username = [self currentUsername];
     if(username){
