@@ -1,14 +1,13 @@
----
+# AWS Mobile SDK for iOS CHANGELOG
 
-MOVE THIS SECTION TO THE CORRECT LOCATION
+## Unreleased
 
 ### Misc. Updates
 
 - Model updates for the following services
----AWSEC2
-# AWS Mobile SDK for iOS CHANGELOG
+  - AWSEC2
 
-## Unreleased
+## 2.24.1
 
 ### Bug fixes
 - **AWSMobileClient**
