@@ -1,16 +1,23 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### Bug fixes
+- **AWSMobileClient**
+  - Fix crash in getUserAttribute api ([PR #3501](https://github.com/aws-amplify/aws-sdk-ios/pull/3501))
+- **AWSPinpoint**
+  - Fixed cross-module imports, which should fix support for `generate_multiple_pod_projects` in CocoaPods ([PR #3510](https://github.com/aws-amplify/aws-sdk-ios/pull/3510)). Thanks [@hcanzonetta](https://github.com/aws-amplify/aws-sdk-ios/commits?author=hcanzonetta)!
+
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSCognitoIdentityProvider
+  - AWSConnect
+  - AWSCore (Updated the AWSSTS model)
+  - AWSEC2
+  - AWSLex
+  - AWSSNS
 
 ## 2.24.0
 
