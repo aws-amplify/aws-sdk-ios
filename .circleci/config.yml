@@ -1401,7 +1401,7 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - build_xcframeworks:
+      - release_tag:
           requires:
             - build
           filters:
@@ -1409,8 +1409,15 @@ workflows:
               ignore: /.*/
             tags:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
+      - build_xcframeworks:
+          filters:
+            branches:
+              ignore: /.*/
+            tags:
+              only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_xcframeworks:
           requires:
+            - release_tag
             - build_xcframeworks
           filters:
             branches:
@@ -1420,12 +1427,6 @@ workflows:
       - release_xcframeworks_combined:
           requires:
             - release_xcframeworks
-          filters:
-            branches:
-              ignore: /.*/
-            tags:
-              only: /^[0-9]+.[0-9]+.[0-9]+$/
-      - release_tag:
           filters:
             branches:
               ignore: /.*/
@@ -1450,7 +1451,7 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - release_cocoapods:
           requires:
-            - add_doc_tag
+            - release_tag
           filters:
             branches:
               ignore: /.*/
@@ -1459,7 +1460,6 @@ workflows:
       - release_carthage:
           requires:
             - build_xcframeworks
-            - add_doc_tag
           filters:
             branches:
               ignore: /.*/
@@ -1467,8 +1467,6 @@ workflows:
               only: /^[0-9]+.[0-9]+.[0-9]+$/
       - bump_ios_sampleapp_version:
           requires:
-            - release_tag
-            - release_xcframeworks_combined
             - release_cocoapods
           filters:
             branches:
