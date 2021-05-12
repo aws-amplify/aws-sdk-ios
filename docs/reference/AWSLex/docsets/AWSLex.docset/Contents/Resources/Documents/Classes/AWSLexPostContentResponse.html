@@ -17,7 +17,7 @@
     <a title="AWSLexPostContentResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLex 2.24.0 Docs</a> (58% documented)</p>
+        <p><a href="../index.html">AWSLex 2.24.1 Docs</a> (58% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLex.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -452,6 +452,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)encodedInputTranscript"></a>
+                    <a name="//apple_ref/objc/Property/encodedInputTranscript" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)encodedInputTranscript">encodedInputTranscript</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The text used to process the request.</p><p>If the input was an audio stream, the <code>encodedInputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p><p>The <code>encodedInputTranscript</code> field is base-64 encoded. You must decode the field before you can use the value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">encodedInputTranscript</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encodedInputTranscript</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLexPostContentResponse(py)encodedMessage"></a>
+                    <a name="//apple_ref/objc/Property/encodedMessage" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)encodedMessage">encodedMessage</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The message to convey to the user. The message can come from the bot&rsquo;s configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot&rsquo;s configuration based on the current interaction context. For example, if Amazon Lex isn&rsquo;t able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p><p>The <code>encodedMessage</code> field is base-64 encoded. You must decode the field before you can use the value.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">encodedMessage</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">encodedMessage</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLexPostContentResponse(py)inputTranscript"></a>
                     <a name="//apple_ref/objc/Property/inputTranscript" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLexPostContentResponse(py)inputTranscript">inputTranscript</a>
@@ -462,7 +526,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The text used to process the request.</p><p>If the input was an audio stream, the <code>inputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p>
+                        <p>The text used to process the request.</p><p>You can use this field only in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the <code>inputTranscript</code> field is null. You should use the <code><a href="../Classes/AWSLexPostContentResponse.html#/c:objc(cs)AWSLexPostContentResponse(py)encodedInputTranscript">encodedInputTranscript</a></code> field instead.</p><p>If the input was an audio stream, the <code>inputTranscript</code> field contains the text extracted from the audio stream. This is the text that is actually processed to recognize intents and slot values. You can use this information to determine if Amazon Lex is correctly processing the audio that you send.</p>
 
                       </div>
                       <div class="declaration">
@@ -526,7 +590,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The message to convey to the user. The message can come from the bot&rsquo;s configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot&rsquo;s configuration based on the current interaction context. For example, if Amazon Lex isn&rsquo;t able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>
+                        <p>You can only use this field in the de-DE, en-AU, en-GB, en-US, es-419, es-ES, es-US, fr-CA, fr-FR, and it-IT locales. In all other locales, the <code>message</code> field is null. You should use the <code><a href="../Classes/AWSLexPostContentResponse.html#/c:objc(cs)AWSLexPostContentResponse(py)encodedMessage">encodedMessage</a></code> field instead.</p><p>The message to convey to the user. The message can come from the bot&rsquo;s configuration or from a Lambda function.</p><p>If the intent is not configured with a Lambda function, or if the Lambda function returned <code>Delegate</code> as the <code>dialogAction.type</code> in its response, Amazon Lex decides on the next course of action and selects an appropriate message from the bot&rsquo;s configuration based on the current interaction context. For example, if Amazon Lex isn&rsquo;t able to understand user input, it uses a clarification prompt message.</p><p>When you create an intent you can assign messages to groups. When messages are assigned to groups Amazon Lex returns one message from each group in the response. The message field is an escaped JSON string containing the messages. For more information about the structure of the JSON string returned, see <a>msg-prompts-formats</a>.</p><p>If the Lambda function returns a message, Amazon Lex passes it to the client in its response.</p>
 
                       </div>
                       <div class="declaration">
@@ -774,8 +838,8 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-04-24)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.6</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-05-12)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
