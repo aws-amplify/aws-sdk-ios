@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.24.1
+
 ### Bug fixes
 - **AWSMobileClient**
   - Fix crash in getUserAttribute api ([PR #3501](https://github.com/aws-amplify/aws-sdk-ios/pull/3501))
