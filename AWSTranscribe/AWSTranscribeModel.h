@@ -96,6 +96,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeMediaFormat) {
     AWSTranscribeMediaFormatWebm,
 };
 
+typedef NS_ENUM(NSInteger, AWSTranscribeMedicalContentIdentificationType) {
+    AWSTranscribeMedicalContentIdentificationTypeUnknown,
+    AWSTranscribeMedicalContentIdentificationTypePhi,
+};
+
 typedef NS_ENUM(NSInteger, AWSTranscribeModelStatus) {
     AWSTranscribeModelStatusUnknown,
     AWSTranscribeModelStatusInProgress,
@@ -412,7 +417,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The language code of the vocabulary entries.</p>
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a>what-is-transcribe</a>.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
@@ -422,7 +427,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable phrases;
 
 /**
- <p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-it-works.html#how-vocabulary">Custom Vocabularies</a>.</p>
+ <p>The S3 location of the text file that contains the definition of the custom vocabulary. The URI must be in the same region as the API endpoint that you are calling. The general form is </p><p>For more information about S3 object names, see <a href="http://docs.aws.amazon.com/AmazonS3/latest/dev/UsingMetadata.html#object-keys">Object Keys</a> in the <i>Amazon S3 Developer Guide</i>.</p><p>For more information about custom vocabularies, see <a href="http://docs.aws.amazon.com/transcribe/latest/dg/how-vocabulary">Custom Vocabularies</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vocabularyFileUri;
 
@@ -1189,6 +1194,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) NSDate * _Nullable completionTime;
 
 /**
+ <p>Shows the type of content that you've configured Amazon Transcribe Medical to identify in a transcription job. If the value is <code>PHI</code>, you've configured the job to identify personal health information (PHI) in the transcription output.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalContentIdentificationType contentIdentificationType;
+
+/**
  <p>A timestamp that shows when the job was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable creationTime;
@@ -1265,6 +1275,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
  <p>A timestamp that shows when the job was completed.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable completionTime;
+
+/**
+ <p>Shows the type of information you've configured Amazon Transcribe Medical to identify in a transcription job. If the value is <code>PHI</code>, you've configured the transcription job to identify personal health information (PHI).</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalContentIdentificationType contentIdentificationType;
 
 /**
  <p>A timestamp that shows when the medical transcription job was created.</p>
@@ -1419,6 +1434,11 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
+ <p>You can configure Amazon Transcribe Medical to label content in the transcription output. If you specify <code>PHI</code>, Amazon Transcribe Medical labels the personal health information (PHI) that it identifies in the transcription output.</p>
+ */
+@property (nonatomic, assign) AWSTranscribeMedicalContentIdentificationType contentIdentificationType;
+
+/**
  <p>The language code for the language spoken in the input media file. US English (en-US) is the valid value for medical transcription jobs. Any other value you enter for language code results in a <code>BadRequestException</code> error.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
@@ -1510,7 +1530,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 @property (nonatomic, strong) AWSTranscribeJobExecutionSettings * _Nullable jobExecutionSettings;
 
 /**
- <p>The language code for the language used in the input media file.</p>
+ <p>The language code for the language used in the input media file.</p><p>To transcribe speech in Modern Standard Arabic (ar-SA), your audio or video file must be encoded at a sample rate of 16000 Hz or higher.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
@@ -1867,7 +1887,7 @@ typedef NS_ENUM(NSInteger, AWSTranscribeVocabularyState) {
 
 
 /**
- <p>The language code of the vocabulary entries.</p>
+ <p>The language code of the vocabulary entries. For a list of languages and their corresponding language codes, see <a>what-is-transcribe</a>.</p>
  */
 @property (nonatomic, assign) AWSTranscribeLanguageCode languageCode;
 
