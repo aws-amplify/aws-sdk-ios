@@ -6,6 +6,7 @@
 
 - Model updates for the following services
   - AWSEC2
+  - AWSTranscribe
 
 ## 2.24.1
 
