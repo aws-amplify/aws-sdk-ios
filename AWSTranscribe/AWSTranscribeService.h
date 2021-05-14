@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)createMedicalVocabulary:(AWSTranscribeCreateMedicalVocabularyRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateMedicalVocabularyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. </p>
+ <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.</p>
  
  @param request A container for the necessary parameters to execute the CreateVocabulary service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeCreateVocabularyResponse *> *)createVocabulary:(AWSTranscribeCreateVocabularyRequest *)request;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file. </p>
+ <p>Creates a new custom vocabulary that you can use to change the way Amazon Transcribe handles transcription of an audio file.</p>
  
  @param request A container for the necessary parameters to execute the CreateVocabulary service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -732,7 +732,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)startMedicalTranscriptionJob:(AWSTranscribeStartMedicalTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartMedicalTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Starts an asynchronous job to transcribe speech to text. </p>
+ <p>Starts an asynchronous job to transcribe speech to text.</p>
  
  @param request A container for the necessary parameters to execute the StartTranscriptionJob service method.
 
@@ -744,7 +744,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeStartTranscriptionJobResponse *> *)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request;
 
 /**
- <p>Starts an asynchronous job to transcribe speech to text. </p>
+ <p>Starts an asynchronous job to transcribe speech to text.</p>
  
  @param request A container for the necessary parameters to execute the StartTranscriptionJob service method.
  @param completionHandler The completion handler to call when the load request is complete.

@@ -3169,6 +3169,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"completionTime" : @"CompletionTime",
+             @"contentIdentificationType" : @"ContentIdentificationType",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
              @"languageCode" : @"LanguageCode",
@@ -3190,6 +3191,22 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)contentIdentificationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PHI"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalContentIdentificationTypePhi);
+        }
+        return @(AWSTranscribeMedicalContentIdentificationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalContentIdentificationTypePhi:
+                return @"PHI";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -3537,6 +3554,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"completionTime" : @"CompletionTime",
+             @"contentIdentificationType" : @"ContentIdentificationType",
              @"creationTime" : @"CreationTime",
              @"failureReason" : @"FailureReason",
              @"languageCode" : @"LanguageCode",
@@ -3554,6 +3572,22 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
         return [NSDate dateWithTimeIntervalSince1970:[number doubleValue]];
     } reverseBlock:^id(NSDate *date) {
         return [NSString stringWithFormat:@"%f", [date timeIntervalSince1970]];
+    }];
+}
+
++ (NSValueTransformer *)contentIdentificationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PHI"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalContentIdentificationTypePhi);
+        }
+        return @(AWSTranscribeMedicalContentIdentificationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalContentIdentificationTypePhi:
+                return @"PHI";
+            default:
+                return nil;
+        }
     }];
 }
 
@@ -3943,6 +3977,7 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"contentIdentificationType" : @"ContentIdentificationType",
              @"languageCode" : @"LanguageCode",
              @"media" : @"Media",
              @"mediaFormat" : @"MediaFormat",
@@ -3955,6 +3990,22 @@ NSString *const AWSTranscribeErrorDomain = @"com.amazonaws.AWSTranscribeErrorDom
              @"specialty" : @"Specialty",
              @"types" : @"Type",
              };
+}
+
++ (NSValueTransformer *)contentIdentificationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"PHI"] == NSOrderedSame) {
+            return @(AWSTranscribeMedicalContentIdentificationTypePhi);
+        }
+        return @(AWSTranscribeMedicalContentIdentificationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSTranscribeMedicalContentIdentificationTypePhi:
+                return @"PHI";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)languageCodeJSONTransformer {
