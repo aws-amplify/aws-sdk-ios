@@ -33,7 +33,6 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"roleArn" : @"RoleArn",
              @"roleSessionName" : @"RoleSessionName",
              @"serialNumber" : @"SerialNumber",
-             @"sourceIdentity" : @"SourceIdentity",
              @"tags" : @"Tags",
              @"tokenCode" : @"TokenCode",
              @"transitiveTagKeys" : @"TransitiveTagKeys",
@@ -61,7 +60,6 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"assumedRoleUser" : @"AssumedRoleUser",
              @"credentials" : @"Credentials",
              @"packedPolicySize" : @"PackedPolicySize",
-             @"sourceIdentity" : @"SourceIdentity",
              };
 }
 
@@ -112,7 +110,6 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"issuer" : @"Issuer",
              @"nameQualifier" : @"NameQualifier",
              @"packedPolicySize" : @"PackedPolicySize",
-             @"sourceIdentity" : @"SourceIdentity",
              @"subject" : @"Subject",
              @"subjectType" : @"SubjectType",
              };
@@ -165,7 +162,6 @@ NSString *const AWSSTSErrorDomain = @"com.amazonaws.AWSSTSErrorDomain";
              @"credentials" : @"Credentials",
              @"packedPolicySize" : @"PackedPolicySize",
              @"provider" : @"Provider",
-             @"sourceIdentity" : @"SourceIdentity",
              @"subjectFromWebIdentityToken" : @"SubjectFromWebIdentityToken",
              };
 }
