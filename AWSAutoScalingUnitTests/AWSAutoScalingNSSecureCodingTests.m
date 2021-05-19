@@ -41,6 +41,7 @@
 - (void) test_AWSAutoScalingBlockDeviceMapping API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingCancelInstanceRefreshAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingCancelInstanceRefreshType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingCapacityForecast API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingCompleteLifecycleActionAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingCompleteLifecycleActionType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingCreateAutoScalingGroupType API_AVAILABLE(ios(11));
@@ -96,6 +97,8 @@
 - (void) test_AWSAutoScalingExitStandbyQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingFailedScheduledUpdateGroupActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingFilter API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingGetPredictiveScalingForecastAnswer API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingGetPredictiveScalingForecastType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstance API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMetadataOptions API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingInstanceMonitoring API_AVAILABLE(ios(11));
@@ -115,6 +118,7 @@
 - (void) test_AWSAutoScalingLifecycleHookSpecification API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLoadBalancerState API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingLoadBalancerTargetGroupState API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingLoadForecast API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingMetricCollectionType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingMetricDimension API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingMetricGranularityType API_AVAILABLE(ios(11));
@@ -123,6 +127,11 @@
 - (void) test_AWSAutoScalingPoliciesType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPolicyARNType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPredefinedMetricSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPredictiveScalingConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPredictiveScalingMetricSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedLoadMetric API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedMetricPair API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedScalingMetric API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingProcessType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingProcessesType API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingPutLifecycleHookAnswer API_AVAILABLE(ios(11));
@@ -246,6 +255,10 @@
 
 - (void) test_AWSAutoScalingCancelInstanceRefreshType {
     [self validateSecureCodingForClass:[AWSAutoScalingCancelInstanceRefreshType class]];
+}
+
+- (void) test_AWSAutoScalingCapacityForecast {
+    [self validateSecureCodingForClass:[AWSAutoScalingCapacityForecast class]];
 }
 
 - (void) test_AWSAutoScalingCompleteLifecycleActionAnswer {
@@ -468,6 +481,14 @@
     [self validateSecureCodingForClass:[AWSAutoScalingFilter class]];
 }
 
+- (void) test_AWSAutoScalingGetPredictiveScalingForecastAnswer {
+    [self validateSecureCodingForClass:[AWSAutoScalingGetPredictiveScalingForecastAnswer class]];
+}
+
+- (void) test_AWSAutoScalingGetPredictiveScalingForecastType {
+    [self validateSecureCodingForClass:[AWSAutoScalingGetPredictiveScalingForecastType class]];
+}
+
 - (void) test_AWSAutoScalingInstance {
     [self validateSecureCodingForClass:[AWSAutoScalingInstance class]];
 }
@@ -544,6 +565,10 @@
     [self validateSecureCodingForClass:[AWSAutoScalingLoadBalancerTargetGroupState class]];
 }
 
+- (void) test_AWSAutoScalingLoadForecast {
+    [self validateSecureCodingForClass:[AWSAutoScalingLoadForecast class]];
+}
+
 - (void) test_AWSAutoScalingMetricCollectionType {
     [self validateSecureCodingForClass:[AWSAutoScalingMetricCollectionType class]];
 }
@@ -574,6 +599,26 @@
 
 - (void) test_AWSAutoScalingPredefinedMetricSpecification {
     [self validateSecureCodingForClass:[AWSAutoScalingPredefinedMetricSpecification class]];
+}
+
+- (void) test_AWSAutoScalingPredictiveScalingConfiguration {
+    [self validateSecureCodingForClass:[AWSAutoScalingPredictiveScalingConfiguration class]];
+}
+
+- (void) test_AWSAutoScalingPredictiveScalingMetricSpecification {
+    [self validateSecureCodingForClass:[AWSAutoScalingPredictiveScalingMetricSpecification class]];
+}
+
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedLoadMetric {
+    [self validateSecureCodingForClass:[AWSAutoScalingPredictiveScalingPredefinedLoadMetric class]];
+}
+
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedMetricPair {
+    [self validateSecureCodingForClass:[AWSAutoScalingPredictiveScalingPredefinedMetricPair class]];
+}
+
+- (void) test_AWSAutoScalingPredictiveScalingPredefinedScalingMetric {
+    [self validateSecureCodingForClass:[AWSAutoScalingPredictiveScalingPredefinedScalingMetric class]];
 }
 
 - (void) test_AWSAutoScalingProcessType {
