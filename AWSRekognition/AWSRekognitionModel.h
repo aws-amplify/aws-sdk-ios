@@ -863,6 +863,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK). You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, or an alias for your CMK. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
+
+/**
  <p>The Amazon S3 location to store the results of training.</p>
  */
 @property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
@@ -3139,6 +3144,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The training results. <code>EvaluationResult</code> is only returned if training is successful.</p>
  */
 @property (nonatomic, strong) AWSRekognitionEvaluationResult * _Nullable evaluationResult;
+
+/**
+ <p>The identifer for the AWS Key Management Service (AWS KMS) customer master key that was used to encrypt the model during training. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
  <p>The location of the summary manifest. The summary manifest provides aggregate data validation results for the training and test datasets.</p>

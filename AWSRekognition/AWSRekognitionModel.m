@@ -494,6 +494,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"kmsKeyId" : @"KmsKeyId",
              @"outputConfig" : @"OutputConfig",
              @"projectArn" : @"ProjectArn",
              @"tags" : @"Tags",
@@ -3349,6 +3350,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
              @"billableTrainingTimeInSeconds" : @"BillableTrainingTimeInSeconds",
              @"creationTimestamp" : @"CreationTimestamp",
              @"evaluationResult" : @"EvaluationResult",
+             @"kmsKeyId" : @"KmsKeyId",
              @"manifestSummary" : @"ManifestSummary",
              @"minInferenceUnits" : @"MinInferenceUnits",
              @"outputConfig" : @"OutputConfig",
