@@ -220,7 +220,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
             completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
 
     __block __weak NSOperation *weakGetSessionOperation;
-    NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *getSessionOperation = [NSBlockOperation blockOperationWithBlock:^{
         self.presentationAnchor = nil;
         [self prepareForSignIn:vc completion:completion];
         [self launchSignInVC:vc];
@@ -236,7 +236,7 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
                    completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
     
     __block __weak NSOperation *weakGetSessionOperation;
-    NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
+    NSOperation *getSessionOperation = [NSBlockOperation blockOperationWithBlock:^{
         self.presentationAnchor = anchor;
         [self prepareForSignIn:nil completion:completion];
         [self launchSignInVC:nil];

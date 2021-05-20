@@ -106,7 +106,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
 + (void)removeCognitoAuthForKey:(NSString *)key;
 
 /**
- Launches the signin UI and updates the session after the user logs in. Current user data is cleared
+ Launches the signin UI and updates the session after the user logs in.
  @param vc Presentation view controller to display the hosted UI signIn
  @param completion completion block to invoke on completion
  */
@@ -114,7 +114,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
             completion:(nullable AWSCognitoAuthGetSessionBlock) completion;
 
 /**
- Launches the signin UI and updates the session after the user logs in. Current user data is cleared
+ Launches the signin UI and updates the session after the user logs in.
  @param anchor Presentation anchor to display the hosted UI signIn
  @param completion completion block to invoke on completion
  */
