@@ -216,6 +216,27 @@
           "headers": {},
           "body": "{\"TimeMember\": \"1398796238\", \"StructMember\": {\"unix\": 1398796238, \"iso8601\": \"1398796238\", \"rfc822\": \"1398796238\"}}"
         }
+      },
+      {
+        "given": {
+          "output": {
+            "shape": "OutputShape"
+          },
+          "name": "OperationName"
+        },
+        "result": {
+          "TimeMember": 0,
+          "StructMember": {
+            "unix": 0,
+            "rfc822": 0,
+            "iso8601": 0
+          }
+        },
+        "response": {
+          "status_code": 200,
+          "headers": {},
+          "body": "{\"TimeMember\": null, \"StructMember\": {\"unix\": null, \"iso8601\": null, \"rfc822\": null}}"
+        }
       }
     ]
   },

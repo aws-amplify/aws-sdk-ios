@@ -53,7 +53,7 @@ NSString *const AWSTimestampSerializationErrorDomain = @"com.amazonaws.AWSTimest
 
 // Check and handle `timestampFormat` trait if present on a timestamp object
 + (nullable NSString *)serializeTimestamp:(NSDictionary *)rules value:(id)value error:(NSError *__autoreleasing *)error {
-    if (!value || ![rules[@"type"] isEqualToString:@"timestamp"]) {
+    if (!value || [value isEqual:[NSNull null]] || ![rules[@"type"] isEqualToString:@"timestamp"]) {
         return nil;
     } else {
         //generate string presentation of timestamp
