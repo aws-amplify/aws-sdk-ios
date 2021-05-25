@@ -217,36 +217,29 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 }
 
 - (void)launchSignInWithViewController:(UIViewController *) vc
-            completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
-
-    __block __weak NSOperation *weakGetSessionOperation;
-    NSOperation *getSessionOperation = [NSBlockOperation blockOperationWithBlock:^{
-        self.presentationAnchor = nil;
-        [self prepareForSignIn:vc completion:completion];
-        [self launchSignInVC:vc];
-        if(weakGetSessionOperation.isCancelled){
-            [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
-        }
-    }];
-    weakGetSessionOperation = getSessionOperation;
-    [self.getSessionQueue addOperation:getSessionOperation];
+                            completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
+    [self launchUsing:nil uiViewController:vc completion:completion];
 }
 
 - (void)launchSignInWithWebUI:(nonnull ASPresentationAnchor) anchor
                    completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
-    
+    [self launchUsing:anchor uiViewController:nil completion:completion];
+}
+
+- (void)launchUsing:(nullable ASPresentationAnchor) anchor
+   uiViewController:(nullable UIViewController *) vc
+         completion:(nullable AWSCognitoAuthGetSessionBlock) completion {
     __block __weak NSOperation *weakGetSessionOperation;
     NSOperation *getSessionOperation = [NSBlockOperation blockOperationWithBlock:^{
         self.presentationAnchor = anchor;
-        [self prepareForSignIn:nil completion:completion];
-        [self launchSignInVC:nil];
+        [self prepareForSignIn:vc completion:completion];
         if(weakGetSessionOperation.isCancelled){
             [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
         }
+        [self launchSignInVC:vc];
     }];
     weakGetSessionOperation = getSessionOperation;
     [self.getSessionQueue addOperation:getSessionOperation];
-    
 }
 
 #pragma mark get session

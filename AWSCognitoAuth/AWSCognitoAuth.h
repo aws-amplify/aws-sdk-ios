@@ -111,7 +111,7 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  @param completion completion block to invoke on completion
  */
 - (void)launchSignInWithViewController:(UIViewController *) vc
-            completion:(nullable AWSCognitoAuthGetSessionBlock) completion;
+                            completion:(nullable AWSCognitoAuthGetSessionBlock) completion;
 
 /**
  Launches the signin UI and updates the session after the user logs in.
