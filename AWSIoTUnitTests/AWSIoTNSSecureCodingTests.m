@@ -113,6 +113,8 @@
 - (void) test_AWSIoTCreateDynamicThingGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateJobTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTCreateJobTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateKeysAndCertificateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateKeysAndCertificateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTCreateMitigationActionRequest API_AVAILABLE(ios(11));
@@ -168,6 +170,7 @@
 - (void) test_AWSIoTDeleteDynamicThingGroupResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteJobExecutionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDeleteJobTemplateRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteMitigationActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteMitigationActionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDeleteOTAUpdateRequest API_AVAILABLE(ios(11));
@@ -239,6 +242,8 @@
 - (void) test_AWSIoTDescribeJobExecutionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeJobResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeJobTemplateRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTDescribeJobTemplateResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeMitigationActionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTDescribeProvisioningTemplateRequest API_AVAILABLE(ios(11));
@@ -337,6 +342,7 @@
 - (void) test_AWSIoTJobExecutionsRolloutConfig API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobProcessDetails API_AVAILABLE(ios(11));
 - (void) test_AWSIoTJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSIoTJobTemplateSummary API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKafkaAction API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKeyPair API_AVAILABLE(ios(11));
 - (void) test_AWSIoTKinesisAction API_AVAILABLE(ios(11));
@@ -381,6 +387,8 @@
 - (void) test_AWSIoTListJobExecutionsForJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForThingRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobExecutionsForThingResponse API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListJobTemplatesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSIoTListJobTemplatesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSIoTListMitigationActionsRequest API_AVAILABLE(ios(11));
@@ -1003,6 +1011,14 @@
     [self validateSecureCodingForClass:[AWSIoTCreateJobResponse class]];
 }
 
+- (void) test_AWSIoTCreateJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTCreateJobTemplateRequest class]];
+}
+
+- (void) test_AWSIoTCreateJobTemplateResponse {
+    [self validateSecureCodingForClass:[AWSIoTCreateJobTemplateResponse class]];
+}
+
 - (void) test_AWSIoTCreateKeysAndCertificateRequest {
     [self validateSecureCodingForClass:[AWSIoTCreateKeysAndCertificateRequest class]];
 }
@@ -1221,6 +1237,10 @@
 
 - (void) test_AWSIoTDeleteJobRequest {
     [self validateSecureCodingForClass:[AWSIoTDeleteJobRequest class]];
+}
+
+- (void) test_AWSIoTDeleteJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTDeleteJobTemplateRequest class]];
 }
 
 - (void) test_AWSIoTDeleteMitigationActionRequest {
@@ -1505,6 +1525,14 @@
 
 - (void) test_AWSIoTDescribeJobResponse {
     [self validateSecureCodingForClass:[AWSIoTDescribeJobResponse class]];
+}
+
+- (void) test_AWSIoTDescribeJobTemplateRequest {
+    [self validateSecureCodingForClass:[AWSIoTDescribeJobTemplateRequest class]];
+}
+
+- (void) test_AWSIoTDescribeJobTemplateResponse {
+    [self validateSecureCodingForClass:[AWSIoTDescribeJobTemplateResponse class]];
 }
 
 - (void) test_AWSIoTDescribeMitigationActionRequest {
@@ -1899,6 +1927,10 @@
     [self validateSecureCodingForClass:[AWSIoTJobSummary class]];
 }
 
+- (void) test_AWSIoTJobTemplateSummary {
+    [self validateSecureCodingForClass:[AWSIoTJobTemplateSummary class]];
+}
+
 - (void) test_AWSIoTKafkaAction {
     [self validateSecureCodingForClass:[AWSIoTKafkaAction class]];
 }
@@ -2073,6 +2105,14 @@
 
 - (void) test_AWSIoTListJobExecutionsForThingResponse {
     [self validateSecureCodingForClass:[AWSIoTListJobExecutionsForThingResponse class]];
+}
+
+- (void) test_AWSIoTListJobTemplatesRequest {
+    [self validateSecureCodingForClass:[AWSIoTListJobTemplatesRequest class]];
+}
+
+- (void) test_AWSIoTListJobTemplatesResponse {
+    [self validateSecureCodingForClass:[AWSIoTListJobTemplatesResponse class]];
 }
 
 - (void) test_AWSIoTListJobsRequest {

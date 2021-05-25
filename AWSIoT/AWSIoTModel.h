@@ -26,6 +26,7 @@ typedef NS_ENUM(NSInteger, AWSIoTErrorType) {
     AWSIoTErrorCertificateConflict,
     AWSIoTErrorCertificateState,
     AWSIoTErrorCertificateValidation,
+    AWSIoTErrorConflict,
     AWSIoTErrorConflictingResourceUpdate,
     AWSIoTErrorDeleteConflict,
     AWSIoTErrorIndexNotReady,
@@ -600,6 +601,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTCreateDynamicThingGroupResponse;
 @class AWSIoTCreateJobRequest;
 @class AWSIoTCreateJobResponse;
+@class AWSIoTCreateJobTemplateRequest;
+@class AWSIoTCreateJobTemplateResponse;
 @class AWSIoTCreateKeysAndCertificateRequest;
 @class AWSIoTCreateKeysAndCertificateResponse;
 @class AWSIoTCreateMitigationActionRequest;
@@ -655,6 +658,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDeleteDynamicThingGroupResponse;
 @class AWSIoTDeleteJobExecutionRequest;
 @class AWSIoTDeleteJobRequest;
+@class AWSIoTDeleteJobTemplateRequest;
 @class AWSIoTDeleteMitigationActionRequest;
 @class AWSIoTDeleteMitigationActionResponse;
 @class AWSIoTDeleteOTAUpdateRequest;
@@ -726,6 +730,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTDescribeJobExecutionResponse;
 @class AWSIoTDescribeJobRequest;
 @class AWSIoTDescribeJobResponse;
+@class AWSIoTDescribeJobTemplateRequest;
+@class AWSIoTDescribeJobTemplateResponse;
 @class AWSIoTDescribeMitigationActionRequest;
 @class AWSIoTDescribeMitigationActionResponse;
 @class AWSIoTDescribeProvisioningTemplateRequest;
@@ -824,6 +830,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTJobExecutionsRolloutConfig;
 @class AWSIoTJobProcessDetails;
 @class AWSIoTJobSummary;
+@class AWSIoTJobTemplateSummary;
 @class AWSIoTKafkaAction;
 @class AWSIoTKeyPair;
 @class AWSIoTKinesisAction;
@@ -868,6 +875,8 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @class AWSIoTListJobExecutionsForJobResponse;
 @class AWSIoTListJobExecutionsForThingRequest;
 @class AWSIoTListJobExecutionsForThingResponse;
+@class AWSIoTListJobTemplatesRequest;
+@class AWSIoTListJobTemplatesResponse;
 @class AWSIoTListJobsRequest;
 @class AWSIoTListJobsResponse;
 @class AWSIoTListMitigationActionsRequest;
@@ -1595,7 +1604,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached.</p>
+ <p>The <a href="https://docs.aws.amazon.com/iot/latest/developerguide/security-iam.html">identity</a> to which the policy is attached. For example, a thing group or a certificate.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable target;
 
@@ -3423,12 +3432,12 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The job document.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note>
+ <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable document;
 
 /**
- <p>An S3 link to the job document.</p>
+ <p>An S3 link to the job document. Required if you don't specify a value for <code>document</code>.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note>
  */
 @property (nonatomic, strong) NSString * _Nullable documentSource;
 
@@ -3441,6 +3450,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>A job identifier which must be unique for your AWS account. We recommend using a UUID. Alpha-numeric characters, "-" and "_" are valid for use here.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
+
+/**
+ <p>The ARN of the job template used to create the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateArn;
 
 /**
  <p>The namespace used to indicate that a job is a customer-managed job.</p><p>When you specify a value for this parameter, AWS IoT Core sends jobs notifications to MQTT topics that contain the value in the following format.</p><p><code>$aws/things/<i>THING_NAME</i>/jobs/<i>JOB_ID</i>/notify-namespace-<i>NAMESPACE_ID</i>/</code></p><note><p>The <code>namespaceId</code> feature is in public preview.</p></note>
@@ -3494,6 +3508,82 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The unique identifier you assigned to this job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCreateJobTemplateRequest : AWSRequest
+
+
+/**
+ <p>The criteria that determine when and how a job abort takes place.</p>
+ */
+@property (nonatomic, strong) AWSIoTAbortConfig * _Nullable abortConfig;
+
+/**
+ <p>A description of the job document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The job document. Required if you don't specify a value for <code>documentSource</code>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable document;
+
+/**
+ <p>An S3 link to the job document to use in the template. Required if you don't specify a value for <code>document</code>.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:https://s3.amazonaws.com/<i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note>
+ */
+@property (nonatomic, strong) NSString * _Nullable documentSource;
+
+/**
+ <p>The ARN of the job to use as the basis for the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
+
+/**
+ <p>Allows you to create a staged rollout of a job.</p>
+ */
+@property (nonatomic, strong) AWSIoTJobExecutionsRolloutConfig * _Nullable jobExecutionsRolloutConfig;
+
+/**
+ <p>A unique identifier for the job template. We recommend using a UUID. Alpha-numeric characters, "-", and "_" are valid for use here.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
+
+/**
+ <p>Configuration for pre-signed S3 URLs.</p>
+ */
+@property (nonatomic, strong) AWSIoTPresignedUrlConfig * _Nullable presignedUrlConfig;
+
+/**
+ <p>Metadata that can be used to manage the job template.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTTag *> * _Nullable tags;
+
+/**
+ <p>Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.</p>
+ */
+@property (nonatomic, strong) AWSIoTTimeoutConfig * _Nullable timeoutConfig;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTCreateJobTemplateResponse : AWSModel
+
+
+/**
+ <p>The ARN of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateArn;
+
+/**
+ <p>The unique identifier of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
 
 @end
 
@@ -4682,6 +4772,19 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 /**
  
  */
+@interface AWSIoTDeleteJobTemplateRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier of the job template to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSIoTDeleteMitigationActionRequest : AWSRequest
 
 
@@ -5818,6 +5921,77 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 /**
  
  */
+@interface AWSIoTDescribeJobTemplateRequest : AWSRequest
+
+
+/**
+ <p>The unique identifier of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTDescribeJobTemplateResponse : AWSModel
+
+
+/**
+ <p>The criteria that determine when and how a job abort takes place.</p>
+ */
+@property (nonatomic, strong) AWSIoTAbortConfig * _Nullable abortConfig;
+
+/**
+ <p>The time, in seconds since the epoch, when the job template was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ <p>A description of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The job document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable document;
+
+/**
+ <p>An S3 link to the job document.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable documentSource;
+
+/**
+ <p>Allows you to create a staged rollout of a job.</p>
+ */
+@property (nonatomic, strong) AWSIoTJobExecutionsRolloutConfig * _Nullable jobExecutionsRolloutConfig;
+
+/**
+ <p>The ARN of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateArn;
+
+/**
+ <p>The unique identifier of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
+
+/**
+ <p>Configuration for pre-signed S3 URLs.</p>
+ */
+@property (nonatomic, strong) AWSIoTPresignedUrlConfig * _Nullable presignedUrlConfig;
+
+/**
+ <p>Specifies the amount of time each device has to finish its execution of the job. A timer is started when the job execution status is set to <code>IN_PROGRESS</code>. If the job execution status is not set to another terminal state before the timer expires, it will be automatically set to <code>TIMED_OUT</code>.</p>
+ */
+@property (nonatomic, strong) AWSIoTTimeoutConfig * _Nullable timeoutConfig;
+
+@end
+
+/**
+ 
+ */
 @interface AWSIoTDescribeMitigationActionRequest : AWSRequest
 
 
@@ -6703,7 +6877,7 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @end
 
 /**
- <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an AWS-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p><ul><li><p>Data</p></li><li><p>Jobs</p></li><li><p>CredentialProvider</p></li></ul><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>The summary of a domain configuration. A domain configuration specifies custom IoT-specific information about a domain. A domain configuration can be associated with an AWS-managed domain (for example, dbc123defghijk.iot.us-west-2.amazonaws.com), a customer managed domain, or a default endpoint.</p><ul><li><p>Data</p></li><li><p>Jobs</p></li><li><p>CredentialProvider</p></li></ul>
  */
 @interface AWSIoTDomainConfigurationSummary : AWSModel
 
@@ -7839,6 +8013,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
 @property (nonatomic, strong) AWSIoTJobProcessDetails * _Nullable jobProcessDetails;
 
 /**
+ <p>The ARN of the job template used to create the job.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateArn;
+
+/**
  <p>The time, in seconds since the epoch, when the job was last updated.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable lastUpdatedAt;
@@ -8141,6 +8320,34 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The ID of the thing group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable thingGroupId;
+
+@end
+
+/**
+ <p>An object that contains information about the job template.</p>
+ */
+@interface AWSIoTJobTemplateSummary : AWSModel
+
+
+/**
+ <p>The time, in seconds since the epoch, when the job template was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ <p>A description of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The ARN of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateArn;
+
+/**
+ <p>The unique identifier of the job template.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobTemplateId;
 
 @end
 
@@ -9182,6 +9389,42 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>A list of job execution summaries.</p>
  */
 @property (nonatomic, strong) NSArray<AWSIoTJobExecutionSummaryForThing *> * _Nullable executionSummaries;
+
+/**
+ <p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListJobTemplatesRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of results to return in the list.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token to use to return the next set of results in the list.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSIoTListJobTemplatesResponse : AWSModel
+
+
+/**
+ <p>A list of objects that contain information about the job templates.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSIoTJobTemplateSummary *> * _Nullable jobTemplates;
 
 /**
  <p>The token for the next set of results, or <b>null</b> if there are no additional results.</p>
@@ -10367,6 +10610,11 @@ typedef NS_ENUM(NSInteger, AWSIoTViolationEventType) {
  <p>The name of the thing type used to search for things.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable thingTypeName;
+
+/**
+ <p>When <code>true</code>, the action returns the thing resources with attribute values that start with the <code>attributeValue</code> provided.</p><p>When <code>false</code>, or not present, the action returns only the thing resources with attribute values that match the entire <code>attributeValue</code> provided. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable usePrefixAttributeValue;
 
 @end
 

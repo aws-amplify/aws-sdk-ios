@@ -42,6 +42,7 @@ static NSDictionary *errorCodeDictionary = nil;
                             @"CertificateConflictException" : @(AWSIoTErrorCertificateConflict),
                             @"CertificateStateException" : @(AWSIoTErrorCertificateState),
                             @"CertificateValidationException" : @(AWSIoTErrorCertificateValidation),
+                            @"ConflictException" : @(AWSIoTErrorConflict),
                             @"ConflictingResourceUpdateException" : @(AWSIoTErrorConflictingResourceUpdate),
                             @"DeleteConflictException" : @(AWSIoTErrorDeleteConflict),
                             @"IndexNotReadyException" : @(AWSIoTErrorIndexNotReady),
@@ -874,6 +875,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSIoTCreateJobTemplateResponse *> *)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"CreateJobTemplate"
+                   outputClass:[AWSIoTCreateJobTemplateResponse class]];
+}
+
+- (void)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTCreateJobTemplateResponse *response, NSError *error))completionHandler {
+    [[self createJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTCreateJobTemplateResponse *> * _Nonnull task) {
+        AWSIoTCreateJobTemplateResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSIoTCreateKeysAndCertificateResponse *> *)createKeysAndCertificate:(AWSIoTCreateKeysAndCertificateRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1527,6 +1551,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (void)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request
      completionHandler:(void (^)(NSError *error))completionHandler {
     [[self deleteJobExecution:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask *)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodDELETE
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"DeleteJobTemplate"
+                   outputClass:nil];
+}
+
+- (void)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self deleteJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2374,6 +2420,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTDescribeJobExecutionResponse *response, NSError *error))completionHandler {
     [[self describeJobExecution:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeJobExecutionResponse *> * _Nonnull task) {
         AWSIoTDescribeJobExecutionResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTDescribeJobTemplateResponse *> *)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/job-templates/{jobTemplateId}"
+                  targetPrefix:@""
+                 operationName:@"DescribeJobTemplate"
+                   outputClass:[AWSIoTDescribeJobTemplateResponse class]];
+}
+
+- (void)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request
+     completionHandler:(void (^)(AWSIoTDescribeJobTemplateResponse *response, NSError *error))completionHandler {
+    [[self describeJobTemplate:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTDescribeJobTemplateResponse *> * _Nonnull task) {
+        AWSIoTDescribeJobTemplateResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -3566,6 +3635,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSIoTListJobExecutionsForThingResponse *response, NSError *error))completionHandler {
     [[self listJobExecutionsForThing:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobExecutionsForThingResponse *> * _Nonnull task) {
         AWSIoTListJobExecutionsForThingResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSIoTListJobTemplatesResponse *> *)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/job-templates"
+                  targetPrefix:@""
+                 operationName:@"ListJobTemplates"
+                   outputClass:[AWSIoTListJobTemplatesResponse class]];
+}
+
+- (void)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request
+     completionHandler:(void (^)(AWSIoTListJobTemplatesResponse *response, NSError *error))completionHandler {
+    [[self listJobTemplates:request] continueWithBlock:^id _Nullable(AWSTask<AWSIoTListJobTemplatesResponse *> * _Nonnull task) {
+        AWSIoTListJobTemplatesResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
