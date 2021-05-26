@@ -47,12 +47,18 @@ class HostedUIUserPoolViewController: UIViewController {
     }
 
     private func invalidateRefreshToken() {
-        let key = getTokenKeychain()
-        getKeychain().removeItem(forKey: key)
+        // Invalidate the access token first, so that the logic will move to refreshing the token
+        invalidateAccessToken()
+        
+        // Replace the refresh token with an invalid token
+        let namespace = getKeyChainNameSpace()
+        let key = "\(namespace).refreshToken"
+        getKeychain().setString("xxx-some-invalid-token", forKey: key)
     }
 
     private func invalidateAccessToken() {
-        let key = getTokenKeychain()
+        let namespace = getKeyChainNameSpace()
+        let key = "\(namespace).tokenExpiration"
         let pastDate = Date(timeIntervalSinceNow: -1)
         let formattedDate = ISO8601DateFormatter().string(from: pastDate)
         let dateData = formattedDate.data(using: .utf8)
@@ -65,14 +71,13 @@ class HostedUIUserPoolViewController: UIViewController {
         return keychain
     }
 
-    private func getTokenKeychain() -> String {
+    private func getKeyChainNameSpace() -> String {
         let mobileClientConfig = AWSTestConfiguration.getIntegrationTestConfiguration(forPackageId: "mobileclient")
         let awsconfiguration = mobileClientConfig["awsconfiguration"] as! [String: Any]
         let userPoolConfig = awsconfiguration["CognitoUserPool"] as! [String: [String: Any]]
         let appClientId = (userPoolConfig["Default"]!["AppClientId"] as! String)
-        let namespace = "\(appClientId).\(AWSMobileClient.default().username ?? "")"
-        let key = "\(namespace).tokenExpiration"
-        return key
+        return "\(appClientId).\(AWSMobileClient.default().username ?? "")"
+        
     }
 }
 

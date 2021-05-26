@@ -35,12 +35,23 @@ class UserDetailsViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        listenUserState()
         refreshData()
     }
     
     @IBAction func updateUserAttributeAction(_ sender: Any) {
         resetData()
         updateUserAttributes()
+    }
+    
+    func listenUserState() {
+        AWSMobileClient.default().addUserStateListener(self) { (state, additionalInfo) in
+
+            if (state == .signedOutUserPoolsTokenInvalid) {
+                // Dismiss this view if the user state expired.
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     func refreshData() {
