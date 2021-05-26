@@ -913,44 +913,46 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
-- (AWSTask *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request {
+- (AWSTask<AWSEC2AuthorizeSecurityGroupEgressResult *> *)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AuthorizeSecurityGroupEgress"
-                   outputClass:nil];
+                   outputClass:[AWSEC2AuthorizeSecurityGroupEgressResult class]];
 }
 
 - (void)authorizeSecurityGroupEgress:(AWSEC2AuthorizeSecurityGroupEgressRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self authorizeSecurityGroupEgress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2AuthorizeSecurityGroupEgressResult *response, NSError *error))completionHandler {
+    [[self authorizeSecurityGroupEgress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AuthorizeSecurityGroupEgressResult *> * _Nonnull task) {
+        AWSEC2AuthorizeSecurityGroupEgressResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
     }];
 }
 
-- (AWSTask *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request {
+- (AWSTask<AWSEC2AuthorizeSecurityGroupIngressResult *> *)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
                      URLString:@""
                   targetPrefix:@""
                  operationName:@"AuthorizeSecurityGroupIngress"
-                   outputClass:nil];
+                   outputClass:[AWSEC2AuthorizeSecurityGroupIngressResult class]];
 }
 
 - (void)authorizeSecurityGroupIngress:(AWSEC2AuthorizeSecurityGroupIngressRequest *)request
-     completionHandler:(void (^)(NSError *error))completionHandler {
-    [[self authorizeSecurityGroupIngress:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+     completionHandler:(void (^)(AWSEC2AuthorizeSecurityGroupIngressResult *response, NSError *error))completionHandler {
+    [[self authorizeSecurityGroupIngress:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AuthorizeSecurityGroupIngressResult *> * _Nonnull task) {
+        AWSEC2AuthorizeSecurityGroupIngressResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
-            completionHandler(error);
+            completionHandler(result, error);
         }
 
         return nil;
@@ -5876,6 +5878,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeSecurityGroupRulesResult *> *)describeSecurityGroupRules:(AWSEC2DescribeSecurityGroupRulesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeSecurityGroupRules"
+                   outputClass:[AWSEC2DescribeSecurityGroupRulesResult class]];
+}
+
+- (void)describeSecurityGroupRules:(AWSEC2DescribeSecurityGroupRulesRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeSecurityGroupRulesResult *response, NSError *error))completionHandler {
+    [[self describeSecurityGroupRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeSecurityGroupRulesResult *> * _Nonnull task) {
+        AWSEC2DescribeSecurityGroupRulesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeSecurityGroupsResult *> *)describeSecurityGroups:(AWSEC2DescribeSecurityGroupsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8728,6 +8753,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyReservedInstancesResult *response, NSError *error))completionHandler {
     [[self modifyReservedInstances:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyReservedInstancesResult *> * _Nonnull task) {
         AWSEC2ModifyReservedInstancesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifySecurityGroupRulesResult *> *)modifySecurityGroupRules:(AWSEC2ModifySecurityGroupRulesRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifySecurityGroupRules"
+                   outputClass:[AWSEC2ModifySecurityGroupRulesResult class]];
+}
+
+- (void)modifySecurityGroupRules:(AWSEC2ModifySecurityGroupRulesRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifySecurityGroupRulesResult *response, NSError *error))completionHandler {
+    [[self modifySecurityGroupRules:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifySecurityGroupRulesResult *> * _Nonnull task) {
+        AWSEC2ModifySecurityGroupRulesResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
