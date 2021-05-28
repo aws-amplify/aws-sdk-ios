@@ -355,7 +355,10 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         _effectiveDate = [decoder decodeInt64ForKey:@"effectiveDate"];
         _location = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileLocation class] forKey:@"location"];
         _demographic = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileDemographic class] forKey:@"demographic"];
-        _attributes = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"attributes"];
+
+        NSSet * attributesClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSString class], nil];
+        _attributes = [decoder decodeObjectOfClasses:attributesClasses forKey:@"attributes"];
+
         _metrics = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"metrics"];
         _user = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileUser class] forKey:@"user"];
     }
