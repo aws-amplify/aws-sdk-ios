@@ -46,7 +46,7 @@ class UserDetailsViewController: UIViewController {
     
     func listenUserState() {
         AWSMobileClient.default().addUserStateListener(self) { (state, additionalInfo) in
-
+            print("User details state change - \(state)")
             if (state == .signedOutUserPoolsTokenInvalid) {
                 // Dismiss this view if the user state expired.
                 self.navigationController?.popViewController(animated: true)
