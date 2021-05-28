@@ -359,7 +359,9 @@ NSString *DEBUG_CHANNEL_TYPE = @"APNS_SANDBOX";
         NSSet * attributesClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSString class], nil];
         _attributes = [decoder decodeObjectOfClasses:attributesClasses forKey:@"attributes"];
 
-        _metrics = [decoder decodeObjectOfClass:[NSDictionary class] forKey:@"metrics"];
+        NSSet * metricsClasses = [NSSet setWithObjects:[NSDictionary class], [NSArray class], [NSNumber class], nil];
+        _metrics = [decoder decodeObjectOfClasses:metricsClasses forKey:@"metrics"];
+
         _user = [decoder decodeObjectOfClass:[AWSPinpointEndpointProfileUser class] forKey:@"user"];
     }
     return self;

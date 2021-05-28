@@ -34,14 +34,13 @@
         XCTAssertNil(error);
 
         AWSPinpointEndpointProfile * profile2 = [NSKeyedUnarchiver unarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
-                                                                                   fromData:data
-                                                                                      error:&error];
+                                                                                  fromData:data
+                                                                                     error:&error];
 
         XCTAssertNil(error);
 
         XCTAssert([profile1.applicationId isEqualToString:profile2.applicationId]);
         XCTAssert([profile1.endpointId isEqualToString:profile2.endpointId]);
-        XCTAssert([profile1.channelType isEqualToString:profile2.channelType]);
     }
 }
 
@@ -52,29 +51,27 @@
         AWSPinpointEndpointProfile * profile1 = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:@"MyApp" endpointId:@"abc123"];
         [profile1 addAttribute:numbers1 forKey:numbersKey];
 
-        NSLog(@"Attribute Keys: %@", profile1.allAttributes.allKeys);
-
         NSError * error = nil;
         NSData * data = [NSKeyedArchiver archivedDataWithRootObject:profile1 requiringSecureCoding:YES error:&error];
 
         XCTAssertNil(error);
 
         AWSPinpointEndpointProfile * profile2 = [NSKeyedUnarchiver unarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
-                                                                                   fromData:data
-                                                                                      error:&error];
+                                                                                  fromData:data
+                                                                                     error:&error];
 
         XCTAssertNil(error);
 
         XCTAssert([profile1.applicationId isEqualToString:profile2.applicationId]);
         XCTAssert([profile1.endpointId isEqualToString:profile2.endpointId]);
-        XCTAssert([profile1.channelType isEqualToString:profile2.channelType]);
 
-        NSArray<NSNumber *> * numbers2 = [profile2 attributeForKey:numbersKey];
+        NSArray<NSString *> * numbers2 = [profile2 attributeForKey:numbersKey];
         XCTAssertNotNil(numbers2);
+        XCTAssertTrue([numbers1 isEqualToArray:numbers2]);
     }
 }
 
-- (void)testUsingAWSNSCodingUtilitiesForPinpointEndpointProfile {
+- (void)testUsingAWSNSCodingUtilitiesForPinpointEndpointProfileWithAttributes {
     NSString * numbersKey = @"Numbers";
     NSArray<NSString *> * numbers1 = @[@"1", @"2", @"3"];
     AWSPinpointEndpointProfile * profile1 = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:@"MyApp" endpointId:@"abc123"];
@@ -91,10 +88,60 @@
 
     XCTAssert([profile1.applicationId isEqualToString:profile2.applicationId]);
     XCTAssert([profile1.endpointId isEqualToString:profile2.endpointId]);
-    XCTAssert([profile1.channelType isEqualToString:profile2.channelType]);
 
-    NSArray<NSNumber *> * numbers2 = [profile2 attributeForKey:numbersKey];
+    NSArray<NSString *> * numbers2 = [profile2 attributeForKey:numbersKey];
     XCTAssertNotNil(numbers2);
+    XCTAssertTrue([numbers1 isEqualToArray:numbers2]);
+}
+
+- (void)testArchivingAndUnarchivingPinpointEndpointProfileWithMetrics {
+    if (@available(iOS 11, *)) {
+        NSString * metricKey = @"Metric";
+        NSNumber * metric1 = @42;
+        AWSPinpointEndpointProfile * profile1 = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:@"MyApp" endpointId:@"abc123"];
+        [profile1 addMetric:metric1 forKey:metricKey];
+
+        NSError * error = nil;
+        NSData * data = [NSKeyedArchiver archivedDataWithRootObject:profile1 requiringSecureCoding:YES error:&error];
+
+        XCTAssertNil(error);
+
+        AWSPinpointEndpointProfile * profile2 = [NSKeyedUnarchiver unarchivedObjectOfClass:[AWSPinpointEndpointProfile class]
+                                                                                  fromData:data
+                                                                                     error:&error];
+
+        XCTAssertNil(error);
+
+        XCTAssert([profile1.applicationId isEqualToString:profile2.applicationId]);
+        XCTAssert([profile1.endpointId isEqualToString:profile2.endpointId]);
+
+        NSNumber * metric2 = [profile2 metricForKey:metricKey];
+        XCTAssertNotNil(metric2);
+        XCTAssertTrue([metric1 isEqualToNumber:metric2]);
+    }
+}
+
+- (void)testUsingAWSNSCodingUtilitiesForPinpointEndpointProfileWithMetrics {
+    NSString * metricKey = @"Metric";
+    NSNumber * metric1 = @42;
+    AWSPinpointEndpointProfile * profile1 = [[AWSPinpointEndpointProfile alloc] initWithApplicationId:@"MyApp" endpointId:@"abc123"];
+    [profile1 addMetric:metric1 forKey:metricKey];
+
+    NSError * error = nil;
+    NSData * data = [AWSNSCodingUtilities versionSafeArchivedDataWithRootObject:profile1 requiringSecureCoding:YES error:&error];
+
+    XCTAssertNil(error);
+
+    AWSPinpointEndpointProfile * profile2 = [AWSNSCodingUtilities versionSafeUnarchivedObjectOfClass:[AWSPinpointEndpointProfile class] fromData:data error:&error];
+
+    XCTAssertNil(error);
+
+    XCTAssert([profile1.applicationId isEqualToString:profile2.applicationId]);
+    XCTAssert([profile1.endpointId isEqualToString:profile2.endpointId]);
+
+    NSNumber * metric2 = [profile2 metricForKey:metricKey];
+    XCTAssertNotNil(metric2);
+    XCTAssertTrue([metric1 isEqualToNumber:metric2]);
 }
 
 @end
