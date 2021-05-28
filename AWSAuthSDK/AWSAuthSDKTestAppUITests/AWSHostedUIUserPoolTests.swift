@@ -26,25 +26,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUISignIn() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
-        signOutUserpool(application: app)
-        
-        signUpAndVerifyUser(username: username)
-        
-        // Push the hosted UI view controller
-        app.buttons["Hosted UI Userpool tests"].tap()
-        XCTAssertTrue(app.navigationBars["UserPool"].exists)
-        
-        //Initiate signIn
-        app.buttons["SignIn User"].tap()
-        signInUserpool(application: app, username: username)
-        
-        // Check if successfully signed in
-        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let signInExpectation = expectation(for: predicate,
-                                            evaluatedWith: userPoolSignInStateLabelElement,
-                                            handler: nil)
-        wait(for: [signInExpectation], timeout: 5)
+        signInAndVerify(username: username, app: app)
     }
 
     /// Test successful re-authentication in user pool using hosted UI
@@ -58,25 +40,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUISignInAfterRefreshTokenInvalid() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
-        signOutUserpool(application: app)
-        
-        signUpAndVerifyUser(username: username)
-        
-        // Push the hosted UI view controller
-        app.buttons["Hosted UI Userpool tests"].tap()
-        XCTAssertTrue(app.navigationBars["UserPool"].exists)
-        
-        //Initiate signIn
-        app.buttons["SignIn User"].tap()
-        signInUserpool(application: app, username: username)
-        
-        // Check if successfully signed in
-        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let signInExpectation = expectation(for: predicate,
-                                            evaluatedWith: userPoolSignInStateLabelElement,
-                                            handler: nil)
-        wait(for: [signInExpectation], timeout: 5)
+        signInAndVerify(username: username, app: app)
         
         app.buttons["invalidateRefreshToken"].tap()
         
@@ -84,6 +48,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
         app.buttons["User pool operations"].tap()
         
         // Check if session expired
+        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
         let sessionExpiredPredicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOutUserPoolsTokenInvalid")
         let sessionExpiredExpectation = expectation(for: sessionExpiredPredicate,
                                                     evaluatedWith: userPoolSignInStateLabelElement,
@@ -108,25 +73,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUIGetAttributes() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
-        signOutUserpool(application: app)
-        
-        signUpAndVerifyUser(username: username)
-        
-        // Push the hosted UI view controller
-        app.buttons["Hosted UI Userpool tests"].tap()
-        XCTAssertTrue(app.navigationBars["UserPool"].exists)
-        
-        //Initiate signIn
-        app.buttons["SignIn User"].tap()
-        signInUserpool(application: app, username: username)
-        
-        // Check if successfully signed in
-        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate,
-                                       evaluatedWith: userPoolSignInStateLabelElement,
-                                       handler: nil)
-        wait(for: [expectation1], timeout: 5)
+        signInAndVerify(username: username, app: app)
         
         // Push the user detail page
         app.buttons["User pool operations"].tap()
@@ -148,25 +95,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUIGetAttributesWhenAccessTokenInvalidated() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
-        signOutUserpool(application: app)
-        
-        signUpAndVerifyUser(username: username)
-        
-        // Push the hosted UI view controller
-        app.buttons["Hosted UI Userpool tests"].tap()
-        XCTAssertTrue(app.navigationBars["UserPool"].exists)
-        
-        //Initiate signIn
-        app.buttons["SignIn User"].tap()
-        signInUserpool(application: app, username: username)
-        
-        // Check if successfully signed in
-        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate,
-                                       evaluatedWith: userPoolSignInStateLabelElement,
-                                       handler: nil)
-        wait(for: [expectation1], timeout: 5)
+        signInAndVerify(username: username, app: app)
 
         app.buttons["invalidateAccessToken"].tap()
 
@@ -190,25 +119,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUIGetAttributesWhenRefreshTokenInvalidated() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
-        signOutUserpool(application: app)
-        
-        signUpAndVerifyUser(username: username)
-        
-        // Push the hosted UI view controller
-        app.buttons["Hosted UI Userpool tests"].tap()
-        XCTAssertTrue(app.navigationBars["UserPool"].exists)
-        
-        //Initiate signIn
-        app.buttons["SignIn User"].tap()
-        signInUserpool(application: app, username: username)
-        
-        // Check if successfully signed in
-        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
-        let predicate = NSPredicate(format: "label CONTAINS[c] %@", "signedIn")
-        let expectation1 = expectation(for: predicate,
-                                       evaluatedWith: userPoolSignInStateLabelElement,
-                                       handler: nil)
-        wait(for: [expectation1], timeout: 5)
+        signInAndVerify(username: username, app: app)
 
         app.buttons["invalidateRefreshToken"].tap()
 
@@ -216,6 +127,7 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
         app.buttons["User pool operations"].tap()
         
         // Check if session expired
+        let userPoolSignInStateLabelElement = app.staticTexts["userPoolSignInStateLabel"]
         let sessionExpiredPredicate = NSPredicate(format: "label CONTAINS[c] %@", "signedOutUserPoolsTokenInvalid")
         let sessionExpiredExpectation = expectation(for: sessionExpiredPredicate,
                                                     evaluatedWith: userPoolSignInStateLabelElement,
@@ -245,6 +157,25 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
     func testHostedUIUpdateAttribute() {
         let username = "testUser" + UUID().uuidString
         let app = XCUIApplication()
+        signInAndVerify(username: username, app: app)
+        
+        // Push the user detail page
+        app.buttons["User pool operations"].tap()
+        XCTAssertTrue(app.navigationBars["User Details"].exists)
+        
+        // Check if all user details are present
+        inspectTokenDetails(application: app)
+        inspectCredentialDetails(application: app)
+        
+        // Initiate attribute update
+        app.buttons["Update User Attribute"].tap()
+        
+        // Check again if the values are present
+        inspectTokenDetails(application: app)
+        inspectCredentialDetails(application: app)
+    }
+    
+    private func signInAndVerify(username: String, app: XCUIApplication) {
         signOutUserpool(application: app)
         
         signUpAndVerifyUser(username: username)
@@ -264,20 +195,5 @@ class AWSHostedUIUserPoolTests: AWSAuthSDKUITestBase {
                                        evaluatedWith: userPoolSignInStateLabelElement,
                                        handler: nil)
         wait(for: [expectation1], timeout: 5)
-        
-        // Push the user detail page
-        app.buttons["User pool operations"].tap()
-        XCTAssertTrue(app.navigationBars["User Details"].exists)
-        
-        // Check if all user details are present
-        inspectTokenDetails(application: app)
-        inspectCredentialDetails(application: app)
-        
-        // Initiate attribute update
-        app.buttons["Update User Attribute"].tap()
-        
-        // Check again if the values are present
-        inspectTokenDetails(application: app)
-        inspectCredentialDetails(application: app)
     }
 }

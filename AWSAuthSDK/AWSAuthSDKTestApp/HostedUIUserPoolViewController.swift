@@ -46,6 +46,12 @@ class HostedUIUserPoolViewController: UIViewController {
         invalidateRefreshToken()
     }
 
+    /// Invalidates the refresh token, the next call to getToken or credentials will return `signedOutUserPoolsTokenInvalid`
+    ///
+    /// AWSCognitoAuth uses refresh token only when the accessToken is expired. So to invalidate refresh token we first need to
+    /// invalidate the access token. After that we assign a invalid dummy value to the refresh token keychain entry. This is done
+    /// to make the refresh token call to Cognito to fail with invalid refresh token error. This invalid refresh token error will trigger
+    /// `signedOutUserPoolsTokenInvalid` status in AWSMobileClient.
     private func invalidateRefreshToken() {
         // Invalidate the access token first, so that the logic will move to refreshing the token
         invalidateAccessToken()
