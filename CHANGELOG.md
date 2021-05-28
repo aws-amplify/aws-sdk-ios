@@ -5,6 +5,9 @@
 ### Bug fixes
 - Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
 
+- **AWSMobileClient**
+  - Fix hostedUI signIn when the refresh token is expired ([PR #3565](https://github.com/aws-amplify/aws-sdk-ios/pull/3565))
+  
 ### Misc. Updates
 
 - Model updates for the following services
