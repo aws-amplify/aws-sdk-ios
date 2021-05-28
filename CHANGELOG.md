@@ -2,13 +2,14 @@
 
 ## Unreleased
 
+### Bug fixes
+- Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
+
 ### Misc. Updates
 
 - Model updates for the following services
   - AWSEC2
   - AWSTranscribe
-
-- Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
 
 ## 2.24.1
 
