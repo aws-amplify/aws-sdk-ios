@@ -8,6 +8,8 @@
   - AWSEC2
   - AWSTranscribe
 
+- Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
+
 ## 2.24.1
 
 ### Bug fixes
