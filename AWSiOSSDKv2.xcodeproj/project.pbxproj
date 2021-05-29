@@ -175,6 +175,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		030CD859266053EB00B734C5 /* AWSPinpointEndpointProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030CD858266053EA00B734C5 /* AWSPinpointEndpointProfileTests.m */; };
 		173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */; };
 		173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
@@ -2586,6 +2587,7 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030CD858266053EA00B734C5 /* AWSPinpointEndpointProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEndpointProfileTests.m; sourceTree = "<group>"; };
 		173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaRequestRetryHandler.h; sourceTree = "<group>"; };
 		173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaRequestRetryHandler.m; sourceTree = "<group>"; };
 		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
@@ -5173,6 +5175,7 @@
 				18798FFD1DEFCB8800BC419B /* AWSPinpointAnalyticsClientTests.m */,
 				FA6978C721FA63D40092C8F3 /* AWSPinpointBackgroundBehaviorTests.m */,
 				18798FFF1DEFCB8800BC419B /* AWSPinpointContextTests.m */,
+				030CD858266053EA00B734C5 /* AWSPinpointEndpointProfileTests.m */,
 				FA64FA9A23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m */,
 				FA64FA9F23AAB17100B29182 /* AWSPinpointEventRecorderTestBase.h */,
 				FA64FA9D23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m */,
@@ -11542,6 +11545,7 @@
 				18798FFC1DEFCB4000BC419B /* AWSTestUtility.m in Sources */,
 				187990051DEFCB8800BC419B /* AWSPinpointContextTests.m in Sources */,
 				18798F8D1DEF9EAA00BC419B /* AWSPinpointTests.m in Sources */,
+				030CD859266053EB00B734C5 /* AWSPinpointEndpointProfileTests.m in Sources */,
 				187990071DEFCB8800BC419B /* AWSPinpointSessionClientTests.m in Sources */,
 				FA64FA9E23AAB16000B29182 /* AWSPinpointEventRecorderTestBase.m in Sources */,
 				FA64FA9B23AAAC1000B29182 /* AWSPinpointEventRecorderBatchTests.m in Sources */,
