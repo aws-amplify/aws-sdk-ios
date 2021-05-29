@@ -21,6 +21,9 @@
 
 - (void) test_AWSLocationAssociateTrackerConsumerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationAssociateTrackerConsumerResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryError API_AVAILABLE(ios(11));
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchDeleteGeofenceError API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchDeleteGeofenceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchDeleteGeofenceResponse API_AVAILABLE(ios(11));
@@ -39,12 +42,19 @@
 - (void) test_AWSLocationBatchUpdateDevicePositionError API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchUpdateDevicePositionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationBatchUpdateDevicePositionResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCalculateRouteCarModeOptions API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCalculateRouteRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCalculateRouteResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCalculateRouteSummary API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCalculateRouteTruckModeOptions API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateGeofenceCollectionResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateMapRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreatePlaceIndexRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreatePlaceIndexResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCreateRouteCalculatorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationCreateRouteCalculatorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateTrackerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationCreateTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDataSourceConfiguration API_AVAILABLE(ios(11));
@@ -54,6 +64,8 @@
 - (void) test_AWSLocationDeleteMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeletePlaceIndexRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeletePlaceIndexResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDeleteRouteCalculatorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDeleteRouteCalculatorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteTrackerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDeleteTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeGeofenceCollectionRequest API_AVAILABLE(ios(11));
@@ -62,6 +74,8 @@
 - (void) test_AWSLocationDescribeMapResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribePlaceIndexRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribePlaceIndexResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDescribeRouteCalculatorRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationDescribeRouteCalculatorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeTrackerRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDescribeTrackerResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationDevicePosition API_AVAILABLE(ios(11));
@@ -83,6 +97,11 @@
 - (void) test_AWSLocationGetMapStyleDescriptorResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationGetMapTileResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationLeg API_AVAILABLE(ios(11));
+- (void) test_AWSLocationLegGeometry API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListDevicePositionsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListDevicePositionsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListDevicePositionsResponseEntry API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListGeofenceCollectionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListGeofenceCollectionsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListGeofenceCollectionsResponseEntry API_AVAILABLE(ios(11));
@@ -95,6 +114,11 @@
 - (void) test_AWSLocationListPlaceIndexesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListPlaceIndexesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListPlaceIndexesResponseEntry API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListRouteCalculatorsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListRouteCalculatorsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListRouteCalculatorsResponseEntry API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListTagsForResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationListTagsForResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackerConsumersRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackerConsumersResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationListTrackersRequest API_AVAILABLE(ios(11));
@@ -113,6 +137,13 @@
 - (void) test_AWSLocationSearchPlaceIndexForTextRequest API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForTextResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationSearchPlaceIndexForTextSummary API_AVAILABLE(ios(11));
+- (void) test_AWSLocationStep API_AVAILABLE(ios(11));
+- (void) test_AWSLocationTagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationTagResourceResponse API_AVAILABLE(ios(11));
+- (void) test_AWSLocationTruckDimensions API_AVAILABLE(ios(11));
+- (void) test_AWSLocationTruckWeight API_AVAILABLE(ios(11));
+- (void) test_AWSLocationUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSLocationUntagResourceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSLocationValidationExceptionField API_AVAILABLE(ios(11));
 
 @end
@@ -125,6 +156,18 @@
 
 - (void) test_AWSLocationAssociateTrackerConsumerResponse {
     [self validateSecureCodingForClass:[AWSLocationAssociateTrackerConsumerResponse class]];
+}
+
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryError {
+    [self validateSecureCodingForClass:[AWSLocationBatchDeleteDevicePositionHistoryError class]];
+}
+
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryRequest {
+    [self validateSecureCodingForClass:[AWSLocationBatchDeleteDevicePositionHistoryRequest class]];
+}
+
+- (void) test_AWSLocationBatchDeleteDevicePositionHistoryResponse {
+    [self validateSecureCodingForClass:[AWSLocationBatchDeleteDevicePositionHistoryResponse class]];
 }
 
 - (void) test_AWSLocationBatchDeleteGeofenceError {
@@ -199,6 +242,26 @@
     [self validateSecureCodingForClass:[AWSLocationBatchUpdateDevicePositionResponse class]];
 }
 
+- (void) test_AWSLocationCalculateRouteCarModeOptions {
+    [self validateSecureCodingForClass:[AWSLocationCalculateRouteCarModeOptions class]];
+}
+
+- (void) test_AWSLocationCalculateRouteRequest {
+    [self validateSecureCodingForClass:[AWSLocationCalculateRouteRequest class]];
+}
+
+- (void) test_AWSLocationCalculateRouteResponse {
+    [self validateSecureCodingForClass:[AWSLocationCalculateRouteResponse class]];
+}
+
+- (void) test_AWSLocationCalculateRouteSummary {
+    [self validateSecureCodingForClass:[AWSLocationCalculateRouteSummary class]];
+}
+
+- (void) test_AWSLocationCalculateRouteTruckModeOptions {
+    [self validateSecureCodingForClass:[AWSLocationCalculateRouteTruckModeOptions class]];
+}
+
 - (void) test_AWSLocationCreateGeofenceCollectionRequest {
     [self validateSecureCodingForClass:[AWSLocationCreateGeofenceCollectionRequest class]];
 }
@@ -221,6 +284,14 @@
 
 - (void) test_AWSLocationCreatePlaceIndexResponse {
     [self validateSecureCodingForClass:[AWSLocationCreatePlaceIndexResponse class]];
+}
+
+- (void) test_AWSLocationCreateRouteCalculatorRequest {
+    [self validateSecureCodingForClass:[AWSLocationCreateRouteCalculatorRequest class]];
+}
+
+- (void) test_AWSLocationCreateRouteCalculatorResponse {
+    [self validateSecureCodingForClass:[AWSLocationCreateRouteCalculatorResponse class]];
 }
 
 - (void) test_AWSLocationCreateTrackerRequest {
@@ -259,6 +330,14 @@
     [self validateSecureCodingForClass:[AWSLocationDeletePlaceIndexResponse class]];
 }
 
+- (void) test_AWSLocationDeleteRouteCalculatorRequest {
+    [self validateSecureCodingForClass:[AWSLocationDeleteRouteCalculatorRequest class]];
+}
+
+- (void) test_AWSLocationDeleteRouteCalculatorResponse {
+    [self validateSecureCodingForClass:[AWSLocationDeleteRouteCalculatorResponse class]];
+}
+
 - (void) test_AWSLocationDeleteTrackerRequest {
     [self validateSecureCodingForClass:[AWSLocationDeleteTrackerRequest class]];
 }
@@ -289,6 +368,14 @@
 
 - (void) test_AWSLocationDescribePlaceIndexResponse {
     [self validateSecureCodingForClass:[AWSLocationDescribePlaceIndexResponse class]];
+}
+
+- (void) test_AWSLocationDescribeRouteCalculatorRequest {
+    [self validateSecureCodingForClass:[AWSLocationDescribeRouteCalculatorRequest class]];
+}
+
+- (void) test_AWSLocationDescribeRouteCalculatorResponse {
+    [self validateSecureCodingForClass:[AWSLocationDescribeRouteCalculatorResponse class]];
 }
 
 - (void) test_AWSLocationDescribeTrackerRequest {
@@ -375,6 +462,26 @@
     [self validateSecureCodingForClass:[AWSLocationGetMapTileResponse class]];
 }
 
+- (void) test_AWSLocationLeg {
+    [self validateSecureCodingForClass:[AWSLocationLeg class]];
+}
+
+- (void) test_AWSLocationLegGeometry {
+    [self validateSecureCodingForClass:[AWSLocationLegGeometry class]];
+}
+
+- (void) test_AWSLocationListDevicePositionsRequest {
+    [self validateSecureCodingForClass:[AWSLocationListDevicePositionsRequest class]];
+}
+
+- (void) test_AWSLocationListDevicePositionsResponse {
+    [self validateSecureCodingForClass:[AWSLocationListDevicePositionsResponse class]];
+}
+
+- (void) test_AWSLocationListDevicePositionsResponseEntry {
+    [self validateSecureCodingForClass:[AWSLocationListDevicePositionsResponseEntry class]];
+}
+
 - (void) test_AWSLocationListGeofenceCollectionsRequest {
     [self validateSecureCodingForClass:[AWSLocationListGeofenceCollectionsRequest class]];
 }
@@ -421,6 +528,26 @@
 
 - (void) test_AWSLocationListPlaceIndexesResponseEntry {
     [self validateSecureCodingForClass:[AWSLocationListPlaceIndexesResponseEntry class]];
+}
+
+- (void) test_AWSLocationListRouteCalculatorsRequest {
+    [self validateSecureCodingForClass:[AWSLocationListRouteCalculatorsRequest class]];
+}
+
+- (void) test_AWSLocationListRouteCalculatorsResponse {
+    [self validateSecureCodingForClass:[AWSLocationListRouteCalculatorsResponse class]];
+}
+
+- (void) test_AWSLocationListRouteCalculatorsResponseEntry {
+    [self validateSecureCodingForClass:[AWSLocationListRouteCalculatorsResponseEntry class]];
+}
+
+- (void) test_AWSLocationListTagsForResourceRequest {
+    [self validateSecureCodingForClass:[AWSLocationListTagsForResourceRequest class]];
+}
+
+- (void) test_AWSLocationListTagsForResourceResponse {
+    [self validateSecureCodingForClass:[AWSLocationListTagsForResourceResponse class]];
 }
 
 - (void) test_AWSLocationListTrackerConsumersRequest {
@@ -493,6 +620,34 @@
 
 - (void) test_AWSLocationSearchPlaceIndexForTextSummary {
     [self validateSecureCodingForClass:[AWSLocationSearchPlaceIndexForTextSummary class]];
+}
+
+- (void) test_AWSLocationStep {
+    [self validateSecureCodingForClass:[AWSLocationStep class]];
+}
+
+- (void) test_AWSLocationTagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLocationTagResourceRequest class]];
+}
+
+- (void) test_AWSLocationTagResourceResponse {
+    [self validateSecureCodingForClass:[AWSLocationTagResourceResponse class]];
+}
+
+- (void) test_AWSLocationTruckDimensions {
+    [self validateSecureCodingForClass:[AWSLocationTruckDimensions class]];
+}
+
+- (void) test_AWSLocationTruckWeight {
+    [self validateSecureCodingForClass:[AWSLocationTruckWeight class]];
+}
+
+- (void) test_AWSLocationUntagResourceRequest {
+    [self validateSecureCodingForClass:[AWSLocationUntagResourceRequest class]];
+}
+
+- (void) test_AWSLocationUntagResourceResponse {
+    [self validateSecureCodingForClass:[AWSLocationUntagResourceResponse class]];
 }
 
 - (void) test_AWSLocationValidationExceptionField {
