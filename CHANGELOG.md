@@ -13,7 +13,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 ### Bug fixes
 - **AWSMobileClient**
   - Fix hostedUI signIn when the refresh token is expired ([PR #3565](https://github.com/aws-amplify/aws-sdk-ios/pull/3565))
-  
+- **AWSCore**
+  - Support null timestamp during deserialization. Thanks @dpwspoon for providing the fix ([PR #3587](https://github.com/aws-amplify/aws-sdk-ios/pull/3587))
+
 ### Misc. Updates
 
 - Model updates for the following services
