@@ -130,7 +130,7 @@ class AWSMobileClientUserAttributeTests: AWSMobileClientTestBase {
         }
 
         wait(for: [getAttrExpectation], timeout: 5)
-
+        AWSMobileClient.default().removeUserStateListener(self)
     }
     
     // Note: This test relies on the configuration of the test UserPools to have two mutable custom attributes:
