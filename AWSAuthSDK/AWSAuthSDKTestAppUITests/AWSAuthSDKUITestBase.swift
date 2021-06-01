@@ -174,6 +174,7 @@ class AWSAuthSDKUITestBase: XCTestCase {
         springboard.buttons["Continue"].tap()
         
         let webViewsQuery = application.webViews
+        _ = webViewsQuery.textFields["Username"].waitForExistence(timeout: 5)
         webViewsQuery.textFields["Username"].tap()
         webViewsQuery/*@START_MENU_TOKEN@*/.textFields["Username"]/*[[".otherElements[\"Signin\"].textFields[\"Username\"]",".textFields[\"Username\"]"],[[[-1,1],[-1,0]]],[0]]@END_MENU_TOKEN@*/.typeText(username)
         
@@ -189,6 +190,7 @@ class AWSAuthSDKUITestBase: XCTestCase {
     
     func signInUserpoolWhenRefreshTokenExpires(application: XCUIApplication, username: String) {
         let springboard = XCUIApplication(bundleIdentifier: "com.apple.springboard")
+        _ = springboard.buttons["Continue"].waitForExistence(timeout: 5)
         springboard.buttons["Continue"].tap()
     }
     
