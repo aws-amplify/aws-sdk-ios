@@ -38,6 +38,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorKMSOptInRequired,
     AWSSNSErrorKMSThrottling,
     AWSSNSErrorNotFound,
+    AWSSNSErrorOptedOut,
     AWSSNSErrorPlatformApplicationDisabled,
     AWSSNSErrorResourceNotFound,
     AWSSNSErrorStaleTag,
@@ -46,6 +47,46 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
     AWSSNSErrorTagPolicy,
     AWSSNSErrorThrottled,
     AWSSNSErrorTopicLimitExceeded,
+    AWSSNSErrorUserError,
+    AWSSNSErrorValidation,
+    AWSSNSErrorVerification,
+};
+
+typedef NS_ENUM(NSInteger, AWSSNSLanguageCodeString) {
+    AWSSNSLanguageCodeStringUnknown,
+    AWSSNSLanguageCodeStringEnUS,
+    AWSSNSLanguageCodeStringEnGB,
+    AWSSNSLanguageCodeStringEs419,
+    AWSSNSLanguageCodeStringEsES,
+    AWSSNSLanguageCodeStringDeDE,
+    AWSSNSLanguageCodeStringFrCA,
+    AWSSNSLanguageCodeStringFrFR,
+    AWSSNSLanguageCodeStringItIT,
+    AWSSNSLanguageCodeStringJaJP,
+    AWSSNSLanguageCodeStringPtBR,
+    AWSSNSLanguageCodeStringKrKR,
+    AWSSNSLanguageCodeStringZhCN,
+    AWSSNSLanguageCodeStringZhTW,
+};
+
+typedef NS_ENUM(NSInteger, AWSSNSNumberCapability) {
+    AWSSNSNumberCapabilityUnknown,
+    AWSSNSNumberCapabilitySms,
+    AWSSNSNumberCapabilityMms,
+    AWSSNSNumberCapabilityVoice,
+};
+
+typedef NS_ENUM(NSInteger, AWSSNSRouteType) {
+    AWSSNSRouteTypeUnknown,
+    AWSSNSRouteTypeTransactional,
+    AWSSNSRouteTypePromotional,
+    AWSSNSRouteTypePremium,
+};
+
+typedef NS_ENUM(NSInteger, AWSSNSSMSSandboxPhoneNumberVerificationStatus) {
+    AWSSNSSMSSandboxPhoneNumberVerificationStatusUnknown,
+    AWSSNSSMSSandboxPhoneNumberVerificationStatusPending,
+    AWSSNSSMSSandboxPhoneNumberVerificationStatusVerified,
 };
 
 @class AWSSNSAddPermissionInput;
@@ -57,10 +98,14 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSCreatePlatformApplicationInput;
 @class AWSSNSCreatePlatformApplicationResponse;
 @class AWSSNSCreatePlatformEndpointInput;
+@class AWSSNSCreateSMSSandboxPhoneNumberInput;
+@class AWSSNSCreateSMSSandboxPhoneNumberResult;
 @class AWSSNSCreateTopicInput;
 @class AWSSNSCreateTopicResponse;
 @class AWSSNSDeleteEndpointInput;
 @class AWSSNSDeletePlatformApplicationInput;
+@class AWSSNSDeleteSMSSandboxPhoneNumberInput;
+@class AWSSNSDeleteSMSSandboxPhoneNumberResult;
 @class AWSSNSDeleteTopicInput;
 @class AWSSNSEndpoint;
 @class AWSSNSGetEndpointAttributesInput;
@@ -69,16 +114,22 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSGetPlatformApplicationAttributesResponse;
 @class AWSSNSGetSMSAttributesInput;
 @class AWSSNSGetSMSAttributesResponse;
+@class AWSSNSGetSMSSandboxAccountStatusInput;
+@class AWSSNSGetSMSSandboxAccountStatusResult;
 @class AWSSNSGetSubscriptionAttributesInput;
 @class AWSSNSGetSubscriptionAttributesResponse;
 @class AWSSNSGetTopicAttributesInput;
 @class AWSSNSGetTopicAttributesResponse;
 @class AWSSNSListEndpointsByPlatformApplicationInput;
 @class AWSSNSListEndpointsByPlatformApplicationResponse;
+@class AWSSNSListOriginationNumbersRequest;
+@class AWSSNSListOriginationNumbersResult;
 @class AWSSNSListPhoneNumbersOptedOutInput;
 @class AWSSNSListPhoneNumbersOptedOutResponse;
 @class AWSSNSListPlatformApplicationsInput;
 @class AWSSNSListPlatformApplicationsResponse;
+@class AWSSNSListSMSSandboxPhoneNumbersInput;
+@class AWSSNSListSMSSandboxPhoneNumbersResult;
 @class AWSSNSListSubscriptionsByTopicInput;
 @class AWSSNSListSubscriptionsByTopicResponse;
 @class AWSSNSListSubscriptionsInput;
@@ -90,10 +141,12 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSMessageAttributeValue;
 @class AWSSNSOptInPhoneNumberInput;
 @class AWSSNSOptInPhoneNumberResponse;
+@class AWSSNSPhoneNumberInformation;
 @class AWSSNSPlatformApplication;
 @class AWSSNSPublishInput;
 @class AWSSNSPublishResponse;
 @class AWSSNSRemovePermissionInput;
+@class AWSSNSSMSSandboxPhoneNumber;
 @class AWSSNSSetEndpointAttributesInput;
 @class AWSSNSSetPlatformApplicationAttributesInput;
 @class AWSSNSSetSMSAttributesInput;
@@ -110,6 +163,8 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @class AWSSNSUnsubscribeInput;
 @class AWSSNSUntagResourceRequest;
 @class AWSSNSUntagResourceResponse;
+@class AWSSNSVerifySMSSandboxPhoneNumberInput;
+@class AWSSNSVerifySMSSandboxPhoneNumberResult;
 
 /**
  
@@ -224,7 +279,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a></p>
+ <p>For a list of attributes, see <a href="https://docs.aws.amazon.com/sns/latest/api/API_SetPlatformApplicationAttributes.html">SetPlatformApplicationAttributes</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -283,6 +338,32 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
+ 
+ */
+@interface AWSSNSCreateSMSSandboxPhoneNumberInput : AWSRequest
+
+
+/**
+ <p>The language to use for sending the OTP. The default value is <code>en-US</code>.</p>
+ */
+@property (nonatomic, assign) AWSSNSLanguageCodeString languageCode;
+
+/**
+ <p>The destination phone number to verify. On verification, Amazon SNS adds this phone number to the list of verified phone numbers that you can send SMS messages to.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSCreateSMSSandboxPhoneNumberResult : AWSModel
+
+
+@end
+
+/**
  <p>Input for CreateTopic action.</p>
  Required parameters: [Name]
  */
@@ -290,7 +371,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>FifoTopic</code> – Set to true to create a FIFO topic.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics. </p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>CreateTopic</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>FifoTopic</code> – Set to true to create a FIFO topic.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an AWS managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -344,6 +425,27 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  <p>PlatformApplicationArn of platform application object to delete.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable platformApplicationArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSDeleteSMSSandboxPhoneNumberInput : AWSRequest
+
+
+/**
+ <p>The destination phone number to delete.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSDeleteSMSSandboxPhoneNumberResult : AWSModel
+
 
 @end
 
@@ -459,6 +561,27 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
+ 
+ */
+@interface AWSSNSGetSMSSandboxAccountStatusInput : AWSRequest
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSGetSMSSandboxAccountStatusResult : AWSModel
+
+
+/**
+ <p>Indicates whether the calling account is in the SMS sandbox.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable isInSandbox;
+
+@end
+
+/**
  <p>Input for GetSubscriptionAttributes.</p>
  Required parameters: [SubscriptionArn]
  */
@@ -506,7 +629,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of the topic's attributes. Attributes in this map include the following:</p><ul><li><p><code>DeliveryPolicy</code> – The JSON serialization of the topic's delivery policy.</p></li><li><p><code>DisplayName</code> – The human-readable name used in the <code>From</code> field for notifications to <code>email</code> and <code>email-json</code> endpoints.</p></li><li><p><code>Owner</code> – The AWS account ID of the topic's owner.</p></li><li><p><code>Policy</code> – The JSON serialization of the topic's access control policy.</p></li><li><p><code>SubscriptionsConfirmed</code> – The number of confirmed subscriptions for the topic.</p></li><li><p><code>SubscriptionsDeleted</code> – The number of deleted subscriptions for the topic.</p></li><li><p><code>SubscriptionsPending</code> – The number of subscriptions pending confirmation for the topic.</p></li><li><p><code>TopicArn</code> – The topic's ARN.</p></li><li><p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy, taking system defaults into account.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics. </p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
+ <p>A map of the topic's attributes. Attributes in this map include the following:</p><ul><li><p><code>DeliveryPolicy</code> – The JSON serialization of the topic's delivery policy.</p></li><li><p><code>DisplayName</code> – The human-readable name used in the <code>From</code> field for notifications to <code>email</code> and <code>email-json</code> endpoints.</p></li><li><p><code>Owner</code> – The AWS account ID of the topic's owner.</p></li><li><p><code>Policy</code> – The JSON serialization of the topic's access control policy.</p></li><li><p><code>SubscriptionsConfirmed</code> – The number of confirmed subscriptions for the topic.</p></li><li><p><code>SubscriptionsDeleted</code> – The number of deleted subscriptions for the topic.</p></li><li><p><code>SubscriptionsPending</code> – The number of subscriptions pending confirmation for the topic.</p></li><li><p><code>TopicArn</code> – The topic's ARN.</p></li><li><p><code>EffectiveDeliveryPolicy</code> – The JSON serialization of the effective delivery policy, taking system defaults into account.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> - The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>.</p></li></ul><p>The following attributes apply only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>FifoTopic</code> – When this is set to <code>true</code>, a FIFO topic is created.</p></li><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable attributes;
 
@@ -546,6 +669,42 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  <p>NextToken string is returned when calling ListEndpointsByPlatformApplication action if additional records are available after the first page results.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSListOriginationNumbersRequest : AWSRequest
+
+
+/**
+ <p>The maximum number of origination numbers to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Token that the previous <code>ListOriginationNumbers</code> request returns.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSListOriginationNumbersResult : AWSModel
+
+
+/**
+ <p>A <code>NextToken</code> string is returned when you call the <code>ListOriginationNumbers</code> operation if additional pages of records are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of the calling account's verified and pending origination numbers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSNSPhoneNumberInformation *> * _Nullable phoneNumbers;
 
 @end
 
@@ -608,6 +767,42 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  <p>Platform applications returned when calling ListPlatformApplications action.</p>
  */
 @property (nonatomic, strong) NSArray<AWSSNSPlatformApplication *> * _Nullable platformApplications;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSListSMSSandboxPhoneNumbersInput : AWSRequest
+
+
+/**
+ <p>The maximum number of phone numbers to return.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>Token that the previous <code>ListSMSSandboxPhoneNumbersInput</code> request returns.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSListSMSSandboxPhoneNumbersResult : AWSModel
+
+
+/**
+ <p>A <code>NextToken</code> string is returned when you call the <code>ListSMSSandboxPhoneNumbersInput</code> operation if additional pages of records are available.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+/**
+ <p>A list of the calling account's pending and verified phone numbers.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSSNSSMSSandboxPhoneNumber *> * _Nullable phoneNumbers;
 
 @end
 
@@ -783,6 +978,44 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
+ <p>A list of phone numbers and their metadata.</p>
+ */
+@interface AWSSNSPhoneNumberInformation : AWSModel
+
+
+/**
+ <p>The date and time when the phone number was created.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable createdAt;
+
+/**
+ <p>The two-character code for the country or region, in ISO 3166-1 alpha-2 format.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable iso2CountryCode;
+
+/**
+ <p>The capabilities of each phone number.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable numberCapabilities;
+
+/**
+ <p>The phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The list of supported routes.</p>
+ */
+@property (nonatomic, assign) AWSSNSRouteType routeType;
+
+/**
+ <p>The status of the phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable status;
+
+@end
+
+/**
  <p>Platform application object.</p>
  */
 @interface AWSSNSPlatformApplication : AWSModel
@@ -892,6 +1125,24 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 @end
 
 /**
+ <p>A verified or pending destination phone number in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ */
+@interface AWSSNSSMSSandboxPhoneNumber : AWSModel
+
+
+/**
+ <p>The destination phone number.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+/**
+ <p>The destination phone number's verification status.</p>
+ */
+@property (nonatomic, assign) AWSSNSSMSSandboxPhoneNumberVerificationStatus status;
+
+@end
+
+/**
  <p>Input for SetEndpointAttributes action.</p>
  Required parameters: [EndpointArn, Attributes]
  */
@@ -983,7 +1234,7 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
 
 
 /**
- <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics. </p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
+ <p>A map of attributes with their corresponding values.</p><p>The following lists the names, descriptions, and values of the special request parameters that the <code>SetTopicAttributes</code> action uses:</p><ul><li><p><code>DeliveryPolicy</code> – The policy that defines how Amazon SNS retries failed deliveries to HTTP/S endpoints.</p></li><li><p><code>DisplayName</code> – The display name to use for a topic with SMS subscriptions.</p></li><li><p><code>Policy</code> – The policy that defines who can access your topic. By default, only the topic owner can publish or subscribe to the topic.</p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html">server-side-encryption</a>:</p><ul><li><p><code>KmsMasterKeyId</code> – The ID of an AWS-managed customer master key (CMK) for Amazon SNS or a custom CMK. For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-server-side-encryption.html#sse-key-terms">Key Terms</a>. For more examples, see <a href="https://docs.aws.amazon.com/kms/latest/APIReference/API_DescribeKey.html#API_DescribeKey_RequestParameters">KeyId</a> in the <i>AWS Key Management Service API Reference</i>. </p></li></ul><p>The following attribute applies only to <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-fifo-topics.html">FIFO topics</a>:</p><ul><li><p><code>ContentBasedDeduplication</code> – Enables content-based deduplication for FIFO topics.</p><ul><li><p>By default, <code>ContentBasedDeduplication</code> is set to <code>false</code>. If you create a FIFO topic and this attribute is <code>false</code>, you must specify a value for the <code>MessageDeduplicationId</code> parameter for the <a href="https://docs.aws.amazon.com/sns/latest/api/API_Publish.html">Publish</a> action. </p></li><li><p>When you set <code>ContentBasedDeduplication</code> to <code>true</code>, Amazon SNS uses a SHA-256 hash to generate the <code>MessageDeduplicationId</code> using the body of the message (but not the attributes of the message).</p><p>(Optional) To override the generated value, you can specify a value for the <code>MessageDeduplicationId</code> parameter for the <code>Publish</code> action.</p></li></ul></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable attributeName;
 
@@ -1173,6 +1424,32 @@ typedef NS_ENUM(NSInteger, AWSSNSErrorType) {
  
  */
 @interface AWSSNSUntagResourceResponse : AWSModel
+
+
+@end
+
+/**
+ 
+ */
+@interface AWSSNSVerifySMSSandboxPhoneNumberInput : AWSRequest
+
+
+/**
+ <p>The OTP sent to the destination number from the <code>CreateSMSSandBoxPhoneNumber</code> call.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable oneTimePassword;
+
+/**
+ <p>The destination phone number to verify.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable phoneNumber;
+
+@end
+
+/**
+ <p>The destination phone number's verification status.</p>
+ */
+@interface AWSSNSVerifySMSSandboxPhoneNumberResult : AWSModel
 
 
 @end

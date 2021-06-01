@@ -296,6 +296,54 @@ static id mockNetworking = nil;
     [AWSSNS removeSNSForKey:key];
 }
 
+- (void)testCreateSMSSandboxPhoneNumber {
+    NSString *key = @"testCreateSMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] createSMSSandboxPhoneNumber:[AWSSNSCreateSMSSandboxPhoneNumberInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testCreateSMSSandboxPhoneNumberCompletionHandler {
+    NSString *key = @"testCreateSMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] createSMSSandboxPhoneNumber:[AWSSNSCreateSMSSandboxPhoneNumberInput new] completionHandler:^(AWSSNSCreateSMSSandboxPhoneNumberResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
 - (void)testCreateTopic {
     NSString *key = @"testCreateTopic";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -429,6 +477,54 @@ static id mockNetworking = nil;
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testDeleteSMSSandboxPhoneNumber {
+    NSString *key = @"testDeleteSMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] deleteSMSSandboxPhoneNumber:[AWSSNSDeleteSMSSandboxPhoneNumberInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testDeleteSMSSandboxPhoneNumberCompletionHandler {
+    NSString *key = @"testDeleteSMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] deleteSMSSandboxPhoneNumber:[AWSSNSDeleteSMSSandboxPhoneNumberInput new] completionHandler:^(AWSSNSDeleteSMSSandboxPhoneNumberResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
         dispatch_semaphore_signal(semaphore);
     }];
 	
@@ -629,6 +725,54 @@ static id mockNetworking = nil;
     [AWSSNS removeSNSForKey:key];
 }
 
+- (void)testGetSMSSandboxAccountStatus {
+    NSString *key = @"testGetSMSSandboxAccountStatus";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] getSMSSandboxAccountStatus:[AWSSNSGetSMSSandboxAccountStatusInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testGetSMSSandboxAccountStatusCompletionHandler {
+    NSString *key = @"testGetSMSSandboxAccountStatus";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] getSMSSandboxAccountStatus:[AWSSNSGetSMSSandboxAccountStatusInput new] completionHandler:^(AWSSNSGetSMSSandboxAccountStatusResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
 - (void)testGetSubscriptionAttributes {
     NSString *key = @"testGetSubscriptionAttributes";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -773,6 +917,54 @@ static id mockNetworking = nil;
     [AWSSNS removeSNSForKey:key];
 }
 
+- (void)testListOriginationNumbers {
+    NSString *key = @"testListOriginationNumbers";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] listOriginationNumbers:[AWSSNSListOriginationNumbersRequest new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testListOriginationNumbersCompletionHandler {
+    NSString *key = @"testListOriginationNumbers";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] listOriginationNumbers:[AWSSNSListOriginationNumbersRequest new] completionHandler:^(AWSSNSListOriginationNumbersResult* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
 - (void)testListPhoneNumbersOptedOut {
     NSString *key = @"testListPhoneNumbersOptedOut";
     AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
@@ -856,6 +1048,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSSNS SNSForKey:key] listPlatformApplications:[AWSSNSListPlatformApplicationsInput new] completionHandler:^(AWSSNSListPlatformApplicationsResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testListSMSSandboxPhoneNumbers {
+    NSString *key = @"testListSMSSandboxPhoneNumbers";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] listSMSSandboxPhoneNumbers:[AWSSNSListSMSSandboxPhoneNumbersInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testListSMSSandboxPhoneNumbersCompletionHandler {
+    NSString *key = @"testListSMSSandboxPhoneNumbers";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] listSMSSandboxPhoneNumbers:[AWSSNSListSMSSandboxPhoneNumbersInput new] completionHandler:^(AWSSNSListSMSSandboxPhoneNumbersResult* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
@@ -1618,6 +1858,54 @@ static id mockNetworking = nil;
     dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
 
 	[[AWSSNS SNSForKey:key] untagResource:[AWSSNSUntagResourceRequest new] completionHandler:^(AWSSNSUntagResourceResponse* _Nullable response, NSError * _Nullable error) {
+        XCTAssertNotNil(error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
+        XCTAssertEqual(8848, error.code);
+        XCTAssertNil(response);
+        dispatch_semaphore_signal(semaphore);
+    }];
+	
+ 	dispatch_semaphore_wait(semaphore, dispatch_time(DISPATCH_TIME_NOW, (int)(2.0 * NSEC_PER_SEC)));
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testVerifySMSSandboxPhoneNumber {
+    NSString *key = @"testVerifySMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+    [[[[AWSSNS SNSForKey:key] verifySMSSandboxPhoneNumber:[AWSSNSVerifySMSSandboxPhoneNumberInput new]] continueWithBlock:^id(AWSTask *task) {
+        XCTAssertNotNil(task.error);
+        XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", task.error.domain);
+        XCTAssertEqual(8848, task.error.code);
+        XCTAssertNil(task.result);
+        return nil;
+    }] waitUntilFinished];
+
+    OCMVerify([mockNetworking sendRequest:[OCMArg isNotNil]]);
+
+    [AWSSNS removeSNSForKey:key];
+}
+
+- (void)testVerifySMSSandboxPhoneNumberCompletionHandler {
+    NSString *key = @"testVerifySMSSandboxPhoneNumber";
+    AWSServiceConfiguration *configuration = [[AWSServiceConfiguration alloc] initWithRegion:AWSRegionUSEast1 credentialsProvider:nil];
+    [AWSSNS registerSNSWithConfiguration:configuration forKey:key];
+
+    AWSSNS *awsClient = [AWSSNS SNSForKey:key];
+    XCTAssertNotNil(awsClient);
+    XCTAssertNotNil(mockNetworking);
+    [awsClient setValue:mockNetworking forKey:@"networking"];
+
+    dispatch_semaphore_t semaphore = dispatch_semaphore_create(0);
+
+	[[AWSSNS SNSForKey:key] verifySMSSandboxPhoneNumber:[AWSSNSVerifySMSSandboxPhoneNumberInput new] completionHandler:^(AWSSNSVerifySMSSandboxPhoneNumberResult* _Nullable response, NSError * _Nullable error) {
         XCTAssertNotNil(error);
         XCTAssertEqualObjects(@"OCMockExpectedNetworkingError", error.domain);
         XCTAssertEqual(8848, error.code);
