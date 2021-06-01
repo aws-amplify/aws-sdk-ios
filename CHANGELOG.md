@@ -24,6 +24,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
   - AWSEC2
   - AWSTranscribe
 
+- **AWSS3**
+	- Added option to use Content-MD5 for multipart uploads with AWSS3TransferUtility (`useContentMD5` in `AWSS3TransferUtilityMultiPartUploadExpression`)
+
 ## 2.24.1
 
 ### Bug fixes
