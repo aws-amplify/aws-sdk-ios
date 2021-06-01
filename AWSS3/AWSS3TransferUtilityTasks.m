@@ -447,6 +447,7 @@
     if (self = [super init]) {
         _internalRequestHeaders = [NSMutableDictionary new];
         _internalRequestParameters = [NSMutableDictionary new];
+        _useContentMD5 = false;
     }
     return self;
 }
