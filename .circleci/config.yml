@@ -541,15 +541,11 @@ jobs:
           name: Install boto3
           command: sudo pip3 install boto3
       - run:
-          name: Clone spm github repo and reset release branch
+          name: Clone spm github repo
           command: |
             git clone "https://${GITHUB_SPM_RELEASE_TOKEN}@github.com/aws-amplify/aws-sdk-ios-spm.git"
             cd aws-sdk-ios-spm
             git checkout -b pre-release-${release_version}
-            git fetch
-            git checkout release
-            git reset --hard main
-            git push -f
             cd ..
       - run:
           name: Prepare xcframework archives and update Package.swift manifest
@@ -564,8 +560,8 @@ jobs:
           command: |
             cd aws-sdk-ios-spm
             head_branch=pre-release-${release_version} 
-            target_branch="release"
-            title="release: Version and checksum update for ${release_version}"
+            target_branch="main"
+            title="[release-spm]: Version and checksum update for ${release_version}"
             content="Update for package manifest and version for the next release"
             git checkout ${head_branch}
             git config --local user.name "${GITHUB_SPM_RELEASE_USER}"
