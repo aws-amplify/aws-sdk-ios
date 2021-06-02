@@ -150,133 +150,280 @@
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 44,
-      "symbol": "AWSLocationIntendedUse",
+      "symbol": "AWSLocationDimensionUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 44,
-      "symbol": "AWSLocationIntendedUse",
+      "symbol": "AWSLocationDimensionUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 45,
-      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseUnknown",
+      "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 46,
-      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseSingleUse",
+      "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitMeters",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 47,
-      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseStorage",
+      "symbol": "AWSLocationDimensionUnit.AWSLocationDimensionUnitFeet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 50,
-      "symbol": "AWSLocationPricingPlan",
+      "symbol": "AWSLocationDistanceUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 50,
-      "symbol": "AWSLocationPricingPlan",
+      "symbol": "AWSLocationDistanceUnit",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 51,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanUnknown",
+      "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 52,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanRequestBasedUsage",
+      "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitKilometers",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 53,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetTracking",
+      "symbol": "AWSLocationDistanceUnit.AWSLocationDistanceUnitMiles",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 54,
-      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetManagement",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 57,
-      "symbol": "AWSLocationValidationExceptionReason",
+      "line": 56,
+      "symbol": "AWSLocationIntendedUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 57,
-      "symbol": "AWSLocationValidationExceptionReason",
+      "line": 56,
+      "symbol": "AWSLocationIntendedUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 57,
+      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 58,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknown",
+      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseSingleUse",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 59,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknownOperation",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 60,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonMissing",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 61,
-      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonCannotParse",
+      "symbol": "AWSLocationIntendedUse.AWSLocationIntendedUseStorage",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
       "line": 62,
+      "symbol": "AWSLocationPricingPlan",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 62,
+      "symbol": "AWSLocationPricingPlan",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 63,
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 64,
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanRequestBasedUsage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 65,
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetTracking",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 66,
+      "symbol": "AWSLocationPricingPlan.AWSLocationPricingPlanMobileAssetManagement",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 69,
+      "symbol": "AWSLocationTravelMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 69,
+      "symbol": "AWSLocationTravelMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 70,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 71,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeCar",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 72,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeTruck",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 73,
+      "symbol": "AWSLocationTravelMode.AWSLocationTravelModeWalking",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 76,
+      "symbol": "AWSLocationValidationExceptionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 76,
+      "symbol": "AWSLocationValidationExceptionReason",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 77,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 78,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonUnknownOperation",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 79,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonMissing",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 80,
+      "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonCannotParse",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 81,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonFieldValidationFailed",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
-      "line": 63,
+      "line": 82,
       "symbol": "AWSLocationValidationExceptionReason.AWSLocationValidationExceptionReasonOther",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 85,
+      "symbol": "AWSLocationVehicleWeightUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 85,
+      "symbol": "AWSLocationVehicleWeightUnit",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 86,
+      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 87,
+      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitKilograms",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSLocation/AWSLocationModel.h",
+      "line": 88,
+      "symbol": "AWSLocationVehicleWeightUnit.AWSLocationVehicleWeightUnitPounds",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
