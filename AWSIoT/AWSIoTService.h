@@ -710,7 +710,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)createDimension:(AWSIoTCreateDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Creates a domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the CreateDomainConfiguration service method.
 
@@ -722,7 +722,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTCreateDomainConfigurationResponse *> *)createDomainConfiguration:(AWSIoTCreateDomainConfigurationRequest *)request;
 
 /**
- <p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Creates a domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the CreateDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -783,6 +783,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTCreateJobResponse
  */
 - (void)createJob:(AWSIoTCreateJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTCreateJobTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorConflict`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateJobTemplateRequest
+ @see AWSIoTCreateJobTemplateResponse
+ */
+- (AWSTask<AWSIoTCreateJobTemplateResponse *> *)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request;
+
+/**
+ <p>Creates a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorConflict`, `AWSIoTErrorLimitExceeded`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTCreateJobTemplateRequest
+ @see AWSIoTCreateJobTemplateResponse
+ */
+- (void)createJobTemplate:(AWSIoTCreateJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTCreateJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates a 2048-bit RSA key pair and issues an X.509 certificate using the issued public key. You can also call <code>CreateKeysAndCertificate</code> over MQTT from a device, for more information, see <a href="https://docs.aws.amazon.com/iot/latest/developerguide/provision-wo-cert.html#provision-mqtt-api">Provisioning MQTT API</a>.</p><p><b>Note</b> This is the only time AWS IoT issues the private key for this certificate, so it is important to keep it in a secure location.</p>
@@ -1404,7 +1429,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)deleteDimension:(AWSIoTDeleteDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDeleteDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Deletes the specified domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDomainConfiguration service method.
 
@@ -1416,7 +1441,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDeleteDomainConfigurationResponse *> *)deleteDomainConfiguration:(AWSIoTDeleteDomainConfigurationRequest *)request;
 
 /**
- <p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Deletes the specified domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the DeleteDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1496,6 +1521,28 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDeleteJobExecutionRequest
  */
 - (void)deleteJobExecution:(AWSIoTDeleteJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes the specified job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteJobTemplateRequest
+ */
+- (AWSTask *)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request;
+
+/**
+ <p>Deletes the specified job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDeleteJobTemplateRequest
+ */
+- (void)deleteJobTemplate:(AWSIoTDeleteJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a defined mitigation action from your AWS account.</p>
@@ -2261,7 +2308,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)describeDimension:(AWSIoTDescribeDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets summary information about a domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDomainConfiguration service method.
 
@@ -2273,7 +2320,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTDescribeDomainConfigurationResponse *> *)describeDomainConfiguration:(AWSIoTDescribeDomainConfigurationRequest *)request;
 
 /**
- <p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets summary information about a domain configuration.</p>
  
  @param request A container for the necessary parameters to execute the DescribeDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2409,6 +2456,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTDescribeJobExecutionResponse
  */
 - (void)describeJobExecution:(AWSIoTDescribeJobExecutionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobExecutionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns information about a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeJobTemplate service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTDescribeJobTemplateResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeJobTemplateRequest
+ @see AWSIoTDescribeJobTemplateResponse
+ */
+- (AWSTask<AWSIoTDescribeJobTemplateResponse *> *)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request;
+
+/**
+ <p>Returns information about a job template.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeJobTemplate service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorResourceNotFound`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTDescribeJobTemplateRequest
+ @see AWSIoTDescribeJobTemplateResponse
+ */
+- (void)describeJobTemplate:(AWSIoTDescribeJobTemplateRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTDescribeJobTemplateResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Gets information about a mitigation action.</p>
@@ -3599,7 +3671,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)listDimensions:(AWSIoTListDimensionsRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListDimensionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
  
  @param request A container for the necessary parameters to execute the ListDomainConfigurations service method.
 
@@ -3611,7 +3683,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTListDomainConfigurationsResponse *> *)listDomainConfigurations:(AWSIoTListDomainConfigurationsRequest *)request;
 
 /**
- <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
  
  @param request A container for the necessary parameters to execute the ListDomainConfigurations service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -3697,6 +3769,31 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
  @see AWSIoTListJobExecutionsForThingResponse
  */
 - (void)listJobExecutionsForThing:(AWSIoTListJobExecutionsForThingRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobExecutionsForThingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns a list of job templates.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListJobTemplates service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSIoTListJobTemplatesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListJobTemplatesRequest
+ @see AWSIoTListJobTemplatesResponse
+ */
+- (AWSTask<AWSIoTListJobTemplatesResponse *> *)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request;
+
+/**
+ <p>Returns a list of job templates.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListJobTemplates service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSIoTErrorDomain` domain and the following error code: `AWSIoTErrorInvalidRequest`, `AWSIoTErrorThrottling`, `AWSIoTErrorInternalFailure`.
+ 
+ @see AWSIoTListJobTemplatesRequest
+ @see AWSIoTListJobTemplatesResponse
+ */
+- (void)listJobTemplates:(AWSIoTListJobTemplatesRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTListJobTemplatesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Lists jobs.</p>
@@ -5275,7 +5372,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)updateDimension:(AWSIoTUpdateDimensionRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTUpdateDimensionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDomainConfiguration service method.
 
@@ -5287,7 +5384,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask<AWSIoTUpdateDomainConfigurationResponse *> *)updateDomainConfiguration:(AWSIoTUpdateDomainConfigurationRequest *)request;
 
 /**
- <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note>
+ <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can't be updated.</p>
  
  @param request A container for the necessary parameters to execute the UpdateDomainConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
