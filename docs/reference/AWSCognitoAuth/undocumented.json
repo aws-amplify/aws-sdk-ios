@@ -93,14 +93,7 @@
     },
     {
       "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 108,
-      "symbol": "AWSCognitoAuth.-getSessionWithWebUI:completion:",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCognitoAuth/AWSCognitoAuth.h",
-      "line": 124,
+      "line": 145,
       "symbol": "AWSCognitoAuth.-signOutWithWebUI:completion:",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.method.instance",
       "warning": "undocumented"
