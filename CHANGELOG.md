@@ -1,21 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSPolly
----AWSEC2
----AWSSNS
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSLocation
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -33,6 +15,14 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - AWSEC2
   - AWSTranscribe
+  - AWSLocation
+  - AWSRekognition
+  - AWSAutoScaling
+  - AWSCloudWatchLogs
+  - AWSIoT
+  - AWSSQS
+  - AWSSNS
+  - AWSPolly
 
 ## 2.24.1
 
