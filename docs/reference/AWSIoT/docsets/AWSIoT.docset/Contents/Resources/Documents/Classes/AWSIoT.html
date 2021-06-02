@@ -17,7 +17,7 @@
     <a title="AWSIoT Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.24.1 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.24.2 Docs</a> (85% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -329,6 +329,12 @@
                 <a href="../Classes/AWSIoTCreateJobResponse.html">AWSIoTCreateJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTCreateJobTemplateResponse.html">AWSIoTCreateJobTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTCreateKeysAndCertificateRequest.html">AWSIoTCreateKeysAndCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -528,6 +534,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDeleteJobRequest.html">AWSIoTDeleteJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDeleteMitigationActionRequest.html">AWSIoTDeleteMitigationActionRequest</a>
@@ -741,6 +750,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDescribeJobResponse.html">AWSIoTDescribeJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDescribeJobTemplateResponse.html">AWSIoTDescribeJobTemplateResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDescribeMitigationActionRequest.html">AWSIoTDescribeMitigationActionRequest</a>
@@ -1037,6 +1052,9 @@
                 <a href="../Classes/AWSIoTJobSummary.html">AWSIoTJobSummary</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTJobTemplateSummary.html">AWSIoTJobTemplateSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKafkaAction.html">AWSIoTKafkaAction</a>
               </li>
               <li class="nav-group-task">
@@ -1167,6 +1185,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTListJobExecutionsForThingResponse.html">AWSIoTListJobExecutionsForThingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListJobTemplatesResponse.html">AWSIoTListJobTemplatesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTListJobsRequest.html">AWSIoTListJobsRequest</a>
@@ -5634,7 +5658,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Creates a domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTCreateDomainConfigurationRequest</p>
@@ -5699,7 +5723,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Creates a domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTCreateDomainConfigurationRequest</p>
@@ -6040,6 +6064,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorResourceAlreadyExists</code>, <code>AWSIoTErrorLimitExceeded</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)createJobTemplate:"></a>
+                    <a name="//apple_ref/objc/Method/-createJobTemplate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)createJobTemplate:">-createJobTemplate:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTCreateJobTemplateRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTCreateJobTemplateResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">createJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSIoTCreateJobTemplateResponse.html">AWSIoTCreateJobTemplateResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorLimitExceeded</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)createJobTemplate:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-createJobTemplate:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)createJobTemplate:completionHandler:">-createJobTemplate:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Creates a job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTCreateJobTemplateRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTCreateJobTemplateResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">createJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+        <span class="nf">completionHandler</span><span class="p">:</span>
+            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSIoTCreateJobTemplateResponse.html">AWSIoTCreateJobTemplateResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                               <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">createJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSIoTCreateJobTemplateResponse.html">AWSIoTCreateJobTemplateResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the CreateJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorConflict</code>, <code>AWSIoTErrorLimitExceeded</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9593,7 +9758,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Deletes the specified domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDeleteDomainConfigurationRequest</p>
@@ -9658,7 +9823,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Deletes the specified domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Deletes the specified domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDeleteDomainConfigurationRequest</p>
@@ -10120,6 +10285,137 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorInvalidStateTransition</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)deleteJobTemplate:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteJobTemplate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)deleteJobTemplate:">-deleteJobTemplate:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDeleteJobTemplateRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">deleteJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)deleteJobTemplate:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-deleteJobTemplate:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)deleteJobTemplate:completionHandler:">-deleteJobTemplate:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Deletes the specified job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDeleteJobTemplateRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">deleteJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+        <span class="nf">completionHandler</span><span class="p">:</span>
+            <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">deleteJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DeleteJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -14515,7 +14811,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Gets summary information about a domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDescribeDomainConfigurationRequest</p>
@@ -14580,7 +14876,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets summary information about a domain configuration.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Gets summary information about a domain configuration.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTDescribeDomainConfigurationRequest</p>
@@ -15344,6 +15640,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)describeJobTemplate:"></a>
+                    <a name="//apple_ref/objc/Method/-describeJobTemplate:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)describeJobTemplate:">-describeJobTemplate:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns information about a job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDescribeJobTemplateRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDescribeJobTemplateResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">describeJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSIoTDescribeJobTemplateResponse.html">AWSIoTDescribeJobTemplateResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)describeJobTemplate:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-describeJobTemplate:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)describeJobTemplate:completionHandler:">-describeJobTemplate:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns information about a job template.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDescribeJobTemplateRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTDescribeJobTemplateResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">describeJobTemplate</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+          <span class="nf">completionHandler</span><span class="p">:</span>
+              <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSIoTDescribeJobTemplateResponse.html">AWSIoTDescribeJobTemplateResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                 <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">describeJobTemplate</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSIoTDescribeJobTemplateResponse.html">AWSIoTDescribeJobTemplateResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DescribeJobTemplate service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -22149,7 +22586,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTListDomainConfigurationsRequest</p>
@@ -22214,7 +22651,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Gets a list of domain configurations for the user. This list is sorted alphabetically by domain configuration name.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTListDomainConfigurationsRequest</p>
@@ -22699,6 +23136,147 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorResourceNotFound</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorServiceUnavailable</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)listJobTemplates:"></a>
+                    <a name="//apple_ref/objc/Method/-listJobTemplates:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)listJobTemplates:">-listJobTemplates:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of job templates.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTListJobTemplatesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTListJobTemplatesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listJobTemplates</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listJobTemplates</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListJobTemplates service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSIoTListJobTemplatesResponse.html">AWSIoTListJobTemplatesResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoT(im)listJobTemplates:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listJobTemplates:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoT(im)listJobTemplates:completionHandler:">-listJobTemplates:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Returns a list of job templates.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTListJobTemplatesRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSIoTListJobTemplatesResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listJobTemplates</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSIoTListJobTemplatesResponse.html">AWSIoTListJobTemplatesResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                              <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listJobTemplates</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSIoTListJobTemplatesResponse.html">AWSIoTListJobTemplatesResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListJobTemplates service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSIoTErrorDomain">AWSIoTErrorDomain</a></code> domain and the following error code: <code>AWSIoTErrorInvalidRequest</code>, <code>AWSIoTErrorThrottling</code>, <code>AWSIoTErrorInternalFailure</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -31743,7 +32321,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates values stored in the domain configuration. Domain configurations for default endpoints can&rsquo;t be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can&rsquo;t be updated.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTUpdateDomainConfigurationRequest</p>
@@ -31808,7 +32386,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Updates values stored in the domain configuration. Domain configurations for default endpoints can&rsquo;t be updated.</p><note><p>The domain configuration feature is in public preview and is subject to change.</p></note></p>
+                        <p>Updates values stored in the domain configuration. Domain configurations for default endpoints can&rsquo;t be updated.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSIoTUpdateDomainConfigurationRequest</p>
@@ -34009,7 +34587,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-05-12)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

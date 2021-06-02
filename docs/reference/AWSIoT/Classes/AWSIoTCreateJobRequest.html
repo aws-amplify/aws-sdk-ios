@@ -17,7 +17,7 @@
     <a title="AWSIoTCreateJobRequest Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.24.1 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.24.2 Docs</a> (85% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -329,6 +329,12 @@
                 <a href="../Classes/AWSIoTCreateJobResponse.html">AWSIoTCreateJobResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTCreateJobTemplateRequest.html">AWSIoTCreateJobTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTCreateJobTemplateResponse.html">AWSIoTCreateJobTemplateResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTCreateKeysAndCertificateRequest.html">AWSIoTCreateKeysAndCertificateRequest</a>
               </li>
               <li class="nav-group-task">
@@ -528,6 +534,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDeleteJobRequest.html">AWSIoTDeleteJobRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDeleteJobTemplateRequest.html">AWSIoTDeleteJobTemplateRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDeleteMitigationActionRequest.html">AWSIoTDeleteMitigationActionRequest</a>
@@ -741,6 +750,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDescribeJobResponse.html">AWSIoTDescribeJobResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDescribeJobTemplateRequest.html">AWSIoTDescribeJobTemplateRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTDescribeJobTemplateResponse.html">AWSIoTDescribeJobTemplateResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTDescribeMitigationActionRequest.html">AWSIoTDescribeMitigationActionRequest</a>
@@ -1037,6 +1052,9 @@
                 <a href="../Classes/AWSIoTJobSummary.html">AWSIoTJobSummary</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTJobTemplateSummary.html">AWSIoTJobTemplateSummary</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTKafkaAction.html">AWSIoTKafkaAction</a>
               </li>
               <li class="nav-group-task">
@@ -1167,6 +1185,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTListJobExecutionsForThingResponse.html">AWSIoTListJobExecutionsForThingResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListJobTemplatesRequest.html">AWSIoTListJobTemplatesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSIoTListJobTemplatesResponse.html">AWSIoTListJobTemplatesResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSIoTListJobsRequest.html">AWSIoTListJobsRequest</a>
@@ -2251,7 +2275,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>The job document.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:<a href="https://s3.amazonaws.com/">https://s3.amazonaws.com/</a><i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note></p>
+                        <p>The job document. Required if you don&rsquo;t specify a value for <code><a href="../Classes/AWSIoTCreateJobRequest.html#/c:objc(cs)AWSIoTCreateJobRequest(py)documentSource">documentSource</a></code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -2283,7 +2307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An S3 link to the job document.</p>
+                        <p><p>An S3 link to the job document. Required if you don&rsquo;t specify a value for <code><a href="../Classes/AWSIoTCreateJobRequest.html#/c:objc(cs)AWSIoTCreateJobRequest(py)document">document</a></code>.</p><note><p>If the job document resides in an S3 bucket, you must use a placeholder link when specifying the document.</p><p>The placeholder link is of the following form:</p><p><code>${aws:iot:s3-presigned-url:<a href="https://s3.amazonaws.com/">https://s3.amazonaws.com/</a><i>bucket</i>/<i>key</i>}</code></p><p>where <i>bucket</i> is your bucket name and <i>key</i> is the object in the bucket to which you are linking.</p></note></p>
 
                       </div>
                       <div class="declaration">
@@ -2360,6 +2384,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobId</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTCreateJobRequest(py)jobTemplateArn"></a>
+                    <a name="//apple_ref/objc/Property/jobTemplateArn" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTCreateJobRequest(py)jobTemplateArn">jobTemplateArn</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The ARN of the job template used to create the job.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobTemplateArn</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobTemplateArn</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2563,7 +2619,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-05-12)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
