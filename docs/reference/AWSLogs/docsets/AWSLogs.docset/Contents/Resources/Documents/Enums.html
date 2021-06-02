@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLogs 2.24.1 Docs</a> (90% documented)</p>
+        <p><a href="index.html">AWSLogs 2.24.2 Docs</a> (84% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLogs.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -350,6 +350,9 @@
               <li class="nav-group-task">
                 <a href="Enums/AWSLogsQueryStatus.html">AWSLogsQueryStatus</a>
               </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSLogsStandardUnit.html">AWSLogsStandardUnit</a>
+              </li>
             </ul>
           </li>
         </ul>
@@ -553,6 +556,7 @@
     <span class="n">AWSLogsQueryStatusComplete</span><span class="p">,</span>
     <span class="n">AWSLogsQueryStatusFailed</span><span class="p">,</span>
     <span class="n">AWSLogsQueryStatusCancelled</span><span class="p">,</span>
+    <span class="n">AWSLogsQueryStatusTimeout</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                         </div>
@@ -565,12 +569,74 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSLogsStandardUnit"></a>
+                    <a name="//apple_ref/objc/Enum/AWSLogsStandardUnit" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLogsStandardUnit">AWSLogsStandardUnit</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSLogsStandardUnit.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSLogsStandardUnit</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSLogsStandardUnitUnknown</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitSeconds</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMicroseconds</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMilliseconds</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitBytes</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitKilobytes</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMegabytes</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitGigabytes</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitTerabytes</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitBits</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitKilobits</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMegabits</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitGigabits</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitTerabits</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitPercent</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitCount</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitBytesSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitKilobytesSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMegabytesSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitGigabytesSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitTerabytesSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitBitsSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitKilobitsSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitMegabitsSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitGigabitsSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitTerabitsSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitCountSecond</span><span class="p">,</span>
+    <span class="n">AWSLogsStandardUnitNone</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSLogsStandardUnit</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-05-12)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
