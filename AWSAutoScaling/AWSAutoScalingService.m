@@ -1325,6 +1325,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSAutoScalingGetPredictiveScalingForecastAnswer *> *)getPredictiveScalingForecast:(AWSAutoScalingGetPredictiveScalingForecastType *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetPredictiveScalingForecast"
+                   outputClass:[AWSAutoScalingGetPredictiveScalingForecastAnswer class]];
+}
+
+- (void)getPredictiveScalingForecast:(AWSAutoScalingGetPredictiveScalingForecastType *)request
+     completionHandler:(void (^)(AWSAutoScalingGetPredictiveScalingForecastAnswer *response, NSError *error))completionHandler {
+    [[self getPredictiveScalingForecast:request] continueWithBlock:^id _Nullable(AWSTask<AWSAutoScalingGetPredictiveScalingForecastAnswer *> * _Nonnull task) {
+        AWSAutoScalingGetPredictiveScalingForecastAnswer *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSAutoScalingPutLifecycleHookAnswer *> *)putLifecycleHook:(AWSAutoScalingPutLifecycleHookType *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST

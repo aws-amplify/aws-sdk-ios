@@ -99,6 +99,42 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingMetricType) {
     AWSAutoScalingMetricTypeALBRequestCountPerTarget,
 };
 
+typedef NS_ENUM(NSInteger, AWSAutoScalingPredefinedLoadMetricType) {
+    AWSAutoScalingPredefinedLoadMetricTypeUnknown,
+    AWSAutoScalingPredefinedLoadMetricTypeASGTotalCPUUtilization,
+    AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkIn,
+    AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkOut,
+    AWSAutoScalingPredefinedLoadMetricTypeALBTargetGroupRequestCount,
+};
+
+typedef NS_ENUM(NSInteger, AWSAutoScalingPredefinedMetricPairType) {
+    AWSAutoScalingPredefinedMetricPairTypeUnknown,
+    AWSAutoScalingPredefinedMetricPairTypeASGCPUUtilization,
+    AWSAutoScalingPredefinedMetricPairTypeASGNetworkIn,
+    AWSAutoScalingPredefinedMetricPairTypeASGNetworkOut,
+    AWSAutoScalingPredefinedMetricPairTypeALBRequestCount,
+};
+
+typedef NS_ENUM(NSInteger, AWSAutoScalingPredefinedScalingMetricType) {
+    AWSAutoScalingPredefinedScalingMetricTypeUnknown,
+    AWSAutoScalingPredefinedScalingMetricTypeASGAverageCPUUtilization,
+    AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkIn,
+    AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkOut,
+    AWSAutoScalingPredefinedScalingMetricTypeALBRequestCountPerTarget,
+};
+
+typedef NS_ENUM(NSInteger, AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior) {
+    AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorUnknown,
+    AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorHonorMaxCapacity,
+    AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorIncreaseMaxCapacity,
+};
+
+typedef NS_ENUM(NSInteger, AWSAutoScalingPredictiveScalingMode) {
+    AWSAutoScalingPredictiveScalingModeUnknown,
+    AWSAutoScalingPredictiveScalingModeForecastAndScale,
+    AWSAutoScalingPredictiveScalingModeForecastOnly,
+};
+
 typedef NS_ENUM(NSInteger, AWSAutoScalingRefreshStrategy) {
     AWSAutoScalingRefreshStrategyUnknown,
     AWSAutoScalingRefreshStrategyRolling,
@@ -153,6 +189,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingBlockDeviceMapping;
 @class AWSAutoScalingCancelInstanceRefreshAnswer;
 @class AWSAutoScalingCancelInstanceRefreshType;
+@class AWSAutoScalingCapacityForecast;
 @class AWSAutoScalingCompleteLifecycleActionAnswer;
 @class AWSAutoScalingCompleteLifecycleActionType;
 @class AWSAutoScalingCreateAutoScalingGroupType;
@@ -208,6 +245,8 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingExitStandbyQuery;
 @class AWSAutoScalingFailedScheduledUpdateGroupActionRequest;
 @class AWSAutoScalingFilter;
+@class AWSAutoScalingGetPredictiveScalingForecastAnswer;
+@class AWSAutoScalingGetPredictiveScalingForecastType;
 @class AWSAutoScalingInstance;
 @class AWSAutoScalingInstanceMetadataOptions;
 @class AWSAutoScalingInstanceMonitoring;
@@ -227,6 +266,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingLifecycleHookSpecification;
 @class AWSAutoScalingLoadBalancerState;
 @class AWSAutoScalingLoadBalancerTargetGroupState;
+@class AWSAutoScalingLoadForecast;
 @class AWSAutoScalingMetricCollectionType;
 @class AWSAutoScalingMetricDimension;
 @class AWSAutoScalingMetricGranularityType;
@@ -235,6 +275,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @class AWSAutoScalingPoliciesType;
 @class AWSAutoScalingPolicyARNType;
 @class AWSAutoScalingPredefinedMetricSpecification;
+@class AWSAutoScalingPredictiveScalingConfiguration;
+@class AWSAutoScalingPredictiveScalingMetricSpecification;
+@class AWSAutoScalingPredictiveScalingPredefinedLoadMetric;
+@class AWSAutoScalingPredictiveScalingPredefinedMetricPair;
+@class AWSAutoScalingPredictiveScalingPredefinedScalingMetric;
 @class AWSAutoScalingProcessType;
 @class AWSAutoScalingProcessesType;
 @class AWSAutoScalingPutLifecycleHookAnswer;
@@ -577,6 +622,11 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable placementGroup;
 
 /**
+ <p>The predicted capacity of the group when it has a predictive scaling policy.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable predictedCapacity;
+
+/**
  <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceLinkedRoleARN;
@@ -855,6 +905,25 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
  <p>The name of the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+@end
+
+/**
+ <p>A <code>GetPredictiveScalingForecast</code> call returns the capacity forecast for a predictive scaling policy. This structure includes the data points for that capacity forecast, along with the timestamps of those data points. </p>
+ Required parameters: [Timestamps, Values]
+ */
+@interface AWSAutoScalingCapacityForecast : AWSModel
+
+
+/**
+ <p>The time stamps for the data points, in UTC format.</p>
+ */
+@property (nonatomic, strong) NSArray<NSDate *> * _Nullable timestamps;
+
+/**
+ <p>The values of the data points.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable values;
 
 @end
 
@@ -1303,7 +1372,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
 
 /**
- <p>Specifies that the warm pool is to be deleted along with all instances associated with the warm pool, without waiting for all instances to be terminated. This parameter also deletes any outstanding lifecycle actions associated with the warm pool instances.</p>
+ <p>Specifies that the warm pool is to be deleted along with all of its associated instances, without waiting for all instances to be terminated. This parameter also deletes any outstanding lifecycle actions associated with the warm pool instances.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable forceDelete;
 
@@ -1644,7 +1713,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
 /**
- <p>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, and <code>TargetTrackingScaling</code>.</p>
+ <p>One or more policy types. The valid values are <code>SimpleScaling</code>, <code>StepScaling</code>, <code>TargetTrackingScaling</code>, and <code>PredictiveScaling</code>.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyTypes;
 
@@ -2131,6 +2200,57 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
+ 
+ */
+@interface AWSAutoScalingGetPredictiveScalingForecastAnswer : AWSModel
+
+
+/**
+ <p>The capacity forecast.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingCapacityForecast * _Nullable capacityForecast;
+
+/**
+ <p>The load forecast.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingLoadForecast *> * _Nullable loadForecast;
+
+/**
+ <p>The time the forecast was made.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable updateTime;
+
+@end
+
+/**
+ 
+ */
+@interface AWSAutoScalingGetPredictiveScalingForecastType : AWSRequest
+
+
+/**
+ <p>The name of the Auto Scaling group.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
+
+/**
+ <p>The exclusive end time of the time range for the forecast data to get. The maximum time duration between the start and end time is 30 days. </p><p>Although this parameter can accept a date and time that is more than two days in the future, the availability of forecast data has limits. Amazon EC2 Auto Scaling only issues forecasts for periods of two days in advance.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable endTime;
+
+/**
+ <p>The name of the policy.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable policyName;
+
+/**
+ <p>The inclusive start time of the time range for the forecast data to get. At most, the date and time can be one year before the current date and time.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable startTime;
+
+@end
+
+/**
  <p>Describes an EC2 instance.</p>
  Required parameters: [InstanceId, AvailabilityZone, LifecycleState, HealthStatus, ProtectedFromScaleIn]
  */
@@ -2247,7 +2367,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable instancesToUpdate;
 
 /**
- <p>The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.</p>
+ <p>The percentage of the instance refresh that is complete. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable percentageComplete;
 
@@ -2274,7 +2394,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Reports the progress of an instance fresh on instances that are in the Auto Scaling group.</p>
+ <p>Reports the progress of an instance refresh on instances that are in the Auto Scaling group.</p>
  */
 @interface AWSAutoScalingInstanceRefreshLivePoolProgress : AWSModel
 
@@ -2285,7 +2405,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable instancesToUpdate;
 
 /**
- <p>The percentage of instances in the Auto Scaling group that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.</p>
+ <p>The percentage of instances in the Auto Scaling group that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable percentageComplete;
 
@@ -2298,19 +2418,19 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>Indicates the progress of an instance fresh on instances that are in the Auto Scaling group.</p>
+ <p>Indicates the progress of an instance refresh on instances that are in the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingInstanceRefreshLivePoolProgress * _Nullable livePoolProgress;
 
 /**
- <p>Indicates the progress of an instance fresh on instances that are in the warm pool.</p>
+ <p>Indicates the progress of an instance refresh on instances that are in the warm pool.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingInstanceRefreshWarmPoolProgress * _Nullable warmPoolProgress;
 
 @end
 
 /**
- <p>Reports the progress of an instance fresh on instances that are in the warm pool.</p>
+ <p>Reports the progress of an instance refresh on instances that are in the warm pool.</p>
  */
 @interface AWSAutoScalingInstanceRefreshWarmPoolProgress : AWSModel
 
@@ -2321,7 +2441,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable instancesToUpdate;
 
 /**
- <p>The percentage of instances in the warm pool that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and added to the percentage complete.</p>
+ <p>The percentage of instances in the warm pool that have been replaced. For each instance replacement, Amazon EC2 Auto Scaling tracks the instance's health status and warm-up time. When the instance's health status changes to healthy and the specified warm-up time passes, the instance is considered updated and is added to the percentage complete.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable percentageComplete;
 
@@ -2726,6 +2846,30 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
+ <p>A <code>GetPredictiveScalingForecast</code> call returns the load forecast for a predictive scaling policy. This structure includes the data points for that load forecast, along with the timestamps of those data points and the metric specification. </p>
+ Required parameters: [Timestamps, Values, MetricSpecification]
+ */
+@interface AWSAutoScalingLoadForecast : AWSModel
+
+
+/**
+ <p>The metric specification for the load forecast.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingMetricSpecification * _Nullable metricSpecification;
+
+/**
+ <p>The time stamps for the data points, in UTC format.</p>
+ */
+@property (nonatomic, strong) NSArray<NSDate *> * _Nullable timestamps;
+
+/**
+ <p>The values of the data points.</p>
+ */
+@property (nonatomic, strong) NSArray<NSNumber *> * _Nullable values;
+
+@end
+
+/**
  <p>Describes a metric.</p>
  */
 @interface AWSAutoScalingMetricCollectionType : AWSModel
@@ -2861,6 +3005,126 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 /**
  <p>Identifies the resource associated with the metric type. You can't specify a resource label unless the metric type is <code>ALBRequestCountPerTarget</code> and there is a target group attached to the Auto Scaling group.</p><p>You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format is app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt;/targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt;, where:</p><ul><li><p>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the load balancer ARN</p></li><li><p>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion of the target group ARN.</p></li></ul><p>This is an example: app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d.</p><p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceLabel;
+
+@end
+
+/**
+ <p>Represents a predictive scaling policy configuration to use with Amazon EC2 Auto Scaling.</p>
+ Required parameters: [MetricSpecifications]
+ */
+@interface AWSAutoScalingPredictiveScalingConfiguration : AWSModel
+
+
+/**
+ <p>Defines the behavior that should be applied if the forecast capacity approaches or exceeds the maximum capacity of the Auto Scaling group. Defaults to <code>HonorMaxCapacity</code> if not specified.</p><p>The following are possible values:</p><ul><li><p><code>HonorMaxCapacity</code> - Amazon EC2 Auto Scaling cannot scale out capacity higher than the maximum capacity. The maximum capacity is enforced as a hard limit. </p></li><li><p><code>IncreaseMaxCapacity</code> - Amazon EC2 Auto Scaling can scale out capacity higher than the maximum capacity when the forecast capacity is close to or exceeds the maximum capacity. The upper limit is determined by the forecasted capacity and the value for <code>MaxCapacityBuffer</code>.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior maxCapacityBreachBehavior;
+
+/**
+ <p>The size of the capacity buffer to use when the forecast capacity is close to or exceeds the maximum capacity. The value is specified as a percentage relative to the forecast capacity. For example, if the buffer is 10, this means a 10 percent buffer, such that if the forecast capacity is 50, and the maximum capacity is 40, then the effective maximum capacity is 55.</p><p>If set to 0, Amazon EC2 Auto Scaling may scale capacity higher than the maximum capacity to equal but not exceed forecast capacity. </p><p>Required if the <code>MaxCapacityBreachBehavior</code> property is set to <code>IncreaseMaxCapacity</code>, and cannot be used otherwise.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxCapacityBuffer;
+
+/**
+ <p>This structure includes the metrics and target utilization to use for predictive scaling. </p><p>This is an array, but we currently only support a single metric specification. That is, you can specify a target value and a single metric pair, or a target value and one scaling metric and one load metric.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSAutoScalingPredictiveScalingMetricSpecification *> * _Nullable metricSpecifications;
+
+/**
+ <p>The predictive scaling mode. Defaults to <code>ForecastOnly</code> if not specified.</p>
+ */
+@property (nonatomic, assign) AWSAutoScalingPredictiveScalingMode mode;
+
+/**
+ <p>The amount of time, in seconds, by which the instance launch time can be advanced. For example, the forecast says to add capacity at 10:00 AM, and you choose to pre-launch instances by 5 minutes. In that case, the instances will be launched at 9:55 AM. The intention is to give resources time to be provisioned. It can take a few minutes to launch an EC2 instance. The actual amount of time required depends on several factors, such as the size of the instance and whether there are startup scripts to complete. </p><p>The value must be less than the forecast interval duration of 3600 seconds (60 minutes). Defaults to 300 seconds if not specified. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable schedulingBufferTime;
+
+@end
+
+/**
+ <p>This structure specifies the metrics and target utilization settings for a predictive scaling policy. </p><p>You must specify either a metric pair, or a load metric and a scaling metric individually. Specifying a metric pair instead of individual metrics provides a simpler way to configure metrics for a scaling policy. You choose the metric pair, and the policy automatically knows the correct sum and average statistics to use for the load metric and the scaling metric.</p><p>Example</p><ul><li><p>You create a predictive scaling policy and specify <code>ALBRequestCount</code> as the value for the metric pair and <code>1000.0</code> as the target value. For this type of metric, you must provide the metric dimension for the corresponding target group, so you also provide a resource label for the Application Load Balancer target group that is attached to your Auto Scaling group.</p></li><li><p>The number of requests the target group receives per minute provides the load metric, and the request count averaged between the members of the target group provides the scaling metric. In CloudWatch, this refers to the <code>RequestCount</code> and <code>RequestCountPerTarget</code> metrics, respectively.</p></li><li><p>For optimal use of predictive scaling, you adhere to the best practice of using a dynamic scaling policy to automatically scale between the minimum capacity and maximum capacity in response to real-time changes in resource utilization.</p></li><li><p>Amazon EC2 Auto Scaling consumes data points for the load metric over the last 14 days and creates an hourly load forecast for predictive scaling. (A minimum of 24 hours of data is required.)</p></li><li><p>After creating the load forecast, Amazon EC2 Auto Scaling determines when to reduce or increase the capacity of your Auto Scaling group in each hour of the forecast period so that the average number of requests received by each instance is as close to 1000 requests per minute as possible at all times.</p></li></ul>
+ Required parameters: [TargetValue]
+ */
+@interface AWSAutoScalingPredictiveScalingMetricSpecification : AWSModel
+
+
+/**
+ <p>The load metric specification.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedLoadMetric * _Nullable predefinedLoadMetricSpecification;
+
+/**
+ <p>The metric pair specification from which Amazon EC2 Auto Scaling determines the appropriate scaling metric and load metric to use.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedMetricPair * _Nullable predefinedMetricPairSpecification;
+
+/**
+ <p>The scaling metric specification.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingPredefinedScalingMetric * _Nullable predefinedScalingMetricSpecification;
+
+/**
+ <p>Specifies the target utilization.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable targetValue;
+
+@end
+
+/**
+ <p>Describes a load metric for a predictive scaling policy.</p><p>When returned in the output of <code>DescribePolicies</code>, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.</p>
+ Required parameters: [PredefinedMetricType]
+ */
+@interface AWSAutoScalingPredictiveScalingPredefinedLoadMetric : AWSModel
+
+
+/**
+ <p>The metric type.</p>
+ */
+@property (nonatomic, assign) AWSAutoScalingPredefinedLoadMetricType predefinedMetricType;
+
+/**
+ <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label unless the target group is attached to the Auto Scaling group.</p><p>You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:</p><p><code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p><p>Where:</p><ul><li><p>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the load balancer ARN</p></li><li><p>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion of the target group ARN.</p></li></ul><p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceLabel;
+
+@end
+
+/**
+ <p>Represents a metric pair for a predictive scaling policy. </p>
+ Required parameters: [PredefinedMetricType]
+ */
+@interface AWSAutoScalingPredictiveScalingPredefinedMetricPair : AWSModel
+
+
+/**
+ <p>Indicates which metrics to use. There are two different types of metrics for each metric type: one is a load metric and one is a scaling metric. For example, if the metric type is <code>ASGCPUUtilization</code>, the Auto Scaling group's total CPU metric is used as the load metric, and the average CPU metric is used for the scaling metric.</p>
+ */
+@property (nonatomic, assign) AWSAutoScalingPredefinedMetricPairType predefinedMetricType;
+
+/**
+ <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label unless the target group is attached to the Auto Scaling group.</p><p>You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:</p><p><code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p><p>Where:</p><ul><li><p>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the load balancer ARN</p></li><li><p>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion of the target group ARN.</p></li></ul><p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable resourceLabel;
+
+@end
+
+/**
+ <p>Describes a scaling metric for a predictive scaling policy.</p><p>When returned in the output of <code>DescribePolicies</code>, it indicates that a predictive scaling policy uses individually specified load and scaling metrics instead of a metric pair.</p>
+ Required parameters: [PredefinedMetricType]
+ */
+@interface AWSAutoScalingPredictiveScalingPredefinedScalingMetric : AWSModel
+
+
+/**
+ <p>The metric type.</p>
+ */
+@property (nonatomic, assign) AWSAutoScalingPredefinedScalingMetricType predefinedMetricType;
+
+/**
+ <p>A label that uniquely identifies a specific Application Load Balancer target group from which to determine the request count served by your Auto Scaling group. You can't specify a resource label unless the target group is attached to the Auto Scaling group.</p><p>You create the resource label by appending the final portion of the load balancer ARN and the final portion of the target group ARN into a single value, separated by a forward slash (/). The format of the resource label is:</p><p><code>app/EC2Co-EcsEl-1TKLTMITMM0EO/f37c06a68c1748aa/targetgroup/EC2Co-Defau-LDNM7Q3ZH1ZN/6d4ea56ca2d6a18d</code>.</p><p>Where:</p><ul><li><p>app/&lt;load-balancer-name&gt;/&lt;load-balancer-id&gt; is the final portion of the load balancer ARN</p></li><li><p>targetgroup/&lt;target-group-name&gt;/&lt;target-group-id&gt; is the final portion of the target group ARN.</p></li></ul><p>To find the ARN for an Application Load Balancer, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeLoadBalancers.html">DescribeLoadBalancers</a> API operation. To find the ARN for the target group, use the <a href="https://docs.aws.amazon.com/elasticloadbalancing/latest/APIReference/API_DescribeTargetGroups.html">DescribeTargetGroups</a> API operation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceLabel;
 
@@ -3024,9 +3288,14 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>One of the following policy types: </p><ul><li><p><code>TargetTrackingScaling</code></p></li><li><p><code>StepScaling</code></p></li><li><p><code>SimpleScaling</code> (default)</p></li></ul>
+ <p>One of the following policy types: </p><ul><li><p><code>TargetTrackingScaling</code></p></li><li><p><code>StepScaling</code></p></li><li><p><code>SimpleScaling</code> (default)</p></li><li><p><code>PredictiveScaling</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable policyType;
+
+/**
+ <p>A predictive scaling policy. Provides support for only predefined metrics.</p><p>Predictive scaling works with CPU utilization, network in/out, and the Application Load Balancer request count.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_PredictiveScalingConfiguration.html">PredictiveScalingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p><p>Required if the policy type is <code>PredictiveScaling</code>.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingConfiguration * _Nullable predictiveScalingConfiguration;
 
 /**
  <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity. For exact capacity, you must specify a positive value.</p><p>Required if the policy type is <code>SimpleScaling</code>. (Not used with any other policy type.) </p>
@@ -3039,7 +3308,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSArray<AWSAutoScalingStepAdjustment *> * _Nullable stepAdjustments;
 
 /**
- <p>A target tracking scaling policy. Includes support for predefined or customized metrics.</p><p>The following predefined metrics are available:</p><ul><li><p><code>ASGAverageCPUUtilization</code></p></li><li><p><code>ASGAverageNetworkIn</code></p></li><li><p><code>ASGAverageNetworkOut</code></p></li><li><p><code>ALBRequestCountPerTarget</code></p></li></ul><p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> parameter with the <code>PredefinedMetricSpecification</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p><p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>
+ <p>A target tracking scaling policy. Provides support for predefined or customized metrics.</p><p>The following predefined metrics are available:</p><ul><li><p><code>ASGAverageCPUUtilization</code></p></li><li><p><code>ASGAverageNetworkIn</code></p></li><li><p><code>ASGAverageNetworkOut</code></p></li><li><p><code>ALBRequestCountPerTarget</code></p></li></ul><p>If you specify <code>ALBRequestCountPerTarget</code> for the metric, you must specify the <code>ResourceLabel</code> parameter with the <code>PredefinedMetricSpecification</code>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/APIReference/API_TargetTrackingConfiguration.html">TargetTrackingConfiguration</a> in the <i>Amazon EC2 Auto Scaling API Reference</i>.</p><p>Required if the policy type is <code>TargetTrackingScaling</code>.</p>
  */
 @property (nonatomic, strong) AWSAutoScalingTargetTrackingConfiguration * _Nullable targetTrackingConfiguration;
 
@@ -3123,7 +3392,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable autoScalingGroupName;
 
 /**
- <p>Specifies the total maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group. This is an optional property. Specify it only if the warm pool size should not be determined by the difference between the group's maximum capacity and its desired capacity. </p><important><p>Amazon EC2 Auto Scaling will launch and maintain either the difference between the group's maximum capacity and its desired capacity, if a value for <code>MaxGroupPreparedCapacity</code> is not specified, or the difference between the <code>MaxGroupPreparedCapacity</code> and the desired capacity, if a value for <code>MaxGroupPreparedCapacity</code> is specified. </p><p>The size of the warm pool is dynamic. Only when <code>MaxGroupPreparedCapacity</code> and <code>MinSize</code> are set to the same value does the warm pool have an absolute size.</p></important><p>If the desired capacity of the Auto Scaling group is higher than the <code>MaxGroupPreparedCapacity</code>, the capacity of the warm pool is 0. To remove a value that you previously set, include the property but specify -1 for the value. </p>
+ <p>Specifies the maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group. This is an optional property. Specify it only if you do not want the warm pool size to be determined by the difference between the group's maximum capacity and its desired capacity. </p><important><p>If a value for <code>MaxGroupPreparedCapacity</code> is not specified, Amazon EC2 Auto Scaling launches and maintains the difference between the group's maximum capacity and its desired capacity. If you specify a value for <code>MaxGroupPreparedCapacity</code>, Amazon EC2 Auto Scaling uses the difference between the <code>MaxGroupPreparedCapacity</code> and the desired capacity instead. </p><p>The size of the warm pool is dynamic. Only when <code>MaxGroupPreparedCapacity</code> and <code>MinSize</code> are set to the same value does the warm pool have an absolute size.</p></important><p>If the desired capacity of the Auto Scaling group is higher than the <code>MaxGroupPreparedCapacity</code>, the capacity of the warm pool is 0, unless you specify a value for <code>MinSize</code>. To remove a value that you previously set, include the property but specify -1 for the value. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxGroupPreparedCapacity;
 
@@ -3133,7 +3402,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>Sets the instance state to transition to after the lifecycle hooks finish. Valid values are: <code>Stopped</code> (default) or <code>Running</code>.</p>
+ <p>Sets the instance state to transition to after the lifecycle actions are complete. Default is <code>Stopped</code>.</p>
  */
 @property (nonatomic, assign) AWSAutoScalingWarmPoolState poolState;
 
@@ -3265,9 +3534,14 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable policyName;
 
 /**
- <p>One of the following policy types: </p><ul><li><p><code>TargetTrackingScaling</code></p></li><li><p><code>StepScaling</code></p></li><li><p><code>SimpleScaling</code> (default)</p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>One of the following policy types: </p><ul><li><p><code>TargetTrackingScaling</code></p></li><li><p><code>StepScaling</code></p></li><li><p><code>SimpleScaling</code> (default)</p></li><li><p><code>PredictiveScaling</code></p></li></ul><p>For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-target-tracking.html">Target tracking scaling policies</a> and <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html">Step and simple scaling policies</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable policyType;
+
+/**
+ <p>A predictive scaling policy.</p>
+ */
+@property (nonatomic, strong) AWSAutoScalingPredictiveScalingConfiguration * _Nullable predictiveScalingConfiguration;
 
 /**
  <p>The amount by which to scale, based on the specified adjustment type. A positive value adds to the current capacity while a negative number removes from the current capacity.</p>
@@ -3826,7 +4100,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The total maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group.</p>
+ <p>The maximum number of instances that are allowed to be in the warm pool or in any state except <code>Terminated</code> for the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxGroupPreparedCapacity;
 
@@ -3836,7 +4110,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minSize;
 
 /**
- <p>The instance state to transition to after the lifecycle actions are complete: <code>Stopped</code> or <code>Running</code>.</p>
+ <p>The instance state to transition to after the lifecycle actions are complete.</p>
  */
 @property (nonatomic, assign) AWSAutoScalingWarmPoolState poolState;
 
