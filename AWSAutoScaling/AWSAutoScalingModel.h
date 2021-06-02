@@ -567,7 +567,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
+ <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -627,7 +627,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable predictedCapacity;
 
 /**
- <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf.</p>
+ <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceLinkedRoleARN;
 
@@ -1065,7 +1065,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable placementGroup;
 
 /**
- <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. By default, Amazon EC2 Auto Scaling uses a service-linked role named AWSServiceRoleForAutoScaling, which it creates if it does not exist. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceLinkedRoleARN;
 
@@ -1385,22 +1385,22 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The maximum number of groups allowed for your AWS account. The default is 200 groups per AWS Region.</p>
+ <p>The maximum number of groups allowed for your account. The default is 200 groups per Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxNumberOfAutoScalingGroups;
 
 /**
- <p>The maximum number of launch configurations allowed for your AWS account. The default is 200 launch configurations per AWS Region.</p>
+ <p>The maximum number of launch configurations allowed for your account. The default is 200 launch configurations per Region.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxNumberOfLaunchConfigurations;
 
 /**
- <p>The current number of groups for your AWS account.</p>
+ <p>The current number of groups for your account.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfAutoScalingGroups;
 
 /**
- <p>The current number of launch configurations for your AWS account.</p>
+ <p>The current number of launch configurations for your account.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable numberOfLaunchConfigurations;
 
@@ -1426,7 +1426,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The IDs of the instances. You can specify up to <code>MaxRecords</code> IDs. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p>
+ <p>The IDs of the instances. If you omit this parameter, all Auto Scaling instances are described. If you specify an ID that does not exist, it is ignored with no error.</p><p>Array Members: Maximum number of 50 items.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
 
@@ -1708,7 +1708,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. This list is limited to 50 items. If you specify an unknown policy name, it is ignored with no error.</p>
+ <p>The names of one or more policies. If you omit this parameter, all policies are described. If a group name is provided, the results are limited to that group. If you specify an unknown policy name, it is ignored with no error.</p><p>Array Members: Maximum number of 50 items.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable policyNames;
 
@@ -1726,7 +1726,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The activity IDs of the desired scaling activities. You can specify up to 50 IDs. If you omit this parameter, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p>
+ <p>The activity IDs of the desired scaling activities. If you omit this parameter, all activities for the past six weeks are described. If unknown activities are requested, they are ignored with no error. If you specify an Auto Scaling group, the results are limited to that group.</p><p>Array Members: Maximum number of 50 IDs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable activityIds;
 
@@ -1779,7 +1779,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The names of one or more scheduled actions. You can specify up to 50 actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.</p>
+ <p>The names of one or more scheduled actions. If you omit this parameter, all scheduled actions are described. If you specify an unknown scheduled action, it is ignored with no error.</p><p>Array Members: Maximum number of 50 actions.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable scheduledActionNames;
 
@@ -1995,7 +1995,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable encrypted;
 
 /**
- <p>The number of I/O operations per second (IOPS) to provision for the volume. The maximum ratio of IOPS to volume size (in GiB) is 50:1. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Required when the volume type is <code>io1</code>. (Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.) </p>
+ <p>The number of input/output (I/O) operations per second (IOPS) to provision for the volume. For <code>gp3</code> and <code>io1</code> volumes, this represents the number of IOPS that are provisioned for the volume. For <code>gp2</code> volumes, this represents the baseline performance of the volume and the rate at which the volume accumulates I/O credits for bursting. </p><p>The following are the supported values for each volume type: </p><ul><li><p><code>gp3</code>: 3,000-16,000 IOPS</p></li><li><p><code>io1</code>: 100-64,000 IOPS</p></li></ul><p>For <code>io1</code> volumes, we guarantee 64,000 IOPS only for <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/instance-types.html#ec2-nitro-instances">Instances built on the Nitro System</a>. Other instance families guarantee performance up to 32,000 IOPS. </p><p><code>Iops</code> is supported when the volume type is <code>gp3</code> or <code>io1</code> and required only when the volume type is <code>io1</code>. (Not used with <code>standard</code>, <code>gp2</code>, <code>st1</code>, or <code>sc1</code> volumes.) </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable iops;
 
@@ -2005,12 +2005,17 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable snapshotId;
 
 /**
- <p>The volume size, in Gibibytes (GiB).</p><p>This can be a number from 1-1,024 for <code>standard</code>, 4-16,384 for <code>io1</code>, 1-16,384 for <code>gp2</code>, and 500-16,384 for <code>st1</code> and <code>sc1</code>. If you specify a snapshot, the volume size must be equal to or larger than the snapshot size.</p><p>Default: If you create a volume from a snapshot and you don't specify a volume size, the default is the snapshot size.</p><p>You must specify either a <code>VolumeSize</code> or a <code>SnapshotId</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
+ <p>The throughput to provision for a <code>gp3</code> volume.</p><p>Valid Range: Minimum value of 125. Maximum value of 1000.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable throughput;
+
+/**
+ <p>The volume size, in GiBs. The following are the supported volumes sizes for each volume type: </p><ul><li><p><code>gp2</code> and <code>gp3</code>: 1-16,384</p></li><li><p><code>io1</code>: 4-16,384</p></li><li><p><code>st1</code> and <code>sc1</code>: 125-16,384</p></li><li><p><code>standard</code>: 1-1,024</p></li></ul><p>You must specify either a <code>SnapshotId</code> or a <code>VolumeSize</code>. If you specify both <code>SnapshotId</code> and <code>VolumeSize</code>, the volume size must be equal or greater than the size of the snapshot.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable volumeSize;
 
 /**
- <p>The volume type, which can be <code>standard</code> for Magnetic, <code>io1</code> for Provisioned IOPS SSD, <code>gp2</code> for General Purpose SSD, <code>st1</code> for Throughput Optimized HDD, or <code>sc1</code> for Cold HDD. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code></p>
+ <p>The volume type. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/EBSVolumeTypes.html">Amazon EBS Volume Types</a> in the <i>Amazon EC2 User Guide for Linux Instances</i>.</p><p>Valid Values: <code>standard</code> | <code>io1</code> | <code>gp2</code> | <code>st1</code> | <code>sc1</code> | <code>gp3</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeType;
 
@@ -2614,7 +2619,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 
 
 /**
- <p>The launch configuration names. If you omit this parameter, all launch configurations are described.</p>
+ <p>The launch configuration names. If you omit this parameter, all launch configurations are described.</p><p>Array Members: Maximum number of 50 items.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable launchConfigurationNames;
 
@@ -2810,7 +2815,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @end
 
 /**
- <p>Describes the state of a Classic Load Balancer.</p><p>If you specify a load balancer when creating the Auto Scaling group, the state of the load balancer is <code>InService</code>.</p><p>If you attach a load balancer to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all instances in the group are registered with the load balancer. If Elastic Load Balancing health checks are enabled for the load balancer, the state transitions to <code>InService</code> after at least one instance in the group passes the health check. If EC2 health checks are enabled instead, the load balancer remains in the <code>Added</code> state.</p>
+ <p>Describes the state of a Classic Load Balancer.</p>
  */
 @interface AWSAutoScalingLoadBalancerState : AWSModel
 
@@ -2821,14 +2826,14 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerName;
 
 /**
- <p>One of the following load balancer states:</p><ul><li><p><code>Adding</code> - The instances in the group are being registered with the load balancer.</p></li><li><p><code>Added</code> - All instances in the group are registered with the load balancer.</p></li><li><p><code>InService</code> - At least one instance in the group passed an ELB health check.</p></li><li><p><code>Removing</code> - The instances in the group are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All instances in the group are deregistered from the load balancer.</p></li></ul>
+ <p>One of the following load balancer states:</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the load balancer.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the load balancer.</p></li><li><p><code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code> health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the load balancer. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the load balancer.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable state;
 
 @end
 
 /**
- <p>Describes the state of a target group.</p><p>If you attach a target group to an existing Auto Scaling group, the initial state is <code>Adding</code>. The state transitions to <code>Added</code> after all Auto Scaling instances are registered with the target group. If Elastic Load Balancing health checks are enabled, the state transitions to <code>InService</code> after at least one Auto Scaling instance passes the health check. If EC2 health checks are enabled instead, the target group remains in the <code>Added</code> state.</p>
+ <p>Describes the state of a target group.</p>
  */
 @interface AWSAutoScalingLoadBalancerTargetGroupState : AWSModel
 
@@ -2839,7 +2844,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable loadBalancerTargetGroupARN;
 
 /**
- <p>The state of the target group.</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the target group.</p></li><li><p><code>InService</code> - At least one Auto Scaling instance passed an ELB health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p></li></ul>
+ <p>The state of the target group.</p><ul><li><p><code>Adding</code> - The Auto Scaling instances are being registered with the target group.</p></li><li><p><code>Added</code> - All Auto Scaling instances are registered with the target group.</p></li><li><p><code>InService</code> - At least one Auto Scaling instance passed an <code>ELB</code> health check.</p></li><li><p><code>Removing</code> - The Auto Scaling instances are being deregistered from the target group. If connection draining is enabled, Elastic Load Balancing waits for in-flight requests to complete before deregistering the instances.</p></li><li><p><code>Removed</code> - All Auto Scaling instances are deregistered from the target group.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable state;
 
@@ -3881,7 +3886,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable propagateAtLaunch;
 
 /**
- <p>The name of the group.</p>
+ <p>The name of the Auto Scaling group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable resourceId;
 
@@ -4032,7 +4037,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable healthCheckGracePeriod;
 
 /**
- <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use ELB health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
+ <p>The service to use for the health checks. The valid values are <code>EC2</code> and <code>ELB</code>. If you configure an Auto Scaling group to use <code>ELB</code> health checks, it considers the instance unhealthy if it fails either the EC2 status checks or the load balancer health checks.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable healthCheckType;
 
@@ -4077,7 +4082,7 @@ typedef NS_ENUM(NSInteger, AWSAutoScalingWarmPoolStatus) {
 @property (nonatomic, strong) NSString * _Nullable placementGroup;
 
 /**
- <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other AWS services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
+ <p>The Amazon Resource Name (ARN) of the service-linked role that the Auto Scaling group uses to call other Amazon Web Services on your behalf. For more information, see <a href="https://docs.aws.amazon.com/autoscaling/ec2/userguide/autoscaling-service-linked-role.html">Service-linked roles</a> in the <i>Amazon EC2 Auto Scaling User Guide</i>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable serviceLinkedRoleARN;
 
