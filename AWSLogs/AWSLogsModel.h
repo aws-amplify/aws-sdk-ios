@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -65,6 +65,38 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
     AWSLogsQueryStatusComplete,
     AWSLogsQueryStatusFailed,
     AWSLogsQueryStatusCancelled,
+    AWSLogsQueryStatusTimeout,
+};
+
+typedef NS_ENUM(NSInteger, AWSLogsStandardUnit) {
+    AWSLogsStandardUnitUnknown,
+    AWSLogsStandardUnitSeconds,
+    AWSLogsStandardUnitMicroseconds,
+    AWSLogsStandardUnitMilliseconds,
+    AWSLogsStandardUnitBytes,
+    AWSLogsStandardUnitKilobytes,
+    AWSLogsStandardUnitMegabytes,
+    AWSLogsStandardUnitGigabytes,
+    AWSLogsStandardUnitTerabytes,
+    AWSLogsStandardUnitBits,
+    AWSLogsStandardUnitKilobits,
+    AWSLogsStandardUnitMegabits,
+    AWSLogsStandardUnitGigabits,
+    AWSLogsStandardUnitTerabits,
+    AWSLogsStandardUnitPercent,
+    AWSLogsStandardUnitCount,
+    AWSLogsStandardUnitBytesSecond,
+    AWSLogsStandardUnitKilobytesSecond,
+    AWSLogsStandardUnitMegabytesSecond,
+    AWSLogsStandardUnitGigabytesSecond,
+    AWSLogsStandardUnitTerabytesSecond,
+    AWSLogsStandardUnitBitsSecond,
+    AWSLogsStandardUnitKilobitsSecond,
+    AWSLogsStandardUnitMegabitsSecond,
+    AWSLogsStandardUnitGigabitsSecond,
+    AWSLogsStandardUnitTerabitsSecond,
+    AWSLogsStandardUnitCountSecond,
+    AWSLogsStandardUnitNone,
 };
 
 @class AWSLogsAssociateKmsKeyRequest;
@@ -225,7 +257,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable taskName;
 
 /**
- <p>The end time of the range for the request, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
+ <p>The end time of the range for the request, expreswatchlogsdocused as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp later than this time are not exported.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable to;
 
@@ -577,7 +609,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p><p><code>lastEventTimeStamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimeStamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
+ <p>If the value is <code>LogStreamName</code>, the results are ordered by log stream name. If the value is <code>LastEventTime</code>, the results are ordered by the event time. The default value is <code>LogStreamName</code>.</p><p>If you order the results by event time, you cannot specify the <code>logStreamNamePrefix</code> parameter.</p><p><code>lastEventTimestamp</code> represents the time of the most recent log event in the log stream in CloudWatch Logs. This number is expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. <code>lastEventTimestamp</code> updates on an eventual consistency basis. It typically updates in less than an hour from ingestion, but in rare situations might take longer.</p>
  */
 @property (nonatomic, assign) AWSLogsOrderBy orderBy;
 
@@ -1013,7 +1045,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
 /**
- <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</p><p>If you omit <code>startTime</code> and <code>endTime</code> the most recent log events are retrieved, to up 1 MB or 10,000 log events.</p>
+ <p>The start of the time range, expressed as the number of milliseconds after Jan 1, 1970 00:00:00 UTC. Events with a timestamp before this time are not returned.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable startTime;
 
@@ -1153,7 +1185,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSString * _Nullable logGroupName;
 
 /**
- <p>The time to set as the center of the query. If you specify <code>time</code>, the 8 minutes before and 8 minutes after this time are searched. If you omit <code>time</code>, the past 15 minutes are queried.</p><p>The <code>time</code> value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
+ <p>The time to set as the center of the query. If you specify <code>time</code>, the 15 minutes before this time are queries. If you omit <code>time</code> the 8 minutes before and 8 minutes after this time are searched.</p><p>The <code>time</code> value is specified as epoch time, the number of seconds since January 1, 1970, 00:00:00 UTC.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable time;
 
@@ -1457,6 +1489,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable defaultValue;
 
 /**
+ <p>The fields to use as dimensions for the metric. One metric filter can include as many as three dimensions.</p><important><p>Metrics extracted from log events are charged as custom metrics. To prevent unexpected high charges, do not specify high-cardinality fields such as <code>IPAddress</code> or <code>requestID</code> as dimensions. Each different value found for a dimension is treated as a separate metric and accrues charges as a separate custom metric. </p><p>To help prevent accidental high charges, Amazon disables a metric filter if it generates 1000 different name/value pairs for the dimensions that you have specified within a certain amount of time.</p><p>You can also set up a billing alarm to alert you if your charges are higher than expected. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/monitor_estimated_charges_with_cloudwatch.html"> Creating a Billing Alarm to Monitor Your Estimated AWS Charges</a>. </p></important>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable dimensions;
+
+/**
  <p>The name of the CloudWatch metric.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricName;
@@ -1470,6 +1507,11 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
  <p>The value to publish to the CloudWatch metric when a filter pattern matches a log event.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable metricValue;
+
+/**
+ <p>The unit to assign to the metric. If you omit this, the unit is set as <code>None</code>.</p>
+ */
+@property (nonatomic, assign) AWSLogsStandardUnit unit;
 
 @end
 
@@ -1721,7 +1763,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 
 
 /**
- <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p></li><li><p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
+ <p>The ARN of the destination to deliver matching log events to. Currently, the supported destinations are:</p><ul><li><p>An Amazon Kinesis stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>A logical destination (specified using an ARN) belonging to a different account, for cross-account delivery.</p><p>If you are setting up a cross-account subscription, the destination must have an IAM policy associated with it that allows the sender to send logs to the destination. For more information, see <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_PutDestinationPolicy.html">PutDestinationPolicy</a>.</p></li><li><p>An Amazon Kinesis Firehose delivery stream belonging to the same account as the subscription filter, for same-account delivery.</p></li><li><p>An AWS Lambda function belonging to the same account as the subscription filter, for same-account delivery.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable destinationArn;
 
@@ -1731,7 +1773,7 @@ typedef NS_ENUM(NSInteger, AWSLogsQueryStatus) {
 @property (nonatomic, assign) AWSLogsDistribution distribution;
 
 /**
- <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. Otherwise, the call fails because you cannot associate a second filter with a log group. To find the name of the filter currently associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
+ <p>A name for the subscription filter. If you are updating an existing filter, you must specify the correct name in <code>filterName</code>. To find the name of the filter currently associated with a log group, use <a href="https://docs.aws.amazon.com/AmazonCloudWatchLogs/latest/APIReference/API_DescribeSubscriptionFilters.html">DescribeSubscriptionFilters</a>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable filterName;
 

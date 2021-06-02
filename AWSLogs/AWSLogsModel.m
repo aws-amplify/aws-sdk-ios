@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -517,6 +517,12 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
             return @(AWSLogsQueryStatusCancelled);
         }
+        if ([value caseInsensitiveCompare:@"Timeout"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusTimeout);
+        }
+        if ([value caseInsensitiveCompare:@"Unknown"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusUnknown);
+        }
         return @(AWSLogsQueryStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -530,6 +536,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
                 return @"Failed";
             case AWSLogsQueryStatusCancelled:
                 return @"Cancelled";
+            case AWSLogsQueryStatusTimeout:
+                return @"Timeout";
+            case AWSLogsQueryStatusUnknown:
+                return @"Unknown";
             default:
                 return nil;
         }
@@ -1010,6 +1020,12 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
             return @(AWSLogsQueryStatusCancelled);
         }
+        if ([value caseInsensitiveCompare:@"Timeout"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusTimeout);
+        }
+        if ([value caseInsensitiveCompare:@"Unknown"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusUnknown);
+        }
         return @(AWSLogsQueryStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1023,6 +1039,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
                 return @"Failed";
             case AWSLogsQueryStatusCancelled:
                 return @"Cancelled";
+            case AWSLogsQueryStatusTimeout:
+                return @"Timeout";
+            case AWSLogsQueryStatusUnknown:
+                return @"Unknown";
             default:
                 return nil;
         }
@@ -1177,10 +1197,158 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"defaultValue" : @"defaultValue",
+             @"dimensions" : @"dimensions",
              @"metricName" : @"metricName",
              @"metricNamespace" : @"metricNamespace",
              @"metricValue" : @"metricValue",
+             @"unit" : @"unit",
              };
+}
+
++ (NSValueTransformer *)unitJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Seconds"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitSeconds);
+        }
+        if ([value caseInsensitiveCompare:@"Microseconds"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMicroseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Milliseconds"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMilliseconds);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitBytes);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitKilobytes);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMegabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitGigabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitTerabytes);
+        }
+        if ([value caseInsensitiveCompare:@"Bits"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitBits);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitKilobits);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMegabits);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitGigabits);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitTerabits);
+        }
+        if ([value caseInsensitiveCompare:@"Percent"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitPercent);
+        }
+        if ([value caseInsensitiveCompare:@"Count"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitCount);
+        }
+        if ([value caseInsensitiveCompare:@"Bytes/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitBytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobytes/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitKilobytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabytes/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMegabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabytes/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitGigabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabytes/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitTerabytesSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Bits/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitBitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Kilobits/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitKilobitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Megabits/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitMegabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Gigabits/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitGigabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Terabits/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitTerabitsSecond);
+        }
+        if ([value caseInsensitiveCompare:@"Count/Second"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitCountSecond);
+        }
+        if ([value caseInsensitiveCompare:@"None"] == NSOrderedSame) {
+            return @(AWSLogsStandardUnitNone);
+        }
+        return @(AWSLogsStandardUnitUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSLogsStandardUnitSeconds:
+                return @"Seconds";
+            case AWSLogsStandardUnitMicroseconds:
+                return @"Microseconds";
+            case AWSLogsStandardUnitMilliseconds:
+                return @"Milliseconds";
+            case AWSLogsStandardUnitBytes:
+                return @"Bytes";
+            case AWSLogsStandardUnitKilobytes:
+                return @"Kilobytes";
+            case AWSLogsStandardUnitMegabytes:
+                return @"Megabytes";
+            case AWSLogsStandardUnitGigabytes:
+                return @"Gigabytes";
+            case AWSLogsStandardUnitTerabytes:
+                return @"Terabytes";
+            case AWSLogsStandardUnitBits:
+                return @"Bits";
+            case AWSLogsStandardUnitKilobits:
+                return @"Kilobits";
+            case AWSLogsStandardUnitMegabits:
+                return @"Megabits";
+            case AWSLogsStandardUnitGigabits:
+                return @"Gigabits";
+            case AWSLogsStandardUnitTerabits:
+                return @"Terabits";
+            case AWSLogsStandardUnitPercent:
+                return @"Percent";
+            case AWSLogsStandardUnitCount:
+                return @"Count";
+            case AWSLogsStandardUnitBytesSecond:
+                return @"Bytes/Second";
+            case AWSLogsStandardUnitKilobytesSecond:
+                return @"Kilobytes/Second";
+            case AWSLogsStandardUnitMegabytesSecond:
+                return @"Megabytes/Second";
+            case AWSLogsStandardUnitGigabytesSecond:
+                return @"Gigabytes/Second";
+            case AWSLogsStandardUnitTerabytesSecond:
+                return @"Terabytes/Second";
+            case AWSLogsStandardUnitBitsSecond:
+                return @"Bits/Second";
+            case AWSLogsStandardUnitKilobitsSecond:
+                return @"Kilobits/Second";
+            case AWSLogsStandardUnitMegabitsSecond:
+                return @"Megabits/Second";
+            case AWSLogsStandardUnitGigabitsSecond:
+                return @"Gigabits/Second";
+            case AWSLogsStandardUnitTerabitsSecond:
+                return @"Terabits/Second";
+            case AWSLogsStandardUnitCountSecond:
+                return @"Count/Second";
+            case AWSLogsStandardUnitNone:
+                return @"None";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -1515,6 +1683,12 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
         if ([value caseInsensitiveCompare:@"Cancelled"] == NSOrderedSame) {
             return @(AWSLogsQueryStatusCancelled);
         }
+        if ([value caseInsensitiveCompare:@"Timeout"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusTimeout);
+        }
+        if ([value caseInsensitiveCompare:@"Unknown"] == NSOrderedSame) {
+            return @(AWSLogsQueryStatusUnknown);
+        }
         return @(AWSLogsQueryStatusUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -1528,6 +1702,10 @@ NSString *const AWSLogsErrorDomain = @"com.amazonaws.AWSLogsErrorDomain";
                 return @"Failed";
             case AWSLogsQueryStatusCancelled:
                 return @"Cancelled";
+            case AWSLogsQueryStatusTimeout:
+                return @"Timeout";
+            case AWSLogsQueryStatusUnknown:
+                return @"Unknown";
             default:
                 return nil;
         }
