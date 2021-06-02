@@ -521,195 +521,412 @@
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 102,
-      "symbol": "AWSAutoScalingRefreshStrategy",
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 102,
-      "symbol": "AWSAutoScalingRefreshStrategy",
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 103,
-      "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyUnknown",
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 104,
-      "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyRolling",
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalCPUUtilization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 105,
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkIn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 106,
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeASGTotalNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 107,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 107,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 108,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 109,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePendingSpotBidPlacement",
+      "symbol": "AWSAutoScalingPredefinedLoadMetricType.AWSAutoScalingPredefinedLoadMetricTypeALBTargetGroupRequestCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 110,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceRequestId",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 110,
+      "symbol": "AWSAutoScalingPredefinedMetricPairType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 111,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceId",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 112,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceId",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGCPUUtilization",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 113,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePreInService",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGNetworkIn",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 114,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeInProgress",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeASGNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 115,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForELBConnectionDraining",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 116,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 117,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceWarmup",
+      "symbol": "AWSAutoScalingPredefinedMetricPairType.AWSAutoScalingPredefinedMetricPairTypeALBRequestCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 118,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeSuccessful",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 118,
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 119,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeFailed",
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 120,
-      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeCancelled",
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageCPUUtilization",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 121,
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkIn",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 122,
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeASGAverageNetworkOut",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 123,
-      "symbol": "AWSAutoScalingWarmPoolState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 123,
-      "symbol": "AWSAutoScalingWarmPoolState",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 124,
-      "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateUnknown",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 125,
-      "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateStopped",
+      "symbol": "AWSAutoScalingPredefinedScalingMetricType.AWSAutoScalingPredefinedScalingMetricTypeALBRequestCountPerTarget",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
       "line": 126,
+      "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 126,
+      "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 127,
+      "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 128,
+      "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorHonorMaxCapacity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 129,
+      "symbol": "AWSAutoScalingPredictiveScalingMaxCapacityBreachBehavior.AWSAutoScalingPredictiveScalingMaxCapacityBreachBehaviorIncreaseMaxCapacity",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 132,
+      "symbol": "AWSAutoScalingPredictiveScalingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 132,
+      "symbol": "AWSAutoScalingPredictiveScalingMode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 133,
+      "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 134,
+      "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeForecastAndScale",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 135,
+      "symbol": "AWSAutoScalingPredictiveScalingMode.AWSAutoScalingPredictiveScalingModeForecastOnly",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 138,
+      "symbol": "AWSAutoScalingRefreshStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 138,
+      "symbol": "AWSAutoScalingRefreshStrategy",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 139,
+      "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 140,
+      "symbol": "AWSAutoScalingRefreshStrategy.AWSAutoScalingRefreshStrategyRolling",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 143,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 143,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 144,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 145,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePendingSpotBidPlacement",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 146,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceRequestId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 147,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForSpotInstanceId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 148,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceId",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 149,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodePreInService",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 150,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeInProgress",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 151,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForELBConnectionDraining",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 152,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeMidLifecycleAction",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 153,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeWaitingForInstanceWarmup",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 154,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeSuccessful",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 155,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeFailed",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 156,
+      "symbol": "AWSAutoScalingScalingActivityStatusCode.AWSAutoScalingScalingActivityStatusCodeCancelled",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 159,
+      "symbol": "AWSAutoScalingWarmPoolState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 159,
+      "symbol": "AWSAutoScalingWarmPoolState",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 160,
+      "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateUnknown",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 161,
+      "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateStopped",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
+      "line": 162,
       "symbol": "AWSAutoScalingWarmPoolState.AWSAutoScalingWarmPoolStateRunning",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 129,
+      "line": 165,
       "symbol": "AWSAutoScalingWarmPoolStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 129,
+      "line": 165,
       "symbol": "AWSAutoScalingWarmPoolStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 130,
+      "line": 166,
       "symbol": "AWSAutoScalingWarmPoolStatus.AWSAutoScalingWarmPoolStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSAutoScaling/AWSAutoScalingModel.h",
-      "line": 131,
+      "line": 167,
       "symbol": "AWSAutoScalingWarmPoolStatus.AWSAutoScalingWarmPoolStatusPendingDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
