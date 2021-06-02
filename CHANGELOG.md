@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.24.2
+
 ### Bug fixes
 - Fix for decoding AWSPinpointEndpointProfile when it includes attributes ([PR #3601](https://github.com/aws-amplify/aws-sdk-ios/pull/3601))
 
