@@ -7737,6 +7737,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"ClientToken",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
              @"groups" : @"Groups",
@@ -7789,6 +7790,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"clientToken" : @"ClientToken",
              @"networkInterface" : @"NetworkInterface",
              };
 }

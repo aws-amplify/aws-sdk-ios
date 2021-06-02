@@ -10132,6 +10132,11 @@
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to apply to the new network interface.</p>\",\
           \"locationName\":\"TagSpecification\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href=\\\"https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html\\\">Ensuring Idempotency</a>.</p>\",\
+          \"idempotencyToken\":true\
         }\
       },\
       \"documentation\":\"<p>Contains the parameters for CreateNetworkInterface.</p>\"\
@@ -10143,6 +10148,11 @@
           \"shape\":\"NetworkInterface\",\
           \"documentation\":\"<p>Information about the network interface.</p>\",\
           \"locationName\":\"networkInterface\"\
+        },\
+        \"ClientToken\":{\
+          \"shape\":\"String\",\
+          \"documentation\":\"<p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>\",\
+          \"locationName\":\"clientToken\"\
         }\
       },\
       \"documentation\":\"<p>Contains the output of CreateNetworkInterface.</p>\"\
