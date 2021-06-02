@@ -154,6 +154,105 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSCreateSMSSandboxPhoneNumberInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"languageCode" : @"LanguageCode",
+             @"phoneNumber" : @"PhoneNumber",
+             };
+}
+
++ (NSValueTransformer *)languageCodeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"en-US"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringEnUS);
+        }
+        if ([value caseInsensitiveCompare:@"en-GB"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringEnGB);
+        }
+        if ([value caseInsensitiveCompare:@"es-419"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringEs419);
+        }
+        if ([value caseInsensitiveCompare:@"es-ES"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringEsES);
+        }
+        if ([value caseInsensitiveCompare:@"de-DE"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringDeDE);
+        }
+        if ([value caseInsensitiveCompare:@"fr-CA"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringFrCA);
+        }
+        if ([value caseInsensitiveCompare:@"fr-FR"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringFrFR);
+        }
+        if ([value caseInsensitiveCompare:@"it-IT"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringItIT);
+        }
+        if ([value caseInsensitiveCompare:@"ja-JP"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringJaJP);
+        }
+        if ([value caseInsensitiveCompare:@"pt-BR"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringPtBR);
+        }
+        if ([value caseInsensitiveCompare:@"kr-KR"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringKrKR);
+        }
+        if ([value caseInsensitiveCompare:@"zh-CN"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringZhCN);
+        }
+        if ([value caseInsensitiveCompare:@"zh-TW"] == NSOrderedSame) {
+            return @(AWSSNSLanguageCodeStringZhTW);
+        }
+        return @(AWSSNSLanguageCodeStringUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSNSLanguageCodeStringEnUS:
+                return @"en-US";
+            case AWSSNSLanguageCodeStringEnGB:
+                return @"en-GB";
+            case AWSSNSLanguageCodeStringEs419:
+                return @"es-419";
+            case AWSSNSLanguageCodeStringEsES:
+                return @"es-ES";
+            case AWSSNSLanguageCodeStringDeDE:
+                return @"de-DE";
+            case AWSSNSLanguageCodeStringFrCA:
+                return @"fr-CA";
+            case AWSSNSLanguageCodeStringFrFR:
+                return @"fr-FR";
+            case AWSSNSLanguageCodeStringItIT:
+                return @"it-IT";
+            case AWSSNSLanguageCodeStringJaJP:
+                return @"ja-JP";
+            case AWSSNSLanguageCodeStringPtBR:
+                return @"pt-BR";
+            case AWSSNSLanguageCodeStringKrKR:
+                return @"kr-KR";
+            case AWSSNSLanguageCodeStringZhCN:
+                return @"zh-CN";
+            case AWSSNSLanguageCodeStringZhTW:
+                return @"zh-TW";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSSNSCreateSMSSandboxPhoneNumberResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
 @implementation AWSSNSCreateTopicInput
 
 + (BOOL)supportsSecureCoding {
@@ -212,6 +311,28 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 	return @{
              @"platformApplicationArn" : @"PlatformApplicationArn",
              };
+}
+
+@end
+
+@implementation AWSSNSDeleteSMSSandboxPhoneNumberInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"phoneNumber" : @"PhoneNumber",
+             };
+}
+
+@end
+
+@implementation AWSSNSDeleteSMSSandboxPhoneNumberResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
 }
 
 @end
@@ -329,6 +450,28 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSGetSMSSandboxAccountStatusInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSSNSGetSMSSandboxAccountStatusResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"isInSandbox" : @"IsInSandbox",
+             };
+}
+
+@end
+
 @implementation AWSSNSGetSubscriptionAttributesInput
 
 + (BOOL)supportsSecureCoding {
@@ -419,6 +562,40 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSListOriginationNumbersRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSNSListOriginationNumbersResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"phoneNumbers" : @"PhoneNumbers",
+             };
+}
+
++ (NSValueTransformer *)phoneNumbersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSPhoneNumberInformation class]];
+}
+
+@end
+
 @implementation AWSSNSListPhoneNumbersOptedOutInput
 
 + (BOOL)supportsSecureCoding {
@@ -477,6 +654,40 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 + (NSValueTransformer *)platformApplicationsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSPlatformApplication class]];
+}
+
+@end
+
+@implementation AWSSNSListSMSSandboxPhoneNumbersInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
+@end
+
+@implementation AWSSNSListSMSSandboxPhoneNumbersResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"phoneNumbers" : @"PhoneNumbers",
+             };
+}
+
++ (NSValueTransformer *)phoneNumbersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSSNSSMSSandboxPhoneNumber class]];
 }
 
 @end
@@ -651,6 +862,59 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 
 @end
 
+@implementation AWSSNSPhoneNumberInformation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"createdAt" : @"CreatedAt",
+             @"iso2CountryCode" : @"Iso2CountryCode",
+             @"numberCapabilities" : @"NumberCapabilities",
+             @"phoneNumber" : @"PhoneNumber",
+             @"routeType" : @"RouteType",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)createdAtJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^id(NSString *str) {
+        return [NSDate aws_dateFromString:str];
+    } reverseBlock:^id(NSDate *date) {
+return [date aws_stringValue:AWSDateISO8601DateFormat1];
+    }];
+}
+
++ (NSValueTransformer *)routeTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Transactional"] == NSOrderedSame) {
+            return @(AWSSNSRouteTypeTransactional);
+        }
+        if ([value caseInsensitiveCompare:@"Promotional"] == NSOrderedSame) {
+            return @(AWSSNSRouteTypePromotional);
+        }
+        if ([value caseInsensitiveCompare:@"Premium"] == NSOrderedSame) {
+            return @(AWSSNSRouteTypePremium);
+        }
+        return @(AWSSNSRouteTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSNSRouteTypeTransactional:
+                return @"Transactional";
+            case AWSSNSRouteTypePromotional:
+                return @"Promotional";
+            case AWSSNSRouteTypePremium:
+                return @"Premium";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSSNSPlatformApplication
 
 + (BOOL)supportsSecureCoding {
@@ -722,6 +986,42 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
              @"label" : @"Label",
              @"topicArn" : @"TopicArn",
              };
+}
+
+@end
+
+@implementation AWSSNSSMSSandboxPhoneNumber
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"phoneNumber" : @"PhoneNumber",
+             @"status" : @"Status",
+             };
+}
+
++ (NSValueTransformer *)statusJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Pending"] == NSOrderedSame) {
+            return @(AWSSNSSMSSandboxPhoneNumberVerificationStatusPending);
+        }
+        if ([value caseInsensitiveCompare:@"Verified"] == NSOrderedSame) {
+            return @(AWSSNSSMSSandboxPhoneNumberVerificationStatusVerified);
+        }
+        return @(AWSSNSSMSSandboxPhoneNumberVerificationStatusUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSSNSSMSSandboxPhoneNumberVerificationStatusPending:
+                return @"Pending";
+            case AWSSNSSMSSandboxPhoneNumberVerificationStatusVerified:
+                return @"Verified";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
@@ -946,6 +1246,29 @@ NSString *const AWSSNSErrorDomain = @"com.amazonaws.AWSSNSErrorDomain";
 @end
 
 @implementation AWSSNSUntagResourceResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
+@end
+
+@implementation AWSSNSVerifySMSSandboxPhoneNumberInput
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"oneTimePassword" : @"OneTimePassword",
+             @"phoneNumber" : @"PhoneNumber",
+             };
+}
+
+@end
+
+@implementation AWSSNSVerifySMSSandboxPhoneNumberResult
 
 + (BOOL)supportsSecureCoding {
     return YES;

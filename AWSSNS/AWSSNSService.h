@@ -297,6 +297,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateSMSSandboxPhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSCreateSMSSandboxPhoneNumberResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorOptedOut`, `AWSSNSErrorUserError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSCreateSMSSandboxPhoneNumberInput
+ @see AWSSNSCreateSMSSandboxPhoneNumberResult
+ */
+- (AWSTask<AWSSNSCreateSMSSandboxPhoneNumberResult *> *)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request;
+
+/**
+ <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateSMSSandboxPhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorOptedOut`, `AWSSNSErrorUserError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSCreateSMSSandboxPhoneNumberInput
+ @see AWSSNSCreateSMSSandboxPhoneNumberResult
+ */
+- (void)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateSMSSandboxPhoneNumberResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
@@ -364,6 +389,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @see AWSSNSDeletePlatformApplicationInput
  */
 - (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteSMSSandboxPhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSDeleteSMSSandboxPhoneNumberResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorUserError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSDeleteSMSSandboxPhoneNumberInput
+ @see AWSSNSDeleteSMSSandboxPhoneNumberResult
+ */
+- (AWSTask<AWSSNSDeleteSMSSandboxPhoneNumberResult *> *)deleteSMSSandboxPhoneNumber:(AWSSNSDeleteSMSSandboxPhoneNumberInput *)request;
+
+/**
+ <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteSMSSandboxPhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorUserError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSDeleteSMSSandboxPhoneNumberInput
+ @see AWSSNSDeleteSMSSandboxPhoneNumberResult
+ */
+- (void)deleteSMSSandboxPhoneNumber:(AWSSNSDeleteSMSSandboxPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSDeleteSMSSandboxPhoneNumberResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a topic and all its subscriptions. Deleting a topic might prevent some messages previously sent to the topic from being delivered to subscribers. This action is idempotent, so deleting a topic that does not exist does not result in an error.</p>
@@ -463,6 +513,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetSMSAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSMSSandboxAccountStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSGetSMSSandboxAccountStatusResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSGetSMSSandboxAccountStatusInput
+ @see AWSSNSGetSMSSandboxAccountStatusResult
+ */
+- (AWSTask<AWSSNSGetSMSSandboxAccountStatusResult *> *)getSMSSandboxAccountStatus:(AWSSNSGetSMSSandboxAccountStatusInput *)request;
+
+/**
+ <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetSMSSandboxAccountStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSGetSMSSandboxAccountStatusInput
+ @see AWSSNSGetSMSSandboxAccountStatusResult
+ */
+- (void)getSMSSandboxAccountStatus:(AWSSNSGetSMSSandboxAccountStatusInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetSMSSandboxAccountStatusResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns all of the properties of a subscription.</p>
  
  @param request A container for the necessary parameters to execute the GetSubscriptionAttributes service method.
@@ -538,6 +613,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListEndpointsByPlatformApplicationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListOriginationNumbers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListOriginationNumbersResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorThrottled`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorValidation`.
+ 
+ @see AWSSNSListOriginationNumbersRequest
+ @see AWSSNSListOriginationNumbersResult
+ */
+- (AWSTask<AWSSNSListOriginationNumbersResult *> *)listOriginationNumbers:(AWSSNSListOriginationNumbersRequest *)request;
+
+/**
+ <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListOriginationNumbers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorInternalError`, `AWSSNSErrorAuthorizationError`, `AWSSNSErrorThrottled`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorValidation`.
+ 
+ @see AWSSNSListOriginationNumbersRequest
+ @see AWSSNSListOriginationNumbersResult
+ */
+- (void)listOriginationNumbers:(AWSSNSListOriginationNumbersRequest *)request completionHandler:(void (^ _Nullable)(AWSSNSListOriginationNumbersResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Returns a list of phone numbers that are opted out, meaning you cannot send SMS messages to them.</p><p>The results for <code>ListPhoneNumbersOptedOut</code> are paginated, and each page returns up to 100 phone numbers. If additional phone numbers are available after the first page of results, then a <code>NextToken</code> string will be returned. To receive the next page, you call <code>ListPhoneNumbersOptedOut</code> again using the <code>NextToken</code> string received from the previous call. When there are no more records to return, <code>NextToken</code> will be null.</p>
  
  @param request A container for the necessary parameters to execute the ListPhoneNumbersOptedOut service method.
@@ -586,6 +686,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @see AWSSNSListPlatformApplicationsResponse
  */
 - (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListPlatformApplicationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Lists the calling AWS account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSMSSandboxPhoneNumbers service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSListSMSSandboxPhoneNumbersResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSListSMSSandboxPhoneNumbersInput
+ @see AWSSNSListSMSSandboxPhoneNumbersResult
+ */
+- (AWSTask<AWSSNSListSMSSandboxPhoneNumbersResult *> *)listSMSSandboxPhoneNumbers:(AWSSNSListSMSSandboxPhoneNumbersInput *)request;
+
+/**
+ <p>Lists the calling AWS account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListSMSSandboxPhoneNumbers service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSListSMSSandboxPhoneNumbersInput
+ @see AWSSNSListSMSSandboxPhoneNumbersResult
+ */
+- (void)listSMSSandboxPhoneNumbers:(AWSSNSListSMSSandboxPhoneNumbersInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListSMSSandboxPhoneNumbersResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns a list of the requester's subscriptions. Each call returns a limited list of subscriptions, up to 100. If there are more subscriptions, a <code>NextToken</code> is also returned. Use the <code>NextToken</code> parameter in a new <code>ListSubscriptions</code> call to get further results.</p><p>This action is throttled at 30 transactions per second (TPS).</p>
@@ -968,6 +1093,31 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
  @see AWSSNSUntagResourceResponse
  */
 - (void)untagResource:(AWSSNSUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSSNSUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS account.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifySMSSandboxPhoneNumber service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSSNSVerifySMSSandboxPhoneNumberResult`. On failed execution, `task.error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorVerification`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSVerifySMSSandboxPhoneNumberInput
+ @see AWSSNSVerifySMSSandboxPhoneNumberResult
+ */
+- (AWSTask<AWSSNSVerifySMSSandboxPhoneNumberResult *> *)verifySMSSandboxPhoneNumber:(AWSSNSVerifySMSSandboxPhoneNumberInput *)request;
+
+/**
+ <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS account.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the VerifySMSSandboxPhoneNumber service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSSNSErrorDomain` domain and the following error code: `AWSSNSErrorAuthorizationError`, `AWSSNSErrorInternalError`, `AWSSNSErrorInvalidParameter`, `AWSSNSErrorResourceNotFound`, `AWSSNSErrorVerification`, `AWSSNSErrorThrottled`.
+ 
+ @see AWSSNSVerifySMSSandboxPhoneNumberInput
+ @see AWSSNSVerifySMSSandboxPhoneNumberResult
+ */
+- (void)verifySMSSandboxPhoneNumber:(AWSSNSVerifySMSSandboxPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSVerifySMSSandboxPhoneNumberResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 @end
 
