@@ -17,7 +17,7 @@
     <a title="AWSEC2InstanceType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSEC2 2.24.1 Docs</a> (80% documented)</p>
+        <p><a href="../index.html">AWSEC2 2.24.2 Docs</a> (80% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSEC2.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -275,7 +275,13 @@
                 <a href="../Classes/AWSEC2AuthorizeSecurityGroupEgressRequest.html">AWSEC2AuthorizeSecurityGroupEgressRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2AuthorizeSecurityGroupEgressResult.html">AWSEC2AuthorizeSecurityGroupEgressResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2AuthorizeSecurityGroupIngressRequest.html">AWSEC2AuthorizeSecurityGroupIngressRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2AuthorizeSecurityGroupIngressResult.html">AWSEC2AuthorizeSecurityGroupIngressResult</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2AvailabilityZone.html">AWSEC2AvailabilityZone</a>
@@ -1670,6 +1676,12 @@
                 <a href="../Classes/AWSEC2DescribeSecurityGroupReferencesResult.html">AWSEC2DescribeSecurityGroupReferencesResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeSecurityGroupRulesRequest.html">AWSEC2DescribeSecurityGroupRulesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2DescribeSecurityGroupRulesResult.html">AWSEC2DescribeSecurityGroupRulesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2DescribeSecurityGroupsRequest.html">AWSEC2DescribeSecurityGroupsRequest</a>
               </li>
               <li class="nav-group-task">
@@ -2978,6 +2990,12 @@
                 <a href="../Classes/AWSEC2ModifyReservedInstancesResult.html">AWSEC2ModifyReservedInstancesResult</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifySecurityGroupRulesRequest.html">AWSEC2ModifySecurityGroupRulesRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ModifySecurityGroupRulesResult.html">AWSEC2ModifySecurityGroupRulesResult</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2ModifySnapshotAttributeRequest.html">AWSEC2ModifySnapshotAttributeRequest</a>
               </li>
               <li class="nav-group-task">
@@ -3344,6 +3362,9 @@
                 <a href="../Classes/AWSEC2RecurringCharge.html">AWSEC2RecurringCharge</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSEC2ReferencedSecurityGroup.html">AWSEC2ReferencedSecurityGroup</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSEC2Region.html">AWSEC2Region</a>
               </li>
               <li class="nav-group-task">
@@ -3684,6 +3705,18 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2SecurityGroupReference.html">AWSEC2SecurityGroupReference</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2SecurityGroupRule.html">AWSEC2SecurityGroupRule</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2SecurityGroupRuleDescription.html">AWSEC2SecurityGroupRuleDescription</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2SecurityGroupRuleRequest.html">AWSEC2SecurityGroupRuleRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSEC2SecurityGroupRuleUpdate.html">AWSEC2SecurityGroupRuleUpdate</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSEC2SendDiagnosticInterruptRequest.html">AWSEC2SendDiagnosticInterruptRequest</a>
@@ -5174,6 +5207,10 @@
     <span class="n">AWSEC2InstanceTypeZ1D_6xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeZ1D_12xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeZ1D_metal</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU_6tb1_56xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU_6tb1_112xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU_9tb1_112xlarge</span><span class="p">,</span>
+    <span class="n">AWSEC2InstanceTypeU_12tb1_112xlarge</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeU_6tb1_metal</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeU_9tb1_metal</span><span class="p">,</span>
     <span class="n">AWSEC2InstanceTypeU_12tb1_metal</span><span class="p">,</span>
@@ -15635,6 +15672,134 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_56xlarge"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2InstanceTypeU_6tb1_56xlarge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_56xlarge">AWSEC2InstanceTypeU_6tb1_56xlarge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2InstanceTypeU_6tb1_56xlarge</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_6tb1_56xlarge</span> <span class="o">=</span> <span class="mi">324</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_112xlarge"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2InstanceTypeU_6tb1_112xlarge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_112xlarge">AWSEC2InstanceTypeU_6tb1_112xlarge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2InstanceTypeU_6tb1_112xlarge</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_6tb1_112xlarge</span> <span class="o">=</span> <span class="mi">325</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_9tb1_112xlarge"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2InstanceTypeU_9tb1_112xlarge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_9tb1_112xlarge">AWSEC2InstanceTypeU_9tb1_112xlarge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2InstanceTypeU_9tb1_112xlarge</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_9tb1_112xlarge</span> <span class="o">=</span> <span class="mi">326</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_12tb1_112xlarge"></a>
+                    <a name="//apple_ref/objc/Case/AWSEC2InstanceTypeU_12tb1_112xlarge" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_12tb1_112xlarge">AWSEC2InstanceTypeU_12tb1_112xlarge</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSEC2InstanceTypeU_12tb1_112xlarge</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_12tb1_112xlarge</span> <span class="o">=</span> <span class="mi">327</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_metal"></a>
                     <a name="//apple_ref/objc/Case/AWSEC2InstanceTypeU_6tb1_metal" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSEC2InstanceType@AWSEC2InstanceTypeU_6tb1_metal">AWSEC2InstanceTypeU_6tb1_metal</a>
@@ -15657,7 +15822,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_6tb1_metal</span> <span class="o">=</span> <span class="mi">324</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_6tb1_metal</span> <span class="o">=</span> <span class="mi">328</span></code></pre>
 
                         </div>
                       </div>
@@ -15689,7 +15854,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_9tb1_metal</span> <span class="o">=</span> <span class="mi">325</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_9tb1_metal</span> <span class="o">=</span> <span class="mi">329</span></code></pre>
 
                         </div>
                       </div>
@@ -15721,7 +15886,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_12tb1_metal</span> <span class="o">=</span> <span class="mi">326</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_12tb1_metal</span> <span class="o">=</span> <span class="mi">330</span></code></pre>
 
                         </div>
                       </div>
@@ -15753,7 +15918,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_18tb1_metal</span> <span class="o">=</span> <span class="mi">327</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_18tb1_metal</span> <span class="o">=</span> <span class="mi">331</span></code></pre>
 
                         </div>
                       </div>
@@ -15785,7 +15950,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_24tb1_metal</span> <span class="o">=</span> <span class="mi">328</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">u_24tb1_metal</span> <span class="o">=</span> <span class="mi">332</span></code></pre>
 
                         </div>
                       </div>
@@ -15817,7 +15982,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_medium</span> <span class="o">=</span> <span class="mi">329</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_medium</span> <span class="o">=</span> <span class="mi">333</span></code></pre>
 
                         </div>
                       </div>
@@ -15849,7 +16014,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_large</span> <span class="o">=</span> <span class="mi">330</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_large</span> <span class="o">=</span> <span class="mi">334</span></code></pre>
 
                         </div>
                       </div>
@@ -15881,7 +16046,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_xlarge</span> <span class="o">=</span> <span class="mi">331</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_xlarge</span> <span class="o">=</span> <span class="mi">335</span></code></pre>
 
                         </div>
                       </div>
@@ -15913,7 +16078,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_2xlarge</span> <span class="o">=</span> <span class="mi">332</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_2xlarge</span> <span class="o">=</span> <span class="mi">336</span></code></pre>
 
                         </div>
                       </div>
@@ -15945,7 +16110,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_4xlarge</span> <span class="o">=</span> <span class="mi">333</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_4xlarge</span> <span class="o">=</span> <span class="mi">337</span></code></pre>
 
                         </div>
                       </div>
@@ -15977,7 +16142,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_metal</span> <span class="o">=</span> <span class="mi">334</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">a1_metal</span> <span class="o">=</span> <span class="mi">338</span></code></pre>
 
                         </div>
                       </div>
@@ -16009,7 +16174,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_large</span> <span class="o">=</span> <span class="mi">335</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_large</span> <span class="o">=</span> <span class="mi">339</span></code></pre>
 
                         </div>
                       </div>
@@ -16041,7 +16206,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_xlarge</span> <span class="o">=</span> <span class="mi">336</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_xlarge</span> <span class="o">=</span> <span class="mi">340</span></code></pre>
 
                         </div>
                       </div>
@@ -16073,7 +16238,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_2xlarge</span> <span class="o">=</span> <span class="mi">337</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_2xlarge</span> <span class="o">=</span> <span class="mi">341</span></code></pre>
 
                         </div>
                       </div>
@@ -16105,7 +16270,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_4xlarge</span> <span class="o">=</span> <span class="mi">338</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_4xlarge</span> <span class="o">=</span> <span class="mi">342</span></code></pre>
 
                         </div>
                       </div>
@@ -16137,7 +16302,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_8xlarge</span> <span class="o">=</span> <span class="mi">339</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_8xlarge</span> <span class="o">=</span> <span class="mi">343</span></code></pre>
 
                         </div>
                       </div>
@@ -16169,7 +16334,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_12xlarge</span> <span class="o">=</span> <span class="mi">340</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_12xlarge</span> <span class="o">=</span> <span class="mi">344</span></code></pre>
 
                         </div>
                       </div>
@@ -16201,7 +16366,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_16xlarge</span> <span class="o">=</span> <span class="mi">341</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_16xlarge</span> <span class="o">=</span> <span class="mi">345</span></code></pre>
 
                         </div>
                       </div>
@@ -16233,7 +16398,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_24xlarge</span> <span class="o">=</span> <span class="mi">342</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5Dn_24xlarge</span> <span class="o">=</span> <span class="mi">346</span></code></pre>
 
                         </div>
                       </div>
@@ -16265,7 +16430,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_large</span> <span class="o">=</span> <span class="mi">343</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_large</span> <span class="o">=</span> <span class="mi">347</span></code></pre>
 
                         </div>
                       </div>
@@ -16297,7 +16462,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_xlarge</span> <span class="o">=</span> <span class="mi">344</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_xlarge</span> <span class="o">=</span> <span class="mi">348</span></code></pre>
 
                         </div>
                       </div>
@@ -16329,7 +16494,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_2xlarge</span> <span class="o">=</span> <span class="mi">345</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_2xlarge</span> <span class="o">=</span> <span class="mi">349</span></code></pre>
 
                         </div>
                       </div>
@@ -16361,7 +16526,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_4xlarge</span> <span class="o">=</span> <span class="mi">346</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_4xlarge</span> <span class="o">=</span> <span class="mi">350</span></code></pre>
 
                         </div>
                       </div>
@@ -16393,7 +16558,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_8xlarge</span> <span class="o">=</span> <span class="mi">347</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_8xlarge</span> <span class="o">=</span> <span class="mi">351</span></code></pre>
 
                         </div>
                       </div>
@@ -16425,7 +16590,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_12xlarge</span> <span class="o">=</span> <span class="mi">348</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_12xlarge</span> <span class="o">=</span> <span class="mi">352</span></code></pre>
 
                         </div>
                       </div>
@@ -16457,7 +16622,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_16xlarge</span> <span class="o">=</span> <span class="mi">349</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_16xlarge</span> <span class="o">=</span> <span class="mi">353</span></code></pre>
 
                         </div>
                       </div>
@@ -16489,7 +16654,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_24xlarge</span> <span class="o">=</span> <span class="mi">350</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m5N_24xlarge</span> <span class="o">=</span> <span class="mi">354</span></code></pre>
 
                         </div>
                       </div>
@@ -16521,7 +16686,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_large</span> <span class="o">=</span> <span class="mi">351</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_large</span> <span class="o">=</span> <span class="mi">355</span></code></pre>
 
                         </div>
                       </div>
@@ -16553,7 +16718,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_xlarge</span> <span class="o">=</span> <span class="mi">352</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_xlarge</span> <span class="o">=</span> <span class="mi">356</span></code></pre>
 
                         </div>
                       </div>
@@ -16585,7 +16750,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_2xlarge</span> <span class="o">=</span> <span class="mi">353</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_2xlarge</span> <span class="o">=</span> <span class="mi">357</span></code></pre>
 
                         </div>
                       </div>
@@ -16617,7 +16782,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_4xlarge</span> <span class="o">=</span> <span class="mi">354</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_4xlarge</span> <span class="o">=</span> <span class="mi">358</span></code></pre>
 
                         </div>
                       </div>
@@ -16649,7 +16814,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_8xlarge</span> <span class="o">=</span> <span class="mi">355</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_8xlarge</span> <span class="o">=</span> <span class="mi">359</span></code></pre>
 
                         </div>
                       </div>
@@ -16681,7 +16846,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_12xlarge</span> <span class="o">=</span> <span class="mi">356</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_12xlarge</span> <span class="o">=</span> <span class="mi">360</span></code></pre>
 
                         </div>
                       </div>
@@ -16713,7 +16878,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_16xlarge</span> <span class="o">=</span> <span class="mi">357</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_16xlarge</span> <span class="o">=</span> <span class="mi">361</span></code></pre>
 
                         </div>
                       </div>
@@ -16745,7 +16910,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_24xlarge</span> <span class="o">=</span> <span class="mi">358</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5Dn_24xlarge</span> <span class="o">=</span> <span class="mi">362</span></code></pre>
 
                         </div>
                       </div>
@@ -16777,7 +16942,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_large</span> <span class="o">=</span> <span class="mi">359</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_large</span> <span class="o">=</span> <span class="mi">363</span></code></pre>
 
                         </div>
                       </div>
@@ -16809,7 +16974,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_xlarge</span> <span class="o">=</span> <span class="mi">360</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_xlarge</span> <span class="o">=</span> <span class="mi">364</span></code></pre>
 
                         </div>
                       </div>
@@ -16841,7 +17006,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_2xlarge</span> <span class="o">=</span> <span class="mi">361</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_2xlarge</span> <span class="o">=</span> <span class="mi">365</span></code></pre>
 
                         </div>
                       </div>
@@ -16873,7 +17038,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_4xlarge</span> <span class="o">=</span> <span class="mi">362</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_4xlarge</span> <span class="o">=</span> <span class="mi">366</span></code></pre>
 
                         </div>
                       </div>
@@ -16905,7 +17070,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_8xlarge</span> <span class="o">=</span> <span class="mi">363</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_8xlarge</span> <span class="o">=</span> <span class="mi">367</span></code></pre>
 
                         </div>
                       </div>
@@ -16937,7 +17102,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_12xlarge</span> <span class="o">=</span> <span class="mi">364</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_12xlarge</span> <span class="o">=</span> <span class="mi">368</span></code></pre>
 
                         </div>
                       </div>
@@ -16969,7 +17134,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_16xlarge</span> <span class="o">=</span> <span class="mi">365</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_16xlarge</span> <span class="o">=</span> <span class="mi">369</span></code></pre>
 
                         </div>
                       </div>
@@ -17001,7 +17166,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_24xlarge</span> <span class="o">=</span> <span class="mi">366</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">r5N_24xlarge</span> <span class="o">=</span> <span class="mi">370</span></code></pre>
 
                         </div>
                       </div>
@@ -17033,7 +17198,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_xlarge</span> <span class="o">=</span> <span class="mi">367</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_xlarge</span> <span class="o">=</span> <span class="mi">371</span></code></pre>
 
                         </div>
                       </div>
@@ -17065,7 +17230,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_2xlarge</span> <span class="o">=</span> <span class="mi">368</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_2xlarge</span> <span class="o">=</span> <span class="mi">372</span></code></pre>
 
                         </div>
                       </div>
@@ -17097,7 +17262,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_6xlarge</span> <span class="o">=</span> <span class="mi">369</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_6xlarge</span> <span class="o">=</span> <span class="mi">373</span></code></pre>
 
                         </div>
                       </div>
@@ -17129,7 +17294,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_24xlarge</span> <span class="o">=</span> <span class="mi">370</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">inf1_24xlarge</span> <span class="o">=</span> <span class="mi">374</span></code></pre>
 
                         </div>
                       </div>
@@ -17161,7 +17326,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_metal</span> <span class="o">=</span> <span class="mi">371</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_metal</span> <span class="o">=</span> <span class="mi">375</span></code></pre>
 
                         </div>
                       </div>
@@ -17193,7 +17358,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_medium</span> <span class="o">=</span> <span class="mi">372</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_medium</span> <span class="o">=</span> <span class="mi">376</span></code></pre>
 
                         </div>
                       </div>
@@ -17225,7 +17390,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_large</span> <span class="o">=</span> <span class="mi">373</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_large</span> <span class="o">=</span> <span class="mi">377</span></code></pre>
 
                         </div>
                       </div>
@@ -17257,7 +17422,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_xlarge</span> <span class="o">=</span> <span class="mi">374</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_xlarge</span> <span class="o">=</span> <span class="mi">378</span></code></pre>
 
                         </div>
                       </div>
@@ -17289,7 +17454,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_2xlarge</span> <span class="o">=</span> <span class="mi">375</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_2xlarge</span> <span class="o">=</span> <span class="mi">379</span></code></pre>
 
                         </div>
                       </div>
@@ -17321,7 +17486,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_4xlarge</span> <span class="o">=</span> <span class="mi">376</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_4xlarge</span> <span class="o">=</span> <span class="mi">380</span></code></pre>
 
                         </div>
                       </div>
@@ -17353,7 +17518,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_8xlarge</span> <span class="o">=</span> <span class="mi">377</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_8xlarge</span> <span class="o">=</span> <span class="mi">381</span></code></pre>
 
                         </div>
                       </div>
@@ -17385,7 +17550,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_12xlarge</span> <span class="o">=</span> <span class="mi">378</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_12xlarge</span> <span class="o">=</span> <span class="mi">382</span></code></pre>
 
                         </div>
                       </div>
@@ -17417,7 +17582,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_16xlarge</span> <span class="o">=</span> <span class="mi">379</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6G_16xlarge</span> <span class="o">=</span> <span class="mi">383</span></code></pre>
 
                         </div>
                       </div>
@@ -17449,7 +17614,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_metal</span> <span class="o">=</span> <span class="mi">380</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_metal</span> <span class="o">=</span> <span class="mi">384</span></code></pre>
 
                         </div>
                       </div>
@@ -17481,7 +17646,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_medium</span> <span class="o">=</span> <span class="mi">381</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_medium</span> <span class="o">=</span> <span class="mi">385</span></code></pre>
 
                         </div>
                       </div>
@@ -17513,7 +17678,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_large</span> <span class="o">=</span> <span class="mi">382</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_large</span> <span class="o">=</span> <span class="mi">386</span></code></pre>
 
                         </div>
                       </div>
@@ -17545,7 +17710,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_xlarge</span> <span class="o">=</span> <span class="mi">383</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_xlarge</span> <span class="o">=</span> <span class="mi">387</span></code></pre>
 
                         </div>
                       </div>
@@ -17577,7 +17742,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_2xlarge</span> <span class="o">=</span> <span class="mi">384</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_2xlarge</span> <span class="o">=</span> <span class="mi">388</span></code></pre>
 
                         </div>
                       </div>
@@ -17609,7 +17774,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_4xlarge</span> <span class="o">=</span> <span class="mi">385</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_4xlarge</span> <span class="o">=</span> <span class="mi">389</span></code></pre>
 
                         </div>
                       </div>
@@ -17641,7 +17806,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_8xlarge</span> <span class="o">=</span> <span class="mi">386</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_8xlarge</span> <span class="o">=</span> <span class="mi">390</span></code></pre>
 
                         </div>
                       </div>
@@ -17673,7 +17838,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_12xlarge</span> <span class="o">=</span> <span class="mi">387</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_12xlarge</span> <span class="o">=</span> <span class="mi">391</span></code></pre>
 
                         </div>
                       </div>
@@ -17705,7 +17870,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_16xlarge</span> <span class="o">=</span> <span class="mi">388</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">m6Gd_16xlarge</span> <span class="o">=</span> <span class="mi">392</span></code></pre>
 
                         </div>
                       </div>
@@ -17737,7 +17902,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mac1_metal</span> <span class="o">=</span> <span class="mi">389</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">mac1_metal</span> <span class="o">=</span> <span class="mi">393</span></code></pre>
 
                         </div>
                       </div>
@@ -17769,7 +17934,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_medium</span> <span class="o">=</span> <span class="mi">390</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_medium</span> <span class="o">=</span> <span class="mi">394</span></code></pre>
 
                         </div>
                       </div>
@@ -17801,7 +17966,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_large</span> <span class="o">=</span> <span class="mi">391</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_large</span> <span class="o">=</span> <span class="mi">395</span></code></pre>
 
                         </div>
                       </div>
@@ -17833,7 +17998,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_xlarge</span> <span class="o">=</span> <span class="mi">392</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_xlarge</span> <span class="o">=</span> <span class="mi">396</span></code></pre>
 
                         </div>
                       </div>
@@ -17865,7 +18030,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_2xlarge</span> <span class="o">=</span> <span class="mi">393</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_2xlarge</span> <span class="o">=</span> <span class="mi">397</span></code></pre>
 
                         </div>
                       </div>
@@ -17897,7 +18062,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_4xlarge</span> <span class="o">=</span> <span class="mi">394</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_4xlarge</span> <span class="o">=</span> <span class="mi">398</span></code></pre>
 
                         </div>
                       </div>
@@ -17929,7 +18094,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_8xlarge</span> <span class="o">=</span> <span class="mi">395</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_8xlarge</span> <span class="o">=</span> <span class="mi">399</span></code></pre>
 
                         </div>
                       </div>
@@ -17961,7 +18126,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_12xlarge</span> <span class="o">=</span> <span class="mi">396</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_12xlarge</span> <span class="o">=</span> <span class="mi">400</span></code></pre>
 
                         </div>
                       </div>
@@ -17993,7 +18158,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_16xlarge</span> <span class="o">=</span> <span class="mi">397</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_16xlarge</span> <span class="o">=</span> <span class="mi">401</span></code></pre>
 
                         </div>
                       </div>
@@ -18025,7 +18190,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_metal</span> <span class="o">=</span> <span class="mi">398</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">x2Gd_metal</span> <span class="o">=</span> <span class="mi">402</span></code></pre>
 
                         </div>
                       </div>
@@ -18037,7 +18202,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-05-12)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
