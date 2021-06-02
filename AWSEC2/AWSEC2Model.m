@@ -2520,6 +2520,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"instanceMatchCriteria" : @"InstanceMatchCriteria",
              @"instancePlatform" : @"InstancePlatform",
              @"instanceType" : @"InstanceType",
+             @"outpostArn" : @"OutpostArn",
              @"ownerId" : @"OwnerId",
              @"startDate" : @"StartDate",
              @"state" : @"State",
@@ -4062,6 +4063,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"instanceMatchCriteria" : @"InstanceMatchCriteria",
              @"instancePlatform" : @"InstancePlatform",
              @"instanceType" : @"InstanceType",
+             @"outpostArn" : @"OutpostArn",
              @"tagSpecifications" : @"TagSpecifications",
              @"tenancy" : @"Tenancy",
              };
