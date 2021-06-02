@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <title>AWSTranscribeListTranscriptionJobsRequest Class Reference</title>
+    <title>AWSTranscribeMedicalContentIdentificationType Enumeration Reference</title>
     <link rel="stylesheet" type="text/css" href="../css/jazzy.css" />
     <link rel="stylesheet" type="text/css" href="../css/highlight.css" />
     <meta charset='utf-8'>
@@ -13,8 +13,8 @@
     <script src="../js/jazzy.search.js" defer></script>
   </head>
   <body>
-    <a name="//apple_ref/objc/Class/AWSTranscribeListTranscriptionJobsRequest" class="dashAnchor"></a>
-    <a title="AWSTranscribeListTranscriptionJobsRequest Class Reference"></a>
+    <a name="//apple_ref/objc/Enum/AWSTranscribeMedicalContentIdentificationType" class="dashAnchor"></a>
+    <a title="AWSTranscribeMedicalContentIdentificationType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
         <p><a href="../index.html">AWSTranscribe 2.24.2 Docs</a> (74% documented)</p>
@@ -31,7 +31,7 @@
       <p id="breadcrumbs">
         <a href="../index.html">AWSTranscribe Reference</a>
         <img id="carat" src="../img/carat.png" />
-        AWSTranscribeListTranscriptionJobsRequest Class Reference
+        AWSTranscribeMedicalContentIdentificationType Enumeration Reference
       </p>
     </div>
     <div class="content-wrapper">
@@ -312,20 +312,24 @@
       <article class="main-content">
         <section>
           <section class="section">
-            <h1>AWSTranscribeListTranscriptionJobsRequest</h1>
+            <h1>AWSTranscribeMedicalContentIdentificationType</h1>
               <div class="declaration">
                 <div class="language">
                   <p class="aside-title">Objective-C</p>
-                  <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSTranscribeListTranscriptionJobsRequest</span></code></pre>
+                  <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSTranscribeMedicalContentIdentificationType</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSTranscribeMedicalContentIdentificationTypeUnknown</span><span class="p">,</span>
+    <span class="n">AWSTranscribeMedicalContentIdentificationTypePhi</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
 
                 </div>
                 <div class="language">
                   <p class="aside-title">Swift</p>
-                  <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSTranscribeListTranscriptionJobsRequest</span></code></pre>
+                  <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSTranscribeMedicalContentIdentificationType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                 </div>
               </div>
-            
+            <p>Undocumented</p>
+
           </section>
           <section class="section task-group-section">
             <div class="task-group">
@@ -333,9 +337,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)jobNameContains"></a>
-                    <a name="//apple_ref/objc/Property/jobNameContains" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)jobNameContains">jobNameContains</a>
+                    <a name="/c:@E@AWSTranscribeMedicalContentIdentificationType@AWSTranscribeMedicalContentIdentificationTypeUnknown"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeMedicalContentIdentificationTypeUnknown" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeMedicalContentIdentificationType@AWSTranscribeMedicalContentIdentificationTypeUnknown">AWSTranscribeMedicalContentIdentificationTypeUnknown</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -343,19 +347,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>When specified, the jobs returned in the list are limited to jobs whose name contains the specified string.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">jobNameContains</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeMedicalContentIdentificationTypeUnknown</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">jobNameContains</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unknown</span> <span class="o">=</span> <span class="mi">0</span></code></pre>
 
                         </div>
                       </div>
@@ -365,9 +369,9 @@
                 <li class="item">
                   <div>
                     <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)maxResults"></a>
-                    <a name="//apple_ref/objc/Property/maxResults" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)maxResults">maxResults</a>
+                    <a name="/c:@E@AWSTranscribeMedicalContentIdentificationType@AWSTranscribeMedicalContentIdentificationTypePhi"></a>
+                    <a name="//apple_ref/objc/Case/AWSTranscribeMedicalContentIdentificationTypePhi" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSTranscribeMedicalContentIdentificationType@AWSTranscribeMedicalContentIdentificationTypePhi">AWSTranscribeMedicalContentIdentificationTypePhi</a>
                     </code>
                   </div>
                   <div class="height-container">
@@ -375,83 +379,19 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The maximum number of jobs to return in the response. If there are fewer results in the list, this response contains only the actual results.</p>
+                        <p>Undocumented</p>
 
                       </div>
                       <div class="declaration">
                         <h4>Declaration</h4>
                         <div class="language">
                           <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">maxResults</span><span class="p">;</span></code></pre>
+                          <pre class="highlight objective_c"><code><span class="n">AWSTranscribeMedicalContentIdentificationTypePhi</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">maxResults</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)nextToken"></a>
-                    <a name="//apple_ref/objc/Property/nextToken" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)nextToken">nextToken</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>If the result of the previous request to <code>ListTranscriptionJobs</code> was truncated, include the <code>NextToken</code> to fetch the next set of jobs.</p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">nextToken</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">nextToken</span><span class="p">:</span> <span class="kt">String</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
-
-                        </div>
-                      </div>
-                    </section>
-                  </div>
-                </li>
-                <li class="item">
-                  <div>
-                    <code>
-                    <a name="/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)status"></a>
-                    <a name="//apple_ref/objc/Property/status" class="dashAnchor"></a>
-                    <a class="token" href="#/c:objc(cs)AWSTranscribeListTranscriptionJobsRequest(py)status">status</a>
-                    </code>
-                  </div>
-                  <div class="height-container">
-                    <div class="pointer-container"></div>
-                    <section class="section">
-                      <div class="pointer"></div>
-                      <div class="abstract">
-                        <p>When specified, returns only transcription jobs with the specified status. Jobs are ordered by creation date, with the newest jobs returned first. If you don’t specify a status, Amazon Transcribe returns all transcription jobs ordered by creation date. </p>
-
-                      </div>
-                      <div class="declaration">
-                        <h4>Declaration</h4>
-                        <div class="language">
-                          <p class="aside-title">Objective-C</p>
-                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a></span> <span class="n">status</span><span class="p">;</span></code></pre>
-
-                        </div>
-                        <div class="language">
-                          <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">status</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSTranscribeTranscriptionJobStatus.html">AWSTranscribeTranscriptionJobStatus</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">phi</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
 
                         </div>
                       </div>
