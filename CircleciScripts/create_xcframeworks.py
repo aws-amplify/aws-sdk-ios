@@ -4,6 +4,8 @@ import sys
 from framework_list import frameworks
 from functions import log, run_command
 
+PWD = os.getcwd()
+
 EXCLUDE_FROM_XCFRAMEWORK = [
     # This isn't a real framework
     "AWSiOSSDKv2",
@@ -13,9 +15,9 @@ EXCLUDE_FROM_XCFRAMEWORK = [
     "AWSMobileClient",
 ]
 
-IOS_DEVICE_ARCHIVE_PATH = "./xcframeworks/output/iOS/"
-IOS_SIMULATOR_ARCHIVE_PATH = "./xcframeworks/output/Simulator/"
-XCFRAMEWORK_PATH = "./xcframeworks/output/XCF/"
+IOS_DEVICE_ARCHIVE_PATH = f"{PWD}/xcframeworks/output/iOS/"
+IOS_SIMULATOR_ARCHIVE_PATH = f"{PWD}/xcframeworks/output/Simulator/"
+XCFRAMEWORK_PATH = f"{PWD}/xcframeworks/output/XCF/"
 
 def is_framework_included(framework):
     return framework not in EXCLUDE_FROM_XCFRAMEWORK
@@ -86,15 +88,21 @@ for framework in filtered_frameworks:
 # Create XCFramework using the archived frameworks.
 for framework in filtered_frameworks:
     ios_device_framework = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
+    ios_device_debug_symbols = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}.xcarchive/dSYMs/{framework}.framework.dSYM"
     ios_simulator_framework = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
+    ios_simulator_debug_symbols = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/dSYMs/{framework}.framework.dSYM"
     xcframework = f"{XCFRAMEWORK_PATH}{framework}.xcframework"
     cmd = [
             "xcodebuild",
             "-create-xcframework",
             "-framework",
             ios_device_framework,
+            "-debug-symbols",
+            ios_device_debug_symbols,
              "-framework",
             ios_simulator_framework,
+            "-debug-symbols",
+            ios_simulator_debug_symbols,
             "-output",
             xcframework
         ] 
