@@ -5,9 +5,11 @@ import shutil
 from framework_list import xcframeworks
 from functions import log, run_command
 
-IOS_DEVICE_ARCHIVE_PATH = "./xcframeworks/output/iOS/"
-IOS_SIMULATOR_ARCHIVE_PATH = "./xcframeworks/output/Simulator/"
-XCFRAMEWORK_PATH = "./xcframeworks/output/XCF/"
+PWD = os.getcwd()
+
+IOS_DEVICE_ARCHIVE_PATH = f"{PWD}/xcframeworks/output/iOS/"
+IOS_SIMULATOR_ARCHIVE_PATH = f"{PWD}/xcframeworks/output/Simulator/"
+XCFRAMEWORK_PATH = f"{PWD}/xcframeworks/output/XCF/"
 
 def create_archive(framework, project_file, build_for_device):
     if build_for_device:
@@ -72,15 +74,21 @@ for framework in xcframeworks:
 # Create XCFramework using the archived frameworks.
 for framework in xcframeworks:
     ios_device_framework = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
+    ios_device_debug_symbols = f"{IOS_DEVICE_ARCHIVE_PATH}{framework}.xcarchive/dSYMs/{framework}.framework.dSYM"
     ios_simulator_framework = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/Products/Library/Frameworks/{framework}.framework"
+    ios_simulator_debug_symbols = f"{IOS_SIMULATOR_ARCHIVE_PATH}{framework}.xcarchive/dSYMs/{framework}.framework.dSYM"
     xcframework = f"{XCFRAMEWORK_PATH}{framework}.xcframework"
     cmd = [
             "xcodebuild",
             "-create-xcframework",
             "-framework",
             ios_device_framework,
+            "-debug-symbols",
+            ios_device_debug_symbols,
              "-framework",
             ios_simulator_framework,
+            "-debug-symbols",
+            ios_simulator_debug_symbols,
             "-output",
             xcframework
         ] 
