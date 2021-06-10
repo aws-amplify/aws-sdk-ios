@@ -208,6 +208,8 @@
 - (void) test_AWSCognitoIdentityProviderResourceServerType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderRespondToAuthChallengeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderRespondToAuthChallengeResponse API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderRevokeTokenRequest API_AVAILABLE(ios(11));
+- (void) test_AWSCognitoIdentityProviderRevokeTokenResponse API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderRiskConfigurationType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderRiskExceptionConfigurationType API_AVAILABLE(ios(11));
 - (void) test_AWSCognitoIdentityProviderSMSMfaSettingsType API_AVAILABLE(ios(11));
@@ -1031,6 +1033,14 @@
 
 - (void) test_AWSCognitoIdentityProviderRespondToAuthChallengeResponse {
     [self validateSecureCodingForClass:[AWSCognitoIdentityProviderRespondToAuthChallengeResponse class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderRevokeTokenRequest {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderRevokeTokenRequest class]];
+}
+
+- (void) test_AWSCognitoIdentityProviderRevokeTokenResponse {
+    [self validateSecureCodingForClass:[AWSCognitoIdentityProviderRevokeTokenResponse class]];
 }
 
 - (void) test_AWSCognitoIdentityProviderRiskConfigurationType {
