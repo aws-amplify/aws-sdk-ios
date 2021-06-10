@@ -96,9 +96,7 @@
 - (void) test_AWSEC2AuthorizeClientVpnIngressRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AuthorizeClientVpnIngressResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AuthorizeSecurityGroupEgressRequest API_AVAILABLE(ios(11));
-- (void) test_AWSEC2AuthorizeSecurityGroupEgressResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AuthorizeSecurityGroupIngressRequest API_AVAILABLE(ios(11));
-- (void) test_AWSEC2AuthorizeSecurityGroupIngressResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AvailabilityZone API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AvailabilityZoneMessage API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AvailableCapacity API_AVAILABLE(ios(11));
@@ -569,8 +567,6 @@
 - (void) test_AWSEC2DescribeScheduledInstancesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeSecurityGroupReferencesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeSecurityGroupReferencesResult API_AVAILABLE(ios(11));
-- (void) test_AWSEC2DescribeSecurityGroupRulesRequest API_AVAILABLE(ios(11));
-- (void) test_AWSEC2DescribeSecurityGroupRulesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeSecurityGroupsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeSecurityGroupsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeSnapshotAttributeRequest API_AVAILABLE(ios(11));
@@ -1006,8 +1002,6 @@
 - (void) test_AWSEC2ModifyNetworkInterfaceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyReservedInstancesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifyReservedInstancesResult API_AVAILABLE(ios(11));
-- (void) test_AWSEC2ModifySecurityGroupRulesRequest API_AVAILABLE(ios(11));
-- (void) test_AWSEC2ModifySecurityGroupRulesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifySnapshotAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifySpotFleetRequestRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ModifySpotFleetRequestResponse API_AVAILABLE(ios(11));
@@ -1131,7 +1125,6 @@
 - (void) test_AWSEC2PurchaseScheduledInstancesResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RebootInstancesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RecurringCharge API_AVAILABLE(ios(11));
-- (void) test_AWSEC2ReferencedSecurityGroup API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Region API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RegisterImageRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2RegisterImageResult API_AVAILABLE(ios(11));
@@ -1239,10 +1232,6 @@
 - (void) test_AWSEC2SecurityGroup API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroupIdentifier API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SecurityGroupReference API_AVAILABLE(ios(11));
-- (void) test_AWSEC2SecurityGroupRule API_AVAILABLE(ios(11));
-- (void) test_AWSEC2SecurityGroupRuleDescription API_AVAILABLE(ios(11));
-- (void) test_AWSEC2SecurityGroupRuleRequest API_AVAILABLE(ios(11));
-- (void) test_AWSEC2SecurityGroupRuleUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SendDiagnosticInterruptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ServiceConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSEC2ServiceDetail API_AVAILABLE(ios(11));
@@ -1710,16 +1699,8 @@
     [self validateSecureCodingForClass:[AWSEC2AuthorizeSecurityGroupEgressRequest class]];
 }
 
-- (void) test_AWSEC2AuthorizeSecurityGroupEgressResult {
-    [self validateSecureCodingForClass:[AWSEC2AuthorizeSecurityGroupEgressResult class]];
-}
-
 - (void) test_AWSEC2AuthorizeSecurityGroupIngressRequest {
     [self validateSecureCodingForClass:[AWSEC2AuthorizeSecurityGroupIngressRequest class]];
-}
-
-- (void) test_AWSEC2AuthorizeSecurityGroupIngressResult {
-    [self validateSecureCodingForClass:[AWSEC2AuthorizeSecurityGroupIngressResult class]];
 }
 
 - (void) test_AWSEC2AvailabilityZone {
@@ -3602,14 +3583,6 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeSecurityGroupReferencesResult class]];
 }
 
-- (void) test_AWSEC2DescribeSecurityGroupRulesRequest {
-    [self validateSecureCodingForClass:[AWSEC2DescribeSecurityGroupRulesRequest class]];
-}
-
-- (void) test_AWSEC2DescribeSecurityGroupRulesResult {
-    [self validateSecureCodingForClass:[AWSEC2DescribeSecurityGroupRulesResult class]];
-}
-
 - (void) test_AWSEC2DescribeSecurityGroupsRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeSecurityGroupsRequest class]];
 }
@@ -5350,14 +5323,6 @@
     [self validateSecureCodingForClass:[AWSEC2ModifyReservedInstancesResult class]];
 }
 
-- (void) test_AWSEC2ModifySecurityGroupRulesRequest {
-    [self validateSecureCodingForClass:[AWSEC2ModifySecurityGroupRulesRequest class]];
-}
-
-- (void) test_AWSEC2ModifySecurityGroupRulesResult {
-    [self validateSecureCodingForClass:[AWSEC2ModifySecurityGroupRulesResult class]];
-}
-
 - (void) test_AWSEC2ModifySnapshotAttributeRequest {
     [self validateSecureCodingForClass:[AWSEC2ModifySnapshotAttributeRequest class]];
 }
@@ -5850,10 +5815,6 @@
     [self validateSecureCodingForClass:[AWSEC2RecurringCharge class]];
 }
 
-- (void) test_AWSEC2ReferencedSecurityGroup {
-    [self validateSecureCodingForClass:[AWSEC2ReferencedSecurityGroup class]];
-}
-
 - (void) test_AWSEC2Region {
     [self validateSecureCodingForClass:[AWSEC2Region class]];
 }
@@ -6280,22 +6241,6 @@
 
 - (void) test_AWSEC2SecurityGroupReference {
     [self validateSecureCodingForClass:[AWSEC2SecurityGroupReference class]];
-}
-
-- (void) test_AWSEC2SecurityGroupRule {
-    [self validateSecureCodingForClass:[AWSEC2SecurityGroupRule class]];
-}
-
-- (void) test_AWSEC2SecurityGroupRuleDescription {
-    [self validateSecureCodingForClass:[AWSEC2SecurityGroupRuleDescription class]];
-}
-
-- (void) test_AWSEC2SecurityGroupRuleRequest {
-    [self validateSecureCodingForClass:[AWSEC2SecurityGroupRuleRequest class]];
-}
-
-- (void) test_AWSEC2SecurityGroupRuleUpdate {
-    [self validateSecureCodingForClass:[AWSEC2SecurityGroupRuleUpdate class]];
 }
 
 - (void) test_AWSEC2SendDiagnosticInterruptRequest {
