@@ -331,6 +331,12 @@ typedef NS_ENUM(NSInteger, AWSEC2ConnectionNotificationType) {
     AWSEC2ConnectionNotificationTypeTopic,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2ConnectivityType) {
+    AWSEC2ConnectivityTypeUnknown,
+    AWSEC2ConnectivityTypePrivate,
+    AWSEC2ConnectivityTypePublic,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2ContainerFormat) {
     AWSEC2ContainerFormatUnknown,
     AWSEC2ContainerFormatOVA,
@@ -1555,7 +1561,6 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeReservedInstances,
     AWSEC2ResourceTypeRouteTable,
     AWSEC2ResourceTypeSecurityGroup,
-    AWSEC2ResourceTypeSecurityGroupRule,
     AWSEC2ResourceTypeSnapshot,
     AWSEC2ResourceTypeSpotFleetRequest,
     AWSEC2ResourceTypeSpotInstancesRequest,
@@ -2163,9 +2168,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AuthorizeClientVpnIngressRequest;
 @class AWSEC2AuthorizeClientVpnIngressResult;
 @class AWSEC2AuthorizeSecurityGroupEgressRequest;
-@class AWSEC2AuthorizeSecurityGroupEgressResult;
 @class AWSEC2AuthorizeSecurityGroupIngressRequest;
-@class AWSEC2AuthorizeSecurityGroupIngressResult;
 @class AWSEC2AvailabilityZone;
 @class AWSEC2AvailabilityZoneMessage;
 @class AWSEC2AvailableCapacity;
@@ -2636,8 +2639,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeScheduledInstancesResult;
 @class AWSEC2DescribeSecurityGroupReferencesRequest;
 @class AWSEC2DescribeSecurityGroupReferencesResult;
-@class AWSEC2DescribeSecurityGroupRulesRequest;
-@class AWSEC2DescribeSecurityGroupRulesResult;
 @class AWSEC2DescribeSecurityGroupsRequest;
 @class AWSEC2DescribeSecurityGroupsResult;
 @class AWSEC2DescribeSnapshotAttributeRequest;
@@ -2738,6 +2739,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisableFastSnapshotRestoreSuccessItem;
 @class AWSEC2DisableFastSnapshotRestoresRequest;
 @class AWSEC2DisableFastSnapshotRestoresResult;
+@class AWSEC2DisableImageDeprecationRequest;
+@class AWSEC2DisableImageDeprecationResult;
 @class AWSEC2DisableSerialConsoleAccessRequest;
 @class AWSEC2DisableSerialConsoleAccessResult;
 @class AWSEC2DisableTransitGatewayRouteTablePropagationRequest;
@@ -2792,6 +2795,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2EnableFastSnapshotRestoreSuccessItem;
 @class AWSEC2EnableFastSnapshotRestoresRequest;
 @class AWSEC2EnableFastSnapshotRestoresResult;
+@class AWSEC2EnableImageDeprecationRequest;
+@class AWSEC2EnableImageDeprecationResult;
 @class AWSEC2EnableSerialConsoleAccessRequest;
 @class AWSEC2EnableSerialConsoleAccessResult;
 @class AWSEC2EnableTransitGatewayRouteTablePropagationRequest;
@@ -3073,8 +3078,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyNetworkInterfaceAttributeRequest;
 @class AWSEC2ModifyReservedInstancesRequest;
 @class AWSEC2ModifyReservedInstancesResult;
-@class AWSEC2ModifySecurityGroupRulesRequest;
-@class AWSEC2ModifySecurityGroupRulesResult;
 @class AWSEC2ModifySnapshotAttributeRequest;
 @class AWSEC2ModifySpotFleetRequestRequest;
 @class AWSEC2ModifySpotFleetRequestResponse;
@@ -3198,7 +3201,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2PurchaseScheduledInstancesResult;
 @class AWSEC2RebootInstancesRequest;
 @class AWSEC2RecurringCharge;
-@class AWSEC2ReferencedSecurityGroup;
 @class AWSEC2Region;
 @class AWSEC2RegisterImageRequest;
 @class AWSEC2RegisterImageResult;
@@ -3306,10 +3308,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2SecurityGroup;
 @class AWSEC2SecurityGroupIdentifier;
 @class AWSEC2SecurityGroupReference;
-@class AWSEC2SecurityGroupRule;
-@class AWSEC2SecurityGroupRuleDescription;
-@class AWSEC2SecurityGroupRuleRequest;
-@class AWSEC2SecurityGroupRuleUpdate;
 @class AWSEC2SendDiagnosticInterruptRequest;
 @class AWSEC2ServiceConfiguration;
 @class AWSEC2ServiceDetail;
@@ -5311,32 +5309,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
 /**
- <p>The tags applied to the security group rule.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
-
-/**
  <p>Not supported. Use a set of IP permissions to specify the port.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
-
-@end
-
-/**
- 
- */
-@interface AWSEC2AuthorizeSecurityGroupEgressResult : AWSModel
-
-
-/**
- <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable returned;
-
-/**
- <p>Information about the outbound (egress) security group rules that were added.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRule *> * _Nullable securityGroupRules;
 
 @end
 
@@ -5377,7 +5352,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
 
 /**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p><p>[VPC only] Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports that you specify.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
+ <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). To specify <code>icmpv6</code>, use a set of IP permissions.</p><p>[VPC only] Use <code>-1</code> to specify all protocols. If you specify <code>-1</code> or a protocol other than <code>tcp</code>, <code>udp</code>, or <code>icmp</code>, traffic on all ports is allowed, regardless of any ports you specify.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
@@ -5392,32 +5367,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupOwnerId;
 
 /**
- <p>[VPC Only] The tags applied to the security group rule.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
-
-/**
  <p>The end of port range for the TCP and UDP protocols, or an ICMP code number. For the ICMP code number, use <code>-1</code> to specify all codes. If you specify all ICMP types, you must specify all codes.</p><p>Alternatively, use a set of IP permissions to specify multiple rules and a description for the rule.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable toPort;
-
-@end
-
-/**
- 
- */
-@interface AWSEC2AuthorizeSecurityGroupIngressResult : AWSModel
-
-
-/**
- <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable returned;
-
-/**
- <p>Information about the inbound (ingress) security group rules that were added.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRule *> * _Nullable securityGroupRules;
 
 @end
 
@@ -8550,7 +8502,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The allocation ID of an Elastic IP address to associate with the NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
+ <p>[Public NAT gateways only] The allocation ID of an Elastic IP address to associate with the NAT gateway. You cannot specify an Elastic IP address with a private NAT gateway. If the Elastic IP address is associated with another resource, you must first disassociate it.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
@@ -8558,6 +8510,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p><p>Constraint: Maximum 64 ASCII characters.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Indicates whether the NAT gateway supports public or private connectivity. The default is public connectivity.</p>
+ */
+@property (nonatomic, assign) AWSEC2ConnectivityType connectivityType;
 
 /**
  <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
@@ -14514,6 +14471,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable imageIds;
 
 /**
+ <p>If <code>true</code>, all deprecated AMIs are included in the response. If <code>false</code>, no deprecated AMIs are included in the response. If no value is specified, the default value is <code>false</code>.</p><note><p>If you are the AMI owner, all deprecated AMIs appear in the response regardless of the value (<code>true</code> or <code>false</code>) that you set for this parameter.</p></note>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable includeDeprecated;
+
+/**
  <p>Scopes the results to images with the specified owners. You can specify a combination of AWS account IDs, <code>self</code>, <code>amazon</code>, and <code>aws-marketplace</code>. If you omit this parameter, the results include all images for which you have launch permissions, regardless of ownership.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable owners;
@@ -15063,7 +15025,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The key pair names.</p><p>Default: Describes all of your key pairs.</p>
+ <p>The key pair names.</p><p>Default: Describes all your key pairs.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable keyNames;
 
@@ -16703,57 +16665,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
-@interface AWSEC2DescribeSecurityGroupRulesRequest : AWSRequest
-
-
-/**
- <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dryRun;
-
-/**
- <p>One or more filters.</p><ul><li><p><code>group-id</code> - The ID of the security group. </p></li><li><p><code>security-group-rule-id</code> - The ID of the security group rule.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li></ul>
- */
-@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
-
-/**
- <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another request with the returned <code>NextToken</code> value. This value can be between 5 and 1000. If this parameter is not specified, then all results are returned.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable maxResults;
-
-/**
- <p>The token for the next page of results.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>The IDs of the security group rules.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupRuleIds;
-
-@end
-
-/**
- 
- */
-@interface AWSEC2DescribeSecurityGroupRulesResult : AWSModel
-
-
-/**
- <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable nextToken;
-
-/**
- <p>Information about security group rules.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRule *> * _Nullable securityGroupRules;
-
-@end
-
-/**
- 
- */
 @interface AWSEC2DescribeSecurityGroupsRequest : AWSRequest
 
 
@@ -16768,12 +16679,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
 /**
- <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p><p>Default: Describes all of your security groups.</p>
+ <p>The IDs of the security groups. Required for security groups in a nondefault VPC.</p><p>Default: Describes all your security groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupIds;
 
 /**
- <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the <code>group-name</code> filter to describe security groups by name.</p><p>Default: Describes all of your security groups.</p>
+ <p>[EC2-Classic and default VPC only] The names of the security groups. You can specify either the security group name or the security group ID. For security groups in a nondefault VPC, use the <code>group-name</code> filter to describe security groups by name.</p><p>Default: Describes all your security groups.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groupNames;
 
@@ -19188,6 +19099,37 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DisableImageDeprecationRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisableImageDeprecationResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DisableSerialConsoleAccessRequest : AWSRequest
 
 
@@ -20308,6 +20250,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the snapshots for which fast snapshot restores could not be enabled.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2EnableFastSnapshotRestoreErrorItem *> * _Nullable unsuccessful;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageDeprecationRequest : AWSRequest
+
+
+/**
+ <p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specify a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p><p>You can’t specify a date in the past. The upper limit for <code>DeprecateAt</code> is 10 years from now.</p>
+ */
+@property (nonatomic, strong) NSDate * _Nullable deprecateAt;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the AMI.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable imageId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2EnableImageDeprecationResult : AWSModel
+
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
@@ -23439,6 +23417,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable creationDate;
 
 /**
+ <p>The date and time to deprecate the AMI, in UTC, in the following format: <i>YYYY</i>-<i>MM</i>-<i>DD</i>T<i>HH</i>:<i>MM</i>:<i>SS</i>Z. If you specified a value for seconds, Amazon EC2 rounds the seconds to the nearest minute.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable deprecationTime;
+
+/**
  <p>The description of the AMI that was provided during image creation.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
@@ -24172,7 +24155,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable keyFingerprint;
 
 /**
- <p>The key pair name that you provided.</p>
+ <p>The key pair name you provided.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyName;
 
@@ -25799,11 +25782,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
 
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
-
 @end
 
 /**
@@ -25880,11 +25858,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A description for the security group rule that references this IPv6 address range.</p><p>Constraints: Up to 255 characters in length. Allowed characters are a-z, A-Z, 0-9, spaces, and ._-:/()#,@[]+=&amp;;{}!$*</p>
  */
 @property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
 
 @end
 
@@ -28624,42 +28597,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
-@interface AWSEC2ModifySecurityGroupRulesRequest : AWSRequest
-
-
-/**
- <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable dryRun;
-
-/**
- <p>The ID of the security group.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable groupId;
-
-/**
- <p>Information about the security group properties to update.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRuleUpdate *> * _Nullable securityGroupRules;
-
-@end
-
-/**
- 
- */
-@interface AWSEC2ModifySecurityGroupRulesResult : AWSModel
-
-
-/**
- <p>Returns <code>true</code> if the request succeeds; otherwise, returns an error.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable returned;
-
-@end
-
-/**
- 
- */
 @interface AWSEC2ModifySnapshotAttributeRequest : AWSRequest
 
 
@@ -29963,6 +29900,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
+ <p>Indicates whether the NAT gateway supports public or private connectivity.</p>
+ */
+@property (nonatomic, assign) AWSEC2ConnectivityType connectivityType;
+
+/**
  <p>The date and time the NAT gateway was created.</p>
  */
 @property (nonatomic, strong) NSDate * _Nullable createTime;
@@ -30026,7 +29968,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
+ <p>[Public NAT gateway only] The allocation ID of the Elastic IP address that's associated with the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
@@ -30036,12 +29978,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>The private IP address associated with the Elastic IP address.</p>
+ <p>The private IP address associated with the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable privateIp;
 
 /**
- <p>The Elastic IP address associated with the NAT gateway.</p>
+ <p>[Public NAT gateway only] The Elastic IP address associated with the NAT gateway.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable publicIp;
 
@@ -31343,11 +31285,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  */
 @property (nonatomic, strong) NSString * _Nullable prefixListId;
 
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
-
 @end
 
 /**
@@ -31978,39 +31915,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The frequency of the recurring charge.</p>
  */
 @property (nonatomic, assign) AWSEC2RecurringChargeFrequency frequency;
-
-@end
-
-/**
- <p> Describes the security group that is referenced in the security group rule.</p>
- */
-@interface AWSEC2ReferencedSecurityGroup : AWSModel
-
-
-/**
- <p>The ID of the security group.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable groupId;
-
-/**
- <p>The status of a VPC peering connection, if applicable.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable peeringStatus;
-
-/**
- <p>The AWS account ID.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable userId;
-
-/**
- <p>The ID of the VPC.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable vpcId;
-
-/**
- <p>The ID of the VPC peering connection.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
 
 @end
 
@@ -34194,11 +34098,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
 
 /**
- <p>The IDs of the security group rules.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupRuleIds;
-
-/**
  <p>Not supported. Use a set of IP permissions to specify a destination security group.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceSecurityGroupName;
@@ -34273,11 +34172,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). Use <code>-1</code> to specify all.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ipProtocol;
-
-/**
- <p>The IDs of the security group rules.</p>
- */
-@property (nonatomic, strong) NSArray<NSString *> * _Nullable securityGroupRuleIds;
 
 /**
  <p>[EC2-Classic, default VPC] The name of the source security group. You can't specify this parameter in combination with the following parameters: the CIDR IP address range, the start of the port range, the IP protocol, and the end of the port range. For EC2-VPC, the source security group must be in the same VPC. To revoke a specific rule for an IP protocol and port range, use a set of IP permissions instead.</p>
@@ -35465,7 +35359,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes a security group.</p>
+ <p>Describes a security group</p>
  */
 @interface AWSEC2SecurityGroup : AWSModel
 
@@ -35550,163 +35444,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the VPC peering connection.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable vpcPeeringConnectionId;
-
-@end
-
-/**
- <p>Describes a security group rule.</p>
- */
-@interface AWSEC2SecurityGroupRule : AWSModel
-
-
-/**
- <p>The IPv4 CIDR range. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable cidrIpv4;
-
-/**
- <p>The IPv6 CIDR range. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable cidrIpv6;
-
-/**
- <p>The security group rule description.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable fromPort;
-
-/**
- <p>The ID of the security group.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable groupId;
-
-/**
- <p>The ID of the AWS account that owns the security group. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable groupOwnerId;
-
-/**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p><p>Use <code>-1</code> to specify all protocols.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ipProtocol;
-
-/**
- <p>Indicates whether the security group rule is an outbound rule.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable isEgress;
-
-/**
- <p>The ID of the prefix list.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable prefixListId;
-
-/**
- <p>Describes the security group that is referenced in the rule.</p>
- */
-@property (nonatomic, strong) AWSEC2ReferencedSecurityGroup * _Nullable referencedGroupInfo;
-
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
-
-/**
- <p>The tags applied to the security group rule.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
-
-/**
- <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable toPort;
-
-@end
-
-/**
- <p>Describes the description of a security group rule.</p><p>You can use this when you want to update the security group rule description for either an inbound or outbound rule.</p>
- */
-@interface AWSEC2SecurityGroupRuleDescription : AWSModel
-
-
-/**
- <p>The description of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
-
-@end
-
-/**
- <p>Describes a security group rule.</p><p>You can only use one of the following to specify the rule:</p><ul><li><p>CidrIpv4</p></li><li><p>CidrIpv6</p></li><li><p>PrefixListId</p></li><li><p>ReferencedGroupId</p></li></ul><note><p>When you run the <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_ModifySecurityGroupRules.html">ModifySecurityGroupRules</a> command, you cannot change the rule type. For example if the rules references <code>CidrIpv4</code>, then you must use <code>CidrIpv4</code> to reference the rule.</p></note>
- */
-@interface AWSEC2SecurityGroupRuleRequest : AWSModel
-
-
-/**
- <p>The IPv4 CIDR range. To specify a single IPv4 address, use the /32 prefix length. </p>
- */
-@property (nonatomic, strong) NSString * _Nullable cidrIpv4;
-
-/**
- <p>The IPv6 CIDR range. To specify a single IPv6 address, use the /128 prefix length.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable cidrIpv6;
-
-/**
- <p>The description of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable detail;
-
-/**
- <p>The start of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 type. A value of -1 indicates all ICMP/ICMPv6 types. If you specify all ICMP/ICMPv6 types, you must specify all codes.</p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable fromPort;
-
-/**
- <p>The IP protocol name (<code>tcp</code>, <code>udp</code>, <code>icmp</code>, <code>icmpv6</code>) or number (see <a href="http://www.iana.org/assignments/protocol-numbers/protocol-numbers.xhtml">Protocol Numbers</a>). </p><p>Use <code>-1</code> to specify all protocols.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable ipProtocol;
-
-/**
- <p>The ID of the prefix list.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable prefixListId;
-
-/**
- <p>The ID of the security group that is referenced in the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable referencedGroupId;
-
-/**
- <p>The end of port range for the TCP and UDP protocols, or an ICMP/ICMPv6 code. A value of <code>-1</code> indicates all ICMP/ICMPv6 codes. If you specify all ICMP/ICMPv6 types, you must specify all codes. </p>
- */
-@property (nonatomic, strong) NSNumber * _Nullable toPort;
-
-@end
-
-/**
- <p>Describes an update to a security group rule.</p>
- */
-@interface AWSEC2SecurityGroupRuleUpdate : AWSModel
-
-
-/**
- <p>Information about the security group rule.</p>
- */
-@property (nonatomic, strong) AWSEC2SecurityGroupRuleRequest * _Nullable securityGroupRule;
-
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
 
 @end
 
@@ -39388,14 +39125,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The IP permissions for the security group rule. You can either specify this parameter, or the <code>SecurityGroupRuleDescriptions</code> parameter.</p>
+ <p>The IP permissions for the security group rule.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
-
-/**
- <p>The description for the egress security group rules. You can either specify this parameter, or the <code>IpPermissions</code> parameter.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRuleDescription *> * _Nullable securityGroupRuleDescriptions;
 
 @end
 
@@ -39434,14 +39166,9 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable groupName;
 
 /**
- <p>The IP permissions for the security group rule. You can either specify this parameter, or the <code>SecurityGroupRuleDescriptions</code> parameter.</p>
+ <p>The IP permissions for the security group rule. </p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2IpPermission *> * _Nullable ipPermissions;
-
-/**
- <p>[VPC only] The description for the ingress security group rules. You can either specify this parameter, or the <code>IpPermissions</code> parameter.</p>
- */
-@property (nonatomic, strong) NSArray<AWSEC2SecurityGroupRuleDescription *> * _Nullable securityGroupRuleDescriptions;
 
 @end
 
@@ -39532,11 +39259,6 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The status of a VPC peering connection, if applicable.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable peeringStatus;
-
-/**
- <p>The ID of the security group rule.</p>
- */
-@property (nonatomic, strong) NSString * _Nullable securityGroupRuleId;
 
 /**
  <p>The ID of an AWS account.</p><p>For a referenced security group in another VPC, the account ID of the referenced security group is returned in the response. If the referenced security group is deleted, this value is not returned.</p><p>[EC2-Classic] Required when adding or removing rules that reference a security group in another AWS account.</p>
