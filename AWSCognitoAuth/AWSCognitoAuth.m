@@ -1045,10 +1045,8 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
     NSArray *pieces = [self.tokenString componentsSeparatedByString:@"."];
     if(pieces.count > 2){
         NSString * claims = pieces[1];
-        claims = [claims stringByReplacingOccurrencesOfString:@"-"
-                                                withString:@"+"];
-        claims = [claims stringByReplacingOccurrencesOfString:@"_"
-                                                withString:@"/"];
+        claims = [claims stringByReplacingOccurrencesOfString:@"-" withString:@"+"];
+        claims = [claims stringByReplacingOccurrencesOfString:@"_" withString:@"/"];
         //JWT is not padded with =, pad it if necessary
         NSUInteger paddedLength = claims.length + (4 - (claims.length % 4)) % 4;;
         claims = [claims stringByPaddingToLength:paddedLength withString:@"=" startingAtIndex:0];
