@@ -12,6 +12,7 @@
 - Model updates for the following services
   - AWSAutoScaling
   - AWSCognitoIdentityProvider
+  - AWSEC2
 
 ## 2.24.2
 
