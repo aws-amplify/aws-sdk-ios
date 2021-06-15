@@ -2,7 +2,10 @@
 
 ## Unreleased
 
--Features for next release
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
 
 ## 2.24.2
 
