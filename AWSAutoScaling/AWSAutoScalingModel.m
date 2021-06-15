@@ -1401,6 +1401,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
              @"snapshotId" : @"SnapshotId",
+             @"throughput" : @"Throughput",
              @"volumeSize" : @"VolumeSize",
              @"volumeType" : @"VolumeType",
              };
