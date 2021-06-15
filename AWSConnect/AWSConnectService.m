@@ -313,6 +313,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)associateBot:(AWSConnectAssociateBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPUT
+                     URLString:@"/instance/{InstanceId}/bot"
+                  targetPrefix:@""
+                 operationName:@"AssociateBot"
+                   outputClass:nil];
+}
+
+- (void)associateBot:(AWSConnectAssociateBotRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self associateBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSConnectAssociateInstanceStorageConfigResponse *> *)associateInstanceStorageConfig:(AWSConnectAssociateInstanceStorageConfigRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPUT
@@ -1061,6 +1083,28 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask *)disassociateBot:(AWSConnectDisassociateBotRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@"/instance/{InstanceId}/bot"
+                  targetPrefix:@""
+                 operationName:@"DisassociateBot"
+                   outputClass:nil];
+}
+
+- (void)disassociateBot:(AWSConnectDisassociateBotRequest *)request
+     completionHandler:(void (^)(NSError *error))completionHandler {
+    [[self disassociateBot:request] continueWithBlock:^id _Nullable(AWSTask * _Nonnull task) {
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)disassociateInstanceStorageConfig:(AWSConnectDisassociateInstanceStorageConfigRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodDELETE
@@ -1298,6 +1342,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSConnectListApprovedOriginsResponse *response, NSError *error))completionHandler {
     [[self listApprovedOrigins:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListApprovedOriginsResponse *> * _Nonnull task) {
         AWSConnectListApprovedOriginsResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSConnectListBotsResponse *> *)listBots:(AWSConnectListBotsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodGET
+                     URLString:@"/instance/{InstanceId}/bots"
+                  targetPrefix:@""
+                 operationName:@"ListBots"
+                   outputClass:[AWSConnectListBotsResponse class]];
+}
+
+- (void)listBots:(AWSConnectListBotsRequest *)request
+     completionHandler:(void (^)(AWSConnectListBotsResponse *response, NSError *error))completionHandler {
+    [[self listBots:request] continueWithBlock:^id _Nullable(AWSTask<AWSConnectListBotsResponse *> * _Nonnull task) {
+        AWSConnectListBotsResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

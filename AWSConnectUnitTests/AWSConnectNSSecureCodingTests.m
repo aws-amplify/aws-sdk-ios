@@ -20,6 +20,7 @@
 @interface AWSConnectNSSecureCodingTests : AWSNSSecureCodingTest
 
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateLambdaFunctionRequest API_AVAILABLE(ios(11));
@@ -84,6 +85,7 @@
 - (void) test_AWSConnectDescribeUserResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDimensions API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateApprovedOriginRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDisassociateBotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLambdaFunctionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDisassociateLexBotRequest API_AVAILABLE(ios(11));
@@ -123,8 +125,12 @@
 - (void) test_AWSConnectKinesisStreamConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectKinesisVideoStreamConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectLexBot API_AVAILABLE(ios(11));
+- (void) test_AWSConnectLexBotConfig API_AVAILABLE(ios(11));
+- (void) test_AWSConnectLexV2Bot API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListBotsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListBotsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListContactFlowsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListContactFlowsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListHoursOfOperationsRequest API_AVAILABLE(ios(11));
@@ -247,6 +253,10 @@
 
 - (void) test_AWSConnectAssociateApprovedOriginRequest {
     [self validateSecureCodingForClass:[AWSConnectAssociateApprovedOriginRequest class]];
+}
+
+- (void) test_AWSConnectAssociateBotRequest {
+    [self validateSecureCodingForClass:[AWSConnectAssociateBotRequest class]];
 }
 
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest {
@@ -505,6 +515,10 @@
     [self validateSecureCodingForClass:[AWSConnectDisassociateApprovedOriginRequest class]];
 }
 
+- (void) test_AWSConnectDisassociateBotRequest {
+    [self validateSecureCodingForClass:[AWSConnectDisassociateBotRequest class]];
+}
+
 - (void) test_AWSConnectDisassociateInstanceStorageConfigRequest {
     [self validateSecureCodingForClass:[AWSConnectDisassociateInstanceStorageConfigRequest class]];
 }
@@ -661,12 +675,28 @@
     [self validateSecureCodingForClass:[AWSConnectLexBot class]];
 }
 
+- (void) test_AWSConnectLexBotConfig {
+    [self validateSecureCodingForClass:[AWSConnectLexBotConfig class]];
+}
+
+- (void) test_AWSConnectLexV2Bot {
+    [self validateSecureCodingForClass:[AWSConnectLexV2Bot class]];
+}
+
 - (void) test_AWSConnectListApprovedOriginsRequest {
     [self validateSecureCodingForClass:[AWSConnectListApprovedOriginsRequest class]];
 }
 
 - (void) test_AWSConnectListApprovedOriginsResponse {
     [self validateSecureCodingForClass:[AWSConnectListApprovedOriginsResponse class]];
+}
+
+- (void) test_AWSConnectListBotsRequest {
+    [self validateSecureCodingForClass:[AWSConnectListBotsRequest class]];
+}
+
+- (void) test_AWSConnectListBotsResponse {
+    [self validateSecureCodingForClass:[AWSConnectListBotsResponse class]];
 }
 
 - (void) test_AWSConnectListContactFlowsRequest {
