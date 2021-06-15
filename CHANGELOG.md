@@ -7,6 +7,12 @@
 - **AWSMobileClient (HostedUI)**
   - Fixed an issue Base64-decoding claims containing non-ASCII characters ([PR #3533](https://github.com/aws-amplify/aws-sdk-ios/pull/3533)). Thanks, [@NivisUnder7](https://github.com/NivisUnder7)!
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSCognitoIdentityProvider
+
 ## 2.24.2
 
 ### Bug fixes
