@@ -44,7 +44,7 @@ class AWSTranslateTests: XCTestCase {
             XCTAssertNotNil(response.translatedText)
             
             if let translatedText = response.translatedText {
-                XCTAssertEqual(translatedText, "Hola Mundo")
+                XCTAssertEqual(translatedText.lowercased(), "hola mundo")
             }
             expectation.fulfill()
         }
