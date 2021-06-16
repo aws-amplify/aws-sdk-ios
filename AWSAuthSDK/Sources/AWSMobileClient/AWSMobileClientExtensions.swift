@@ -550,10 +550,17 @@ extension AWSMobileClient {
         // If using hosted UI, we need to launch SFSafariVC/SFAuthSession/ASWebAuthenticationSession to invalidate token
         if federationProvider == .hostedUI {
             if options.invalidateTokens {
-                if let anchor = presentationAnchor {
-                    self.hostedUISignOut(presentationAnchor: anchor, completionHandler: completionHandler)
-                } else {
-                    self.hostedUILegacySignOut(completionHandler: completionHandler)
+                let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+                    // Ensure UI actions are performed on the main thread since revoke token may be performed on a
+                    // background thread.
+                    DispatchQueue.main.async {
+                        if let anchor = presentationAnchor {
+                            self.hostedUISignOut(presentationAnchor: anchor, completionHandler: completionHandler)
+                        } else {
+                            self.hostedUILegacySignOut(completionHandler: completionHandler)
+                        }
+                    }
+                    return nil
                 }
             }
             return
@@ -573,6 +580,17 @@ extension AWSMobileClient {
             }
             return
         }
+        // If using userpools sign in (not global sign out or federated sign in), revoke the token before signing out
+        if federationProvider == .userPools {
+            let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+                // Regardless whether revoke token was successful or not, continue to sign out locally
+                self.signOut()
+                completionHandler(nil)
+                return nil
+            }
+            return
+        }
+        // If signing in with federated sign in, perform local sign out
         signOut()
         completionHandler(nil)
     }

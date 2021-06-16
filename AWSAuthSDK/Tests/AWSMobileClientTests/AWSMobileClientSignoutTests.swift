@@ -45,6 +45,60 @@ class AWSMobileClientSignoutTests: AWSMobileClientTestBase {
         wait(for: [signoutExpectation], timeout: 2)
     }
     
+    /// Test successful sign out with callback on an Authenticated User.
+    /// Explicitly set the "origin_jti" claim on the access token. In case the feature is disabled on Cognito, revoke
+    /// token API call made during sign out will still be successfully with the message "This feature is not enabled
+    /// for this client".
+    ///
+    /// - Given: An authenticated session and an access token with "origin_jti" claim
+    /// - When:
+    ///    - I invoke `signOut` with completion callback
+    /// - Then:
+    ///    - RevokeToken API is called, with a successful response.
+    ///    - My `signOut` completion callback is invoked
+    ///    - The user state is `signedOut`
+    ///
+    func testSignOutWithCallbackWithRevokeToken() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.default().isSignedIn == true, "Expected to return true for isSignedIn")
+        sleep(1)
+        setAccessToken(for: username, using: AWSMobileClientTestBase.testAccessTokenWithOriginJTI)
+        AWSMobileClient.default().signOut { (error) in
+            XCTAssertTrue(AWSMobileClient.default().isSignedIn == false, "Expected to return false for isSignedIn")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signoutExpectation], timeout: 2)
+    }
+    
+    /// Test successful sign out with callback on an Authenticated User.
+    /// Explicitly do not set the "origin_jti" claim on the access token.
+    ///
+    /// - Given: An authenticated session and an access token without "origin_jti" claim
+    /// - When:
+    ///    - I invoke `signOut` with completion callback
+    /// - Then:
+    ///    - RevokeToken API is not called.
+    ///    - My `signOut` completion callback is invoked
+    ///    - The user state is `signedOut`
+    ///
+    func testSignOutWithCallbackWithoutRevokeToken() {
+        let username = "testUser" + UUID().uuidString
+        let signoutExpectation = expectation(description: "Successfully signout")
+        signUpAndVerifyUser(username: username)
+        signIn(username: username)
+        XCTAssertTrue(AWSMobileClient.default().isSignedIn == true, "Expected to return true for isSignedIn")
+        sleep(1)
+        setAccessToken(for: username, using: AWSMobileClientTestBase.testAccessTokenWithSub)
+        AWSMobileClient.default().signOut { (error) in
+            XCTAssertTrue(AWSMobileClient.default().isSignedIn == false, "Expected to return false for isSignedIn")
+            signoutExpectation.fulfill()
+        }
+        wait(for: [signoutExpectation], timeout: 2)
+    }
+    
     /// Test successful sign out with options and callback on an Authenticated User
     ///
     /// - Given: An authenticated session

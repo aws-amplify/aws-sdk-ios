@@ -21,7 +21,23 @@ class AWSMobileClientTestBase: XCTestCase {
     static var identityPoolId: String!
     static var sharedPassword: String!
     
+    // Access token with just the "sub" claim
+    static var testAccessTokenWithSub: String = """
+        eyJraWQiOiJzU01EYmZyQ21pb3FrbEVRZFprNXl6UmszekxSTlo4aGlGMnlxdVFZbVM0PSIsImFsZyI6IlJTMjU2In0.\
+        eyJzdWIiOiI3YTQyNTFmMS04MmEyLTQxNzgtOWZhOS1mNmE3MTc1RCJ9.\
+        a
+        """
+    
+    // Access token with just the "origin_jti" claim
+    static var testAccessTokenWithOriginJTI: String = """
+        eyJraWQiOiIwTmxhQUhzbmtwQW5zbHBzUFhHWkJKcVJoR3E5WTkwckwweXpaWUV1OTJZPSIsImFsZyI6IlJTMjU2In0.\
+        eyJvcmlnaW5fanRpIjoiMzM2MWFkZDMtMDIwNS00NTY1LTk0MjQtMDQ3YWQ2N2Y0MjhmZWwifQ.\
+        a
+        """
+    
     override class func setUp() {
+        AWSDDLog.sharedInstance.logLevel = .verbose
+        AWSDDLog.add(AWSDDTTYLogger.sharedInstance)
         sharedEmail = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
                                                                                 configKey: "email_address")
         sharedPassword = AWSTestConfiguration.getIntegrationTestConfigurationValue(forPackageId: "mobileclient",
@@ -242,6 +258,13 @@ class AWSMobileClientTestBase: XCTestCase {
         let formattedDate = ISO8601DateFormatter().string(from: pastDate)
         let dateData = formattedDate.data(using: .utf8)
         getKeychain().setData(dateData, forKey: key)
+    }
+    
+    func setAccessToken(for username: String,  using accessToken: String) {
+        let namespace = "\(AWSMobileClient.default().userPoolClient!.userPoolConfiguration.clientId).\(username)"
+        let key = "\(namespace).accessToken"
+        let data = accessToken.data(using: .utf8)
+        getKeychain().setData(data, forKey: key)
     }
 
     private func getTokenKeychainKey(for username: String) -> String {

@@ -272,10 +272,59 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             NSLog(@"Timeout Error: %@", error);
         }
     }];
-
-     
 }
 
+- (void)testRevokeTokenWithSignedInUser {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testRevokeToken"];
+    AWSCognitoIdentityUser* user = [pool getUser];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.error || task.isCancelled){
+            XCTFail(@"Unable to sign in user: %@", task.error);
+        }
+        
+        [[user revokeToken] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+            if(task.error || task.isCancelled){
+                XCTFail(@"Unable to revoke token for: %@", task.error);
+            }
+            [expectation fulfill];
+            return task;
+        }];
+        
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testRevokeTokenWithSignedOutUser {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testRevokeToken"];
+    AWSCognitoIdentityUser* user = [pool getUser];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.error || task.isCancelled){
+            XCTFail(@"Unable to sign in user: %@", task.error);
+        }
+        XCTAssertTrue(user.signedIn);
+        [user signOut];
+        XCTAssertFalse(user.signedIn);
+        [[user revokeToken] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+            if(task.error || task.isCancelled){
+                XCTFail(@"Unable to revoke token for: %@", task.error);
+            }
+            [expectation fulfill];
+            return task;
+        }];
+        
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
 
 - (void)testRegisterUser {
     XCTestExpectation *expectation =

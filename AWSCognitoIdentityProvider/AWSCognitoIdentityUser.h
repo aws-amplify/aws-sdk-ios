@@ -220,6 +220,11 @@ NS_ASSUME_NONNULL_BEGIN
 - (void)signOut;
 
 /**
+ Revoke all tokens for this user. Check Access Token for claims for validity to revoke tokens.
+ */
+- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken;
+
+/**
  Invalidate any active sessions with the service.  Last known user remains.
  */
 - (AWSTask<AWSCognitoIdentityUserGlobalSignOutResponse *> *) globalSignOut;
