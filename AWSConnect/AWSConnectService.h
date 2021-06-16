@@ -197,6 +197,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateApprovedOrigin:(AWSConnectAssociateApprovedOriginRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectAssociateBotRequest
+ */
+- (AWSTask *)associateBot:(AWSConnectAssociateBotRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorResourceConflict`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorServiceQuotaExceeded`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectAssociateBotRequest
+ */
+- (void)associateBot:(AWSConnectAssociateBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Associates a storage resource type for the first time. You can only associate one type of storage configuration in a single call. This means, for example, that you can't define an instance with multiple S3 buckets for storing chat transcripts.</p><p>This API does not create a resource that doesn't exist. It only associates it to the instance. Ensure that the resource being specified in the storage configuration, like an S3 bucket, exists when being used for association.</p>
  
  @param request A container for the necessary parameters to execute the AssociateInstanceStorageConfig service method.
@@ -989,6 +1011,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)disassociateApprovedOrigin:(AWSConnectDisassociateApprovedOriginRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateBot service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDisassociateBotRequest
+ */
+- (AWSTask *)disassociateBot:(AWSConnectDisassociateBotRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateBot service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectDisassociateBotRequest
+ */
+- (void)disassociateBot:(AWSConnectDisassociateBotRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Removes the storage type configurations for the specified resource type and association ID.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateInstanceStorageConfig service method.
@@ -1244,6 +1288,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectListApprovedOriginsResponse
  */
 - (void)listApprovedOrigins:(AWSConnectListApprovedOriginsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListApprovedOriginsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListBots service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListBotsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListBotsRequest
+ @see AWSConnectListBotsResponse
+ */
+- (AWSTask<AWSConnectListBotsResponse *> *)listBots:(AWSConnectListBotsRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+ 
+ @param request A container for the necessary parameters to execute the ListBots service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorResourceNotFound`, `AWSConnectErrorInternalService`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorThrottling`.
+ 
+ @see AWSConnectListBotsRequest
+ @see AWSConnectListBotsResponse
+ */
+- (void)listBots:(AWSConnectListBotsRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListBotsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Provides information about the contact flows for the specified Amazon Connect instance.</p><p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p><p>For more information about contact flows, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/concepts-contact-flows.html">Contact Flows</a> in the <i>Amazon Connect Administrator Guide</i>.</p>

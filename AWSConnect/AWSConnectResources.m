@@ -89,6 +89,24 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Associates an approved origin to an Amazon Connect instance.</p>\"\
     },\
+    \"AssociateBot\":{\
+      \"name\":\"AssociateBot\",\
+      \"http\":{\
+        \"method\":\"PUT\",\
+        \"requestUri\":\"/instance/{InstanceId}/bot\"\
+      },\
+      \"input\":{\"shape\":\"AssociateBotRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"ResourceConflictException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"LimitExceededException\"},\
+        {\"shape\":\"ServiceQuotaExceededException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>\"\
+    },\
     \"AssociateInstanceStorageConfig\":{\
       \"name\":\"AssociateInstanceStorageConfig\",\
       \"http\":{\
@@ -656,6 +674,21 @@
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Revokes access to integrated applications from Amazon Connect.</p>\"\
     },\
+    \"DisassociateBot\":{\
+      \"name\":\"DisassociateBot\",\
+      \"http\":{\
+        \"method\":\"POST\",\
+        \"requestUri\":\"/instance/{InstanceId}/bot\"\
+      },\
+      \"input\":{\"shape\":\"DisassociateBotRequest\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>\"\
+    },\
     \"DisassociateInstanceStorageConfig\":{\
       \"name\":\"DisassociateInstanceStorageConfig\",\
       \"http\":{\
@@ -835,6 +868,22 @@
         {\"shape\":\"ThrottlingException\"}\
       ],\
       \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Returns a paginated list of all approved origins associated with the instance.</p>\"\
+    },\
+    \"ListBots\":{\
+      \"name\":\"ListBots\",\
+      \"http\":{\
+        \"method\":\"GET\",\
+        \"requestUri\":\"/instance/{InstanceId}/bots\"\
+      },\
+      \"input\":{\"shape\":\"ListBotsRequest\"},\
+      \"output\":{\"shape\":\"ListBotsResponse\"},\
+      \"errors\":[\
+        {\"shape\":\"ResourceNotFoundException\"},\
+        {\"shape\":\"InternalServiceException\"},\
+        {\"shape\":\"InvalidRequestException\"},\
+        {\"shape\":\"ThrottlingException\"}\
+      ],\
+      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>\"\
     },\
     \"ListContactFlows\":{\
       \"name\":\"ListContactFlows\",\
@@ -1748,6 +1797,11 @@
       \"max\":100,\
       \"min\":1\
     },\
+    \"AliasArn\":{\
+      \"type\":\"string\",\
+      \"max\":100,\
+      \"min\":1\
+    },\
     \"AssociateApprovedOriginRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -1757,13 +1811,30 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
         \"Origin\":{\
           \"shape\":\"Origin\",\
           \"documentation\":\"<p>The domain to add to your allow list.</p>\"\
+        }\
+      }\
+    },\
+    \"AssociateBotRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"LexBot\":{\"shape\":\"LexBot\"},\
+        \"LexV2Bot\":{\
+          \"shape\":\"LexV2Bot\",\
+          \"documentation\":\"<p>The Amazon Lex V2 bot to associate with the instance.</p>\"\
         }\
       }\
     },\
@@ -1777,7 +1848,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -1809,7 +1880,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -1828,13 +1899,13 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
         \"LexBot\":{\
           \"shape\":\"LexBot\",\
-          \"documentation\":\"<p>The Amazon Lex box to associate with the instance.</p>\"\
+          \"documentation\":\"<p>The Amazon Lex bot to associate with the instance.</p>\"\
         }\
       }\
     },\
@@ -1848,7 +1919,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -1874,7 +1945,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -1899,7 +1970,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2260,7 +2331,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2313,7 +2384,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2371,7 +2442,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2418,7 +2489,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2471,7 +2542,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2521,7 +2592,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -2584,7 +2655,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2714,7 +2785,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -2729,7 +2800,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2750,7 +2821,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2772,7 +2843,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2805,7 +2876,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -2820,7 +2891,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2871,7 +2942,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2901,7 +2972,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2928,7 +2999,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -2953,7 +3024,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -2989,7 +3060,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3019,7 +3090,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3049,7 +3120,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3085,7 +3156,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -3106,7 +3177,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -3136,7 +3207,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -3213,7 +3284,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3222,6 +3293,23 @@
           \"documentation\":\"<p>The domain URL of the integrated application.</p>\",\
           \"location\":\"querystring\",\
           \"locationName\":\"origin\"\
+        }\
+      }\
+    },\
+    \"DisassociateBotRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\"InstanceId\"],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"LexBot\":{\"shape\":\"LexBot\"},\
+        \"LexV2Bot\":{\
+          \"shape\":\"LexV2Bot\",\
+          \"documentation\":\"<p>The Amazon Lex V2 bot to disassociate from the instance.</p>\"\
         }\
       }\
     },\
@@ -3235,7 +3323,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3262,7 +3350,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance..</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance..</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3284,7 +3372,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3312,7 +3400,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3338,7 +3426,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3363,7 +3451,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3475,7 +3563,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3525,7 +3613,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -3552,7 +3640,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -3574,7 +3662,7 @@
         },\
         \"HistoricalMetrics\":{\
           \"shape\":\"HistoricalMetrics\",\
-          \"documentation\":\"<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <dl> <dt>ABANDON_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>API_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CALLBACK_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>HANDLE_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> </dd> <dt>QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>QUEUED_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> </dl>\"\
+          \"documentation\":\"<p>The metrics to retrieve. Specify the name, unit, and statistic for each metric. The following historical metrics are available. For a description of each metric, see <a href=\\\"https://docs.aws.amazon.com/connect/latest/adminguide/historical-metrics-definitions.html\\\">Historical Metrics Definitions</a> in the <i>Amazon Connect Administrator Guide</i>.</p> <note> <p>This API does not support a contacts incoming metric (there's no CONTACTS_INCOMING metric missing from the documented list). </p> </note> <dl> <dt>ABANDON_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>AFTER_CONTACT_WORK_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>API_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CALLBACK_CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_ABANDONED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_AGENT_HUNG_UP_FIRST</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_CONSULTED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_INCOMING</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HANDLED_OUTBOUND</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_HOLD_ABANDONS</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_MISSED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_QUEUED</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_IN_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>CONTACTS_TRANSFERRED_OUT_FROM_QUEUE</dt> <dd> <p>Unit: COUNT</p> <p>Statistic: SUM</p> </dd> <dt>HANDLE_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_AND_HOLD_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>INTERACTION_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>OCCUPANCY</dt> <dd> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> </dd> <dt>QUEUE_ANSWER_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: AVG</p> </dd> <dt>QUEUED_TIME</dt> <dd> <p>Unit: SECONDS</p> <p>Statistic: MAX</p> </dd> <dt>SERVICE_LEVEL</dt> <dd> <p>You can include up to 20 SERVICE_LEVEL metrics in a request.</p> <p>Unit: PERCENT</p> <p>Statistic: AVG</p> <p>Threshold: For <code>ThresholdValue</code>, enter any whole number from 1 to 604800 (inclusive), in seconds. For <code>Comparison</code>, you must enter <code>LT</code> (for \\\"Less than\\\"). </p> </dd> </dl>\"\
         },\
         \"NextToken\":{\
           \"shape\":\"NextToken\",\
@@ -3988,7 +4076,7 @@
       \"members\":{\
         \"Id\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"Arn\":{\
           \"shape\":\"ARN\",\
@@ -4179,7 +4267,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"IntegrationType\":{\
           \"shape\":\"IntegrationType\",\
@@ -4324,6 +4412,21 @@
       },\
       \"documentation\":\"<p>Configuration information of an Amazon Lex bot.</p>\"\
     },\
+    \"LexBotConfig\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LexBot\":{\"shape\":\"LexBot\"},\
+        \"LexV2Bot\":{\
+          \"shape\":\"LexV2Bot\",\
+          \"documentation\":\"<p>Configuration information of an Amazon Lex V2 bot.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information of an Amazon Lex or Amazon Lex V2 bot.</p>\"\
+    },\
+    \"LexBotConfigList\":{\
+      \"type\":\"list\",\
+      \"member\":{\"shape\":\"LexBotConfig\"}\
+    },\
     \"LexBotsList\":{\
       \"type\":\"list\",\
       \"member\":{\"shape\":\"LexBot\"}\
@@ -4331,6 +4434,23 @@
     \"LexRegion\":{\
       \"type\":\"string\",\
       \"max\":60\
+    },\
+    \"LexV2Bot\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"AliasArn\":{\
+          \"shape\":\"AliasArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>\"\
+        }\
+      },\
+      \"documentation\":\"<p>Configuration information of an Amazon Lex V2 bot.</p>\"\
+    },\
+    \"LexVersion\":{\
+      \"type\":\"string\",\
+      \"enum\":[\
+        \"V1\",\
+        \"V2\"\
+      ]\
     },\
     \"LimitExceededException\":{\
       \"type\":\"structure\",\
@@ -4350,7 +4470,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4382,13 +4502,60 @@
         }\
       }\
     },\
+    \"ListBotsRequest\":{\
+      \"type\":\"structure\",\
+      \"required\":[\
+        \"InstanceId\",\
+        \"LexVersion\"\
+      ],\
+      \"members\":{\
+        \"InstanceId\":{\
+          \"shape\":\"InstanceId\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
+          \"location\":\"uri\",\
+          \"locationName\":\"InstanceId\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"nextToken\"\
+        },\
+        \"MaxResults\":{\
+          \"shape\":\"MaxResult25\",\
+          \"documentation\":\"<p>The maximum number of results to return per page.</p>\",\
+          \"box\":true,\
+          \"location\":\"querystring\",\
+          \"locationName\":\"maxResults\"\
+        },\
+        \"LexVersion\":{\
+          \"shape\":\"LexVersion\",\
+          \"documentation\":\"<p>The version of Amazon Lex or Amazon Lex V2.</p>\",\
+          \"location\":\"querystring\",\
+          \"locationName\":\"lexVersion\"\
+        }\
+      }\
+    },\
+    \"ListBotsResponse\":{\
+      \"type\":\"structure\",\
+      \"members\":{\
+        \"LexBots\":{\
+          \"shape\":\"LexBotConfigList\",\
+          \"documentation\":\"<p>The names and Regions of the Amazon Lex or Amazon Lex V2 bots associated with the specified instance.</p>\"\
+        },\
+        \"NextToken\":{\
+          \"shape\":\"NextToken\",\
+          \"documentation\":\"<p>If there are additional results, this is the token for the next set of results.</p>\"\
+        }\
+      }\
+    },\
     \"ListContactFlowsRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\"InstanceId\"],\
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4431,7 +4598,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4468,7 +4635,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4509,7 +4676,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4584,7 +4751,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4622,7 +4789,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4660,7 +4827,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4698,7 +4865,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4788,7 +4955,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4832,7 +4999,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4875,7 +5042,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4922,7 +5089,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -4966,7 +5133,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -5004,7 +5171,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -5042,7 +5209,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -5104,7 +5271,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -5149,7 +5316,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -5187,7 +5354,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6071,7 +6238,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
@@ -6093,7 +6260,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"Name\":{\
           \"shape\":\"RoutingProfileName\",\
@@ -6364,7 +6531,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ContactFlowId\":{\
           \"shape\":\"ContactFlowId\",\
@@ -6417,7 +6584,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
@@ -6456,11 +6623,11 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ClientToken\":{\
           \"shape\":\"ClientToken\",\
-          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. If the contact is disconnected, a new contact is started.</p>\",\
+          \"documentation\":\"<p>A unique, case-sensitive identifier that you provide to ensure the idempotency of the request. The token is valid for 7 days after creation. If a contact is already started, the contact ID is returned. </p>\",\
           \"idempotencyToken\":true\
         },\
         \"SourcePhoneNumber\":{\
@@ -6496,7 +6663,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"PreviousContactId\":{\
           \"shape\":\"ContactId\",\
@@ -6556,7 +6723,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
@@ -6586,7 +6753,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         }\
       }\
     },\
@@ -6615,7 +6782,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"ContactId\":{\
           \"shape\":\"ContactId\",\
@@ -6749,7 +6916,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\"\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\"\
         },\
         \"Attributes\":{\
           \"shape\":\"Attributes\",\
@@ -6827,7 +6994,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6854,7 +7021,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6883,7 +7050,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6908,7 +7075,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6934,7 +7101,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6964,7 +7131,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -6990,7 +7157,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7016,7 +7183,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7041,7 +7208,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7071,7 +7238,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7097,7 +7264,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7122,7 +7289,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7152,7 +7319,7 @@
       \"members\":{\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         },\
@@ -7188,7 +7355,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7213,7 +7380,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7232,7 +7399,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7258,7 +7425,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7284,7 +7451,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7310,7 +7477,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\
@@ -7336,7 +7503,7 @@
         },\
         \"InstanceId\":{\
           \"shape\":\"InstanceId\",\
-          \"documentation\":\"<p>The identifier of the Amazon Connect instance.</p>\",\
+          \"documentation\":\"<p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>\",\
           \"location\":\"uri\",\
           \"locationName\":\"InstanceId\"\
         }\

@@ -33,6 +33,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectAssociateBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"lexBot" : @"LexBot",
+             @"lexV2Bot" : @"LexV2Bot",
+             };
+}
+
++ (NSValueTransformer *)lexBotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexBot class]];
+}
+
++ (NSValueTransformer *)lexV2BotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexV2Bot class]];
+}
+
+@end
+
 @implementation AWSConnectAssociateInstanceStorageConfigRequest
 
 + (BOOL)supportsSecureCoding {
@@ -1690,6 +1714,30 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectDisassociateBotRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"lexBot" : @"LexBot",
+             @"lexV2Bot" : @"LexV2Bot",
+             };
+}
+
++ (NSValueTransformer *)lexBotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexBot class]];
+}
+
++ (NSValueTransformer *)lexV2BotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexV2Bot class]];
+}
+
+@end
+
 @implementation AWSConnectDisassociateInstanceStorageConfigRequest
 
 + (BOOL)supportsSecureCoding {
@@ -2983,6 +3031,43 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
 
 @end
 
+@implementation AWSConnectLexBotConfig
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lexBot" : @"LexBot",
+             @"lexV2Bot" : @"LexV2Bot",
+             };
+}
+
++ (NSValueTransformer *)lexBotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexBot class]];
+}
+
++ (NSValueTransformer *)lexV2BotJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSConnectLexV2Bot class]];
+}
+
+@end
+
+@implementation AWSConnectLexV2Bot
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"aliasArn" : @"AliasArn",
+             };
+}
+
+@end
+
 @implementation AWSConnectListApprovedOriginsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -3010,6 +3095,63 @@ NSString *const AWSConnectErrorDomain = @"com.amazonaws.AWSConnectErrorDomain";
              @"nextToken" : @"NextToken",
              @"origins" : @"Origins",
              };
+}
+
+@end
+
+@implementation AWSConnectListBotsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceId" : @"InstanceId",
+             @"lexVersion" : @"LexVersion",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)lexVersionJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"V1"] == NSOrderedSame) {
+            return @(AWSConnectLexVersionV1);
+        }
+        if ([value caseInsensitiveCompare:@"V2"] == NSOrderedSame) {
+            return @(AWSConnectLexVersionV2);
+        }
+        return @(AWSConnectLexVersionUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSConnectLexVersionV1:
+                return @"V1";
+            case AWSConnectLexVersionV2:
+                return @"V2";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSConnectListBotsResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lexBots" : @"LexBots",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)lexBotsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSConnectLexBotConfig class]];
 }
 
 @end
