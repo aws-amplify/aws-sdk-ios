@@ -573,8 +573,12 @@ extension AWSMobileClient {
             }
             return
         }
-        signOut()
-        completionHandler(nil)
+        let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+            // Regardless whether revoke token was successful or not, continue to sign out locally
+            self.signOut()
+            completionHandler(nil)
+            return nil
+        }
     }
     
     private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,
