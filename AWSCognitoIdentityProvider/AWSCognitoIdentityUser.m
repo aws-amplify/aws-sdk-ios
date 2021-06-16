@@ -1488,6 +1488,28 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     return refreshToken != nil;
 }
 
+- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken {
+    __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
+    NSString * idTokenString = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserIdToken];
+    AWSCognitoIdentityUserSessionToken * idToken = [[AWSCognitoIdentityUserSessionToken alloc] initWithToken:idTokenString];
+    
+    if ([idToken.tokenClaims objectForKey:@"jti"] == nil) {
+        AWSDDLogVerbose(@"ID Token does not contain `jti` claim. Skip revoking tokens.");
+        return [AWSTask taskWithResult:nil];
+    }
+    
+    AWSCognitoIdentityProviderRevokeTokenRequest *request = [AWSCognitoIdentityProviderRevokeTokenRequest new];
+    NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
+    request.token = refreshToken;
+    request.clientId = self.pool.userPoolConfiguration.clientId;
+    request.clientSecret = self.pool.userPoolConfiguration.clientSecret;
+    
+    return [[self.pool.client revokeToken:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+        AWSDDLogVerbose(@"Revoke token completed.");
+        return task;
+    }];
+}
+
 - (AWSTask<AWSCognitoIdentityUserGlobalSignOutResponse *> *) globalSignOut {
     AWSCognitoIdentityProviderGlobalSignOutRequest *request = [AWSCognitoIdentityProviderGlobalSignOutRequest new];
     return [[self getSession] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
