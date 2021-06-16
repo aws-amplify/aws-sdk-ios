@@ -85,9 +85,13 @@
 - (void) test_AWSKMSListResourceTagsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSListResourceTagsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSListRetirableGrantsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSMultiRegionConfiguration API_AVAILABLE(ios(11));
+- (void) test_AWSKMSMultiRegionKey API_AVAILABLE(ios(11));
 - (void) test_AWSKMSPutKeyPolicyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReEncryptRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSReEncryptResponse API_AVAILABLE(ios(11));
+- (void) test_AWSKMSReplicateKeyRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSReplicateKeyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSRetireGrantRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSRevokeGrantRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSScheduleKeyDeletionRequest API_AVAILABLE(ios(11));
@@ -101,6 +105,7 @@
 - (void) test_AWSKMSUpdateCustomKeyStoreRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSUpdateCustomKeyStoreResponse API_AVAILABLE(ios(11));
 - (void) test_AWSKMSUpdateKeyDescriptionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSKMSUpdatePrimaryRegionRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSKMSVerifyResponse API_AVAILABLE(ios(11));
 
@@ -372,6 +377,14 @@
     [self validateSecureCodingForClass:[AWSKMSListRetirableGrantsRequest class]];
 }
 
+- (void) test_AWSKMSMultiRegionConfiguration {
+    [self validateSecureCodingForClass:[AWSKMSMultiRegionConfiguration class]];
+}
+
+- (void) test_AWSKMSMultiRegionKey {
+    [self validateSecureCodingForClass:[AWSKMSMultiRegionKey class]];
+}
+
 - (void) test_AWSKMSPutKeyPolicyRequest {
     [self validateSecureCodingForClass:[AWSKMSPutKeyPolicyRequest class]];
 }
@@ -382,6 +395,14 @@
 
 - (void) test_AWSKMSReEncryptResponse {
     [self validateSecureCodingForClass:[AWSKMSReEncryptResponse class]];
+}
+
+- (void) test_AWSKMSReplicateKeyRequest {
+    [self validateSecureCodingForClass:[AWSKMSReplicateKeyRequest class]];
+}
+
+- (void) test_AWSKMSReplicateKeyResponse {
+    [self validateSecureCodingForClass:[AWSKMSReplicateKeyResponse class]];
 }
 
 - (void) test_AWSKMSRetireGrantRequest {
@@ -434,6 +455,10 @@
 
 - (void) test_AWSKMSUpdateKeyDescriptionRequest {
     [self validateSecureCodingForClass:[AWSKMSUpdateKeyDescriptionRequest class]];
+}
+
+- (void) test_AWSKMSUpdatePrimaryRegionRequest {
+    [self validateSecureCodingForClass:[AWSKMSUpdatePrimaryRegionRequest class]];
 }
 
 - (void) test_AWSKMSVerifyRequest {
