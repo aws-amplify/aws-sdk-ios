@@ -12,7 +12,9 @@
 - Model updates for the following services
   - AWSAutoScaling
   - AWSCognitoIdentityProvider
+  - AWSConnect
   - AWSEC2
+  - AWSKMS
 
 ## 2.24.2
 
