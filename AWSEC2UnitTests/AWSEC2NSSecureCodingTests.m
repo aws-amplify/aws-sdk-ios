@@ -76,6 +76,8 @@
 - (void) test_AWSEC2AssociateTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateTrunkInterfaceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2AssociateTrunkInterfaceResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateVpcCidrBlockRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociateVpcCidrBlockResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2AssociatedRole API_AVAILABLE(ios(11));
@@ -615,6 +617,8 @@
 - (void) test_AWSEC2DescribeTransitGatewayVpcAttachmentsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewaysRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeTransitGatewaysResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTrunkInterfaceAssociationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DescribeTrunkInterfaceAssociationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeVolumeAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeVolumeAttributeResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DescribeVolumeStatusRequest API_AVAILABLE(ios(11));
@@ -692,6 +696,8 @@
 - (void) test_AWSEC2DisassociateTransitGatewayMulticastDomainResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateTrunkInterfaceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DisassociateTrunkInterfaceResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateVpcCidrBlockRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DisassociateVpcCidrBlockResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DiskImage API_AVAILABLE(ios(11));
@@ -1338,6 +1344,7 @@
 - (void) test_AWSEC2TransitGatewayRouteTablePropagation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayVpcAttachment API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TransitGatewayVpcAttachmentOptions API_AVAILABLE(ios(11));
+- (void) test_AWSEC2TrunkInterfaceAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2TunnelOption API_AVAILABLE(ios(11));
 - (void) test_AWSEC2UnassignIpv6AddressesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2UnassignIpv6AddressesResult API_AVAILABLE(ios(11));
@@ -1621,6 +1628,14 @@
 
 - (void) test_AWSEC2AssociateTransitGatewayRouteTableResult {
     [self validateSecureCodingForClass:[AWSEC2AssociateTransitGatewayRouteTableResult class]];
+}
+
+- (void) test_AWSEC2AssociateTrunkInterfaceRequest {
+    [self validateSecureCodingForClass:[AWSEC2AssociateTrunkInterfaceRequest class]];
+}
+
+- (void) test_AWSEC2AssociateTrunkInterfaceResult {
+    [self validateSecureCodingForClass:[AWSEC2AssociateTrunkInterfaceResult class]];
 }
 
 - (void) test_AWSEC2AssociateVpcCidrBlockRequest {
@@ -3779,6 +3794,14 @@
     [self validateSecureCodingForClass:[AWSEC2DescribeTransitGatewaysResult class]];
 }
 
+- (void) test_AWSEC2DescribeTrunkInterfaceAssociationsRequest {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTrunkInterfaceAssociationsRequest class]];
+}
+
+- (void) test_AWSEC2DescribeTrunkInterfaceAssociationsResult {
+    [self validateSecureCodingForClass:[AWSEC2DescribeTrunkInterfaceAssociationsResult class]];
+}
+
 - (void) test_AWSEC2DescribeVolumeAttributeRequest {
     [self validateSecureCodingForClass:[AWSEC2DescribeVolumeAttributeRequest class]];
 }
@@ -4085,6 +4108,14 @@
 
 - (void) test_AWSEC2DisassociateTransitGatewayRouteTableResult {
     [self validateSecureCodingForClass:[AWSEC2DisassociateTransitGatewayRouteTableResult class]];
+}
+
+- (void) test_AWSEC2DisassociateTrunkInterfaceRequest {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateTrunkInterfaceRequest class]];
+}
+
+- (void) test_AWSEC2DisassociateTrunkInterfaceResult {
+    [self validateSecureCodingForClass:[AWSEC2DisassociateTrunkInterfaceResult class]];
 }
 
 - (void) test_AWSEC2DisassociateVpcCidrBlockRequest {
@@ -6669,6 +6700,10 @@
 
 - (void) test_AWSEC2TransitGatewayVpcAttachmentOptions {
     [self validateSecureCodingForClass:[AWSEC2TransitGatewayVpcAttachmentOptions class]];
+}
+
+- (void) test_AWSEC2TrunkInterfaceAssociation {
+    [self validateSecureCodingForClass:[AWSEC2TrunkInterfaceAssociation class]];
 }
 
 - (void) test_AWSEC2TunnelOption {

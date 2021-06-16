@@ -1106,6 +1106,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM5Dn_12xlarge,
     AWSEC2InstanceTypeM5Dn_16xlarge,
     AWSEC2InstanceTypeM5Dn_24xlarge,
+    AWSEC2InstanceTypeM5Dn_metal,
     AWSEC2InstanceTypeM5N_large,
     AWSEC2InstanceTypeM5N_xlarge,
     AWSEC2InstanceTypeM5N_2xlarge,
@@ -1114,6 +1115,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeM5N_12xlarge,
     AWSEC2InstanceTypeM5N_16xlarge,
     AWSEC2InstanceTypeM5N_24xlarge,
+    AWSEC2InstanceTypeM5N_metal,
     AWSEC2InstanceTypeR5Dn_large,
     AWSEC2InstanceTypeR5Dn_xlarge,
     AWSEC2InstanceTypeR5Dn_2xlarge,
@@ -1122,6 +1124,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR5Dn_12xlarge,
     AWSEC2InstanceTypeR5Dn_16xlarge,
     AWSEC2InstanceTypeR5Dn_24xlarge,
+    AWSEC2InstanceTypeR5Dn_metal,
     AWSEC2InstanceTypeR5N_large,
     AWSEC2InstanceTypeR5N_xlarge,
     AWSEC2InstanceTypeR5N_2xlarge,
@@ -1130,6 +1133,7 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceType) {
     AWSEC2InstanceTypeR5N_12xlarge,
     AWSEC2InstanceTypeR5N_16xlarge,
     AWSEC2InstanceTypeR5N_24xlarge,
+    AWSEC2InstanceTypeR5N_metal,
     AWSEC2InstanceTypeINF1_xlarge,
     AWSEC2InstanceTypeINF1_2xlarge,
     AWSEC2InstanceTypeINF1_6xlarge,
@@ -1174,6 +1178,12 @@ typedef NS_ENUM(NSInteger, AWSEC2InterfacePermissionType) {
     AWSEC2InterfacePermissionTypeUnknown,
     AWSEC2InterfacePermissionTypeInstanceAttach,
     AWSEC2InterfacePermissionTypeEipAssociate,
+};
+
+typedef NS_ENUM(NSInteger, AWSEC2InterfaceProtocolType) {
+    AWSEC2InterfaceProtocolTypeUnknown,
+    AWSEC2InterfaceProtocolTypeVlan,
+    AWSEC2InterfaceProtocolTypeGre,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2Ipv6SupportValue) {
@@ -1311,6 +1321,8 @@ typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfaceAttribute) {
 typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfaceCreationType) {
     AWSEC2NetworkInterfaceCreationTypeUnknown,
     AWSEC2NetworkInterfaceCreationTypeEfa,
+    AWSEC2NetworkInterfaceCreationTypeBranch,
+    AWSEC2NetworkInterfaceCreationTypeTrunk,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfacePermissionStateCode) {
@@ -1335,6 +1347,7 @@ typedef NS_ENUM(NSInteger, AWSEC2NetworkInterfaceType) {
     AWSEC2NetworkInterfaceTypeInterface,
     AWSEC2NetworkInterfaceTypeNatGateway,
     AWSEC2NetworkInterfaceTypeEfa,
+    AWSEC2NetworkInterfaceTypeTrunk,
 };
 
 typedef NS_ENUM(NSInteger, AWSEC2OfferingClassType) {
@@ -2148,6 +2161,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateTransitGatewayMulticastDomainResult;
 @class AWSEC2AssociateTransitGatewayRouteTableRequest;
 @class AWSEC2AssociateTransitGatewayRouteTableResult;
+@class AWSEC2AssociateTrunkInterfaceRequest;
+@class AWSEC2AssociateTrunkInterfaceResult;
 @class AWSEC2AssociateVpcCidrBlockRequest;
 @class AWSEC2AssociateVpcCidrBlockResult;
 @class AWSEC2AssociatedRole;
@@ -2687,6 +2702,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeTransitGatewayVpcAttachmentsResult;
 @class AWSEC2DescribeTransitGatewaysRequest;
 @class AWSEC2DescribeTransitGatewaysResult;
+@class AWSEC2DescribeTrunkInterfaceAssociationsRequest;
+@class AWSEC2DescribeTrunkInterfaceAssociationsResult;
 @class AWSEC2DescribeVolumeAttributeRequest;
 @class AWSEC2DescribeVolumeAttributeResult;
 @class AWSEC2DescribeVolumeStatusRequest;
@@ -2764,6 +2781,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateTransitGatewayMulticastDomainResult;
 @class AWSEC2DisassociateTransitGatewayRouteTableRequest;
 @class AWSEC2DisassociateTransitGatewayRouteTableResult;
+@class AWSEC2DisassociateTrunkInterfaceRequest;
+@class AWSEC2DisassociateTrunkInterfaceResult;
 @class AWSEC2DisassociateVpcCidrBlockRequest;
 @class AWSEC2DisassociateVpcCidrBlockResult;
 @class AWSEC2DiskImage;
@@ -3410,6 +3429,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2TransitGatewayRouteTablePropagation;
 @class AWSEC2TransitGatewayVpcAttachment;
 @class AWSEC2TransitGatewayVpcAttachmentOptions;
+@class AWSEC2TrunkInterfaceAssociation;
 @class AWSEC2TunnelOption;
 @class AWSEC2UnassignIpv6AddressesRequest;
 @class AWSEC2UnassignIpv6AddressesResult;
@@ -3800,7 +3820,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>The ID of the AWS account that owns the network interface.</p>
+ <p>The ID of the account that owns the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceOwnerId;
 
@@ -3935,7 +3955,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>[EC2-VPC] The ID that AWS assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
+ <p>[EC2-VPC] The ID that Amazon Web Services assigns to represent the allocation of the Elastic IP address for use with instances in a VPC.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable allocationId;
 
@@ -4810,6 +4830,62 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2AssociateTrunkInterfaceRequest : AWSRequest
+
+
+/**
+ <p>The ID of the branch network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable branchInterfaceId;
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The application key. This applies to the GRE protocol.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable greKey;
+
+/**
+ <p>The ID of the trunk network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trunkInterfaceId;
+
+/**
+ <p>The ID of the VLAN. This applies to the VLAN protocol.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable vlanId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateTrunkInterfaceResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Information about the association between the trunk network interface and branch network interface.</p>
+ */
+@property (nonatomic, strong) AWSEC2TrunkInterfaceAssociation * _Nullable interfaceAssociation;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2AssociateVpcCidrBlockRequest : AWSRequest
 
 
@@ -5612,7 +5688,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Information about an address range that is provisioned for use with your AWS resources through bring your own IP addresses (BYOIP).</p>
+ <p>Information about an address range that is provisioned for use with your Amazon Web Services resources through bring your own IP addresses (BYOIP).</p>
  */
 @interface AWSEC2ByoipCidr : AWSModel
 
@@ -6246,7 +6322,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Provides authorization for Amazon to bring a specific IP address range to a specific AWS account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Prepare to Bring Your Address Range to Your AWS Account</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Provides authorization for Amazon to bring a specific IP address range to a specific account using bring your own IP addresses (BYOIP). For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-byoip.html#prepare-for-byoip">Configuring your BYOIP address range</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  Required parameters: [Message, Signature]
  */
 @interface AWSEC2CidrAuthorizationContext : AWSModel
@@ -8719,12 +8795,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The AWS account ID.</p>
+ <p>The account ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable awsAccountId;
 
 /**
- <p>The AWS service. Currently not supported.</p>
+ <p>The Amazon Web Service. Currently not supported.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable awsService;
 
@@ -8786,7 +8862,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
+ <p>Indicates the type of network interface. To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html"> Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>. To create a trunk network interface, specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/eni-trunking.html"> Network interface trunking</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p>
  */
 @property (nonatomic, assign) AWSEC2NetworkInterfaceCreationType interfaceType;
 
@@ -12729,7 +12805,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where AWS advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The AWS account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
+ <p>One or more filters. Filter names and values are case-sensitive.</p><ul><li><p><code>allocation-id</code> - [EC2-VPC] The allocation ID for the address.</p></li><li><p><code>association-id</code> - [EC2-VPC] The association ID for the address.</p></li><li><p><code>domain</code> - Indicates whether the address is for use in EC2-Classic (<code>standard</code>) or in a VPC (<code>vpc</code>).</p></li><li><p><code>instance-id</code> - The ID of the instance the address is associated with, if any.</p></li><li><p><code>network-border-group</code> - A unique set of Availability Zones, Local Zones, or Wavelength Zones from where Amazon Web Services advertises IP addresses. </p></li><li><p><code>network-interface-id</code> - [EC2-VPC] The ID of the network interface that the address is associated with, if any.</p></li><li><p><code>network-interface-owner-id</code> - The account ID of the owner.</p></li><li><p><code>private-ip-address</code> - [EC2-VPC] The private IP address associated with the Elastic IP address.</p></li><li><p><code>public-ip</code> - The Elastic IP address, or the carrier IP address.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -15867,7 +15943,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>One or more filters.</p><ul><li><p><code>network-interface-permission.network-interface-permission-id</code> - The ID of the permission.</p></li><li><p><code>network-interface-permission.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface-permission.aws-account-id</code> - The AWS account ID.</p></li><li><p><code>network-interface-permission.aws-service</code> - The AWS service.</p></li><li><p><code>network-interface-permission.permission</code> - The type of permission (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>network-interface-permission.network-interface-permission-id</code> - The ID of the permission.</p></li><li><p><code>network-interface-permission.network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>network-interface-permission.aws-account-id</code> - The account ID.</p></li><li><p><code>network-interface-permission.aws-service</code> - The Amazon Web Service.</p></li><li><p><code>network-interface-permission.permission</code> - The type of permission (<code>INSTANCE-ATTACH</code> | <code>EIP-ASSOCIATE</code>).</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -15918,7 +15994,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
- <p>One or more filters.</p><ul><li><p><code>addresses.private-ip-address</code> - The private IPv4 addresses associated with the network interface.</p></li><li><p><code>addresses.primary</code> - Whether the private IPv4 address is the primary IP address associated with the network interface. </p></li><li><p><code>addresses.association.public-ip</code> - The association ID returned when the network interface was associated with the Elastic IP address (IPv4).</p></li><li><p><code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p></li><li><p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p></li><li><p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p></li><li><p><code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p></li><li><p><code>association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p></li><li><p><code>association.public-dns-name</code> - The public DNS name for the network interface (IPv4).</p></li><li><p><code>attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the network interface.</p></li><li><p><code>description</code> - The description of the network interface.</p></li><li><p><code>group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network interface.</p></li><li><p><code>mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>owner-id</code> - The AWS account ID of the network interface owner.</p></li><li><p><code>private-ip-address</code> - The private IPv4 address or addresses of the network interface.</p></li><li><p><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p></li><li><p><code>requester-id</code> - The alias or AWS account ID of the principal or service that created the network interface.</p></li><li><p><code>requester-managed</code> - Indicates whether the network interface is being managed by an AWS service (for example, AWS Management Console, Auto Scaling, and so on).</p></li><li><p><code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p></li><li><p><code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>; if a network interface is attached to an instance the status is <code>in-use</code>.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network interface.</p></li></ul>
+ <p>One or more filters.</p><ul><li><p><code>addresses.private-ip-address</code> - The private IPv4 addresses associated with the network interface.</p></li><li><p><code>addresses.primary</code> - Whether the private IPv4 address is the primary IP address associated with the network interface. </p></li><li><p><code>addresses.association.public-ip</code> - The association ID returned when the network interface was associated with the Elastic IP address (IPv4).</p></li><li><p><code>addresses.association.owner-id</code> - The owner ID of the addresses associated with the network interface.</p></li><li><p><code>association.association-id</code> - The association ID returned when the network interface was associated with an IPv4 address.</p></li><li><p><code>association.allocation-id</code> - The allocation ID returned when you allocated the Elastic IP address (IPv4) for your network interface.</p></li><li><p><code>association.ip-owner-id</code> - The owner of the Elastic IP address (IPv4) associated with the network interface.</p></li><li><p><code>association.public-ip</code> - The address of the Elastic IP address (IPv4) bound to the network interface.</p></li><li><p><code>association.public-dns-name</code> - The public DNS name for the network interface (IPv4).</p></li><li><p><code>attachment.attachment-id</code> - The ID of the interface attachment.</p></li><li><p><code>attachment.attach-time</code> - The time that the network interface was attached to an instance.</p></li><li><p><code>attachment.delete-on-termination</code> - Indicates whether the attachment is deleted when an instance is terminated.</p></li><li><p><code>attachment.device-index</code> - The device index to which the network interface is attached.</p></li><li><p><code>attachment.instance-id</code> - The ID of the instance to which the network interface is attached.</p></li><li><p><code>attachment.instance-owner-id</code> - The owner ID of the instance to which the network interface is attached.</p></li><li><p><code>attachment.status</code> - The status of the attachment (<code>attaching</code> | <code>attached</code> | <code>detaching</code> | <code>detached</code>).</p></li><li><p><code>availability-zone</code> - The Availability Zone of the network interface.</p></li><li><p><code>description</code> - The description of the network interface.</p></li><li><p><code>group-id</code> - The ID of a security group associated with the network interface.</p></li><li><p><code>group-name</code> - The name of a security group associated with the network interface.</p></li><li><p><code>ipv6-addresses.ipv6-address</code> - An IPv6 address associated with the network interface.</p></li><li><p><code>mac-address</code> - The MAC address of the network interface.</p></li><li><p><code>network-interface-id</code> - The ID of the network interface.</p></li><li><p><code>owner-id</code> - The account ID of the network interface owner.</p></li><li><p><code>private-ip-address</code> - The private IPv4 address or addresses of the network interface.</p></li><li><p><code>private-dns-name</code> - The private DNS name of the network interface (IPv4).</p></li><li><p><code>requester-id</code> - The alias or account ID of the principal or service that created the network interface.</p></li><li><p><code>requester-managed</code> - Indicates whether the network interface is being managed by an Amazon Web Service (for example, Management Console, Auto Scaling, and so on).</p></li><li><p><code>source-dest-check</code> - Indicates whether the network interface performs source/destination checking. A value of <code>true</code> means checking is enabled, and <code>false</code> means checking is disabled. The value must be <code>false</code> for the network interface to perform network address translation (NAT) in your VPC. </p></li><li><p><code>status</code> - The status of the network interface. If the network interface is not attached to an instance, the status is <code>available</code>; if a network interface is attached to an instance the status is <code>in-use</code>.</p></li><li><p><code>subnet-id</code> - The ID of the subnet for the network interface.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the resource. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>TeamA</code>, specify <code>tag:Owner</code> for the filter name and <code>TeamA</code> for the filter value.</p></li><li><p><code>tag-key</code> - The key of a tag assigned to the resource. Use this filter to find all resources assigned a tag with a specific key, regardless of the tag value.</p></li><li><p><code>vpc-id</code> - The ID of the VPC for the network interface.</p></li></ul>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
 
@@ -17901,6 +17977,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DescribeTrunkInterfaceAssociationsRequest : AWSRequest
+
+
+/**
+ <p>The IDs of the associations.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable associationIds;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>gre-key</code> - The ID of a trunk interface association.</p></li><li><p><code>interface-protocol</code> - The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The maximum number of results to return with a single call. To retrieve the remaining results, make another call with the returned <code>nextToken</code> value.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeTrunkInterfaceAssociationsResult : AWSModel
+
+
+/**
+ <p>Information about the trunk associations.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TrunkInterfaceAssociation *> * _Nullable interfaceAssociations;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DescribeVolumeAttributeRequest : AWSRequest
 
 
@@ -19519,6 +19646,47 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the association.</p>
  */
 @property (nonatomic, strong) AWSEC2TransitGatewayAssociation * _Nullable association;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTrunkInterfaceRequest : AWSRequest
+
+
+/**
+ <p>The ID ofthe association</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associationId;
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateTrunkInterfaceResult : AWSModel
+
+
+/**
+ <p>Unique, case-sensitive identifier that you provide to ensure the idempotency of the request. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Run_Instance_Idempotency.html">How to Ensure Idempotency</a>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable clientToken;
+
+/**
+ <p>Returns <code>true</code> if the request succeeds; otherwise, it returns an error.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable returned;
 
 @end
 
@@ -25035,7 +25203,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2GroupIdentifier *> * _Nullable groups;
 
 /**
- <p>Describes the type of network interface.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
+ <p>Describes the type of network interface.</p><p>Valid values: <code>interface</code> | <code>efa</code> | <code>trunk</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable interfaceType;
 
@@ -25055,7 +25223,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable networkInterfaceId;
 
 /**
- <p>The ID of the AWS account that created the network interface.</p>
+ <p>The ID of the account that created the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
@@ -25169,7 +25337,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>Indicates whether to assign a carrier IP address to the network interface.</p><p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the AWS Wavelength Developer Guide.</p>
+ <p>Indicates whether to assign a carrier IP address to the network interface.</p><p>You can only assign a carrier IP address to a network interface that is in a subnet in a Wavelength Zone. For more information about carrier IP addresses, see Carrier IP addresses in the Amazon Web Services Wavelength Developer Guide.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable associateCarrierIpAddress;
 
@@ -25199,7 +25367,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable groups;
 
 /**
- <p>The type of network interface.</p><p>To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>If you are not creating an EFA, specify <code>interface</code> or omit this parameter.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
+ <p>The type of network interface.</p><p>To create an Elastic Fabric Adapter (EFA), specify <code>efa</code>. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/efa.html">Elastic Fabric Adapter</a> in the <i>Amazon Elastic Compute Cloud User Guide</i>.</p><p>Valid values: <code>interface</code> | <code>efa</code></p>
  */
 @property (nonatomic, strong) NSString * _Nullable interfaceType;
 
@@ -30377,7 +30545,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable outpostArn;
 
 /**
- <p>The AWS account ID of the owner of the network interface.</p>
+ <p>The account ID of the owner of the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable ownerId;
 
@@ -30397,12 +30565,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<AWSEC2NetworkInterfacePrivateIpAddress *> * _Nullable privateIpAddresses;
 
 /**
- <p>The alias or AWS account ID of the principal or service that created the network interface.</p>
+ <p>The alias or account ID of the principal or service that created the network interface.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable requesterId;
 
 /**
- <p>Indicates whether the network interface is being managed by AWS.</p>
+ <p>Indicates whether the network interface is being managed by Amazon Web Services.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable requesterManaged;
 
@@ -30508,7 +30676,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable instanceId;
 
 /**
- <p>The AWS account ID of the owner of the instance.</p>
+ <p>The account ID of the owner of the instance.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable instanceOwnerId;
 
@@ -30562,12 +30730,12 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The AWS account ID.</p>
+ <p>The account ID.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable awsAccountId;
 
 /**
- <p>The AWS service.</p>
+ <p>The Amazon Web Service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable awsService;
 
@@ -31211,13 +31379,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
- <p>Describes prefixes for AWS services.</p>
+ <p>Describes prefixes for Amazon Web Services services.</p>
  */
 @interface AWSEC2PrefixList : AWSModel
 
 
 /**
- <p>The IP address range of the AWS service.</p>
+ <p>The IP address range of the Amazon Web Service.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable cidrs;
 
@@ -31601,7 +31769,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where AWS advertises public IP addresses.</p>
+ <p>The name of the location from which the address pool is advertised. A network border group is a unique set of Availability Zones or Local Zones from where Amazon Web Services advertises public IP addresses.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable networkBorderGroup;
 
@@ -38839,6 +39007,49 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Indicates whether IPv6 support is disabled.</p>
  */
 @property (nonatomic, assign) AWSEC2Ipv6SupportValue ipv6Support;
+
+@end
+
+/**
+ <p>Information about an association between a branch network interface with a trunk network interface.</p>
+ */
+@interface AWSEC2TrunkInterfaceAssociation : AWSModel
+
+
+/**
+ <p>The ID of the association.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable associationId;
+
+/**
+ <p>The ID of the branch network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable branchInterfaceId;
+
+/**
+ <p>The application key when you use the GRE protocol.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable greKey;
+
+/**
+ <p>The interface protocol. Valid values are <code>VLAN</code> and <code>GRE</code>.</p>
+ */
+@property (nonatomic, assign) AWSEC2InterfaceProtocolType interfaceProtocol;
+
+/**
+ <p> The tags.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>The ID of the trunk network interface.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable trunkInterfaceId;
+
+/**
+ <p>The ID of the VLAN when you use the VLAN protocol.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable vlanId;
 
 @end
 
