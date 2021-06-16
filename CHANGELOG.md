@@ -1,12 +1,3 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSEC2
----AWSKMS
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
@@ -21,7 +12,9 @@ MOVE THIS SECTION TO THE CORRECT LOCATION
 - Model updates for the following services
   - AWSAutoScaling
   - AWSCognitoIdentityProvider
+  - AWSConnect
   - AWSEC2
+  - AWSKMS
 
 ## 2.24.2
 
