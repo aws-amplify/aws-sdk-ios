@@ -753,6 +753,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2AssociateTrunkInterfaceResult *> *)associateTrunkInterface:(AWSEC2AssociateTrunkInterfaceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateTrunkInterface"
+                   outputClass:[AWSEC2AssociateTrunkInterfaceResult class]];
+}
+
+- (void)associateTrunkInterface:(AWSEC2AssociateTrunkInterfaceRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateTrunkInterfaceResult *response, NSError *error))completionHandler {
+    [[self associateTrunkInterface:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateTrunkInterfaceResult *> * _Nonnull task) {
+        AWSEC2AssociateTrunkInterfaceResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AssociateVpcCidrBlockResult *> *)associateVpcCidrBlock:(AWSEC2AssociateVpcCidrBlockRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -6428,6 +6451,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DescribeTrunkInterfaceAssociationsResult *> *)describeTrunkInterfaceAssociations:(AWSEC2DescribeTrunkInterfaceAssociationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeTrunkInterfaceAssociations"
+                   outputClass:[AWSEC2DescribeTrunkInterfaceAssociationsResult class]];
+}
+
+- (void)describeTrunkInterfaceAssociations:(AWSEC2DescribeTrunkInterfaceAssociationsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeTrunkInterfaceAssociationsResult *response, NSError *error))completionHandler {
+    [[self describeTrunkInterfaceAssociations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeTrunkInterfaceAssociationsResult *> * _Nonnull task) {
+        AWSEC2DescribeTrunkInterfaceAssociationsResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2DescribeVolumeAttributeResult *> *)describeVolumeAttribute:(AWSEC2DescribeVolumeAttributeRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -7286,6 +7332,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DisassociateTransitGatewayRouteTableResult *response, NSError *error))completionHandler {
     [[self disassociateTransitGatewayRouteTable:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateTransitGatewayRouteTableResult *> * _Nonnull task) {
         AWSEC2DisassociateTransitGatewayRouteTableResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DisassociateTrunkInterfaceResult *> *)disassociateTrunkInterface:(AWSEC2DisassociateTrunkInterfaceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateTrunkInterface"
+                   outputClass:[AWSEC2DisassociateTrunkInterfaceResult class]];
+}
+
+- (void)disassociateTrunkInterface:(AWSEC2DisassociateTrunkInterfaceRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateTrunkInterfaceResult *response, NSError *error))completionHandler {
+    [[self disassociateTrunkInterface:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateTrunkInterfaceResult *> * _Nonnull task) {
+        AWSEC2DisassociateTrunkInterfaceResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
