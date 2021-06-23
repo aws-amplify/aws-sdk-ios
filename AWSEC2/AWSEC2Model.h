@@ -31677,6 +31677,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSNumber * _Nullable dryRun;
 
 /**
+ <para>Reserved.</para>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable multiRegion;
+
+/**
  <p>The tags to apply to the address pool.</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable poolTagSpecifications;

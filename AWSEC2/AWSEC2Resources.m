@@ -33096,6 +33096,10 @@
           \"shape\":\"TagSpecificationList\",\
           \"documentation\":\"<p>The tags to apply to the address pool.</p>\",\
           \"locationName\":\"PoolTagSpecification\"\
+        },\
+        \"MultiRegion\":{\
+          \"shape\":\"Boolean\",\
+          \"documentation\":\"<para>Reserved.</para>\"\
         }\
       }\
     },\
