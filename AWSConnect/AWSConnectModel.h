@@ -1318,7 +1318,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, strong) NSString * _Nullable quickConnectARN;
 
 /**
- <p>The identifier for the quick connect.</p>
+ <p>The identifier for the quick connect. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable quickConnectId;
 
@@ -4144,7 +4144,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @property (nonatomic, assign) AWSConnectChannel channel;
 
 /**
- <p>The number of contacts an agent can have on a channel simultaneously.</p><p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p><p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 5.</p><p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
+ <p>The number of contacts an agent can have on a channel simultaneously.</p><p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p><p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p><p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable concurrency;
 

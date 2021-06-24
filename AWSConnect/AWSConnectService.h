@@ -457,7 +457,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createQueue:(AWSConnectCreateQueueRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateQueueResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a quick connect for the specified Amazon Connect instance.</p>
+ <p>Creates a quick connect for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateQuickConnect service method.
 
@@ -469,7 +469,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectCreateQuickConnectResponse *> *)createQuickConnect:(AWSConnectCreateQuickConnectRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a quick connect for the specified Amazon Connect instance.</p>
+ <p>Creates a quick connect for the specified Amazon Connect instance.</p>
  
  @param request A container for the necessary parameters to execute the CreateQuickConnect service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -626,7 +626,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)deleteIntegrationAssociation:(AWSConnectDeleteIntegrationAssociationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a quick connect.</p>
+ <p>Deletes a quick connect.</p>
  
  @param request A container for the necessary parameters to execute the DeleteQuickConnect service method.
 
@@ -637,7 +637,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)deleteQuickConnect:(AWSConnectDeleteQuickConnectRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a quick connect.</p>
+ <p>Deletes a quick connect.</p>
  
  @param request A container for the necessary parameters to execute the DeleteQuickConnect service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -864,7 +864,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)describeQueue:(AWSConnectDescribeQueueRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeQueueResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the quick connect.</p>
+ <p>Describes the quick connect.</p>
  
  @param request A container for the necessary parameters to execute the DescribeQuickConnect service method.
 
@@ -876,7 +876,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectDescribeQuickConnectResponse *> *)describeQuickConnect:(AWSConnectDescribeQuickConnectRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the quick connect.</p>
+ <p>Describes the quick connect.</p>
  
  @param request A container for the necessary parameters to execute the DescribeQuickConnect service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1615,7 +1615,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)listQueues:(AWSConnectListQueuesRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListQueuesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+ <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
  
  @param request A container for the necessary parameters to execute the ListQuickConnects service method.
 
@@ -1627,7 +1627,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask<AWSConnectListQuickConnectsResponse *> *)listQuickConnects:(AWSConnectListQuickConnectsRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+ <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
  
  @param request A container for the necessary parameters to execute the ListQuickConnects service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2307,7 +2307,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateQueueStatus:(AWSConnectUpdateQueueStatusRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the configuration settings for the specified quick connect.</p>
+ <p>Updates the configuration settings for the specified quick connect.</p>
  
  @param request A container for the necessary parameters to execute the UpdateQuickConnectConfig service method.
 
@@ -2318,7 +2318,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateQuickConnectConfig:(AWSConnectUpdateQuickConnectConfigRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the configuration settings for the specified quick connect.</p>
+ <p>Updates the configuration settings for the specified quick connect.</p>
  
  @param request A container for the necessary parameters to execute the UpdateQuickConnectConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2329,7 +2329,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)updateQuickConnectConfig:(AWSConnectUpdateQuickConnectConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+ <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  
  @param request A container for the necessary parameters to execute the UpdateQuickConnectName service method.
 
@@ -2340,7 +2340,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)updateQuickConnectName:(AWSConnectUpdateQuickConnectNameRequest *)request;
 
 /**
- <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+ <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
  
  @param request A container for the necessary parameters to execute the UpdateQuickConnectName service method.
  @param completionHandler The completion handler to call when the load request is complete.

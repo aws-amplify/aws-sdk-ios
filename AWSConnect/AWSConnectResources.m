@@ -303,7 +303,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Creates a quick connect for the specified Amazon Connect instance.</p>\"\
+      \"documentation\":\"<p>Creates a quick connect for the specified Amazon Connect instance.</p>\"\
     },\
     \"CreateRoutingProfile\":{\
       \"name\":\"CreateRoutingProfile\",\
@@ -422,7 +422,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Deletes a quick connect.</p>\"\
+      \"documentation\":\"<p>Deletes a quick connect.</p>\"\
     },\
     \"DeleteUseCase\":{\
       \"name\":\"DeleteUseCase\",\
@@ -588,7 +588,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Describes the quick connect.</p>\"\
+      \"documentation\":\"<p>Describes the quick connect.</p>\"\
     },\
     \"DescribeRoutingProfile\":{\
       \"name\":\"DescribeRoutingProfile\",\
@@ -1100,7 +1100,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>\"\
+      \"documentation\":\"<p>Provides information about the quick connects for the specified Amazon Connect instance. </p>\"\
     },\
     \"ListRoutingProfileQueues\":{\
       \"name\":\"ListRoutingProfileQueues\",\
@@ -1578,7 +1578,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates the configuration settings for the specified quick connect.</p>\"\
+      \"documentation\":\"<p>Updates the configuration settings for the specified quick connect.</p>\"\
     },\
     \"UpdateQuickConnectName\":{\
       \"name\":\"UpdateQuickConnectName\",\
@@ -1594,7 +1594,7 @@
         {\"shape\":\"ThrottlingException\"},\
         {\"shape\":\"InternalServiceException\"}\
       ],\
-      \"documentation\":\"<p>This API is in preview release for Amazon Connect and is subject to change.</p> <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>\"\
+      \"documentation\":\"<p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>\"\
     },\
     \"UpdateRoutingProfileConcurrency\":{\
       \"name\":\"UpdateRoutingProfileConcurrency\",\
@@ -2473,7 +2473,7 @@
         },\
         \"QuickConnectId\":{\
           \"shape\":\"QuickConnectId\",\
-          \"documentation\":\"<p>The identifier for the quick connect.</p>\"\
+          \"documentation\":\"<p>The identifier for the quick connect. </p>\"\
         }\
       }\
     },\
@@ -5433,7 +5433,7 @@
         },\
         \"Concurrency\":{\
           \"shape\":\"Concurrency\",\
-          \"documentation\":\"<p>The number of contacts an agent can have on a channel simultaneously.</p> <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p> <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 5.</p> <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>\"\
+          \"documentation\":\"<p>The number of contacts an agent can have on a channel simultaneously.</p> <p>Valid Range for <code>VOICE</code>: Minimum value of 1. Maximum value of 1.</p> <p>Valid Range for <code>CHAT</code>: Minimum value of 1. Maximum value of 10.</p> <p>Valid Range for <code>TASK</code>: Minimum value of 1. Maximum value of 10.</p>\"\
         }\
       },\
       \"documentation\":\"<p>Contains information about which channels are supported, and how many contacts an agent can have on a channel simultaneously.</p>\"\
@@ -6093,7 +6093,7 @@
     \"QuickConnectDescription\":{\
       \"type\":\"string\",\
       \"max\":250,\
-      \"min\":0\
+      \"min\":1\
     },\
     \"QuickConnectId\":{\"type\":\"string\"},\
     \"QuickConnectName\":{\
@@ -7199,6 +7199,11 @@
         }\
       }\
     },\
+    \"UpdateQuickConnectDescription\":{\
+      \"type\":\"string\",\
+      \"max\":250,\
+      \"min\":0\
+    },\
     \"UpdateQuickConnectNameRequest\":{\
       \"type\":\"structure\",\
       \"required\":[\
@@ -7223,7 +7228,7 @@
           \"documentation\":\"<p>The name of the quick connect.</p>\"\
         },\
         \"Description\":{\
-          \"shape\":\"QuickConnectDescription\",\
+          \"shape\":\"UpdateQuickConnectDescription\",\
           \"documentation\":\"<p>The description of the quick connect.</p>\"\
         }\
       }\
