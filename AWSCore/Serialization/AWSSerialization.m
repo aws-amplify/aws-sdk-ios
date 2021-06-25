@@ -1414,7 +1414,8 @@ NSString *const AWSJSONParserErrorDomain = @"com.amazonaws.AWSJSONParserErrorDom
         if ((rules[@"members"][isPayloadData][@"streaming"]) ||
                 ([shapeName isEqual:@"JsonDocument"]) ||
                 ([shapeName isEqual:@"BlobStream"]) ||
-                ([shapeName isEqual:@"BodyBlob"])) {
+                ([shapeName isEqual:@"BodyBlob"]) ||
+                ([shapeName isEqual:@"Blob"])) {
             parsedData[isPayloadData] = data;
             if (error) *error = nil;
             return parsedData;
