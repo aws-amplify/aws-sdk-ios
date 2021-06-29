@@ -17,7 +17,7 @@
 
 #import "AWSIoTMQTTClient.h"
 #import "AWSMQTTSession.h"
-#import "AWSSRWebSocket.h"
+#import <AWSIoT/AWSSRWebSocket.h>
 #import "AWSIoTWebSocketOutputStream.h"
 #import "AWSIoTKeychain.h"
 
