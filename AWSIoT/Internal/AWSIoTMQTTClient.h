@@ -16,7 +16,7 @@
 #import <Foundation/Foundation.h>
 #import <AWSCore/AWSCore.h>
 #import "AWSIoTDataManager.h"
-#import <AWSIoT/AWSSRWebSocket.h>
+#import "AWSSRWebSocket.h"
 #import "AWSIoTMQTTTypes.h"
 
 @interface AWSIoTMQTTTopicModel : NSObject
