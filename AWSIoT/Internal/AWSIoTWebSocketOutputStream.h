@@ -17,7 +17,7 @@
 #define AWSIoTWebSocketOutputStream_h
 
 #import <Foundation/Foundation.h>
-#import "AWSSRWebSocket.h"
+#import <AWSIoT/AWSSRWebSocket.h>
 
 @interface AWSIoTWebSocketOutputStream : NSOutputStream
 
