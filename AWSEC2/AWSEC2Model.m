@@ -52016,6 +52016,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"cidrAuthorizationContext" : @"CidrAuthorizationContext",
              @"detail" : @"Description",
              @"dryRun" : @"DryRun",
+             @"multiRegion" : @"MultiRegion",
              @"poolTagSpecifications" : @"PoolTagSpecifications",
              @"publiclyAdvertisable" : @"PubliclyAdvertisable",
              };
