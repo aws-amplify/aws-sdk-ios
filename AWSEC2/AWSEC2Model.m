@@ -6807,6 +6807,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"dryRun" : @"DryRun",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
@@ -23994,6 +23995,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"activityStatus" : @"ActivityStatus",
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"createTime" : @"CreateTime",
              @"errors" : @"Errors",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
@@ -46767,6 +46769,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
         }
+        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
+        }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
         }
@@ -46887,6 +46892,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
+            case AWSEC2ResourceTypeNetworkInsightsBoundary:
+                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -47032,6 +47039,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
         }
+        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
+        }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
         }
@@ -47152,6 +47162,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
+            case AWSEC2ResourceTypeNetworkInsightsBoundary:
+                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -48061,6 +48073,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"context" : @"Context",
              @"dryRun" : @"DryRun",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"fleetId" : @"FleetId",
@@ -49027,6 +49040,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"context" : @"Context",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
              @"onDemandTargetCapacity" : @"OnDemandTargetCapacity",
@@ -72993,6 +73007,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"allocationStrategy" : @"AllocationStrategy",
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"fulfilledCapacity" : @"FulfilledCapacity",
              @"iamFleetRole" : @"IamFleetRole",
@@ -73268,6 +73283,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
         }
+        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
+        }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
         }
@@ -73388,6 +73406,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
+            case AWSEC2ResourceTypeNetworkInsightsBoundary:
+                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -76658,6 +76678,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
         }
+        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
+        }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
         }
@@ -76778,6 +76801,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
+            case AWSEC2ResourceTypeNetworkInsightsBoundary:
+                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -76919,6 +76944,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
         }
+        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
+        }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
         }
@@ -77039,6 +77067,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
+            case AWSEC2ResourceTypeNetworkInsightsBoundary:
+                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
