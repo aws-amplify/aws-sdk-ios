@@ -1259,7 +1259,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - stehlib.testing
 
       - integ_test:
           scheme: AWSLex
