@@ -1683,12 +1683,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ipProtocol" : @"IpProtocol",
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
+             @"tagSpecifications" : @"TagSpecifications",
              @"toPort" : @"ToPort",
              };
 }
 
 + (NSValueTransformer *)ipPermissionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2AuthorizeSecurityGroupEgressResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             @"securityGroupRules" : @"SecurityGroupRules",
+             };
+}
+
++ (NSValueTransformer *)securityGroupRulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRule class]];
 }
 
 @end
@@ -1710,12 +1734,36 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"ipProtocol" : @"IpProtocol",
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
+             @"tagSpecifications" : @"TagSpecifications",
              @"toPort" : @"ToPort",
              };
 }
 
 + (NSValueTransformer *)ipPermissionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2AuthorizeSecurityGroupIngressResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             @"securityGroupRules" : @"SecurityGroupRules",
+             };
+}
+
++ (NSValueTransformer *)securityGroupRulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRule class]];
 }
 
 @end
@@ -6807,6 +6855,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"dryRun" : @"DryRun",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
@@ -19519,6 +19568,47 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2DescribeSecurityGroupRulesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"securityGroupRuleIds" : @"SecurityGroupRuleIds",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeSecurityGroupRulesResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"securityGroupRules" : @"SecurityGroupRules",
+             };
+}
+
++ (NSValueTransformer *)securityGroupRulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRule class]];
+}
+
+@end
+
 @implementation AWSEC2DescribeSecurityGroupsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -23994,6 +24084,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"activityStatus" : @"ActivityStatus",
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"createTime" : @"CreateTime",
              @"errors" : @"Errors",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
@@ -46782,6 +46873,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"security-group"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"security-group-rule"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeSecurityGroupRule);
+        }
         if ([value caseInsensitiveCompare:@"snapshot"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSnapshot);
         }
@@ -46897,6 +46991,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"route-table";
             case AWSEC2ResourceTypeSecurityGroup:
                 return @"security-group";
+            case AWSEC2ResourceTypeSecurityGroupRule:
+                return @"security-group-rule";
             case AWSEC2ResourceTypeSnapshot:
                 return @"snapshot";
             case AWSEC2ResourceTypeSpotFleetRequest:
@@ -47047,6 +47143,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"security-group"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"security-group-rule"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeSecurityGroupRule);
+        }
         if ([value caseInsensitiveCompare:@"snapshot"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSnapshot);
         }
@@ -47162,6 +47261,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"route-table";
             case AWSEC2ResourceTypeSecurityGroup:
                 return @"security-group";
+            case AWSEC2ResourceTypeSecurityGroupRule:
+                return @"security-group-rule";
             case AWSEC2ResourceTypeSnapshot:
                 return @"snapshot";
             case AWSEC2ResourceTypeSpotFleetRequest:
@@ -48061,6 +48162,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"context" : @"Context",
              @"dryRun" : @"DryRun",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"fleetId" : @"FleetId",
@@ -48953,6 +49055,40 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2ModifySecurityGroupRulesRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"groupId" : @"GroupId",
+             @"securityGroupRules" : @"SecurityGroupRules",
+             };
+}
+
++ (NSValueTransformer *)securityGroupRulesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRuleUpdate class]];
+}
+
+@end
+
+@implementation AWSEC2ModifySecurityGroupRulesResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"returned" : @"Return",
+             };
+}
+
+@end
+
 @implementation AWSEC2ModifySnapshotAttributeRequest
 
 + (BOOL)supportsSecureCoding {
@@ -49027,6 +49163,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"context" : @"Context",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"launchTemplateConfigs" : @"LaunchTemplateConfigs",
              @"onDemandTargetCapacity" : @"OnDemandTargetCapacity",
@@ -52424,6 +52561,24 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return nil;
         }
     }];
+}
+
+@end
+
+@implementation AWSEC2ReferencedSecurityGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"groupId" : @"GroupId",
+             @"peeringStatus" : @"PeeringStatus",
+             @"userId" : @"UserId",
+             @"vpcId" : @"VpcId",
+             @"vpcPeeringConnectionId" : @"VpcPeeringConnectionId",
+             };
 }
 
 @end
@@ -67171,6 +67326,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"groupId" : @"GroupId",
              @"ipPermissions" : @"IpPermissions",
              @"ipProtocol" : @"IpProtocol",
+             @"securityGroupRuleIds" : @"SecurityGroupRuleIds",
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
              @"toPort" : @"ToPort",
@@ -67217,6 +67373,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"groupName" : @"GroupName",
              @"ipPermissions" : @"IpPermissions",
              @"ipProtocol" : @"IpProtocol",
+             @"securityGroupRuleIds" : @"SecurityGroupRuleIds",
              @"sourceSecurityGroupName" : @"SourceSecurityGroupName",
              @"sourceSecurityGroupOwnerId" : @"SourceSecurityGroupOwnerId",
              @"toPort" : @"ToPort",
@@ -70225,6 +70382,95 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2SecurityGroupRule
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidrIpv4" : @"CidrIpv4",
+             @"cidrIpv6" : @"CidrIpv6",
+             @"detail" : @"Description",
+             @"fromPort" : @"FromPort",
+             @"groupId" : @"GroupId",
+             @"groupOwnerId" : @"GroupOwnerId",
+             @"ipProtocol" : @"IpProtocol",
+             @"isEgress" : @"IsEgress",
+             @"prefixListId" : @"PrefixListId",
+             @"referencedGroupInfo" : @"ReferencedGroupInfo",
+             @"securityGroupRuleId" : @"SecurityGroupRuleId",
+             @"tags" : @"Tags",
+             @"toPort" : @"ToPort",
+             };
+}
+
++ (NSValueTransformer *)referencedGroupInfoJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2ReferencedSecurityGroup class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2SecurityGroupRuleDescription
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"detail" : @"Description",
+             @"securityGroupRuleId" : @"SecurityGroupRuleId",
+             };
+}
+
+@end
+
+@implementation AWSEC2SecurityGroupRuleRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidrIpv4" : @"CidrIpv4",
+             @"cidrIpv6" : @"CidrIpv6",
+             @"detail" : @"Description",
+             @"fromPort" : @"FromPort",
+             @"ipProtocol" : @"IpProtocol",
+             @"prefixListId" : @"PrefixListId",
+             @"referencedGroupId" : @"ReferencedGroupId",
+             @"toPort" : @"ToPort",
+             };
+}
+
+@end
+
+@implementation AWSEC2SecurityGroupRuleUpdate
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"securityGroupRule" : @"SecurityGroupRule",
+             @"securityGroupRuleId" : @"SecurityGroupRuleId",
+             };
+}
+
++ (NSValueTransformer *)securityGroupRuleJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2SecurityGroupRuleRequest class]];
+}
+
+@end
+
 @implementation AWSEC2SendDiagnosticInterruptRequest
 
 + (BOOL)supportsSecureCoding {
@@ -72993,6 +73239,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"allocationStrategy" : @"AllocationStrategy",
              @"clientToken" : @"ClientToken",
+             @"context" : @"Context",
              @"excessCapacityTerminationPolicy" : @"ExcessCapacityTerminationPolicy",
              @"fulfilledCapacity" : @"FulfilledCapacity",
              @"iamFleetRole" : @"IamFleetRole",
@@ -73283,6 +73530,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"security-group"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"security-group-rule"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeSecurityGroupRule);
+        }
         if ([value caseInsensitiveCompare:@"snapshot"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSnapshot);
         }
@@ -73398,6 +73648,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"route-table";
             case AWSEC2ResourceTypeSecurityGroup:
                 return @"security-group";
+            case AWSEC2ResourceTypeSecurityGroupRule:
+                return @"security-group-rule";
             case AWSEC2ResourceTypeSnapshot:
                 return @"snapshot";
             case AWSEC2ResourceTypeSpotFleetRequest:
@@ -76673,6 +76925,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"security-group"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"security-group-rule"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeSecurityGroupRule);
+        }
         if ([value caseInsensitiveCompare:@"snapshot"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSnapshot);
         }
@@ -76788,6 +77043,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"route-table";
             case AWSEC2ResourceTypeSecurityGroup:
                 return @"security-group";
+            case AWSEC2ResourceTypeSecurityGroupRule:
+                return @"security-group-rule";
             case AWSEC2ResourceTypeSnapshot:
                 return @"snapshot";
             case AWSEC2ResourceTypeSpotFleetRequest:
@@ -76934,6 +77191,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"security-group"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSecurityGroup);
         }
+        if ([value caseInsensitiveCompare:@"security-group-rule"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeSecurityGroupRule);
+        }
         if ([value caseInsensitiveCompare:@"snapshot"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeSnapshot);
         }
@@ -77049,6 +77309,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"route-table";
             case AWSEC2ResourceTypeSecurityGroup:
                 return @"security-group";
+            case AWSEC2ResourceTypeSecurityGroupRule:
+                return @"security-group-rule";
             case AWSEC2ResourceTypeSnapshot:
                 return @"snapshot";
             case AWSEC2ResourceTypeSpotFleetRequest:
@@ -80218,11 +80480,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
              @"ipPermissions" : @"IpPermissions",
+             @"securityGroupRuleDescriptions" : @"SecurityGroupRuleDescriptions",
              };
 }
 
 + (NSValueTransformer *)ipPermissionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
++ (NSValueTransformer *)securityGroupRuleDescriptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRuleDescription class]];
 }
 
 @end
@@ -80253,11 +80520,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"groupId" : @"GroupId",
              @"groupName" : @"GroupName",
              @"ipPermissions" : @"IpPermissions",
+             @"securityGroupRuleDescriptions" : @"SecurityGroupRuleDescriptions",
              };
 }
 
 + (NSValueTransformer *)ipPermissionsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2IpPermission class]];
+}
+
++ (NSValueTransformer *)securityGroupRuleDescriptionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SecurityGroupRuleDescription class]];
 }
 
 @end
