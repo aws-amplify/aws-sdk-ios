@@ -17,7 +17,7 @@
     <a title="AWSKMSKeyState Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.24.2 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.24.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -242,6 +242,12 @@
                 <a href="../Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionKey.html">AWSKMSMultiRegionKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +255,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyRequest.html">AWSKMSReplicateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyResponse.html">AWSKMSReplicateKeyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSResources.html">AWSKMSResources</a>
@@ -291,6 +303,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
@@ -363,6 +378,9 @@
                 <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMultiRegionKeyType.html">AWSKMSMultiRegionKeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
               </li>
               <li class="nav-group-task">
@@ -384,11 +402,14 @@
                   <p class="aside-title">Objective-C</p>
                   <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSKMSKeyState</span><span class="p">)</span> <span class="p">{</span>
     <span class="n">AWSKMSKeyStateUnknown</span><span class="p">,</span>
+    <span class="n">AWSKMSKeyStateCreating</span><span class="p">,</span>
     <span class="n">AWSKMSKeyStateEnabled</span><span class="p">,</span>
     <span class="n">AWSKMSKeyStateDisabled</span><span class="p">,</span>
     <span class="n">AWSKMSKeyStatePendingDeletion</span><span class="p">,</span>
     <span class="n">AWSKMSKeyStatePendingImport</span><span class="p">,</span>
+    <span class="n">AWSKMSKeyStatePendingReplicaDeletion</span><span class="p">,</span>
     <span class="n">AWSKMSKeyStateUnavailable</span><span class="p">,</span>
+    <span class="n">AWSKMSKeyStateUpdating</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
 
                 </div>
@@ -439,6 +460,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSKMSKeyState@AWSKMSKeyStateCreating"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeyStateCreating" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeyState@AWSKMSKeyStateCreating">AWSKMSKeyStateCreating</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeyStateCreating</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">creating</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSKMSKeyState@AWSKMSKeyStateEnabled"></a>
                     <a name="//apple_ref/objc/Case/AWSKMSKeyStateEnabled" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSKMSKeyState@AWSKMSKeyStateEnabled">AWSKMSKeyStateEnabled</a>
@@ -461,7 +514,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">enabled</span> <span class="o">=</span> <span class="mi">1</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">enabled</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
 
                         </div>
                       </div>
@@ -493,7 +546,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">disabled</span> <span class="o">=</span> <span class="mi">2</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">disabled</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
 
                         </div>
                       </div>
@@ -525,7 +578,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pendingDeletion</span> <span class="o">=</span> <span class="mi">3</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pendingDeletion</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
 
                         </div>
                       </div>
@@ -557,7 +610,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pendingImport</span> <span class="o">=</span> <span class="mi">4</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pendingImport</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeyState@AWSKMSKeyStatePendingReplicaDeletion"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeyStatePendingReplicaDeletion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeyState@AWSKMSKeyStatePendingReplicaDeletion">AWSKMSKeyStatePendingReplicaDeletion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeyStatePendingReplicaDeletion</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">pendingReplicaDeletion</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -589,7 +674,39 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unavailable</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unavailable</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSKMSKeyState@AWSKMSKeyStateUpdating"></a>
+                    <a name="//apple_ref/objc/Case/AWSKMSKeyStateUpdating" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSKMSKeyState@AWSKMSKeyStateUpdating">AWSKMSKeyStateUpdating</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSKMSKeyStateUpdating</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">updating</span> <span class="o">=</span> <span class="mi">8</span></code></pre>
 
                         </div>
                       </div>
@@ -601,7 +718,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

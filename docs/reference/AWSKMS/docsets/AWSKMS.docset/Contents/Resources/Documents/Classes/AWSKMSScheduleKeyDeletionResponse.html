@@ -17,7 +17,7 @@
     <a title="AWSKMSScheduleKeyDeletionResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.24.2 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.24.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -242,6 +242,12 @@
                 <a href="../Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionKey.html">AWSKMSMultiRegionKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +255,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyRequest.html">AWSKMSReplicateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyResponse.html">AWSKMSReplicateKeyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSResources.html">AWSKMSResources</a>
@@ -291,6 +303,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
@@ -363,6 +378,9 @@
                 <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMultiRegionKeyType.html">AWSKMSMultiRegionKeyType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
               </li>
               <li class="nav-group-task">
@@ -409,7 +427,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date and time after which AWS KMS deletes the customer master key (CMK).</p>
+                        <p>The date and time after which AWS KMS deletes the customer master key (CMK).</p><p>If the CMK is a multi-Region primary key with replica keys, this field does not appear. The deletion date for the primary key isn&rsquo;t known until its last replica key is deleted.</p>
 
                       </div>
                       <div class="declaration">
@@ -460,12 +478,76 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSScheduleKeyDeletionResponse(py)keyState"></a>
+                    <a name="//apple_ref/objc/Property/keyState" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSScheduleKeyDeletionResponse(py)keyState">keyState</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The current status of the CMK.</p><p>For more information about how key state affects the use of a CMK, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/key-state.html">Key state: Effect on your CMK</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">)</span> <span class="n"><a href="../Enums/AWSKMSKeyState.html">AWSKMSKeyState</a></span> <span class="n">keyState</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">keyState</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSKeyState.html">AWSKMSKeyState</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSScheduleKeyDeletionResponse(py)pendingWindowInDays"></a>
+                    <a name="//apple_ref/objc/Property/pendingWindowInDays" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSScheduleKeyDeletionResponse(py)pendingWindowInDays">pendingWindowInDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The waiting period before the CMK is deleted. </p><p>If the CMK is a multi-Region primary key with replicas, the waiting period begins when the last of its replica keys is deleted. Otherwise, the waiting period begins immediately.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pendingWindowInDays</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">pendingWindowInDays</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

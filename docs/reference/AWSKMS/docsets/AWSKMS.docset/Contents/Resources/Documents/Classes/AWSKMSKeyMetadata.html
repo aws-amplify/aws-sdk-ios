@@ -17,7 +17,7 @@
     <a title="AWSKMSKeyMetadata Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSKMS 2.24.2 Docs</a> (72% documented)</p>
+        <p><a href="../index.html">AWSKMS 2.24.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -242,6 +242,12 @@
                 <a href="../Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSMultiRegionKey.html">AWSKMSMultiRegionKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +255,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyRequest.html">AWSKMSReplicateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSReplicateKeyResponse.html">AWSKMSReplicateKeyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSResources.html">AWSKMSResources</a>
@@ -291,6 +303,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
@@ -361,6 +376,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSKMSMultiRegionKeyType.html">AWSKMSMultiRegionKeyType</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
@@ -604,7 +622,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date and time after which AWS KMS deletes the CMK. This value is present only when <code>KeyState</code> is <code>PendingDeletion</code>.</p>
+                        <p>The date and time after which AWS KMS deletes this CMK. This value is present only when the CMK is scheduled for deletion, that is, when its <code>KeyState</code> is <code>PendingDeletion</code>.</p><p>When the primary key in a multi-Region key is scheduled for deletion but still has replica keys, its key state is <code>PendingReplicaDeletion</code> and the length of its waiting period is displayed in the <code>PendingDeletionWindowInDays</code> field.</p>
 
                       </div>
                       <div class="declaration">
@@ -700,7 +718,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.</p><p>This field appears only when the <code>KeyUsage</code> of the CMK is <code>ENCRYPT_DECRYPT</code>.</p>
+                        <p>The encryption algorithms that the CMK supports. You cannot use the CMK with other encryption algorithms within AWS KMS.</p><p>This value is present only when the <code>KeyUsage</code> of the CMK is <code>ENCRYPT_DECRYPT</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -882,6 +900,70 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKMSKeyMetadata(py)multiRegion"></a>
+                    <a name="//apple_ref/objc/Property/multiRegion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSKeyMetadata(py)multiRegion">multiRegion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Indicates whether the CMK is a multi-Region (<code>True</code>) or regional (<code>False</code>) key. This value is <code>True</code> for multi-Region primary and replica CMKs and <code>False</code> for regional CMKs.</p><p>For more information about multi-Region keys, see <a href="https://docs.aws.amazon.com/kms/latest/developerguide/multi-region-keys-overview.html">Using multi-Region keys</a> in the <i>AWS Key Management Service Developer Guide</i>.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">multiRegion</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">multiRegion</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSKeyMetadata(py)multiRegionConfiguration"></a>
+                    <a name="//apple_ref/objc/Property/multiRegionConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSKeyMetadata(py)multiRegionConfiguration">multiRegionConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p><p>Lists the primary and replica CMKs in same multi-Region CMK. This field is present only when the value of the <code>MultiRegion</code> field is <code>True</code>.</p><p>For more information about any listed CMK, use the <a>DescribeKey</a> operation.</p><ul><li><p><code>MultiRegionKeyType</code> indicates whether the CMK is a <code>PRIMARY</code> or <code>REPLICA</code> key.</p></li><li><p><code>PrimaryKey</code> displays the key ARN and Region of the primary key. This field displays the current CMK if it is the primary key.</p></li><li><p><code>ReplicaKeys</code> displays the key ARNs and Regions of all replica keys. This field includes the current CMK if it is a replica key.</p></li></ul></p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n"><a href="../Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a></span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">multiRegionConfiguration</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">multiRegionConfiguration</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a></span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKMSKeyMetadata(py)origin"></a>
                     <a name="//apple_ref/objc/Property/origin" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKMSKeyMetadata(py)origin">origin</a>
@@ -905,6 +987,38 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">origin</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSKMSOriginType.html">AWSKMSOriginType</a></span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSKeyMetadata(py)pendingDeletionWindowInDays"></a>
+                    <a name="//apple_ref/objc/Property/pendingDeletionWindowInDays" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSKeyMetadata(py)pendingDeletionWindowInDays">pendingDeletionWindowInDays</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>The waiting period before the primary key in a multi-Region key is deleted. This waiting period begins when the last of its replica keys is deleted. This value is present only when the <code>KeyState</code> of the CMK is <code>PendingReplicaDeletion</code>. That indicates that the CMK is the primary key in a multi-Region key, it is scheduled for deletion, and it still has existing replica keys.</p><p>When a regional CMK or a replica key in a multi-Region key is scheduled for deletion, its deletion date is displayed in the <code>DeletionDate</code> field. However, when the primary key in a multi-Region key is scheduled for deletion, its waiting period doesn&rsquo;t begin until all of its replica keys are deleted. This value displays that waiting period. When the last replica key in the multi-Region key is deleted, the <code>KeyState</code> of the scheduled primary key changes from <code>PendingReplicaDeletion</code> to <code>PendingDeletion</code> and the deletion date appears in the <code>DeletionDate</code> field.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">strong</span><span class="p">)</span> <span class="n">NSNumber</span> <span class="o">*</span><span class="n">_Nullable</span> <span class="n">pendingDeletionWindowInDays</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">pendingDeletionWindowInDays</span><span class="p">:</span> <span class="kt">NSNumber</span><span class="p">?</span> <span class="p">{</span> <span class="k">get</span> <span class="k">set</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -980,7 +1094,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

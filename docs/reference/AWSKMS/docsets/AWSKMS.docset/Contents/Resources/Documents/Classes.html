@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSKMS 2.24.2 Docs</a> (72% documented)</p>
+        <p><a href="index.html">AWSKMS 2.24.3 Docs</a> (72% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSKMS.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -242,6 +242,12 @@
                 <a href="Classes/AWSKMSListRetirableGrantsRequest.html">AWSKMSListRetirableGrantsRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSKMSMultiRegionConfiguration.html">AWSKMSMultiRegionConfiguration</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKMSMultiRegionKey.html">AWSKMSMultiRegionKey</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSKMSPutKeyPolicyRequest.html">AWSKMSPutKeyPolicyRequest</a>
               </li>
               <li class="nav-group-task">
@@ -249,6 +255,12 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKMSReEncryptResponse.html">AWSKMSReEncryptResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKMSReplicateKeyRequest.html">AWSKMSReplicateKeyRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKMSReplicateKeyResponse.html">AWSKMSReplicateKeyResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKMSResources.html">AWSKMSResources</a>
@@ -291,6 +303,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKMSUpdateKeyDescriptionRequest.html">AWSKMSUpdateKeyDescriptionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSKMSUpdatePrimaryRegionRequest.html">AWSKMSUpdatePrimaryRegionRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSKMSVerifyRequest.html">AWSKMSVerifyRequest</a>
@@ -361,6 +376,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSKMSMessageType.html">AWSKMSMessageType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSKMSMultiRegionKeyType.html">AWSKMSMultiRegionKeyType</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSKMSOriginType.html">AWSKMSOriginType</a>
@@ -2504,6 +2522,72 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKMSMultiRegionConfiguration"></a>
+                    <a name="//apple_ref/objc/Class/AWSKMSMultiRegionConfiguration" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSMultiRegionConfiguration">AWSKMSMultiRegionConfiguration</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the configuration of this multi-Region CMK. This field appears only when the CMK is a primary or replica of a multi-Region CMK.</p><p>For more information about any listed CMK, use the <a>DescribeKey</a> operation.</p>
+
+                        <a href="Classes/AWSKMSMultiRegionConfiguration.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSMultiRegionConfiguration</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSMultiRegionConfiguration</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSMultiRegionKey"></a>
+                    <a name="//apple_ref/objc/Class/AWSKMSMultiRegionKey" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSMultiRegionKey">AWSKMSMultiRegionKey</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Describes the primary or replica key in a multi-Region key.</p>
+
+                        <a href="Classes/AWSKMSMultiRegionKey.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSMultiRegionKey</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSMultiRegionKey</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKMSPutKeyPolicyRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSKMSPutKeyPolicyRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKMSPutKeyPolicyRequest">AWSKMSPutKeyPolicyRequest</a>
@@ -2591,6 +2675,70 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSReEncryptResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSReplicateKeyRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSKMSReplicateKeyRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSReplicateKeyRequest">AWSKMSReplicateKeyRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSKMSReplicateKeyRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSReplicateKeyRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSReplicateKeyRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSKMSReplicateKeyResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSKMSReplicateKeyResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSReplicateKeyResponse">AWSKMSReplicateKeyResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSKMSReplicateKeyResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSReplicateKeyResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSReplicateKeyResponse</span></code></pre>
 
                         </div>
                       </div>
@@ -3018,6 +3166,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSKMSUpdatePrimaryRegionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSKMSUpdatePrimaryRegionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSKMSUpdatePrimaryRegionRequest">AWSKMSUpdatePrimaryRegionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSKMSUpdatePrimaryRegionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSKMSUpdatePrimaryRegionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSKMSUpdatePrimaryRegionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSKMSVerifyRequest"></a>
                     <a name="//apple_ref/objc/Class/AWSKMSVerifyRequest" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSKMSVerifyRequest">AWSKMSVerifyRequest</a>
@@ -3156,7 +3336,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
