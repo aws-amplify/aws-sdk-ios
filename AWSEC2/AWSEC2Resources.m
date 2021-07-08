@@ -35679,6 +35679,7 @@
         \"network-acl\",\
         \"network-interface\",\
         \"network-insights-analysis\",\
+        \"network-insights-boundary\",\
         \"network-insights-path\",\
         \"placement-group\",\
         \"reserved-instances\",\

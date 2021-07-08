@@ -1569,6 +1569,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeNetworkACL,
     AWSEC2ResourceTypeNetworkInterface,
     AWSEC2ResourceTypeNetworkInsightsAnalysis,
+    AWSEC2ResourceTypeNetworkInsightsBoundary,
     AWSEC2ResourceTypeNetworkInsightsPath,
     AWSEC2ResourceTypePlacementGroup,
     AWSEC2ResourceTypeReservedInstances,
