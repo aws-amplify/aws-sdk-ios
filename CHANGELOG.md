@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.24.3
+
 ### Bug fixes
 
 - **AWSTranscribing**
