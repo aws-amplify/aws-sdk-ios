@@ -10,6 +10,9 @@
   - Fixed an issue Base64-decoding claims containing non-ASCII characters ([PR #3533](https://github.com/aws-amplify/aws-sdk-ios/pull/3533)). Thanks, [@NivisUnder7](https://github.com/NivisUnder7)!
 - **AWSLocation**
   - AWSLocation Blob deserialization ([PR #3651](https://github.com/aws-amplify/aws-sdk-ios/pull/3651))
+  - fixes Blob handling by limiting change to Location ([PR #3664](https://github.com/aws-amplify/aws-sdk-ios/pull/3664))
+- **AWSIoT**
+  - imports for private headers were not found ([PR #3655](https://github.com/aws-amplify/aws-sdk-ios/pull/3655))
 
 ### Misc. Updates
 
@@ -19,6 +22,11 @@
   - AWSConnect
   - AWSEC2
   - AWSKMS
+  - AWSSTS
+  - AWSSQS
+  - AWSElasticLoadBalancing
+  - AWSSNS
+  - AWSLambda
 
 ## 2.24.2
 
