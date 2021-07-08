@@ -11,7 +11,7 @@ jobs:
       with:
         repo-token: ${{ secrets.GITHUB_TOKEN }}
         stale-issue-label: 'closing soon'
-        exempt-issue-labels: 'investigating,pending-triage,follow up,feature-request,enhancement,pending-release,rfc,work in progress'
+        exempt-issue-labels: 'investigating,pending-triage,follow up,feature-request,pending-release,rfc,work in progress,first-time-contributor,open-for-contribution'
         stale-issue-message: 'This issue is stale because it has been open for 14 days with no activity. Please, provide an update or it will be automatically closed in 7 days.'
         close-issue-message: 'This issue is being automatically closed due to inactivity. If you believe it was closed by mistake, provide an update and re-open it.'
         days-before-stale: 14
