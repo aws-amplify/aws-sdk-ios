@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 + (void)removeSNSForKey:(NSString *)key;
 
 /**
- <p>Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.</p>
+ <p>Adds a statement to a topic's access control policy, granting access for the specified accounts to the specified actions.</p>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
 
@@ -186,7 +186,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)addPermission:(AWSSNSAddPermissionInput *)request;
 
 /**
- <p>Adds a statement to a topic's access control policy, granting access for the specified AWS accounts to the specified actions.</p>
+ <p>Adds a statement to a topic's access control policy, granting access for the specified accounts to the specified actions.</p>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -297,7 +297,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)createPlatformEndpoint:(AWSSNSCreatePlatformEndpointInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateEndpointResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Adds a destination phone number to an account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSMSSandboxPhoneNumber service method.
 
@@ -309,7 +309,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSCreateSMSSandboxPhoneNumberResult *> *)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request;
 
 /**
- <p>Adds a destination phone number to an AWS account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Adds a destination phone number to an account in the SMS sandbox and sends a one-time password (OTP) to that phone number.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the CreateSMSSandboxPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -322,7 +322,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)createSMSSandboxPhoneNumber:(AWSSNSCreateSMSSandboxPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSCreateSMSSandboxPhoneNumberResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
 
@@ -334,7 +334,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSCreateTopicResponse *> *)createTopic:(AWSSNSCreateTopicInput *)request;
 
 /**
- <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="http://aws.amazon.com/sns/">https://aws.amazon.com/sns</a>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
+ <p>Creates a topic to which notifications can be published. Users can create at most 100,000 standard topics (at most 1,000 FIFO topics). For more information, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-create-topic.html">Creating an Amazon SNS topic</a> in the <i>Amazon SNS Developer Guide</i>. This action is idempotent, so if the requester already owns a topic with the specified name, that topic's ARN is returned without creating a new topic.</p>
  
  @param request A container for the necessary parameters to execute the CreateTopic service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -391,7 +391,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)deletePlatformApplication:(AWSSNSDeletePlatformApplicationInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Deletes an account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSMSSandboxPhoneNumber service method.
 
@@ -403,7 +403,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSDeleteSMSSandboxPhoneNumberResult *> *)deleteSMSSandboxPhoneNumber:(AWSSNSDeleteSMSSandboxPhoneNumberInput *)request;
 
 /**
- <p>Deletes an AWS account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Deletes an account's verified or pending phone number from the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DeleteSMSSandboxPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -513,7 +513,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)getSMSAttributes:(AWSSNSGetSMSAttributesInput *)request completionHandler:(void (^ _Nullable)(AWSSNSGetSMSAttributesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Retrieves the SMS sandbox status for the calling account in the target Region.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetSMSSandboxAccountStatus service method.
 
@@ -525,7 +525,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSGetSMSSandboxAccountStatusResult *> *)getSMSSandboxAccountStatus:(AWSSNSGetSMSSandboxAccountStatusInput *)request;
 
 /**
- <p>Retrieves the SMS sandbox status for the calling AWS account in the target AWS Region.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Retrieves the SMS sandbox status for the calling account in the target Region.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the GetSMSSandboxAccountStatus service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -613,7 +613,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)listEndpointsByPlatformApplication:(AWSSNSListEndpointsByPlatformApplicationInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListEndpointsByPlatformApplicationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Lists the calling account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListOriginationNumbers service method.
 
@@ -625,7 +625,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSListOriginationNumbersResult *> *)listOriginationNumbers:(AWSSNSListOriginationNumbersRequest *)request;
 
 /**
- <p>Lists the calling AWS account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Lists the calling account's dedicated origination numbers and their metadata. For more information about origination numbers, see <a href="https://docs.aws.amazon.com/sns/latest/dg/channels-sms-originating-identities-origination-numbers.html">Origination numbers</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListOriginationNumbers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -688,7 +688,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)listPlatformApplications:(AWSSNSListPlatformApplicationsInput *)request completionHandler:(void (^ _Nullable)(AWSSNSListPlatformApplicationsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the calling AWS account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Lists the calling account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListSMSSandboxPhoneNumbers service method.
 
@@ -700,7 +700,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSListSMSSandboxPhoneNumbersResult *> *)listSMSSandboxPhoneNumbers:(AWSSNSListSMSSandboxPhoneNumbersInput *)request;
 
 /**
- <p>Lists the calling AWS account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Lists the calling account's current verified and pending destination phone numbers in the SMS sandbox.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the ListSMSSandboxPhoneNumbers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -838,7 +838,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)optInPhoneNumber:(AWSSNSOptInPhoneNumberInput *)request completionHandler:(void (^ _Nullable)(AWSSNSOptInPhoneNumberResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p><p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p><p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p><important><p>You can publish messages only to topics and endpoints in the same AWS Region.</p></important>
+ <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p><p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p><p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p><important><p>You can publish messages only to topics and endpoints in the same Region.</p></important>
  
  @param request A container for the necessary parameters to execute the Publish service method.
 
@@ -850,7 +850,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSPublishResponse *> *)publish:(AWSSNSPublishInput *)request;
 
 /**
- <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p><p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p><p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p><important><p>You can publish messages only to topics and endpoints in the same AWS Region.</p></important>
+ <p>Sends a message to an Amazon SNS topic, a text message (SMS message) directly to a phone number, or a message to a mobile platform endpoint (when you specify the <code>TargetArn</code>).</p><p>If you send a message to a topic, Amazon SNS delivers the message to each endpoint that is subscribed to the topic. The format of the message depends on the notification protocol for each subscribed endpoint.</p><p>When a <code>messageId</code> is returned, the message has been saved and Amazon SNS will attempt to deliver it shortly.</p><p>To use the <code>Publish</code> action for sending a message to a mobile endpoint, such as an app on a Kindle device or mobile phone, you must specify the EndpointArn for the TargetArn parameter. The EndpointArn is returned when making a call with the <code>CreatePlatformEndpoint</code> action. </p><p>For more information about formatting messages, see <a href="https://docs.aws.amazon.com/sns/latest/dg/mobile-push-send-custommessage.html">Send Custom Platform-Specific Payloads in Messages to Mobile Devices</a>. </p><important><p>You can publish messages only to topics and endpoints in the same Region.</p></important>
  
  @param request A container for the necessary parameters to execute the Publish service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -998,7 +998,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)setTopicAttributes:(AWSSNSSetTopicAttributesInput *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same AWS account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Subscribe service method.
 
@@ -1010,7 +1010,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSSubscribeResponse *> *)subscribe:(AWSSNSSubscribeInput *)request;
 
 /**
- <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same AWS account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Subscribes an endpoint to an Amazon SNS topic. If the endpoint type is HTTP/S or email, or if the endpoint and the topic are not in the same account, the endpoint owner must run the <code>ConfirmSubscription</code> action to confirm the subscription.</p><p>You call the <code>ConfirmSubscription</code> action with the token from the subscription response. Confirmation tokens are valid for three days.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Subscribe service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1023,7 +1023,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)subscribe:(AWSSNSSubscribeInput *)request completionHandler:(void (^ _Nullable)(AWSSNSSubscribeResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p><p>When you use topic tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a topic isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li><li><p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p></li></ul>
+ <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p><p>When you use topic tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a topic isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li><li><p>Tagging actions are limited to 10 TPS per account, per Region. If your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -1035,7 +1035,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSTagResourceResponse *> *)tagResource:(AWSSNSTagResourceRequest *)request;
 
 /**
- <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p><p>When you use topic tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a topic isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li><li><p>Tagging actions are limited to 10 TPS per AWS account, per AWS region. If your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p></li></ul>
+ <p>Add tags to the specified Amazon SNS topic. For an overview, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-tags.html">Amazon SNS Tags</a> in the <i>Amazon SNS Developer Guide</i>.</p><p>When you use topic tags, keep the following guidelines in mind:</p><ul><li><p>Adding more than 50 tags to a topic isn't recommended.</p></li><li><p>Tags don't have any semantic meaning. Amazon SNS interprets tags as character strings.</p></li><li><p>Tags are case-sensitive.</p></li><li><p>A new tag with a key identical to that of an existing tag overwrites the existing tag.</p></li><li><p>Tagging actions are limited to 10 TPS per account, per Region. If your application requires a higher throughput, file a <a href="https://console.aws.amazon.com/support/home#/case/create?issueType=technical">technical support request</a>.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1048,7 +1048,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)tagResource:(AWSSNSTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSSNSTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Unsubscribe service method.
 
@@ -1059,7 +1059,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask *)unsubscribe:(AWSSNSUnsubscribeInput *)request;
 
 /**
- <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an AWS signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
+ <p>Deletes a subscription. If the subscription requires authentication for deletion, only the owner of the subscription or the topic's owner can unsubscribe, and an Amazon Web Services signature is required. If the <code>Unsubscribe</code> call does not require authentication and the requester is not the subscription owner, a final cancellation message is delivered to the endpoint, so that the endpoint owner can easily resubscribe to the topic if the <code>Unsubscribe</code> request was unintended.</p><p>This action is throttled at 100 transactions per second (TPS).</p>
  
  @param request A container for the necessary parameters to execute the Unsubscribe service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1095,7 +1095,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (void)untagResource:(AWSSNSUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSSNSUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS account.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Verifies a destination phone number with a one-time password (OTP) for the calling account.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the VerifySMSSandboxPhoneNumber service method.
 
@@ -1107,7 +1107,7 @@ FOUNDATION_EXPORT NSString *const AWSSNSSDKVersion;
 - (AWSTask<AWSSNSVerifySMSSandboxPhoneNumberResult *> *)verifySMSSandboxPhoneNumber:(AWSSNSVerifySMSSandboxPhoneNumberInput *)request;
 
 /**
- <p>Verifies a destination phone number with a one-time password (OTP) for the calling AWS account.</p><p>When you start using Amazon SNS to send SMS messages, your AWS account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
+ <p>Verifies a destination phone number with a one-time password (OTP) for the calling account.</p><p>When you start using Amazon SNS to send SMS messages, your account is in the <i>SMS sandbox</i>. The SMS sandbox provides a safe environment for you to try Amazon SNS features without risking your reputation as an SMS sender. While your account is in the SMS sandbox, you can use all of the features of Amazon SNS. However, you can send SMS messages only to verified destination phone numbers. For more information, including how to move out of the sandbox to send messages without restrictions, see <a href="https://docs.aws.amazon.com/sns/latest/dg/sns-sms-sandbox.html">SMS sandbox</a> in the <i>Amazon SNS Developer Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the VerifySMSSandboxPhoneNumber service method.
  @param completionHandler The completion handler to call when the load request is complete.
