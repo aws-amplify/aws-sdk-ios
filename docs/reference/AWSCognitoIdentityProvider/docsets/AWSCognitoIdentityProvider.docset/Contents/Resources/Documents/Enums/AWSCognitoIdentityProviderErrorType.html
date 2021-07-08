@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityProviderErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.24.2 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.24.3 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -638,6 +638,12 @@
                 <a href="../Classes/AWSCognitoIdentityProviderRespondToAuthChallengeResponse.html">AWSCognitoIdentityProviderRespondToAuthChallengeResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSCognitoIdentityProviderRevokeTokenRequest.html">AWSCognitoIdentityProviderRevokeTokenRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderRevokeTokenResponse">AWSCognitoIdentityProviderRevokeTokenResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSCognitoIdentityProviderRiskConfigurationType.html">AWSCognitoIdentityProviderRiskConfigurationType</a>
               </li>
               <li class="nav-group-task">
@@ -1136,8 +1142,11 @@
     <span class="n">AWSCognitoIdentityProviderErrorSoftwareTokenMFANotFound</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorTooManyFailedAttempts</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorTooManyRequests</span><span class="p">,</span>
+    <span class="n">AWSCognitoIdentityProviderErrorUnauthorized</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorUnexpectedLambda</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorUnsupportedIdentityProvider</span><span class="p">,</span>
+    <span class="n">AWSCognitoIdentityProviderErrorUnsupportedOperation</span><span class="p">,</span>
+    <span class="n">AWSCognitoIdentityProviderErrorUnsupportedTokenType</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorUnsupportedUserState</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorUserImportInProgress</span><span class="p">,</span>
     <span class="n">AWSCognitoIdentityProviderErrorUserLambdaValidation</span><span class="p">,</span>
@@ -2060,6 +2069,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnauthorized"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoIdentityProviderErrorUnauthorized" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnauthorized">AWSCognitoIdentityProviderErrorUnauthorized</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoIdentityProviderErrorUnauthorized</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unauthorized</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnexpectedLambda"></a>
                     <a name="//apple_ref/objc/Case/AWSCognitoIdentityProviderErrorUnexpectedLambda" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnexpectedLambda">AWSCognitoIdentityProviderErrorUnexpectedLambda</a>
@@ -2082,7 +2123,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedLambda</span> <span class="o">=</span> <span class="mi">28</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unexpectedLambda</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
 
                         </div>
                       </div>
@@ -2114,7 +2155,71 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedIdentityProvider</span> <span class="o">=</span> <span class="mi">29</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedIdentityProvider</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnsupportedOperation"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoIdentityProviderErrorUnsupportedOperation" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnsupportedOperation">AWSCognitoIdentityProviderErrorUnsupportedOperation</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoIdentityProviderErrorUnsupportedOperation</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedOperation</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnsupportedTokenType"></a>
+                    <a name="//apple_ref/objc/Case/AWSCognitoIdentityProviderErrorUnsupportedTokenType" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSCognitoIdentityProviderErrorType@AWSCognitoIdentityProviderErrorUnsupportedTokenType">AWSCognitoIdentityProviderErrorUnsupportedTokenType</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSCognitoIdentityProviderErrorUnsupportedTokenType</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedTokenType</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
 
                         </div>
                       </div>
@@ -2146,7 +2251,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedUserState</span> <span class="o">=</span> <span class="mi">30</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">unsupportedUserState</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
 
                         </div>
                       </div>
@@ -2178,7 +2283,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userImportInProgress</span> <span class="o">=</span> <span class="mi">31</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userImportInProgress</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
 
                         </div>
                       </div>
@@ -2210,7 +2315,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userLambdaValidation</span> <span class="o">=</span> <span class="mi">32</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userLambdaValidation</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
 
                         </div>
                       </div>
@@ -2242,7 +2347,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userNotConfirmed</span> <span class="o">=</span> <span class="mi">33</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userNotConfirmed</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
 
                         </div>
                       </div>
@@ -2274,7 +2379,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userNotFound</span> <span class="o">=</span> <span class="mi">34</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userNotFound</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
 
                         </div>
                       </div>
@@ -2306,7 +2411,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userPoolAddOnNotEnabled</span> <span class="o">=</span> <span class="mi">35</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userPoolAddOnNotEnabled</span> <span class="o">=</span> <span class="mi">38</span></code></pre>
 
                         </div>
                       </div>
@@ -2338,7 +2443,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userPoolTagging</span> <span class="o">=</span> <span class="mi">36</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">userPoolTagging</span> <span class="o">=</span> <span class="mi">39</span></code></pre>
 
                         </div>
                       </div>
@@ -2370,7 +2475,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">usernameExists</span> <span class="o">=</span> <span class="mi">37</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">usernameExists</span> <span class="o">=</span> <span class="mi">40</span></code></pre>
 
                         </div>
                       </div>
@@ -2382,7 +2487,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
