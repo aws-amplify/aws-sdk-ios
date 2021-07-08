@@ -17,7 +17,7 @@
     <a title="Enumerations  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSConnect 2.24.2 Docs</a> (69% documented)</p>
+        <p><a href="index.html">AWSConnect 2.24.3 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectAssociateApprovedOriginRequest.html">AWSConnectAssociateApprovedOriginRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectAssociateInstanceStorageConfigRequest.html">AWSConnectAssociateInstanceStorageConfigRequest</a>
@@ -239,6 +242,9 @@
                 <a href="Classes/AWSConnectDisassociateApprovedOriginRequest.html">AWSConnectDisassociateApprovedOriginRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectDisassociateInstanceStorageConfigRequest.html">AWSConnectDisassociateInstanceStorageConfigRequest</a>
               </li>
               <li class="nav-group-task">
@@ -356,10 +362,22 @@
                 <a href="Classes/AWSConnectLexBot.html">AWSConnectLexBot</a>
               </li>
               <li class="nav-group-task">
+                <a href="Classes/AWSConnectLexBotConfig.html">AWSConnectLexBotConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectLexV2Bot.html">AWSConnectLexV2Bot</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Classes/AWSConnectListApprovedOriginsRequest.html">AWSConnectListApprovedOriginsRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectListApprovedOriginsResponse.html">AWSConnectListApprovedOriginsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSConnectListContactFlowsRequest.html">AWSConnectListContactFlowsRequest</a>
@@ -772,6 +790,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectIntegrationType.html">AWSConnectIntegrationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Enums/AWSConnectLexVersion.html">AWSConnectLexVersion</a>
               </li>
               <li class="nav-group-task">
                 <a href="Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
@@ -1410,6 +1431,43 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectIntegrationType</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:@E@AWSConnectLexVersion"></a>
+                    <a name="//apple_ref/objc/Enum/AWSConnectLexVersion" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSConnectLexVersion">AWSConnectLexVersion</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                        <a href="Enums/AWSConnectLexVersion.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">NS_ENUM</span><span class="p">(</span><span class="n">NSInteger</span><span class="p">,</span> <span class="n">AWSConnectLexVersion</span><span class="p">)</span> <span class="p">{</span>
+    <span class="n">AWSConnectLexVersionUnknown</span><span class="p">,</span>
+    <span class="n">AWSConnectLexVersionV1</span><span class="p">,</span>
+    <span class="n">AWSConnectLexVersionV2</span><span class="p">,</span>
+<span class="p">}</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">enum</span> <span class="kt">AWSConnectLexVersion</span> <span class="p">:</span> <span class="kt">Int</span></code></pre>
 
                         </div>
                       </div>
@@ -2183,7 +2241,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

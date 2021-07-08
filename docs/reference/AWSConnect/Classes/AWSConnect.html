@@ -17,7 +17,7 @@
     <a title="AWSConnect Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSConnect 2.24.2 Docs</a> (69% documented)</p>
+        <p><a href="../index.html">AWSConnect 2.24.3 Docs</a> (70% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSConnect.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -45,6 +45,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectAssociateApprovedOriginRequest.html">AWSConnectAssociateApprovedOriginRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectAssociateInstanceStorageConfigRequest.html">AWSConnectAssociateInstanceStorageConfigRequest</a>
@@ -239,6 +242,9 @@
                 <a href="../Classes/AWSConnectDisassociateApprovedOriginRequest.html">AWSConnectDisassociateApprovedOriginRequest</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectDisassociateInstanceStorageConfigRequest.html">AWSConnectDisassociateInstanceStorageConfigRequest</a>
               </li>
               <li class="nav-group-task">
@@ -356,10 +362,22 @@
                 <a href="../Classes/AWSConnectLexBot.html">AWSConnectLexBot</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLexBotConfig.html">AWSConnectLexBotConfig</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectLexV2Bot.html">AWSConnectLexV2Bot</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSConnectListApprovedOriginsRequest.html">AWSConnectListApprovedOriginsRequest</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectListApprovedOriginsResponse.html">AWSConnectListApprovedOriginsResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSConnectListContactFlowsRequest.html">AWSConnectListContactFlowsRequest</a>
@@ -772,6 +790,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectIntegrationType.html">AWSConnectIntegrationType</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Enums/AWSConnectLexVersion.html">AWSConnectLexVersion</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Enums/AWSConnectPhoneNumberCountryCode.html">AWSConnectPhoneNumberCountryCode</a>
@@ -1325,6 +1346,136 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorResourceConflict</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorServiceQuotaExceeded</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)associateBot:"></a>
+                    <a name="//apple_ref/objc/Method/-associateBot:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)associateBot:">-associateBot:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectAssociateBotRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">associateBot</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the AssociateBot service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorResourceConflict</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorServiceQuotaExceeded</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)associateBot:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-associateBot:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)associateBot:completionHandler:">-associateBot:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Allows the specified Amazon Connect instance to access the specified Amazon Lex or Amazon Lex V2 bot.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectAssociateBotRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">associateBot</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">associateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectAssociateBotRequest.html">AWSConnectAssociateBotRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the AssociateBot service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorResourceConflict</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorLimitExceeded</code>, <code>AWSConnectErrorServiceQuotaExceeded</code>, <code>AWSConnectErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -2734,7 +2885,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a quick connect for the specified Amazon Connect instance.</p>
+                        <p>Creates a quick connect for the specified Amazon Connect instance.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectCreateQuickConnectRequest</p>
@@ -2798,7 +2949,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates a quick connect for the specified Amazon Connect instance.</p>
+                        <p>Creates a quick connect for the specified Amazon Connect instance.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectCreateQuickConnectRequest</p>
@@ -3709,7 +3860,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a quick connect.</p>
+                        <p>Deletes a quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteQuickConnectRequest</p>
@@ -3769,7 +3920,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes a quick connect.</p>
+                        <p>Deletes a quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDeleteQuickConnectRequest</p>
@@ -5091,7 +5242,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the quick connect.</p>
+                        <p>Describes the quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDescribeQuickConnectRequest</p>
@@ -5156,7 +5307,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes the quick connect.</p>
+                        <p>Describes the quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectDescribeQuickConnectRequest</p>
@@ -5921,6 +6072,137 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)disassociateBot:"></a>
+                    <a name="//apple_ref/objc/Method/-disassociateBot:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)disassociateBot:">-disassociateBot:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDisassociateBotRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">disassociateBot</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DisassociateBot service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will be <code>nil</code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)disassociateBot:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-disassociateBot:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)disassociateBot:completionHandler:">-disassociateBot:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Revokes authorization from the specified instance to access the specified Amazon Lex or Amazon Lex V2 bot. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectDisassociateBotRequest</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">disassociateBot</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+      <span class="nf">completionHandler</span><span class="p">:</span>
+          <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="nv">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">disassociateBot</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectDisassociateBotRequest.html">AWSConnectDisassociateBotRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the DisassociateBot service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -7432,6 +7714,146 @@
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
                      <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorInvalidParameter</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)listBots:"></a>
+                    <a name="//apple_ref/objc/Method/-listBots:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)listBots:">-listBots:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectListBotsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectListBotsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">listBots</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListBots service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSConnect(im)listBots:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-listBots:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSConnect(im)listBots:completionHandler:">-listBots:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>For the specified version of Amazon Lex, returns a paginated list of all the Amazon Lex bots currently associated with the instance. </p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectListBotsRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSConnectListBotsResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">listBots</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                                         <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">listBots</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSConnectListBotsRequest.html">AWSConnectListBotsRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSConnectListBotsResponse.html">AWSConnectListBotsResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the ListBots service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSConnectErrorDomain">AWSConnectErrorDomain</a></code> domain and the following error code: <code>AWSConnectErrorResourceNotFound</code>, <code>AWSConnectErrorInternalService</code>, <code>AWSConnectErrorInvalidRequest</code>, <code>AWSConnectErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -9165,7 +9587,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+                        <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListQuickConnectsRequest</p>
@@ -9229,7 +9651,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
+                        <p>Provides information about the quick connects for the specified Amazon Connect instance. </p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectListQuickConnectsRequest</p>
@@ -13186,7 +13608,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the configuration settings for the specified quick connect.</p>
+                        <p>Updates the configuration settings for the specified quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateQuickConnectConfigRequest</p>
@@ -13247,7 +13669,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the configuration settings for the specified quick connect.</p>
+                        <p>Updates the configuration settings for the specified quick connect.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateQuickConnectConfigRequest</p>
@@ -13319,7 +13741,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+                        <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateQuickConnectNameRequest</p>
@@ -13380,7 +13802,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
+                        <p>Updates the name and description of a quick connect. The request accepts the following data in JSON format. At least <code>Name</code> or <code>Description</code> must be provided.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSConnectUpdateQuickConnectNameRequest</p>
@@ -14911,7 +15333,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
