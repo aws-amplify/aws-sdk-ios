@@ -3068,6 +3068,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"SASL_SCRAM_256_AUTH"] == NSOrderedSame) {
             return @(AWSLambdaSourceAccessTypeSaslScram256Auth);
         }
+        if ([value caseInsensitiveCompare:@"VIRTUAL_HOST"] == NSOrderedSame) {
+            return @(AWSLambdaSourceAccessTypeVirtualHost);
+        }
         return @(AWSLambdaSourceAccessTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -3081,6 +3084,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"SASL_SCRAM_512_AUTH";
             case AWSLambdaSourceAccessTypeSaslScram256Auth:
                 return @"SASL_SCRAM_256_AUTH";
+            case AWSLambdaSourceAccessTypeVirtualHost:
+                return @"VIRTUAL_HOST";
             default:
                 return nil;
         }

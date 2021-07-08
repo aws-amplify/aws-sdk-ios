@@ -169,6 +169,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaSourceAccessType) {
     AWSLambdaSourceAccessTypeVpcSecurityGroup,
     AWSLambdaSourceAccessTypeSaslScram512Auth,
     AWSLambdaSourceAccessTypeSaslScram256Auth,
+    AWSLambdaSourceAccessTypeVirtualHost,
 };
 
 typedef NS_ENUM(NSInteger, AWSLambdaState) {
@@ -348,7 +349,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable codeSizeUnzipped;
 
 /**
- <p>The maximum size of a deployment package when it's uploaded directly to AWS Lambda. Use Amazon S3 for larger files.</p>
+ <p>The maximum size of a deployment package when it's uploaded directly to Lambda. Use Amazon S3 for larger files.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable codeSizeZipped;
 
@@ -409,7 +410,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable organizationId;
 
 /**
- <p>An account ID, or <code>*</code> to grant permission to all AWS accounts.</p>
+ <p>An account ID, or <code>*</code> to grant layer usage permission to all accounts in an organization, or all Amazon Web Services accounts (if <code>organizationId</code> is not specified). For the last case, make sure that you really do want all Amazon Web Services accounts to have usage permission to this layer. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -470,7 +471,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>The AWS service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
+ <p>The Amazon Web Services service or account that invokes the function. If you specify a service, use <code>SourceArn</code> or <code>SourceAccount</code> to limit who can invoke the function through that service.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable principal;
 
@@ -490,7 +491,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable sourceAccount;
 
 /**
- <p>For AWS services, the ARN of the AWS resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p>
+ <p>For Amazon Web Services services, the ARN of the Amazon Web Services resource that invokes the function. For example, an Amazon S3 bucket or Amazon SNS topic.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable sourceArn;
 
@@ -580,7 +581,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Details about a Code signing configuration. </p>
+ <p>Details about a <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html">Code signing configuration</a>. </p>
  Required parameters: [CodeSigningConfigId, CodeSigningConfigArn, AllowedPublishers, CodeSigningPolicies, LastModified]
  */
 @interface AWSLambdaCodeSigningConfig : AWSModel
@@ -619,7 +620,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Code signing configuration policies specifies the validation failure action for signature mismatch or expiry.</p>
+ <p>Code signing configuration <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-codesigning.html#config-codesigning-policies">policies</a> specify the validation failure action for signature mismatch or expiry.</p>
  */
 @interface AWSLambdaCodeSigningPolicies : AWSModel
 
@@ -725,12 +726,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
- <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
 
 /**
- <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
@@ -750,7 +751,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
@@ -760,17 +761,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+ <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
 /**
- <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ <p>(Streams only) The number of batches to process from each shard concurrently.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
@@ -805,7 +806,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -858,12 +859,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable handler;
 
 /**
- <p><a href="https://docs.aws.amazon.com/lambda/latest/dg/images-parms.html">Container image configuration values</a> that override the values in the container image Dockerfile.</p>
+ <p>Container image <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-images.html#configuration-images-settings">configuration values</a> that override the values in the container image Dockerfile.</p>
  */
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>
+ <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -873,7 +874,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
 
 /**
- <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+ <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
 
@@ -903,17 +904,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.</p>
+ <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
 /**
- <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS X-Ray.</p>
+ <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 
@@ -1101,13 +1102,13 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>A function's environment variable settings.</p>
+ <p>A function's environment variable settings. You can use environment variables to adjust your function's behavior without updating code. An environment variable is a pair of strings that are stored in a function's version-specific configuration. </p>
  */
 @interface AWSLambdaEnvironment : AWSModel
 
 
 /**
- <p>Environment variable key-value pairs.</p>
+ <p>Environment variable key-value pairs. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">Using Lambda environment variables</a>.</p>
  */
 @property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable variables;
 
@@ -1150,7 +1151,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
+ <p>A mapping between an Amazon Web Services resource and an Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
  */
 @interface AWSLambdaEventSourceMappingConfiguration : AWSModel
 
@@ -1161,12 +1162,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
- <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+ <p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
 
 /**
- <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
@@ -1181,7 +1182,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionArn;
 
 /**
- <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
@@ -1191,7 +1192,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSDate * _Nullable lastModified;
 
 /**
- <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
+ <p>The result of the last Lambda invocation of your Lambda function.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable lastProcessingResult;
 
@@ -1201,17 +1202,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+ <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
 /**
- <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
+ <p>(Streams only) The number of batches to process from each shard concurrently. The default value is 1.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
@@ -1256,7 +1257,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable topics;
 
 /**
- <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -1268,7 +1269,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Details about the connection between a Lambda function and an Amazon EFS file system.</p>
+ <p>Details about the connection between a Lambda function and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  Required parameters: [Arn, LocalMountPath]
  */
 @interface AWSLambdaFileSystemConfig : AWSModel
@@ -1293,12 +1294,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>URI of a container image in the Amazon ECR registry.</p>
+ <p>URI of a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a> in the Amazon ECR registry.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable imageUri;
 
 /**
- <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+ <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
@@ -1313,7 +1314,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable s3ObjectVersion;
 
 /**
- <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
+ <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable zipFile;
 
@@ -1374,12 +1375,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable detail;
 
 /**
- <p>The function's environment variables.</p>
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-envvars.html">environment variables</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaEnvironmentResponse * _Nullable environment;
 
 /**
- <p>Connection settings for an Amazon EFS file system.</p>
+ <p>Connection settings for an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-filesystem.html">Amazon EFS file system</a>.</p>
  */
 @property (nonatomic, strong) NSArray<AWSLambdaFileSystemConfig *> * _Nullable fileSystemConfigs;
 
@@ -1494,7 +1495,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
 /**
- <p>The function's AWS X-Ray tracing configuration.</p>
+ <p>The function's X-Ray tracing configuration.</p>
  */
 @property (nonatomic, strong) AWSLambdaTracingConfigResponse * _Nullable tracingConfig;
 
@@ -2134,7 +2135,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>.</p>
+ <p>An <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
  */
 @interface AWSLambdaLayer : AWSModel
 
@@ -2162,7 +2163,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. You can specify either an Amazon S3 location, or upload a layer archive directly.</p>
+ <p>A ZIP archive that contains the contents of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. You can specify either an Amazon S3 location, or upload a layer archive directly.</p>
  */
 @interface AWSLambdaLayerVersionContentInput : AWSModel
 
@@ -2183,14 +2184,14 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable s3ObjectVersion;
 
 /**
- <p>The base64-encoded contents of the layer archive. AWS SDK and AWS CLI clients handle the encoding for you.</p>
+ <p>The base64-encoded contents of the layer archive. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable zipFile;
 
 @end
 
 /**
- <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>.</p>
+ <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
  */
 @interface AWSLambdaLayerVersionContentOutput : AWSModel
 
@@ -2223,7 +2224,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>.</p>
+ <p>Details about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
  */
 @interface AWSLambdaLayerVersionsListItem : AWSModel
 
@@ -2261,7 +2262,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>.</p>
+ <p>Details about an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>.</p>
  */
 @interface AWSLambdaLayersListItem : AWSModel
 
@@ -2510,12 +2511,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>For Lambda@Edge functions, the AWS Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
+ <p>For Lambda@Edge functions, the Region of the master function. For example, <code>us-east-1</code> filters the list of functions to only include Lambda@Edge functions replicated from a master function in US East (N. Virginia). If specified, you must set <code>FunctionVersion</code> to <code>ALL</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable masterRegion;
 
 /**
- <p>The maximum number of functions to return.</p>
+ <p>The maximum number of functions to return in the response. Note that <code>ListFunctions</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
@@ -2710,7 +2711,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable marker;
 
 /**
- <p>The maximum number of versions to return.</p>
+ <p>The maximum number of versions to return. Note that <code>ListVersionsByFunction</code> returns a maximum of 50 items in each response, even if you set the number higher.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maxItems;
 
@@ -3136,7 +3137,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 
 
 /**
- <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p></li></ul>
+ <p>The type of authentication protocol or the VPC components for your event source. For example: <code>"Type":"SASL_SCRAM_512_AUTH"</code>.</p><ul><li><p><code>BASIC_AUTH</code> - (MQ) The Secrets Manager secret that stores your broker credentials.</p></li><li><p><code>VPC_SUBNET</code> - The subnets associated with your VPC. Lambda connects to these subnets to fetch data from your Self-Managed Apache Kafka cluster.</p></li><li><p><code>VPC_SECURITY_GROUP</code> - The VPC security group used to manage access to your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_256_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-256 authentication of your Self-Managed Apache Kafka brokers.</p></li><li><p><code>SASL_SCRAM_512_AUTH</code> - The Secrets Manager ARN of your secret key used for SASL SCRAM-512 authentication of your Self-Managed Apache Kafka brokers.</p></li><li><p><code>VIRTUAL_HOST</code> - The name of the virtual host in your RabbitMQ broker. Lambda will use this host as the event source.</p></li></ul>
  */
 @property (nonatomic, assign) AWSLambdaSourceAccessType types;
 
@@ -3166,7 +3167,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The function's AWS X-Ray tracing configuration. To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
+ <p>The function's <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a> tracing configuration. To sample and record incoming requests, set <code>Mode</code> to <code>Active</code>.</p>
  */
 @interface AWSLambdaTracingConfig : AWSModel
 
@@ -3179,7 +3180,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @end
 
 /**
- <p>The function's AWS X-Ray tracing configuration.</p>
+ <p>The function's X-Ray tracing configuration.</p>
  */
 @interface AWSLambdaTracingConfigResponse : AWSModel
 
@@ -3300,12 +3301,12 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable batchSize;
 
 /**
- <p>(Streams) If the function returns an error, split the batch in two and retry.</p>
+ <p>(Streams only) If the function returns an error, split the batch in two and retry.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable bisectBatchOnFunctionError;
 
 /**
- <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+ <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
  */
 @property (nonatomic, strong) AWSLambdaDestinationConfig * _Nullable destinationConfig;
 
@@ -3320,7 +3321,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable functionName;
 
 /**
- <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+ <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable functionResponseTypes;
 
@@ -3330,17 +3331,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSNumber * _Nullable maximumBatchingWindowInSeconds;
 
 /**
- <p>(Streams) Discard records older than the specified age. The default value is infinite (-1).</p>
+ <p>(Streams only) Discard records older than the specified age. The default value is infinite (-1).</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRecordAgeInSeconds;
 
 /**
- <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
+ <p>(Streams only) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records will be retried until the record expires.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable maximumRetryAttempts;
 
 /**
- <p>(Streams) The number of batches to process from each shard concurrently.</p>
+ <p>(Streams only) The number of batches to process from each shard concurrently.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable parallelizationFactor;
 
@@ -3350,7 +3351,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<AWSLambdaSourceAccessConfiguration *> * _Nullable sourceAccessConfigurations;
 
 /**
- <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+ <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable tumblingWindowInSeconds;
 
@@ -3393,7 +3394,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable revisionId;
 
 /**
- <p>An Amazon S3 bucket in the same AWS Region as your function. The bucket can be in a different AWS account.</p>
+ <p>An Amazon S3 bucket in the same Amazon Web Services Region as your function. The bucket can be in a different Amazon Web Services account.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Bucket;
 
@@ -3408,7 +3409,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSString * _Nullable s3ObjectVersion;
 
 /**
- <p>The base64-encoded contents of the deployment package. AWS SDK and AWS CLI clients handle the encoding for you.</p>
+ <p>The base64-encoded contents of the deployment package. Amazon Web Services SDK and Amazon Web Services CLI clients handle the encoding for you.</p>
  */
 @property (nonatomic, strong) NSData * _Nullable zipFile;
 
@@ -3456,7 +3457,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) AWSLambdaImageConfig * _Nullable imageConfig;
 
 /**
- <p>The ARN of the AWS Key Management Service (AWS KMS) key that's used to encrypt your function's environment variables. If it's not provided, AWS Lambda uses a default service key.</p>
+ <p>The ARN of the Amazon Web Services Key Management Service (KMS) key that's used to encrypt your function's environment variables. If it's not provided, Lambda uses a default service key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable KMSKeyArn;
 
@@ -3466,7 +3467,7 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable layers;
 
 /**
- <p>The amount of memory available to the function at runtime. Increasing the function's memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
+ <p>The amount of <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-memory.html">memory available to the function</a> at runtime. Increasing the function memory also increases its CPU allocation. The default value is 128 MB. The value can be any multiple of 1 MB.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable memorySize;
 
@@ -3486,17 +3487,17 @@ typedef NS_ENUM(NSInteger, AWSLambdaTracingMode) {
 @property (nonatomic, assign) AWSLambdaRuntime runtime;
 
 /**
- <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds.</p>
+ <p>The amount of time that Lambda allows a function to run before stopping it. The default is 3 seconds. The maximum allowed value is 900 seconds. For additional information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/runtimes-context.html">Lambda execution environment</a>.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timeout;
 
 /**
- <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with AWS X-Ray.</p>
+ <p>Set <code>Mode</code> to <code>Active</code> to sample and trace a subset of incoming requests with <a href="https://docs.aws.amazon.com/lambda/latest/dg/services-xray.html">X-Ray</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaTracingConfig * _Nullable tracingConfig;
 
 /**
- <p>For network connectivity to AWS resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
+ <p>For network connectivity to Amazon Web Services resources in a VPC, specify a list of security groups and subnets in the VPC. When you connect a function to a VPC, it can only access resources and the internet through that VPC. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-vpc.html">VPC Settings</a>.</p>
  */
 @property (nonatomic, strong) AWSLambdaVpcConfig * _Nullable vpcConfig;
 

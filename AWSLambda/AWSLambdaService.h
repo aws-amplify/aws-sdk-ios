@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 
 /**
- <fullname>AWS Lambda</fullname><p><b>Overview</b></p><p>This is the <i>AWS Lambda API Reference</i>. The AWS Lambda Developer Guide provides additional information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is AWS Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">AWS Lambda: How it Works</a> in the <b>AWS Lambda Developer Guide</b>.</p>
+ <fullname>Lambda</fullname><p><b>Overview</b></p><p>This is the <i>Lambda API Reference</i>. The Lambda Developer Guide provides additional information. For the service overview, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/welcome.html">What is Lambda</a>, and for information about how the service works, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-introduction.html">Lambda: How it Works</a> in the <b>Lambda Developer Guide</b>.</p>
  */
 @interface AWSLambda : AWSService
 
@@ -175,7 +175,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 + (void)removeLambdaForKey:(NSString *)key;
 
 /**
- <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.</p><p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
+ <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p><p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
  
  @param request A container for the necessary parameters to execute the AddLayerVersionPermission service method.
 
@@ -187,7 +187,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaAddLayerVersionPermissionResponse *> *)addLayerVersionPermission:(AWSLambdaAddLayerVersionPermissionRequest *)request;
 
 /**
- <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all AWS accounts, or all accounts in an organization.</p><p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
+ <p>Adds permissions to the resource-based policy of a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Use this action to grant layer usage permission to other accounts. You can grant permission to a single account, all accounts in an organization, or all Amazon Web Services accounts. </p><p>To revoke permission, call <a>RemoveLayerVersionPermission</a> with the statement ID that you specified when you added it.</p>
  
  @param request A container for the necessary parameters to execute the AddLayerVersionPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -200,7 +200,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)addLayerVersionPermission:(AWSLambdaAddLayerVersionPermissionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaAddLayerVersionPermissionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
+ <p>Grants an Amazon Web Services service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For Amazon Web Services services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
 
@@ -212,7 +212,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaAddPermissionResponse *> *)addPermission:(AWSLambdaAddPermissionRequest *)request;
 
 /**
- <p>Grants an AWS service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For AWS services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For AWS services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
+ <p>Grants an Amazon Web Services service or another account permission to use a function. You can apply the policy at the function level, or specify a qualifier to restrict access to a single version or alias. If you use a qualifier, the invoker must use the full Amazon Resource Name (ARN) of that version or alias to invoke the function.</p><p>To grant permission to another account, specify the account ID as the <code>Principal</code>. For Amazon Web Services services, the principal is a domain-style identifier defined by the service, like <code>s3.amazonaws.com</code> or <code>sns.amazonaws.com</code>. For Amazon Web Services services, you can also specify the ARN of the associated resource as the <code>SourceArn</code>. If you grant permission to a service principal without specifying the source, other accounts could potentially configure resources in their account to invoke your Lambda function.</p><p>This action adds a statement to a resource-based permissions policy for the function. For more information about function policies, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/access-control-resource-based.html">Lambda Function Policies</a>. </p>
  
  @param request A container for the necessary parameters to execute the AddPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -275,7 +275,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createCodeSigningConfig:(AWSLambdaCreateCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaCreateCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon MQ</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS Lambda with Self-Managed Apache Kafka</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
+ <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. </p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping"> Configuring a Dynamo DB stream as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping"> Configuring a Kinesis stream as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource"> Configuring an SQS queue as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping"> Configuring an MQ broker as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring MSK as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring Self-Managed Apache Kafka as an event source</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateEventSourceMapping service method.
 
@@ -287,7 +287,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request;
 
 /**
- <p>Creates a mapping between an event source and an AWS Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics.</p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html">Using AWS Lambda with Amazon DynamoDB</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html">Using AWS Lambda with Amazon Kinesis</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html">Using AWS Lambda with Amazon SQS</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html">Using AWS Lambda with Amazon MQ</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html">Using AWS Lambda with Amazon MSK</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html">Using AWS Lambda with Self-Managed Apache Kafka</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
+ <p>Creates a mapping between an event source and an Lambda function. Lambda reads items from the event source and triggers the function.</p><p>For details about each event source type, see the following topics. In particular, each of the topics describes the required and optional parameters for the specific event source. </p><ul><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-ddb.html#services-dynamodb-eventsourcemapping"> Configuring a Dynamo DB stream as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-kinesis.html#services-kinesis-eventsourcemapping"> Configuring a Kinesis stream as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-sqs.html#events-sqs-eventsource"> Configuring an SQS queue as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-mq.html#services-mq-eventsourcemapping"> Configuring an MQ broker as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/with-msk.html"> Configuring MSK as an event source</a></p></li><li><p><a href="https://docs.aws.amazon.com/lambda/latest/dg/kafka-smaa.html"> Configuring Self-Managed Apache Kafka as an event source</a></p></li></ul><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the CreateEventSourceMapping service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -300,7 +300,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)createEventSourceMapping:(AWSLambdaCreateEventSourceMappingRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaEventSourceMappingConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p><p>You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties. </p><p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFunction service method.
 
@@ -312,7 +312,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)createFunction:(AWSLambdaCreateFunctionRequest *)request;
 
 /**
- <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use AWS services, such as Amazon CloudWatch Logs for log streaming and AWS X-Ray for request tracing.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an AWS service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other AWS services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
+ <p>Creates a Lambda function. To create a function, you need a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html">deployment package</a> and an <a href="https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html#lambda-intro-execution-role">execution role</a>. The deployment package is a .zip file archive or container image that contains your function code. The execution role grants the function permission to use Amazon Web Services services, such as Amazon CloudWatch Logs for log streaming and X-Ray for request tracing.</p><p>You set the package type to <code>Image</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-images.html">container image</a>. For a container image, the code property must include the URI of a container image in the Amazon ECR registry. You do not need to specify the handler and runtime properties. </p><p>You set the package type to <code>Zip</code> if the deployment package is a <a href="https://docs.aws.amazon.com/lambda/latest/dg/gettingstarted-package.html#gettingstarted-package-zip">.zip file archive</a>. For a .zip file archive, the code property specifies the location of the .zip file. You must also specify the handler and runtime properties.</p><p>When you create a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute or so. During this time, you can't invoke or modify the function. The <code>State</code>, <code>StateReason</code>, and <code>StateReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the function is ready to invoke. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>A function has an unpublished version, and can have published versions and aliases. The unpublished version changes when you update your function's code and configuration. A published version is a snapshot of your function code and configuration that can't be changed. An alias is a named resource that maps to a version, and can be changed to map to a different version. Use the <code>Publish</code> parameter to create version <code>1</code> of your function from its initial configuration.</p><p>The other parameters let you configure version-specific and function-level settings. You can modify version-specific settings later with <a>UpdateFunctionConfiguration</a>. Function-level settings apply to both the unpublished and published versions of the function, and include tags (<a>TagResource</a>) and per-function concurrency limits (<a>PutFunctionConcurrency</a>).</p><p>You can use code signing if your deployment package is a .zip file archive. To enable code signing for this function, specify the ARN of a code-signing configuration. When a user attempts to deploy a code package with <a>UpdateFunctionCode</a>, Lambda checks that the code package has a valid signature from a trusted publisher. The code-signing configuration includes set set of signing profiles, which define the trusted publishers for this function.</p><p>If another account or an Amazon Web Services service invokes your function, use <a>AddPermission</a> to grant permission by creating a resource-based IAM policy. You can grant permissions at the function level, on a version, or on an alias.</p><p>To invoke your function directly, use <a>Invoke</a>. To invoke your function in response to events in other Amazon Web Services services, create an event source mapping (<a>CreateEventSourceMapping</a>), or configure a function trigger in the other service. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-invocation.html">Invoking Functions</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateFunction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -397,7 +397,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)deleteEventSourceMapping:(AWSLambdaDeleteEventSourceMappingRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaEventSourceMappingConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted.</p><p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For AWS services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>
+ <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted.</p><p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteFunction service method.
 
@@ -408,7 +408,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask *)deleteFunction:(AWSLambdaDeleteFunctionRequest *)request;
 
 /**
- <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted.</p><p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For AWS services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>
+ <p>Deletes a Lambda function. To delete a specific function version, use the <code>Qualifier</code> parameter. Otherwise, all versions and aliases are deleted.</p><p>To delete Lambda event source mappings that invoke a function, use <a>DeleteEventSourceMapping</a>. For Amazon Web Services services and resources that invoke your function directly, delete the trigger in the service where you originally configured it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteFunction service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -485,7 +485,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)deleteFunctionEventInvokeConfig:(AWSLambdaDeleteFunctionEventInvokeConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
+ <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLayerVersion service method.
 
@@ -496,7 +496,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask *)deleteLayerVersion:(AWSLambdaDeleteLayerVersionRequest *)request;
 
 /**
- <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
+ <p>Deletes a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Deleted versions can no longer be viewed or added to functions. To avoid breaking functions, a copy of the version remains in Lambda until no functions refer to it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteLayerVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -529,7 +529,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)deleteProvisionedConcurrencyConfig:(AWSLambdaDeleteProvisionedConcurrencyConfigRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
+ <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
  
  @param request A container for the necessary parameters to execute the GetAccountSettings service method.
 
@@ -541,7 +541,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaGetAccountSettingsResponse *> *)getAccountSettings:(AWSLambdaGetAccountSettingsRequest *)request;
 
 /**
- <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an AWS Region.</p>
+ <p>Retrieves details about your account's <a href="https://docs.aws.amazon.com/lambda/latest/dg/limits.html">limits</a> and usage in an Amazon Web Services Region.</p>
  
  @param request A container for the necessary parameters to execute the GetAccountSettings service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -754,7 +754,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)getFunctionEventInvokeConfig:(AWSLambdaGetFunctionEventInvokeConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionEventInvokeConfig * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+ <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersion service method.
 
@@ -766,7 +766,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaGetLayerVersionResponse *> *)getLayerVersion:(AWSLambdaGetLayerVersionRequest *)request;
 
 /**
- <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+ <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -779,7 +779,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)getLayerVersion:(AWSLambdaGetLayerVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetLayerVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+ <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersionByArn service method.
 
@@ -791,7 +791,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaGetLayerVersionResponse *> *)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)request;
 
 /**
- <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
+ <p>Returns information about a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>, with a link to download the layer archive that's valid for 10 minutes.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersionByArn service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -804,7 +804,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)getLayerVersionByArn:(AWSLambdaGetLayerVersionByArnRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaGetLayerVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersionPolicy service method.
 
@@ -816,7 +816,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaGetLayerVersionPolicyResponse *> *)getLayerVersionPolicy:(AWSLambdaGetLayerVersionPolicyRequest *)request;
 
 /**
- <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ <p>Returns the permission policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the GetLayerVersionPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1029,7 +1029,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)listFunctionEventInvokeConfigs:(AWSLambdaListFunctionEventInvokeConfigsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionEventInvokeConfigsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p><p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
+ <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p><p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. </p><note><p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the ListFunctions service method.
 
@@ -1041,7 +1041,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaListFunctionsResponse *> *)listFunctions:(AWSLambdaListFunctionsRequest *)request;
 
 /**
- <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p><p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. To get more information about a function or version, use <a>GetFunction</a>.</p>
+ <p>Returns a list of Lambda functions, with the version-specific configuration of each. Lambda returns up to 50 functions per call.</p><p>Set <code>FunctionVersion</code> to <code>ALL</code> to include all published versions of each function in addition to the unpublished version. </p><note><p>The <code>ListFunctions</code> action returns a subset of the <a>FunctionConfiguration</a> fields. To get the additional fields (State, StateReasonCode, StateReason, LastUpdateStatus, LastUpdateStatusReason, LastUpdateStatusReasonCode) for a function or version, use <a>GetFunction</a>.</p></note>
  
  @param request A container for the necessary parameters to execute the ListFunctions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1079,7 +1079,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)listFunctionsByCodeSigningConfig:(AWSLambdaListFunctionsByCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListFunctionsByCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime.</p>
+ <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime.</p>
  
  @param request A container for the necessary parameters to execute the ListLayerVersions service method.
 
@@ -1091,7 +1091,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaListLayerVersionsResponse *> *)listLayerVersions:(AWSLambdaListLayerVersionsRequest *)request;
 
 /**
- <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime.</p>
+ <p>Lists the versions of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. Versions that have been deleted aren't listed. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only versions that indicate that they're compatible with that runtime.</p>
  
  @param request A container for the necessary parameters to execute the ListLayerVersions service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1104,7 +1104,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)listLayerVersions:(AWSLambdaListLayerVersionsRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListLayerVersionsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers that indicate that they're compatible with that runtime.</p>
+ <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers that indicate that they're compatible with that runtime.</p>
  
  @param request A container for the necessary parameters to execute the ListLayers service method.
 
@@ -1116,7 +1116,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaListLayersResponse *> *)listLayers:(AWSLambdaListLayersRequest *)request;
 
 /**
- <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers that indicate that they're compatible with that runtime.</p>
+ <p>Lists <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layers</a> and shows information about the latest version of each. Specify a <a href="https://docs.aws.amazon.com/lambda/latest/dg/lambda-runtimes.html">runtime identifier</a> to list only layers that indicate that they're compatible with that runtime.</p>
  
  @param request A container for the necessary parameters to execute the ListLayers service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1204,7 +1204,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)listVersionsByFunction:(AWSLambdaListVersionsByFunctionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaListVersionsByFunctionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p><p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+ <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p><p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
  
  @param request A container for the necessary parameters to execute the PublishLayerVersion service method.
 
@@ -1216,7 +1216,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaPublishLayerVersionResponse *> *)publishLayerVersion:(AWSLambdaPublishLayerVersionRequest *)request;
 
 /**
- <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p><p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
+ <p>Creates an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a> from a ZIP archive. Each time you call <code>PublishLayerVersion</code> with the same layer name, a new version is created.</p><p>Add layers to your function with <a>CreateFunction</a> or <a>UpdateFunctionConfiguration</a>.</p>
  
  @param request A container for the necessary parameters to execute the PublishLayerVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1229,7 +1229,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)publishLayerVersion:(AWSLambdaPublishLayerVersionRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaPublishLayerVersionResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.</p><p>AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the function before publishing a version.</p><p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
+ <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.</p><p>Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the function before publishing a version.</p><p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
  
  @param request A container for the necessary parameters to execute the PublishVersion service method.
 
@@ -1241,7 +1241,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)publishVersion:(AWSLambdaPublishVersionRequest *)request;
 
 /**
- <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.</p><p>AWS Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the function before publishing a version.</p><p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
+ <p>Creates a <a href="https://docs.aws.amazon.com/lambda/latest/dg/versioning-aliases.html">version</a> from the current code and configuration of a function. Use versions to create a snapshot of your function code and configuration that doesn't change.</p><p>Lambda doesn't publish a version if the function's configuration and code haven't changed since the last version. Use <a>UpdateFunctionCode</a> or <a>UpdateFunctionConfiguration</a> to update the function before publishing a version.</p><p>Clients can invoke versions directly or with an alias. To create an alias, use <a>CreateAlias</a>.</p>
  
  @param request A container for the necessary parameters to execute the PublishVersion service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1354,7 +1354,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)putProvisionedConcurrencyConfig:(AWSLambdaPutProvisionedConcurrencyConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaPutProvisionedConcurrencyConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemoveLayerVersionPermission service method.
 
@@ -1365,7 +1365,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask *)removeLayerVersionPermission:(AWSLambdaRemoveLayerVersionPermissionRequest *)request;
 
 /**
- <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">AWS Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
+ <p>Removes a statement from the permissions policy for a version of an <a href="https://docs.aws.amazon.com/lambda/latest/dg/configuration-layers.html">Lambda layer</a>. For more information, see <a>AddLayerVersionPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemoveLayerVersionPermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1376,7 +1376,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)removeLayerVersionPermission:(AWSLambdaRemoveLayerVersionPermissionRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Revokes function-use permission from an AWS service or another account. You can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
+ <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
 
@@ -1387,7 +1387,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask *)removePermission:(AWSLambdaRemovePermissionRequest *)request;
 
 /**
- <p>Revokes function-use permission from an AWS service or another account. You can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
+ <p>Revokes function-use permission from an Amazon Web Services service or another account. You can get the ID of the statement from the output of <a>GetPolicy</a>.</p>
  
  @param request A container for the necessary parameters to execute the RemovePermission service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1492,7 +1492,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)updateCodeSigningConfig:(AWSLambdaUpdateCodeSigningConfigRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaUpdateCodeSigningConfigResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
+ <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateEventSourceMapping service method.
 
@@ -1504,7 +1504,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaEventSourceMappingConfiguration *> *)updateEventSourceMapping:(AWSLambdaUpdateEventSourceMappingRequest *)request;
 
 /**
- <p>Updates an event source mapping. You can change the function that AWS Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
+ <p>Updates an event source mapping. You can change the function that Lambda invokes, or pause invocation and resume later from the same location.</p><p>The following error handling options are only available for stream sources (DynamoDB and Kinesis):</p><ul><li><p><code>BisectBatchOnFunctionError</code> - If the function returns an error, split the batch in two and retry.</p></li><li><p><code>DestinationConfig</code> - Send discarded records to an Amazon SQS queue or Amazon SNS topic.</p></li><li><p><code>MaximumRecordAgeInSeconds</code> - Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires</p></li><li><p><code>MaximumRetryAttempts</code> - Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p></li><li><p><code>ParallelizationFactor</code> - Process multiple batches from each shard concurrently.</p></li></ul>
  
  @param request A container for the necessary parameters to execute the UpdateEventSourceMapping service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -1542,7 +1542,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (void)updateFunctionCode:(AWSLambdaUpdateFunctionCodeRequest *)request completionHandler:(void (^ _Nullable)(AWSLambdaFunctionConfiguration * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Modify the version-specific settings of a Lambda function.</p><p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the update is complete and the function is processing events with the new configuration. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p><p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions to an account or AWS service, use <a>AddPermission</a>.</p>
+ <p>Modify the version-specific settings of a Lambda function.</p><p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the update is complete and the function is processing events with the new configuration. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p><p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.
 
@@ -1554,7 +1554,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
 - (AWSTask<AWSLambdaFunctionConfiguration *> *)updateFunctionConfiguration:(AWSLambdaUpdateFunctionConfigurationRequest *)request;
 
 /**
- <p>Modify the version-specific settings of a Lambda function.</p><p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the update is complete and the function is processing events with the new configuration. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p><p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions to an account or AWS service, use <a>AddPermission</a>.</p>
+ <p>Modify the version-specific settings of a Lambda function.</p><p>When you update a function, Lambda provisions an instance of the function and its supporting resources. If your function connects to a VPC, this process can take a minute. During this time, you can't modify the function, but you can still invoke it. The <code>LastUpdateStatus</code>, <code>LastUpdateStatusReason</code>, and <code>LastUpdateStatusReasonCode</code> fields in the response from <a>GetFunctionConfiguration</a> indicate when the update is complete and the function is processing events with the new configuration. For more information, see <a href="https://docs.aws.amazon.com/lambda/latest/dg/functions-states.html">Function States</a>.</p><p>These settings can vary between versions of a function and are locked when you publish a version. You can't modify the configuration of a published version, only the unpublished version.</p><p>To configure function concurrency, use <a>PutFunctionConcurrency</a>. To grant invoke permissions to an account or Amazon Web Services service, use <a>AddPermission</a>.</p>
  
  @param request A container for the necessary parameters to execute the UpdateFunctionConfiguration service method.
  @param completionHandler The completion handler to call when the load request is complete.
