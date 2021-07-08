@@ -17,7 +17,7 @@
     <a title="AWSLambdaEventSourceMappingConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.24.2 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.24.3 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -541,7 +541,7 @@
 
                 </div>
               </div>
-            <p>A mapping between an AWS resource and an AWS Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
+            <p>A mapping between an Amazon Web Services resource and an Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
 
           </section>
           <section class="section task-group-section">
@@ -592,7 +592,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) If the function returns an error, split the batch in two and retry. The default value is false.</p>
+                        <p>(Streams only) If the function returns an error, split the batch in two and retry. The default value is false.</p>
 
                       </div>
                       <div class="declaration">
@@ -624,7 +624,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
+                        <p>(Streams only) An Amazon SQS queue or Amazon SNS topic destination for discarded records.</p>
 
                       </div>
                       <div class="declaration">
@@ -720,7 +720,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) A list of current response type enums applied to the event source mapping.</p>
+                        <p>(Streams only) A list of current response type enums applied to the event source mapping.</p>
 
                       </div>
                       <div class="declaration">
@@ -784,7 +784,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The result of the last AWS Lambda invocation of your Lambda function.</p>
+                        <p>The result of the last Lambda invocation of your Lambda function.</p>
 
                       </div>
                       <div class="declaration">
@@ -848,7 +848,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) Discard records older than the specified age. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+                        <p>(Streams only) Discard records older than the specified age. The default value is -1, which sets the maximum age to infinite. When the value is set to infinite, Lambda never discards old records. </p>
 
                       </div>
                       <div class="declaration">
@@ -880,7 +880,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) Discard records after the specified number of retries. The default value is infinite (-1). When set to infinite (-1), failed records are retried until the record expires.</p>
+                        <p>(Streams only) Discard records after the specified number of retries. The default value is -1, which sets the maximum number of retries to infinite. When MaximumRetryAttempts is infinite, Lambda retries failed records until the record expires in the event source.</p>
 
                       </div>
                       <div class="declaration">
@@ -912,7 +912,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) The number of batches to process from each shard concurrently. The default value is 1.</p>
+                        <p>(Streams only) The number of batches to process from each shard concurrently. The default value is 1.</p>
 
                       </div>
                       <div class="declaration">
@@ -1200,7 +1200,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+                        <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -1256,7 +1256,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-06-02)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
