@@ -1139,7 +1139,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - feat/revoke-token-test
 
       - integ_test:
           scheme: AWSAutoScaling
