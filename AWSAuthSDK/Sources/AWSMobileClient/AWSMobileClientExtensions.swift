@@ -550,7 +550,7 @@ extension AWSMobileClient {
         // If using hosted UI, we need to launch SFSafariVC/SFAuthSession/ASWebAuthenticationSession to invalidate token
         if federationProvider == .hostedUI {
             if options.invalidateTokens {
-                let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+                revokeIfSessionIsRevocable { _ in
                     // Ensure UI actions are performed on the main thread since revoke token may be performed on a
                     // background thread.
                     DispatchQueue.main.async {
@@ -560,7 +560,6 @@ extension AWSMobileClient {
                             self.hostedUILegacySignOut(completionHandler: completionHandler)
                         }
                     }
-                    return nil
                 }
             }
             return
@@ -582,17 +581,33 @@ extension AWSMobileClient {
         }
         // If using userpools sign in (not global sign out or federated sign in), revoke the token before signing out
         if federationProvider == .userPools {
-            let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
-                // Regardless whether revoke token was successful or not, continue to sign out locally
+            revokeIfSessionIsRevocable { _ in
                 self.signOut()
                 completionHandler(nil)
-                return nil
             }
             return
         }
         // If signing in with federated sign in, perform local sign out
         signOut()
         completionHandler(nil)
+    }
+    
+    /// Returns if the session is not revocable, attempts to revoke the token if it is.
+    private func revokeIfSessionIsRevocable(completionHandler: @escaping ((Error?) -> Void)) {
+        guard let isSessionRevocable = self.userpoolOpsHelper.currentActiveUser?.isSessionRevocable,
+              isSessionRevocable else {
+            completionHandler(nil)
+            return
+        }
+        
+        let _ = self.userpoolOpsHelper.currentActiveUser?.revokeToken().continueWith { (task) -> Any? in
+            if let error = task.error {
+                completionHandler(AWSMobileClientError.makeMobileClientError(from: error))
+            } else if let _ = task.result {
+                completionHandler(nil)
+            }
+            return nil
+        }
     }
     
     private func hostedUISignOut(presentationAnchor: ASPresentationAnchor,

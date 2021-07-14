@@ -1488,26 +1488,22 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
     return refreshToken != nil;
 }
 
-- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken {
+-(BOOL) isSessionRevocable {
     __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
     NSString * accessTokenString = self.pool.keychain[accessTokenKey];
     AWSCognitoIdentityUserSessionToken * accessToken = [[AWSCognitoIdentityUserSessionToken alloc] initWithToken:accessTokenString];
-    if ([accessToken.tokenClaims objectForKey:@"origin_jti"] == nil) {
-        AWSDDLogVerbose(@"Access Token does not contain `origin_jti` claim. Skip revoking tokens.");
-        return [AWSTask taskWithResult:nil];
-    }
-    
+    return [accessToken.tokenClaims objectForKey:@"origin_jti"];
+}
+
+- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken {
+    __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     AWSCognitoIdentityProviderRevokeTokenRequest *request = [AWSCognitoIdentityProviderRevokeTokenRequest new];
     NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
     request.token = refreshToken;
     request.clientId = self.pool.userPoolConfiguration.clientId;
     request.clientSecret = self.pool.userPoolConfiguration.clientSecret;
-    
-    return [[self.pool.client revokeToken:request] continueWithSuccessBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
-        AWSDDLogVerbose(@"Revoke token completed.");
-        return task;
-    }];
+    return [self.pool.client revokeToken:request];
 }
 
 - (AWSTask<AWSCognitoIdentityUserGlobalSignOutResponse *> *) globalSignOut {
