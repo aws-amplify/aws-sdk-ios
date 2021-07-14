@@ -1489,7 +1489,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 }
 
 -(BOOL) isSessionRevocable {
-    __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
+    NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     NSString * accessTokenKey = [self keyChainKey:keyChainNamespace key:AWSCognitoIdentityUserAccessToken];
     NSString * accessTokenString = self.pool.keychain[accessTokenKey];
     AWSCognitoIdentityUserSessionToken * accessToken = [[AWSCognitoIdentityUserSessionToken alloc] initWithToken:accessTokenString];
@@ -1497,7 +1497,7 @@ static const NSString * AWSCognitoIdentityUserUserAttributePrefix = @"userAttrib
 }
 
 - (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken {
-    __block NSString * keyChainNamespace = [self keyChainNamespaceClientId];
+    NSString * keyChainNamespace = [self keyChainNamespaceClientId];
     AWSCognitoIdentityProviderRevokeTokenRequest *request = [AWSCognitoIdentityProviderRevokeTokenRequest new];
     NSString * refreshToken = [self refreshTokenFromKeyChain:keyChainNamespace];
     request.token = refreshToken;
