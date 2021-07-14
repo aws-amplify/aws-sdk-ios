@@ -272,10 +272,111 @@ static int testsInFlight = 8; //for knowing when to tear down the user pool
             NSLog(@"Timeout Error: %@", error);
         }
     }];
-
-     
 }
 
+- (void)testRevokeTokenWithSignedInUser {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testRevokeToken"];
+    AWSCognitoIdentityUser* user = [pool getUser];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.error || task.isCancelled){
+            XCTFail(@"Unable to sign in user: %@", task.error);
+        }
+        [[user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+            if(task.error || task.isCancelled){
+                XCTFail(@"Unable to get details: %@", task.error);
+            }
+            if ([user isSessionRevocable]) {
+                [[user revokeToken] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+                    if(task.error || task.isCancelled){
+                        XCTFail(@"Unable to revoke token for: %@", task.error);
+                    }
+                    [expectation fulfill];
+                    return task;
+                }];
+            }
+            
+            return task;
+        }];
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+    
+    XCTestExpectation *errorExpectation = [self expectationWithDescription:@"testGetDetailsFail"];
+    [[user getDetails] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserGetDetailsResponse *> * _Nonnull task) {
+        if(task.isCancelled){
+            XCTFail(@"Unable to get details: %@", task.error);
+        }
+        
+        if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorNotAuthorized) {
+            XCTFail(@"Request should have failed with NotAuthorized (Cannot make requests with token revoked)");
+        }
+        [errorExpectation fulfill];
+        
+        return task;
+    }];
+    
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testIsSessionRevocableWithSignedOutUser {
+    XCTestExpectation *expectation = [self expectationWithDescription:@"testIsSessionRevocable"];
+    AWSCognitoIdentityUser* user = [pool getUser];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.error || task.isCancelled){
+            XCTFail(@"Unable to sign in user: %@", task.error);
+        }
+        XCTAssertTrue(user.signedIn);
+        [user signOut];
+        XCTAssertFalse(user.signedIn);
+        if (![user isSessionRevocable]) {
+            [expectation fulfill];
+        }
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
+
+- (void)testRevokeTokenWithSignedOutUser {
+    XCTestExpectation *errorExpectation = [self expectationWithDescription:@"testRevokeTokenFails"];
+    AWSCognitoIdentityUser* user = [pool getUser];
+    [[user getSession] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityUserSession *> * _Nonnull task) {
+        if(task.error || task.isCancelled){
+            XCTFail(@"Unable to sign in user: %@", task.error);
+        }
+        XCTAssertTrue(user.signedIn);
+        [user signOut];
+        XCTAssertFalse(user.signedIn);
+        [[user revokeToken] continueWithBlock:^id _Nullable(AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> * _Nonnull task) {
+            if(task.isCancelled){
+                XCTFail(@"Unable to revoke token for: %@", task.error);
+            }
+            if(!task.error || task.error.code != AWSCognitoIdentityProviderErrorInvalidParameter) {
+                XCTFail(@"Request should have failed with InvalidParameter (Cannot make request with missing refresh token)");
+            }
+            [errorExpectation fulfill];
+            return task;
+        }];
+        
+        return task;
+    }];
+    [self waitForExpectationsWithTimeout:5.0 handler:^(NSError *error) {
+        if (error) {
+            NSLog(@"Timeout Error: %@", error);
+        }
+    }];
+}
 
 - (void)testRegisterUser {
     XCTestExpectation *expectation =

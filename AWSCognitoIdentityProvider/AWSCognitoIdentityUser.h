@@ -71,6 +71,11 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, readonly, getter=isSignedIn) BOOL signedIn;
 
 /**
+ Determines whether this user's session is revocable. If the access token has "origin_jti" claim, then the revocation feature is enabled.
+*/
+@property (nonatomic, readonly, getter=isSessionRevocable) BOOL sessionRevocable;
+
+/**
  Get the device id
  */
 @property (nonatomic, readonly) NSString * deviceId;
@@ -218,6 +223,11 @@ NS_ASSUME_NONNULL_BEGIN
  Remove all sessions from the keychain for this user.  Last known user remains.
  */
 - (void)signOut;
+
+/**
+ Revoke all tokens for this user. Check Access Token for claims for validity to revoke tokens.
+ */
+- (AWSTask<AWSCognitoIdentityProviderRevokeTokenResponse *> *) revokeToken;
 
 /**
  Invalidate any active sessions with the service.  Last known user remains.
