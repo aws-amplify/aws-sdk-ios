@@ -718,6 +718,42 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     return YES;
 }
 
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback
+{
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+
+    [self.mqttClient subscribeToTopic:topic qos:qos fullCallback:callback];
+    return YES;
+}
+
+// We currently support QoS = 1 for ackCallback; we still allow user to pass QoS parameter (without assuming QoS = 1) for ackCallback since when QoS = 2 is supported, we won't have to do any method signature changes.
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
+    if (topic == nil || [topic isEqualToString:@""]) {
+        return NO;
+    }
+    if ( !_userDidIssueConnect || _userDidIssueDisconnect ) {
+        //Have to be connected to make this call. Return NO to indicate failure
+        return NO;
+    }
+
+    [self.mqttClient subscribeToTopic:topic
+                                  qos:qos
+                     fullCallback:callback
+                          ackCallback:ackCallback];
+    return YES;
+}
+
 - (void)unsubscribeTopic:(NSString *)topic {
     if (topic == nil || [topic isEqualToString:@""]) {
         return;

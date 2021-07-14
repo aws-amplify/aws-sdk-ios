@@ -14,7 +14,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "AWSMQTTMessage.h"
+
+@class AWSMQTTMessage;
 
 typedef enum {
     AWSMQTTSessionStatusCreated,
@@ -36,7 +37,7 @@ typedef enum {
 @protocol AWSMQTTSessionDelegate
 
 - (void)session:(AWSMQTTSession*)session handleEvent:(AWSMQTTSessionEvent)eventCode;
-- (void)session:(AWSMQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic;
+- (void)session:(AWSMQTTSession*)session newMessage:(AWSMQTTMessage*)message onTopic:(NSString*)topic;
 
 @optional
 - (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId;

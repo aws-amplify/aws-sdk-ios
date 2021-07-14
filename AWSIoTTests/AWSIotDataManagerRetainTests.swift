@@ -70,7 +70,8 @@ class AWSIoTDataManagerRetainTests: XCTestCase {
                                    with: mqttConfig,
                                    forKey: key)
     }
-    
+
+    #if MQTT_RETAIN_ENABLED
     func testRetainMessageOnTopic() {
         let defaultTopic = "testRetainMessage"
 
@@ -120,15 +121,17 @@ class AWSIoTDataManagerRetainTests: XCTestCase {
         wait(for: [hasConnectedBroker2], timeout: defaultTimeout)
         
         let subscriptionData = expectation(description: "Should get retained message")
-        iotDataManagerBroker2.subscribe(toTopic: defaultTopic, qoS: .messageDeliveryAttemptedAtLeastOnce) { (data) in
+        let messageCallback: AWSIoTMQTTNewMessageBlock = { data in
             XCTAssertEqual(data.toUTF8String(), "This is a retained message")
             subscriptionData.fulfill()
         }
+        iotDataManagerBroker2.subscribe(toTopic: defaultTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: messageCallback)
         wait(for: [subscriptionData], timeout: defaultTimeout)
 
         iotDataManagerBroker2.disconnect()
         wait(for: [hasDisconnectedBroker2], timeout: defaultTimeout)
         
     }
+    #endif
 
 }

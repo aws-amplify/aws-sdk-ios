@@ -40,9 +40,9 @@
     }
 }
 
-- (void)session:(AWSMQTTSession*)session newMessage:(NSData*)data onTopic:(NSString*)topic {
+- (void)session:(AWSMQTTSession*)session newMessage:(AWSMQTTMessage*)message onTopic:(NSString*)topic {
     if (onMessage) {
-        onMessage(session, data, topic);
+        onMessage(session, message, topic);
     }
 }
 

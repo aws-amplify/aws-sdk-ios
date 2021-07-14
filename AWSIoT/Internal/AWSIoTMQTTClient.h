@@ -24,6 +24,7 @@
 @property (nonatomic) UInt8 qos;
 @property (nonatomic, strong) AWSIoTMQTTNewMessageBlock callback;
 @property (nonatomic, strong) AWSIoTMQTTExtendedNewMessageBlock extendedCallback;
+@property (nonatomic, strong) AWSIoTMQTTFullMessageBlock fullCallback;
 @end
 
 @interface AWSIoTMQTTQueueMessage : NSObject
@@ -307,6 +308,37 @@ Send MQTT message to specified topic
 - (void)subscribeToTopic:(NSString *)topic
                      qos:(UInt8)qos
         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
+
+ @param ackCallback the callback for ack if qos == 1 || qos == 2
+
+ @param callback Delegate Reference to AWSIoTMQTTFullMessageBlock. When new message is received the block will be invoked.
+ */
+- (void)subscribeToTopic:(NSString*)topic
+                     qos:(UInt8)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
+
+ @param ackCallback the callback for ack if qos == 1 || qos == 2
+
+ @param callback Delegate Reference to AWSIoTMQTTFullMessageBlock. When new message is received the block will be invoked.
+ */
+- (void)subscribeToTopic:(NSString*)topic
+                     qos:(UInt8)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback
              ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
 /**

@@ -18,6 +18,8 @@
 #import "AWSMQTTDecoder.h"
 #import "AWSMQTTEncoder.h"
 #import "AWSMQttTxFlow.h"
+#import "AWSIoTMessage.h"
+#import "AWSIoTMessage+AWSMQTTMessage.h"
 
 @interface AWSMQTTSession () <AWSMQTTDecoderDelegate,AWSMQTTEncoderDelegate>  {
     AWSMQTTSessionStatus    status;  //Current status of the session. Can be one of the values specified in the MQTTSessionStatus enum
@@ -29,7 +31,7 @@
     BOOL                 cleanSessionFlag; //used to clear the queue
     AWSMQTTMessage*         connectMessage; //Connect message that is passed in by MQTTClient. Used to send connect message.
     
-
+    dispatch_queue_t serialQueue; // Serial queue to keep ticks increments in sync
     NSTimer*             timer; //Timer that fires every second. Used to orchestrate pings and retries.
     unsigned int         ticks;  //Number of seconds ( or clock ticks )
     
@@ -107,6 +109,7 @@
         for (i = 0; i < 60; i++) {
             [self.timerRing addObject:[NSMutableSet new]];
         }
+        serialQueue = dispatch_queue_create("com.amazon.aws.iot.test-queue", DISPATCH_QUEUE_SERIAL);
         ticks = 0;
         status = AWSMQTTSessionStatusCreated;
     }
@@ -219,8 +222,12 @@
                                                            msgId:msgId
                                                       retainFlag:retainFlag
                                                          dupFlag:false];
+    __block unsigned int deadline;
+    dispatch_sync(serialQueue, ^{
+        deadline = ticks + 60;
+    });
     AWSMQttTxFlow *flow = [AWSMQttTxFlow flowWithMsg:msg
-                                            deadline:(ticks + 60)];
+                                            deadline:deadline];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
     AWSDDLogDebug(@"Published message %hu for QOS 1", msgId);
@@ -284,8 +291,10 @@
             idleTimer = 0;
         }
     }
-    
-    ticks++;
+
+    dispatch_sync(serialQueue, ^{
+        ticks++;
+    });
     NSEnumerator *e = [[[self.timerRing objectAtIndex:(ticks % 60)] allObjects] objectEnumerator];
     id msgId;
     
@@ -514,7 +523,7 @@
     NSRange range = NSMakeRange(2 + topicLength, [data length] - topicLength - 2);
     data = [data subdataWithRange:range];
     if ([msg qos] == 0) {
-        [_delegate session:self newMessage:data onTopic:topic];
+        [_delegate session:self newMessage:msg onTopic:topic];
         if(_messageHandler){
             _messageHandler(data, topic);
         }
@@ -530,8 +539,7 @@
         }
         data = [data subdataWithRange:NSMakeRange(2, [data length] - 2)];
         if ([msg qos] == 1) {
-            [_delegate session:self newMessage:data onTopic:topic];
-            
+            [_delegate session:self newMessage:msg onTopic:topic];
             if(_messageHandler){
                 _messageHandler(data, topic);
             }
