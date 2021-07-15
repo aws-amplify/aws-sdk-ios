@@ -586,7 +586,7 @@ completionHandler:completionHandler];
 // Internal class
 - (AWSTask<AWSDynamoDBPaginatedOutput *> *)query:(Class)resultClass
                                       queryInput:(AWSDynamoDBQueryInput *)queryInput {
-    return [[self.dynamoDB query:queryInput] continueWithSuccessBlock:^id(AWSTask *task) {
+    return [[self.dynamoDB query:queryInput] continueWithBlock:^id(AWSTask *task) {
         AWSDynamoDBQueryOutput *queryOutput = task.result;
 
         NSMutableArray *items = [NSMutableArray new];
