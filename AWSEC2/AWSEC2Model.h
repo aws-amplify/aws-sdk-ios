@@ -705,6 +705,14 @@ typedef NS_ENUM(NSInteger, AWSEC2InstanceAttributeName) {
     AWSEC2InstanceAttributeNameEnclaveOptions,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2InstanceEventWindowState) {
+    AWSEC2InstanceEventWindowStateUnknown,
+    AWSEC2InstanceEventWindowStateCreating,
+    AWSEC2InstanceEventWindowStateDeleting,
+    AWSEC2InstanceEventWindowStateActive,
+    AWSEC2InstanceEventWindowStateDeleted,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2InstanceHealthStatus) {
     AWSEC2InstanceHealthStatusUnknown,
     AWSEC2InstanceHealthStatusHealthy,
@@ -1561,6 +1569,7 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeImportImageTask,
     AWSEC2ResourceTypeImportSnapshotTask,
     AWSEC2ResourceTypeInstance,
+    AWSEC2ResourceTypeInstanceEventWindow,
     AWSEC2ResourceTypeInternetGateway,
     AWSEC2ResourceTypeKeyPair,
     AWSEC2ResourceTypeLaunchTemplate,
@@ -1569,7 +1578,6 @@ typedef NS_ENUM(NSInteger, AWSEC2ResourceType) {
     AWSEC2ResourceTypeNetworkACL,
     AWSEC2ResourceTypeNetworkInterface,
     AWSEC2ResourceTypeNetworkInsightsAnalysis,
-    AWSEC2ResourceTypeNetworkInsightsBoundary,
     AWSEC2ResourceTypeNetworkInsightsPath,
     AWSEC2ResourceTypePlacementGroup,
     AWSEC2ResourceTypeReservedInstances,
@@ -2100,6 +2108,17 @@ typedef NS_ENUM(NSInteger, AWSEC2VpnStaticRouteSource) {
     AWSEC2VpnStaticRouteSourceStatic,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2WeekDay) {
+    AWSEC2WeekDayUnknown,
+    AWSEC2WeekDaySunday,
+    AWSEC2WeekDayMonday,
+    AWSEC2WeekDayTuesday,
+    AWSEC2WeekDayWednesday,
+    AWSEC2WeekDayThursday,
+    AWSEC2WeekDayFriday,
+    AWSEC2WeekDaySaturday,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2scope) {
     AWSEC2scopeUnknown,
     AWSEC2scopeAvailabilityZone,
@@ -2155,6 +2174,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2AssociateEnclaveCertificateIamRoleResult;
 @class AWSEC2AssociateIamInstanceProfileRequest;
 @class AWSEC2AssociateIamInstanceProfileResult;
+@class AWSEC2AssociateInstanceEventWindowRequest;
+@class AWSEC2AssociateInstanceEventWindowResult;
 @class AWSEC2AssociateRouteTableRequest;
 @class AWSEC2AssociateRouteTableResult;
 @class AWSEC2AssociateSubnetCidrBlockRequest;
@@ -2291,6 +2312,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2CreateFpgaImageResult;
 @class AWSEC2CreateImageRequest;
 @class AWSEC2CreateImageResult;
+@class AWSEC2CreateInstanceEventWindowRequest;
+@class AWSEC2CreateInstanceEventWindowResult;
 @class AWSEC2CreateInstanceExportTaskRequest;
 @class AWSEC2CreateInstanceExportTaskResult;
 @class AWSEC2CreateInternetGatewayRequest;
@@ -2410,6 +2433,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DeleteFlowLogsResult;
 @class AWSEC2DeleteFpgaImageRequest;
 @class AWSEC2DeleteFpgaImageResult;
+@class AWSEC2DeleteInstanceEventWindowRequest;
+@class AWSEC2DeleteInstanceEventWindowResult;
 @class AWSEC2DeleteInternetGatewayRequest;
 @class AWSEC2DeleteKeyPairRequest;
 @class AWSEC2DeleteLaunchTemplateRequest;
@@ -2582,6 +2607,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DescribeInstanceCreditSpecificationsResult;
 @class AWSEC2DescribeInstanceEventNotificationAttributesRequest;
 @class AWSEC2DescribeInstanceEventNotificationAttributesResult;
+@class AWSEC2DescribeInstanceEventWindowsRequest;
+@class AWSEC2DescribeInstanceEventWindowsResult;
 @class AWSEC2DescribeInstanceStatusRequest;
 @class AWSEC2DescribeInstanceStatusResult;
 @class AWSEC2DescribeInstanceTypeOfferingsRequest;
@@ -2780,6 +2807,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2DisassociateEnclaveCertificateIamRoleResult;
 @class AWSEC2DisassociateIamInstanceProfileRequest;
 @class AWSEC2DisassociateIamInstanceProfileResult;
+@class AWSEC2DisassociateInstanceEventWindowRequest;
+@class AWSEC2DisassociateInstanceEventWindowResult;
 @class AWSEC2DisassociateRouteTableRequest;
 @class AWSEC2DisassociateSubnetCidrBlockRequest;
 @class AWSEC2DisassociateSubnetCidrBlockResult;
@@ -2971,6 +3000,13 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2InstanceCount;
 @class AWSEC2InstanceCreditSpecification;
 @class AWSEC2InstanceCreditSpecificationRequest;
+@class AWSEC2InstanceEventWindow;
+@class AWSEC2InstanceEventWindowAssociationRequest;
+@class AWSEC2InstanceEventWindowAssociationTarget;
+@class AWSEC2InstanceEventWindowDisassociationRequest;
+@class AWSEC2InstanceEventWindowStateChange;
+@class AWSEC2InstanceEventWindowTimeRange;
+@class AWSEC2InstanceEventWindowTimeRangeRequest;
 @class AWSEC2InstanceExportDetails;
 @class AWSEC2InstanceFamilyCreditSpecification;
 @class AWSEC2InstanceIpv6Address;
@@ -3092,6 +3128,8 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @class AWSEC2ModifyInstanceCreditSpecificationResult;
 @class AWSEC2ModifyInstanceEventStartTimeRequest;
 @class AWSEC2ModifyInstanceEventStartTimeResult;
+@class AWSEC2ModifyInstanceEventWindowRequest;
+@class AWSEC2ModifyInstanceEventWindowResult;
 @class AWSEC2ModifyInstanceMetadataOptionsRequest;
 @class AWSEC2ModifyInstanceMetadataOptionsResult;
 @class AWSEC2ModifyInstancePlacementRequest;
@@ -4678,6 +4716,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the IAM instance profile association.</p>
  */
 @property (nonatomic, strong) AWSEC2IamInstanceProfileAssociation * _Nullable iamInstanceProfileAssociation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateInstanceEventWindowRequest : AWSRequest
+
+
+/**
+ <p>One or more targets associated with the specified event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindowAssociationRequest * _Nullable associationTarget;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2AssociateInstanceEventWindowResult : AWSModel
+
+
+/**
+ <p>Information about the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
 
 @end
 
@@ -8283,6 +8357,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2CreateInstanceEventWindowRequest : AWSRequest
+
+
+/**
+ <p>The cron expression for the event window, for example, <code>* 0-4,20-23 * * 1,5</code>. If you specify a cron expression, you can't specify a time range.</p><p>Constraints:</p><ul><li><p>Only hour and day of the week values are supported.</p></li><li><p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p></li><li><p>The minute, month, and year must be specified by <code>*</code>.</p></li><li><p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p></li><li><p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p></li><li><p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p></li></ul><p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia website</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cronExpression;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The name of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The tags to apply to the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2TagSpecification *> * _Nullable tagSpecifications;
+
+/**
+ <p>The time range for the event window. If you specify a time range, you can't specify a cron expression.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2InstanceEventWindowTimeRangeRequest *> * _Nullable timeRanges;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2CreateInstanceEventWindowResult : AWSModel
+
+
+/**
+ <p>Information about the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2CreateInstanceExportTaskRequest : AWSRequest
 
 
@@ -11276,6 +11396,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 /**
  
  */
+@interface AWSEC2DeleteInstanceEventWindowRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>Specify <code>true</code> to force delete the event window. Use the force delete parameter if the event window is currently associated with targets.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable forceDelete;
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DeleteInstanceEventWindowResult : AWSModel
+
+
+/**
+ <p>The state of the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindowStateChange * _Nullable instanceEventWindowState;
+
+@end
+
+/**
+ 
+ */
 @interface AWSEC2DeleteInternetGatewayRequest : AWSRequest
 
 
@@ -11952,7 +12108,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable resources;
 
 /**
- <p>The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.</p><p>If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete AWS-generated tags (tags that have the <code>aws:</code> prefix).</p>
+ <p>The tags to delete. Specify a tag key and an optional tag value to delete specific tags. If you specify a tag key without a tag value, we delete any tag with this key regardless of its value. If you specify a tag key with an empty string as the tag value, we delete the tag only if its value is an empty string.</p><p>If you omit this parameter, we delete all user-defined tags for the specified resources. We do not delete Amazon Web Services-generated tags (tags that have the <code>aws:</code> prefix).</p>
  */
 @property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
 
@@ -14834,6 +14990,57 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the registered tag keys.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceTagNotificationAttribute * _Nullable instanceTagAttribute;
+
+@end
+
+/**
+ <para>Describe instance event windows by InstanceEventWindow.</para>
+ */
+@interface AWSEC2DescribeInstanceEventWindowsRequest : AWSRequest
+
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>One or more filters.</p><ul><li><p><code>dedicated-host-id</code> - The event windows associated with the specified Dedicated Host ID.</p></li><li><p><code>event-window-name</code> - The event windows associated with the specified names. </p></li><li><p><code>instance-id</code> - The event windows associated with the specified instance ID.</p></li><li><p><code>instance-tag</code> - The event windows associated with the specified tag and value.</p></li><li><p><code>instance-tag-key</code> - The event windows associated with the specified tag key, regardless of the value.</p></li><li><p><code>instance-tag-value</code> - The event windows associated with the specified tag value, regardless of the key.</p></li><li><p><code>tag</code>:&lt;key&gt; - The key/value combination of a tag assigned to the event window. Use the tag key in the filter name and the tag value as the filter value. For example, to find all resources that have a tag with the key <code>Owner</code> and the value <code>CMX</code>, specify <code>tag:Owner</code> for the filter name and <code>CMX</code> for the filter value. </p></li><li><p><code>tag-key</code> - The key of a tag assigned to the event window. Use this filter to find all event windows that have a tag with a specific key, regardless of the tag value. </p></li><li><p><code>tag-value</code> - The value of a tag assigned to the event window. Use this filter to find all event windows that have a tag with a specific value, regardless of the tag key. </p></li></ul>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Filter *> * _Nullable filters;
+
+/**
+ <p>The IDs of the event windows.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceEventWindowIds;
+
+/**
+ <p>The maximum number of results to return in a single call. To retrieve the remaining results, make another call with the returned <code>NextToken</code> value. This value can be between 20 and 500. You cannot specify this parameter and the event window IDs parameter in the same call.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token to request the next page of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DescribeInstanceEventWindowsResult : AWSModel
+
+
+/**
+ <p>Information about the event windows.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2InstanceEventWindow *> * _Nullable instanceEventWindows;
+
+/**
+ <p>The token to use to retrieve the next page of results. This value is <code>null</code> when there are no more results to return. </p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -19635,6 +19842,42 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Information about the IAM instance profile association.</p>
  */
 @property (nonatomic, strong) AWSEC2IamInstanceProfileAssociation * _Nullable iamInstanceProfileAssociation;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateInstanceEventWindowRequest : AWSRequest
+
+
+/**
+ <p>One or more targets to disassociate from the specified event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindowDisassociationRequest * _Nullable associationTarget;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2DisassociateInstanceEventWindowResult : AWSModel
+
+
+/**
+ <p>Information about the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
 
 @end
 
@@ -25148,6 +25391,192 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @end
 
 /**
+ <p>The event window.</p>
+ */
+@interface AWSEC2InstanceEventWindow : AWSModel
+
+
+/**
+ <p>One or more targets associated with the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindowAssociationTarget * _Nullable associationTarget;
+
+/**
+ <p>The cron expression defined for the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cronExpression;
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+/**
+ <p>The name of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The current state of the event window.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceEventWindowState state;
+
+/**
+ <p>The instance tags associated with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+/**
+ <p>One or more time ranges defined for the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2InstanceEventWindowTimeRange *> * _Nullable timeRanges;
+
+@end
+
+/**
+ <p>One or more targets associated with the specified event window. Only one <i>type</i> of target (instance ID, instance tag, or Dedicated Host ID) can be associated with an event window.</p>
+ */
+@interface AWSEC2InstanceEventWindowAssociationRequest : AWSModel
+
+
+/**
+ <p>The IDs of the Dedicated Hosts to associate with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable dedicatedHostIds;
+
+/**
+ <p>The IDs of the instances to associate with the event window. If the instance is on a Dedicated Host, you can't specify the Instance ID parameter; you must use the Dedicated Host ID parameter.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
+
+/**
+ <p>The instance tags to associate with the event window. Any instances associated with the tags will be associated with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable instanceTags;
+
+@end
+
+/**
+ <p>One or more targets associated with the event window.</p>
+ */
+@interface AWSEC2InstanceEventWindowAssociationTarget : AWSModel
+
+
+/**
+ <p>The IDs of the Dedicated Hosts associated with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable dedicatedHostIds;
+
+/**
+ <p>The IDs of the instances associated with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
+
+/**
+ <p>The instance tags associated with the event window. Any instances associated with the tags will be associated with the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable tags;
+
+@end
+
+/**
+ <p>The targets to disassociate from the specified event window.</p>
+ */
+@interface AWSEC2InstanceEventWindowDisassociationRequest : AWSModel
+
+
+/**
+ <p>The IDs of the Dedicated Hosts to disassociate from the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable dedicatedHostIds;
+
+/**
+ <p>The IDs of the instances to disassociate from the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable instanceIds;
+
+/**
+ <p>The instance tags to disassociate from the event window. Any instances associated with the tags will be disassociated from the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2Tag *> * _Nullable instanceTags;
+
+@end
+
+/**
+ <p>The state of the event window.</p>
+ */
+@interface AWSEC2InstanceEventWindowStateChange : AWSModel
+
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+/**
+ <p>The current state of the event window.</p>
+ */
+@property (nonatomic, assign) AWSEC2InstanceEventWindowState state;
+
+@end
+
+/**
+ <p>The start day and time and the end day and time of the time range, in UTC.</p>
+ */
+@interface AWSEC2InstanceEventWindowTimeRange : AWSModel
+
+
+/**
+ <p>The hour when the time range ends.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endHour;
+
+/**
+ <p>The day on which the time range ends.</p>
+ */
+@property (nonatomic, assign) AWSEC2WeekDay endWeekDay;
+
+/**
+ <p>The hour when the time range begins.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startHour;
+
+/**
+ <p>The day on which the time range begins.</p>
+ */
+@property (nonatomic, assign) AWSEC2WeekDay startWeekDay;
+
+@end
+
+/**
+ <p>The start day and time and the end day and time of the time range, in UTC.</p>
+ */
+@interface AWSEC2InstanceEventWindowTimeRangeRequest : AWSModel
+
+
+/**
+ <p>The hour when the time range ends.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endHour;
+
+/**
+ <p>The day on which the time range ends.</p>
+ */
+@property (nonatomic, assign) AWSEC2WeekDay endWeekDay;
+
+/**
+ <p>The hour when the time range begins.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startHour;
+
+/**
+ <p>The day on which the time range begins.</p>
+ */
+@property (nonatomic, assign) AWSEC2WeekDay startWeekDay;
+
+@end
+
+/**
  <p>Describes an instance to export.</p>
  */
 @interface AWSEC2InstanceExportDetails : AWSModel
@@ -28604,6 +29033,52 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>Describes a scheduled event for an instance.</p>
  */
 @property (nonatomic, strong) AWSEC2InstanceStatusEvent * _Nullable event;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceEventWindowRequest : AWSRequest
+
+
+/**
+ <p>The cron expression of the event window, for example, <code>* 0-4,20-23 * * 1,5</code>.</p><p>Constraints:</p><ul><li><p>Only hour and day of the week values are supported.</p></li><li><p>For day of the week values, you can specify either integers <code>0</code> through <code>6</code>, or alternative single values <code>SUN</code> through <code>SAT</code>.</p></li><li><p>The minute, month, and year must be specified by <code>*</code>.</p></li><li><p>The hour value must be one or a multiple range, for example, <code>0-4</code> or <code>0-4,20-23</code>.</p></li><li><p>Each hour range must be &gt;= 2 hours, for example, <code>0-2</code> or <code>20-23</code>.</p></li><li><p>The event window must be &gt;= 4 hours. The combined total time ranges in the event window must be &gt;= 4 hours.</p></li></ul><p>For more information about cron expressions, see <a href="https://en.wikipedia.org/wiki/Cron">cron</a> on the <i>Wikipedia website</i>.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable cronExpression;
+
+/**
+ <p>Checks whether you have the required permissions for the action, without actually making the request, and provides an error response. If you have the required permissions, the error response is <code>DryRunOperation</code>. Otherwise, it is <code>UnauthorizedOperation</code>.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable dryRun;
+
+/**
+ <p>The ID of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceEventWindowId;
+
+/**
+ <p>The name of the event window.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The time ranges of the event window.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSEC2InstanceEventWindowTimeRangeRequest *> * _Nullable timeRanges;
+
+@end
+
+/**
+ 
+ */
+@interface AWSEC2ModifyInstanceEventWindowResult : AWSModel
+
+
+/**
+ <p>Information about the event window.</p>
+ */
+@property (nonatomic, strong) AWSEC2InstanceEventWindow * _Nullable instanceEventWindow;
 
 @end
 
@@ -37006,7 +37481,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The required duration for the Spot Instances (also known as Spot blocks), in minutes. This value must be a multiple of 60 (60, 120, 180, 240, 300, or 360).</p><p>The duration period starts as soon as your Spot Instance receives its instance ID. At the end of the duration period, Amazon EC2 marks the Spot Instance for termination and provides a Spot Instance termination notice, which gives the instance a two-minute warning before it terminates.</p><p>You can't specify an Availability Zone group or a launch group if you specify a duration.</p><p>New accounts or accounts with no previous billing history with Amazon Web Services are not eligible for Spot Instances with a defined duration (also known as Spot blocks).</p>
+ <p>Deprecated.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable blockDurationMinutes;
 
@@ -37737,7 +38212,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for AWS PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
+ <p>The type of resource to tag. Currently, the resource types that support tagging on creation are: <code>capacity-reservation</code> | <code>carrier-gateway</code> | <code>client-vpn-endpoint</code> | <code>customer-gateway</code> | <code>dedicated-host</code> | <code>dhcp-options</code> | <code>egress-only-internet-gateway</code> | <code>elastic-ip</code> | <code>elastic-gpu</code> | <code>export-image-task</code> | <code>export-instance-task</code> | <code>fleet</code> | <code>fpga-image</code> | <code>host-reservation</code> | <code>image</code>| <code>import-image-task</code> | <code>import-snapshot-task</code> | <code>instance</code> | <code>instance-event-window</code> | <code>internet-gateway</code> | <code>ipv4pool-ec2</code> | <code>ipv6pool-ec2</code> | <code>key-pair</code> | <code>launch-template</code> | <code>local-gateway-route-table-vpc-association</code> | <code>placement-group</code> | <code>prefix-list</code> | <code>natgateway</code> | <code>network-acl</code> | <code>network-interface</code> | <code>reserved-instances</code> |<code>route-table</code> | <code>security-group</code>| <code>snapshot</code> | <code>spot-fleet-request</code> | <code>spot-instances-request</code> | <code>snapshot</code> | <code>subnet</code> | <code>traffic-mirror-filter</code> | <code>traffic-mirror-session</code> | <code>traffic-mirror-target</code> | <code>transit-gateway</code> | <code>transit-gateway-attachment</code> | <code>transit-gateway-multicast-domain</code> | <code>transit-gateway-route-table</code> | <code>volume</code> |<code>vpc</code> | <code> vpc-peering-connection</code> | <code>vpc-endpoint</code> (for interface and gateway endpoints) | <code>vpc-endpoint-service</code> (for PrivateLink) | <code>vpc-flow-log</code> | <code>vpn-connection</code> | <code>vpn-gateway</code>.</p><p>To tag a resource after it has been created, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_CreateTags.html">CreateTags</a>.</p>
  */
 @property (nonatomic, assign) AWSEC2ResourceType resourceType;
 
