@@ -661,6 +661,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2AssociateInstanceEventWindowResult *> *)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"AssociateInstanceEventWindow"
+                   outputClass:[AWSEC2AssociateInstanceEventWindowResult class]];
+}
+
+- (void)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request
+     completionHandler:(void (^)(AWSEC2AssociateInstanceEventWindowResult *response, NSError *error))completionHandler {
+    [[self associateInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2AssociateInstanceEventWindowResult *> * _Nonnull task) {
+        AWSEC2AssociateInstanceEventWindowResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSEC2AssociateRouteTableResult *> *)associateRouteTable:(AWSEC2AssociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -1568,6 +1591,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2CreateImageResult *response, NSError *error))completionHandler {
     [[self createImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateImageResult *> * _Nonnull task) {
         AWSEC2CreateImageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2CreateInstanceEventWindowResult *> *)createInstanceEventWindow:(AWSEC2CreateInstanceEventWindowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateInstanceEventWindow"
+                   outputClass:[AWSEC2CreateInstanceEventWindowResult class]];
+}
+
+- (void)createInstanceEventWindow:(AWSEC2CreateInstanceEventWindowRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateInstanceEventWindowResult *response, NSError *error))completionHandler {
+    [[self createInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateInstanceEventWindowResult *> * _Nonnull task) {
+        AWSEC2CreateInstanceEventWindowResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -2897,6 +2943,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DeleteFpgaImageResult *response, NSError *error))completionHandler {
     [[self deleteFpgaImage:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteFpgaImageResult *> * _Nonnull task) {
         AWSEC2DeleteFpgaImageResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteInstanceEventWindowResult *> *)deleteInstanceEventWindow:(AWSEC2DeleteInstanceEventWindowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteInstanceEventWindow"
+                   outputClass:[AWSEC2DeleteInstanceEventWindowResult class]];
+}
+
+- (void)deleteInstanceEventWindow:(AWSEC2DeleteInstanceEventWindowRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteInstanceEventWindowResult *response, NSError *error))completionHandler {
+    [[self deleteInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteInstanceEventWindowResult *> * _Nonnull task) {
+        AWSEC2DeleteInstanceEventWindowResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -5017,6 +5086,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2DescribeInstanceEventNotificationAttributesResult *response, NSError *error))completionHandler {
     [[self describeInstanceEventNotificationAttributes:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceEventNotificationAttributesResult *> * _Nonnull task) {
         AWSEC2DescribeInstanceEventNotificationAttributesResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DescribeInstanceEventWindowsResult *> *)describeInstanceEventWindows:(AWSEC2DescribeInstanceEventWindowsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DescribeInstanceEventWindows"
+                   outputClass:[AWSEC2DescribeInstanceEventWindowsResult class]];
+}
+
+- (void)describeInstanceEventWindows:(AWSEC2DescribeInstanceEventWindowsRequest *)request
+     completionHandler:(void (^)(AWSEC2DescribeInstanceEventWindowsResult *response, NSError *error))completionHandler {
+    [[self describeInstanceEventWindows:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DescribeInstanceEventWindowsResult *> * _Nonnull task) {
+        AWSEC2DescribeInstanceEventWindowsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
@@ -7276,6 +7368,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2DisassociateInstanceEventWindowResult *> *)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DisassociateInstanceEventWindow"
+                   outputClass:[AWSEC2DisassociateInstanceEventWindowResult class]];
+}
+
+- (void)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request
+     completionHandler:(void (^)(AWSEC2DisassociateInstanceEventWindowResult *response, NSError *error))completionHandler {
+    [[self disassociateInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DisassociateInstanceEventWindowResult *> * _Nonnull task) {
+        AWSEC2DisassociateInstanceEventWindowResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)disassociateRouteTable:(AWSEC2DisassociateRouteTableRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -8731,6 +8846,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2ModifyInstanceEventStartTimeResult *response, NSError *error))completionHandler {
     [[self modifyInstanceEventStartTime:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyInstanceEventStartTimeResult *> * _Nonnull task) {
         AWSEC2ModifyInstanceEventStartTimeResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2ModifyInstanceEventWindowResult *> *)modifyInstanceEventWindow:(AWSEC2ModifyInstanceEventWindowRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"ModifyInstanceEventWindow"
+                   outputClass:[AWSEC2ModifyInstanceEventWindowResult class]];
+}
+
+- (void)modifyInstanceEventWindow:(AWSEC2ModifyInstanceEventWindowRequest *)request
+     completionHandler:(void (^)(AWSEC2ModifyInstanceEventWindowResult *response, NSError *error))completionHandler {
+    [[self modifyInstanceEventWindow:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2ModifyInstanceEventWindowResult *> * _Nonnull task) {
+        AWSEC2ModifyInstanceEventWindowResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

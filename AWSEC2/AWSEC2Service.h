@@ -597,6 +597,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)associateIamInstanceProfile:(AWSEC2AssociateIamInstanceProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateIamInstanceProfileResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateInstanceEventWindow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2AssociateInstanceEventWindowResult`.
+ 
+ @see AWSEC2AssociateInstanceEventWindowRequest
+ @see AWSEC2AssociateInstanceEventWindowResult
+ */
+- (AWSTask<AWSEC2AssociateInstanceEventWindowResult *> *)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request;
+
+/**
+ <p>Associates one or more targets with an event window. Only one type of target (instance IDs, Dedicated Host IDs, or tags) can be specified with an event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the AssociateInstanceEventWindow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2AssociateInstanceEventWindowRequest
+ @see AWSEC2AssociateInstanceEventWindowResult
+ */
+- (void)associateInstanceEventWindow:(AWSEC2AssociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2AssociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Associates a subnet in your VPC or an internet gateway or virtual private gateway attached to your VPC with a route table in your VPC. This association causes traffic from the subnet or gateway to be routed according to the routes in the route table. The action returns an association ID, which you need in order to disassociate the route table later. A route table can be associated with multiple subnets.</p><p>For more information, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the AssociateRouteTable service method.
@@ -1586,6 +1611,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2CreateImageResult
  */
 - (void)createImage:(AWSEC2CreateImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can run.</p><p>You can define either a set of time ranges or a cron expression when creating the event window, but not both. All event window times are in UTC.</p><p>You can create up to 200 event windows per Amazon Web Services Region.</p><p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags) are not yet associated with it. To ensure that the event window can be used, you must associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p><important><p>Event windows are applicable only for scheduled events that stop, reboot, or terminate instances.</p><p>Event windows are <i>not</i> applicable for:</p><ul><li><p>Expedited scheduled events and network maintenance events. </p></li><li><p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p></li></ul></important><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateInstanceEventWindow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2CreateInstanceEventWindowResult`.
+ 
+ @see AWSEC2CreateInstanceEventWindowRequest
+ @see AWSEC2CreateInstanceEventWindowResult
+ */
+- (AWSTask<AWSEC2CreateInstanceEventWindowResult *> *)createInstanceEventWindow:(AWSEC2CreateInstanceEventWindowRequest *)request;
+
+/**
+ <p>Creates an event window in which scheduled events for the associated Amazon EC2 instances can run.</p><p>You can define either a set of time ranges or a cron expression when creating the event window, but not both. All event window times are in UTC.</p><p>You can create up to 200 event windows per Amazon Web Services Region.</p><p>When you create the event window, targets (instance IDs, Dedicated Host IDs, or tags) are not yet associated with it. To ensure that the event window can be used, you must associate one or more targets with it by using the <a>AssociateInstanceEventWindow</a> API.</p><important><p>Event windows are applicable only for scheduled events that stop, reboot, or terminate instances.</p><p>Event windows are <i>not</i> applicable for:</p><ul><li><p>Expedited scheduled events and network maintenance events. </p></li><li><p>Unscheduled maintenance such as AutoRecovery and unplanned reboots.</p></li></ul></important><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateInstanceEventWindow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2CreateInstanceEventWindowRequest
+ @see AWSEC2CreateInstanceEventWindowResult
+ */
+- (void)createInstanceEventWindow:(AWSEC2CreateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2CreateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Exports a running or stopped instance to an Amazon S3 bucket.</p><p>For information about the supported operating systems, image formats, and known limitations for the types of instances you can export, see <a href="https://docs.aws.amazon.com/vm-import/latest/userguide/vmexport.html">Exporting an instance as a VM Using VM Import/Export</a> in the <i>VM Import/Export User Guide</i>.</p>
@@ -3023,6 +3073,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deleteFpgaImage:(AWSEC2DeleteFpgaImageRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteFpgaImageResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Deletes the specified event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteInstanceEventWindow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DeleteInstanceEventWindowResult`.
+ 
+ @see AWSEC2DeleteInstanceEventWindowRequest
+ @see AWSEC2DeleteInstanceEventWindowResult
+ */
+- (AWSTask<AWSEC2DeleteInstanceEventWindowResult *> *)deleteInstanceEventWindow:(AWSEC2DeleteInstanceEventWindowRequest *)request;
+
+/**
+ <p>Deletes the specified event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteInstanceEventWindow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DeleteInstanceEventWindowRequest
+ @see AWSEC2DeleteInstanceEventWindowResult
+ */
+- (void)deleteInstanceEventWindow:(AWSEC2DeleteInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DeleteInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Deletes the specified internet gateway. You must detach the internet gateway from the VPC before you can delete it.</p>
  
  @param request A container for the necessary parameters to execute the DeleteInternetGateway service method.
@@ -4141,7 +4216,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)deregisterImage:(AWSEC2DeregisterImageRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ <p>c</p><p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
 
@@ -4153,7 +4228,7 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (AWSTask<AWSEC2DeregisterInstanceEventNotificationAttributesResult *> *)deregisterInstanceEventNotificationAttributes:(AWSEC2DeregisterInstanceEventNotificationAttributesRequest *)request;
 
 /**
- <p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
+ <p>c</p><p>Deregisters tag keys to prevent tags that have the specified tag keys from being included in scheduled event notifications for resources in the Region.</p>
  
  @param request A container for the necessary parameters to execute the DeregisterInstanceEventNotificationAttributes service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -5289,6 +5364,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2DescribeInstanceEventNotificationAttributesResult
  */
 - (void)describeInstanceEventNotificationAttributes:(AWSEC2DescribeInstanceEventNotificationAttributesRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceEventNotificationAttributesResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Describes the specified event windows or all event windows.</p><p>If you specify event window IDs, the output includes information for only the specified event windows. If you specify filters, the output includes information for only those event windows that meet the filter criteria. If you do not specify event windows IDs or filters, the output includes information for all event windows, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully. </p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceEventWindows service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DescribeInstanceEventWindowsResult`.
+ 
+ @see AWSEC2DescribeInstanceEventWindowsRequest
+ @see AWSEC2DescribeInstanceEventWindowsResult
+ */
+- (AWSTask<AWSEC2DescribeInstanceEventWindowsResult *> *)describeInstanceEventWindows:(AWSEC2DescribeInstanceEventWindowsRequest *)request;
+
+/**
+ <p>Describes the specified event windows or all event windows.</p><p>If you specify event window IDs, the output includes information for only the specified event windows. If you specify filters, the output includes information for only those event windows that meet the filter criteria. If you do not specify event windows IDs or filters, the output includes information for all event windows, which can affect performance. We recommend that you use pagination to ensure that the operation returns quickly and successfully. </p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeInstanceEventWindows service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DescribeInstanceEventWindowsRequest
+ @see AWSEC2DescribeInstanceEventWindowsResult
+ */
+- (void)describeInstanceEventWindows:(AWSEC2DescribeInstanceEventWindowsRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DescribeInstanceEventWindowsResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the status of the specified instances or all of your instances. By default, only running instances are described, unless you specifically indicate to return the status of all instances.</p><p>Instance status includes the following components:</p><ul><li><p><b>Status checks</b> - Amazon EC2 performs status checks on running EC2 instances to identify hardware and software issues. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-system-instance-status-check.html">Status checks for your instances</a> and <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/TroubleshootingInstances.html">Troubleshooting instances with failed status checks</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Scheduled events</b> - Amazon EC2 can schedule events (such as reboot, stop, or terminate) for your instances related to hardware issues, software updates, or system maintenance. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/monitoring-instances-status-check_sched.html">Scheduled events for your instances</a> in the <i>Amazon EC2 User Guide</i>.</p></li><li><p><b>Instance state</b> - You can manage your instances from the moment you launch them through their termination. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-lifecycle.html">Instance lifecycle</a> in the <i>Amazon EC2 User Guide</i>.</p></li></ul>
@@ -7726,6 +7826,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
 - (void)disassociateIamInstanceProfile:(AWSEC2DisassociateIamInstanceProfileRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateIamInstanceProfileResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Disassociates one or more targets from an event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateInstanceEventWindow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2DisassociateInstanceEventWindowResult`.
+ 
+ @see AWSEC2DisassociateInstanceEventWindowRequest
+ @see AWSEC2DisassociateInstanceEventWindowResult
+ */
+- (AWSTask<AWSEC2DisassociateInstanceEventWindowResult *> *)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request;
+
+/**
+ <p>Disassociates one or more targets from an event window.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the DisassociateInstanceEventWindow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2DisassociateInstanceEventWindowRequest
+ @see AWSEC2DisassociateInstanceEventWindowResult
+ */
+- (void)disassociateInstanceEventWindow:(AWSEC2DisassociateInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2DisassociateInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Disassociates a subnet or gateway from a route table.</p><p>After you perform this action, the subnet no longer uses the routes in the route table. Instead, it uses the routes in the VPC's main route table. For more information about route tables, see <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html">Route Tables</a> in the <i>Amazon Virtual Private Cloud User Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the DisassociateRouteTable service method.
@@ -9303,6 +9428,31 @@ FOUNDATION_EXPORT NSString *const AWSEC2SDKVersion;
  @see AWSEC2ModifyInstanceEventStartTimeResult
  */
 - (void)modifyInstanceEventStartTime:(AWSEC2ModifyInstanceEventStartTimeRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyInstanceEventStartTimeResult * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Modifies the specified event window.</p><p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p><p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p><p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyInstanceEventWindow service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSEC2ModifyInstanceEventWindowResult`.
+ 
+ @see AWSEC2ModifyInstanceEventWindowRequest
+ @see AWSEC2ModifyInstanceEventWindowResult
+ */
+- (AWSTask<AWSEC2ModifyInstanceEventWindowResult *> *)modifyInstanceEventWindow:(AWSEC2ModifyInstanceEventWindowRequest *)request;
+
+/**
+ <p>Modifies the specified event window.</p><p>You can define either a set of time ranges or a cron expression when modifying the event window, but not both.</p><p>To modify the targets associated with the event window, use the <a>AssociateInstanceEventWindow</a> and <a>DisassociateInstanceEventWindow</a> API.</p><p>If Amazon Web Services has already scheduled an event, modifying an event window won't change the time of the scheduled event.</p><p>For more information, see <a href="https://docs.aws.amazon.com/monitoring-instances-status-check_sched.html#event-windows">Define event windows for scheduled events</a> in the <i>Amazon EC2 User Guide</i>.</p>
+ 
+ @param request A container for the necessary parameters to execute the ModifyInstanceEventWindow service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful.
+ 
+ @see AWSEC2ModifyInstanceEventWindowRequest
+ @see AWSEC2ModifyInstanceEventWindowResult
+ */
+- (void)modifyInstanceEventWindow:(AWSEC2ModifyInstanceEventWindowRequest *)request completionHandler:(void (^ _Nullable)(AWSEC2ModifyInstanceEventWindowResult * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Modify the instance metadata parameters on a running or stopped instance. When you modify the parameters on a stopped instance, they are applied when the instance is started. When you modify the parameters on a running instance, the API responds with a state of “pending”. After the parameter modifications are successfully applied to the instance, the state of the modifications changes from “pending” to “applied” in subsequent describe-instances API calls. For more information, see <a href="https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/ec2-instance-metadata.html">Instance metadata and user data</a> in the <i>Amazon EC2 User Guide</i>.</p>

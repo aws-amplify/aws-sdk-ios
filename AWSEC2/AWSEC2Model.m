@@ -1064,6 +1064,44 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 @end
 
+@implementation AWSEC2AssociateInstanceEventWindowRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associationTarget" : @"AssociationTarget",
+             @"dryRun" : @"DryRun",
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             };
+}
+
++ (NSValueTransformer *)associationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindowAssociationRequest class]];
+}
+
+@end
+
+@implementation AWSEC2AssociateInstanceEventWindowResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindow" : @"InstanceEventWindow",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
+}
+
+@end
+
 @implementation AWSEC2AssociateRouteTableRequest
 
 + (BOOL)supportsSecureCoding {
@@ -7191,6 +7229,50 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2CreateInstanceEventWindowRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cronExpression" : @"CronExpression",
+             @"dryRun" : @"DryRun",
+             @"name" : @"Name",
+             @"tagSpecifications" : @"TagSpecifications",
+             @"timeRanges" : @"TimeRanges",
+             };
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
++ (NSValueTransformer *)timeRangesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceEventWindowTimeRangeRequest class]];
+}
+
+@end
+
+@implementation AWSEC2CreateInstanceEventWindowResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindow" : @"InstanceEventWindow",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
+}
+
+@end
+
 @implementation AWSEC2CreateInstanceExportTaskRequest
 
 + (BOOL)supportsSecureCoding {
@@ -10183,6 +10265,40 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"returned" : @"Return",
              };
+}
+
+@end
+
+@implementation AWSEC2DeleteInstanceEventWindowRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"forceDelete" : @"ForceDelete",
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteInstanceEventWindowResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindowState" : @"InstanceEventWindowState",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowStateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindowStateChange class]];
 }
 
 @end
@@ -15694,6 +15810,47 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)instanceTagAttributeJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceTagNotificationAttribute class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeInstanceEventWindowsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"instanceEventWindowIds" : @"InstanceEventWindowIds",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2DescribeInstanceEventWindowsResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindows" : @"InstanceEventWindows",
+             @"nextToken" : @"NextToken",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
 }
 
 @end
@@ -22091,6 +22248,44 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)iamInstanceProfileAssociationJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2IamInstanceProfileAssociation class]];
+}
+
+@end
+
+@implementation AWSEC2DisassociateInstanceEventWindowRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associationTarget" : @"AssociationTarget",
+             @"dryRun" : @"DryRun",
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             };
+}
+
++ (NSValueTransformer *)associationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindowDisassociationRequest class]];
+}
+
+@end
+
+@implementation AWSEC2DisassociateInstanceEventWindowResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindow" : @"InstanceEventWindow",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
 }
 
 @end
@@ -36095,6 +36290,393 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2InstanceEventWindow
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"associationTarget" : @"AssociationTarget",
+             @"cronExpression" : @"CronExpression",
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             @"name" : @"Name",
+             @"state" : @"State",
+             @"tags" : @"Tags",
+             @"timeRanges" : @"TimeRanges",
+             };
+}
+
++ (NSValueTransformer *)associationTargetJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindowAssociationTarget class]];
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"creating"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateCreating);
+        }
+        if ([value caseInsensitiveCompare:@"deleting"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"active"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"deleted"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateDeleted);
+        }
+        return @(AWSEC2InstanceEventWindowStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceEventWindowStateCreating:
+                return @"creating";
+            case AWSEC2InstanceEventWindowStateDeleting:
+                return @"deleting";
+            case AWSEC2InstanceEventWindowStateActive:
+                return @"active";
+            case AWSEC2InstanceEventWindowStateDeleted:
+                return @"deleted";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
++ (NSValueTransformer *)timeRangesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceEventWindowTimeRange class]];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowAssociationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dedicatedHostIds" : @"DedicatedHostIds",
+             @"instanceIds" : @"InstanceIds",
+             @"instanceTags" : @"InstanceTags",
+             };
+}
+
++ (NSValueTransformer *)instanceTagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowAssociationTarget
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dedicatedHostIds" : @"DedicatedHostIds",
+             @"instanceIds" : @"InstanceIds",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowDisassociationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dedicatedHostIds" : @"DedicatedHostIds",
+             @"instanceIds" : @"InstanceIds",
+             @"instanceTags" : @"InstanceTags",
+             };
+}
+
++ (NSValueTransformer *)instanceTagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowStateChange
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             @"state" : @"State",
+             };
+}
+
++ (NSValueTransformer *)stateJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"creating"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateCreating);
+        }
+        if ([value caseInsensitiveCompare:@"deleting"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateDeleting);
+        }
+        if ([value caseInsensitiveCompare:@"active"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateActive);
+        }
+        if ([value caseInsensitiveCompare:@"deleted"] == NSOrderedSame) {
+            return @(AWSEC2InstanceEventWindowStateDeleted);
+        }
+        return @(AWSEC2InstanceEventWindowStateUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2InstanceEventWindowStateCreating:
+                return @"creating";
+            case AWSEC2InstanceEventWindowStateDeleting:
+                return @"deleting";
+            case AWSEC2InstanceEventWindowStateActive:
+                return @"active";
+            case AWSEC2InstanceEventWindowStateDeleted:
+                return @"deleted";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowTimeRange
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endHour" : @"EndHour",
+             @"endWeekDay" : @"EndWeekDay",
+             @"startHour" : @"StartHour",
+             @"startWeekDay" : @"StartWeekDay",
+             };
+}
+
++ (NSValueTransformer *)endWeekDayJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"sunday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySunday);
+        }
+        if ([value caseInsensitiveCompare:@"monday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayMonday);
+        }
+        if ([value caseInsensitiveCompare:@"tuesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayTuesday);
+        }
+        if ([value caseInsensitiveCompare:@"wednesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayWednesday);
+        }
+        if ([value caseInsensitiveCompare:@"thursday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayThursday);
+        }
+        if ([value caseInsensitiveCompare:@"friday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayFriday);
+        }
+        if ([value caseInsensitiveCompare:@"saturday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySaturday);
+        }
+        return @(AWSEC2WeekDayUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2WeekDaySunday:
+                return @"sunday";
+            case AWSEC2WeekDayMonday:
+                return @"monday";
+            case AWSEC2WeekDayTuesday:
+                return @"tuesday";
+            case AWSEC2WeekDayWednesday:
+                return @"wednesday";
+            case AWSEC2WeekDayThursday:
+                return @"thursday";
+            case AWSEC2WeekDayFriday:
+                return @"friday";
+            case AWSEC2WeekDaySaturday:
+                return @"saturday";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startWeekDayJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"sunday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySunday);
+        }
+        if ([value caseInsensitiveCompare:@"monday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayMonday);
+        }
+        if ([value caseInsensitiveCompare:@"tuesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayTuesday);
+        }
+        if ([value caseInsensitiveCompare:@"wednesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayWednesday);
+        }
+        if ([value caseInsensitiveCompare:@"thursday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayThursday);
+        }
+        if ([value caseInsensitiveCompare:@"friday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayFriday);
+        }
+        if ([value caseInsensitiveCompare:@"saturday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySaturday);
+        }
+        return @(AWSEC2WeekDayUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2WeekDaySunday:
+                return @"sunday";
+            case AWSEC2WeekDayMonday:
+                return @"monday";
+            case AWSEC2WeekDayTuesday:
+                return @"tuesday";
+            case AWSEC2WeekDayWednesday:
+                return @"wednesday";
+            case AWSEC2WeekDayThursday:
+                return @"thursday";
+            case AWSEC2WeekDayFriday:
+                return @"friday";
+            case AWSEC2WeekDaySaturday:
+                return @"saturday";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
+@implementation AWSEC2InstanceEventWindowTimeRangeRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"endHour" : @"EndHour",
+             @"endWeekDay" : @"EndWeekDay",
+             @"startHour" : @"StartHour",
+             @"startWeekDay" : @"StartWeekDay",
+             };
+}
+
++ (NSValueTransformer *)endWeekDayJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"sunday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySunday);
+        }
+        if ([value caseInsensitiveCompare:@"monday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayMonday);
+        }
+        if ([value caseInsensitiveCompare:@"tuesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayTuesday);
+        }
+        if ([value caseInsensitiveCompare:@"wednesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayWednesday);
+        }
+        if ([value caseInsensitiveCompare:@"thursday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayThursday);
+        }
+        if ([value caseInsensitiveCompare:@"friday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayFriday);
+        }
+        if ([value caseInsensitiveCompare:@"saturday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySaturday);
+        }
+        return @(AWSEC2WeekDayUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2WeekDaySunday:
+                return @"sunday";
+            case AWSEC2WeekDayMonday:
+                return @"monday";
+            case AWSEC2WeekDayTuesday:
+                return @"tuesday";
+            case AWSEC2WeekDayWednesday:
+                return @"wednesday";
+            case AWSEC2WeekDayThursday:
+                return @"thursday";
+            case AWSEC2WeekDayFriday:
+                return @"friday";
+            case AWSEC2WeekDaySaturday:
+                return @"saturday";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)startWeekDayJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"sunday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySunday);
+        }
+        if ([value caseInsensitiveCompare:@"monday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayMonday);
+        }
+        if ([value caseInsensitiveCompare:@"tuesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayTuesday);
+        }
+        if ([value caseInsensitiveCompare:@"wednesday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayWednesday);
+        }
+        if ([value caseInsensitiveCompare:@"thursday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayThursday);
+        }
+        if ([value caseInsensitiveCompare:@"friday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDayFriday);
+        }
+        if ([value caseInsensitiveCompare:@"saturday"] == NSOrderedSame) {
+            return @(AWSEC2WeekDaySaturday);
+        }
+        return @(AWSEC2WeekDayUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2WeekDaySunday:
+                return @"sunday";
+            case AWSEC2WeekDayMonday:
+                return @"monday";
+            case AWSEC2WeekDayTuesday:
+                return @"tuesday";
+            case AWSEC2WeekDayWednesday:
+                return @"wednesday";
+            case AWSEC2WeekDayThursday:
+                return @"thursday";
+            case AWSEC2WeekDayFriday:
+                return @"friday";
+            case AWSEC2WeekDaySaturday:
+                return @"saturday";
+            default:
+                return nil;
+        }
+    }];
+}
+
+@end
+
 @implementation AWSEC2InstanceExportDetails
 
 + (BOOL)supportsSecureCoding {
@@ -46834,6 +47416,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"instance"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInstance);
         }
+        if ([value caseInsensitiveCompare:@"instance-event-window"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeInstanceEventWindow);
+        }
         if ([value caseInsensitiveCompare:@"internet-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInternetGateway);
         }
@@ -46857,9 +47442,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
-        }
-        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
-            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
         }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
@@ -46968,6 +47550,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"import-snapshot-task";
             case AWSEC2ResourceTypeInstance:
                 return @"instance";
+            case AWSEC2ResourceTypeInstanceEventWindow:
+                return @"instance-event-window";
             case AWSEC2ResourceTypeInternetGateway:
                 return @"internet-gateway";
             case AWSEC2ResourceTypeKeyPair:
@@ -46984,8 +47568,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
-            case AWSEC2ResourceTypeNetworkInsightsBoundary:
-                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -47109,6 +47691,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"instance"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInstance);
         }
+        if ([value caseInsensitiveCompare:@"instance-event-window"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeInstanceEventWindow);
+        }
         if ([value caseInsensitiveCompare:@"internet-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInternetGateway);
         }
@@ -47132,9 +47717,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
-        }
-        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
-            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
         }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
@@ -47243,6 +47825,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"import-snapshot-task";
             case AWSEC2ResourceTypeInstance:
                 return @"instance";
+            case AWSEC2ResourceTypeInstanceEventWindow:
+                return @"instance-event-window";
             case AWSEC2ResourceTypeInternetGateway:
                 return @"internet-gateway";
             case AWSEC2ResourceTypeKeyPair:
@@ -47259,8 +47843,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
-            case AWSEC2ResourceTypeNetworkInsightsBoundary:
-                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -48760,6 +49342,46 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)eventJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceStatusEvent class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceEventWindowRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cronExpression" : @"CronExpression",
+             @"dryRun" : @"DryRun",
+             @"instanceEventWindowId" : @"InstanceEventWindowId",
+             @"name" : @"Name",
+             @"timeRanges" : @"TimeRanges",
+             };
+}
+
++ (NSValueTransformer *)timeRangesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceEventWindowTimeRangeRequest class]];
+}
+
+@end
+
+@implementation AWSEC2ModifyInstanceEventWindowResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"instanceEventWindow" : @"InstanceEventWindow",
+             };
+}
+
++ (NSValueTransformer *)instanceEventWindowJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2InstanceEventWindow class]];
 }
 
 @end
@@ -73501,6 +74123,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"instance"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInstance);
         }
+        if ([value caseInsensitiveCompare:@"instance-event-window"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeInstanceEventWindow);
+        }
         if ([value caseInsensitiveCompare:@"internet-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInternetGateway);
         }
@@ -73524,9 +74149,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
-        }
-        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
-            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
         }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
@@ -73635,6 +74257,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"import-snapshot-task";
             case AWSEC2ResourceTypeInstance:
                 return @"instance";
+            case AWSEC2ResourceTypeInstanceEventWindow:
+                return @"instance-event-window";
             case AWSEC2ResourceTypeInternetGateway:
                 return @"internet-gateway";
             case AWSEC2ResourceTypeKeyPair:
@@ -73651,8 +74275,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
-            case AWSEC2ResourceTypeNetworkInsightsBoundary:
-                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -76901,6 +77523,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"instance"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInstance);
         }
+        if ([value caseInsensitiveCompare:@"instance-event-window"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeInstanceEventWindow);
+        }
         if ([value caseInsensitiveCompare:@"internet-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInternetGateway);
         }
@@ -76924,9 +77549,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
-        }
-        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
-            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
         }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
@@ -77035,6 +77657,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"import-snapshot-task";
             case AWSEC2ResourceTypeInstance:
                 return @"instance";
+            case AWSEC2ResourceTypeInstanceEventWindow:
+                return @"instance-event-window";
             case AWSEC2ResourceTypeInternetGateway:
                 return @"internet-gateway";
             case AWSEC2ResourceTypeKeyPair:
@@ -77051,8 +77675,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
-            case AWSEC2ResourceTypeNetworkInsightsBoundary:
-                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
@@ -77172,6 +77794,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         if ([value caseInsensitiveCompare:@"instance"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInstance);
         }
+        if ([value caseInsensitiveCompare:@"instance-event-window"] == NSOrderedSame) {
+            return @(AWSEC2ResourceTypeInstanceEventWindow);
+        }
         if ([value caseInsensitiveCompare:@"internet-gateway"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeInternetGateway);
         }
@@ -77195,9 +77820,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
         }
         if ([value caseInsensitiveCompare:@"network-insights-analysis"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsAnalysis);
-        }
-        if ([value caseInsensitiveCompare:@"network-insights-boundary"] == NSOrderedSame) {
-            return @(AWSEC2ResourceTypeNetworkInsightsBoundary);
         }
         if ([value caseInsensitiveCompare:@"network-insights-path"] == NSOrderedSame) {
             return @(AWSEC2ResourceTypeNetworkInsightsPath);
@@ -77306,6 +77928,8 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"import-snapshot-task";
             case AWSEC2ResourceTypeInstance:
                 return @"instance";
+            case AWSEC2ResourceTypeInstanceEventWindow:
+                return @"instance-event-window";
             case AWSEC2ResourceTypeInternetGateway:
                 return @"internet-gateway";
             case AWSEC2ResourceTypeKeyPair:
@@ -77322,8 +77946,6 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
                 return @"network-interface";
             case AWSEC2ResourceTypeNetworkInsightsAnalysis:
                 return @"network-insights-analysis";
-            case AWSEC2ResourceTypeNetworkInsightsBoundary:
-                return @"network-insights-boundary";
             case AWSEC2ResourceTypeNetworkInsightsPath:
                 return @"network-insights-path";
             case AWSEC2ResourceTypePlacementGroup:
