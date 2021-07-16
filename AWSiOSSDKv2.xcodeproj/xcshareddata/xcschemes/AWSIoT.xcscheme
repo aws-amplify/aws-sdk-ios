@@ -46,6 +46,11 @@
                BlueprintName = "AWSIoTTests"
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
+            <SkippedTests>
+               <Test
+                  Identifier = "AWSIoTDataManagerRetainTests/testRetainMessageOnTopic()">
+               </Test>
+            </SkippedTests>
          </TestableReference>
          <TestableReference
             skipped = "NO">

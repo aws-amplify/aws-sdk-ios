@@ -363,7 +363,7 @@ NSString *endpointString;
     AWSDDLogInfo(@"waiting 5 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
 
-    XCTAssertEqualObjects(receivedString, publishMessageTestString);
+    XCTAssertTrue([receivedString isEqualToString:publishMessageTestString]);
 
     //
     // Now allocate a max-sized publish message (128KB) and fill it with random data.  Note
@@ -386,7 +386,7 @@ NSString *endpointString;
     //
     // Verify that the max size string was received intact by the subscriber
     //
-    XCTAssertEqualObjects(receivedString, randomMaxSizeString);
+    XCTAssertTrue([receivedString isEqualToString:randomMaxSizeString]);
 
     int j;
 

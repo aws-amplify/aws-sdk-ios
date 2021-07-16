@@ -1455,12 +1455,13 @@ class AWSIoTDataManagerTests: XCTestCase {
         let testTopic = "customauthtesting"
 
         //Subscribe to TestTopic
-        iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce) { payload in
+        let messageCallback: AWSIoTMQTTNewMessageBlock = { payload in
             let payloadString = String(data: payload, encoding: .utf8)!
             print("received payload: \(payloadString)")
             XCTAssertEqual(testMessage, payloadString)
             gotMessage.fulfill()
         }
+        iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: messageCallback)
 
         // Wait a moment to let the subscription be established
         sleep(2)

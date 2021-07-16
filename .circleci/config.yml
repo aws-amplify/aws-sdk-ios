@@ -1219,7 +1219,7 @@ workflows:
           filters:
             branches:
               only:
-                - main
+                - stehlib.iot
 
       - integ_test:
           scheme: AWSKMS

@@ -193,7 +193,8 @@
     NSMutableData* data = [NSMutableData data];
     [data AWSMQTT_appendUInt16BigEndian:msgId];
     return [[AWSMQTTMessage alloc] initWithType:AWSMQTTPubrel
-                                         data:data];
+                                            qos:1
+                                           data:data];
 }
 
 + (id)pubcompMessageWithMessageId:(UInt16)msgId {

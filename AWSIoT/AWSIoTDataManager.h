@@ -40,6 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) AWSIoTMQTTQoS qos;
 
+/**
+ Sets the retain flag for the Will and Testament
+ */
+@property (nonatomic, assign) BOOL willRetain;
 @end
 
 #pragma mark - AWSIoTMQTTConfiguration
@@ -616,8 +620,13 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 - (BOOL) publishData:(NSData *)data
              onTopic:(NSString *)topic
                  QoS:(AWSIoTMQTTQoS)qos
-         ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos
+             retain:(BOOL)retain
+        ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 /**
  Subscribes to a topic at a specific QoS level
 
@@ -686,6 +695,40 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
          extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
               ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
+/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+
+ @param callback Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.
+
+ @return Boolean value indicating success or failure.
+
+ */
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback;
+
+/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+
+ @param callback Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.
+
+ @param ackCallback the callback for ack if QoS > 0.
+
+ @return Boolean value indicating success or failure.
+
+ */
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+            fullCallback:(AWSIoTMQTTFullMessageBlock)callback
+             ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Unsubscribes from a topic
