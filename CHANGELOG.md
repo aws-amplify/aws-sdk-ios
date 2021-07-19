@@ -5,6 +5,11 @@
 - **AWSMobileClient**
   - Sign out with revoke token ([PR #3638](https://github.com/aws-amplify/aws-sdk-ios/pull/3638))
 
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSEC2
+
 ## 2.24.3
 
 ### Bug fixes
