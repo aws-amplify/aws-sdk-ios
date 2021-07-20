@@ -9335,6 +9335,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"clientToken" : @"ClientToken",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
