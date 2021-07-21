@@ -467,7 +467,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteFunctionEventInvokeConfig service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaDeleteFunctionEventInvokeConfigRequest
  */
@@ -478,7 +478,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the DeleteFunctionEventInvokeConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaDeleteFunctionEventInvokeConfigRequest
  */
@@ -1308,7 +1308,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the PutFunctionEventInvokeConfig service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionEventInvokeConfig`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionEventInvokeConfig`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaPutFunctionEventInvokeConfigRequest
  @see AWSLambdaFunctionEventInvokeConfig
@@ -1321,7 +1321,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @param request A container for the necessary parameters to execute the PutFunctionEventInvokeConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaPutFunctionEventInvokeConfigRequest
  @see AWSLambdaFunctionEventInvokeConfig
@@ -1571,7 +1571,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  
  @param request A container for the necessary parameters to execute the UpdateFunctionEventInvokeConfig service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionEventInvokeConfig`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSLambdaFunctionEventInvokeConfig`. On failed execution, `task.error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaUpdateFunctionEventInvokeConfigRequest
  @see AWSLambdaFunctionEventInvokeConfig
@@ -1584,7 +1584,7 @@ FOUNDATION_EXPORT NSString *const AWSLambdaSDKVersion;
  @param request A container for the necessary parameters to execute the UpdateFunctionEventInvokeConfig service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSLambdaErrorDomain` domain and the following error code: `AWSLambdaErrorService`, `AWSLambdaErrorResourceNotFound`, `AWSLambdaErrorInvalidParameterValue`, `AWSLambdaErrorTooManyRequests`, `AWSLambdaErrorResourceConflict`.
  
  @see AWSLambdaUpdateFunctionEventInvokeConfigRequest
  @see AWSLambdaFunctionEventInvokeConfig
