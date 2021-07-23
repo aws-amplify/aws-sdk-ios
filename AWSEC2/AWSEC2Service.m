@@ -2221,6 +2221,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSEC2CreateSubnetCidrReservationResult *> *)createSubnetCidrReservation:(AWSEC2CreateSubnetCidrReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"CreateSubnetCidrReservation"
+                   outputClass:[AWSEC2CreateSubnetCidrReservationResult class]];
+}
+
+- (void)createSubnetCidrReservation:(AWSEC2CreateSubnetCidrReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2CreateSubnetCidrReservationResult *response, NSError *error))completionHandler {
+    [[self createSubnetCidrReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2CreateSubnetCidrReservationResult *> * _Nonnull task) {
+        AWSEC2CreateSubnetCidrReservationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask *)createTags:(AWSEC2CreateTagsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -3464,6 +3487,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 
         if (completionHandler) {
             completionHandler(error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2DeleteSubnetCidrReservationResult *> *)deleteSubnetCidrReservation:(AWSEC2DeleteSubnetCidrReservationRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"DeleteSubnetCidrReservation"
+                   outputClass:[AWSEC2DeleteSubnetCidrReservationResult class]];
+}
+
+- (void)deleteSubnetCidrReservation:(AWSEC2DeleteSubnetCidrReservationRequest *)request
+     completionHandler:(void (^)(AWSEC2DeleteSubnetCidrReservationResult *response, NSError *error))completionHandler {
+    [[self deleteSubnetCidrReservation:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2DeleteSubnetCidrReservationResult *> * _Nonnull task) {
+        AWSEC2DeleteSubnetCidrReservationResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
         }
 
         return nil;
@@ -8229,6 +8275,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSEC2GetSerialConsoleAccessStatusResult *response, NSError *error))completionHandler {
     [[self getSerialConsoleAccessStatus:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetSerialConsoleAccessStatusResult *> * _Nonnull task) {
         AWSEC2GetSerialConsoleAccessStatusResult *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSEC2GetSubnetCidrReservationsResult *> *)getSubnetCidrReservations:(AWSEC2GetSubnetCidrReservationsRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@""
+                 operationName:@"GetSubnetCidrReservations"
+                   outputClass:[AWSEC2GetSubnetCidrReservationsResult class]];
+}
+
+- (void)getSubnetCidrReservations:(AWSEC2GetSubnetCidrReservationsRequest *)request
+     completionHandler:(void (^)(AWSEC2GetSubnetCidrReservationsResult *response, NSError *error))completionHandler {
+    [[self getSubnetCidrReservations:request] continueWithBlock:^id _Nullable(AWSTask<AWSEC2GetSubnetCidrReservationsResult *> * _Nonnull task) {
+        AWSEC2GetSubnetCidrReservationsResult *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
