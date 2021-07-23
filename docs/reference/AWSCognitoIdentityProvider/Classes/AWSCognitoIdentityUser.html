@@ -17,7 +17,7 @@
     <a title="AWSCognitoIdentityUser Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSCognitoIdentityProvider 2.24.3 Docs</a> (77% documented)</p>
+        <p><a href="../index.html">AWSCognitoIdentityProvider 2.24.4 Docs</a> (77% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSCognitoIdentityProvider.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -1132,6 +1132,11 @@
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isSignedIn</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">signedIn</span><span class="p">;</span>
 
 <span class="cm">/**
+ Determines whether this user's session is revocable. If the access token has "origin_jti" claim, then the revocation feature is enabled.
+*/</span>
+<span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isSessionRevocable</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">sessionRevocable</span><span class="p">;</span>
+
+<span class="cm">/**
  Get the device id
  */</span>
 <span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">)</span> <span class="n">NSString</span> <span class="o">*</span> <span class="n">deviceId</span><span class="p">;</span>
@@ -1279,6 +1284,11 @@
  Remove all sessions from the keychain for this user.  Last known user remains.
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">signOut</span><span class="p">;</span>
+
+<span class="cm">/**
+ Revoke all tokens for this user. Check Access Token for claims for validity to revoke tokens.
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">AWSTask</span><span class="o">&lt;</span><span class="n"><a href="../Classes.html#/c:objc(cs)AWSCognitoIdentityProviderRevokeTokenResponse">AWSCognitoIdentityProviderRevokeTokenResponse</a></span> <span class="o">*&gt;</span> <span class="o">*</span><span class="p">)</span> <span class="n">revokeToken</span><span class="p">;</span>
 
 <span class="cm">/**
  Invalidate any active sessions with the service.  Last known user remains.
@@ -1441,6 +1451,38 @@ the user will be prompted to authenticate when you call getSession.</p>
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isSignedIn</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(py)sessionRevocable"></a>
+                    <a name="//apple_ref/objc/Property/sessionRevocable" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(py)sessionRevocable">sessionRevocable</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Determines whether this user&rsquo;s session is revocable. If the access token has &ldquo;origin_jti&rdquo; claim, then the revocation feature is enabled.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@property</span> <span class="p">(</span><span class="n">nonatomic</span><span class="p">,</span> <span class="n">readonly</span><span class="p">,</span> <span class="n">getter</span><span class="o">=</span><span class="n">isSessionRevocable</span><span class="p">)</span> <span class="n">BOOL</span> <span class="n">sessionRevocable</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">var</span> <span class="nv">isSessionRevocable</span><span class="p">:</span> <span class="kt">Bool</span> <span class="p">{</span> <span class="k">get</span> <span class="p">}</span></code></pre>
 
                         </div>
                       </div>
@@ -2443,6 +2485,38 @@ the user will be prompted to authenticate when you call getSession.</p>
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSCognitoIdentityUser(im)revokeToken"></a>
+                    <a name="//apple_ref/objc/Method/-revokeToken" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)revokeToken">-revokeToken</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Revoke all tokens for this user. Check Access Token for claims for validity to revoke tokens.</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="n">revokeToken</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">revokeToken</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSCognitoIdentityUser(im)globalSignOut"></a>
                     <a name="//apple_ref/objc/Method/-globalSignOut" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSCognitoIdentityUser(im)globalSignOut">-globalSignOut</a>
@@ -2768,7 +2842,7 @@ Use this when you have updated user attributes and want to refresh the id and ac
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
