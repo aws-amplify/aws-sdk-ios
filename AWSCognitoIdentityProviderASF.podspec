@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'AWSCognitoIdentityProviderASF'
-  s.version      = '2.24.3'
+  s.version      = '2.24.4'
   s.summary      = 'Amazon Cognito Identity Provider Advanced Security Features library (Beta)'
 
   s.description  = 'Amazon Cognito Identity Provider ASF provides the information necessary to support adaptive authentication'
