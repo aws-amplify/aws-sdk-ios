@@ -17,7 +17,7 @@
     <a title="AWSLocation Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.24.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.24.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -420,6 +420,36 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
@@ -872,7 +902,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection.</p><note><p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p></note></p>
+                        <p><p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection. </p><p>You can associate up to five geofence collections to each tracker resource.</p><note><p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationAssociateTrackerConsumerRequest</p>
@@ -919,7 +949,7 @@
                       </div>
                       <div>
                         <h4>Return Value</h4>
-                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSLocationAssociateTrackerConsumerResponse">AWSLocationAssociateTrackerConsumerResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes.html#/c:objc(cs)AWSLocationAssociateTrackerConsumerResponse">AWSLocationAssociateTrackerConsumerResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                       </div>
                     </section>
                   </div>
@@ -937,7 +967,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection.</p><note><p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p></note></p>
+                        <p><p>Creates an association between a geofence collection and a tracker resource. This allows the tracker resource to communicate location data to the linked geofence collection. </p><p>You can associate up to five geofence collections to each tracker resource.</p><note><p>Currently not supported — Cross-account configurations, such as creating associations between a tracker resource in one account and a geofence collection in another account.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationAssociateTrackerConsumerRequest</p>
@@ -993,7 +1023,7 @@
                                 <div>
                                   <p>The completion handler to call when the load request is complete.
                      <code>response</code> - A response object, or <code>nil</code> if the request failed.
-                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorConflict</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorServiceQuotaExceeded</code>, <code>AWSLocationErrorThrottling</code>.</p>
                                 </div>
                               </td>
                             </tr>
@@ -1305,7 +1335,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection. The evaluation determines if the device has entered or exited a geofenced area, which publishes ENTER or EXIT geofence events to Amazon EventBridge.</p><note><p>The last geofence that a device was observed within, if any, is tracked for 30 days after the most recent device position update</p></note></p>
+                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchEvaluateGeofencesRequest</p>
@@ -1370,7 +1400,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection. The evaluation determines if the device has entered or exited a geofenced area, which publishes ENTER or EXIT geofence events to Amazon EventBridge.</p><note><p>The last geofence that a device was observed within, if any, is tracked for 30 days after the most recent device position update</p></note></p>
+                        <p><p>Evaluates device positions against the geofence geometries from a given geofence collection.</p><p>This operation always returns an empty response because geofences are asynchronously evaluated. The evaluation determines if the device has entered or exited a geofenced area, and then publishes one of the following events to Amazon EventBridge:</p><ul><li><p><code>ENTER</code> if Amazon Location determines that the tracked device has entered a geofenced area.</p></li><li><p><code>EXIT</code> if Amazon Location determines that the tracked device has exited a geofenced area.</p></li></ul><note><p>The last geofence that a device was observed within is tracked for 30 days after the most recent device position update.</p></note></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchEvaluateGeofencesRequest</p>
@@ -1449,7 +1479,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A batch request to retrieve all device positions.</p>
+                        <p>Lists the latest device positions for requested devices.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchGetDevicePositionRequest</p>
@@ -1514,7 +1544,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>A batch request to retrieve all device positions.</p>
+                        <p>Lists the latest device positions for requested devices.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationBatchGetDevicePositionRequest</p>
@@ -1878,7 +1908,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create aroute calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -1942,7 +1972,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create aroute calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
+                        <p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html">Calculates a route</a> given the following required parameters: <code>DeparturePostiton</code> and <code>DestinationPosition</code>. Requires that you first <a href="https://docs.aws.amazon.com/location-routes/latest/APIReference/API_CreateRouteCalculator.html">create a route calculator resource</a></p><p>By default, a request that doesn&rsquo;t specify a departure time uses the best time of day to travel with the best traffic conditions when calculating the route.</p><p>Additional options include:</p><ul><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#departure-time">Specifying a departure time</a> using either <code>DepartureTime</code> or <code>DepartureNow</code>. This calculates a route based on predictive traffic data at the given time. </p><note><p>You can&rsquo;t specify both <code>DepartureTime</code> and <code>DepartureNow</code> in a single request. Specifying both parameters returns an error message.</p></note></li><li><p><a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#travel-mode">Specifying a travel mode</a> using TravelMode. This lets you specify an additional route preference such as <code>CarModeOptions</code> if traveling by <code>Car</code>, or <code>TruckModeOptions</code> if traveling by <code>Truck</code>.</p></li></ul><p></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationCalculateRouteRequest</p>
@@ -5293,7 +5323,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists the latest device positions for requested devices.</p>
+                        <p>A batch request to retrieve all device positions.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListDevicePositionsRequest</p>
@@ -5358,7 +5388,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Lists the latest device positions for requested devices.</p>
+                        <p>A batch request to retrieve all device positions.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListDevicePositionsRequest</p>
@@ -6146,7 +6176,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the tags for the specified Amazon Location Service resource.</p>
+                        <p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListTagsForResourceRequest</p>
@@ -6211,7 +6241,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Returns the tags for the specified Amazon Location Service resource.</p>
+                        <p>Returns a list of tags that are applied to the specified Amazon Location resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationListTagsForResourceRequest</p>
@@ -7004,7 +7034,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;Tags don&#39;t have any semantic meaning to AWS and are interpreted strictly as strings of characters.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; action with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate as many as 50 tags with a resource.&lt;/p&gt; </code></pre></p>
+                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&#39;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationTagResourceRequest</p>
@@ -7068,7 +7098,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;Tags don&#39;t have any semantic meaning to AWS and are interpreted strictly as strings of characters.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; action with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that is already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate as many as 50 tags with a resource.&lt;/p&gt; </code></pre></p>
+                        <p><p>Assigns one or more tags (key-value pairs) to the specified Amazon Location Service resource.</p><pre><code> &lt;p&gt;Tags can help you organize and categorize your resources. You can also use them to scope user permissions, by granting a user permission to access or change only resources with certain tag values.&lt;/p&gt; &lt;p&gt;You can use the &lt;code&gt;TagResource&lt;/code&gt; operation with an Amazon Location Service resource that already has tags. If you specify a new tag key for the resource, this tag is appended to the tags already associated with the resource. If you specify a tag key that&#39;s already associated with the resource, the new tag value that you specify replaces the previous value for that tag. &lt;/p&gt; &lt;p&gt;You can associate up to 50 tags with a resource.&lt;/p&gt; </code></pre></p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationTagResourceRequest</p>
@@ -7145,7 +7175,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes one or more tags from the specified Amazon Location Service resource.</p>
+                        <p>Removes one or more tags from the specified Amazon Location resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationUntagResourceRequest</p>
@@ -7209,7 +7239,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Removes one or more tags from the specified Amazon Location Service resource.</p>
+                        <p>Removes one or more tags from the specified Amazon Location resource.</p>
 <div class="aside aside-see">
     <p class="aside-title">See</p>
     <p>AWSLocationUntagResourceRequest</p>
@@ -7273,12 +7303,723 @@
                     </section>
                   </div>
                 </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateGeofenceCollection:"></a>
+                    <a name="//apple_ref/objc/Method/-updateGeofenceCollection:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateGeofenceCollection:">-updateGeofenceCollection:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given geofence collection.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateGeofenceCollectionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateGeofenceCollectionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateGeofenceCollection</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateGeofenceCollection service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateGeofenceCollection:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateGeofenceCollection:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateGeofenceCollection:completionHandler:">-updateGeofenceCollection:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given geofence collection.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateGeofenceCollectionRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateGeofenceCollectionResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateGeofenceCollection</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+               <span class="nf">completionHandler</span><span class="p">:</span>
+                   <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                       <span class="n"><a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                       <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateGeofenceCollection</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateGeofenceCollection service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateMap:"></a>
+                    <a name="//apple_ref/objc/Method/-updateMap:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateMap:">-updateMap:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given map resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateMapRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateMapResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateMap</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateMap service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateMap:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateMap:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateMap:completionHandler:">-updateMap:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given map resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateMapRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateMapResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateMap</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateMap</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateMap service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updatePlaceIndex:"></a>
+                    <a name="//apple_ref/objc/Method/-updatePlaceIndex:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updatePlaceIndex:">-updatePlaceIndex:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given place index resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdatePlaceIndexRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdatePlaceIndexResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updatePlaceIndex</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdatePlaceIndex service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updatePlaceIndex:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updatePlaceIndex:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updatePlaceIndex:completionHandler:">-updatePlaceIndex:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given place index resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdatePlaceIndexRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdatePlaceIndexResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updatePlaceIndex</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+       <span class="nf">completionHandler</span><span class="p">:</span>
+           <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                              <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updatePlaceIndex</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdatePlaceIndex service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateRouteCalculator:"></a>
+                    <a name="//apple_ref/objc/Method/-updateRouteCalculator:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateRouteCalculator:">-updateRouteCalculator:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties for a given route calculator resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateRouteCalculatorRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateRouteCalculatorResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateRouteCalculator</span><span class="p">:</span>
+    <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateRouteCalculator service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateRouteCalculator:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateRouteCalculator:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateRouteCalculator:completionHandler:">-updateRouteCalculator:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties for a given route calculator resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateRouteCalculatorRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateRouteCalculatorResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateRouteCalculator</span><span class="p">:</span>
+            <span class="p">(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+            <span class="nf">completionHandler</span><span class="p">:</span>
+                <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span>
+                    <span class="n"><a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                    <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateRouteCalculator</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateRouteCalculator service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateTracker:"></a>
+                    <a name="//apple_ref/objc/Method/-updateTracker:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateTracker:">-updateTracker:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given tracker resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateTrackerRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateTrackerResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">id</span><span class="p">)</span><span class="nf">updateTracker</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Any</span><span class="o">!</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateTracker service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>An instance of <code>AWSTask</code>. On successful execution, <code>task.result</code> will contain an instance of <code><a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a></code>. On failed execution, <code>task.error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocation(im)updateTracker:completionHandler:"></a>
+                    <a name="//apple_ref/objc/Method/-updateTracker:completionHandler:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocation(im)updateTracker:completionHandler:">-updateTracker:<wbr>completionHandler:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Updates the specified properties of a given tracker resource.</p>
+<div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateTrackerRequest</p>
+
+</div><div class="aside aside-see">
+    <p class="aside-title">See</p>
+    <p>AWSLocationUpdateTrackerResponse</p>
+
+</div>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">updateTracker</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">request</span>
+    <span class="nf">completionHandler</span><span class="p">:</span>
+        <span class="p">(</span><span class="kt">void</span> <span class="p">(</span><span class="o">^</span><span class="n">_Nullable</span><span class="p">)(</span><span class="n"><a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a></span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">,</span>
+                           <span class="n">NSError</span> <span class="o">*</span><span class="n">_Nullable</span><span class="p">))</span><span class="n">completionHandler</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">updateTracker</span><span class="p">(</span><span class="n">_</span> <span class="nv">request</span><span class="p">:</span> <span class="kt"><a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a></span><span class="p">,</span> <span class="nv">completionHandler</span><span class="p">:</span> <span class="p">((</span><span class="kt"><a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a></span><span class="p">?,</span> <span class="kt">Error</span><span class="p">?)</span> <span class="o">-&gt;</span> <span class="kt">Void</span><span class="p">)?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>request</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>A container for the necessary parameters to execute the UpdateTracker service method.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>completionHandler</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The completion handler to call when the load request is complete.
+                     <code>response</code> - A response object, or <code>nil</code> if the request failed.
+                     <code>error</code> - An error object that indicates why the request failed, or <code>nil</code> if the request was successful. On failed execution, <code>error</code> may contain an <code>NSError</code> with <code><a href="../Constants.html#/c:@AWSLocationErrorDomain">AWSLocationErrorDomain</a></code> domain and the following error code: <code>AWSLocationErrorInternalServer</code>, <code>AWSLocationErrorResourceNotFound</code>, <code>AWSLocationErrorAccessDenied</code>, <code>AWSLocationErrorValidation</code>, <code>AWSLocationErrorThrottling</code>.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                    </section>
+                  </div>
+                </li>
               </ul>
             </div>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

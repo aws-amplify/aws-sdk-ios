@@ -17,7 +17,7 @@
     <a title="AWSLocationCalculateRouteResponse Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.24.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.24.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -422,6 +422,36 @@
                 <a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
               </li>
             </ul>
@@ -514,7 +544,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Contains details about each path between a pair of positions included along a route such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>, <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The number of legs returned corresponds to one less than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road.:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul></p>
+                        <p><p>Contains details about each path between a pair of positions included along a route such as: <code>StartPosition</code>, <code>EndPosition</code>, <code>Distance</code>, <code>DurationSeconds</code>, <code>Geometry</code>, and <code>Steps</code>. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -546,7 +576,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Contains information about the whole route, such as: <code>RouteBBox</code>, <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and <code>DurationSeconds</code></p>
+                        <p>Contains information about the whole route, such as: <code>RouteBBox</code>, <code>DataSource</code>, <code>Distance</code>, <code>DistanceUnit</code>, and <code>DurationSeconds</code>.</p>
 
                       </div>
                       <div class="declaration">
@@ -570,7 +600,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

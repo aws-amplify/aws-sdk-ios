@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSLocation 2.24.3 Docs</a> (89% documented)</p>
+        <p><a href="index.html">AWSLocation 2.24.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -420,6 +420,36 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
@@ -1748,7 +1778,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Specifies the data storage option chosen for requesting Places.</p>
+                        <p><p>Specifies the data storage option chosen for requesting Places.</p><important><p>When using Amazon Location Places:</p><ul><li><p>If using HERE Technologies as a data provider, you can&rsquo;t store results for locations in Japan by setting <code>IntendedUse</code> to <code>Storage</code>. parameter.</p></li><li><p>Under the <code>MobileAssetTracking</code> or <code>MobilAssetManagement</code> pricing plan, you can&rsquo;t store results from your place index resources by setting <code>IntendedUse</code> to <code>Storage</code>. This returns a validation exception error.</p></li></ul><p>For more information, see the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></important></p>
 
                         <a href="Classes/AWSLocationDataSourceConfiguration.html" class="slightly-smaller">See more</a>
                       </div>
@@ -3030,7 +3060,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Contains the calculated route&rsquo;s details for each path between a pair of positions. The number of legs returned corresponds to one less than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road.:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul>
+                        <p><p>Contains the calculated route&rsquo;s details for each path between a pair of positions. The number of legs returned corresponds to one fewer than the total number of positions in the request. </p><p>For example, a route with a departure position and destination position returns one leg with the positions <a href="https://docs.aws.amazon.com/location/latest/developerguide/calculate-route.html#snap-to-nearby-road">snapped to a nearby road</a>:</p><ul><li><p>The <code>StartPosition</code> is the departure position.</p></li><li><p>The <code>EndPosition</code> is the destination position.</p></li></ul><p>A route with a waypoint between the departure and destination position returns two legs with the positions snapped to a nearby road:</p><ul><li><p>Leg 1: The <code>StartPosition</code> is the departure position . The <code>EndPosition</code> is the waypoint positon.</p></li><li><p>Leg 2: The <code>StartPosition</code> is the waypoint position. The <code>EndPosition</code> is the destination position.</p></li></ul>
 Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Steps]</p>
 
                         <a href="Classes/AWSLocationLeg.html" class="slightly-smaller">See more</a>
@@ -4570,6 +4600,326 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateGeofenceCollectionRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateGeofenceCollectionRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateGeofenceCollectionRequest">AWSLocationUpdateGeofenceCollectionRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateGeofenceCollectionRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateGeofenceCollectionRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateGeofenceCollectionRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateGeofenceCollectionResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateGeofenceCollectionResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateGeofenceCollectionResponse">AWSLocationUpdateGeofenceCollectionResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateGeofenceCollectionResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateGeofenceCollectionResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateGeofenceCollectionResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateMapRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateMapRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateMapRequest">AWSLocationUpdateMapRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateMapRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateMapRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateMapRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateMapResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateMapResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateMapResponse">AWSLocationUpdateMapResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateMapResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateMapResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateMapResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdatePlaceIndexRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdatePlaceIndexRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdatePlaceIndexRequest">AWSLocationUpdatePlaceIndexRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdatePlaceIndexRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdatePlaceIndexRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdatePlaceIndexRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdatePlaceIndexResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdatePlaceIndexResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdatePlaceIndexResponse">AWSLocationUpdatePlaceIndexResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdatePlaceIndexResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdatePlaceIndexResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdatePlaceIndexResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateRouteCalculatorRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateRouteCalculatorRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateRouteCalculatorRequest">AWSLocationUpdateRouteCalculatorRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateRouteCalculatorRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateRouteCalculatorRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateRouteCalculatorRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateRouteCalculatorResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateRouteCalculatorResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateRouteCalculatorResponse">AWSLocationUpdateRouteCalculatorResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateRouteCalculatorResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateRouteCalculatorResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateRouteCalculatorResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateTrackerRequest"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateTrackerRequest" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateTrackerRequest">AWSLocationUpdateTrackerRequest</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateTrackerRequest.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateTrackerRequest</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateTrackerRequest</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSLocationUpdateTrackerResponse"></a>
+                    <a name="//apple_ref/objc/Class/AWSLocationUpdateTrackerResponse" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSLocationUpdateTrackerResponse">AWSLocationUpdateTrackerResponse</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        
+                        <a href="Classes/AWSLocationUpdateTrackerResponse.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSLocationUpdateTrackerResponse</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSLocationUpdateTrackerResponse</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:objc(cs)AWSLocationValidationExceptionField"></a>
                     <a name="//apple_ref/objc/Class/AWSLocationValidationExceptionField" class="dashAnchor"></a>
                     <a class="token" href="#/c:objc(cs)AWSLocationValidationExceptionField">AWSLocationValidationExceptionField</a>
@@ -4679,7 +5029,7 @@ Required parameters: [Distance, DurationSeconds, EndPosition, StartPosition, Ste
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

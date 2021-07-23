@@ -17,7 +17,7 @@
     <a title="AWSLocationErrorType Enumeration Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.24.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.24.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -422,6 +422,36 @@
                 <a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
               </li>
             </ul>
@@ -490,6 +520,7 @@
     <span class="n">AWSLocationErrorConflict</span><span class="p">,</span>
     <span class="n">AWSLocationErrorInternalServer</span><span class="p">,</span>
     <span class="n">AWSLocationErrorResourceNotFound</span><span class="p">,</span>
+    <span class="n">AWSLocationErrorServiceQuotaExceeded</span><span class="p">,</span>
     <span class="n">AWSLocationErrorThrottling</span><span class="p">,</span>
     <span class="n">AWSLocationErrorValidation</span><span class="p">,</span>
 <span class="p">}</span></code></pre>
@@ -670,6 +701,38 @@
                 <li class="item">
                   <div>
                     <code>
+                    <a name="/c:@E@AWSLocationErrorType@AWSLocationErrorServiceQuotaExceeded"></a>
+                    <a name="//apple_ref/objc/Case/AWSLocationErrorServiceQuotaExceeded" class="dashAnchor"></a>
+                    <a class="token" href="#/c:@E@AWSLocationErrorType@AWSLocationErrorServiceQuotaExceeded">AWSLocationErrorServiceQuotaExceeded</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Undocumented</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="n">AWSLocationErrorServiceQuotaExceeded</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">serviceQuotaExceeded</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
                     <a name="/c:@E@AWSLocationErrorType@AWSLocationErrorThrottling"></a>
                     <a name="//apple_ref/objc/Case/AWSLocationErrorThrottling" class="dashAnchor"></a>
                     <a class="token" href="#/c:@E@AWSLocationErrorType@AWSLocationErrorThrottling">AWSLocationErrorThrottling</a>
@@ -692,7 +755,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">5</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">throttling</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
 
                         </div>
                       </div>
@@ -724,7 +787,7 @@
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">validation</span> <span class="o">=</span> <span class="mi">6</span></code></pre>
+                          <pre class="highlight swift"><code><span class="k">case</span> <span class="n">validation</span> <span class="o">=</span> <span class="mi">7</span></code></pre>
 
                         </div>
                       </div>
@@ -736,7 +799,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>

@@ -17,7 +17,7 @@
     <a title="AWSLocationMapConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLocation 2.24.3 Docs</a> (89% documented)</p>
+        <p><a href="../index.html">AWSLocation 2.24.4 Docs</a> (90% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLocation.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -422,6 +422,36 @@
                 <a href="../Classes.html#/c:objc(cs)AWSLocationUntagResourceResponse">AWSLocationUntagResourceResponse</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionRequest.html">AWSLocationUpdateGeofenceCollectionRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateGeofenceCollectionResponse.html">AWSLocationUpdateGeofenceCollectionResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapRequest.html">AWSLocationUpdateMapRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateMapResponse.html">AWSLocationUpdateMapResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexRequest.html">AWSLocationUpdatePlaceIndexRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdatePlaceIndexResponse.html">AWSLocationUpdatePlaceIndexResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorRequest.html">AWSLocationUpdateRouteCalculatorRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateRouteCalculatorResponse.html">AWSLocationUpdateRouteCalculatorResponse</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerRequest.html">AWSLocationUpdateTrackerRequest</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Classes/AWSLocationUpdateTrackerResponse.html">AWSLocationUpdateTrackerResponse</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSLocationValidationExceptionField.html">AWSLocationValidationExceptionField</a>
               </li>
             </ul>
@@ -514,7 +544,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p><p>Specifies the map style selected from an available data provider.</p><p>Valid styles: <code>RasterEsriImagery</code>, <code>VectorEsriStreets</code>, <code>VectorEsriTopographic</code>, <code>VectorEsriNavigation</code>, <code>VectorEsriDarkGrayCanvas</code>, <code>VectorEsriLightGrayCanvas</code>, <code>VectorHereBerlin</code>.</p><note><p>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>, you may not use HERE Maps for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></note></p>
+                        <p><p>Specifies the map style selected from an available data provider. For additional information on each map style and to preview each map style, see <a href="location/latest/developerguide/esri.html#esri-map-styles">Esri map styles</a> and <a href="location/latest/developerguide/HERE.html#HERE-map-styles">HERE map styles</a>.</p><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/esri.html">Esri</a> styles: </p><ul><li><p><code>VectorEsriDarkGrayCanvas</code> – The Esri Dark Gray Canvas map style. A vector basemap with a dark gray, neutral background with minimal colors, labels, and features that&rsquo;s designed to draw attention to your thematic content. </p></li><li><p><code>RasterEsriImagery</code> – The Esri Imagery map style. A raster basemap that provides one meter or better satellite and aerial imagery in many parts of the world and lower resolution satellite imagery worldwide. </p></li><li><p><code>VectorEsriLightGrayCanvas</code> – The Esri Light Gray Canvas map style, which provides a detailed vector basemap with a light gray, neutral background style with minimal colors, labels, and features that&rsquo;s designed to draw attention to your thematic content. </p></li><li><p><code>VectorEsriTopographic</code> – The Esri Light map style, which provides a detailed vector basemap with a classic Esri map style.</p></li><li><p><code>VectorEsriStreets</code> – The Esri World Streets map style, which provides a detailed vector basemap for the world symbolized with a classic Esri street map style. The vector tile layer is similar in content and style to the World Street Map raster map.</p></li><li><p><code>VectorEsriNavigation</code> – The Esri World Navigation map style, which provides a detailed basemap for the world symbolized with a custom navigation map style that&rsquo;s designed for use during the day in mobile devices.</p></li></ul><p>Valid <a href="https://docs.aws.amazon.com/location/latest/developerguide/HERE.html">HERE Technologies</a> styles: </p><ul><li><p><code>VectorHereBerlin</code> – The HERE Berlin map style is a high contrast detailed base map of the world that blends 3D and 2D rendering.</p><note><p>When using HERE as your data provider, and selecting the Style <code>VectorHereBerlin</code>, you may not use HERE Technologies maps for Asset Management. See the <a href="https://aws.amazon.com/service-terms/">AWS Service Terms</a> for Amazon Location Service.</p></note></li></ul></p>
 
                       </div>
                       <div class="declaration">
@@ -538,7 +568,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
