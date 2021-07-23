@@ -9,6 +9,7 @@
 
 - Model updates for the following services
   - AWSEC2
+  - AWSElasticLoadBalancing
   - AWSLocation
 
 ## 2.24.3
