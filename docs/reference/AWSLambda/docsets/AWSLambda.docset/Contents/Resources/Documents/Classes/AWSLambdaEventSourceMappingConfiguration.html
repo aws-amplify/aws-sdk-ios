@@ -17,7 +17,7 @@
     <a title="AWSLambdaEventSourceMappingConfiguration Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSLambda 2.24.3 Docs</a> (78% documented)</p>
+        <p><a href="../index.html">AWSLambda 2.24.4 Docs</a> (78% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSLambda.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -541,7 +541,7 @@
 
                 </div>
               </div>
-            <p>A mapping between an Amazon Web Services resource and an Lambda function. See <a>CreateEventSourceMapping</a> for details.</p>
+            <p>A mapping between an Amazon Web Services resource and a Lambda function. For details, see <a>CreateEventSourceMapping</a>.</p>
 
           </section>
           <section class="section task-group-section">
@@ -752,7 +752,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The date that the event source mapping was last updated, or its state changed.</p>
+                        <p>The date that the event source mapping was last updated or that its state changed.</p>
 
                       </div>
                       <div class="declaration">
@@ -784,7 +784,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The result of the last Lambda invocation of your Lambda function.</p>
+                        <p>The result of the last Lambda invocation of your function.</p>
 
                       </div>
                       <div class="declaration">
@@ -816,7 +816,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams and SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
+                        <p>(Streams and Amazon SQS standard queues) The maximum amount of time to gather records before invoking the function, in seconds. The default value is zero.</p>
 
                       </div>
                       <div class="declaration">
@@ -912,7 +912,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams only) The number of batches to process from each shard concurrently. The default value is 1.</p>
+                        <p>(Streams only) The number of batches to process concurrently from each shard. The default value is 1.</p>
 
                       </div>
                       <div class="declaration">
@@ -944,7 +944,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p> (MQ) The name of the Amazon MQ broker destination queue to consume. </p>
+                        <p> (Amazon MQ) The name of the Amazon MQ broker destination queue to consume.</p>
 
                       </div>
                       <div class="declaration">
@@ -976,7 +976,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Self-Managed Apache Kafka cluster for your event source.</p>
+                        <p>The self-managed Apache Kafka cluster for your event source.</p>
 
                       </div>
                       <div class="declaration">
@@ -1008,7 +1008,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>An array of the authentication protocol, or the VPC components to secure your event source.</p>
+                        <p>An array of the authentication protocol, VPC components, or virtual host to secure and define your event source.</p>
 
                       </div>
                       <div class="declaration">
@@ -1040,7 +1040,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK Streams sources. <code>AT_TIMESTAMP</code> is only supported for Amazon Kinesis streams.</p>
+                        <p>The position in a stream from which to start reading. Required for Amazon Kinesis, Amazon DynamoDB, and Amazon MSK stream sources. <code>AT_TIMESTAMP</code> is supported only for Amazon Kinesis streams.</p>
 
                       </div>
                       <div class="declaration">
@@ -1136,7 +1136,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Indicates whether the last change to the event source mapping was made by a user, or by the Lambda service.</p>
+                        <p>Indicates whether a user or Lambda made the last change to the event source mapping.</p>
 
                       </div>
                       <div class="declaration">
@@ -1200,7 +1200,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>(Streams only) The duration in seconds of a processing window. The range is between 1 second up to 900 seconds.</p>
+                        <p>(Streams only) The duration in seconds of a processing window. The range is 1–900 seconds.</p>
 
                       </div>
                       <div class="declaration">
@@ -1256,7 +1256,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-08)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
