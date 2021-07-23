@@ -255,6 +255,8 @@
 - (void) test_AWSEC2CreateSpotDatafeedSubscriptionResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateStoreImageTaskRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateStoreImageTaskResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateSubnetCidrReservationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2CreateSubnetCidrReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateSubnetRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateSubnetResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2CreateTagsRequest API_AVAILABLE(ios(11));
@@ -363,6 +365,8 @@
 - (void) test_AWSEC2DeleteSecurityGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteSnapshotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteSpotDatafeedSubscriptionRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteSubnetCidrReservationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2DeleteSubnetCidrReservationResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteSubnetRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTagsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2DeleteTrafficMirrorFilterRequest API_AVAILABLE(ios(11));
@@ -831,6 +835,8 @@
 - (void) test_AWSEC2GetReservedInstancesExchangeQuoteResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetSerialConsoleAccessStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetSerialConsoleAccessStatusResult API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSubnetCidrReservationsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2GetSubnetCidrReservationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsResult API_AVAILABLE(ios(11));
 - (void) test_AWSEC2GetTransitGatewayMulticastDomainAssociationsRequest API_AVAILABLE(ios(11));
@@ -903,8 +909,10 @@
 - (void) test_AWSEC2InstanceEventWindowTimeRangeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceExportDetails API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceFamilyCreditSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InstanceIpv4Prefix API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceIpv6Address API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceIpv6AddressRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2InstanceIpv6Prefix API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMarketOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMetadataOptionsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSEC2InstanceMetadataOptionsResponse API_AVAILABLE(ios(11));
@@ -931,9 +939,15 @@
 - (void) test_AWSEC2InternetGatewayAttachment API_AVAILABLE(ios(11));
 - (void) test_AWSEC2IpPermission API_AVAILABLE(ios(11));
 - (void) test_AWSEC2IpRange API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv4PrefixSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv4PrefixSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv4PrefixSpecificationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Ipv6CidrAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Ipv6CidrBlock API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Ipv6Pool API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv6PrefixSpecification API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv6PrefixSpecificationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSEC2Ipv6PrefixSpecificationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSEC2Ipv6Range API_AVAILABLE(ios(11));
 - (void) test_AWSEC2KeyPair API_AVAILABLE(ios(11));
 - (void) test_AWSEC2KeyPairInfo API_AVAILABLE(ios(11));
@@ -1316,6 +1330,7 @@
 - (void) test_AWSEC2Subnet API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetCidrBlockState API_AVAILABLE(ios(11));
+- (void) test_AWSEC2SubnetCidrReservation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulInstanceCreditSpecificationItem API_AVAILABLE(ios(11));
 - (void) test_AWSEC2SuccessfulQueuedPurchaseDeletion API_AVAILABLE(ios(11));
@@ -2376,6 +2391,14 @@
     [self validateSecureCodingForClass:[AWSEC2CreateStoreImageTaskResult class]];
 }
 
+- (void) test_AWSEC2CreateSubnetCidrReservationRequest {
+    [self validateSecureCodingForClass:[AWSEC2CreateSubnetCidrReservationRequest class]];
+}
+
+- (void) test_AWSEC2CreateSubnetCidrReservationResult {
+    [self validateSecureCodingForClass:[AWSEC2CreateSubnetCidrReservationResult class]];
+}
+
 - (void) test_AWSEC2CreateSubnetRequest {
     [self validateSecureCodingForClass:[AWSEC2CreateSubnetRequest class]];
 }
@@ -2806,6 +2829,14 @@
 
 - (void) test_AWSEC2DeleteSpotDatafeedSubscriptionRequest {
     [self validateSecureCodingForClass:[AWSEC2DeleteSpotDatafeedSubscriptionRequest class]];
+}
+
+- (void) test_AWSEC2DeleteSubnetCidrReservationRequest {
+    [self validateSecureCodingForClass:[AWSEC2DeleteSubnetCidrReservationRequest class]];
+}
+
+- (void) test_AWSEC2DeleteSubnetCidrReservationResult {
+    [self validateSecureCodingForClass:[AWSEC2DeleteSubnetCidrReservationResult class]];
 }
 
 - (void) test_AWSEC2DeleteSubnetRequest {
@@ -4680,6 +4711,14 @@
     [self validateSecureCodingForClass:[AWSEC2GetSerialConsoleAccessStatusResult class]];
 }
 
+- (void) test_AWSEC2GetSubnetCidrReservationsRequest {
+    [self validateSecureCodingForClass:[AWSEC2GetSubnetCidrReservationsRequest class]];
+}
+
+- (void) test_AWSEC2GetSubnetCidrReservationsResult {
+    [self validateSecureCodingForClass:[AWSEC2GetSubnetCidrReservationsResult class]];
+}
+
 - (void) test_AWSEC2GetTransitGatewayAttachmentPropagationsRequest {
     [self validateSecureCodingForClass:[AWSEC2GetTransitGatewayAttachmentPropagationsRequest class]];
 }
@@ -4968,12 +5007,20 @@
     [self validateSecureCodingForClass:[AWSEC2InstanceFamilyCreditSpecification class]];
 }
 
+- (void) test_AWSEC2InstanceIpv4Prefix {
+    [self validateSecureCodingForClass:[AWSEC2InstanceIpv4Prefix class]];
+}
+
 - (void) test_AWSEC2InstanceIpv6Address {
     [self validateSecureCodingForClass:[AWSEC2InstanceIpv6Address class]];
 }
 
 - (void) test_AWSEC2InstanceIpv6AddressRequest {
     [self validateSecureCodingForClass:[AWSEC2InstanceIpv6AddressRequest class]];
+}
+
+- (void) test_AWSEC2InstanceIpv6Prefix {
+    [self validateSecureCodingForClass:[AWSEC2InstanceIpv6Prefix class]];
 }
 
 - (void) test_AWSEC2InstanceMarketOptionsRequest {
@@ -5080,6 +5127,18 @@
     [self validateSecureCodingForClass:[AWSEC2IpRange class]];
 }
 
+- (void) test_AWSEC2Ipv4PrefixSpecification {
+    [self validateSecureCodingForClass:[AWSEC2Ipv4PrefixSpecification class]];
+}
+
+- (void) test_AWSEC2Ipv4PrefixSpecificationRequest {
+    [self validateSecureCodingForClass:[AWSEC2Ipv4PrefixSpecificationRequest class]];
+}
+
+- (void) test_AWSEC2Ipv4PrefixSpecificationResponse {
+    [self validateSecureCodingForClass:[AWSEC2Ipv4PrefixSpecificationResponse class]];
+}
+
 - (void) test_AWSEC2Ipv6CidrAssociation {
     [self validateSecureCodingForClass:[AWSEC2Ipv6CidrAssociation class]];
 }
@@ -5090,6 +5149,18 @@
 
 - (void) test_AWSEC2Ipv6Pool {
     [self validateSecureCodingForClass:[AWSEC2Ipv6Pool class]];
+}
+
+- (void) test_AWSEC2Ipv6PrefixSpecification {
+    [self validateSecureCodingForClass:[AWSEC2Ipv6PrefixSpecification class]];
+}
+
+- (void) test_AWSEC2Ipv6PrefixSpecificationRequest {
+    [self validateSecureCodingForClass:[AWSEC2Ipv6PrefixSpecificationRequest class]];
+}
+
+- (void) test_AWSEC2Ipv6PrefixSpecificationResponse {
+    [self validateSecureCodingForClass:[AWSEC2Ipv6PrefixSpecificationResponse class]];
 }
 
 - (void) test_AWSEC2Ipv6Range {
@@ -6618,6 +6689,10 @@
 
 - (void) test_AWSEC2SubnetCidrBlockState {
     [self validateSecureCodingForClass:[AWSEC2SubnetCidrBlockState class]];
+}
+
+- (void) test_AWSEC2SubnetCidrReservation {
+    [self validateSecureCodingForClass:[AWSEC2SubnetCidrReservation class]];
 }
 
 - (void) test_AWSEC2SubnetIpv6CidrBlockAssociation {

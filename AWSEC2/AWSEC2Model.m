@@ -838,6 +838,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 	return @{
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6PrefixCount" : @"Ipv6PrefixCount",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              };
 }
@@ -853,6 +855,7 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"assignedIpv6Addresses" : @"AssignedIpv6Addresses",
+             @"assignedIpv6Prefixes" : @"AssignedIpv6Prefixes",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              };
 }
@@ -868,6 +871,8 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"allowReassignment" : @"AllowReassignment",
+             @"ipv4PrefixCount" : @"Ipv4PrefixCount",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"privateIpAddresses" : @"PrivateIpAddresses",
              @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
@@ -884,9 +889,14 @@ NSString *const AWSEC2ErrorDomain = @"com.amazonaws.AWSEC2ErrorDomain";
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"assignedIpv4Prefixes" : @"AssignedIpv4Prefixes",
              @"assignedPrivateIpAddresses" : @"AssignedPrivateIpAddresses",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              };
+}
+
++ (NSValueTransformer *)assignedIpv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecification class]];
 }
 
 + (NSValueTransformer *)assignedPrivateIpAddressesJSONTransformer {
@@ -7905,8 +7915,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"dryRun" : @"DryRun",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4PrefixCount" : @"Ipv4PrefixCount",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6PrefixCount" : @"Ipv6PrefixCount",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"privateIpAddress" : @"PrivateIpAddress",
              @"privateIpAddresses" : @"PrivateIpAddresses",
              @"secondaryPrivateIpAddressCount" : @"SecondaryPrivateIpAddressCount",
@@ -7941,8 +7955,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecificationRequest class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6Address class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6PrefixSpecificationRequest class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -8424,6 +8446,68 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"objectKey" : @"ObjectKey",
              };
+}
+
+@end
+
+@implementation AWSEC2CreateSubnetCidrReservationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"detail" : @"Description",
+             @"dryRun" : @"DryRun",
+             @"reservationType" : @"ReservationType",
+             @"subnetId" : @"SubnetId",
+             @"tagSpecifications" : @"TagSpecifications",
+             };
+}
+
++ (NSValueTransformer *)reservationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"prefix"] == NSOrderedSame) {
+            return @(AWSEC2SubnetCidrReservationTypePrefix);
+        }
+        if ([value caseInsensitiveCompare:@"explicit"] == NSOrderedSame) {
+            return @(AWSEC2SubnetCidrReservationTypeExplicit);
+        }
+        return @(AWSEC2SubnetCidrReservationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2SubnetCidrReservationTypePrefix:
+                return @"prefix";
+            case AWSEC2SubnetCidrReservationTypeExplicit:
+                return @"explicit";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagSpecificationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2TagSpecification class]];
+}
+
+@end
+
+@implementation AWSEC2CreateSubnetCidrReservationResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"subnetCidrReservation" : @"SubnetCidrReservation",
+             };
+}
+
++ (NSValueTransformer *)subnetCidrReservationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2SubnetCidrReservation class]];
 }
 
 @end
@@ -9335,6 +9419,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"availabilityZone" : @"AvailabilityZone",
+             @"clientToken" : @"ClientToken",
              @"dryRun" : @"DryRun",
              @"encrypted" : @"Encrypted",
              @"iops" : @"Iops",
@@ -10877,6 +10962,39 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              };
+}
+
+@end
+
+@implementation AWSEC2DeleteSubnetCidrReservationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"subnetCidrReservationId" : @"SubnetCidrReservationId",
+             };
+}
+
+@end
+
+@implementation AWSEC2DeleteSubnetCidrReservationResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"deletedSubnetCidrReservation" : @"DeletedSubnetCidrReservation",
+             };
+}
+
++ (NSValueTransformer *)deletedSubnetCidrReservationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSEC2SubnetCidrReservation class]];
 }
 
 @end
@@ -29796,6 +29914,52 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2GetSubnetCidrReservationsRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"dryRun" : @"DryRun",
+             @"filters" : @"Filters",
+             @"maxResults" : @"MaxResults",
+             @"nextToken" : @"NextToken",
+             @"subnetId" : @"SubnetId",
+             };
+}
+
++ (NSValueTransformer *)filtersJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Filter class]];
+}
+
+@end
+
+@implementation AWSEC2GetSubnetCidrReservationsResult
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"nextToken" : @"NextToken",
+             @"subnetIpv4CidrReservations" : @"SubnetIpv4CidrReservations",
+             @"subnetIpv6CidrReservations" : @"SubnetIpv6CidrReservations",
+             };
+}
+
++ (NSValueTransformer *)subnetIpv4CidrReservationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SubnetCidrReservation class]];
+}
+
++ (NSValueTransformer *)subnetIpv6CidrReservationsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2SubnetCidrReservation class]];
+}
+
+@end
+
 @implementation AWSEC2GetTransitGatewayAttachmentPropagationsRequest
 
 + (BOOL)supportsSecureCoding {
@@ -36764,6 +36928,20 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2InstanceIpv4Prefix
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv4Prefix" : @"Ipv4Prefix",
+             };
+}
+
+@end
+
 @implementation AWSEC2InstanceIpv6Address
 
 + (BOOL)supportsSecureCoding {
@@ -36787,6 +36965,20 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ipv6Address" : @"Ipv6Address",
+             };
+}
+
+@end
+
+@implementation AWSEC2InstanceIpv6Prefix
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6Prefix" : @"Ipv6Prefix",
              };
 }
 
@@ -36997,7 +37189,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"macAddress" : @"MacAddress",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"ownerId" : @"OwnerId",
@@ -37023,8 +37217,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2GroupIdentifier class]];
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv4Prefix class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6Address class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6Prefix class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -37159,8 +37361,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4PrefixCount" : @"Ipv4PrefixCount",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6PrefixCount" : @"Ipv6PrefixCount",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"networkCardIndex" : @"NetworkCardIndex",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"privateIpAddress" : @"PrivateIpAddress",
@@ -37170,8 +37376,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              };
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecificationRequest class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6Address class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6PrefixSpecificationRequest class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -41975,6 +42189,48 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2Ipv4PrefixSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv4Prefix" : @"Ipv4Prefix",
+             };
+}
+
+@end
+
+@implementation AWSEC2Ipv4PrefixSpecificationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv4Prefix" : @"Ipv4Prefix",
+             };
+}
+
+@end
+
+@implementation AWSEC2Ipv4PrefixSpecificationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv4Prefix" : @"Ipv4Prefix",
+             };
+}
+
+@end
+
 @implementation AWSEC2Ipv6CidrAssociation
 
 + (BOOL)supportsSecureCoding {
@@ -42025,6 +42281,48 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSValueTransformer *)tagsJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
+@implementation AWSEC2Ipv6PrefixSpecification
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6Prefix" : @"Ipv6Prefix",
+             };
+}
+
+@end
+
+@implementation AWSEC2Ipv6PrefixSpecificationRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6Prefix" : @"Ipv6Prefix",
+             };
+}
+
+@end
+
+@implementation AWSEC2Ipv6PrefixSpecificationResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"ipv6Prefix" : @"Ipv6Prefix",
+             };
 }
 
 @end
@@ -44952,8 +45250,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4PrefixCount" : @"Ipv4PrefixCount",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6PrefixCount" : @"Ipv6PrefixCount",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"networkCardIndex" : @"NetworkCardIndex",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"privateIpAddress" : @"PrivateIpAddress",
@@ -44963,8 +45265,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              };
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecificationResponse class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6Address class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6PrefixSpecificationResponse class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -44988,8 +45298,12 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"deviceIndex" : @"DeviceIndex",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4PrefixCount" : @"Ipv4PrefixCount",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6AddressCount" : @"Ipv6AddressCount",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6PrefixCount" : @"Ipv6PrefixCount",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"networkCardIndex" : @"NetworkCardIndex",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"privateIpAddress" : @"PrivateIpAddress",
@@ -44999,8 +45313,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              };
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecificationRequest class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2InstanceIpv6AddressRequest class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6PrefixSpecificationRequest class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -51546,7 +51868,9 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"detail" : @"Description",
              @"groups" : @"Groups",
              @"interfaceType" : @"InterfaceType",
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"macAddress" : @"MacAddress",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"outpostArn" : @"OutpostArn",
@@ -51607,8 +51931,16 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
 }
 
++ (NSValueTransformer *)ipv4PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv4PrefixSpecification class]];
+}
+
 + (NSValueTransformer *)ipv6AddressesJSONTransformer {
     return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2NetworkInterfaceIpv6Address class]];
+}
+
++ (NSValueTransformer *)ipv6PrefixesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Ipv6PrefixSpecification class]];
 }
 
 + (NSValueTransformer *)privateIpAddressesJSONTransformer {
@@ -77395,6 +77727,51 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSEC2SubnetCidrReservation
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"cidr" : @"Cidr",
+             @"detail" : @"Description",
+             @"ownerId" : @"OwnerId",
+             @"reservationType" : @"ReservationType",
+             @"subnetCidrReservationId" : @"SubnetCidrReservationId",
+             @"subnetId" : @"SubnetId",
+             @"tags" : @"Tags",
+             };
+}
+
++ (NSValueTransformer *)reservationTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"prefix"] == NSOrderedSame) {
+            return @(AWSEC2SubnetCidrReservationTypePrefix);
+        }
+        if ([value caseInsensitiveCompare:@"explicit"] == NSOrderedSame) {
+            return @(AWSEC2SubnetCidrReservationTypeExplicit);
+        }
+        return @(AWSEC2SubnetCidrReservationTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2SubnetCidrReservationTypePrefix:
+                return @"prefix";
+            case AWSEC2SubnetCidrReservationTypeExplicit:
+                return @"explicit";
+            default:
+                return nil;
+        }
+    }];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSEC2Tag class]];
+}
+
+@end
+
 @implementation AWSEC2SubnetIpv6CidrBlockAssociation
 
 + (BOOL)supportsSecureCoding {
@@ -80947,6 +81324,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"ipv6Addresses" : @"Ipv6Addresses",
+             @"ipv6Prefixes" : @"Ipv6Prefixes",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              };
 }
@@ -80963,6 +81341,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"unassignedIpv6Addresses" : @"UnassignedIpv6Addresses",
+             @"unassignedIpv6Prefixes" : @"UnassignedIpv6Prefixes",
              };
 }
 
@@ -80976,6 +81355,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"ipv4Prefixes" : @"Ipv4Prefixes",
              @"networkInterfaceId" : @"NetworkInterfaceId",
              @"privateIpAddresses" : @"PrivateIpAddresses",
              };
