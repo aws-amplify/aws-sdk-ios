@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -300,6 +300,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTextractAnalyzeDocumentResponse *response, NSError *error))completionHandler {
     [[self analyzeDocument:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractAnalyzeDocumentResponse *> * _Nonnull task) {
         AWSTextractAnalyzeDocumentResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTextractAnalyzeExpenseResponse *> *)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Textract"
+                 operationName:@"AnalyzeExpense"
+                   outputClass:[AWSTextractAnalyzeExpenseResponse class]];
+}
+
+- (void)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request
+     completionHandler:(void (^)(AWSTextractAnalyzeExpenseResponse *response, NSError *error))completionHandler {
+    [[self analyzeExpense:request] continueWithBlock:^id _Nullable(AWSTask<AWSTextractAnalyzeExpenseResponse *> * _Nonnull task) {
+        AWSTextractAnalyzeExpenseResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {

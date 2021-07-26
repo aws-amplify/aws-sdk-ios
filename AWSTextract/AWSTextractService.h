@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -200,6 +200,31 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
 - (void)analyzeDocument:(AWSTextractAnalyzeDocumentRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeDocumentResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Analyzes an input document for financially related relationships between text.</p><p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p><ul><li><p><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p></li><li><p><code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeExpense service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractAnalyzeExpenseResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeExpenseRequest
+ @see AWSTextractAnalyzeExpenseResponse
+ */
+- (AWSTask<AWSTextractAnalyzeExpenseResponse *> *)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request;
+
+/**
+ <p>Analyzes an input document for financially related relationships between text.</p><p>Information is returned as <code>ExpenseDocuments</code> and seperated as follows.</p><ul><li><p><code>LineItemGroups</code>- A data set containing <code>LineItems</code> which store information about the lines of text, such as an item purchased and its price on a receipt.</p></li><li><p><code>SummaryFields</code>- Contains all other information a receipt, such as header information or the vendors name.</p></li></ul>
+ 
+ @param request A container for the necessary parameters to execute the AnalyzeExpense service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorUnsupportedDocument`, `AWSTextractErrorDocumentTooLarge`, `AWSTextractErrorBadDocument`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`.
+ 
+ @see AWSTextractAnalyzeExpenseRequest
+ @see AWSTextractAnalyzeExpenseResponse
+ */
+- (void)analyzeExpense:(AWSTextractAnalyzeExpenseRequest *)request completionHandler:(void (^ _Nullable)(AWSTextractAnalyzeExpenseResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Detects text in the input document. Amazon Textract can detect lines of text and the words that make up a line of text. The input document must be an image in JPEG or PNG format. <code>DetectDocumentText</code> returns the detected text in an array of <a>Block</a> objects. </p><p>Each document page has as an associated <code>Block</code> of type PAGE. Each PAGE <code>Block</code> object is the parent of LINE <code>Block</code> objects that represent the lines of detected text on a page. A LINE <code>Block</code> object is a parent for each word that makes up the line. Words are represented by <code>Block</code> objects of type WORD.</p><p><code>DetectDocumentText</code> is a synchronous operation. To analyze documents asynchronously, use <a>StartDocumentTextDetection</a>.</p><p>For more information, see <a href="https://docs.aws.amazon.com/textract/latest/dg/how-it-works-detecting.html">Document Text Detection</a>.</p>
  
  @param request A container for the necessary parameters to execute the DetectDocumentText service method.
@@ -229,7 +254,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetDocumentAnalysis service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentAnalysisResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentAnalysisRequest
  @see AWSTextractGetDocumentAnalysisResponse
@@ -242,7 +267,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the GetDocumentAnalysis service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentAnalysisRequest
  @see AWSTextractGetDocumentAnalysisResponse
@@ -254,7 +279,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  
  @param request A container for the necessary parameters to execute the GetDocumentTextDetection service method.
 
- @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTextractGetDocumentTextDetectionResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentTextDetectionRequest
  @see AWSTextractGetDocumentTextDetectionResponse
@@ -267,7 +292,7 @@ FOUNDATION_EXPORT NSString *const AWSTextractSDKVersion;
  @param request A container for the necessary parameters to execute the GetDocumentTextDetection service method.
  @param completionHandler The completion handler to call when the load request is complete.
                           `response` - A response object, or `nil` if the request failed.
-                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTextractErrorDomain` domain and the following error code: `AWSTextractErrorInvalidParameter`, `AWSTextractErrorAccessDenied`, `AWSTextractErrorProvisionedThroughputExceeded`, `AWSTextractErrorInvalidJobId`, `AWSTextractErrorInternalServer`, `AWSTextractErrorThrottling`, `AWSTextractErrorInvalidS3Object`, `AWSTextractErrorInvalidKMSKey`.
  
  @see AWSTextractGetDocumentTextDetectionRequest
  @see AWSTextractGetDocumentTextDetectionResponse
