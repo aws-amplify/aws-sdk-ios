@@ -175,6 +175,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 + (void)removeTranscribeForKey:(NSString *)key;
 
 /**
+ <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your analytics categories to your call analytics jobs. For each analytics category, you specify one or more rules. For example, you can specify a rule that the customer sentiment was neutral or negative within that category. If you start a call analytics job, Amazon Transcribe applies the category to the analytics job that you've specified.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCallAnalyticsCategory service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeCreateCallAnalyticsCategoryResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeCreateCallAnalyticsCategoryRequest
+ @see AWSTranscribeCreateCallAnalyticsCategoryResponse
+ */
+- (AWSTask<AWSTranscribeCreateCallAnalyticsCategoryResponse *> *)createCallAnalyticsCategory:(AWSTranscribeCreateCallAnalyticsCategoryRequest *)request;
+
+/**
+ <p>Creates an analytics category. Amazon Transcribe applies the conditions specified by your analytics categories to your call analytics jobs. For each analytics category, you specify one or more rules. For example, you can specify a rule that the customer sentiment was neutral or negative within that category. If you start a call analytics job, Amazon Transcribe applies the category to the analytics job that you've specified.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateCallAnalyticsCategory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeCreateCallAnalyticsCategoryRequest
+ @see AWSTranscribeCreateCallAnalyticsCategoryResponse
+ */
+- (void)createCallAnalyticsCategory:(AWSTranscribeCreateCallAnalyticsCategoryRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateCallAnalyticsCategoryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a new custom language model. Use Amazon S3 prefixes to provide the location of your input files. The time it takes to create your model depends on the size of your training data.</p>
  
  @param request A container for the necessary parameters to execute the CreateLanguageModel service method.
@@ -273,6 +298,56 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeCreateVocabularyFilterResponse
  */
 - (void)createVocabularyFilter:(AWSTranscribeCreateVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateVocabularyFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a call analytics category using its name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCallAnalyticsCategory service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeDeleteCallAnalyticsCategoryResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteCallAnalyticsCategoryRequest
+ @see AWSTranscribeDeleteCallAnalyticsCategoryResponse
+ */
+- (AWSTask<AWSTranscribeDeleteCallAnalyticsCategoryResponse *> *)deleteCallAnalyticsCategory:(AWSTranscribeDeleteCallAnalyticsCategoryRequest *)request;
+
+/**
+ <p>Deletes a call analytics category using its name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCallAnalyticsCategory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteCallAnalyticsCategoryRequest
+ @see AWSTranscribeDeleteCallAnalyticsCategoryResponse
+ */
+- (void)deleteCallAnalyticsCategory:(AWSTranscribeDeleteCallAnalyticsCategoryRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeDeleteCallAnalyticsCategoryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Deletes a call analytics job using its name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCallAnalyticsJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeDeleteCallAnalyticsJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteCallAnalyticsJobRequest
+ @see AWSTranscribeDeleteCallAnalyticsJobResponse
+ */
+- (AWSTask<AWSTranscribeDeleteCallAnalyticsJobResponse *> *)deleteCallAnalyticsJob:(AWSTranscribeDeleteCallAnalyticsJobRequest *)request;
+
+/**
+ <p>Deletes a call analytics job using its name.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteCallAnalyticsJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeDeleteCallAnalyticsJobRequest
+ @see AWSTranscribeDeleteCallAnalyticsJobResponse
+ */
+- (void)deleteCallAnalyticsJob:(AWSTranscribeDeleteCallAnalyticsJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeDeleteCallAnalyticsJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Deletes a custom language model using its name.</p>
@@ -407,7 +482,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)deleteVocabularyFilter:(AWSTranscribeDeleteVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
- <p>Gets information about a single custom language model. Use this information to see details about the language model in your AWS account. You can also see whether the base language model used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model. If the language model wasn't created, you can use this operation to understand why Amazon Transcribe couldn't create it. </p>
+ <p>Gets information about a single custom language model. Use this information to see details about the language model in your Amazon Web Services account. You can also see whether the base language model used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model. If the language model wasn't created, you can use this operation to understand why Amazon Transcribe couldn't create it. </p>
  
  @param request A container for the necessary parameters to execute the DescribeLanguageModel service method.
 
@@ -419,7 +494,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeDescribeLanguageModelResponse *> *)describeLanguageModel:(AWSTranscribeDescribeLanguageModelRequest *)request;
 
 /**
- <p>Gets information about a single custom language model. Use this information to see details about the language model in your AWS account. You can also see whether the base language model used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model. If the language model wasn't created, you can use this operation to understand why Amazon Transcribe couldn't create it. </p>
+ <p>Gets information about a single custom language model. Use this information to see details about the language model in your Amazon Web Services account. You can also see whether the base language model used to create your custom language model has been updated. If Amazon Transcribe has updated the base model, you can create a new custom language model using the updated base model. If the language model wasn't created, you can use this operation to understand why Amazon Transcribe couldn't create it. </p>
  
  @param request A container for the necessary parameters to execute the DescribeLanguageModel service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -430,6 +505,56 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeDescribeLanguageModelResponse
  */
 - (void)describeLanguageModel:(AWSTranscribeDescribeLanguageModelRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeDescribeLanguageModelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Retrieves information about a call analytics category.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCallAnalyticsCategory service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeGetCallAnalyticsCategoryResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorBadRequest`.
+ 
+ @see AWSTranscribeGetCallAnalyticsCategoryRequest
+ @see AWSTranscribeGetCallAnalyticsCategoryResponse
+ */
+- (AWSTask<AWSTranscribeGetCallAnalyticsCategoryResponse *> *)getCallAnalyticsCategory:(AWSTranscribeGetCallAnalyticsCategoryRequest *)request;
+
+/**
+ <p>Retrieves information about a call analytics category.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCallAnalyticsCategory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorBadRequest`.
+ 
+ @see AWSTranscribeGetCallAnalyticsCategoryRequest
+ @see AWSTranscribeGetCallAnalyticsCategoryResponse
+ */
+- (void)getCallAnalyticsCategory:(AWSTranscribeGetCallAnalyticsCategoryRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetCallAnalyticsCategoryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Returns information about a call analytics job. To see the status of the job, check the <code>CallAnalyticsJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptFileUri</code> field. If you enable personally identifiable information (PII) redaction, the redacted transcript appears in the <code>RedactedTranscriptFileUri</code> field.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCallAnalyticsJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeGetCallAnalyticsJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`.
+ 
+ @see AWSTranscribeGetCallAnalyticsJobRequest
+ @see AWSTranscribeGetCallAnalyticsJobResponse
+ */
+- (AWSTask<AWSTranscribeGetCallAnalyticsJobResponse *> *)getCallAnalyticsJob:(AWSTranscribeGetCallAnalyticsJobRequest *)request;
+
+/**
+ <p>Returns information about a call analytics job. To see the status of the job, check the <code>CallAnalyticsJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished and you can find the results at the location specified in the <code>TranscriptFileUri</code> field. If you enable personally identifiable information (PII) redaction, the redacted transcript appears in the <code>RedactedTranscriptFileUri</code> field.</p>
+ 
+ @param request A container for the necessary parameters to execute the GetCallAnalyticsJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`.
+ 
+ @see AWSTranscribeGetCallAnalyticsJobRequest
+ @see AWSTranscribeGetCallAnalyticsJobResponse
+ */
+- (void)getCallAnalyticsJob:(AWSTranscribeGetCallAnalyticsJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetCallAnalyticsJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Returns information about a transcription job from Amazon Transcribe Medical. To see the status of the job, check the <code>TranscriptionJobStatus</code> field. If the status is <code>COMPLETED</code>, the job is finished. You find the results of the completed job in the <code>TranscriptFileUri</code> field.</p>
@@ -555,6 +680,56 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeGetVocabularyFilterResponse
  */
 - (void)getVocabularyFilter:(AWSTranscribeGetVocabularyFilterRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeGetVocabularyFilterResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Provides more information about the call analytics categories that you've created. You can use the information in this list to find a specific category. You can then use the operation to get more information about it.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCallAnalyticsCategories service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeListCallAnalyticsCategoriesResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListCallAnalyticsCategoriesRequest
+ @see AWSTranscribeListCallAnalyticsCategoriesResponse
+ */
+- (AWSTask<AWSTranscribeListCallAnalyticsCategoriesResponse *> *)listCallAnalyticsCategories:(AWSTranscribeListCallAnalyticsCategoriesRequest *)request;
+
+/**
+ <p>Provides more information about the call analytics categories that you've created. You can use the information in this list to find a specific category. You can then use the operation to get more information about it.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCallAnalyticsCategories service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListCallAnalyticsCategoriesRequest
+ @see AWSTranscribeListCallAnalyticsCategoriesResponse
+ */
+- (void)listCallAnalyticsCategories:(AWSTranscribeListCallAnalyticsCategoriesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListCallAnalyticsCategoriesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>List call analytics jobs with a specified status or substring that matches their names.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCallAnalyticsJobs service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeListCallAnalyticsJobsResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListCallAnalyticsJobsRequest
+ @see AWSTranscribeListCallAnalyticsJobsResponse
+ */
+- (AWSTask<AWSTranscribeListCallAnalyticsJobsResponse *> *)listCallAnalyticsJobs:(AWSTranscribeListCallAnalyticsJobsRequest *)request;
+
+/**
+ <p>List call analytics jobs with a specified status or substring that matches their names.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListCallAnalyticsJobs service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListCallAnalyticsJobsRequest
+ @see AWSTranscribeListCallAnalyticsJobsResponse
+ */
+- (void)listCallAnalyticsJobs:(AWSTranscribeListCallAnalyticsJobsRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListCallAnalyticsJobsResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Provides more information about the custom language models you've created. You can use the information in this list to find a specific custom language model. You can then use the operation to get more information about it.</p>
@@ -707,6 +882,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)listVocabularyFilters:(AWSTranscribeListVocabularyFiltersRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListVocabularyFiltersResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and agent, but also returns additional insights. These insights include how quickly or loudly the caller or agent was speaking. To retrieve additional insights with your analytics jobs, create categories. A category is a way to classify analytics jobs based on attributes, such as a customer's sentiment or a particular phrase being used during the call. For more information, see the operation. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartCallAnalyticsJob service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeStartCallAnalyticsJobResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeStartCallAnalyticsJobRequest
+ @see AWSTranscribeStartCallAnalyticsJobResponse
+ */
+- (AWSTask<AWSTranscribeStartCallAnalyticsJobResponse *> *)startCallAnalyticsJob:(AWSTranscribeStartCallAnalyticsJobRequest *)request;
+
+/**
+ <p>Starts an asynchronous analytics job that not only transcribes the audio recording of a caller and agent, but also returns additional insights. These insights include how quickly or loudly the caller or agent was speaking. To retrieve additional insights with your analytics jobs, create categories. A category is a way to classify analytics jobs based on attributes, such as a customer's sentiment or a particular phrase being used during the call. For more information, see the operation. </p>
+ 
+ @param request A container for the necessary parameters to execute the StartCallAnalyticsJob service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeStartCallAnalyticsJobRequest
+ @see AWSTranscribeStartCallAnalyticsJobResponse
+ */
+- (void)startCallAnalyticsJob:(AWSTranscribeStartCallAnalyticsJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartCallAnalyticsJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Starts a batch job to transcribe medical speech to text.</p>
  
  @param request A container for the necessary parameters to execute the StartMedicalTranscriptionJob service method.
@@ -755,6 +955,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeStartTranscriptionJobResponse
  */
 - (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code> operation overwrites all of the existing information with the values that you provide in the request. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCallAnalyticsCategory service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeUpdateCallAnalyticsCategoryResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeUpdateCallAnalyticsCategoryRequest
+ @see AWSTranscribeUpdateCallAnalyticsCategoryResponse
+ */
+- (AWSTask<AWSTranscribeUpdateCallAnalyticsCategoryResponse *> *)updateCallAnalyticsCategory:(AWSTranscribeUpdateCallAnalyticsCategoryRequest *)request;
+
+/**
+ <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code> operation overwrites all of the existing information with the values that you provide in the request. </p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateCallAnalyticsCategory service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorConflict`.
+ 
+ @see AWSTranscribeUpdateCallAnalyticsCategoryRequest
+ @see AWSTranscribeUpdateCallAnalyticsCategoryResponse
+ */
+- (void)updateCallAnalyticsCategory:(AWSTranscribeUpdateCallAnalyticsCategoryRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeUpdateCallAnalyticsCategoryResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates a vocabulary with new values that you provide in a different text file from the one you used to create the vocabulary. The <code>UpdateMedicalVocabulary</code> operation overwrites all of the existing information with the values that you provide in the request.</p>

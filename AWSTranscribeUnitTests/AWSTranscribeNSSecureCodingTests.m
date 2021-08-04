@@ -19,7 +19,15 @@
 
 @interface AWSTranscribeNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSTranscribeAbsoluteTimeRange API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCallAnalyticsJob API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCallAnalyticsJobSettings API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCallAnalyticsJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCategoryProperties API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeChannelDefinition API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeContentRedaction API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCreateCallAnalyticsCategoryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeCreateCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCreateLanguageModelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCreateLanguageModelResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCreateMedicalVocabularyRequest API_AVAILABLE(ios(11));
@@ -28,6 +36,10 @@
 - (void) test_AWSTranscribeCreateVocabularyFilterResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCreateVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeCreateVocabularyResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeDeleteCallAnalyticsCategoryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeDeleteCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeDeleteCallAnalyticsJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeDeleteCallAnalyticsJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteLanguageModelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDeleteMedicalVocabularyRequest API_AVAILABLE(ios(11));
@@ -36,6 +48,10 @@
 - (void) test_AWSTranscribeDeleteVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDescribeLanguageModelRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeDescribeLanguageModelResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetCallAnalyticsCategoryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetCallAnalyticsJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeGetCallAnalyticsJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetMedicalVocabularyRequest API_AVAILABLE(ios(11));
@@ -47,8 +63,13 @@
 - (void) test_AWSTranscribeGetVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeGetVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeInputDataConfig API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeInterruptionFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeJobExecutionSettings API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeLanguageModel API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListCallAnalyticsCategoriesRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListCallAnalyticsCategoriesResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListCallAnalyticsJobsRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeListCallAnalyticsJobsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListLanguageModelsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListLanguageModelsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeListMedicalTranscriptionJobsRequest API_AVAILABLE(ios(11));
@@ -67,14 +88,23 @@
 - (void) test_AWSTranscribeMedicalTranscriptionJobSummary API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeMedicalTranscriptionSetting API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeModelSettings API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeNonTalkTimeFilter API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeRelativeTimeRange API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeRule API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeSentimentFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeSettings API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeStartCallAnalyticsJobRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeStartCallAnalyticsJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeStartTranscriptionJobResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscript API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeTranscriptFilter API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptionJob API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeTranscriptionJobSummary API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeUpdateCallAnalyticsCategoryRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTranscribeUpdateCallAnalyticsCategoryResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateMedicalVocabularyRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateMedicalVocabularyResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTranscribeUpdateVocabularyFilterRequest API_AVAILABLE(ios(11));
@@ -88,8 +118,40 @@
 
 @implementation AWSTranscribeNSSecureCodingTests
 
+- (void) test_AWSTranscribeAbsoluteTimeRange {
+    [self validateSecureCodingForClass:[AWSTranscribeAbsoluteTimeRange class]];
+}
+
+- (void) test_AWSTranscribeCallAnalyticsJob {
+    [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJob class]];
+}
+
+- (void) test_AWSTranscribeCallAnalyticsJobSettings {
+    [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJobSettings class]];
+}
+
+- (void) test_AWSTranscribeCallAnalyticsJobSummary {
+    [self validateSecureCodingForClass:[AWSTranscribeCallAnalyticsJobSummary class]];
+}
+
+- (void) test_AWSTranscribeCategoryProperties {
+    [self validateSecureCodingForClass:[AWSTranscribeCategoryProperties class]];
+}
+
+- (void) test_AWSTranscribeChannelDefinition {
+    [self validateSecureCodingForClass:[AWSTranscribeChannelDefinition class]];
+}
+
 - (void) test_AWSTranscribeContentRedaction {
     [self validateSecureCodingForClass:[AWSTranscribeContentRedaction class]];
+}
+
+- (void) test_AWSTranscribeCreateCallAnalyticsCategoryRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeCreateCallAnalyticsCategoryRequest class]];
+}
+
+- (void) test_AWSTranscribeCreateCallAnalyticsCategoryResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeCreateCallAnalyticsCategoryResponse class]];
 }
 
 - (void) test_AWSTranscribeCreateLanguageModelRequest {
@@ -124,6 +186,22 @@
     [self validateSecureCodingForClass:[AWSTranscribeCreateVocabularyResponse class]];
 }
 
+- (void) test_AWSTranscribeDeleteCallAnalyticsCategoryRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeDeleteCallAnalyticsCategoryRequest class]];
+}
+
+- (void) test_AWSTranscribeDeleteCallAnalyticsCategoryResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeDeleteCallAnalyticsCategoryResponse class]];
+}
+
+- (void) test_AWSTranscribeDeleteCallAnalyticsJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeDeleteCallAnalyticsJobRequest class]];
+}
+
+- (void) test_AWSTranscribeDeleteCallAnalyticsJobResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeDeleteCallAnalyticsJobResponse class]];
+}
+
 - (void) test_AWSTranscribeDeleteLanguageModelRequest {
     [self validateSecureCodingForClass:[AWSTranscribeDeleteLanguageModelRequest class]];
 }
@@ -154,6 +232,22 @@
 
 - (void) test_AWSTranscribeDescribeLanguageModelResponse {
     [self validateSecureCodingForClass:[AWSTranscribeDescribeLanguageModelResponse class]];
+}
+
+- (void) test_AWSTranscribeGetCallAnalyticsCategoryRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeGetCallAnalyticsCategoryRequest class]];
+}
+
+- (void) test_AWSTranscribeGetCallAnalyticsCategoryResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeGetCallAnalyticsCategoryResponse class]];
+}
+
+- (void) test_AWSTranscribeGetCallAnalyticsJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeGetCallAnalyticsJobRequest class]];
+}
+
+- (void) test_AWSTranscribeGetCallAnalyticsJobResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeGetCallAnalyticsJobResponse class]];
 }
 
 - (void) test_AWSTranscribeGetMedicalTranscriptionJobRequest {
@@ -200,12 +294,32 @@
     [self validateSecureCodingForClass:[AWSTranscribeInputDataConfig class]];
 }
 
+- (void) test_AWSTranscribeInterruptionFilter {
+    [self validateSecureCodingForClass:[AWSTranscribeInterruptionFilter class]];
+}
+
 - (void) test_AWSTranscribeJobExecutionSettings {
     [self validateSecureCodingForClass:[AWSTranscribeJobExecutionSettings class]];
 }
 
 - (void) test_AWSTranscribeLanguageModel {
     [self validateSecureCodingForClass:[AWSTranscribeLanguageModel class]];
+}
+
+- (void) test_AWSTranscribeListCallAnalyticsCategoriesRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeListCallAnalyticsCategoriesRequest class]];
+}
+
+- (void) test_AWSTranscribeListCallAnalyticsCategoriesResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeListCallAnalyticsCategoriesResponse class]];
+}
+
+- (void) test_AWSTranscribeListCallAnalyticsJobsRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeListCallAnalyticsJobsRequest class]];
+}
+
+- (void) test_AWSTranscribeListCallAnalyticsJobsResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeListCallAnalyticsJobsResponse class]];
 }
 
 - (void) test_AWSTranscribeListLanguageModelsRequest {
@@ -280,8 +394,32 @@
     [self validateSecureCodingForClass:[AWSTranscribeModelSettings class]];
 }
 
+- (void) test_AWSTranscribeNonTalkTimeFilter {
+    [self validateSecureCodingForClass:[AWSTranscribeNonTalkTimeFilter class]];
+}
+
+- (void) test_AWSTranscribeRelativeTimeRange {
+    [self validateSecureCodingForClass:[AWSTranscribeRelativeTimeRange class]];
+}
+
+- (void) test_AWSTranscribeRule {
+    [self validateSecureCodingForClass:[AWSTranscribeRule class]];
+}
+
+- (void) test_AWSTranscribeSentimentFilter {
+    [self validateSecureCodingForClass:[AWSTranscribeSentimentFilter class]];
+}
+
 - (void) test_AWSTranscribeSettings {
     [self validateSecureCodingForClass:[AWSTranscribeSettings class]];
+}
+
+- (void) test_AWSTranscribeStartCallAnalyticsJobRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeStartCallAnalyticsJobRequest class]];
+}
+
+- (void) test_AWSTranscribeStartCallAnalyticsJobResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeStartCallAnalyticsJobResponse class]];
 }
 
 - (void) test_AWSTranscribeStartMedicalTranscriptionJobRequest {
@@ -304,12 +442,24 @@
     [self validateSecureCodingForClass:[AWSTranscribeTranscript class]];
 }
 
+- (void) test_AWSTranscribeTranscriptFilter {
+    [self validateSecureCodingForClass:[AWSTranscribeTranscriptFilter class]];
+}
+
 - (void) test_AWSTranscribeTranscriptionJob {
     [self validateSecureCodingForClass:[AWSTranscribeTranscriptionJob class]];
 }
 
 - (void) test_AWSTranscribeTranscriptionJobSummary {
     [self validateSecureCodingForClass:[AWSTranscribeTranscriptionJobSummary class]];
+}
+
+- (void) test_AWSTranscribeUpdateCallAnalyticsCategoryRequest {
+    [self validateSecureCodingForClass:[AWSTranscribeUpdateCallAnalyticsCategoryRequest class]];
+}
+
+- (void) test_AWSTranscribeUpdateCallAnalyticsCategoryResponse {
+    [self validateSecureCodingForClass:[AWSTranscribeUpdateCallAnalyticsCategoryResponse class]];
 }
 
 - (void) test_AWSTranscribeUpdateMedicalVocabularyRequest {
