@@ -1296,6 +1296,29 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 
 @end
 
+@implementation AWSAutoScalingDesiredConfiguration
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"launchTemplate" : @"LaunchTemplate",
+             @"mixedInstancesPolicy" : @"MixedInstancesPolicy",
+             };
+}
+
++ (NSValueTransformer *)launchTemplateJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingLaunchTemplateSpecification class]];
+}
+
++ (NSValueTransformer *)mixedInstancesPolicyJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingMixedInstancesPolicy class]];
+}
+
+@end
+
 @implementation AWSAutoScalingDetachInstancesAnswer
 
 + (BOOL)supportsSecureCoding {
@@ -1851,15 +1874,21 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"desiredConfiguration" : @"DesiredConfiguration",
              @"endTime" : @"EndTime",
              @"instanceRefreshId" : @"InstanceRefreshId",
              @"instancesToUpdate" : @"InstancesToUpdate",
              @"percentageComplete" : @"PercentageComplete",
+             @"preferences" : @"Preferences",
              @"progressDetails" : @"ProgressDetails",
              @"startTime" : @"StartTime",
              @"status" : @"Status",
              @"statusReason" : @"StatusReason",
              };
+}
+
++ (NSValueTransformer *)desiredConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingDesiredConfiguration class]];
 }
 
 + (NSValueTransformer *)endTimeJSONTransformer {
@@ -1868,6 +1897,10 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
     } reverseBlock:^id(NSDate *date) {
 return [date aws_stringValue:AWSDateISO8601DateFormat1];
     }];
+}
+
++ (NSValueTransformer *)preferencesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingRefreshPreferences class]];
 }
 
 + (NSValueTransformer *)progressDetailsJSONTransformer {
@@ -2893,6 +2926,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"checkpointPercentages" : @"CheckpointPercentages",
              @"instanceWarmup" : @"InstanceWarmup",
              @"minHealthyPercentage" : @"MinHealthyPercentage",
+             @"skipMatching" : @"SkipMatching",
              };
 }
 
@@ -3141,9 +3175,14 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"autoScalingGroupName" : @"AutoScalingGroupName",
+             @"desiredConfiguration" : @"DesiredConfiguration",
              @"preferences" : @"Preferences",
              @"strategy" : @"Strategy",
              };
+}
+
++ (NSValueTransformer *)desiredConfigurationJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSAutoScalingDesiredConfiguration class]];
 }
 
 + (NSValueTransformer *)preferencesJSONTransformer {
