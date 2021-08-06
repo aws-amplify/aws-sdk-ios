@@ -41,6 +41,19 @@ typedef NS_ENUM(NSInteger, AWSConnectErrorType) {
     AWSConnectErrorUserNotFound,
 };
 
+typedef NS_ENUM(NSInteger, AWSConnectAgentStatusState) {
+    AWSConnectAgentStatusStateUnknown,
+    AWSConnectAgentStatusStateEnabled,
+    AWSConnectAgentStatusStateDisabled,
+};
+
+typedef NS_ENUM(NSInteger, AWSConnectAgentStatusType) {
+    AWSConnectAgentStatusTypeUnknown,
+    AWSConnectAgentStatusTypeRoutable,
+    AWSConnectAgentStatusTypeCustom,
+    AWSConnectAgentStatusTypeOffline,
+};
+
 typedef NS_ENUM(NSInteger, AWSConnectChannel) {
     AWSConnectChannelUnknown,
     AWSConnectChannelVoice,
@@ -508,6 +521,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
     AWSConnectVoiceRecordingTrackAll,
 };
 
+@class AWSConnectAgentStatus;
+@class AWSConnectAgentStatusSummary;
 @class AWSConnectAssociateApprovedOriginRequest;
 @class AWSConnectAssociateBotRequest;
 @class AWSConnectAssociateInstanceStorageConfigRequest;
@@ -522,8 +537,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectChatMessage;
 @class AWSConnectContactFlow;
 @class AWSConnectContactFlowSummary;
+@class AWSConnectCreateAgentStatusRequest;
+@class AWSConnectCreateAgentStatusResponse;
 @class AWSConnectCreateContactFlowRequest;
 @class AWSConnectCreateContactFlowResponse;
+@class AWSConnectCreateHoursOfOperationRequest;
+@class AWSConnectCreateHoursOfOperationResponse;
 @class AWSConnectCreateInstanceRequest;
 @class AWSConnectCreateInstanceResponse;
 @class AWSConnectCreateIntegrationAssociationRequest;
@@ -544,12 +563,15 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectCurrentMetric;
 @class AWSConnectCurrentMetricData;
 @class AWSConnectCurrentMetricResult;
+@class AWSConnectDeleteHoursOfOperationRequest;
 @class AWSConnectDeleteInstanceRequest;
 @class AWSConnectDeleteIntegrationAssociationRequest;
 @class AWSConnectDeleteQuickConnectRequest;
 @class AWSConnectDeleteUseCaseRequest;
 @class AWSConnectDeleteUserHierarchyGroupRequest;
 @class AWSConnectDeleteUserRequest;
+@class AWSConnectDescribeAgentStatusRequest;
+@class AWSConnectDescribeAgentStatusResponse;
 @class AWSConnectDescribeContactFlowRequest;
 @class AWSConnectDescribeContactFlowResponse;
 @class AWSConnectDescribeHoursOfOperationRequest;
@@ -616,6 +638,8 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectLexBot;
 @class AWSConnectLexBotConfig;
 @class AWSConnectLexV2Bot;
+@class AWSConnectListAgentStatusRequest;
+@class AWSConnectListAgentStatusResponse;
 @class AWSConnectListApprovedOriginsRequest;
 @class AWSConnectListApprovedOriginsResponse;
 @class AWSConnectListBotsRequest;
@@ -704,10 +728,12 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectTagResourceRequest;
 @class AWSConnectThreshold;
 @class AWSConnectUntagResourceRequest;
+@class AWSConnectUpdateAgentStatusRequest;
 @class AWSConnectUpdateContactAttributesRequest;
 @class AWSConnectUpdateContactAttributesResponse;
 @class AWSConnectUpdateContactFlowContentRequest;
 @class AWSConnectUpdateContactFlowNameRequest;
+@class AWSConnectUpdateHoursOfOperationRequest;
 @class AWSConnectUpdateInstanceAttributeRequest;
 @class AWSConnectUpdateInstanceStorageConfigRequest;
 @class AWSConnectUpdateQueueHoursOfOperationRequest;
@@ -735,6 +761,82 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 @class AWSConnectUserQuickConnectConfig;
 @class AWSConnectUserSummary;
 @class AWSConnectVoiceRecordingConfiguration;
+
+/**
+ <p>Contains information about an agent status.</p>
+ */
+@interface AWSConnectAgentStatus : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusARN;
+
+/**
+ <p>The identifier of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+/**
+ <p>The description of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The display order of the agent status.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable displayOrder;
+
+/**
+ <p>The name of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The state of the agent status.</p>
+ */
+@property (nonatomic, assign) AWSConnectAgentStatusState state;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The type of agent status.</p>
+ */
+@property (nonatomic, assign) AWSConnectAgentStatusType types;
+
+@end
+
+/**
+ <p>Summary information for an agent status.</p>
+ */
+@interface AWSConnectAgentStatusSummary : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable arn;
+
+/**
+ <p>The identifier for an agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable identifier;
+
+/**
+ <p>The name of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The type of the agent status.</p>
+ */
+@property (nonatomic, assign) AWSConnectAgentStatusType types;
+
+@end
 
 /**
  
@@ -1037,6 +1139,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectCreateAgentStatusRequest : AWSRequest
+
+
+/**
+ <p>The description of the status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The display order of the status.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable displayOrder;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The state of the status.</p>
+ */
+@property (nonatomic, assign) AWSConnectAgentStatusState state;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateAgentStatusResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusARN;
+
+/**
+ <p>The identifier of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectCreateContactFlowRequest : AWSRequest
 
 
@@ -1087,6 +1245,62 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable contactFlowId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateHoursOfOperationRequest : AWSRequest
+
+
+/**
+ <p>Configuration information for the hours of operation: day, start time, and end time.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationConfig *> * _Nullable config;
+
+/**
+ <p>The description of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>One or more tags.</p>
+ */
+@property (nonatomic, strong) NSDictionary<NSString *, NSString *> * _Nullable tags;
+
+/**
+ <p>The time zone of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectCreateHoursOfOperationResponse : AWSModel
+
+
+/**
+ <p>The Amazon Resource Name (ARN) for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationArn;
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
 
 @end
 
@@ -1633,6 +1847,24 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectDeleteHoursOfOperationRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectDeleteInstanceRequest : AWSRequest
 
 
@@ -1735,6 +1967,37 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The identifier of the user.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable userId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeAgentStatusRequest : AWSRequest
+
+
+/**
+ <p>The identifier for the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectDescribeAgentStatusResponse : AWSModel
+
+
+/**
+ <p>The agent status.</p>
+ */
+@property (nonatomic, strong) AWSConnectAgentStatus * _Nullable agentStatus;
 
 @end
 
@@ -2783,6 +3046,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>Contains information about the hours of operation.</p>
+ Required parameters: [Day, StartTime, EndTime]
  */
 @interface AWSConnectHoursOfOperationConfig : AWSModel
 
@@ -2829,6 +3093,7 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 
 /**
  <p>The start time or end time for an hours of operation.</p>
+ Required parameters: [Hours, Minutes]
  */
 @interface AWSConnectHoursOfOperationTimeSlice : AWSModel
 
@@ -3154,6 +3419,52 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The Amazon Resource Name (ARN) of the Amazon Lex V2 bot.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable aliasArn;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListAgentStatusRequest : AWSRequest
+
+
+/**
+ <p>Available agent status types.</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable agentStatusTypes;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The maximum number of results to return per page.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxResults;
+
+/**
+ <p>The token for the next set of results. Use the value returned in the previous response in the next request to retrieve the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectListAgentStatusResponse : AWSModel
+
+
+/**
+ <p>A summary of agent statuses.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectAgentStatusSummary *> * _Nullable agentStatusSummaryList;
+
+/**
+ <p>If there are additional results, this is the token for the next set of results.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable nextToken;
 
 @end
 
@@ -5115,6 +5426,49 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
 /**
  
  */
+@interface AWSConnectUpdateAgentStatusRequest : AWSRequest
+
+
+/**
+ <p>The identifier of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable agentStatusId;
+
+/**
+ <p>The description of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The display order of the agent status.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable displayOrder;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the agent status.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>A number indicating the reset order of the agent status.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable resetOrderNumber;
+
+/**
+ <p>The state of the agent status.</p>
+ */
+@property (nonatomic, assign) AWSConnectAgentStatusState state;
+
+@end
+
+/**
+ 
+ */
 @interface AWSConnectUpdateContactAttributesRequest : AWSRequest
 
 
@@ -5191,6 +5545,44 @@ typedef NS_ENUM(NSInteger, AWSConnectVoiceRecordingTrack) {
  <p>The name of the contact flow.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable name;
+
+@end
+
+/**
+ 
+ */
+@interface AWSConnectUpdateHoursOfOperationRequest : AWSRequest
+
+
+/**
+ <p>Configuration information of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSConnectHoursOfOperationConfig *> * _Nullable config;
+
+/**
+ <p>The description of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable detail;
+
+/**
+ <p>The identifier of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable hoursOfOperationId;
+
+/**
+ <p>The identifier of the Amazon Connect instance. You can find the instanceId in the ARN of the instance.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable instanceId;
+
+/**
+ <p>The name of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable name;
+
+/**
+ <p>The time zone of the hours of operation.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable timeZone;
 
 @end
 
