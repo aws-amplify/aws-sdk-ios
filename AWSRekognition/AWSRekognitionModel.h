@@ -226,12 +226,22 @@ typedef NS_ENUM(NSInteger, AWSRekognitionTechnicalCueType) {
     AWSRekognitionTechnicalCueTypeColorBars,
     AWSRekognitionTechnicalCueTypeEndCredits,
     AWSRekognitionTechnicalCueTypeBlackFrames,
+    AWSRekognitionTechnicalCueTypeOpeningCredits,
+    AWSRekognitionTechnicalCueTypeStudioLogo,
+    AWSRekognitionTechnicalCueTypeSlate,
+    AWSRekognitionTechnicalCueTypeContent,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionTextTypes) {
     AWSRekognitionTextTypesUnknown,
     AWSRekognitionTextTypesLine,
     AWSRekognitionTextTypesWord,
+};
+
+typedef NS_ENUM(NSInteger, AWSRekognitionVideoColorRange) {
+    AWSRekognitionVideoColorRangeUnknown,
+    AWSRekognitionVideoColorRangeFull,
+    AWSRekognitionVideoColorRangeLimited,
 };
 
 typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
@@ -245,6 +255,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @class AWSRekognitionAsset;
 @class AWSRekognitionAudioMetadata;
 @class AWSRekognitionBeard;
+@class AWSRekognitionBlackFrame;
 @class AWSRekognitionBoundingBox;
 @class AWSRekognitionCelebrity;
 @class AWSRekognitionCelebrityDetail;
@@ -507,6 +518,24 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
+ <p> A filter that allows you to control the black frame detection by specifying the black levels and pixel coverage of black pixels in a frame. As videos can come from multiple sources, formats, and time periods, they may contain different standards and varying noise levels for black frames that need to be accounted for. For more information, see <a>StartSegmentDetection</a>. </p>
+ */
+@interface AWSRekognitionBlackFrame : AWSModel
+
+
+/**
+ <p> A threshold used to determine the maximum luminance value for a pixel to be considered black. In a full color range video, luminance values range from 0-255. A pixel value of 0 is pure black, and the most strict filter. The maximum black pixel value is computed as follows: max_black_pixel_value = minimum_luminance + MaxPixelThreshold *luminance_range. </p><p>For example, for a full range video with BlackPixelThreshold = 0.1, max_black_pixel_value is 0 + 0.1 * (255-0) = 25.5.</p><p>The default value of MaxPixelThreshold is 0.2, which maps to a max_black_pixel_value of 51 for a full range video. You can lower this threshold to be more strict on black levels.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable maxPixelThreshold;
+
+/**
+ <p> The minimum percentage of pixels in a frame that need to have a luminance below the max_black_pixel_value for a frame to be considered a black frame. Luminance is calculated using the BT.709 matrix. </p><p>The default value is 99, which means at least 99% of all pixels in the frame are black pixels as per the <code>MaxPixelThreshold</code> set. You can reduce this value to allow more noise on the black frame.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable minCoveragePercentage;
+
+@end
+
+/**
  <p>Identifies the bounding box around the label, face, text or personal protective equipment. The <code>left</code> (x-coordinate) and <code>top</code> (y-coordinate) are coordinates representing the top and left sides of the bounding box. Note that the upper-left corner of the image is the origin (0,0). </p><p>The <code>top</code> and <code>left</code> values returned are ratios of the overall image size. For example, if the input image is 700x200 pixels, and the top-left coordinate of the bounding box is 350x50 pixels, the API returns a <code>left</code> value of 0.5 (350/700) and a <code>top</code> value of 0.25 (50/200).</p><p>The <code>width</code> and <code>height</code> values represent the dimensions of the bounding box as a ratio of the overall image dimension. For example, if the input image is 700x200 pixels, and the bounding box width is 70 pixels, the width returned is 0.1. </p><note><p> The bounding box coordinates can have negative values. For example, if Amazon Rekognition is able to detect a face that is at the image edge and is only partially visible, the service can return coordinates that are outside the image bounds and, depending on the image edge, you might get negative values or values greater than 1 for the <code>left</code> or <code>top</code> values. </p></note>
  */
 @interface AWSRekognitionBoundingBox : AWSModel
@@ -754,18 +783,18 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Information about an unsafe content label detection in a stored video.</p>
+ <p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>
  */
 @interface AWSRekognitionContentModerationDetection : AWSModel
 
 
 /**
- <p>The unsafe content label detected by in the stored video.</p>
+ <p>The content moderation label detected by in the stored video.</p>
  */
 @property (nonatomic, strong) AWSRekognitionModerationLabel * _Nullable moderationLabel;
 
 /**
- <p>Time, in milliseconds from the beginning of the video, that the unsafe content label was detected.</p>
+ <p>Time, in milliseconds from the beginning of the video, that the content moderation label was detected.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable timestamp;
 
@@ -863,12 +892,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK). You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, or an alias for your CMK. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
+ <p>The identifier for your AWS Key Management Service (AWS KMS) customer master key (CMK). You can supply the Amazon Resource Name (ARN) of your CMK, the ID of your CMK, an alias for your CMK, or an alias ARN. The key is used to encrypt training and test images copied into the service for model training. Your source images are unaffected. The key is also used to encrypt training results and manifest files written to the output Amazon S3 bucket (<code>OutputConfig</code>).</p><p>If you choose to use your own CMK, you need the following permissions on the CMK.</p><ul><li><p>kms:CreateGrant</p></li><li><p>kms:DescribeKey</p></li><li><p>kms:GenerateDataKey</p></li><li><p>kms:Decrypt</p></li></ul><p>If you don't specify a value for <code>KmsKeyId</code>, images copied into the service are encrypted using a key that AWS owns and manages.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable kmsKeyId;
 
 /**
- <p>The Amazon S3 location to store the results of training.</p>
+ <p>The Amazon S3 bucket location to store the results of training. The S3 bucket can be in any AWS account as long as the caller has <code>s3:PutObject</code> permissions on the S3 bucket.</p>
  */
 @property (nonatomic, strong) AWSRekognitionOutputConfig * _Nullable outputConfig;
 
@@ -2020,7 +2049,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for the unsafe content job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
+ <p>The identifier for the inappropriate, unwanted, or offensive content moderation job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -2030,7 +2059,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable maxResults;
 
 /**
- <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of unsafe content labels.</p>
+ <p>If the previous response was incomplete (because there is more data to retrieve), Amazon Rekognition returns a pagination token in the response. You can use this pagination token to retrieve the next set of content moderation labels.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2048,22 +2077,22 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The current status of the unsafe content analysis job.</p>
+ <p>The current status of the content moderation analysis job.</p>
  */
 @property (nonatomic, assign) AWSRekognitionVideoJobStatus jobStatus;
 
 /**
- <p>The detected unsafe content labels and the time(s) they were detected.</p>
+ <p>The detected inappropriate, unwanted, or offensive content moderation labels and the time(s) they were detected.</p>
  */
 @property (nonatomic, strong) NSArray<AWSRekognitionContentModerationDetection *> * _Nullable moderationLabels;
 
 /**
- <p>Version number of the moderation detection model that was used to detect unsafe content.</p>
+ <p>Version number of the moderation detection model that was used to detect inappropriate, unwanted, or offensive content.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable moderationModelVersion;
 
 /**
- <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of unsafe content labels. </p>
+ <p>If the response is truncated, Amazon Rekognition Video returns this token that you can use in the subsequent request to retrieve the next set of content moderation labels. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable nextToken;
 
@@ -2888,7 +2917,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>Provides information about a single type of unsafe content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+ <p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
  */
 @interface AWSRekognitionModerationLabel : AWSModel
 
@@ -2947,7 +2976,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @end
 
 /**
- <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>.</p>
+ <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
  Required parameters: [SNSTopicArn, RoleArn]
  */
 @interface AWSRekognitionNotificationChannel : AWSModel
@@ -3481,6 +3510,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p> The duration of a video segment, expressed in frames. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable durationFrames;
+
+/**
  <p>The duration of the detected segment in milliseconds. </p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable durationMillis;
@@ -3489,6 +3523,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>The duration of the timecode for the detected segment in SMPTE format.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable durationSMPTE;
+
+/**
+ <p> The frame number at the end of a video segment, using a frame index that starts with 0. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable endFrameNumber;
 
 /**
  <p>The frame-accurate SMPTE timecode, from the start of a video, for the end of a detected segment. <code>EndTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates).</p>
@@ -3504,6 +3543,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>If the segment is a shot detection, contains information about the shot detection.</p>
  */
 @property (nonatomic, strong) AWSRekognitionShotSegment * _Nullable shotSegment;
+
+/**
+ <p> The frame number of the start of a video segment, using a frame index that starts with 0. </p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable startFrameNumber;
 
 /**
  <p>The frame-accurate SMPTE timecode, from the start of a video, for the start of a detected segment. <code>StartTimecode</code> is in <i>HH:MM:SS:fr</i> format (and <i>;fr</i> for drop frame-rates). </p>
@@ -3598,7 +3642,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to.</p>
+ <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the celebrity recognition analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3644,12 +3688,12 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the unsafe content analysis to.</p>
+ <p>The Amazon SNS topic ARN that you want Amazon Rekognition Video to publish the completion status of the content analysis to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
 /**
- <p>The video in which you want to detect unsafe content. The video must be stored in an Amazon S3 bucket.</p>
+ <p>The video in which you want to detect inappropriate, unwanted, or offensive content. The video must be stored in an Amazon S3 bucket.</p>
  */
 @property (nonatomic, strong) AWSRekognitionVideo * _Nullable video;
 
@@ -3662,7 +3706,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
- <p>The identifier for the unsafe content analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
+ <p>The identifier for the content analysis job. Use <code>JobId</code> to identify the job in a subsequent call to <code>GetContentModeration</code>.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
 
@@ -3690,7 +3734,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation.</p>
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the face detection operation. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3741,7 +3785,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. </p>
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the search. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3787,7 +3831,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSNumber * _Nullable minConfidence;
 
 /**
- <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. </p>
+ <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the label detection operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3828,7 +3872,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to.</p>
+ <p>The Amazon SNS topic ARN you want Amazon Rekognition Video to publish the completion status of the people detection operation to. The Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3923,7 +3967,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation.</p>
+ <p>The ARN of the Amazon SNS topic to which you want Amazon Rekognition Video to publish the completion status of the segment detection operation. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -3993,6 +4037,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 
 
 /**
+ <p> A filter that allows you to control the black frame detection by specifying the black levels and pixel coverage of black pixels in a frame. Videos can come from multiple sources, formats, and time periods, with different standards and varying noise levels for black frames that need to be accounted for. </p>
+ */
+@property (nonatomic, strong) AWSRekognitionBlackFrame * _Nullable blackFrame;
+
+/**
  <p>Specifies the minimum confidence that Amazon Rekognition Video must have in order to return a detected segment. Confidence represents how certain Amazon Rekognition is that a segment is correctly identified. 0 is the lowest confidence. 100 is the highest confidence. Amazon Rekognition Video doesn't return any segments with a confidence level lower than this specified value.</p><p>If you don't specify <code>MinSegmentConfidence</code>, <code>GetSegmentDetection</code> returns segments with confidence values greater than or equal to 50 percent.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable minSegmentConfidence;
@@ -4039,7 +4088,7 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
 @property (nonatomic, strong) NSString * _Nullable jobTag;
 
 /**
- <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>.</p>
+ <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
  */
 @property (nonatomic, strong) AWSRekognitionNotificationChannel * _Nullable notificationChannel;
 
@@ -4455,6 +4504,11 @@ typedef NS_ENUM(NSInteger, AWSRekognitionVideoJobStatus) {
  <p>Type of compression used in the analyzed video. </p>
  */
 @property (nonatomic, strong) NSString * _Nullable codec;
+
+/**
+ <p> A description of the range of luminance values in a video, either LIMITED (16 to 235) or FULL (0 to 255). </p>
+ */
+@property (nonatomic, assign) AWSRekognitionVideoColorRange colorRange;
 
 /**
  <p>Length of the video in milliseconds.</p>

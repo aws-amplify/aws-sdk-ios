@@ -83,6 +83,21 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 @end
 
+@implementation AWSRekognitionBlackFrame
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"maxPixelThreshold" : @"MaxPixelThreshold",
+             @"minCoveragePercentage" : @"MinCoveragePercentage",
+             };
+}
+
+@end
+
 @implementation AWSRekognitionBoundingBox
 
 + (BOOL)supportsSecureCoding {
@@ -3799,11 +3814,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"durationFrames" : @"DurationFrames",
              @"durationMillis" : @"DurationMillis",
              @"durationSMPTE" : @"DurationSMPTE",
+             @"endFrameNumber" : @"EndFrameNumber",
              @"endTimecodeSMPTE" : @"EndTimecodeSMPTE",
              @"endTimestampMillis" : @"EndTimestampMillis",
              @"shotSegment" : @"ShotSegment",
+             @"startFrameNumber" : @"StartFrameNumber",
              @"startTimecodeSMPTE" : @"StartTimecodeSMPTE",
              @"startTimestampMillis" : @"StartTimestampMillis",
              @"technicalCueSegment" : @"TechnicalCueSegment",
@@ -4365,8 +4383,13 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"blackFrame" : @"BlackFrame",
              @"minSegmentConfidence" : @"MinSegmentConfidence",
              };
+}
+
++ (NSValueTransformer *)blackFrameJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBlackFrame class]];
 }
 
 @end
@@ -4729,6 +4752,18 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
         if ([value caseInsensitiveCompare:@"BlackFrames"] == NSOrderedSame) {
             return @(AWSRekognitionTechnicalCueTypeBlackFrames);
         }
+        if ([value caseInsensitiveCompare:@"OpeningCredits"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeOpeningCredits);
+        }
+        if ([value caseInsensitiveCompare:@"StudioLogo"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeStudioLogo);
+        }
+        if ([value caseInsensitiveCompare:@"Slate"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeSlate);
+        }
+        if ([value caseInsensitiveCompare:@"Content"] == NSOrderedSame) {
+            return @(AWSRekognitionTechnicalCueTypeContent);
+        }
         return @(AWSRekognitionTechnicalCueTypeUnknown);
     } reverseBlock:^NSString *(NSNumber *value) {
         switch ([value integerValue]) {
@@ -4738,6 +4773,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
                 return @"EndCredits";
             case AWSRekognitionTechnicalCueTypeBlackFrames:
                 return @"BlackFrames";
+            case AWSRekognitionTechnicalCueTypeOpeningCredits:
+                return @"OpeningCredits";
+            case AWSRekognitionTechnicalCueTypeStudioLogo:
+                return @"StudioLogo";
+            case AWSRekognitionTechnicalCueTypeSlate:
+                return @"Slate";
+            case AWSRekognitionTechnicalCueTypeContent:
+                return @"Content";
             default:
                 return nil;
         }
@@ -4989,12 +5032,34 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
              @"codec" : @"Codec",
+             @"colorRange" : @"ColorRange",
              @"durationMillis" : @"DurationMillis",
              @"format" : @"Format",
              @"frameHeight" : @"FrameHeight",
              @"frameRate" : @"FrameRate",
              @"frameWidth" : @"FrameWidth",
              };
+}
+
++ (NSValueTransformer *)colorRangeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"FULL"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoColorRangeFull);
+        }
+        if ([value caseInsensitiveCompare:@"LIMITED"] == NSOrderedSame) {
+            return @(AWSRekognitionVideoColorRangeLimited);
+        }
+        return @(AWSRekognitionVideoColorRangeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionVideoColorRangeFull:
+                return @"FULL";
+            case AWSRekognitionVideoColorRangeLimited:
+                return @"LIMITED";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end
