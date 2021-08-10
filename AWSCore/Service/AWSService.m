@@ -308,6 +308,8 @@ static NSString *const AWSServiceNameTranscribe = @"transcribe";
 static NSString *const AWSServiceNameTranscribeStreaming = @"transcribe";
 static NSString *const AWSServiceNameTranslate = @"translate";
 static NSString *const AWSServiceNameLocation = @"location";
+static NSString *const AWSServiceNameChimeSDKMessaging = @"chime";
+static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
 
 @interface AWSEndpoint()
 
@@ -576,6 +578,10 @@ static NSString *const AWSServiceNameLocation = @"location";
             return AWSServiceNameTranslate;
         case AWSServiceLocation:
             return AWSServiceNameLocation;
+        case AWSServiceChimeSDKMessaging:
+            return AWSServiceNameChimeSDKMessaging;
+        case AWSServiceChimeSDKIdentity:
+            return AWSServiceNameChimeSDKIdentity;
         default:
             return nil;
     }

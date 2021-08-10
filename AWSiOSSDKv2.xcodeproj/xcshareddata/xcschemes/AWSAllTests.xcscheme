@@ -1754,6 +1754,26 @@
                ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
             </BuildableReference>
          </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211FFCEC26C306E000F0DB75"
+               BuildableName = "AWSChimeSDKIdentityUnitTests.xctest"
+               BlueprintName = "AWSChimeSDKIdentityUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
+         <TestableReference
+            skipped = "NO">
+            <BuildableReference
+               BuildableIdentifier = "primary"
+               BlueprintIdentifier = "211FFCDD26C3069900F0DB75"
+               BuildableName = "AWSChimeSDKMessagingUnitTests.xctest"
+               BlueprintName = "AWSChimeSDKMessagingUnitTests"
+               ReferencedContainer = "container:AWSiOSSDKv2.xcodeproj">
+            </BuildableReference>
+         </TestableReference>
       </Testables>
    </TestAction>
    <LaunchAction
