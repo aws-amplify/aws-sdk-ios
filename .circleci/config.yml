@@ -1124,6 +1124,26 @@ workflows:
             branches:
               ignore: bump_sdk_version
 
+      - unit_test:
+          scheme: AWSChimeSDKMessaging
+          name: unit_test_AWSChimeSDKMessaging
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
+      - unit_test:
+          scheme: AWSChimeSDKIdentity
+          name: unit_test_AWSChimeSDKIdentity
+          requires:
+            - build
+            - build_test_host_apps
+          filters:
+            branches:
+              ignore: bump_sdk_version
+
       - create_pullrequest_for_modelupdate:
           filters:
             branches:

@@ -19,6 +19,8 @@ grouped_frameworks = [
         # Service-API packages depend only on AWSCore
         "AWSAPIGateway",
         "AWSAutoScaling",
+        "AWSChimeSDKIdentity",
+        "AWSChimeSDKMessaging",
         "AWSCloudWatch",
         "AWSComprehend",
         "AWSConnect",
