@@ -20,6 +20,8 @@
 
 ## 2.24.4
 
+### Features
+
 - **AWSMobileClient**
   - Sign out with revoke token ([PR #3638](https://github.com/aws-amplify/aws-sdk-ios/pull/3638))
 
