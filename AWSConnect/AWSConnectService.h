@@ -357,6 +357,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)associateSecurityKey:(AWSConnectAssociateSecurityKeyRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectAssociateSecurityKeyResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates an agent status for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAgentStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateAgentStatusResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateAgentStatusRequest
+ @see AWSConnectCreateAgentStatusResponse
+ */
+- (AWSTask<AWSConnectCreateAgentStatusResponse *> *)createAgentStatus:(AWSConnectCreateAgentStatusRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates an agent status for the specified Amazon Connect instance.</p>
+ 
+ @param request A container for the necessary parameters to execute the CreateAgentStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateAgentStatusRequest
+ @see AWSConnectCreateAgentStatusResponse
+ */
+- (void)createAgentStatus:(AWSConnectCreateAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateAgentStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Creates a contact flow for the specified Amazon Connect instance.</p><p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
  
  @param request A container for the necessary parameters to execute the CreateContactFlow service method.
@@ -380,6 +405,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectCreateContactFlowResponse
  */
 - (void)createContactFlow:(AWSConnectCreateContactFlowRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateContactFlowResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates hours of operation. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateHoursOfOperation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectCreateHoursOfOperationResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateHoursOfOperationRequest
+ @see AWSConnectCreateHoursOfOperationResponse
+ */
+- (AWSTask<AWSConnectCreateHoursOfOperationResponse *> *)createHoursOfOperation:(AWSConnectCreateHoursOfOperationRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Creates hours of operation. </p>
+ 
+ @param request A container for the necessary parameters to execute the CreateHoursOfOperation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectCreateHoursOfOperationRequest
+ @see AWSConnectCreateHoursOfOperationResponse
+ */
+- (void)createHoursOfOperation:(AWSConnectCreateHoursOfOperationRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateHoursOfOperationResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Initiates an Amazon Connect instance with all the supported channels enabled. It does not attach any storage, such as Amazon Simple Storage Service (Amazon S3) or Amazon Kinesis. It also does not allow for any configurations on features, such as Contact Lens for Amazon Connect. </p><p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.</p>
@@ -582,6 +632,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)createUserHierarchyGroup:(AWSConnectCreateUserHierarchyGroupRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectCreateUserHierarchyGroupResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an hours of operation.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteHoursOfOperation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteHoursOfOperationRequest
+ */
+- (AWSTask *)deleteHoursOfOperation:(AWSConnectDeleteHoursOfOperationRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes an hours of operation.</p>
+ 
+ @param request A container for the necessary parameters to execute the DeleteHoursOfOperation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDeleteHoursOfOperationRequest
+ */
+- (void)deleteHoursOfOperation:(AWSConnectDeleteHoursOfOperationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Deletes the Amazon Connect instance.</p><p>Amazon Connect enforces a limit on the total number of instances that you can create or delete in 30 days. If you exceed this limit, you will get an error message indicating there has been an excessive number of attempts at creating or deleting instances. You must wait 30 days before you can restart creating and deleting instances in your account.</p>
  
  @param request A container for the necessary parameters to execute the DeleteInstance service method.
@@ -712,6 +784,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectDeleteUserHierarchyGroupRequest
  */
 - (void)deleteUserHierarchyGroup:(AWSConnectDeleteUserHierarchyGroupRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes an agent status.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAgentStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectDescribeAgentStatusResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeAgentStatusRequest
+ @see AWSConnectDescribeAgentStatusResponse
+ */
+- (AWSTask<AWSConnectDescribeAgentStatusResponse *> *)describeAgentStatus:(AWSConnectDescribeAgentStatusRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Describes an agent status.</p>
+ 
+ @param request A container for the necessary parameters to execute the DescribeAgentStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectDescribeAgentStatusRequest
+ @see AWSConnectDescribeAgentStatusResponse
+ */
+- (void)describeAgentStatus:(AWSConnectDescribeAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectDescribeAgentStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Describes the specified contact flow.</p><p>You can also create and update contact flows using the <a href="https://docs.aws.amazon.com/connect/latest/adminguide/flow-language.html">Amazon Connect Flow language</a>.</p>
@@ -1263,6 +1360,31 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectGetMetricDataResponse
  */
 - (void)getMetricData:(AWSConnectGetMetricDataRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectGetMetricDataResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Lists agent statuses.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAgentStatuses service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSConnectListAgentStatusResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListAgentStatusRequest
+ @see AWSConnectListAgentStatusResponse
+ */
+- (AWSTask<AWSConnectListAgentStatusResponse *> *)listAgentStatuses:(AWSConnectListAgentStatusRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Lists agent statuses.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListAgentStatuses service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectListAgentStatusRequest
+ @see AWSConnectListAgentStatusResponse
+ */
+- (void)listAgentStatuses:(AWSConnectListAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectListAgentStatusResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Returns a paginated list of all approved origins associated with the instance.</p>
@@ -2040,7 +2162,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (void)suspendContactRecording:(AWSConnectSuspendContactRecordingRequest *)request completionHandler:(void (^ _Nullable)(AWSConnectSuspendContactRecordingResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, and contact flows.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, and hours of operation.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
 
@@ -2051,7 +2173,7 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
 - (AWSTask *)tagResource:(AWSConnectTagResourceRequest *)request;
 
 /**
- <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, and contact flows.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
+ <p>Adds the specified tags to the specified resource.</p><p>The supported resource types are users, routing profiles, queues, quick connects, contact flows, agent status, and hours of operation.</p><p>For sample policies that use tags, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/security_iam_id-based-policy-examples.html">Amazon Connect Identity-Based Policy Examples</a> in the <i>Amazon Connect Administrator Guide</i>.</p>
  
  @param request A container for the necessary parameters to execute the TagResource service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -2082,6 +2204,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUntagResourceRequest
  */
 - (void)untagResource:(AWSConnectUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates agent status.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAgentStatus service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateAgentStatusRequest
+ */
+- (AWSTask *)updateAgentStatus:(AWSConnectUpdateAgentStatusRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates agent status.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateAgentStatus service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorDuplicateResource`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorLimitExceeded`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateAgentStatusRequest
+ */
+- (void)updateAgentStatus:(AWSConnectUpdateAgentStatusRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>Creates or updates user-defined contact attributes associated with the specified contact.</p><p>You can create or update user-defined attributes for both ongoing and completed contacts. For example, while the call is active, you can update the customer's name or the reason the customer called. You can add notes about steps that the agent took during the call that display to the next agent that takes the call. You can also update attributes for a contact using data from your CRM application and save the data with the contact in Amazon Connect. You could also flag calls for additional analysis, such as legal review or to identify abusive callers.</p><p>Contact attributes are available in Amazon Connect for 24 months, and are then deleted. For information about CTR retention and the maximum size of the CTR attributes section, see <a href="https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-service-limits.html#feature-limits">Feature specifications</a> in the <i>Amazon Connect Administrator Guide</i>. </p><p><b>Important:</b> You cannot use the operation to update attributes for contacts that occurred prior to the release of the API, which was September 12, 2018. You can update attributes only for contacts that started after the release of the API. If you attempt to update attributes for a contact that occurred prior to the release of the API, a 400 error is returned. This applies also to queued callbacks that were initiated prior to the release of the API but are still active in your instance.</p>
@@ -2151,6 +2295,28 @@ FOUNDATION_EXPORT NSString *const AWSConnectSDKVersion;
  @see AWSConnectUpdateContactFlowNameRequest
  */
 - (void)updateContactFlowName:(AWSConnectUpdateContactFlowNameRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateHoursOfOperation service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will be `nil`. On failed execution, `task.error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateHoursOfOperationRequest
+ */
+- (AWSTask *)updateHoursOfOperation:(AWSConnectUpdateHoursOfOperationRequest *)request;
+
+/**
+ <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the hours of operation.</p>
+ 
+ @param request A container for the necessary parameters to execute the UpdateHoursOfOperation service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSConnectErrorDomain` domain and the following error code: `AWSConnectErrorDuplicateResource`, `AWSConnectErrorInvalidRequest`, `AWSConnectErrorInvalidParameter`, `AWSConnectErrorResourceNotFound`, `AWSConnectErrorThrottling`, `AWSConnectErrorInternalService`.
+ 
+ @see AWSConnectUpdateHoursOfOperationRequest
+ */
+- (void)updateHoursOfOperation:(AWSConnectUpdateHoursOfOperationRequest *)request completionHandler:(void (^ _Nullable)(NSError * _Nullable error))completionHandler;
 
 /**
  <p>This API is in preview release for Amazon Connect and is subject to change.</p><p>Updates the value for the specified attribute type.</p>

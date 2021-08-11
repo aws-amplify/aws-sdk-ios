@@ -19,6 +19,8 @@
 
 @interface AWSConnectNSSecureCodingTests : AWSNSSecureCodingTest
 
+- (void) test_AWSConnectAgentStatus API_AVAILABLE(ios(11));
+- (void) test_AWSConnectAgentStatusSummary API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateApprovedOriginRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateBotRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectAssociateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
@@ -33,8 +35,12 @@
 - (void) test_AWSConnectChatMessage API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlow API_AVAILABLE(ios(11));
 - (void) test_AWSConnectContactFlowSummary API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateAgentStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateAgentStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateContactFlowResponse API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateHoursOfOperationRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectCreateHoursOfOperationResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateInstanceResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCreateIntegrationAssociationRequest API_AVAILABLE(ios(11));
@@ -55,12 +61,15 @@
 - (void) test_AWSConnectCurrentMetric API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricData API_AVAILABLE(ios(11));
 - (void) test_AWSConnectCurrentMetricResult API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDeleteHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteInstanceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteIntegrationAssociationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteQuickConnectRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUseCaseRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserHierarchyGroupRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDeleteUserRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeAgentStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectDescribeAgentStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeContactFlowResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectDescribeHoursOfOperationRequest API_AVAILABLE(ios(11));
@@ -127,6 +136,8 @@
 - (void) test_AWSConnectLexBot API_AVAILABLE(ios(11));
 - (void) test_AWSConnectLexBotConfig API_AVAILABLE(ios(11));
 - (void) test_AWSConnectLexV2Bot API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListAgentStatusRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectListAgentStatusResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListApprovedOriginsResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectListBotsRequest API_AVAILABLE(ios(11));
@@ -215,10 +226,12 @@
 - (void) test_AWSConnectTagResourceRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectThreshold API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUntagResourceRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateAgentStatusRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactAttributesResponse API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowContentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateContactFlowNameRequest API_AVAILABLE(ios(11));
+- (void) test_AWSConnectUpdateHoursOfOperationRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceAttributeRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateInstanceStorageConfigRequest API_AVAILABLE(ios(11));
 - (void) test_AWSConnectUpdateQueueHoursOfOperationRequest API_AVAILABLE(ios(11));
@@ -250,6 +263,14 @@
 @end
 
 @implementation AWSConnectNSSecureCodingTests
+
+- (void) test_AWSConnectAgentStatus {
+    [self validateSecureCodingForClass:[AWSConnectAgentStatus class]];
+}
+
+- (void) test_AWSConnectAgentStatusSummary {
+    [self validateSecureCodingForClass:[AWSConnectAgentStatusSummary class]];
+}
 
 - (void) test_AWSConnectAssociateApprovedOriginRequest {
     [self validateSecureCodingForClass:[AWSConnectAssociateApprovedOriginRequest class]];
@@ -307,12 +328,28 @@
     [self validateSecureCodingForClass:[AWSConnectContactFlowSummary class]];
 }
 
+- (void) test_AWSConnectCreateAgentStatusRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateAgentStatusRequest class]];
+}
+
+- (void) test_AWSConnectCreateAgentStatusResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateAgentStatusResponse class]];
+}
+
 - (void) test_AWSConnectCreateContactFlowRequest {
     [self validateSecureCodingForClass:[AWSConnectCreateContactFlowRequest class]];
 }
 
 - (void) test_AWSConnectCreateContactFlowResponse {
     [self validateSecureCodingForClass:[AWSConnectCreateContactFlowResponse class]];
+}
+
+- (void) test_AWSConnectCreateHoursOfOperationRequest {
+    [self validateSecureCodingForClass:[AWSConnectCreateHoursOfOperationRequest class]];
+}
+
+- (void) test_AWSConnectCreateHoursOfOperationResponse {
+    [self validateSecureCodingForClass:[AWSConnectCreateHoursOfOperationResponse class]];
 }
 
 - (void) test_AWSConnectCreateInstanceRequest {
@@ -395,6 +432,10 @@
     [self validateSecureCodingForClass:[AWSConnectCurrentMetricResult class]];
 }
 
+- (void) test_AWSConnectDeleteHoursOfOperationRequest {
+    [self validateSecureCodingForClass:[AWSConnectDeleteHoursOfOperationRequest class]];
+}
+
 - (void) test_AWSConnectDeleteInstanceRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteInstanceRequest class]];
 }
@@ -417,6 +458,14 @@
 
 - (void) test_AWSConnectDeleteUserRequest {
     [self validateSecureCodingForClass:[AWSConnectDeleteUserRequest class]];
+}
+
+- (void) test_AWSConnectDescribeAgentStatusRequest {
+    [self validateSecureCodingForClass:[AWSConnectDescribeAgentStatusRequest class]];
+}
+
+- (void) test_AWSConnectDescribeAgentStatusResponse {
+    [self validateSecureCodingForClass:[AWSConnectDescribeAgentStatusResponse class]];
 }
 
 - (void) test_AWSConnectDescribeContactFlowRequest {
@@ -681,6 +730,14 @@
 
 - (void) test_AWSConnectLexV2Bot {
     [self validateSecureCodingForClass:[AWSConnectLexV2Bot class]];
+}
+
+- (void) test_AWSConnectListAgentStatusRequest {
+    [self validateSecureCodingForClass:[AWSConnectListAgentStatusRequest class]];
+}
+
+- (void) test_AWSConnectListAgentStatusResponse {
+    [self validateSecureCodingForClass:[AWSConnectListAgentStatusResponse class]];
 }
 
 - (void) test_AWSConnectListApprovedOriginsRequest {
@@ -1035,6 +1092,10 @@
     [self validateSecureCodingForClass:[AWSConnectUntagResourceRequest class]];
 }
 
+- (void) test_AWSConnectUpdateAgentStatusRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateAgentStatusRequest class]];
+}
+
 - (void) test_AWSConnectUpdateContactAttributesRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateContactAttributesRequest class]];
 }
@@ -1049,6 +1110,10 @@
 
 - (void) test_AWSConnectUpdateContactFlowNameRequest {
     [self validateSecureCodingForClass:[AWSConnectUpdateContactFlowNameRequest class]];
+}
+
+- (void) test_AWSConnectUpdateHoursOfOperationRequest {
+    [self validateSecureCodingForClass:[AWSConnectUpdateHoursOfOperationRequest class]];
 }
 
 - (void) test_AWSConnectUpdateInstanceAttributeRequest {
