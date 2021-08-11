@@ -25,7 +25,7 @@
 #import "AWSPinpointTargetingResources.h"
 
 static NSString *const AWSInfoPinpointTargeting = @"PinpointTargeting";
-NSString *const AWSPinpointTargetingSDKVersion = @"2.24.4";
+NSString *const AWSPinpointTargetingSDKVersion = @"2.24.5";
 
 
 @interface AWSPinpointTargetingResponseSerializer : AWSJSONResponseSerializer
