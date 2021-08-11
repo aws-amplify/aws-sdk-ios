@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+-Features for next release
+
+## 2.24.5
+
 ### New Features
 
 - **AWSChimeSDK**
