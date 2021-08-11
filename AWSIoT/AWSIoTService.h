@@ -272,7 +272,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (void)associateTargetsWithJob:(AWSIoTAssociateTargetsWithJobRequest *)request completionHandler:(void (^ _Nullable)(AWSIoTAssociateTargetsWithJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Attaches a policy to the specified target.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p>
  
  @param request A container for the necessary parameters to execute the AttachPolicy service method.
 
@@ -283,7 +283,7 @@ FOUNDATION_EXPORT NSString *const AWSIoTSDKVersion;
 - (AWSTask *)attachPolicy:(AWSIoTAttachPolicyRequest *)request;
 
 /**
- <p>Attaches a policy to the specified target.</p>
+ <p>Attaches the specified policy to the specified principal (certificate or other credential).</p>
  
  @param request A container for the necessary parameters to execute the AttachPolicy service method.
  @param completionHandler The completion handler to call when the load request is complete.
