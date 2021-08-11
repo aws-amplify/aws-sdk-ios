@@ -1,18 +1,22 @@
----
-
-MOVE THIS SECTION TO THE CORRECT LOCATION
-
-### Misc. Updates
-
-- Model updates for the following services
----AWSChimeSDKMessaging
----AWSChimeSDKIdentity
----AWSConnect
 # AWS Mobile SDK for iOS CHANGELOG
 
 ## Unreleased
 
--Features for next release
+### New Features
+
+- **AWSChimeSDK**
+  - Add AWSChimeSDKMessaging and AWSChimeSDKIdentity SDK (See [PR #3711](https://github.com/aws-amplify/aws-sdk-ios/pull/3711))
+
+### Misc. Updates
+
+- Model updates for the following services
+  - AWSAutoScaling
+  - AWSRekognition
+  - AWSConnect
+  - AWSTranscribe
+  - AWSElasticLoadBalancing
+  - AWSIoT
+  - AWSTextract
 
 ## 2.24.4
 
