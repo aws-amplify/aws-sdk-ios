@@ -654,6 +654,10 @@ static NSString *const AWSServiceNameChimeSDKIdentity = @"chime";
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://participant.connect.%@.amazonaws.com", HTTPType, regionName]];
     } else if (serviceType == AWSServiceLocation) {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://geo.%@.amazonaws.com", HTTPType, regionName]];
+    } else if (serviceType == AWSServiceChimeSDKMessaging) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://messaging-chime.%@.amazonaws.com", HTTPType, regionName]];
+    } else if (serviceType == AWSServiceChimeSDKIdentity) {
+        URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://identity-chime.%@.amazonaws.com", HTTPType, regionName]];
     } else {
         URL = [NSURL URLWithString:[NSString stringWithFormat:@"%@://%@.%@.amazonaws.com", HTTPType, serviceName, regionName]];
     }

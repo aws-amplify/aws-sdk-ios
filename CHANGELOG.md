@@ -7,6 +7,11 @@
 - **AWSChimeSDK**
   - Add AWSChimeSDKMessaging and AWSChimeSDKIdentity SDK (See [PR #3711](https://github.com/aws-amplify/aws-sdk-ios/pull/3711))
 
+### Bug Fixes
+
+- **AWSChimeSDK**
+  - Use correct Chime endpoints (See [PR #3713](https://github.com/aws-amplify/aws-sdk-ios/pull/3713))
+
 ### Misc. Updates
 
 - Model updates for the following services
