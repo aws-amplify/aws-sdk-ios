@@ -80,6 +80,7 @@
 - (void) test_AWSAutoScalingDescribeTerminationPolicyTypesAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeWarmPoolAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDescribeWarmPoolType API_AVAILABLE(ios(11));
+- (void) test_AWSAutoScalingDesiredConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachInstancesAnswer API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachInstancesQuery API_AVAILABLE(ios(11));
 - (void) test_AWSAutoScalingDetachLoadBalancerTargetGroupsResultType API_AVAILABLE(ios(11));
@@ -411,6 +412,10 @@
 
 - (void) test_AWSAutoScalingDescribeWarmPoolType {
     [self validateSecureCodingForClass:[AWSAutoScalingDescribeWarmPoolType class]];
+}
+
+- (void) test_AWSAutoScalingDesiredConfiguration {
+    [self validateSecureCodingForClass:[AWSAutoScalingDesiredConfiguration class]];
 }
 
 - (void) test_AWSAutoScalingDetachInstancesAnswer {
