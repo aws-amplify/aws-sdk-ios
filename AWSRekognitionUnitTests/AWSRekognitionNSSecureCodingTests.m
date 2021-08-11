@@ -23,6 +23,7 @@
 - (void) test_AWSRekognitionAsset API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionAudioMetadata API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBeard API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionBlackFrame API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionBoundingBox API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCelebrity API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionCelebrityDetail API_AVAILABLE(ios(11));
@@ -225,6 +226,10 @@
 
 - (void) test_AWSRekognitionBeard {
     [self validateSecureCodingForClass:[AWSRekognitionBeard class]];
+}
+
+- (void) test_AWSRekognitionBlackFrame {
+    [self validateSecureCodingForClass:[AWSRekognitionBlackFrame class]];
 }
 
 - (void) test_AWSRekognitionBoundingBox {
