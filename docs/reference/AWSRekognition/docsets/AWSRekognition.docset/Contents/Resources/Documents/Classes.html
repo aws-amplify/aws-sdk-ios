@@ -17,7 +17,7 @@
     <a title="Classes  Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="index.html">AWSRekognition 2.24.4 Docs</a> (79% documented)</p>
+        <p><a href="index.html">AWSRekognition 2.24.5 Docs</a> (79% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSRekognition.xml"><img src="img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -54,6 +54,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionBeard.html">AWSRekognitionBeard</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="Classes/AWSRekognitionBlackFrame.html">AWSRekognitionBlackFrame</a>
               </li>
               <li class="nav-group-task">
                 <a href="Classes/AWSRekognitionBoundingBox.html">AWSRekognitionBoundingBox</a>
@@ -699,6 +702,9 @@
                 <a href="Enums/AWSRekognitionTextTypes.html">AWSRekognitionTextTypes</a>
               </li>
               <li class="nav-group-task">
+                <a href="Enums/AWSRekognitionVideoColorRange.html">AWSRekognitionVideoColorRange</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="Enums/AWSRekognitionVideoJobStatus.html">AWSRekognitionVideoJobStatus</a>
               </li>
             </ul>
@@ -841,6 +847,39 @@
                         <div class="language">
                           <p class="aside-title">Swift</p>
                           <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionBeard</span></code></pre>
+
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSRekognitionBlackFrame"></a>
+                    <a name="//apple_ref/objc/Class/AWSRekognitionBlackFrame" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSRekognitionBlackFrame">AWSRekognitionBlackFrame</a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p> A filter that allows you to control the black frame detection by specifying the black levels and pixel coverage of black pixels in a frame. As videos can come from multiple sources, formats, and time periods, they may contain different standards and varying noise levels for black frames that need to be accounted for. For more information, see <a>StartSegmentDetection</a>. </p>
+
+                        <a href="Classes/AWSRekognitionBlackFrame.html" class="slightly-smaller">See more</a>
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">@interface</span> <span class="nc">AWSRekognitionBlackFrame</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">class</span> <span class="kt">AWSRekognitionBlackFrame</span></code></pre>
 
                         </div>
                       </div>
@@ -1155,7 +1194,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Information about an unsafe content label detection in a stored video.</p>
+                        <p>Information about an inappropriate, unwanted, or offensive content label detection in a stored video.</p>
 
                         <a href="Classes/AWSRekognitionContentModerationDetection.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4258,7 +4297,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>Provides information about a single type of unsafe content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Detecting Unsafe Content in the Amazon Rekognition Developer Guide.</p>
+                        <p>Provides information about a single type of inappropriate, unwanted, or offensive content found in an image or video. Each type of moderated content has a label within a hierarchical taxonomy. For more information, see Content moderation in the Amazon Rekognition Developer Guide.</p>
 
                         <a href="Classes/AWSRekognitionModerationLabel.html" class="slightly-smaller">See more</a>
                       </div>
@@ -4357,7 +4396,7 @@
                     <section class="section">
                       <div class="pointer"></div>
                       <div class="abstract">
-                        <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>.</p>
+                        <p>The Amazon Simple Notification Service topic to which Amazon Rekognition publishes the completion status of a video analysis operation. For more information, see <a>api-video</a>. Note that the Amazon SNS topic must have a topic name that begins with <i>AmazonRekognition</i> if you are using the AmazonRekognitionServiceRole permissions policy to access the topic. For more information, see <a href="https://docs.aws.amazon.com/rekognition/latest/dg/api-video-roles.html#api-video-roles-all-topics">Giving access to multiple Amazon SNS topics</a>.</p>
 
 <p>Required parameters: [SNSTopicArn, RoleArn]</p>
 
@@ -6862,7 +6901,7 @@
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-07-23)</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-11)</p>
           <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
         </section>
       </article>
