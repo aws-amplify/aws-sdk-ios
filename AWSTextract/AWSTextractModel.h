@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -97,6 +97,8 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 
 @class AWSTextractAnalyzeDocumentRequest;
 @class AWSTextractAnalyzeDocumentResponse;
+@class AWSTextractAnalyzeExpenseRequest;
+@class AWSTextractAnalyzeExpenseResponse;
 @class AWSTextractBlock;
 @class AWSTextractBoundingBox;
 @class AWSTextractDetectDocumentTextRequest;
@@ -104,6 +106,10 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @class AWSTextractDocument;
 @class AWSTextractDocumentLocation;
 @class AWSTextractDocumentMetadata;
+@class AWSTextractExpenseDetection;
+@class AWSTextractExpenseDocument;
+@class AWSTextractExpenseField;
+@class AWSTextractExpenseType;
 @class AWSTextractGeometry;
 @class AWSTextractGetDocumentAnalysisRequest;
 @class AWSTextractGetDocumentAnalysisResponse;
@@ -112,6 +118,8 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @class AWSTextractHumanLoopActivationOutput;
 @class AWSTextractHumanLoopConfig;
 @class AWSTextractHumanLoopDataAttributes;
+@class AWSTextractLineItemFields;
+@class AWSTextractLineItemGroup;
 @class AWSTextractNotificationChannel;
 @class AWSTextractOutputConfig;
 @class AWSTextractPoint;
@@ -171,6 +179,37 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
  <p>Shows the results of the human in the loop evaluation.</p>
  */
 @property (nonatomic, strong) AWSTextractHumanLoopActivationOutput * _Nullable humanLoopActivationOutput;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractAnalyzeExpenseRequest : AWSRequest
+
+
+/**
+ <p>The input document, either as bytes or as an S3 object.</p><p>You pass image bytes to an Amazon Textract API operation by using the <code>Bytes</code> property. For example, you would use the <code>Bytes</code> property to pass a document loaded from a local file system. Image bytes passed by using the <code>Bytes</code> property must be base64 encoded. Your code might not need to encode document file bytes if you're using an AWS SDK to call Amazon Textract API operations. </p><p>You pass images stored in an S3 bucket to an Amazon Textract API operation by using the <code>S3Object</code> property. Documents stored in an S3 bucket don't need to be base64 encoded.</p><p>The AWS Region for the S3 bucket that contains the S3 object must match the AWS Region that you use for Amazon Textract operations.</p><p>If you use the AWS CLI to call Amazon Textract operations, passing image bytes using the Bytes property isn't supported. You must first upload the document to an Amazon S3 bucket, and then call the operation using the S3Object property.</p><p>For Amazon Textract to process an S3 object, the user must have permission to access the S3 object. </p>
+ */
+@property (nonatomic, strong) AWSTextractDocument * _Nullable document;
+
+@end
+
+/**
+ 
+ */
+@interface AWSTextractAnalyzeExpenseResponse : AWSModel
+
+
+/**
+ <p>Information about the input document.</p>
+ */
+@property (nonatomic, strong) AWSTextractDocumentMetadata * _Nullable documentMetadata;
+
+/**
+ <p>The expenses detected by Amazon Textract.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseDocument *> * _Nullable expenseDocuments;
 
 @end
 
@@ -357,6 +396,98 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
  <p>The number of pages that are detected in the document.</p>
  */
 @property (nonatomic, strong) NSNumber * _Nullable pages;
+
+@end
+
+/**
+ <p>An object used to store information about the Value or Label detected by Amazon Textract.</p>
+ */
+@interface AWSTextractExpenseDetection : AWSModel
+
+
+/**
+ <p>The confidence in detection, as a percentage</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>Information about where the following items are located on a document page: detected page, text, key-value pairs, tables, table cells, and selection elements.</p>
+ */
+@property (nonatomic, strong) AWSTextractGeometry * _Nullable geometry;
+
+/**
+ <p>The word or line of text recognized by Amazon Textract</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
+
+@end
+
+/**
+ <p>The structure holding all the information returned by AnalyzeExpense</p>
+ */
+@interface AWSTextractExpenseDocument : AWSModel
+
+
+/**
+ <p>Denotes which invoice or receipt in the document the information is coming from. First document will be 1, the second 2, and so on.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable expenseIndex;
+
+/**
+ <p>Information detected on each table of a document, seperated into <code>LineItems</code>.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractLineItemGroup *> * _Nullable lineItemGroups;
+
+/**
+ <p>Any information found outside of a table by Amazon Textract.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseField *> * _Nullable summaryFields;
+
+@end
+
+/**
+ <p>Breakdown of detected information, seperated into the catagories Type, LableDetection, and ValueDetection</p>
+ */
+@interface AWSTextractExpenseField : AWSModel
+
+
+/**
+ <p>The explicitly stated label of a detected element.</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseDetection * _Nullable labelDetection;
+
+/**
+ <p>The page number the value was detected on.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable pageNumber;
+
+/**
+ <p>The implied label of a detected element. Present alongside LabelDetection for explicit elements.</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseType * _Nullable types;
+
+/**
+ <p>The value of a detected element. Present in explicit and implicit elements.</p>
+ */
+@property (nonatomic, strong) AWSTextractExpenseDetection * _Nullable valueDetection;
+
+@end
+
+/**
+ <p>An object used to store information about the Type detected by Amazon Textract.</p>
+ */
+@interface AWSTextractExpenseType : AWSModel
+
+
+/**
+ <p>The confidence of accuracy, as a percentage.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable confidence;
+
+/**
+ <p>The word or line of text detected by Amazon Textract.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable text;
 
 @end
 
@@ -571,6 +702,37 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @end
 
 /**
+ <p>A structure that holds information about the different lines found in a document's tables.</p>
+ */
+@interface AWSTextractLineItemFields : AWSModel
+
+
+/**
+ <p>ExpenseFields used to show information from detected lines on a table.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractExpenseField *> * _Nullable lineItemExpenseFields;
+
+@end
+
+/**
+ <p>A grouping of tables which contain LineItems, with each table identified by the table's <code>LineItemGroupIndex</code>.</p>
+ */
+@interface AWSTextractLineItemGroup : AWSModel
+
+
+/**
+ <p>The number used to identify a specific table in a document. The first table encountered will have a LineItemGroupIndex of 1, the second 2, etc.</p>
+ */
+@property (nonatomic, strong) NSNumber * _Nullable lineItemGroupIndex;
+
+/**
+ <p>The breakdown of information on a particular line of a table. </p>
+ */
+@property (nonatomic, strong) NSArray<AWSTextractLineItemFields *> * _Nullable lineItems;
+
+@end
+
+/**
  <p>The Amazon Simple Notification Service (Amazon SNS) topic to which Amazon Textract publishes the completion status of an asynchronous document operation, such as <a>StartDocumentTextDetection</a>. </p>
  Required parameters: [SNSTopicArn, RoleArn]
  */
@@ -590,7 +752,7 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 @end
 
 /**
- <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p>
+ <p>Sets whether or not your output will go to a user created bucket. Used to set the name of the bucket, and the prefix on the output file.</p><p><code>OutputConfig</code> is an optional parameter which lets you adjust where your output will be placed. By default, Amazon Textract will store the results internally and can only be accessed by the Get API operations. With OutputConfig enabled, you can set the name of the bucket the output will be sent to and the file prefix of the results where you can download your results. Additionally, you can set the <code>KMSKeyID</code> parameter to a customer master key (CMK) to encrypt your output. Without this parameter set Amazon Textract will encrypt server-side using the AWS managed CMK for Amazon S3.</p><p>Decryption of Customer Content is necessary for processing of the documents by Amazon Textract. If your account is opted out under an AI services opt out policy then all unencrypted Customer Content is immediately and permanently deleted after the Customer Content has been processed by the service. No copy of of the output is retained by Amazon Textract. For information about how to opt out, see <a href="https://docs.aws.amazon.com/organizations/latest/userguide/orgs_manage_policies_ai-opt-out.html"> Managing AI services opt-out policy. </a></p><p>For more information on data privacy, see the <a href="https://aws.amazon.com/compliance/data-privacy-faq/">Data Privacy FAQ</a>.</p>
  Required parameters: [S3Bucket]
  */
 @interface AWSTextractOutputConfig : AWSModel
@@ -651,7 +813,7 @@ typedef NS_ENUM(NSInteger, AWSTextractTextType) {
 
 
 /**
- <p>The name of the S3 bucket.</p>
+ <p>The name of the S3 bucket. Note that the # character is not valid in the file name.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable bucket;
 

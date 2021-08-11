@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -67,6 +67,47 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 + (NSValueTransformer *)humanLoopActivationOutputJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractHumanLoopActivationOutput class]];
+}
+
+@end
+
+@implementation AWSTextractAnalyzeExpenseRequest
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"document" : @"Document",
+             };
+}
+
++ (NSValueTransformer *)documentJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocument class]];
+}
+
+@end
+
+@implementation AWSTextractAnalyzeExpenseResponse
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"documentMetadata" : @"DocumentMetadata",
+             @"expenseDocuments" : @"ExpenseDocuments",
+             };
+}
+
++ (NSValueTransformer *)documentMetadataJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractDocumentMetadata class]];
+}
+
++ (NSValueTransformer *)expenseDocumentsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractExpenseDocument class]];
 }
 
 @end
@@ -304,6 +345,94 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 
 @end
 
+@implementation AWSTextractExpenseDetection
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"geometry" : @"Geometry",
+             @"text" : @"Text",
+             };
+}
+
++ (NSValueTransformer *)geometryJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractGeometry class]];
+}
+
+@end
+
+@implementation AWSTextractExpenseDocument
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"expenseIndex" : @"ExpenseIndex",
+             @"lineItemGroups" : @"LineItemGroups",
+             @"summaryFields" : @"SummaryFields",
+             };
+}
+
++ (NSValueTransformer *)lineItemGroupsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractLineItemGroup class]];
+}
+
++ (NSValueTransformer *)summaryFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractExpenseField class]];
+}
+
+@end
+
+@implementation AWSTextractExpenseField
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"labelDetection" : @"LabelDetection",
+             @"pageNumber" : @"PageNumber",
+             @"types" : @"Type",
+             @"valueDetection" : @"ValueDetection",
+             };
+}
+
++ (NSValueTransformer *)labelDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractExpenseDetection class]];
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractExpenseType class]];
+}
+
++ (NSValueTransformer *)valueDetectionJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSTextractExpenseDetection class]];
+}
+
+@end
+
+@implementation AWSTextractExpenseType
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"confidence" : @"Confidence",
+             @"text" : @"Text",
+             };
+}
+
+@end
+
 @implementation AWSTextractGeometry
 
 + (BOOL)supportsSecureCoding {
@@ -531,6 +660,43 @@ NSString *const AWSTextractErrorDomain = @"com.amazonaws.AWSTextractErrorDomain"
 	return @{
              @"contentClassifiers" : @"ContentClassifiers",
              };
+}
+
+@end
+
+@implementation AWSTextractLineItemFields
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lineItemExpenseFields" : @"LineItemExpenseFields",
+             };
+}
+
++ (NSValueTransformer *)lineItemExpenseFieldsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractExpenseField class]];
+}
+
+@end
+
+@implementation AWSTextractLineItemGroup
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"lineItemGroupIndex" : @"LineItemGroupIndex",
+             @"lineItems" : @"LineItems",
+             };
+}
+
++ (NSValueTransformer *)lineItemsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSTextractLineItemFields class]];
 }
 
 @end

@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -21,6 +21,8 @@
 
 - (void) test_AWSTextractAnalyzeDocumentRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractAnalyzeDocumentResponse API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAnalyzeExpenseRequest API_AVAILABLE(ios(11));
+- (void) test_AWSTextractAnalyzeExpenseResponse API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBlock API_AVAILABLE(ios(11));
 - (void) test_AWSTextractBoundingBox API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDetectDocumentTextRequest API_AVAILABLE(ios(11));
@@ -28,6 +30,10 @@
 - (void) test_AWSTextractDocument API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentLocation API_AVAILABLE(ios(11));
 - (void) test_AWSTextractDocumentMetadata API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseDetection API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseDocument API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseField API_AVAILABLE(ios(11));
+- (void) test_AWSTextractExpenseType API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGeometry API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisRequest API_AVAILABLE(ios(11));
 - (void) test_AWSTextractGetDocumentAnalysisResponse API_AVAILABLE(ios(11));
@@ -36,6 +42,8 @@
 - (void) test_AWSTextractHumanLoopActivationOutput API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractHumanLoopDataAttributes API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLineItemFields API_AVAILABLE(ios(11));
+- (void) test_AWSTextractLineItemGroup API_AVAILABLE(ios(11));
 - (void) test_AWSTextractNotificationChannel API_AVAILABLE(ios(11));
 - (void) test_AWSTextractOutputConfig API_AVAILABLE(ios(11));
 - (void) test_AWSTextractPoint API_AVAILABLE(ios(11));
@@ -57,6 +65,14 @@
 
 - (void) test_AWSTextractAnalyzeDocumentResponse {
     [self validateSecureCodingForClass:[AWSTextractAnalyzeDocumentResponse class]];
+}
+
+- (void) test_AWSTextractAnalyzeExpenseRequest {
+    [self validateSecureCodingForClass:[AWSTextractAnalyzeExpenseRequest class]];
+}
+
+- (void) test_AWSTextractAnalyzeExpenseResponse {
+    [self validateSecureCodingForClass:[AWSTextractAnalyzeExpenseResponse class]];
 }
 
 - (void) test_AWSTextractBlock {
@@ -85,6 +101,22 @@
 
 - (void) test_AWSTextractDocumentMetadata {
     [self validateSecureCodingForClass:[AWSTextractDocumentMetadata class]];
+}
+
+- (void) test_AWSTextractExpenseDetection {
+    [self validateSecureCodingForClass:[AWSTextractExpenseDetection class]];
+}
+
+- (void) test_AWSTextractExpenseDocument {
+    [self validateSecureCodingForClass:[AWSTextractExpenseDocument class]];
+}
+
+- (void) test_AWSTextractExpenseField {
+    [self validateSecureCodingForClass:[AWSTextractExpenseField class]];
+}
+
+- (void) test_AWSTextractExpenseType {
+    [self validateSecureCodingForClass:[AWSTextractExpenseType class]];
 }
 
 - (void) test_AWSTextractGeometry {
@@ -117,6 +149,14 @@
 
 - (void) test_AWSTextractHumanLoopDataAttributes {
     [self validateSecureCodingForClass:[AWSTextractHumanLoopDataAttributes class]];
+}
+
+- (void) test_AWSTextractLineItemFields {
+    [self validateSecureCodingForClass:[AWSTextractLineItemFields class]];
+}
+
+- (void) test_AWSTextractLineItemGroup {
+    [self validateSecureCodingForClass:[AWSTextractLineItemGroup class]];
 }
 
 - (void) test_AWSTextractNotificationChannel {
