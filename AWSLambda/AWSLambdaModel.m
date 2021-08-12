@@ -506,6 +506,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -567,6 +570,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -1180,6 +1185,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -1241,6 +1249,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -2352,6 +2362,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -2413,6 +2426,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -2518,6 +2533,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -2579,6 +2597,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
@@ -3403,6 +3423,9 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
         if ([value caseInsensitiveCompare:@"python3.8"] == NSOrderedSame) {
             return @(AWSLambdaRuntimePython38);
         }
+        if ([value caseInsensitiveCompare:@"python3.9"] == NSOrderedSame) {
+            return @(AWSLambdaRuntimePython39);
+        }
         if ([value caseInsensitiveCompare:@"dotnetcore1.0"] == NSOrderedSame) {
             return @(AWSLambdaRuntimeDotnetcore10);
         }
@@ -3464,6 +3487,8 @@ NSString *const AWSLambdaErrorDomain = @"com.amazonaws.AWSLambdaErrorDomain";
                 return @"python3.7";
             case AWSLambdaRuntimePython38:
                 return @"python3.8";
+            case AWSLambdaRuntimePython39:
+                return @"python3.9";
             case AWSLambdaRuntimeDotnetcore10:
                 return @"dotnetcore1.0";
             case AWSLambdaRuntimeDotnetcore20:
