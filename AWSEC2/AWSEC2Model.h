@@ -1202,6 +1202,12 @@ typedef NS_ENUM(NSInteger, AWSEC2Ipv6SupportValue) {
     AWSEC2Ipv6SupportValueDisable,
 };
 
+typedef NS_ENUM(NSInteger, AWSEC2KeyType) {
+    AWSEC2KeyTypeUnknown,
+    AWSEC2KeyTypeRsa,
+    AWSEC2KeyTypeEd25519,
+};
+
 typedef NS_ENUM(NSInteger, AWSEC2LaunchTemplateErrorCode) {
     AWSEC2LaunchTemplateErrorCodeUnknown,
     AWSEC2LaunchTemplateErrorCodeLaunchTemplateIdDoesNotExist,
@@ -8545,6 +8551,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>A unique name for the key pair.</p><p>Constraints: Up to 255 ASCII characters</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyName;
+
+/**
+ <p>The type of key pair. Note that ED25519 keys are not supported for Windows instances, EC2 Instance Connect, and EC2 Serial Console.</p><p>Default: <code>rsa</code></p>
+ */
+@property (nonatomic, assign) AWSEC2KeyType keyType;
 
 /**
  <p>The tags to apply to the new key pair.</p>
@@ -26940,7 +26951,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 @property (nonatomic, strong) NSString * _Nullable keyFingerprint;
 
 /**
- <p>An unencrypted PEM encoded RSA private key.</p>
+ <p>An unencrypted PEM encoded RSA or ED25519 private key.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyMaterial;
 
@@ -26968,7 +26979,7 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
 
 
 /**
- <p>If you used <a>CreateKeyPair</a> to create the key pair, this is the SHA-1 digest of the DER encoded private key. If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key, this is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p>
+ <p>If you used <a>CreateKeyPair</a> to create the key pair:</p><ul><li><p>For RSA key pairs, the key fingerprint is the SHA-1 digest of the DER encoded private key. </p></li><li><p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p></li></ul><p>If you used <a>ImportKeyPair</a> to provide Amazon Web Services the public key:</p><ul><li><p>For RSA key pairs, the key fingerprint is the MD5 public key fingerprint as specified in section 4 of RFC4716.</p></li><li><p>For ED25519 key pairs, the key fingerprint is the base64-encoded SHA-256 digest, which is the default for OpenSSH, starting with <a href="http://www.openssh.com/txt/release-6.8">OpenSSH 6.8</a>.</p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable keyFingerprint;
 
@@ -26981,6 +26992,11 @@ typedef NS_ENUM(NSInteger, AWSEC2scope) {
  <p>The ID of the key pair.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable keyPairId;
+
+/**
+ <p>The type of key pair.</p>
+ */
+@property (nonatomic, assign) AWSEC2KeyType keyType;
 
 /**
  <p>Any tags applied to the key pair.</p>
