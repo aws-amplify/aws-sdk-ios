@@ -175,6 +175,7 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		030087CE26CDA0E9002A9DFA /* AWSS3TransferUtilityEnumerateBlocksTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 030087CD26CDA0E9002A9DFA /* AWSS3TransferUtilityEnumerateBlocksTests.swift */; };
 		030CD859266053EB00B734C5 /* AWSPinpointEndpointProfileTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 030CD858266053EA00B734C5 /* AWSPinpointEndpointProfileTests.m */; };
 		03427765269D15A400379263 /* AWSIoTMessage.h in Headers */ = {isa = PBXBuildFile; fileRef = 03427763269D15A400379263 /* AWSIoTMessage.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03427766269D15A400379263 /* AWSIoTMessage.m in Sources */ = {isa = PBXBuildFile; fileRef = 03427764269D15A400379263 /* AWSIoTMessage.m */; };
@@ -2706,6 +2707,8 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		030087CC26CDA0E9002A9DFA /* AWSS3UnitTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3UnitTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		030087CD26CDA0E9002A9DFA /* AWSS3TransferUtilityEnumerateBlocksTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AWSS3TransferUtilityEnumerateBlocksTests.swift; sourceTree = "<group>"; };
 		030CD858266053EA00B734C5 /* AWSPinpointEndpointProfileTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSPinpointEndpointProfileTests.m; sourceTree = "<group>"; };
 		03427763269D15A400379263 /* AWSIoTMessage.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AWSIoTMessage.h; sourceTree = "<group>"; };
 		03427764269D15A400379263 /* AWSIoTMessage.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSIoTMessage.m; sourceTree = "<group>"; };
@@ -6678,10 +6681,12 @@
 		CE5604A01C6BC97600B4E00B /* AWSS3UnitTests */ = {
 			isa = PBXGroup;
 			children = (
+				030087CC26CDA0E9002A9DFA /* AWSS3UnitTests-Bridging-Header.h */,
+				CE5604A31C6BC97600B4E00B /* Info.plist */,
 				CE5605261C6BCDD300B4E00B /* AWSGeneralS3Tests.m */,
 				FAB5E5D9253A6416002ECF1D /* AWSS3NSSecureCodingTests.m */,
 				B47FAF4222C577CE00014548 /* AWSS3TransferUtilityUnitTests.m */,
-				CE5604A31C6BC97600B4E00B /* Info.plist */,
+				030087CD26CDA0E9002A9DFA /* AWSS3TransferUtilityEnumerateBlocksTests.swift */,
 			);
 			path = AWSS3UnitTests;
 			sourceTree = "<group>";
@@ -10709,7 +10714,7 @@
 					};
 					CE56049E1C6BC97600B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
-						LastSwiftMigration = 1020;
+						LastSwiftMigration = 1250;
 					};
 					CE5604AD1C6BC98800B4E00B = {
 						CreatedOnToolsVersion = 7.2.1;
@@ -12764,6 +12769,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CE5605271C6BCDD300B4E00B /* AWSGeneralS3Tests.m in Sources */,
+				030087CE26CDA0E9002A9DFA /* AWSS3TransferUtilityEnumerateBlocksTests.swift in Sources */,
 				FAB5E5DA253A6416002ECF1D /* AWSS3NSSecureCodingTests.m in Sources */,
 				CE5604F21C6BCAA000B4E00B /* AWSTestUtility.m in Sources */,
 				B47FAF4322C577CE00014548 /* AWSS3TransferUtilityUnitTests.m in Sources */,
@@ -17417,6 +17423,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17424,6 +17431,9 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3UnitTests/AWSS3UnitTests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
 		};
@@ -17433,6 +17443,7 @@
 				CLANG_ENABLE_MODULES = YES;
 				INFOPLIST_FILE = AWSS3UnitTests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/AWSCoreTests/OCMock",
@@ -17440,6 +17451,8 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.amazonaws.AWSS3UnitTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "AWSS3UnitTests/AWSS3UnitTests-Bridging-Header.h";
+				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
 		};

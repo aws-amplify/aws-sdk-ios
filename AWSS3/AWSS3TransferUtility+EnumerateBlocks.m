@@ -15,27 +15,53 @@
 
 #import "AWSS3TransferUtility+EnumerateBlocks.h"
 
+@interface AWSS3TransferUtility (Internal)
+
+- (void)internalEnumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
+                                                               AWSS3TransferUtilityProgressBlock * uploadProgressBlockReference,
+                                                               AWSS3TransferUtilityUploadCompletionHandlerBlock * completionHandlerReference))uploadBlocksAssigner
+                       multiPartUploadBlocksAssigner: (void (^) (AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+                                                                 AWSS3TransferUtilityMultiPartProgressBlock * multiPartUploadProgressBlockReference,
+                                                                 AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock * completionHandlerReference)) multiPartUploadBlocksAssigner
+                              downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
+                                                               AWSS3TransferUtilityProgressBlock * downloadProgressBlockReference,
+                                                               AWSS3TransferUtilityDownloadCompletionHandlerBlock * completionHandlerReference))downloadBlocksAssigner;
+
+@end
+
 @implementation AWSS3TransferUtility (EnumerateBlocks)
 
 - (void)enumerateToAssignBlocks:(AWSS3TransferUtilityBlocks *)blocks {
-    [self enumerateToAssignBlocksForUploadTask:^(AWSS3TransferUtilityUploadTask * _Nonnull uploadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable uploadProgressBlockReference, AWSS3TransferUtilityUploadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    [self internalEnumerateToAssignBlocksForUploadTask:^(AWSS3TransferUtilityUploadTask * uploadTask,
+                                                         AWSS3TransferUtilityProgressBlock  * uploadProgressBlockReference,
+                                                         AWSS3TransferUtilityUploadCompletionHandlerBlock  * completionHandlerReference) {
         *uploadProgressBlockReference = blocks.uploadProgressBlock;
         *completionHandlerReference = blocks.uploadCompletedBlock;
-    } multiPartUploadBlocksAssigner:^(AWSS3TransferUtilityMultiPartUploadTask * _Nonnull multiPartUploadTask, AWSS3TransferUtilityMultiPartProgressBlock  _Nullable __autoreleasing * _Nullable multiPartUploadProgressBlockReference, AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    } multiPartUploadBlocksAssigner:^(AWSS3TransferUtilityMultiPartUploadTask * multiPartUploadTask,
+                                      AWSS3TransferUtilityMultiPartProgressBlock  * multiPartUploadProgressBlockReference,
+                                      AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock  * completionHandlerReference) {
         *multiPartUploadProgressBlockReference = blocks.multiPartUploadProgressBlock;
         *completionHandlerReference = blocks.multiPartUploadCompletedBlock;
-    } downloadBlocksAssigner:^(AWSS3TransferUtilityDownloadTask * _Nonnull downloadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable downloadProgressBlockReference, AWSS3TransferUtilityDownloadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    } downloadBlocksAssigner:^(AWSS3TransferUtilityDownloadTask * downloadTask,
+                               AWSS3TransferUtilityProgressBlock  * downloadProgressBlockReference,
+                               AWSS3TransferUtilityDownloadCompletionHandlerBlock  * completionHandlerReference) {
         *downloadProgressBlockReference = blocks.downloadProgressBlock;
         *completionHandlerReference = blocks.downloadCompletedBlock;
     }];
 }
 
 - (void)cancelAll {
-    [self enumerateToAssignBlocksForUploadTask:^(AWSS3TransferUtilityUploadTask * _Nonnull uploadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable uploadProgressBlockReference, AWSS3TransferUtilityUploadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    [self internalEnumerateToAssignBlocksForUploadTask:^(AWSS3TransferUtilityUploadTask * uploadTask,
+                                                         AWSS3TransferUtilityProgressBlock  * uploadProgressBlockReference,
+                                                         AWSS3TransferUtilityUploadCompletionHandlerBlock  * completionHandlerReference) {
         [uploadTask cancel];
-    } multiPartUploadBlocksAssigner:^(AWSS3TransferUtilityMultiPartUploadTask * _Nonnull multiPartUploadTask, AWSS3TransferUtilityMultiPartProgressBlock  _Nullable __autoreleasing * _Nullable multiPartUploadProgressBlockReference, AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    } multiPartUploadBlocksAssigner:^(AWSS3TransferUtilityMultiPartUploadTask * multiPartUploadTask,
+                                      AWSS3TransferUtilityMultiPartProgressBlock  * multiPartUploadProgressBlockReference,
+                                      AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock  * completionHandlerReference) {
         [multiPartUploadTask cancel];
-    } downloadBlocksAssigner:^(AWSS3TransferUtilityDownloadTask * _Nonnull downloadTask, AWSS3TransferUtilityProgressBlock  _Nullable __autoreleasing * _Nullable downloadProgressBlockReference, AWSS3TransferUtilityDownloadCompletionHandlerBlock  _Nullable __autoreleasing * _Nullable completionHandlerReference) {
+    } downloadBlocksAssigner:^(AWSS3TransferUtilityDownloadTask * downloadTask,
+                               AWSS3TransferUtilityProgressBlock  * downloadProgressBlockReference,
+                               AWSS3TransferUtilityDownloadCompletionHandlerBlock  * completionHandlerReference) {
         [downloadTask cancel];
     }];
 }

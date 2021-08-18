@@ -21,12 +21,12 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface AWSS3TransferUtilityBlocks : NSObject
 
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityProgressBlock uploadProgressBlock;
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityMultiPartProgressBlock multiPartUploadProgressBlock;
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityProgressBlock downloadProgressBlock;
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityUploadCompletionHandlerBlock uploadCompletedBlock;
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock multiPartUploadCompletedBlock;
-@property (nonatomic, nullable, strong) AWSS3TransferUtilityDownloadCompletionHandlerBlock downloadCompletedBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityProgressBlock uploadProgressBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityMultiPartProgressBlock multiPartUploadProgressBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityProgressBlock downloadProgressBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityUploadCompletionHandlerBlock uploadCompletedBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock multiPartUploadCompletedBlock;
+@property (nonatomic, nullable, strong, readonly) AWSS3TransferUtilityDownloadCompletionHandlerBlock downloadCompletedBlock;
 
 - (instancetype)initWithUploadProgress:(nullable AWSS3TransferUtilityProgressBlock)uploadProgressBlock
                multiPartUploadProgress:(nullable AWSS3TransferUtilityMultiPartProgressBlock)multiPartUploadProgressBlock

@@ -17,6 +17,17 @@
 
 #import "AWSS3TransferUtilityTasks.h"
 
+@interface AWSS3TransferUtilityBlocks ()
+
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityProgressBlock uploadProgressBlock;
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityMultiPartProgressBlock multiPartUploadProgressBlock;
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityProgressBlock downloadProgressBlock;
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityUploadCompletionHandlerBlock uploadCompletedBlock;
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock multiPartUploadCompletedBlock;
+@property (nonatomic, nullable, strong, readwrite) AWSS3TransferUtilityDownloadCompletionHandlerBlock downloadCompletedBlock;
+
+@end
+
 @implementation AWSS3TransferUtilityBlocks
 
 - (instancetype)initWithUploadProgress:(nullable AWSS3TransferUtilityProgressBlock)uploadProgressBlock
