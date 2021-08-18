@@ -26,6 +26,7 @@ class AWSS3TransferUtilityEnumerateBlocksTests: XCTestCase {
     var transferUtility: AWSS3TransferUtility?
 
     override func setUpWithError() throws {
+        guard transferUtility == nil else { return }
         let key = "UnitTests"
         guard let configuration = AWSServiceConfiguration(region: .USEast1, credentialsProvider: nil) else {
             throw Failure.unableToCreateServiceConfiguration
