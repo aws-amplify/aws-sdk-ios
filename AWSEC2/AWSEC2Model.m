@@ -7410,8 +7410,30 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
 	return @{
              @"dryRun" : @"DryRun",
              @"keyName" : @"KeyName",
+             @"keyType" : @"KeyType",
              @"tagSpecifications" : @"TagSpecifications",
              };
+}
+
++ (NSValueTransformer *)keyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"rsa"] == NSOrderedSame) {
+            return @(AWSEC2KeyTypeRsa);
+        }
+        if ([value caseInsensitiveCompare:@"ed25519"] == NSOrderedSame) {
+            return @(AWSEC2KeyTypeEd25519);
+        }
+        return @(AWSEC2KeyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2KeyTypeRsa:
+                return @"rsa";
+            case AWSEC2KeyTypeEd25519:
+                return @"ed25519";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)tagSpecificationsJSONTransformer {
@@ -31377,6 +31399,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"platform" : @"Platform",
              @"roleName" : @"RoleName",
              @"tagSpecifications" : @"TagSpecifications",
+             @"usageOperation" : @"UsageOperation",
              };
 }
 
@@ -31421,6 +31444,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"status" : @"Status",
              @"statusMessage" : @"StatusMessage",
              @"tags" : @"Tags",
+             @"usageOperation" : @"UsageOperation",
              };
 }
 
@@ -31461,6 +31485,7 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"status" : @"Status",
              @"statusMessage" : @"StatusMessage",
              @"tags" : @"Tags",
+             @"usageOperation" : @"UsageOperation",
              };
 }
 
@@ -42465,8 +42490,30 @@ return [date aws_stringValue:AWSDateISO8601DateFormat1];
              @"keyFingerprint" : @"KeyFingerprint",
              @"keyName" : @"KeyName",
              @"keyPairId" : @"KeyPairId",
+             @"keyType" : @"KeyType",
              @"tags" : @"Tags",
              };
+}
+
++ (NSValueTransformer *)keyTypeJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"rsa"] == NSOrderedSame) {
+            return @(AWSEC2KeyTypeRsa);
+        }
+        if ([value caseInsensitiveCompare:@"ed25519"] == NSOrderedSame) {
+            return @(AWSEC2KeyTypeEd25519);
+        }
+        return @(AWSEC2KeyTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSEC2KeyTypeRsa:
+                return @"rsa";
+            case AWSEC2KeyTypeEd25519:
+                return @"ed25519";
+            default:
+                return nil;
+        }
+    }];
 }
 
 + (NSValueTransformer *)tagsJSONTransformer {
