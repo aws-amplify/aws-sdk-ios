@@ -2179,6 +2179,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"documentClassifierArn" : @"DocumentClassifierArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -2726,6 +2727,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -3037,6 +3039,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"endTime" : @"EndTime",
              @"entityRecognizerArn" : @"EntityRecognizerArn",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -3950,6 +3953,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -4237,6 +4241,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -5069,6 +5074,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -5524,6 +5530,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",
@@ -5709,6 +5716,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -5720,6 +5728,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
@@ -5736,6 +5748,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -5797,6 +5810,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"inputDataConfig" : @"InputDataConfig",
              @"jobName" : @"JobName",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -5808,6 +5822,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
@@ -5824,6 +5842,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -5887,6 +5906,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -5971,6 +5991,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
@@ -5985,6 +6009,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -6047,6 +6072,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"targetEventTypes" : @"TargetEventTypes",
              };
 }
@@ -6130,6 +6156,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
 @end
 
 @implementation AWSComprehendStartEventsDetectionJobResponse
@@ -6140,6 +6170,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -6202,6 +6233,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -6286,6 +6318,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
@@ -6300,6 +6336,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -6364,6 +6401,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"mode" : @"Mode",
              @"outputDataConfig" : @"OutputDataConfig",
              @"redactionConfig" : @"RedactionConfig",
+             @"tags" : @"Tags",
              };
 }
 
@@ -6471,6 +6509,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendRedactionConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
 @end
 
 @implementation AWSComprehendStartPiiEntitiesDetectionJobResponse
@@ -6481,6 +6523,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -6543,6 +6586,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"languageCode" : @"LanguageCode",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -6627,6 +6671,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
 }
 
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
+}
+
 + (NSValueTransformer *)vpcConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendVpcConfig class]];
 }
@@ -6641,6 +6689,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -6703,6 +6752,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"jobName" : @"JobName",
              @"numberOfTopics" : @"NumberOfTopics",
              @"outputDataConfig" : @"OutputDataConfig",
+             @"tags" : @"Tags",
              @"volumeKmsKeyId" : @"VolumeKmsKeyId",
              @"vpcConfig" : @"VpcConfig",
              };
@@ -6714,6 +6764,10 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSValueTransformer *)outputDataConfigJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSComprehendOutputDataConfig class]];
+}
+
++ (NSValueTransformer *)tagsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSComprehendTag class]];
 }
 
 + (NSValueTransformer *)vpcConfigJSONTransformer {
@@ -6730,6 +6784,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobStatus" : @"JobStatus",
              };
@@ -7391,6 +7446,7 @@ NSString *const AWSComprehendErrorDomain = @"com.amazonaws.AWSComprehendErrorDom
              @"dataAccessRoleArn" : @"DataAccessRoleArn",
              @"endTime" : @"EndTime",
              @"inputDataConfig" : @"InputDataConfig",
+             @"jobArn" : @"JobArn",
              @"jobId" : @"JobId",
              @"jobName" : @"JobName",
              @"jobStatus" : @"JobStatus",

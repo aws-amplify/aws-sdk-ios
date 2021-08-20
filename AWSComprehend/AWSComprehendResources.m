@@ -776,6 +776,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous document classification job. Use the operation to track the progress of the job.</p>\"\
@@ -792,6 +793,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous dominant language detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -810,6 +812,7 @@
         {\"shape\":\"ResourceNotFoundException\"},\
         {\"shape\":\"ResourceUnavailableException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous entity detection job for a collection of documents. Use the operation to track the status of a job.</p> <p>This API can be used for either standard entity detection or custom entity recognition. In order to be used for custom entity recognition, the optional <code>EntityRecognizerArn</code> must be used in order to provide access to the recognizer being used to detect the custom entity.</p>\"\
@@ -826,6 +829,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous event detection job for a collection of documents.</p>\"\
@@ -842,6 +846,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous key phrase detection job for a collection of documents. Use the operation to track the status of a job.</p>\"\
@@ -858,6 +863,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous PII entity detection job for a collection of documents.</p>\"\
@@ -874,6 +880,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous sentiment detection job for a collection of documents. use the operation to track the status of a job.</p>\"\
@@ -890,6 +897,7 @@
         {\"shape\":\"InvalidRequestException\"},\
         {\"shape\":\"TooManyRequestsException\"},\
         {\"shape\":\"KmsKeyValidationException\"},\
+        {\"shape\":\"TooManyTagsException\"},\
         {\"shape\":\"InternalServerException\"}\
       ],\
       \"documentation\":\"<p>Starts an asynchronous topic detection job. Use the <code>DescribeTopicDetectionJob</code> operation to track the status of a job.</p>\"\
@@ -2158,6 +2166,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the document classification job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned to the document classification job.</p>\"\
@@ -2422,6 +2434,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the dominant language detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned to the dominant language detection job.</p>\"\
@@ -2576,6 +2592,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the entities detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
@@ -2991,6 +3011,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the events detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name you assigned the events detection job.</p>\"\
@@ -3178,6 +3202,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the key phrases detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the key phrases detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
@@ -3783,6 +3811,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the PII entities detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the PII entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned the PII entities detection job.</p>\"\
@@ -4009,6 +4041,10 @@
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the sentiment detection job.</p>\"\
         },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
+        },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
           \"documentation\":\"<p>The name that you assigned to the sentiment detection job</p>\"\
@@ -4132,6 +4168,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your document classification job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the document classification job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4141,6 +4181,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of the job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4184,6 +4228,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your dominant language detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the dominant language detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4193,6 +4241,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4245,6 +4297,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your entity detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4254,6 +4310,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4299,6 +4359,10 @@
         \"TargetEventTypes\":{\
           \"shape\":\"TargetEventTypes\",\
           \"documentation\":\"<p>The types of events to detect in the input documents.</p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4308,6 +4372,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4356,6 +4424,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p> Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your key phrases detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the key phrases detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4365,6 +4437,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the key phrase detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4414,6 +4490,10 @@
           \"shape\":\"ClientRequestTokenString\",\
           \"documentation\":\"<p>A unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>\",\
           \"idempotencyToken\":true\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4423,6 +4503,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the PII entity detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4471,6 +4555,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your sentiment detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4480,6 +4568,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4527,6 +4619,10 @@
         \"VpcConfig\":{\
           \"shape\":\"VpcConfig\",\
           \"documentation\":\"<p>Configuration parameters for an optional private Virtual Private Cloud (VPC) containing the resources you are using for your topic detection job. For more information, see <a href=\\\"https://docs.aws.amazon.com/vpc/latest/userguide/what-is-amazon-vpc.html\\\">Amazon VPC</a>. </p>\"\
+        },\
+        \"Tags\":{\
+          \"shape\":\"TagList\",\
+          \"documentation\":\"<p>Tags to be associated with the topics detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with \\\"Sales\\\" as the key might be added to a resource to indicate its use by the sales department.</p>\"\
         }\
       }\
     },\
@@ -4536,6 +4632,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier generated for the job. To get the status of the job, use this identifier with the <code>DescribeTopicDetectionJob</code> operation.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobStatus\":{\
           \"shape\":\"JobStatus\",\
@@ -4885,6 +4985,10 @@
         \"JobId\":{\
           \"shape\":\"JobId\",\
           \"documentation\":\"<p>The identifier assigned to the topic detection job.</p>\"\
+        },\
+        \"JobArn\":{\
+          \"shape\":\"ComprehendArn\",\
+          \"documentation\":\"<p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p> <p> <code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code> </p> <p>The following is an example job ARN:</p> <p> <code>arn:aws:comprehend:us-west-2:111122223333:topics-detection-job/1234abcd12ab34cd56ef1234567890ab</code> </p>\"\
         },\
         \"JobName\":{\
           \"shape\":\"JobName\",\
