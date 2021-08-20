@@ -4,6 +4,8 @@
 
 -Features for next release
 
+- Reset completion sources in AWSMobileClient (See [Issue](https://github.com/aws-amplify/amplify-ios/issues/1376))
+
 ## 2.24.5
 
 ### New Features
