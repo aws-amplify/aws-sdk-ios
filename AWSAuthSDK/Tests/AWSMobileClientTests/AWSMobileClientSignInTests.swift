@@ -131,8 +131,9 @@ class AWSMobileClientSignInTests: AWSMobileClientTestBase {
     /// - When:
     ///    - I invoke `signIn` with completion callback
     ///    - And then invoke `confirmSignIn` from the above callback
+    ///    - And then I wait for completion
     /// - Then:
-    ///    - My `confirmSignIn` callback should not be nil
+    ///    - My `confirmSignIn` completion source should be nil
     ///
     func testConfirmSignCompletionSourceReset() {
         let username = "testUser" + UUID().uuidString
