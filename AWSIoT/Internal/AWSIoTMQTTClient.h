@@ -184,7 +184,7 @@
 
  @param topic The topic for publish to.
 
- @param ackCallback the callback for ack if QoS > 0.
+ @param ackCallback the callback for ack if qos == 1 || qos == 2
 
  */
 - (void)publishString:(NSString *)str
@@ -226,7 +226,7 @@
 
  @param topic The topic for publish to.
 
- @param ackCallback the callback for ack if QoS > 0.
+ @param ackCallback the callback for ack if qos == 1 || qos == 2
 
  */
 - (void)publishData:(NSData *)data
@@ -234,6 +234,25 @@
             onTopic:(NSString *)topic
         ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 
+/**
+Send MQTT message to specified topic
+
+@param data The data to be sent.
+
+@param qos The qos to use when sending (optional, default 0).
+
+@param topic The topic for publish to.
+
+@param retain Sets the retain flag
+
+@param ackCallback the callback for ack if qos == 1 || qos == 2
+
+*/
+- (void)publishData:(NSData*)data
+                qos:(AWSIoTMQTTQoS)qos
+            onTopic:(NSString*)topic
+             retain:(BOOL)retain
+        ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
 /**
  Subscribes to a topic at a specific QoS level
 
@@ -281,8 +300,8 @@
  
  @param qos Specifies the QoS Level of the subscription. Can be 0, 1, or 2.
  
- @param ackCallback The ackCallback for QoS > 0
- 
+ @param ackCallback the callback for ack if qos == 1 || qos == 2
+
  @param callback Delegate Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the block will be invoked.
  */
 - (void)subscribeToTopic:(NSString *)topic

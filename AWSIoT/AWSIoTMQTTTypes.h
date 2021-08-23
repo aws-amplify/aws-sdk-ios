@@ -29,7 +29,8 @@ typedef NS_ENUM(NSInteger, AWSIoTMQTTStatus) {
 
 typedef NS_ENUM(NSInteger, AWSIoTMQTTQoS) {
     AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce = 0,
-    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1
+    AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce = 1,
+    AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce = 2
 };
 
 typedef void(^AWSIoTMQTTNewMessageBlock)(NSData *data);

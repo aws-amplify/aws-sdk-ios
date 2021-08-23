@@ -81,10 +81,19 @@ typedef enum {
 - (void)publishData:(NSData*)theData onTopic:(NSString*)theTopic;
 - (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic;
 - (UInt16)publishDataAtLeastOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
+- (UInt16)publishDataAtLeastOnce:(NSData*)data
+                         onTopic:(NSString*)topic
+                          retain:(BOOL)retainFlag
+             onMessageIdResolved:(void (^)(UInt16))onMessageIdResolved;
 - (void)publishDataAtMostOnce:(NSData*)theData onTopic:(NSString*)theTopic;
 - (void)publishDataAtMostOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
+
 - (UInt16)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic;
 - (UInt16)publishDataExactlyOnce:(NSData*)theData onTopic:(NSString*)theTopic retain:(BOOL)retainFlag;
+- (UInt16)publishDataExactlyOnce:(NSData*)theData
+                         onTopic:(NSString*)theTopic
+                          retain:(BOOL)retainFlag
+             onMessageIdResolved:(void (^)(UInt16))onMessageIdResolved;
 - (void)publishJson:(id)payload onTopic:(NSString*)theTopic;
 
 - (BOOL)isReadyToPublish;

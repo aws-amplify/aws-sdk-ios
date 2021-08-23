@@ -40,6 +40,10 @@ NS_ASSUME_NONNULL_BEGIN
  */
 @property(nonatomic, assign) AWSIoTMQTTQoS qos;
 
+/**
+ Sets the retain flag for the Will and Testament
+ */
+@property (nonatomic, assign) BOOL willRetain;
 @end
 
 #pragma mark - AWSIoTMQTTConfiguration
@@ -616,8 +620,13 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 - (BOOL) publishData:(NSData *)data
              onTopic:(NSString *)topic
                  QoS:(AWSIoTMQTTQoS)qos
-         ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos
+             retain:(BOOL)retain
+        ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 /**
  Subscribes to a topic at a specific QoS level
 

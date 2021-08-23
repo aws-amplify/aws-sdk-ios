@@ -37,7 +37,7 @@
     AWSMQTTDecoder*         decoder; //Low level protocol handler that converts in bound network data into a Message
     
     NSMutableDictionary* txFlows; //Required for QOS1. Outbound publishes will be stored in txFlows until a PubAck is received
-    NSMutableDictionary* rxFlows; //Required for handling QOS 2. Not in use currently
+    NSMutableDictionary* rxFlows; //Required for handling QOS 2.
     unsigned int         retryThreshold; //used to throtttle retries. Overloading the publishes beyond service limit will result in message loss.
 }
 
@@ -200,17 +200,27 @@
 }
 
 - (UInt16)publishDataAtLeastOnce:(NSData*)data
-                       onTopic:(NSString*)topic
-                        retain:(BOOL)retainFlag {
+                         onTopic:(NSString*)topic
+                          retain:(BOOL)retainFlag {
+    return [self publishDataAtLeastOnce:data onTopic:topic retain:retainFlag onMessageIdResolved:nil];
+}
+
+- (UInt16)publishDataAtLeastOnce:(NSData*)data
+                         onTopic:(NSString*)topic
+                          retain:(BOOL)retainFlag
+             onMessageIdResolved:(void (^)(UInt16))onMessageIdResolved {
     UInt16 msgId = [self nextMsgId];
+    if (onMessageIdResolved) {
+        onMessageIdResolved(msgId);
+    }
     AWSMQTTMessage *msg = [AWSMQTTMessage publishMessageWithData:data
-                                                   onTopic:topic
-                                                       qos:1
-                                                     msgId:msgId
-                                                retainFlag:retainFlag
-                                                   dupFlag:false];
+                                                         onTopic:topic
+                                                             qos:1
+                                                           msgId:msgId
+                                                      retainFlag:retainFlag
+                                                         dupFlag:false];
     AWSMQttTxFlow *flow = [AWSMQttTxFlow flowWithMsg:msg
-                                      deadline:(ticks + 60)];
+                                            deadline:(ticks + 60)];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
     AWSDDLogDebug(@"Published message %hu for QOS 1", msgId);
@@ -219,22 +229,32 @@
 }
 
 - (UInt16)publishDataExactlyOnce:(NSData*)data
-                       onTopic:(NSString*)topic {
+                         onTopic:(NSString*)topic {
     return [self publishDataExactlyOnce:data onTopic:topic retain:false];
 }
 
 - (UInt16)publishDataExactlyOnce:(NSData*)data
-                       onTopic:(NSString*)topic
-                        retain:(BOOL)retainFlag {
+                         onTopic:(NSString*)topic
+                          retain:(BOOL)retainFlag {
+    return [self publishDataExactlyOnce:data onTopic:topic retain:retainFlag onMessageIdResolved:nil];
+}
+
+- (UInt16)publishDataExactlyOnce:(NSData*)data
+                         onTopic:(NSString*)topic
+                          retain:(BOOL)retainFlag
+             onMessageIdResolved:(void (^)(UInt16))onMessageIdResolved {
     UInt16 msgId = [self nextMsgId];
+    if (onMessageIdResolved) {
+        onMessageIdResolved(msgId);
+    }
     AWSMQTTMessage *msg = [AWSMQTTMessage publishMessageWithData:data
-                                                   onTopic:topic
-                                                       qos:2
-                                                     msgId:msgId
-                                                retainFlag:retainFlag
-                                                   dupFlag:false];
+                                                         onTopic:topic
+                                                             qos:2
+                                                           msgId:msgId
+                                                      retainFlag:retainFlag
+                                                         dupFlag:false];
     AWSMQttTxFlow *flow = [AWSMQttTxFlow flowWithMsg:msg
-                                      deadline:(ticks + 60)];
+                                            deadline:(ticks + 60)];
     [txFlows setObject:flow forKey:[NSNumber numberWithUnsignedInt:msgId]];
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] addObject:[NSNumber numberWithUnsignedInt:msgId]];
     [self send:msg];
@@ -547,11 +567,11 @@
     
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [txFlows removeObjectForKey:msgId];
-    AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS1 gaurantee", msgId);
-    [_delegate session:self newAckForMessageId:msgId.unsignedShortValue];
+    AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS1 guarantee", msgId);
+    [self.delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
-#pragma mark Acknowlegement Handlers for QOS 2 - not used currently as AWSIoT doesn't support QOS 2
+#pragma mark Acknowlegement Handlers for QOS 2
 - (void)handlePubrec:(AWSMQTTMessage*)msg {
     if ([[msg data] length] != 2) {
         return;
@@ -618,6 +638,9 @@
     
     [[self.timerRing objectAtIndex:([flow deadline] % 60)] removeObject:msgId];
     [txFlows removeObjectForKey:msgId];
+
+    AWSDDLogDebug(@"Removing msgID %@ from internal store for QOS2 guarantee", msgId);
+    [self.delegate session:self newAckForMessageId:msgId.unsignedShortValue];
 }
 
 # pragma mark error handler

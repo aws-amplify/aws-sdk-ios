@@ -58,7 +58,7 @@
 
 @property UInt16 keepAliveInterval;
 
-@property(nonatomic, strong) NSMutableDictionary<NSNumber *, AWSIoTMQTTAckBlock> *ackCallbackDictionary;
+@property(atomic, strong) NSMutableDictionary<NSNumber *, AWSIoTMQTTAckBlock> *ackCallbackDictionary;
 
 @property NSString *lastWillAndTestamentTopic;
 @property NSData *lastWillAndTestamentMessage;
@@ -827,17 +827,21 @@
 - (void)publishData:(NSData *)data
                 qos:(UInt8)qos
             onTopic:(NSString *)topic {
-    [self publishData:data
-                  qos:qos
-              onTopic:topic
-          ackCallback:nil];
+    [self publishData:data qos:qos onTopic:topic ackCallback:nil];
 }
 
 - (void)publishData:(NSData*)data
                 qos:(UInt8)qos
             onTopic:(NSString*)topic
-        ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
-    
+        ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback {
+    [self publishData:data qos:qos onTopic:topic retain:NO ackCallback:ackCallback];
+}
+
+- (void)publishData:(NSData*)data
+                qos:(AWSIoTMQTTQoS)qos
+            onTopic:(NSString*)topic
+             retain:(BOOL)retain
+        ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback {
     if (!_userDidIssueConnect) {
         [NSException raise:NSInternalInconsistencyException
                     format:@"Cannot call publish before connecting to the server"];
@@ -848,25 +852,32 @@
                     format:@"Cannot call publish after disconnecting from the server"];
     }
     
-    if (qos > 1) {
-        AWSDDLogError(@"invalid qos value: %u", qos);
+    if (qos < 0 || qos > 2) {
+        AWSDDLogError(@"invalid qos value: %ld", (long)qos);
         return;
     }
-    if (qos == 0 && ackCallback != nil) {
+    if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce && ackCallback != nil) {
         [NSException raise:NSInvalidArgumentException
                     format:@"Cannot specify `ackCallback` block for QoS = 0."];
     }
 
     AWSDDLogVerbose(@"isReadyToPublish: %i",[self.session isReadyToPublish]);
-    if (qos == 0) {
-        [self.session publishData:data onTopic:topic];
-    }
-    else {
-        UInt16 messageId = [self.session publishDataAtLeastOnce:data onTopic:topic];
-        if (ackCallback) {
-            [self.ackCallbackDictionary setObject:ackCallback
-                                           forKey:[NSNumber numberWithInt:messageId]];
-        }
+    if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce) {
+        [self.session publishDataAtMostOnce:data onTopic:topic retain:retain];
+    } else if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce) {
+        [self.session publishDataAtLeastOnce:data onTopic:topic retain:retain onMessageIdResolved:^(UInt16 msgId) {
+            if (ackCallback) {
+                [self.ackCallbackDictionary setObject:ackCallback
+                                               forKey:[NSNumber numberWithInt:msgId]];
+            }
+        }];
+    } else if (qos == AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce) {
+        [self.session publishDataExactlyOnce:data onTopic:topic retain:retain onMessageIdResolved:^(UInt16 msgId) {
+            if (ackCallback) {
+                [self.ackCallbackDictionary setObject:ackCallback
+                                               forKey:[NSNumber numberWithInt:msgId]];
+            }
+        }];
     }
 }
 
@@ -1139,14 +1150,15 @@
 #pragma mark callback handler
 - (void)session:(AWSMQTTSession*)session newAckForMessageId:(UInt16)msgId {
     AWSDDLogVerbose(@"MQTTSessionDelegate new ack for msgId: %d", msgId);
-    AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:[NSNumber numberWithInt:msgId]];
+    NSNumber *msgIdNumber = [NSNumber numberWithInt:msgId];
+    AWSIoTMQTTAckBlock callback = [[self ackCallbackDictionary] objectForKey:msgIdNumber];
     
     if(callback) {
         // Give callback to the client on a background thread
         dispatch_async(dispatch_get_global_queue( DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^(void){
             callback();
         });
-        [[self ackCallbackDictionary] removeObjectForKey:[NSNumber numberWithInt:msgId]];
+        [[self ackCallbackDictionary] removeObjectForKey:msgIdNumber];
     }
 }
 
