@@ -4,6 +4,9 @@
 
 -Features for next release
 
+- **AWSIoT**
+  - IoT update for retain feature ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
+
 ## 2.24.5
 
 ### New Features
