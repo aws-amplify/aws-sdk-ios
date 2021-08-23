@@ -85,7 +85,7 @@
 
 @implementation AWSIoTMQTTClient
 
-#pragma mark - Intialitalizers -
+#pragma mark - Initializers -
 
 - (instancetype)init {
     if (self = [super init]) {

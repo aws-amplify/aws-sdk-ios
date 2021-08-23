@@ -307,8 +307,6 @@ NS_ASSUME_NONNULL_BEGIN
  */
 + (void)registerIoTDataManagerWithConfiguration:(AWSServiceConfiguration *)configuration forKey:(NSString *)key;
 
-
-
 /**
  Creates a service client with the given service configuration and
  AWSIoTMQTTConfiguration and registers it for the key.
@@ -372,7 +370,6 @@ NS_ASSUME_NONNULL_BEGIN
 + (void)registerIoTDataManagerWithConfiguration:(AWSServiceConfiguration *)configuration
                           withMQTTConfiguration:(AWSIoTMQTTConfiguration *)mqttConfig
                                          forKey:(NSString *)key;
-
 
 /**
  Retrieves the service client associated with the key. You need to call `+ registerIoTDataManagerWithConfiguration:forKey:` before invoking this method.
@@ -542,7 +539,6 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 
 /**
  Disconnect from a mqtt client (close current mqtt session)
-
  */
 - (void)disconnect;
 
@@ -582,10 +578,10 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
  @return Boolean value indicating success or failure.
  
  */
-- (BOOL) publishString:(NSString *)string
-               onTopic:(NSString *)topic
-                   QoS:(AWSIoTMQTTQoS)qos
-           ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+- (BOOL)publishString:(NSString *)string
+              onTopic:(NSString *)topic
+                  QoS:(AWSIoTMQTTQoS)qos
+          ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Send MQTT message to specified topic
@@ -599,34 +595,51 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
  @return Boolean value indicating success or failure.
 
  */
-- (BOOL) publishData:(NSData *)data
-             onTopic:(NSString *)topic
-                 QoS:(AWSIoTMQTTQoS)qos;
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos;
 
 /**
  Send MQTT message to specified topic
  
  @param data The message (As NSData) to be sent.
  
- @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
- 
  @param topic The topic for publish to.
+
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
  
  @param ackCallback the callback for ack if QoS > 0.
  
  @return Boolean value indicating success or failure.
  
  */
-- (BOOL) publishData:(NSData *)data
-             onTopic:(NSString *)topic
-                 QoS:(AWSIoTMQTTQoS)qos
-         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
+- (BOOL)publishData:(NSData *)data
+            onTopic:(NSString *)topic
+                QoS:(AWSIoTMQTTQoS)qos
+        ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
+/**
+ Send MQTT message to specified topic
+
+ @param data The message (As NSData) to be sent.
+
+ @param topic The topic for publish to.
+
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+
+ @param retain The retain message flag.
+
+ @param ackCallback the callback for ack if QoS > 0.
+
+ @return Boolean value indicating success or failure.
+
+ */
 - (BOOL)publishData:(NSData *)data
             onTopic:(NSString *)topic
                 QoS:(AWSIoTMQTTQoS)qos
              retain:(BOOL)retain
         ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
+
 /**
  Subscribes to a topic at a specific QoS level
 
@@ -651,14 +664,16 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
  @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
  
  @param callback Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.
- 
+
+ @param ackCallback the callback for ack if QoS > 0.
+
  @return Boolean value indicating success or failure.
  
  */
-- (BOOL) subscribeToTopic:(NSString *)topic
-                      QoS:(AWSIoTMQTTQoS)qos
-          messageCallback:(AWSIoTMQTTNewMessageBlock)callback
-              ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+         messageCallback:(AWSIoTMQTTNewMessageBlock)callback
+             ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Subscribes to a topic at a specific QoS level
@@ -690,10 +705,10 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
  @return Boolean value indicating success or failure.
  
  */
-- (BOOL) subscribeToTopic:(NSString *)topic
-                      QoS:(AWSIoTMQTTQoS)qos
-         extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
-              ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+- (BOOL)subscribeToTopic:(NSString *)topic
+                     QoS:(AWSIoTMQTTQoS)qos
+        extendedCallback:(AWSIoTMQTTExtendedNewMessageBlock)callback
+             ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Subscribes to a topic at a specific QoS level
@@ -728,7 +743,7 @@ DEPRECATED_MSG_ATTRIBUTE("Use `updateUserMetaData` for updating the user meta da
 - (BOOL)subscribeToTopic:(NSString *)topic
                      QoS:(AWSIoTMQTTQoS)qos
             fullCallback:(AWSIoTMQTTFullMessageBlock)callback
-             ackCallback:(AWSIoTMQTTAckBlock)ackCallback;
+             ackCallback:(nullable AWSIoTMQTTAckBlock)ackCallback;
 
 /**
  Unsubscribes from a topic
@@ -789,11 +804,9 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  @return Boolean value indicating success or failure.
  
  */
-
 - (BOOL) registerWithShadow:(NSString *)name
                     options:(NSDictionary<NSString *, NSNumber *> * _Nullable)options
               eventCallback:(void(^)(NSString *name, AWSIoTShadowOperationType operation, AWSIoTShadowOperationStatusType status, NSString *clientToken, NSData *payload))callback;
-
 
 /**
  Unregister from updates on a device shadow
@@ -884,7 +897,6 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  */
 - (BOOL) deleteShadow:(NSString *)name
           clientToken:(NSString * _Nullable)clientToken;
-
 
 @end
 

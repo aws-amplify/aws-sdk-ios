@@ -572,7 +572,7 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 - (BOOL)publishString:(NSString *)string
               onTopic:(NSString *)topic
                   QoS:(AWSIoTMQTTQoS)qos
-          ackCallback:(nonnull AWSIoTMQTTAckBlock)ackCallback {
+          ackCallback:(AWSIoTMQTTAckBlock)ackCallback {
     if (string == nil) {
         return NO;
     }

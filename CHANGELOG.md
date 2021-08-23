@@ -2,10 +2,13 @@
 
 ## Unreleased
 
--Features for next release
+- Features for next release
 
 - **AWSIoT**
   - IoT update for retain feature ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
+
+### Breaking Changes
+  - IoT: updates nullability status for ackCallback for publishing messages
 
 ## 2.24.5
 
