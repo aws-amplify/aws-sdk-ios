@@ -6,8 +6,7 @@
 
 ## 2.25.0
 
-- Features for next release
-
+### New Features
 - **AWSIoT**
   - AWSIoT now supports retained messages ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
 
