@@ -21,6 +21,8 @@
 #import "TestDecoderDelegate.h"
 #import "TestDataWriter.h"
 
+NSTimeInterval MQTTDecoderTimeout = 5.0;
+
 @interface MQTTDecoderTests : XCTestCase
 
 @end
@@ -86,7 +88,7 @@
     [writerThread start];
     [decoderThread start];
 
-    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:5.0];
+    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:MQTTDecoderTimeout];
 
     [dataWriter close];
     [decoder close];
@@ -176,7 +178,7 @@
     [writerThread start];
     [decoderThread start];
 
-    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:5.0];
+    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:MQTTDecoderTimeout];
 
     [dataWriter close];
     [decoder close];
@@ -260,7 +262,7 @@
     [writerThread start];
     [decoderThread start];
 
-    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:5.0];
+    [self waitForExpectations:@[wroteAllData, messagesDelivered] timeout:MQTTDecoderTimeout];
 
     [dataWriter close];
     [decoder close];

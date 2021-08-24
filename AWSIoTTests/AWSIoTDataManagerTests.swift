@@ -209,6 +209,7 @@ class AWSIoTDataManagerTests: XCTestCase {
     }
 
     func connectAndDisconnectWithCert(useALPN: Bool) {
+//        var success: Bool = false
         var connected = false
         let hasConnected = self.expectation(description: "MQTT connection has been established")
         var disconnectIssued = false
@@ -623,8 +624,11 @@ class AWSIoTDataManagerTests: XCTestCase {
         print("Total message count from Broker1:", messageCountBroker1)
         print("Total message count from Broker2:", messageCountBroker2)
 
-        XCTAssert(messageCountBroker1 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker1")
-        XCTAssert(messageCountBroker2 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker2")
+        XCTAssertGreaterThanOrEqual(messageCountBroker1, messagesToSend, "Received \(messagesToSend) plus messages on Broker1")
+        XCTAssertGreaterThanOrEqual(messageCountBroker2, messagesToSend, "Received \(messagesToSend) plus messages on Broker2")
+
+//        XCTAssert(messageCountBroker1 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker1")
+//        XCTAssert(messageCountBroker2 >= (messagesToSend ), "Received \(messagesToSend) plus messages on Broker2")
 
         //Disconnect
         iotDataManagerBroker1.disconnect()
@@ -1455,12 +1459,13 @@ class AWSIoTDataManagerTests: XCTestCase {
         let testTopic = "customauthtesting"
 
         //Subscribe to TestTopic
-        iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce) { payload in
+        let messageCallback: AWSIoTMQTTNewMessageBlock = { payload in
             let payloadString = String(data: payload, encoding: .utf8)!
             print("received payload: \(payloadString)")
             XCTAssertEqual(testMessage, payloadString)
             gotMessage.fulfill()
         }
+        iotDataManager.subscribe(toTopic: testTopic, qoS: .messageDeliveryAttemptedAtLeastOnce, messageCallback: messageCallback)
 
         // Wait a moment to let the subscription be established
         sleep(2)

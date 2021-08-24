@@ -19,6 +19,8 @@
 #import "AWSIoTData.h"
 #import "AWSIoTMQTTClient.h"
 
+typedef void (^TestBlock)(void);
+
 @interface AWSIoTDataTests : XCTestCase
 
 - (NSString *)generateRandomStringOfLength: (NSUInteger)length;
@@ -285,6 +287,7 @@ NSString *endpointString;
                       timeout:networkExpectationTimeout];
 }
 
+/*
 - (void)testWebSocketMQTTPubSub {
     __block BOOL connected = false;
     __block NSString *receivedString = @"";
@@ -383,6 +386,12 @@ NSString *endpointString;
     AWSDDLogInfo(@"waiting 5 seconds for data...");
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
 
+    if (![receivedString isEqualToString:randomMaxSizeString]) {
+        NSRange range = NSMakeRange(0, 10);
+        NSLog(@"receivedString (%li): %@", receivedString.length, [receivedString substringWithRange:range]);
+        NSLog(@"randomMaxSizeString (%li): %@", randomMaxSizeString.length, [randomMaxSizeString substringWithRange:range]);
+    }
+
     //
     // Verify that the max size string was received intact by the subscriber
     //
@@ -453,8 +462,416 @@ NSString *endpointString;
     runUntil = [NSDate dateWithTimeIntervalSinceNow: 3.0 ];
     [[NSRunLoop currentRunLoop] runUntilDate:runUntil];
 }
+*/
 
--(void) testReconnectProgression {
+- (void)testWebSocketMQTTPubSubWithShortAndLongMessages {
+    __block BOOL connected = false;
+    __block NSMutableArray<NSString *>* topic1Strings = @[].mutableCopy;
+
+    NSString *topic1 = @"testTopic1";
+    NSUInteger maxMessageSize = (128 * 1024) - 16;
+
+    XCTestExpectation *connectedExpectation = [self expectationWithDescription:@"status is 'connected'"];
+    XCTestExpectation *disconnectedExpectation = [self expectationWithDescription:@"status is 'disconnected'"];
+    XCTestExpectation *subscribedExpectation = [self expectationWithDescription:@"subscribed to topics"];
+    XCTestExpectation *collectedTopic1MessagesExpectation = [self expectationWithDescription:@"collecting topic 1 messages"];
+
+    connectedExpectation.assertForOverFulfill = NO;
+    void (^updateConnectionStatus)(AWSIoTMQTTStatus status) = ^(AWSIoTMQTTStatus status) {
+        if (status == AWSIoTMQTTStatusConnected) {
+            connected = YES;
+            [connectedExpectation fulfill];
+        } else if (status == AWSIoTMQTTStatusDisconnected) {
+            connected = NO;
+            [disconnectedExpectation fulfill];
+        }
+    };
+
+    NSString *const key = @"testWebSocketMQTTPubSub";
+    [AWSIoTDataTests registerIoTDataManagerForKey:key];
+
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1"
+                                         cleanSession:true
+                                       statusCallback:updateConnectionStatus];
+
+    // Wait until connected
+    [self waitForExpectations:@[connectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Continue only if we've successfully connected
+    //
+
+    XCTAssertTrue(connected);
+    if (!connected) {
+        return;
+    }
+
+    void (^topic1Callback)(NSData *) = ^(NSData *data) {
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [topic1Strings addObject:string];
+        if (topic1Strings.count == 2) {
+            [collectedTopic1MessagesExpectation fulfill];
+        }
+    };
+
+    //
+    // Subscribe after connected.
+    //
+
+    BOOL returnValue = [iotDataManager subscribeToTopic:topic1
+                                                    QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce
+                                        messageCallback:topic1Callback
+                                            ackCallback: ^{
+        [subscribedExpectation fulfill];
+    }];
+    XCTAssertTrue(returnValue, @"Subscribed to test topic 1");
+
+    // Wait until subscribed
+    [self waitForExpectations:@[subscribedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Publish on topic 1 after subscribed.
+    //
+    NSString *shortMessageIn = publishMessageTestString;
+    returnValue = [iotDataManager publishString:shortMessageIn
+                                        onTopic:topic1
+                                            QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
+    XCTAssertTrue(returnValue, @"Published on test topic 1");
+
+    //
+    // Now allocate a max-sized publish message (128KB) and fill it with random data.
+    // Note that we use a size just under 128KB to accommodate the WebSocket framing.
+    //
+
+    NSString *longMessageIn = [self generateRandomStringOfLength:maxMessageSize];
+
+    NSRange range = NSMakeRange(0, 10);
+    NSLog(@"longMessageIn (%li): '%@'",
+          longMessageIn.length,
+          [longMessageIn substringWithRange:range]);
+
+    returnValue = [iotDataManager publishString:longMessageIn
+                                        onTopic:topic1
+                                            QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+    XCTAssertTrue(returnValue);
+
+    // Wait until all messages are published on topic 1
+    [self waitForExpectations:@[collectedTopic1MessagesExpectation]
+                      timeout:networkExpectationTimeout];
+
+    XCTAssertEqual(topic1Strings.count, 2);
+
+    NSString *shortMessageOut = topic1Strings[0];
+    NSString *longMessageOut = topic1Strings[1];
+
+    XCTAssertEqualObjects(shortMessageOut, shortMessageIn);
+    XCTAssertEqualObjects(longMessageOut, longMessageIn);
+
+    NSRange prefix = NSMakeRange(0, 10);
+    NSRange suffix = NSMakeRange(shortMessageIn.length - 10, 10);
+    NSLog(@" short in (%li): '%@' -> '%@'", shortMessageIn.length,
+          [shortMessageIn substringWithRange:prefix],
+          [shortMessageIn substringWithRange:suffix]);
+
+    suffix = NSMakeRange(shortMessageOut.length - 10, 10);
+    NSLog(@"short out (%li): '%@' -> '%@'", shortMessageOut.length,
+          [shortMessageOut substringWithRange:prefix],
+          [shortMessageOut substringWithRange:suffix]);
+
+    suffix = NSMakeRange(longMessageIn.length - 10, 10);
+    NSLog(@" long in (%li): '%@' -> '%@'", longMessageIn.length,
+    [longMessageIn substringWithRange:prefix],
+    [longMessageIn substringWithRange:suffix]);
+
+    suffix = NSMakeRange(longMessageOut.length - 10, 10);
+    NSLog(@"long out (%li): '%@' -> '%@'", longMessageOut.length,
+          [longMessageOut substringWithRange:prefix],
+          [longMessageOut substringWithRange:suffix]);
+
+    [iotDataManager unsubscribeTopic:topic1];
+
+    //
+    // Disconnect the client
+    //
+    [iotDataManager disconnect];
+
+    [self waitForExpectations:@[disconnectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    XCTAssertFalse(connected);
+}
+
+- (void)testWebSocketMQTTPubSubWithManyMostOnceMessages {
+    __block BOOL connected = false;
+    __block NSMutableArray<NSString *>* topic2Strings = @[].mutableCopy;
+
+    NSString *topic2 = @"testTopic2";
+
+    XCTestExpectation *connectedExpectation = [self expectationWithDescription:@"status is 'connected'"];
+    XCTestExpectation *disconnectedExpectation = [self expectationWithDescription:@"status is 'disconnected'"];
+    XCTestExpectation *subscribedExpectation = [self expectationWithDescription:@"subscribed to topics"];
+    XCTestExpectation *delayForTopic2MostOnceMessagesExpectation = [self expectationWithDescription:@"delay for topic 2 most once messages"];
+
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.amazon.aws.iot.test-queue", DISPATCH_QUEUE_SERIAL);
+
+    connectedExpectation.assertForOverFulfill = NO;
+    void (^updateConnectionStatus)(AWSIoTMQTTStatus status) = ^(AWSIoTMQTTStatus status) {
+        if (status == AWSIoTMQTTStatusConnected) {
+            connected = YES;
+            [connectedExpectation fulfill];
+        } else if (status == AWSIoTMQTTStatusDisconnected) {
+            connected = NO;
+            [disconnectedExpectation fulfill];
+        }
+    };
+
+    NSString *const key = @"testWebSocketMQTTPubSub";
+    [AWSIoTDataTests registerIoTDataManagerForKey:key];
+
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1"
+                                         cleanSession:true
+                                       statusCallback:updateConnectionStatus];
+
+    // Wait until connected
+    [self waitForExpectations:@[connectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Continue only if we've successfully connected
+    //
+
+    XCTAssertTrue(connected);
+    if (!connected) {
+        return;
+    }
+
+    void (^topic2Callback)(NSData *) = ^(NSData *data) {
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        dispatch_sync(serialQueue, ^{
+            [topic2Strings addObject:string];
+        });
+    };
+
+    //
+    // Subscribe after connected.
+    //
+
+    BOOL returnValue = [iotDataManager subscribeToTopic:topic2
+                                                    QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce
+                                        messageCallback:topic2Callback
+                                            ackCallback: ^{
+        [subscribedExpectation fulfill];
+    }];
+    XCTAssertTrue(returnValue, @"Subscribed to test topic 2");
+
+    // Wait until subscribed
+    [self waitForExpectations:@[subscribedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Publish at 10Hz for 10 seconds; the receiver will count messages
+    // and we'll verify that we received most of them.
+    //
+    NSUInteger count = 100;
+    NSTimeInterval delay = 0.1;
+    useconds_t microseconds = delay * 1000000;
+    NSTimeInterval timeout = count * delay * 1.25;
+
+    __block NSUInteger total = 0;
+    __block TestBlock asyncTask;
+    __block TestBlock done;
+
+    asyncTask = ^ {
+        BOOL returnValue = [iotDataManager publishString:publishMessageTestString
+                                                 onTopic:topic2
+                                                     QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce];
+        XCTAssertTrue(returnValue);
+        dispatch_sync(serialQueue, ^{
+            total++;
+        });
+    };
+
+    done = ^ {
+        //
+        // Allow 2 seconds for the receiver to catch up before evaluating the count...
+        //
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+            [delayForTopic2MostOnceMessagesExpectation fulfill];
+        });
+    };
+
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_apply(count, queue, ^(size_t index) {
+        NSLog(@"Running async task: %lu", index);
+        asyncTask();
+        usleep(microseconds);
+        BOOL isDone = index == count - 1;
+        if (isDone) {
+            done();
+        }
+    });
+
+    //
+    // Allow 1 second for the receiver to catch up before evaluating the count...
+    //
+    [self waitForExpectations:@[delayForTopic2MostOnceMessagesExpectation]
+                      timeout:timeout];
+
+    NSLog(@"Published %lu messages", topic2Strings.count);
+    XCTAssertEqual(count, total);
+    XCTAssertGreaterThanOrEqual(topic2Strings.count, count - 5);  // allow up to 5 messages missed
+
+    [iotDataManager unsubscribeTopic:topic2];
+
+    //
+    // Disconnect the client
+    //
+    [iotDataManager disconnect];
+
+    [self waitForExpectations:@[disconnectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    XCTAssertFalse(connected);
+}
+
+- (void)testWebSocketMQTTPubSubWithManyLeastOnceMessages {
+    __block BOOL connected = false;
+    __block NSMutableArray<NSString *>* topic2Strings = @[].mutableCopy;
+
+    NSString *topic2 = @"testTopic2";
+
+    XCTestExpectation *connectedExpectation = [self expectationWithDescription:@"status is 'connected'"];
+    XCTestExpectation *disconnectedExpectation = [self expectationWithDescription:@"status is 'disconnected'"];
+    XCTestExpectation *subscribedExpectation = [self expectationWithDescription:@"subscribed to topics"];
+    XCTestExpectation *delayForTopic2LeastOnceMessagesExpectation = [self expectationWithDescription:@"delay for topic 2 least once messages"];
+
+    dispatch_queue_t serialQueue = dispatch_queue_create("com.amazon.aws.iot.test-queue", DISPATCH_QUEUE_SERIAL);
+
+    connectedExpectation.assertForOverFulfill = NO;
+    void (^updateConnectionStatus)(AWSIoTMQTTStatus status) = ^(AWSIoTMQTTStatus status) {
+        if (status == AWSIoTMQTTStatusConnected) {
+            connected = YES;
+            [connectedExpectation fulfill];
+        } else if (status == AWSIoTMQTTStatusDisconnected) {
+            connected = NO;
+            [disconnectedExpectation fulfill];
+        }
+    };
+
+    NSString *const key = @"testWebSocketMQTTPubSub";
+    [AWSIoTDataTests registerIoTDataManagerForKey:key];
+
+    AWSIoTDataManager *iotDataManager = [AWSIoTDataManager IoTDataManagerForKey:key];
+    [iotDataManager connectUsingWebSocketWithClientId:@"integration-test-1"
+                                         cleanSession:true
+                                       statusCallback:updateConnectionStatus];
+
+    // Wait until connected
+    [self waitForExpectations:@[connectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Continue only if we've successfully connected
+    //
+
+    XCTAssertTrue(connected);
+    if (!connected) {
+        return;
+    }
+
+    void (^topic2Callback)(NSData *) = ^(NSData *data) {
+        NSString *string = [[NSString alloc] initWithData:data encoding:NSUTF8StringEncoding];
+        [topic2Strings addObject:string];
+    };
+
+    //
+    // Subscribe after connected.
+    //
+
+    BOOL returnValue = [iotDataManager subscribeToTopic:topic2
+                                                    QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce
+                                        messageCallback:topic2Callback
+                                            ackCallback: ^{
+        [subscribedExpectation fulfill];
+    }];
+    XCTAssertTrue(returnValue, @"Subscribed to test topic 2");
+
+    // Wait until subscribed
+    [self waitForExpectations:@[subscribedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    //
+    // Publish at 5Hz for 10 seconds (qos 1); the receiver will count messages
+    // and we'll verify that we received all of them.
+    //
+    NSUInteger count = 50;
+    NSTimeInterval delay = 0.2;
+    useconds_t microseconds = delay * 1000000;
+    NSTimeInterval timeout = count * delay * 1.5;
+
+    __block NSUInteger i = 0;
+    __block NSUInteger total = 0;
+    __block TestBlock asyncWork;
+    __block TestBlock step;
+
+    asyncWork = ^ {
+        BOOL returnValue = [iotDataManager publishString:publishMessageTestString
+                                                 onTopic:topic2
+                                                     QoS:AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce];
+        XCTAssertTrue(returnValue);
+        dispatch_sync(serialQueue, ^{
+            total++;
+        });
+
+        assert(step != nil);
+        step();
+    };
+
+    step = ^ {
+        if (i < count) {
+            dispatch_sync(serialQueue, ^{
+                usleep(microseconds);
+                i++;
+            });
+            NSLog(@"Running async task: %lu", i);
+            asyncWork();
+        } else {
+            //
+            // Allow 1 second for the receiver to catch up before evaluating the count...
+            //
+            dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_global_queue(0, 0), ^{
+                [delayForTopic2LeastOnceMessagesExpectation fulfill];
+            });
+        }
+    };
+
+    step();
+
+    [self waitForExpectations:@[delayForTopic2LeastOnceMessagesExpectation]
+                      timeout:timeout];
+
+    NSLog(@"Published %lu messages", topic2Strings.count);
+    XCTAssertEqual(total, count);
+    XCTAssertGreaterThanOrEqual(topic2Strings.count, count); // this was qos 1 so there should be no misses.
+
+    [iotDataManager unsubscribeTopic:topic2];
+
+    //
+    // Disconnect the client
+    //
+    [iotDataManager disconnect];
+
+    [self waitForExpectations:@[disconnectedExpectation]
+                      timeout:networkExpectationTimeout];
+
+    XCTAssertFalse(connected);
+}
+
+- (void) testReconnectProgression {
     __block NSUInteger connectionAttempts = 0;
     __block NSDate *connectingTime = [NSDate date];
     __block NSTimeInterval maxExpected = 8.0;
@@ -1047,6 +1464,5 @@ NSString *endpointString;
 
 
 }
-
 
 @end
