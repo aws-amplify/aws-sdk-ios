@@ -37,126 +37,126 @@
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 47,
+      "line": 51,
       "symbol": "AWSIoTMQTTConfiguration",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 203,
+      "line": 207,
       "symbol": "AWSIoTDataManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 699,
+      "line": 757,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 699,
+      "line": 757,
       "symbol": "AWSIoTShadowOperationType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 706,
+      "line": 764,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 707,
+      "line": 765,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeGet",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 708,
+      "line": 766,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeDelete",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 709,
+      "line": 767,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 710,
+      "line": 768,
       "symbol": "AWSIoTShadowOperationType.AWSIoTShadowOperationTypeNone",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 713,
+      "line": 771,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 713,
+      "line": 771,
       "symbol": "AWSIoTShadowOperationStatusType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 720,
+      "line": 778,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeAccepted",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 721,
+      "line": 779,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeRejected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 722,
+      "line": 780,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDelta",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 723,
+      "line": 781,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeDocuments",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 724,
+      "line": 782,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeCount",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 725,
+      "line": 783,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeForeignUpdate",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTDataManager.h",
-      "line": 726,
+      "line": 784,
       "symbol": "AWSIoTShadowOperationStatusType.AWSIoTShadowOperationStatusTypeTimeout",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
@@ -289,112 +289,238 @@
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 20,
+      "line": 22,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 20,
+      "line": 22,
       "symbol": "AWSIoTMQTTStatus",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 21,
+      "line": 23,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusUnknown",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 22,
+      "line": 24,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnecting",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 23,
+      "line": 25,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 24,
+      "line": 26,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusDisconnected",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 25,
+      "line": 27,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionRefused",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 26,
+      "line": 28,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusConnectionError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 27,
+      "line": 29,
       "symbol": "AWSIoTMQTTStatus.AWSIoTMQTTStatusProtocolError",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 30,
-      "symbol": "AWSIoTMQTTQoS",
+      "line": 32,
+      "symbol": "AWSIoTMQTTMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 30,
-      "symbol": "AWSIoTMQTTQoS",
+      "line": 32,
+      "symbol": "AWSIoTMQTTMessageType",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 31,
-      "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce",
+      "line": 33,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeConnect",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 32,
-      "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce",
+      "line": 34,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeConnack",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
       "line": 35,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePublish",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 36,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePuback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 37,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubrec",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 38,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubrel",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 39,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePubcomp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 40,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeSubscribe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 41,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeSuback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 42,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeUnsubscribe",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 43,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeUnsuback",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 44,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePingreq",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 45,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypePingresp",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 46,
+      "symbol": "AWSIoTMQTTMessageType.AWSIoTMQTTMessageTypeDisconnect",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 49,
+      "symbol": "AWSIoTMQTTQoS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 49,
+      "symbol": "AWSIoTMQTTQoS",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 50,
+      "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtMostOnce",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 51,
+      "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedAtLeastOnce",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 52,
+      "symbol": "AWSIoTMQTTQoS.AWSIoTMQTTQoSMessageDeliveryAttemptedExactlyOnce",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 55,
       "symbol": "AWSIoTMQTTNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 36,
+      "line": 56,
       "symbol": "AWSIoTMQTTExtendedNewMessageBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
       "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
-      "line": 37,
+      "line": 57,
+      "symbol": "AWSIoTMQTTFullMessageBlock",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMQTTTypes.h",
+      "line": 58,
       "symbol": "AWSIoTMQTTAckBlock",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
@@ -432,6 +558,69 @@
       "line": 27,
       "symbol": "AWSIoTManager",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 22,
+      "symbol": "AWSIoTMessage",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.class",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 24,
+      "symbol": "AWSIoTMessage.type",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 25,
+      "symbol": "AWSIoTMessage.qos",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 26,
+      "symbol": "AWSIoTMessage.retainFlag",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 27,
+      "symbol": "AWSIoTMessage.isDuplicate",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 28,
+      "symbol": "AWSIoTMessage.rawData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 29,
+      "symbol": "AWSIoTMessage.messageData",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 31,
+      "symbol": "AWSIoTMessage.topic",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSIoT/AWSIoTMessage.h",
+      "line": 32,
+      "symbol": "AWSIoTMessage.message",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.property",
       "warning": "undocumented"
     },
     {

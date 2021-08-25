@@ -17,7 +17,7 @@
     <a title="AWSIoTDataManager Class Reference"></a>
     <header>
       <div class="content-wrapper">
-        <p><a href="../index.html">AWSIoT 2.24.5 Docs</a> (85% documented)</p>
+        <p><a href="../index.html">AWSIoT 2.25.0 Docs</a> (85% documented)</p>
         <p class="header-right"><a href="https://github.com/aws-amplify/aws-sdk-ios"><img src="../img/gh.png"/>View on GitHub</a></p>
         <p class="header-right"><a href="dash-feed://https%3A%2F%2Faws-amplify.github.io%2Faws-sdk-ios%2Fdocs%2Freference%2Fdocsets%2FAWSIoT.xml"><img src="../img/dash.png"/>Install in Dash</a></p>
         <p class="header-right">
@@ -1406,6 +1406,9 @@
                 <a href="../Classes/AWSIoTManager.html">AWSIoTManager</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Classes/AWSIoTMessage.html">AWSIoTMessage</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Classes/AWSIoTMetricDimension.html">AWSIoTMetricDimension</a>
               </li>
               <li class="nav-group-task">
@@ -2097,6 +2100,9 @@
                 <a href="../Enums/AWSIoTLogTargetType.html">AWSIoTLogTargetType</a>
               </li>
               <li class="nav-group-task">
+                <a href="../Enums/AWSIoTMQTTMessageType.html">AWSIoTMQTTMessageType</a>
+              </li>
+              <li class="nav-group-task">
                 <a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a>
               </li>
               <li class="nav-group-task">
@@ -2169,6 +2175,9 @@
               </li>
               <li class="nav-group-task">
                 <a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a>
+              </li>
+              <li class="nav-group-task">
+                <a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a>
               </li>
               <li class="nav-group-task">
                 <a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a>
@@ -2287,8 +2296,6 @@
  */</span>
 <span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerIoTDataManagerWithConfiguration</span><span class="p">:(</span><span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span> <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
 
-
-
 <span class="cm">/**
  Creates a service client with the given service configuration and
  AWSIoTMQTTConfiguration and registers it for the key.
@@ -2352,7 +2359,6 @@
 <span class="k">+</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="nf">registerIoTDataManagerWithConfiguration</span><span class="p">:(</span><span class="n">AWSServiceConfiguration</span> <span class="o">*</span><span class="p">)</span><span class="nv">configuration</span>
                           <span class="nf">withMQTTConfiguration</span><span class="p">:(</span><span class="n"><a href="../Classes/AWSIoTMQTTConfiguration.html">AWSIoTMQTTConfiguration</a></span> <span class="o">*</span><span class="p">)</span><span class="nv">mqttConfig</span>
                                          <span class="nf">forKey</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">key</span><span class="p">;</span>
-
 
 <span class="cm">/**
  Retrieves the service client associated with the key. You need to call `+ registerIoTDataManagerWithConfiguration:forKey:` before invoking this method.
@@ -2522,7 +2528,6 @@
 
 <span class="cm">/**
  Disconnect from a mqtt client (close current mqtt session)
-
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="kt">void</span><span class="p">)</span><span class="n">disconnect</span><span class="p">;</span>
 
@@ -2562,10 +2567,10 @@
  @return Boolean value indicating success or failure.
  
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">publishString</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">string</span>
-               <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
-                   <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-           <span class="nf">ackCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishString</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">string</span>
+              <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                  <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+          <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
 
 <span class="cm">/**
  Send MQTT message to specified topic
@@ -2579,28 +2584,50 @@
  @return Boolean value indicating success or failure.
 
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">publishData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
-             <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
-                 <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+            <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span><span class="p">;</span>
 
 <span class="cm">/**
  Send MQTT message to specified topic
  
  @param data The message (As NSData) to be sent.
  
- @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
- 
  @param topic The topic for publish to.
+
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
  
  @param ackCallback the callback for ack if QoS &gt; 0.
  
  @return Boolean value indicating success or failure.
  
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">publishData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
-             <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
-                 <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-         <span class="nf">ackCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+            <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+        <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
+
+<span class="cm">/**
+ Send MQTT message to specified topic
+
+ @param data The message (As NSData) to be sent.
+
+ @param topic The topic for publish to.
+
+ @param qos The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).
+
+ @param retain The retain message flag.
+
+ @param ackCallback the callback for ack if QoS &gt; 0.
+
+ @return Boolean value indicating success or failure.
+
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishData</span><span class="p">:(</span><span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+            <span class="nf">onTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+             <span class="nf">retain</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">retain</span>
+        <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
 
 <span class="cm">/**
  Subscribes to a topic at a specific QoS level
@@ -2626,14 +2653,16 @@
  @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
  
  @param callback Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.
- 
+
+ @param ackCallback the callback for ack if QoS &gt; 0.
+
  @return Boolean value indicating success or failure.
  
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
-                      <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-          <span class="nf">messageCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
-              <span class="nf">ackCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+         <span class="nf">messageCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
 
 <span class="cm">/**
  Subscribes to a topic at a specific QoS level
@@ -2665,11 +2694,45 @@
  @return Boolean value indicating success or failure.
  
  */</span>
-<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
-                      <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-         <span class="nf">extendedCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
-              <span class="nf">ackCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+        <span class="nf">extendedCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
 
+<span class="cm">/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+
+ @param callback Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.
+
+ @return Boolean value indicating success or failure.
+
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+            <span class="nf">fullCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span><span class="p">;</span>
+
+<span class="cm">/**
+ Subscribes to a topic at a specific QoS level
+
+ @param topic The Topic to subscribe to.
+
+ @param qos Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce
+
+ @param callback Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.
+
+ @param ackCallback the callback for ack if QoS &gt; 0.
+
+ @return Boolean value indicating success or failure.
+
+ */</span>
+<span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+            <span class="nf">fullCallback</span><span class="p">:(</span><span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span>
 
 <span class="cm">/**
  Unsubscribes from a topic
@@ -2730,11 +2793,9 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  @return Boolean value indicating success or failure.
  
  */</span>
-
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">registerWithShadow</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
                     <span class="nf">options</span><span class="p">:(</span><span class="n">NSDictionary</span><span class="o">&lt;</span><span class="n">NSString</span> <span class="o">*</span><span class="p">,</span> <span class="n">NSNumber</span> <span class="o">*&gt;</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">options</span>
               <span class="nf">eventCallback</span><span class="p">:(</span><span class="kt">void</span><span class="p">(</span><span class="o">^</span><span class="p">)(</span><span class="n">NSString</span> <span class="o">*</span><span class="n">name</span><span class="p">,</span> <span class="n"><a href="../Enums/AWSIoTShadowOperationType.html">AWSIoTShadowOperationType</a></span> <span class="n">operation</span><span class="p">,</span> <span class="n"><a href="../Enums/AWSIoTShadowOperationStatusType.html">AWSIoTShadowOperationStatusType</a></span> <span class="n">status</span><span class="p">,</span> <span class="n">NSString</span> <span class="o">*</span><span class="n">clientToken</span><span class="p">,</span> <span class="n">NSData</span> <span class="o">*</span><span class="n">payload</span><span class="p">))</span><span class="nv">callback</span><span class="p">;</span>
-
 
 <span class="cm">/**
  Unregister from updates on a device shadow
@@ -2825,7 +2886,6 @@ shadowOperationTimeoutSeconds: double, device shadow operation timeout (default 
  */</span>
 <span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span> <span class="nf">deleteShadow</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">name</span>
           <span class="nf">clientToken</span><span class="p">:(</span><span class="n">NSString</span> <span class="o">*</span> <span class="n">_Nullable</span><span class="p">)</span><span class="nv">clientToken</span><span class="p">;</span>
-
 
 <span class="k">@end</span></code></pre>
 
@@ -4103,12 +4163,12 @@ custom authorization HTTP request header.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishString</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">string</span>
               <span class="nf">onTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
                   <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-          <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+          <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publishString</span><span class="p">(</span><span class="n">_</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">onTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publishString</span><span class="p">(</span><span class="n">_</span> <span class="nv">string</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">onTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4278,12 +4338,12 @@ custom authorization HTTP request header.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
             <span class="nf">onTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
                 <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
-        <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+        <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publishData</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="n">onTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publishData</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="n">onTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4306,6 +4366,18 @@ custom authorization HTTP request header.</p>
                             <tr>
                               <td>
                                 <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The topic for publish to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>qos</em>
                                 </code>
                               </td>
@@ -4318,12 +4390,107 @@ custom authorization HTTP request header.</p>
                             <tr>
                               <td>
                                 <code>
+                                <em>ackCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the callback for ack if QoS &gt; 0.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean value indicating success or failure.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataManager(im)publishData:onTopic:QoS:retain:ackCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-publishData:onTopic:QoS:retain:ackCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataManager(im)publishData:onTopic:QoS:retain:ackCallback:">-publishData:<wbr>onTopic:<wbr>QoS:<wbr>retain:<wbr>ackCallback:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Send MQTT message to specified topic</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">publishData</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSData</span> <span class="o">*</span><span class="p">)</span><span class="nv">data</span>
+            <span class="nf">onTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+             <span class="nf">retain</span><span class="p">:(</span><span class="n">BOOL</span><span class="p">)</span><span class="nv">retain</span>
+        <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">publishData</span><span class="p">(</span><span class="n">_</span> <span class="nv">data</span><span class="p">:</span> <span class="kt">Data</span><span class="p">,</span> <span class="n">onTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="nv">retain</span><span class="p">:</span> <span class="kt">Bool</span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>data</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The message (As NSData) to be sent.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
                                 <em>topic</em>
                                 </code>
                               </td>
                               <td>
                                 <div>
                                   <p>The topic for publish to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>qos</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The QoS value to use when publishing (optional, default AWSIoTMQTTQoSAtMostOnce).</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>retain</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The retain message flag.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4453,12 +4620,12 @@ custom authorization HTTP request header.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
                      <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
          <span class="nf">messageCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
-             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">messageCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">messageCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTNewMessageBlock">AWSIoTMQTTNewMessageBlock</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4499,6 +4666,18 @@ custom authorization HTTP request header.</p>
                               <td>
                                 <div>
                                   <p>Reference to AWSIOTMQTTNewMessageBlock. When new message is received the callback will be invoked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ackCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the callback for ack if QoS &gt; 0.</p>
                                 </div>
                               </td>
                             </tr>
@@ -4616,12 +4795,12 @@ custom authorization HTTP request header.</p>
                           <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
                      <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
         <span class="nf">extendedCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
-             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
 
                         </div>
                         <div class="language">
                           <p class="aside-title">Swift</p>
-                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">extendedCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">extendedCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTExtendedNewMessageBlock">AWSIoTMQTTExtendedNewMessageBlock</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
 
                         </div>
                       </div>
@@ -4662,6 +4841,181 @@ custom authorization HTTP request header.</p>
                               <td>
                                 <div>
                                   <p>Reference to AWSIOTMQTTExtendedNewMessageBlock. When new message is received the callback will be invoked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>ackCallback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>the callback for ack if QoS &gt; 0.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean value indicating success or failure.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataManager(im)subscribeToTopic:QoS:fullCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-subscribeToTopic:QoS:fullCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataManager(im)subscribeToTopic:QoS:fullCallback:">-subscribeToTopic:<wbr>QoS:<wbr>fullCallback:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subscribes to a topic at a specific QoS level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+            <span class="nf">fullCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">fullCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Topic to subscribe to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>qos</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.</p>
+                                </div>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div>
+                        <h4>Return Value</h4>
+                        <p>Boolean value indicating success or failure.</p>
+                      </div>
+                    </section>
+                  </div>
+                </li>
+                <li class="item">
+                  <div>
+                    <code>
+                    <a name="/c:objc(cs)AWSIoTDataManager(im)subscribeToTopic:QoS:fullCallback:ackCallback:"></a>
+                    <a name="//apple_ref/objc/Method/-subscribeToTopic:QoS:fullCallback:ackCallback:" class="dashAnchor"></a>
+                    <a class="token" href="#/c:objc(cs)AWSIoTDataManager(im)subscribeToTopic:QoS:fullCallback:ackCallback:">-subscribeToTopic:<wbr>QoS:<wbr>fullCallback:<wbr>ackCallback:<wbr></a>
+                    </code>
+                  </div>
+                  <div class="height-container">
+                    <div class="pointer-container"></div>
+                    <section class="section">
+                      <div class="pointer"></div>
+                      <div class="abstract">
+                        <p>Subscribes to a topic at a specific QoS level</p>
+
+                      </div>
+                      <div class="declaration">
+                        <h4>Declaration</h4>
+                        <div class="language">
+                          <p class="aside-title">Objective-C</p>
+                          <pre class="highlight objective_c"><code><span class="k">-</span> <span class="p">(</span><span class="n">BOOL</span><span class="p">)</span><span class="nf">subscribeToTopic</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n">NSString</span> <span class="o">*</span><span class="p">)</span><span class="nv">topic</span>
+                     <span class="nf">QoS</span><span class="p">:(</span><span class="n"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">)</span><span class="nv">qos</span>
+            <span class="nf">fullCallback</span><span class="p">:(</span><span class="n">nonnull</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">)</span><span class="nv">callback</span>
+             <span class="nf">ackCallback</span><span class="p">:(</span><span class="n">nullable</span> <span class="n"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">)</span><span class="nv">ackCallback</span><span class="p">;</span></code></pre>
+
+                        </div>
+                        <div class="language">
+                          <p class="aside-title">Swift</p>
+                          <pre class="highlight swift"><code><span class="kd">func</span> <span class="nf">subscribe</span><span class="p">(</span><span class="n">toTopic</span> <span class="nv">topic</span><span class="p">:</span> <span class="kt">String</span><span class="p">,</span> <span class="n">qoS</span> <span class="nv">qos</span><span class="p">:</span> <span class="kt"><a href="../Enums/AWSIoTMQTTQoS.html">AWSIoTMQTTQoS</a></span><span class="p">,</span> <span class="n">fullCallback</span> <span class="nv">callback</span><span class="p">:</span> <span class="kd">@escaping</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTFullMessageBlock">AWSIoTMQTTFullMessageBlock</a></span><span class="p">,</span> <span class="nv">ackCallback</span><span class="p">:</span> <span class="kt"><a href="../Type%20Definitions.html#/c:AWSIoTMQTTTypes.h@T@AWSIoTMQTTAckBlock">AWSIoTMQTTAckBlock</a></span><span class="p">?</span> <span class="o">=</span> <span class="kc">nil</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kt">Bool</span></code></pre>
+
+                        </div>
+                      </div>
+                      <div>
+                        <h4>Parameters</h4>
+                        <table class="graybox">
+                          <tbody>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>topic</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>The Topic to subscribe to.</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>qos</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Specifies the QoS Level of the subscription: AWSIoTMQTTQoSAtMostOnce or AWSIoTMQTTQoSAtLeastOnce</p>
+                                </div>
+                              </td>
+                            </tr>
+                            <tr>
+                              <td>
+                                <code>
+                                <em>callback</em>
+                                </code>
+                              </td>
+                              <td>
+                                <div>
+                                  <p>Reference to AWSIoTMQTTFullMessageBlock. When new message is received the callback will be invoked.</p>
                                 </div>
                               </td>
                             </tr>
@@ -5290,8 +5644,8 @@ False if it cannot be serialized successfully.</p>
           </section>
         </section>
         <section id="footer">
-          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-11)</p>
-          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="external">jazzy ♪♫ v0.13.7</a>, a <a class="link" href="https://realm.io" target="_blank" rel="external">Realm</a> project.</p>
+          <p>&copy; 2021 <a class="link" href="https://aws-amplify.github.io" target="_blank" rel="noopener" rel="external">Amazon Web Services, Inc.</a>. All rights reserved. (Last updated: 2021-08-25)</p>
+          <p>Generated by <a class="link" href="https://github.com/realm/jazzy" target="_blank" rel="noopener" rel="external">jazzy ♪♫ v0.14.0</a>, a <a class="link" href="https://realm.io" target="_blank" rel="noopener" rel="external">Realm</a> project.</p>
         </section>
       </article>
     </div>
