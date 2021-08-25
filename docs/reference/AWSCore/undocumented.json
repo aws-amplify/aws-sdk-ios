@@ -2187,13 +2187,6 @@
     {
       "file": "/Users/distiller/project/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
       "line": 22,
-      "symbol": "AWSMTLModelEncodingBehavior",
-      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
-      "warning": "undocumented"
-    },
-    {
-      "file": "/Users/distiller/project/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
-      "line": 22,
       "symbol": "AWSMTLModelEncodingBehavior.",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enum",
       "warning": "undocumented"
@@ -2238,6 +2231,13 @@
       "line": 25,
       "symbol": "AWSMTLModelEncodingBehavior..AWSMTLModelEncodingBehaviorConditional",
       "symbol_kind": "sourcekitten.source.lang.objc.decl.enumcase",
+      "warning": "undocumented"
+    },
+    {
+      "file": "/Users/distiller/project/AWSCore/Mantle/AWSMTLModel+NSCoding.h",
+      "line": 26,
+      "symbol": "AWSMTLModelEncodingBehavior",
+      "symbol_kind": "sourcekitten.source.lang.objc.decl.typedef",
       "warning": "undocumented"
     },
     {
