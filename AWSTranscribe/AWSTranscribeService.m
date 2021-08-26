@@ -870,6 +870,29 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
     }];
 }
 
+- (AWSTask<AWSTranscribeListTagsForResourceResponse *> *)listTagsForResource:(AWSTranscribeListTagsForResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"ListTagsForResource"
+                   outputClass:[AWSTranscribeListTagsForResourceResponse class]];
+}
+
+- (void)listTagsForResource:(AWSTranscribeListTagsForResourceRequest *)request
+     completionHandler:(void (^)(AWSTranscribeListTagsForResourceResponse *response, NSError *error))completionHandler {
+    [[self listTagsForResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeListTagsForResourceResponse *> * _Nonnull task) {
+        AWSTranscribeListTagsForResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
 - (AWSTask<AWSTranscribeListTranscriptionJobsResponse *> *)listTranscriptionJobs:(AWSTranscribeListTranscriptionJobsRequest *)request {
     return [self invokeRequest:request
                     HTTPMethod:AWSHTTPMethodPOST
@@ -998,6 +1021,52 @@ static AWSSynchronizedMutableDictionary *_serviceClients = nil;
      completionHandler:(void (^)(AWSTranscribeStartTranscriptionJobResponse *response, NSError *error))completionHandler {
     [[self startTranscriptionJob:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeStartTranscriptionJobResponse *> * _Nonnull task) {
         AWSTranscribeStartTranscriptionJobResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranscribeTagResourceResponse *> *)tagResource:(AWSTranscribeTagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"TagResource"
+                   outputClass:[AWSTranscribeTagResourceResponse class]];
+}
+
+- (void)tagResource:(AWSTranscribeTagResourceRequest *)request
+     completionHandler:(void (^)(AWSTranscribeTagResourceResponse *response, NSError *error))completionHandler {
+    [[self tagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeTagResourceResponse *> * _Nonnull task) {
+        AWSTranscribeTagResourceResponse *result = task.result;
+        NSError *error = task.error;
+
+        if (completionHandler) {
+            completionHandler(result, error);
+        }
+
+        return nil;
+    }];
+}
+
+- (AWSTask<AWSTranscribeUntagResourceResponse *> *)untagResource:(AWSTranscribeUntagResourceRequest *)request {
+    return [self invokeRequest:request
+                    HTTPMethod:AWSHTTPMethodPOST
+                     URLString:@""
+                  targetPrefix:@"Transcribe"
+                 operationName:@"UntagResource"
+                   outputClass:[AWSTranscribeUntagResourceResponse class]];
+}
+
+- (void)untagResource:(AWSTranscribeUntagResourceRequest *)request
+     completionHandler:(void (^)(AWSTranscribeUntagResourceResponse *response, NSError *error))completionHandler {
+    [[self untagResource:request] continueWithBlock:^id _Nullable(AWSTask<AWSTranscribeUntagResourceResponse *> * _Nonnull task) {
+        AWSTranscribeUntagResourceResponse *result = task.result;
         NSError *error = task.error;
 
         if (completionHandler) {
