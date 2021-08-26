@@ -125,6 +125,7 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"face" : @"Face",
              @"identifier" : @"Id",
+             @"knownGender" : @"KnownGender",
              @"matchConfidence" : @"MatchConfidence",
              @"name" : @"Name",
              @"urls" : @"Urls",
@@ -133,6 +134,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)faceJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionComparedFace class]];
+}
+
++ (NSValueTransformer *)knownGenderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionKnownGender class]];
 }
 
 @end
@@ -365,14 +370,20 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"boundingBox" : @"BoundingBox",
              @"confidence" : @"Confidence",
+             @"emotions" : @"Emotions",
              @"landmarks" : @"Landmarks",
              @"pose" : @"Pose",
              @"quality" : @"Quality",
+             @"smile" : @"Smile",
              };
 }
 
 + (NSValueTransformer *)boundingBoxJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionBoundingBox class]];
+}
+
++ (NSValueTransformer *)emotionsJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONArrayTransformerWithModelClass:[AWSRekognitionEmotion class]];
 }
 
 + (NSValueTransformer *)landmarksJSONTransformer {
@@ -385,6 +396,10 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSValueTransformer *)qualityJSONTransformer {
     return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionImageQuality class]];
+}
+
++ (NSValueTransformer *)smileJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionSmile class]];
 }
 
 @end
@@ -1828,9 +1843,14 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 
 + (NSDictionary *)JSONKeyPathsByPropertyKey {
 	return @{
+             @"knownGender" : @"KnownGender",
              @"name" : @"Name",
              @"urls" : @"Urls",
              };
+}
+
++ (NSValueTransformer *)knownGenderJSONTransformer {
+    return [NSValueTransformer awsmtl_JSONDictionaryTransformerWithModelClass:[AWSRekognitionKnownGender class]];
 }
 
 @end
@@ -2762,6 +2782,41 @@ NSString *const AWSRekognitionErrorDomain = @"com.amazonaws.AWSRekognitionErrorD
 	return @{
              @"arn" : @"Arn",
              };
+}
+
+@end
+
+@implementation AWSRekognitionKnownGender
+
++ (BOOL)supportsSecureCoding {
+    return YES;
+}
+
++ (NSDictionary *)JSONKeyPathsByPropertyKey {
+	return @{
+             @"types" : @"Type",
+             };
+}
+
++ (NSValueTransformer *)typesJSONTransformer {
+    return [AWSMTLValueTransformer reversibleTransformerWithForwardBlock:^NSNumber *(NSString *value) {
+        if ([value caseInsensitiveCompare:@"Male"] == NSOrderedSame) {
+            return @(AWSRekognitionKnownGenderTypeMale);
+        }
+        if ([value caseInsensitiveCompare:@"Female"] == NSOrderedSame) {
+            return @(AWSRekognitionKnownGenderTypeFemale);
+        }
+        return @(AWSRekognitionKnownGenderTypeUnknown);
+    } reverseBlock:^NSString *(NSNumber *value) {
+        switch ([value integerValue]) {
+            case AWSRekognitionKnownGenderTypeMale:
+                return @"Male";
+            case AWSRekognitionKnownGenderTypeFemale:
+                return @"Female";
+            default:
+                return nil;
+        }
+    }];
 }
 
 @end

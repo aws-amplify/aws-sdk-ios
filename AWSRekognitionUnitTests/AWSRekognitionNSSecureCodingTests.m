@@ -118,6 +118,7 @@
 - (void) test_AWSRekognitionInstance API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKinesisDataStream API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionKinesisVideoStream API_AVAILABLE(ios(11));
+- (void) test_AWSRekognitionKnownGender API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabel API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLabelDetection API_AVAILABLE(ios(11));
 - (void) test_AWSRekognitionLandmark API_AVAILABLE(ios(11));
@@ -606,6 +607,10 @@
 
 - (void) test_AWSRekognitionKinesisVideoStream {
     [self validateSecureCodingForClass:[AWSRekognitionKinesisVideoStream class]];
+}
+
+- (void) test_AWSRekognitionKnownGender {
+    [self validateSecureCodingForClass:[AWSRekognitionKnownGender class]];
 }
 
 - (void) test_AWSRekognitionLabel {
