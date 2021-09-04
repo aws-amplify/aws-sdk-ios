@@ -257,6 +257,14 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         AWSDDLogError(@"Session task failed with error: %@", error);
     }
 
+    #if DEBUG
+    NSDictionary<NSString *,NSString *> *allHTTPHeaderFields = sessionTask.originalRequest.allHTTPHeaderFields;
+    for (NSString *key in allHTTPHeaderFields.allKeys) {
+        NSString *value = allHTTPHeaderFields[key];
+        AWSDDLogDebug(@"Request header:\n%@ = %@", key, value);
+    }
+    #endif
+
     [self printHTTPHeadersForResponse:sessionTask.response];
 
     [[[AWSTask taskWithResult:nil] continueWithSuccessBlock:^id(AWSTask *task) {
@@ -274,7 +282,6 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
         if (error && delegate.tempDownloadedFileURL) {
             [[NSFileManager defaultManager] removeItemAtPath:delegate.tempDownloadedFileURL.path error:nil];
         }
-
 
         if (!delegate.error
             && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
@@ -632,7 +639,12 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
 - (void)printHTTPHeadersForResponse:(NSURLResponse *)response {
     if([AWSDDLog sharedInstance].logLevel & AWSDDLogFlagDebug){
         if ([response isKindOfClass:[NSHTTPURLResponse class]]) {
+            NSDictionary *allHeaderFields = ((NSHTTPURLResponse *)response).allHeaderFields;
             AWSDDLogDebug(@"Response headers:\n%@", ((NSHTTPURLResponse *)response).allHeaderFields);
+            for (NSString *key in allHeaderFields.allKeys) {
+                NSString *value = allHeaderFields[key];
+                AWSDDLogDebug(@"Response header:\n%@ = %@", key, value);
+            }
         }
     }
 }

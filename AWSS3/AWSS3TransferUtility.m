@@ -1537,6 +1537,7 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
     [[[self.preSignedURLBuilder getPreSignedURL:request] continueWithBlock:^id(AWSTask *task) {
         error = task.error;
         if ( error ) {
+            AWSDDLogError(@"Error: %@", error);
             return nil;
         }
 
