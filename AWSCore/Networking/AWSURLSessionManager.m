@@ -275,7 +275,6 @@ typedef NS_ENUM(NSInteger, AWSURLSessionTaskType) {
             [[NSFileManager defaultManager] removeItemAtPath:delegate.tempDownloadedFileURL.path error:nil];
         }
 
-
         if (!delegate.error
             && [sessionTask.response isKindOfClass:[NSHTTPURLResponse class]]) {
             NSHTTPURLResponse *httpResponse = (NSHTTPURLResponse *)sessionTask.response;
