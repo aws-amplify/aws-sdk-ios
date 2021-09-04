@@ -39,8 +39,7 @@ static NSString *const AWSS3TransferUtilityRetryExceeded = @"AWSS3TransferUtilit
 static NSString *const AWSS3TransferUtilityRetrySucceeded = @"AWSS3TransferUtilityRetrySucceeded";
 static NSUInteger const AWSS3TransferUtilityMultiPartSize = 5 * 1024 * 1024;
 static NSString *const AWSS3TransferUtiltityRequestTimeoutErrorCode = @"RequestTimeout";
-static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
-
+static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5; // use number of cores instead
 
 #pragma mark - Private classes
 
@@ -2622,7 +2621,8 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
         //set defaults.
         _accelerateModeEnabled = NO;
         _retryLimit = 0;
-        _multiPartConcurrencyLimit = @(AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit);
+        _multiPartConcurrencyLimit = @(NSProcessInfo.processInfo.activeProcessorCount);
+
         _timeoutIntervalForResource = AWSS3TransferUtilityTimeoutIntervalForResource;
     }
     return self;
@@ -2639,7 +2639,3 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
 }
 
 @end
-
-
-
-
