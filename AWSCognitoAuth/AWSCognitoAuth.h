@@ -142,6 +142,12 @@ typedef void (^AWSCognitoAuthSignOutBlock)(NSError * _Nullable error);
  */
 - (void)getSession: (nullable AWSCognitoAuthGetSessionBlock) completion;
 
+/**
+ Get a session with id, access and refresh tokens from the cache. Returns error is no cached credentials are found.
+ @param completion completion block to invoke on completion
+ */
+- (void)getSessionWithoutLaunchingSignInVC:(AWSCognitoAuthGetSessionBlock) completion NS_SWIFT_NAME(getSessionWithoutLaunchingSignInVC(_:));
+
 - (void) signOutWithWebUI:(nonnull ASPresentationAnchor) anchor
                completion:(AWSCognitoAuthSignOutBlock)completion API_AVAILABLE(ios(13));
 

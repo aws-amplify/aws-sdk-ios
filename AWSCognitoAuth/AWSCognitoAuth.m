@@ -244,29 +244,36 @@ static NSString * AWSCognitoAuthAsfDeviceId = @"asf.device.id";
 
 #pragma mark get session
 
+- (void)getSessionWithoutLaunchingSignInVC:(AWSCognitoAuthGetSessionBlock) completion {
+    self.presentationAnchor = nil;
+    [self enqueueGetSession:nil shouldLaunchSignInVC:NO completion:completion];
+}
+
 - (void)getSession:(AWSCognitoAuthGetSessionBlock) completion {
     self.presentationAnchor = nil;
-    [self enqueueGetSession:nil completion:completion];
+    [self enqueueGetSession:nil shouldLaunchSignInVC:YES completion:completion];
 }
 
 - (void)getSession:(UIViewController *) vc completion: (AWSCognitoAuthGetSessionBlock) completion {
     self.presentationAnchor = nil;
-    [self enqueueGetSession:vc completion:completion];
+    [self enqueueGetSession:vc shouldLaunchSignInVC:YES completion:completion];
 }
 
 - (void)getSessionWithWebUI: (ASPresentationAnchor) anchor
                  completion: (nullable AWSCognitoAuthGetSessionBlock) completion {
     self.presentationAnchor = anchor;
-    [self enqueueGetSession:nil completion:completion];
+    [self enqueueGetSession:nil shouldLaunchSignInVC:YES completion:completion];
 }
 
 /**
  Adds another getSession operation to the serialized queue of getSession requests
  */
-- (void)enqueueGetSession:(nullable UIViewController *) vc completion: (AWSCognitoAuthGetSessionBlock) completion {
+- (void)enqueueGetSession:(nullable UIViewController *) vc
+     shouldLaunchSignInVC: (BOOL) shouldLaunchSignInVC
+               completion: (AWSCognitoAuthGetSessionBlock) completion {
     __block __weak NSOperation *weakGetSessionOperation;
     NSOperation *getSessionOperation =  [NSBlockOperation blockOperationWithBlock:^{
-        [self getSessionInternal:vc completion:completion];
+        [self getSessionInternal:vc shouldLaunchSignInVC: shouldLaunchSignInVC completion:completion];
         if(weakGetSessionOperation.isCancelled){
             [self dismissSafariViewControllerAndCompleteGetSession:nil error:self.getSessionError];
         }
@@ -429,12 +436,11 @@ withPresentingViewController:(UIViewController *)presentingViewController {
 }
 
 /**
- Check keychain for valid session, if expired or not available, prompt end user via ui
+ * Check to see if we have valid tokens. If we find a valid token, the method will return true.
+ * The token will be send to the callback method `getSessionBlock `
  */
-- (void)getSessionInternal: (nullable UIViewController *) vc completion: (AWSCognitoAuthGetSessionBlock) completion {
-
-    [self prepareForSignIn:vc completion:completion];
-    //check to see if we have valid tokens
+- (BOOL)getValidSessionFromCache {
+    
     NSString * username = [self currentUsername];
     if(username){
         __block NSString * keyChainNamespace = [self keyChainNamespaceClientId: [self currentUsername]];
@@ -457,7 +463,7 @@ withPresentingViewController:(UIViewController *)presentingViewController {
                                                                                             refreshToken:refreshToken
                                                                                           expirationTime:expiration];
                 [self dismissSafariViewControllerAndCompleteGetSession:session error:nil];
-                return;
+                return YES;
             }
             //else refresh it using the refresh token
             else if(refreshToken){
@@ -475,12 +481,29 @@ withPresentingViewController:(UIViewController *)presentingViewController {
                 [connection scheduleInRunLoop:[NSRunLoop mainRunLoop]
                                       forMode:NSDefaultRunLoopMode];
                 [connection start];
-                return;
+                return YES;
             }
         }
     }
-    //if we made it this far, we need the end user to authenticate
-    [self launchSignInVC: vc];
+    return NO;
+}
+/**
+ Check keychain for valid session, if expired or not available, prompt end user via ui if
+ */
+- (void)getSessionInternal: (nullable UIViewController *) vc
+      shouldLaunchSignInVC: (BOOL) shouldLaunchSignInVC
+                completion: (AWSCognitoAuthGetSessionBlock) completion {
+    
+    [self prepareForSignIn:vc completion:completion];
+    BOOL sessionPresentInCache = [self getValidSessionFromCache];
+    if (sessionPresentInCache == NO) {
+        if (shouldLaunchSignInVC == YES) {
+            [self launchSignInVC: vc];
+        } else {
+            NSError *error = [self getError:@"Could not fetch the session details" code:AWSCognitoAuthClientErrorUnknown];
+            [self dismissSafariViewControllerAndCompleteGetSession:nil error:error];
+        }
+    }
 }
 
 /**

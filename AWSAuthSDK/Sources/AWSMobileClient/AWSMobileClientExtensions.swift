@@ -831,13 +831,35 @@ extension AWSMobileClient {
         }
     }
 
+    func handleHostedUISessionCallback(session: AWSCognitoAuthUserSession?,
+                                       error: Error?,
+                                       _ completionHandler: @escaping (Tokens?, Error?) -> Void) {
+        if let sessionError = error,
+            (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
+            let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
+            (errorType == .errorExpiredRefreshToken) {
+            self.pendingGetTokensCompletion = completionHandler
+            self.invalidateCachedTemporaryCredentials()
+            self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
+                                           additionalInfo: [self.ProviderKey:"OAuth"])
+            // return early without releasing the tokenFetch lock.
+            return
+        } else if let session = session {
+            completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
+        } else {
+            completionHandler(nil, error)
+        }
+        self.tokenFetchLock.leave()
+    }
+
+    
     /// Returns cached UserPools auth JWT tokens if valid.
     /// If the `idToken` is not valid, and a refresh token is available, refresh token is used to get a new `idToken`.
     /// If there is no refresh token and the user is signed in, a notification is dispatched to indicate requirement of user to re-signin.
     /// The call to wait will be synchronized so that if multiple threads call this method, they will block till the first thread gets the token.
     ///
     /// - Parameter completionHandler: Tokens if available, else error.
-    public func getTokens(_ completionHandler: @escaping (Tokens?, Error?) -> Void) {
+    public func getTokens(showHostedUISignIn: Bool = true, _ completionHandler: @escaping (Tokens?, Error?) -> Void) {
         switch self.federationProvider {
         case .userPools, .hostedUI:
             break
@@ -849,25 +871,17 @@ extension AWSMobileClient {
         if self.federationProvider == .hostedUI {
             self.tokenFetchOperationQueue.addOperation {
                 self.tokenFetchLock.enter()
-                AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey).getSession({ (session, error) in
-
-                    if let sessionError = error,
-                        (sessionError as NSError).domain == AWSCognitoAuthErrorDomain,
-                        let errorType = AWSCognitoAuthClientErrorType(rawValue: (sessionError as NSError).code),
-                        (errorType == .errorExpiredRefreshToken) {
-                        self.pendingGetTokensCompletion = completionHandler
-                        self.invalidateCachedTemporaryCredentials()
-                        self.mobileClientStatusChanged(userState: .signedOutUserPoolsTokenInvalid,
-                                                       additionalInfo: [self.ProviderKey:"OAuth"])
-                        // return early without releasing the tokenFetch lock.
-                        return
-                    } else if let session = session {
-                        completionHandler(self.getTokensForCognitoAuthSession(session: session), nil)
-                    } else {
-                        completionHandler(nil, error)
-                    }
-                    self.tokenFetchLock.leave()
-                })
+                let cognitoAuth = AWSCognitoAuth.init(forKey: self.CognitoAuthRegistrationKey)
+                if showHostedUISignIn {
+                    cognitoAuth.getSession({ (session, error) in
+                        self.handleHostedUISessionCallback(session: session, error: error, completionHandler)
+                    })
+                } else {
+                    cognitoAuth.getSessionWithoutLaunchingSignInVC({ (session, error) in
+                        self.handleHostedUISessionCallback(session: session, error: error, completionHandler)
+                    })
+                }
+                
                 self.tokenFetchLock.wait()
             }
             return
