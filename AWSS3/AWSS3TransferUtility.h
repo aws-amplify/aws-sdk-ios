@@ -621,7 +621,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                                 _Nullable AWSS3TransferUtilityUploadCompletionHandlerBlock * _Nullable completionHandlerReference))uploadBlocksAssigner
                                 downloadTask:(nullable void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                                 _Nullable AWSS3TransferUtilityProgressBlock * _Nullable downloadProgressBlockReference,
-                                                                _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner;
+                                                                _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner NS_SWIFT_UNAVAILABLE("Use enumerateToAssign(blocks:) instead.");
 
 /**
  Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.
@@ -638,7 +638,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                                         AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference)) multiPartUploadBlocksAssigner
                      downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                       AWSS3TransferUtilityProgressBlock _Nullable * _Nullable downloadProgressBlockReference,
-                                                      AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner;
+                                                      AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner NS_SWIFT_UNAVAILABLE("Use enumerateToAssign(blocks:) instead.");
 
 /**
  Retrieves all running tasks.

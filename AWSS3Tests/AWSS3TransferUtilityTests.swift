@@ -2801,6 +2801,19 @@ class AWSS3TransferUtilityTests: XCTestCase {
         }
     }
 
+    // Test only verifies this code compiles with Swift.
+    // https://github.com/aws-amplify/aws-sdk-ios/issues/3725
+    func testEnumerateToAssignBlocks() {
+        let blocks = AWSS3TransferUtilityBlocks(uploadProgress: nil,
+                                                multiPartUploadProgress: nil,
+                                                downloadProgress: nil,
+                                                uploadCompleted: nil,
+                                                multiPartUploadCompleted: nil,
+                                                downloadCompleted: nil)
+        AWSS3TransferUtility.default().enumerateToAssign(blocks: blocks)
+        AWSS3TransferUtility.default().cancelAll()
+    }
+
     func sha256(url: URL) -> Data? {
         do {
             let bufferSize = 1024 * 1024
