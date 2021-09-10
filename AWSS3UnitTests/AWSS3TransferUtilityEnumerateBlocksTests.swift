@@ -36,7 +36,6 @@ class AWSS3TransferUtilityEnumerateBlocksTests: XCTestCase {
         self.transferUtility = transferUtility
     }
 
-    // Test only verifies this code compiles with Swift.
     // https://github.com/aws-amplify/aws-sdk-ios/issues/3725
     func testEnumerateToAssignBlocks() {
         guard let transferUtility = transferUtility else {

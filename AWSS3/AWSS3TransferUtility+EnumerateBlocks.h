@@ -24,7 +24,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 /// Assigns blocks for uploads, multipart uploads and downloads. This method should be called when the app was suspended while the transfer is still happening.
 ///
-/// @param blocks blocks
+/// @param blocks Transfer Utility Blocks for uploads, multipart uploads and downloads
 - (void)enumerateToAssignBlocks:(AWSS3TransferUtilityBlocks *)blocks NS_SWIFT_NAME(enumerateToAssign(blocks:));
 
 /// Cancels all uploads, multipart uploads and downloads.

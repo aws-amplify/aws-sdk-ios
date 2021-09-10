@@ -622,7 +622,7 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
                                 downloadTask:(nullable void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                                 _Nullable AWSS3TransferUtilityProgressBlock * _Nullable downloadProgressBlockReference,
                                                                 _Nullable AWSS3TransferUtilityDownloadCompletionHandlerBlock * _Nullable completionHandlerReference))downloadBlocksAssigner
-                                                                DEPRECATED_MSG_ATTRIBUTE("Use enumerateToAssign(blocks:) instead.");
+                                                                DEPRECATED_MSG_ATTRIBUTE("Use enumerateToAssignBlocks: instead.");
 
 /**
  Assigns progress feedback and completion handler blocks. This method should be called when the app was suspended while the transfer is still happening.
@@ -634,9 +634,9 @@ handleEventsForBackgroundURLSession:(NSString *)identifier
 - (void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
                                                        AWSS3TransferUtilityProgressBlock _Nullable * _Nullable uploadProgressBlockReference,
                                                        AWSS3TransferUtilityUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))uploadBlocksAssigner
-               multiPartUploadBlocksAssigner: (void (^) (AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
-                                                         AWSS3TransferUtilityMultiPartProgressBlock _Nullable * _Nullable multiPartUploadProgressBlockReference,
-                                                         AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference)) multiPartUploadBlocksAssigner
+               multiPartUploadBlocksAssigner:(void (^)(AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+                                                        AWSS3TransferUtilityMultiPartProgressBlock _Nullable * _Nullable multiPartUploadProgressBlockReference,
+                                                        AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference)) multiPartUploadBlocksAssigner
                       downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                        AWSS3TransferUtilityProgressBlock _Nullable * _Nullable downloadProgressBlockReference,
                                                        AWSS3TransferUtilityDownloadCompletionHandlerBlock _Nullable * _Nullable completionHandlerReference))downloadBlocksAssigner
