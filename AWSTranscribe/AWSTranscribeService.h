@@ -225,7 +225,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)createLanguageModel:(AWSTranscribeCreateLanguageModelRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeCreateLanguageModelResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical transcribes your audio file.</p>
+ <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file.</p>
  
  @param request A container for the necessary parameters to execute the CreateMedicalVocabulary service method.
 
@@ -237,7 +237,7 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (AWSTask<AWSTranscribeCreateMedicalVocabularyResponse *> *)createMedicalVocabulary:(AWSTranscribeCreateMedicalVocabularyRequest *)request;
 
 /**
- <p>Creates a new custom vocabulary that you can use to change how Amazon Transcribe Medical transcribes your audio file.</p>
+ <p>Creates a new custom vocabulary that you can use to modify how Amazon Transcribe Medical transcribes your audio file.</p>
  
  @param request A container for the necessary parameters to execute the CreateMedicalVocabulary service method.
  @param completionHandler The completion handler to call when the load request is complete.
@@ -807,6 +807,31 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
 - (void)listMedicalVocabularies:(AWSTranscribeListMedicalVocabulariesRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListMedicalVocabulariesResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
+ <p>Lists all tags associated with a given transcription job, vocabulary, or resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeListTagsForResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListTagsForResourceRequest
+ @see AWSTranscribeListTagsForResourceResponse
+ */
+- (AWSTask<AWSTranscribeListTagsForResourceResponse *> *)listTagsForResource:(AWSTranscribeListTagsForResourceRequest *)request;
+
+/**
+ <p>Lists all tags associated with a given transcription job, vocabulary, or resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the ListTagsForResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeListTagsForResourceRequest
+ @see AWSTranscribeListTagsForResourceResponse
+ */
+- (void)listTagsForResource:(AWSTranscribeListTagsForResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeListTagsForResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
  <p>Lists transcription jobs with the specified status.</p>
  
  @param request A container for the necessary parameters to execute the ListTranscriptionJobs service method.
@@ -955,6 +980,56 @@ FOUNDATION_EXPORT NSString *const AWSTranscribeSDKVersion;
  @see AWSTranscribeStartTranscriptionJobResponse
  */
 - (void)startTranscriptionJob:(AWSTranscribeStartTranscriptionJobRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeStartTranscriptionJobResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeTagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorConflict`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeTagResourceRequest
+ @see AWSTranscribeTagResourceResponse
+ */
+- (AWSTask<AWSTranscribeTagResourceResponse *> *)tagResource:(AWSTranscribeTagResourceRequest *)request;
+
+/**
+ <p>Tags a Amazon Transcribe resource with the given list of tags.</p>
+ 
+ @param request A container for the necessary parameters to execute the TagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorConflict`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeTagResourceRequest
+ @see AWSTranscribeTagResourceResponse
+ */
+- (void)tagResource:(AWSTranscribeTagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeTagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
+
+/**
+ <p>Removes specified tags from a specified Amazon Transcribe resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+
+ @return An instance of `AWSTask`. On successful execution, `task.result` will contain an instance of `AWSTranscribeUntagResourceResponse`. On failed execution, `task.error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorConflict`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeUntagResourceRequest
+ @see AWSTranscribeUntagResourceResponse
+ */
+- (AWSTask<AWSTranscribeUntagResourceResponse *> *)untagResource:(AWSTranscribeUntagResourceRequest *)request;
+
+/**
+ <p>Removes specified tags from a specified Amazon Transcribe resource.</p>
+ 
+ @param request A container for the necessary parameters to execute the UntagResource service method.
+ @param completionHandler The completion handler to call when the load request is complete.
+                          `response` - A response object, or `nil` if the request failed.
+                          `error` - An error object that indicates why the request failed, or `nil` if the request was successful. On failed execution, `error` may contain an `NSError` with `AWSTranscribeErrorDomain` domain and the following error code: `AWSTranscribeErrorLimitExceeded`, `AWSTranscribeErrorBadRequest`, `AWSTranscribeErrorConflict`, `AWSTranscribeErrorNotFound`, `AWSTranscribeErrorInternalFailure`.
+ 
+ @see AWSTranscribeUntagResourceRequest
+ @see AWSTranscribeUntagResourceResponse
+ */
+- (void)untagResource:(AWSTranscribeUntagResourceRequest *)request completionHandler:(void (^ _Nullable)(AWSTranscribeUntagResourceResponse * _Nullable response, NSError * _Nullable error))completionHandler;
 
 /**
  <p>Updates the call analytics category with new values. The <code>UpdateCallAnalyticsCategory</code> operation overwrites all of the existing information with the values that you provide in the request. </p>
