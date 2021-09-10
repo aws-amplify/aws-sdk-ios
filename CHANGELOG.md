@@ -2,7 +2,13 @@
 
 ## Unreleased
 
--Features for next release
+- Features for next release
+
+- **AWSIoT**
+  - AWSIoT now supports retained messages ([PR #3681](https://github.com/aws-amplify/aws-sdk-ios/pull/3681))
+
+### Breaking Changes
+  - IoT: updates nullability status for ackCallback for publishing messages
 
 * Marks enumerate blocks methods as not available and provides and alternative which does work with Swift. (See [PR #3726](https://github.com/aws-amplify/aws-sdk-ios/pull/3726))
 
