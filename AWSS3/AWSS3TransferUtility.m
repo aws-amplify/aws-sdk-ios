@@ -1801,77 +1801,79 @@ internalDictionaryToAddSubTaskTo: (NSMutableDictionary *) internalDictionaryToAd
                                 downloadTask:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
                                                        AWSS3TransferUtilityProgressBlock *downloadProgressBlockReference,
                                                        AWSS3TransferUtilityDownloadCompletionHandlerBlock *completionHandlerReference))downloadBlocksAssigner {
-    
-    // Iterate through Tasks
-    for (id key in [self.taskDictionary allKeys]) {
-        id value = [self.taskDictionary objectForKey:key];
-        if ([value isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
-            AWSS3TransferUtilityUploadTask *transferUtilityUploadTask = value;
-            if (uploadBlocksAssigner) {
-                AWSS3TransferUtilityProgressBlock progressBlock = nil;
-                AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler = nil;
-                
-                uploadBlocksAssigner(transferUtilityUploadTask, &progressBlock, &completionHandler);
-                
-                if (progressBlock) {
-                    transferUtilityUploadTask.expression.progressBlock = progressBlock;
-                }
-                if (completionHandler) {
-                    transferUtilityUploadTask.expression.completionHandler = completionHandler;
-                }
-            }
-        }
-        else if ([value isKindOfClass:[AWSS3TransferUtilityDownloadTask class]]) {
-            AWSS3TransferUtilityDownloadTask *transferUtilityDownloadTask = value;
-            if (downloadBlocksAssigner) {
-                AWSS3TransferUtilityProgressBlock progressBlock = nil;
-                AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler = nil;
-                
-                downloadBlocksAssigner(transferUtilityDownloadTask, &progressBlock, &completionHandler);
-                
-                if (progressBlock) {
-                    transferUtilityDownloadTask.expression.progressBlock = progressBlock;
-                }
-                if (completionHandler) {
-                    transferUtilityDownloadTask.expression.completionHandler = completionHandler;
-                }
-            }
-        }
-    }
+    [self internalEnumerateToAssignBlocksForUploadTask:uploadBlocksAssigner
+                         multiPartUploadBlocksAssigner:nil
+                                downloadBlocksAssigner:downloadBlocksAssigner];
 }
 
--(void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
-                                                      AWSS3TransferUtilityProgressBlock *uploadProgressBlockReference,
-                                                      AWSS3TransferUtilityUploadCompletionHandlerBlock *completionHandlerReference))uploadBlocksAssigner
-              multiPartUploadBlocksAssigner: (void (^) (AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
-                                                        AWSS3TransferUtilityMultiPartProgressBlock *multiPartUploadProgressBlockReference,
-                                                        AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock *completionHandlerReference)) multiPartUploadBlocksAssigner
-                     downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
-                                                      AWSS3TransferUtilityProgressBlock *downloadProgressBlockReference,
-                                                      AWSS3TransferUtilityDownloadCompletionHandlerBlock *completionHandlerReference))downloadBlocksAssigner {
-   
-    [self enumerateToAssignBlocksForUploadTask:uploadBlocksAssigner  downloadTask:downloadBlocksAssigner];
-   
-    // Iterate through MultiPartUploadTasks
+- (void)enumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
+                                                       AWSS3TransferUtilityProgressBlock *uploadProgressBlockReference,
+                                                       AWSS3TransferUtilityUploadCompletionHandlerBlock *completionHandlerReference))uploadBlocksAssigner
+               multiPartUploadBlocksAssigner:(void (^)(AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+                                                       AWSS3TransferUtilityMultiPartProgressBlock *multiPartUploadProgressBlockReference,
+                                                       AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock *completionHandlerReference)) multiPartUploadBlocksAssigner
+                      downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
+                                                       AWSS3TransferUtilityProgressBlock *downloadProgressBlockReference,
+                                                       AWSS3TransferUtilityDownloadCompletionHandlerBlock *completionHandlerReference))downloadBlocksAssigner {
+    [self internalEnumerateToAssignBlocksForUploadTask:uploadBlocksAssigner
+                         multiPartUploadBlocksAssigner:multiPartUploadBlocksAssigner
+                                downloadBlocksAssigner:downloadBlocksAssigner];
+}
+
+- (void)internalEnumerateToAssignBlocksForUploadTask:(void (^)(AWSS3TransferUtilityUploadTask *uploadTask,
+                                                               AWSS3TransferUtilityProgressBlock *uploadProgressBlockReference,
+                                                               AWSS3TransferUtilityUploadCompletionHandlerBlock *completionHandlerReference))uploadBlocksAssigner
+                       multiPartUploadBlocksAssigner:(void (^)(AWSS3TransferUtilityMultiPartUploadTask *multiPartUploadTask,
+                                                               AWSS3TransferUtilityMultiPartProgressBlock *multiPartUploadProgressBlockReference,
+                                                               AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock *completionHandlerReference)) multiPartUploadBlocksAssigner
+                              downloadBlocksAssigner:(void (^)(AWSS3TransferUtilityDownloadTask *downloadTask,
+                                                               AWSS3TransferUtilityProgressBlock *downloadProgressBlockReference,
+                                                               AWSS3TransferUtilityDownloadCompletionHandlerBlock *completionHandlerReference))downloadBlocksAssigner {
+    // Iterate all tasks
     for (id key in [self.taskDictionary allKeys]) {
         id value = [self.taskDictionary objectForKey:key];
-        if ([value isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
+        if (uploadBlocksAssigner && [value isKindOfClass:[AWSS3TransferUtilityUploadTask class]]) {
+            AWSS3TransferUtilityUploadTask *task = value;
+            AWSS3TransferUtilityProgressBlock progressBlock = nil;
+            AWSS3TransferUtilityUploadCompletionHandlerBlock completionHandler = nil;
+
+            uploadBlocksAssigner(task, &progressBlock, &completionHandler);
+
+            if (progressBlock) {
+                task.expression.progressBlock = progressBlock;
+            }
+            if (completionHandler) {
+                task.expression.completionHandler = completionHandler;
+            }
+        } else if (multiPartUploadBlocksAssigner && [value isKindOfClass:[AWSS3TransferUtilityMultiPartUploadTask class]]) {
             AWSS3TransferUtilityMultiPartUploadTask *task = value;
-            if (multiPartUploadBlocksAssigner) {
-                AWSS3TransferUtilityMultiPartProgressBlock progressBlock = nil;
-                AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock completionHandler = nil;
-                multiPartUploadBlocksAssigner(task, &progressBlock, &completionHandler);
-                if (progressBlock) {
-                    task.expression.progressBlock = progressBlock;
-                }
-                if (completionHandler) {
-                    task.expression.completionHandler = completionHandler;
-                }
+            AWSS3TransferUtilityMultiPartProgressBlock progressBlock = nil;
+            AWSS3TransferUtilityMultiPartUploadCompletionHandlerBlock completionHandler = nil;
+
+            multiPartUploadBlocksAssigner(task, &progressBlock, &completionHandler);
+
+            if (progressBlock) {
+                task.expression.progressBlock = progressBlock;
+            }
+            if (completionHandler) {
+                task.expression.completionHandler = completionHandler;
+            }
+        } else if (downloadBlocksAssigner && [value isKindOfClass:[AWSS3TransferUtilityDownloadTask class]]) {
+            AWSS3TransferUtilityDownloadTask *task = value;
+            AWSS3TransferUtilityProgressBlock progressBlock = nil;
+            AWSS3TransferUtilityDownloadCompletionHandlerBlock completionHandler = nil;
+
+            downloadBlocksAssigner(task, &progressBlock, &completionHandler);
+
+            if (progressBlock) {
+                task.expression.progressBlock = progressBlock;
+            }
+            if (completionHandler) {
+                task.expression.completionHandler = completionHandler;
             }
         }
     }
 }
-
 
 - (AWSTask *)getAllTasks {
     AWSTaskCompletionSource *completionSource = [AWSTaskCompletionSource new];
