@@ -8,7 +8,8 @@
 
 ### New Features
 
-* Marks enumerate blocks methods as deprecated and provides and alternative which works with Swift. (See [PR #3726](https://github.com/aws-amplify/aws-sdk-ios/pull/3726))
+- **AWSS3**
+   - Marks enumerate blocks methods as deprecated and provides and alternative which works with Swift. (See [PR #3726](https://github.com/aws-amplify/aws-sdk-ios/pull/3726))
 
 ## 2.25.0
 
