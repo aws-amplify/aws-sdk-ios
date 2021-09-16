@@ -25,7 +25,7 @@
 #import "AWSConnectResources.h"
 
 static NSString *const AWSInfoConnect = @"Connect";
-NSString *const AWSConnectSDKVersion = @"2.25.0";
+NSString *const AWSConnectSDKVersion = @"2.26.0";
 
 
 @interface AWSConnectResponseSerializer : AWSJSONResponseSerializer
