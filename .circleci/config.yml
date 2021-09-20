@@ -134,7 +134,7 @@ commands:
 
   configure_aws:
     description: >-
-      Install aws cli and configure android aws release profile
+      Install aws cli and configure release profile
     steps:
       - run:
           name: Install AWS CLI
