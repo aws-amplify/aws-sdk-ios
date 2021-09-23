@@ -10,6 +10,7 @@
 - **AWSS3**
   - Rewrite of method which creates partial files for multipart upload process
   - Adds test coverage for new code
+  - Makes `propagateHeaderInformation:requestHeaders:` function public
 
 ## 2.26.0
 
