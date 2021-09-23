@@ -4,11 +4,15 @@
 
 -Features for next release
 
+- **Build**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
+
 - **AWSS3**
-   - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed.
+  - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed.
+  - Rewrite of method which creates partial files for multipart upload process
+  - Adds test coverage for new code
 
 ## 2.26.0
-
 
 ### New Features
 

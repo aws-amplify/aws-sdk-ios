@@ -26,7 +26,9 @@ typedef NS_ENUM(NSInteger, AWSS3TransferUtilityErrorType) {
     AWSS3TransferUtilityErrorRedirection,
     AWSS3TransferUtilityErrorClientError,
     AWSS3TransferUtilityErrorServerError,
-    AWSS3TransferUtilityErrorLocalFileNotFound
+    AWSS3TransferUtilityErrorLocalFileNotFound,
+    AWSS3TransferUtilityErrorBaseDirectoryNotFound,
+    AWSS3TransferUtilityErrorPartialFileNotCreated
 };
 
 

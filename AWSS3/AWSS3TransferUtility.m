@@ -29,7 +29,6 @@
 NSString *const AWSS3TransferUtilityErrorDomain = @"com.amazonaws.AWSS3TransferUtilityErrorDomain";
 NSString *const AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification = @"com.amazonaws.AWSS3TransferUtility.AWSS3TransferUtilityURLSessionDidBecomeInvalidNotification";
 
-
 // Private constants
 static NSString *const AWSS3TransferUtilityDefaultIdentifier = @"com.amazonaws.AWSS3TransferUtility.Default.Identifier";
 static NSTimeInterval const AWSS3TransferUtilityTimeoutIntervalForResource = 50 * 60; // 50 minutes
@@ -1423,75 +1422,137 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     return [AWSTask taskWithResult:transferUtilityMultiPartUploadTask];
 }
 
--(NSString *) createTemporaryFileForPart: (NSString *) fileName
-                              partNumber: (long) partNumber
-                              dataLength: (NSUInteger) dataLength
-                                   error: (NSError **) error{
-   
-    //Check if the file exists.
-    if (![[NSFileManager defaultManager] fileExistsAtPath:fileName]) {
-        NSString *errorMessage = [NSString stringWithFormat:@"Local file not found. Unable to process Part #: %ld", partNumber];
-        NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
-                                                             forKey:@"Message"];
-        if (error) {
-            *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
-                                             code:AWSS3TransferUtilityErrorLocalFileNotFound
-                                         userInfo:userInfo];
-        }
-        return nil;
-    }
-    
-    //Setup the file pointers
-    bool errorOccured = NO;
-    FILE *readFilePointer = fopen([fileName UTF8String], "rb");
-    fseek(readFilePointer, (partNumber - 1) * AWSS3TransferUtilityMultiPartSize, SEEK_SET);
-    NSString *partFile = [self.cacheDirectoryPath stringByAppendingPathComponent:[[NSUUID UUID] UUIDString]];
-    FILE *writeFilePointer = fopen([partFile UTF8String], "wb");
-    int bufferSize = 256 * 1024;
-    char *buffer = (char *)malloc(bufferSize);
-    unsigned long counter = 0;
-  
-    //Copy file into part file
-    while ( counter < dataLength && !feof(readFilePointer)) {
-        //Calculate number of bytes left to read.
-        unsigned long bytesToRead = MIN(bufferSize, (dataLength - counter));
-        
-        //Read. This function will return the number of bytes actually read and it must equal what was requested.
-        if ( fread(buffer, 1, bytesToRead, readFilePointer) != bytesToRead )  {
-            errorOccured = YES;
-            break;
-        }
-      
-        //Write. This function will return the number of bytes actually written and it must equal what was requested.
-        unsigned long bytesToWrite =  bytesToRead;
-        if (fwrite(buffer, 1, bytesToWrite, writeFilePointer) != bytesToWrite) {
-            errorOccured = YES;
-            break;
-        }
-        counter += bytesToRead;
-    }
-    
-    //Close file pointers
-    fclose(readFilePointer);
-    fclose(writeFilePointer);
-    free(buffer);
-    
-    if (errorOccured) {
+- (NSString *)createTemporaryFileForPart:(NSString *)fileName
+                              partNumber:(long)partNumber
+                              dataLength:(NSUInteger)dataLength
+                                   error:(NSError **)error {
+    NSURL *fileURL = [NSURL URLWithString:fileName];
+    NSUInteger offset = (partNumber - 1) * AWSS3TransferUtilityMultiPartSize;
+
+    NSURL *partialFileURL = [self createPartialFile:fileURL offset:offset length:dataLength error:error];
+    if (*error) {
         NSString *errorMessage = [NSString stringWithFormat:@"Unable to process Part #: %ld", partNumber];
         NSDictionary *userInfo = [NSDictionary dictionaryWithObject:errorMessage
                                                              forKey:@"Message"];
-        if (error) {
             *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
                                      code:AWSS3TransferUtilityErrorClientError
                                  userInfo:userInfo];
-        }
+
         return nil;
     }
-    
-    return partFile;
+
+    return partialFileURL.path;
 }
 
+- (nullable NSURL *)createPartialFile:(NSURL *)fileURL
+                               offset:(NSUInteger)offset
+                               length:(NSUInteger)length
+                                error:(NSError * _Nullable *)error {
+    NSURL *baseURL = [NSURL URLWithString:self.cacheDirectoryPath];
+    AWSDDLogDebug(@"Setting Base URL to Caches Directory: %@", baseURL);
+    return [self createPartialFile:fileURL offset:offset length:length baseURL:baseURL error:error];
+}
 
+- (nullable NSURL *)createPartialFile:(NSURL *)fileURL
+                               offset:(NSUInteger)offset
+                               length:(NSUInteger)length
+                               baseURL:(NSURL *)baseURL
+                                error:(NSError * _Nullable *)error {
+    if (![[NSFileManager defaultManager] fileExistsAtPath:fileURL.path]) {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Local file not found: %@", fileURL]};
+        *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                         code:AWSS3TransferUtilityErrorLocalFileNotFound
+                                     userInfo:userInfo];
+        return nil;
+    }
+
+    NSFileHandle *readFileHandle = [NSFileHandle fileHandleForReadingFromURL:fileURL error:error];
+    if (*error) {
+        AWSDDLogError(@"Error while creating File Handle with fileURL: %@", fileURL);
+        return nil;
+    }
+
+    if (@available(iOS 13.0, *)) {
+        [readFileHandle seekToOffset:offset error:error];
+    } else {
+        [readFileHandle seekToFileOffset:offset];
+    }
+    if (*error) {
+        AWSDDLogError(@"Error while seeking with fileURL: %@", fileURL);
+        return nil;
+    }
+
+    BOOL isDir = NO;
+    BOOL dirExists = [NSFileManager.defaultManager fileExistsAtPath:baseURL.path isDirectory:&isDir];
+    if (!dirExists || !isDir) {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Base URL does not exist: %@", baseURL]};
+        *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                     code:AWSS3TransferUtilityErrorBaseDirectoryNotFound
+                                 userInfo:userInfo];
+        AWSDDLogError(@"Base URL does not exist: %@", baseURL);
+        return nil;
+    }
+
+    NSString *filename = [NSString stringWithFormat:@"%@.tmp", [NSUUID UUID].UUIDString];
+    NSURL *partialFileURL = [baseURL URLByAppendingPathComponent:filename];
+    AWSDDLogInfo(@"Partial File URL: %@", partialFileURL);
+
+    BOOL created = [[NSFileManager defaultManager] createFileAtPath:partialFileURL.path contents:nil attributes:nil];
+    NSCAssert(created, @"File must be created");
+    BOOL exists = [[NSFileManager defaultManager] fileExistsAtPath:partialFileURL.path];
+    NSCAssert(exists, @"Partial file must exist");
+    if (!created || !exists) {
+        NSDictionary *userInfo = @{NSLocalizedDescriptionKey:[NSString stringWithFormat:@"Error creating partial file: %@", fileURL]};
+        *error = [NSError errorWithDomain:AWSS3TransferUtilityErrorDomain
+                                     code:AWSS3TransferUtilityErrorPartialFileNotCreated
+                                 userInfo:userInfo];
+        return nil;
+    }
+
+    NSFileHandle *writeFileHandle = [NSFileHandle fileHandleForWritingToURL:partialFileURL error:error];
+    if (*error) {
+        AWSDDLogError(@"Error while creating file handle for partial file: %@", partialFileURL);
+        return nil;
+    }
+    NSUInteger remaining = length;
+    NSData *data;
+
+    while (remaining > 0) {
+        NSUInteger bufferSize = MIN(remaining, AWSS3TransferUtilityMultiPartSize);
+
+        // Read data
+        if (@available(iOS 13.0, *)) {
+            data = [readFileHandle readDataUpToLength:bufferSize error:error];
+        } else {
+            data = [readFileHandle readDataOfLength:bufferSize];
+        }
+        if (*error) {
+            break;
+        }
+
+        // Write data
+        if (@available(iOS 13.0, *)) {
+            [writeFileHandle writeData:data error:error];
+        } else {
+            [writeFileHandle writeData:data];
+        }
+        if (*error) {
+            break;
+        }
+        remaining -= bufferSize;
+    }
+
+    [readFileHandle closeFile];
+    [writeFileHandle closeFile];
+    data = nil;
+
+    if (*error) {
+        AWSDDLogError(@"Error while creating temporary file for partial file: %@", fileURL);
+        return nil;
+    }
+
+    return partialFileURL;
+}
 
 -(NSError *) createUploadSubTask:(AWSS3TransferUtilityMultiPartUploadTask *) transferUtilityMultiPartUploadTask
                          subTask: (AWSS3TransferUtilityUploadSubTask *) subTask
