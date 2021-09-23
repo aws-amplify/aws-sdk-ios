@@ -4,6 +4,9 @@
 
 -Features for next release
 
+- **Build**
+  - Defines NS_BLOCK_ASSERTIONS and NDEBUG for Release builds 
+
 ## 2.26.0
 
 
