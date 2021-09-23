@@ -1,5 +1,5 @@
 //
-// Copyright 2010-2020 Amazon.com, Inc. or its affiliates. All Rights Reserved.
+// Copyright 2010-2021 Amazon.com, Inc. or its affiliates. All Rights Reserved.
 //
 // Licensed under the Apache License, Version 2.0 (the "License").
 // You may not use this file except in compliance with the License.
@@ -34,6 +34,7 @@
 - (void) test_AWSFirehoseDescribeDeliveryStreamOutput API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDeserializer API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseDestinationDescription API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseDynamicPartitioningConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchBufferingHints API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchDestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseElasticsearchDestinationDescription API_AVAILABLE(ios(11));
@@ -79,6 +80,7 @@
 - (void) test_AWSFirehoseRedshiftDestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseRedshiftDestinationUpdate API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseRedshiftRetryOptions API_AVAILABLE(ios(11));
+- (void) test_AWSFirehoseRetryOptions API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationConfiguration API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationDescription API_AVAILABLE(ios(11));
 - (void) test_AWSFirehoseS3DestinationUpdate API_AVAILABLE(ios(11));
@@ -165,6 +167,10 @@
 
 - (void) test_AWSFirehoseDestinationDescription {
     [self validateSecureCodingForClass:[AWSFirehoseDestinationDescription class]];
+}
+
+- (void) test_AWSFirehoseDynamicPartitioningConfiguration {
+    [self validateSecureCodingForClass:[AWSFirehoseDynamicPartitioningConfiguration class]];
 }
 
 - (void) test_AWSFirehoseElasticsearchBufferingHints {
@@ -345,6 +351,10 @@
 
 - (void) test_AWSFirehoseRedshiftRetryOptions {
     [self validateSecureCodingForClass:[AWSFirehoseRedshiftRetryOptions class]];
+}
+
+- (void) test_AWSFirehoseRetryOptions {
+    [self validateSecureCodingForClass:[AWSFirehoseRetryOptions class]];
 }
 
 - (void) test_AWSFirehoseS3DestinationConfiguration {
