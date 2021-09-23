@@ -4,6 +4,9 @@
 
 -Features for next release
 
+- **AWSS3**
+   - Makes transferUtilityConfiguration public as read-only so properties like bucket can be accessed.
+
 ## 2.26.0
 
 
