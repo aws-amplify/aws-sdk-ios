@@ -187,6 +187,8 @@
 		03ABC52826CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC52626CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m */; };
 		03ABC52B26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h in Headers */ = {isa = PBXBuildFile; fileRef = 03ABC52926CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		03ABC52C26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m in Sources */ = {isa = PBXBuildFile; fileRef = 03ABC52A26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m */; };
+		03D33F2626C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */; };
+		03D33F2726C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h in Headers */ = {isa = PBXBuildFile; fileRef = 03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		173641DE1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h in Headers */ = {isa = PBXBuildFile; fileRef = 173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */; };
 		173641DF1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m in Sources */ = {isa = PBXBuildFile; fileRef = 173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */; };
 		174A59F01D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m in Sources */ = {isa = PBXBuildFile; fileRef = 174A59EF1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.m */; };
@@ -2721,6 +2723,8 @@
 		03ABC52626CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtilityBlocks.m; sourceTree = "<group>"; };
 		03ABC52926CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "AWSS3TransferUtility+EnumerateBlocks.h"; sourceTree = "<group>"; };
 		03ABC52A26CC5FE000C4216E /* AWSS3TransferUtility+EnumerateBlocks.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "AWSS3TransferUtility+EnumerateBlocks.m"; sourceTree = "<group>"; };
+		03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.m"; sourceTree = "<group>"; };
+		03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "AWSS3CreateMultipartUploadRequest+RequestHeaders.h"; sourceTree = "<group>"; };
 		173641DC1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaRequestRetryHandler.h; sourceTree = "<group>"; };
 		173641DD1ECBBABC00512239 /* AWSLambdaRequestRetryHandler.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSLambdaRequestRetryHandler.m; sourceTree = "<group>"; };
 		174A59EE1D89D7DB008C7D52 /* AWSLambdaMicroserviceClient.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSLambdaMicroserviceClient.h; sourceTree = "<group>"; };
@@ -7044,6 +7048,8 @@
 			isa = PBXGroup;
 			children = (
 				CE9DE9BF1C6A7C2D0060793F /* AWSS3.h */,
+				03D33F2526C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h */,
+				03D33F2426C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m */,
 				CE9DE9D51C6A7C5E0060793F /* AWSS3Model.h */,
 				CE9DE9D61C6A7C5E0060793F /* AWSS3Model.m */,
 				CE9DE9D71C6A7C5E0060793F /* AWSS3PreSignedURL.h */,
@@ -8193,6 +8199,7 @@
 				CE9DE9E11C6A7C5E0060793F /* AWSS3Model.h in Headers */,
 				9A2562F520E31B7A00D2451E /* AWSS3TransferUtilityTasks.h in Headers */,
 				CE9DE9EB1C6A7C5E0060793F /* AWSS3TransferUtility.h in Headers */,
+				03D33F2726C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.h in Headers */,
 				9A82CE5620E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.h in Headers */,
 				CE9DE9E51C6A7C5E0060793F /* AWSS3Resources.h in Headers */,
 				CE9DE9E71C6A7C5E0060793F /* AWSS3Service.h in Headers */,
@@ -13020,6 +13027,7 @@
 				CE9DE9E41C6A7C5E0060793F /* AWSS3PreSignedURL.m in Sources */,
 				9A82CE5720E295170099B04E /* AWSS3TransferUtilityDatabaseHelper.m in Sources */,
 				9A2562F320E2E4D400D2451E /* AWSS3TransferUtilityTasks.m in Sources */,
+				03D33F2626C5E492006DDCEB /* AWSS3CreateMultipartUploadRequest+RequestHeaders.m in Sources */,
 				18DF08E61D349137004C7D19 /* AWSS3RequestRetryHandler.m in Sources */,
 				03ABC52826CC5FA500C4216E /* AWSS3TransferUtilityBlocks.m in Sources */,
 				CE9DE9E81C6A7C5E0060793F /* AWSS3Service.m in Sources */,
