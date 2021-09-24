@@ -41,6 +41,12 @@ typedef NS_ENUM(NSInteger, AWSComprehendErrorType) {
     AWSComprehendErrorUnsupportedLanguage,
 };
 
+typedef NS_ENUM(NSInteger, AWSComprehendAugmentedManifestsDocumentTypeFormat) {
+    AWSComprehendAugmentedManifestsDocumentTypeFormatUnknown,
+    AWSComprehendAugmentedManifestsDocumentTypeFormatPlainTextDocument,
+    AWSComprehendAugmentedManifestsDocumentTypeFormatSemiStructuredDocument,
+};
+
 typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierDataFormat) {
     AWSComprehendDocumentClassifierDataFormatUnknown,
     AWSComprehendDocumentClassifierDataFormatComprehendCsv,
@@ -51,6 +57,24 @@ typedef NS_ENUM(NSInteger, AWSComprehendDocumentClassifierMode) {
     AWSComprehendDocumentClassifierModeUnknown,
     AWSComprehendDocumentClassifierModeMultiClass,
     AWSComprehendDocumentClassifierModeMultiLabel,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentReadAction) {
+    AWSComprehendDocumentReadActionUnknown,
+    AWSComprehendDocumentReadActionTextractDetectDocumentText,
+    AWSComprehendDocumentReadActionTextractAnalyzeDocument,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentReadFeatureTypes) {
+    AWSComprehendDocumentReadFeatureTypesUnknown,
+    AWSComprehendDocumentReadFeatureTypesTables,
+    AWSComprehendDocumentReadFeatureTypesForms,
+};
+
+typedef NS_ENUM(NSInteger, AWSComprehendDocumentReadMode) {
+    AWSComprehendDocumentReadModeUnknown,
+    AWSComprehendDocumentReadModeServiceDefault,
+    AWSComprehendDocumentReadModeForceDocumentReadAction,
 };
 
 typedef NS_ENUM(NSInteger, AWSComprehendEndpointStatus) {
@@ -280,6 +304,7 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @class AWSComprehendDocumentClassifierOutputDataConfig;
 @class AWSComprehendDocumentClassifierProperties;
 @class AWSComprehendDocumentLabel;
+@class AWSComprehendDocumentReaderConfig;
 @class AWSComprehendDominantLanguage;
 @class AWSComprehendDominantLanguageDetectionJobFilter;
 @class AWSComprehendDominantLanguageDetectionJobProperties;
@@ -392,14 +417,29 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 
 
 /**
+ <p>The S3 prefix to the annotation files that are referred in the augmented manifest file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable annotationDataS3Uri;
+
+/**
  <p>The JSON attribute that contains the annotations for your training documents. The number of attribute names that you specify depends on whether your augmented manifest file is the output of a single labeling job or a chained labeling job.</p><p>If your file is the output of a single labeling job, specify the LabelAttributeName key that was used when the job was created in Ground Truth.</p><p>If your file is the output of a chained labeling job, specify the LabelAttributeName key for one or more jobs in the chain. Each LabelAttributeName key provides the annotations from an individual job.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable attributeNames;
 
 /**
+ <p>The type of augmented manifest. PlainTextDocument or SemiStructuredDocument. If you don't specify, the default is PlainTextDocument. </p><ul><li><p><code>PLAIN_TEXT_DOCUMENT</code> A document type that represents any unicode text that is encoded in UTF-8.</p></li><li><p><code>SEMI_STRUCTURED_DOCUMENT</code> A document type with positional and structural context, like a PDF. For training with Amazon Comprehend, only PDFs are supported. For inference, Amazon Comprehend support PDFs, DOCX and TXT.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSComprehendAugmentedManifestsDocumentTypeFormat documentType;
+
+/**
  <p>The Amazon S3 location of the augmented manifest file.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable s3Uri;
+
+/**
+ <p>The S3 prefix to the source files (PDFs) that are referred to in the augmented manifest file.</p>
+ */
+@property (nonatomic, strong) NSString * _Nullable sourceDocumentsS3Uri;
 
 @end
 
@@ -1645,6 +1685,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
+
+/**
  <p>The identifier assigned to the document classification job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
@@ -1862,6 +1907,30 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
+ <p>The input properties for a topic detection job.</p>
+ Required parameters: [DocumentReadAction]
+ */
+@interface AWSComprehendDocumentReaderConfig : AWSModel
+
+
+/**
+ <p>This enum field will start with two values which will apply to PDFs:</p><ul><li><p><code>TEXTRACT_DETECT_DOCUMENT_TEXT</code> - The service calls DetectDocumentText for PDF documents per page.</p></li><li><p><code>TEXTRACT_ANALYZE_DOCUMENT</code> - The service calls AnalyzeDocument for PDF documents per page.</p></li></ul>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentReadAction documentReadAction;
+
+/**
+ <p>This enum field provides two values:</p><ul><li><p><code>SERVICE_DEFAULT</code> - use service defaults for Document reading. For Digital PDF it would mean using an internal parser instead of Textract APIs</p></li><li><p><code>FORCE_DOCUMENT_READ_ACTION</code> - Always use specified action for DocumentReadAction, including Digital PDF. </p></li></ul>
+ */
+@property (nonatomic, assign) AWSComprehendDocumentReadMode documentReadMode;
+
+/**
+ <p>Specifies how the text in an input file should be processed:</p>
+ */
+@property (nonatomic, strong) NSArray<NSString *> * _Nullable featureTypes;
+
+@end
+
+/**
  <p>Returns the code for the dominant language in the input text and the level of confidence that Amazon Comprehend has in the accuracy of the detection.</p>
  */
 @interface AWSComprehendDominantLanguage : AWSModel
@@ -1927,6 +1996,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The input data configuration that you supplied when you created the dominant language detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier assigned to the dominant language detection job.</p>
@@ -2104,6 +2178,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The input data configuration that you supplied when you created the entities detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier assigned to the entities detection job.</p>
@@ -2546,6 +2625,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
+
+/**
  <p>The identifier assigned to the events detection job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
@@ -2588,11 +2672,16 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @end
 
 /**
- <p>The input properties for a topic detection job.</p>
+ <p>The input properties for an inference job.</p>
  Required parameters: [S3Uri]
  */
 @interface AWSComprehendInputDataConfig : AWSModel
 
+
+/**
+ <p>The document reader config field applies only for InputDataConfig of StartEntitiesDetectionJob. </p><p>Use DocumentReaderConfig to provide specifications about how you want your inference documents read. Currently it applies for PDF documents in StartEntitiesDetectionJob custom inference.</p>
+ */
+@property (nonatomic, strong) AWSComprehendDocumentReaderConfig * _Nullable documentReaderConfig;
 
 /**
  <p>Specifies how the text in an input file should be processed:</p><ul><li><p><code>ONE_DOC_PER_FILE</code> - Each file is considered a separate document. Use this option when you are processing large documents, such as newspaper articles or scientific papers.</p></li><li><p><code>ONE_DOC_PER_LINE</code> - Each line in a file is considered a separate document. Use this option when you are processing many short documents, such as text messages.</p></li></ul>
@@ -2682,6 +2771,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The input data configuration that you supplied when you created the key phrases detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the key phrases detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier assigned to the key phrases detection job.</p>
@@ -3299,6 +3393,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the PII entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
+
+/**
  <p>The identifier assigned to the PII entities detection job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
@@ -3465,6 +3564,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
 
 /**
+ <p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
+
+/**
  <p>The identifier assigned to the sentiment detection job.</p>
  */
 @property (nonatomic, strong) NSString * _Nullable jobId;
@@ -3576,6 +3680,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the document classification job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -3592,6 +3701,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartDocumentClassificationJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the document classification job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:document-classification-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of the job, use this identifier with the operation.</p>
@@ -3637,6 +3751,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the dominant language detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -3653,6 +3772,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartDominantLanguageDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the dominant language detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:dominant-language-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:dominant-language-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
@@ -3708,6 +3832,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -3724,6 +3853,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartEntitiesDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the entities detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:entities-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of job, use this identifier with the operation.</p>
@@ -3774,6 +3908,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the events detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>The types of events to detect in the input documents.</p>
  */
 @property (nonatomic, strong) NSArray<NSString *> * _Nullable targetEventTypes;
@@ -3785,6 +3924,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartEventsDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the events detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:events-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:events-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>An unique identifier for the request. If you don't set the client request token, Amazon Comprehend generates one.</p>
@@ -3835,6 +3979,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the key phrases detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -3851,6 +4000,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartKeyPhrasesDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the key phrase detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:key-phrases-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:key-phrases-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
@@ -3910,6 +4064,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @property (nonatomic, strong) AWSComprehendRedactionConfig * _Nullable redactionConfig;
 
+/**
+ <p>Tags to be associated with the PII entities detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
 @end
 
 /**
@@ -3917,6 +4076,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartPiiEntitiesDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the PII entity detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:pii-entities-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:pii-entities-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job.</p>
@@ -3967,6 +4131,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the sentiment detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -3983,6 +4152,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartSentimentDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the sentiment detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:sentiment-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:sentiment-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of a job, use this identifier with the operation.</p>
@@ -4033,6 +4207,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
 @property (nonatomic, strong) AWSComprehendOutputDataConfig * _Nullable outputDataConfig;
 
 /**
+ <p>Tags to be associated with the topics detection job. A tag is a key-value pair that adds metadata to a resource used by Amazon Comprehend. For example, a tag with "Sales" as the key might be added to a resource to indicate its use by the sales department.</p>
+ */
+@property (nonatomic, strong) NSArray<AWSComprehendTag *> * _Nullable tags;
+
+/**
  <p>ID for the AWS Key Management Service (KMS) key that Amazon Comprehend uses to encrypt data on the storage volume attached to the ML compute instance(s) that process the analysis job. The VolumeKmsKeyId can be either of the following formats:</p><ul><li><p>KMS Key ID: <code>"1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li><li><p>Amazon Resource Name (ARN) of a KMS Key: <code>"arn:aws:kms:us-west-2:111122223333:key/1234abcd-12ab-34cd-56ef-1234567890ab"</code></p></li></ul>
  */
 @property (nonatomic, strong) NSString * _Nullable volumeKmsKeyId;
@@ -4049,6 +4228,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  */
 @interface AWSComprehendStartTopicsDetectionJobResponse : AWSModel
 
+
+/**
+ <p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:document-classification-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier generated for the job. To get the status of the job, use this identifier with the <code>DescribeTopicDetectionJob</code> operation.</p>
@@ -4416,6 +4600,11 @@ typedef NS_ENUM(NSInteger, AWSComprehendSyntaxLanguageCode) {
  <p>The input data configuration supplied when you created the topic detection job.</p>
  */
 @property (nonatomic, strong) AWSComprehendInputDataConfig * _Nullable inputDataConfig;
+
+/**
+ <p>The Amazon Resource Name (ARN) of the topics detection job. It is a unique, fully qualified identifier for the job. It includes the AWS account, Region, and the job ID. The format of the ARN is as follows:</p><p><code>arn:&lt;partition&gt;:comprehend:&lt;region&gt;:&lt;account-id&gt;:topics-detection-job/&lt;job-id&gt;</code></p><p>The following is an example job ARN:</p><p><code>arn:aws:comprehend:us-west-2:111122223333:topics-detection-job/1234abcd12ab34cd56ef1234567890ab</code></p>
+ */
+@property (nonatomic, strong) NSString * _Nullable jobArn;
 
 /**
  <p>The identifier assigned to the topic detection job.</p>
