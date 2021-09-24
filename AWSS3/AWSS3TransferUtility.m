@@ -67,7 +67,7 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 @property (strong, nonatomic) AWSS3 *s3;
 @property (strong, nonatomic) NSURLSession *session;
 @property (strong, nonatomic) NSString *sessionIdentifier;
-@property (strong, nonatomic) NSString *cacheDirectoryPath;
+@property (strong, nonatomic, readonly) NSString *cacheDirectoryPath;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *taskDictionary;
 @property (strong, nonatomic) AWSSynchronizedMutableDictionary *completedTaskDictionary;
 @property (copy, nonatomic) void (^backgroundURLSessionCompletionHandler)(void);
@@ -245,6 +245,12 @@ static int const AWSS3TransferUtilityMultiPartDefaultConcurrencyLimit = 5;
 static AWSSynchronizedMutableDictionary *_serviceClients = nil;
 static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
 
+- (NSString *)cacheDirectoryPath {
+    NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+    NSString *cachePath = [paths objectAtIndex:0];
+    return cachePath;
+}
+
 #pragma mark - Initialization methods
 
 + (instancetype)defaultS3TransferUtility {
@@ -325,8 +331,10 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                                                                                      recoverState:NO
                                                                                 completionHandler:completionHandler];
     if (s3TransferUtility) {
+        NSAssert(_serviceClients != nil, @"Value is required");
         [_serviceClients setObject:s3TransferUtility
                             forKey:key];
+        NSAssert(_serviceClients.allKeys.count > 0, @"A value must now be set");
         [s3TransferUtility recover:completionHandler];
     }
 }
@@ -406,14 +414,14 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
                     completionHandler: (void (^)(NSError *_Nullable error)) completionHandler{
     if (self = [super init]) {
         
-        // Create a temporary directory for data uploads in the caches directory
-        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
-        NSString *cachePath = [paths objectAtIndex:0];
+//        // Create a temporary directory for data uploads in the caches directory
+//        NSArray *paths = NSSearchPathForDirectoriesInDomains(NSCachesDirectory, NSUserDomainMask, YES);
+//        NSString *cachePath = [paths objectAtIndex:0];
+//
+//        _cacheDirectoryPath = [cachePath stringByAppendingPathComponent:AWSInfoS3TransferUtility];
+//        AWSDDLogDebug(@"Temporary dir Path is %@", _cacheDirectoryPath);
         
-        _cacheDirectoryPath = [cachePath stringByAppendingPathComponent:AWSInfoS3TransferUtility];
-        AWSDDLogDebug(@"Temporary dir Path is %@", _cacheDirectoryPath);
-        
-        NSURL *directoryURL = [NSURL fileURLWithPath:_cacheDirectoryPath];
+        NSURL *directoryURL = [NSURL fileURLWithPath:self.cacheDirectoryPath];
         NSError *error = nil;
         BOOL result = [[NSFileManager defaultManager] createDirectoryAtURL:directoryURL
                                                withIntermediateDirectories:YES
@@ -484,7 +492,7 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
         _completedTaskDictionary = [AWSSynchronizedMutableDictionary new];
         
         //Instantiate the Database Helper
-        self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:_cacheDirectoryPath];
+        self.databaseQueue = [AWSS3TransferUtilityDatabaseHelper createDatabase:self.cacheDirectoryPath];
 
         if (recoverState) {
             //Recover the state from the previous time this was instantiated
@@ -892,6 +900,9 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     transferUtilityMultiPartUploadTask.bucket = [task objectForKey:@"bucket_name"];
     transferUtilityMultiPartUploadTask.key = [task objectForKey:@"key"];
     transferUtilityMultiPartUploadTask.expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
+    [transferUtilityMultiPartUploadTask.expression setProgressBlock:^(AWSS3TransferUtilityMultiPartUploadTask * _Nonnull task, NSProgress * _Nonnull progress) {
+            NSLog(@"Default progress block!");
+    }];
     transferUtilityMultiPartUploadTask.expression.internalRequestHeaders = [[AWSS3TransferUtilityDatabaseHelper getDictionaryFromJson:[task objectForKey:@"request_headers"]] mutableCopy];
     transferUtilityMultiPartUploadTask.expression.internalRequestParameters = [[AWSS3TransferUtilityDatabaseHelper getDictionaryFromJson:[task objectForKey:@"request_parameters"]] mutableCopy];
     transferUtilityMultiPartUploadTask.transferID = [task objectForKey:@"transfer_id"];
@@ -919,6 +930,11 @@ static AWSS3TransferUtility *_defaultS3TransferUtility = nil;
     subTask.uploadID = [task objectForKey:@"multi_part_id"];
     subTask.transferID = [task objectForKey:@"transfer_id"];
     subTask.totalBytesExpectedToSend = [[task objectForKey:@"content_length"] integerValue];
+//    subTask.
+//    subTask.expression = [AWSS3TransferUtilityMultiPartUploadExpression new];
+//    [subTask.expression setProgressBlock:^(AWSS3TransferUtilityMultiPartUploadTask * _Nonnull task, NSProgress * _Nonnull progress) {
+//            NSLog(@"Default progress block!");
+//    }];
     
     NSNumber *statusValue = [task objectForKey:@"status"];
     subTask.status = [statusValue intValue];
